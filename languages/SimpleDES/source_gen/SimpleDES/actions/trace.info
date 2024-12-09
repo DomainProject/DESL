@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<debug-info version="2">
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123155:jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123165:jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068581242864:jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/6329021646629104954:jetbrains.mps.baseLanguage.structure.SingleLineComment" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123157:jetbrains.mps.baseLanguage.structure.Statement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1070462154015:jetbrains.mps.baseLanguage.structure.StaticFieldDeclaration" />
+  <root>
+    <file name="ActionAspectDescriptorImpl.java">
+      <unit at="12,0,32,0" name="SimpleDES.actions.ActionAspectDescriptorImpl" />
+    </file>
+  </root>
+  <root nodeRef="r:69b854b5-1607-4a31-a5d5-03c17535ea4a(SimpleDES.actions)/3297662491776892431">
+    <file name="DESModelFactory.java">
+      <node id="3297662491776892452" at="21,102,22,187" concept="2" />
+      <node id="3297662491776892610" at="22,187,23,72" concept="0" />
+      <node id="3297662491776905618" at="23,72,24,193" concept="2" />
+      <node id="3297662491776905812" at="24,193,25,81" concept="0" />
+      <node id="3297662491777116025" at="25,81,26,166" concept="0" />
+      <node id="3297662491776909222" at="26,166,27,110" concept="0" />
+      <node id="3297662491776950062" at="27,110,28,120" concept="0" />
+      <node id="8013817401929379841" at="28,120,29,0" concept="4" />
+      <node id="8013817401929588220" at="29,0,30,36" concept="3" />
+      <node id="8013817401929380349" at="30,36,31,203" concept="2" />
+      <node id="8013817401929381514" at="31,203,32,80" concept="0" />
+      <node id="8013817401929395258" at="32,80,33,119" concept="0" />
+      <node id="3326094335675004576" at="33,119,34,0" concept="4" />
+      <node id="3326094335675005688" at="34,0,35,34" concept="3" />
+      <node id="3326094335675007813" at="35,34,36,203" concept="2" />
+      <node id="3326094335675009987" at="36,203,37,78" concept="0" />
+      <node id="3326094335675033107" at="37,78,38,119" concept="0" />
+      <node id="8013817401930049720" at="38,119,39,0" concept="4" />
+      <node id="8013817401930050490" at="39,0,40,213" concept="2" />
+      <node id="8013817401930155761" at="40,213,41,96" concept="0" />
+      <node id="8013817401930063180" at="41,96,42,199" concept="2" />
+      <node id="8013817401930472821" at="42,199,43,198" concept="2" />
+      <node id="8013817401930475015" at="43,198,44,150" concept="0" />
+      <node id="8013817401930494033" at="44,150,45,71" concept="0" />
+      <node id="8013817401930078026" at="45,71,46,75" concept="0" />
+      <node id="8013817401930054264" at="46,75,47,121" concept="0" />
+      <node id="8013817401930515338" at="47,121,48,191" concept="2" />
+      <node id="8013817401930517534" at="48,191,49,244" concept="0" />
+      <node id="8013817401930537130" at="49,244,50,82" concept="0" />
+      <node id="8013817401930297094" at="50,82,51,0" concept="4" />
+      <node id="8013817401930297901" at="51,0,52,208" concept="2" />
+      <node id="8013817401930306864" at="52,208,53,91" concept="0" />
+      <node id="8013817401930318153" at="53,91,54,0" concept="4" />
+      <node id="8013817401930320103" at="54,0,55,126" concept="0" />
+      <node id="3297662491776892431" at="60,0,61,0" concept="5" trace="name$MnvL" />
+      <node id="3297662491776892431" at="64,0,65,0" concept="5" trace="event$M7WS" />
+      <node id="3297662491776892431" at="65,0,66,0" concept="5" trace="events$uflG" />
+      <node id="3297662491776892431" at="66,0,67,0" concept="5" trace="eventHandlers$XNOV" />
+      <node id="3297662491776892431" at="67,0,68,0" concept="5" trace="opaqueTypes$lHSV" />
+      <node id="3297662491776892431" at="68,0,69,0" concept="5" trace="baseType$zMGV" />
+      <node id="3297662491776892431" at="69,0,70,0" concept="5" trace="type$sXU3" />
+      <node id="3297662491776892431" at="70,0,71,0" concept="5" trace="arguments$6da0" />
+      <node id="3297662491776892431" at="71,0,72,0" concept="5" trace="type$eikV" />
+      <node id="3297662491776892431" at="72,0,73,0" concept="5" trace="prototype$lY0a" />
+      <node id="3297662491776892431" at="73,0,74,0" concept="5" trace="externalFunctions$LqEg" />
+      <node id="3297662491776892432" at="21,0,57,0" concept="1" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;ILorg/jetbrains/mps/openapi/model/SModel;)V" />
+      <scope id="3297662491776892432" at="21,102,55,126">
+        <var name="bitmapOpaqueType" id="3326094335675007816" />
+        <var name="intCollection" id="8013817401930515341" />
+        <var name="newEventHandler" id="3297662491776905621" />
+        <var name="newEventType" id="3297662491776892455" />
+        <var name="pointer" id="8013817401930472824" />
+        <var name="topologyArg" id="8013817401930063183" />
+        <var name="topologyFunction" id="8013817401930050493" />
+        <var name="topologyPrototype" id="8013817401930297904" />
+        <var name="topologyTypeDecl" id="8013817401929380352" />
+      </scope>
+      <scope id="3297662491776892432" at="21,0,57,0">
+        <var name="enclosingNode" id="3297662491776892432" />
+        <var name="index" id="3297662491776892432" />
+        <var name="model" id="3297662491776892432" />
+        <var name="newNode" id="3297662491776892432" />
+        <var name="sampleNode" id="3297662491776892432" />
+      </scope>
+      <unit id="3297662491776892431" at="59,0,62,0" name="SimpleDES.actions.DESModelFactory$PROPS" />
+      <unit id="3297662491776892431" at="63,0,75,0" name="SimpleDES.actions.DESModelFactory$LINKS" />
+      <unit id="3297662491776892432" at="20,0,58,0" name="SimpleDES.actions.DESModelFactory$NodeFactory_3297662491776892432" />
+      <unit id="3297662491776892431" at="19,0,76,0" name="SimpleDES.actions.DESModelFactory" />
+    </file>
+  </root>
+  <root nodeRef="r:69b854b5-1607-4a31-a5d5-03c17535ea4a(SimpleDES.actions)/5103575337110310021">
+    <file name="HandlerFactory.java">
+      <node id="5103575337110310025" at="18,102,19,0" concept="4" />
+      <node id="5103575337110310026" at="19,0,20,24" concept="3" />
+      <node id="5103575337110310030" at="20,24,21,199" concept="2" />
+      <node id="5103575337110310036" at="21,199,22,74" concept="0" />
+      <node id="5103575337110310042" at="22,74,23,75" concept="0" />
+      <node id="5103575337110310048" at="23,75,24,0" concept="4" />
+      <node id="5103575337110310049" at="24,0,25,53" concept="3" />
+      <node id="5103575337110310058" at="25,53,26,204" concept="2" />
+      <node id="5103575337110310064" at="26,204,27,191" concept="2" />
+      <node id="5103575337110310070" at="27,191,28,62" concept="0" />
+      <node id="5103575337110310076" at="28,62,29,66" concept="0" />
+      <node id="5103575337110310082" at="29,66,30,152" concept="0" />
+      <node id="5103575337110310091" at="30,152,31,0" concept="4" />
+      <node id="5103575337110310092" at="31,0,32,32" concept="3" />
+      <node id="5103575337110310097" at="32,32,33,201" concept="2" />
+      <node id="5103575337110310103" at="33,201,34,194" concept="2" />
+      <node id="5103575337110310109" at="34,194,35,68" concept="0" />
+      <node id="5103575337110310115" at="35,68,36,66" concept="0" />
+      <node id="5103575337110310121" at="36,66,37,155" concept="0" />
+      <node id="5103575337110310130" at="37,155,38,0" concept="4" />
+      <node id="5103575337110310021" at="43,0,44,0" concept="5" trace="name$MnvL" />
+      <node id="5103575337110310021" at="47,0,48,0" concept="5" trace="function$HqZ0" />
+      <node id="5103575337110310021" at="48,0,49,0" concept="5" trace="type$sXU3" />
+      <node id="5103575337110310021" at="49,0,50,0" concept="5" trace="arguments$6da0" />
+      <node id="5103575337110310022" at="18,0,40,0" concept="1" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;ILorg/jetbrains/mps/openapi/model/SModel;)V" />
+      <scope id="5103575337110310022" at="18,102,38,0">
+        <var name="doubleType" id="5103575337110310059" />
+        <var name="intType" id="5103575337110310098" />
+        <var name="myself" id="5103575337110310104" />
+        <var name="newFunction" id="5103575337110310031" />
+        <var name="now" id="5103575337110310065" />
+      </scope>
+      <scope id="5103575337110310022" at="18,0,40,0">
+        <var name="enclosingNode" id="5103575337110310022" />
+        <var name="index" id="5103575337110310022" />
+        <var name="model" id="5103575337110310022" />
+        <var name="newNode" id="5103575337110310022" />
+        <var name="sampleNode" id="5103575337110310022" />
+      </scope>
+      <unit id="5103575337110310021" at="42,0,45,0" name="SimpleDES.actions.HandlerFactory$PROPS" />
+      <unit id="5103575337110310021" at="46,0,51,0" name="SimpleDES.actions.HandlerFactory$LINKS" />
+      <unit id="5103575337110310022" at="17,0,41,0" name="SimpleDES.actions.HandlerFactory$NodeFactory_5103575337110310022" />
+      <unit id="5103575337110310021" at="16,0,52,0" name="SimpleDES.actions.HandlerFactory" />
+    </file>
+  </root>
+  <root nodeRef="r:69b854b5-1607-4a31-a5d5-03c17535ea4a(SimpleDES.actions)/7425362163987672469">
+    <file name="ForEachBodyFactory.java">
+      <unit id="7425362163987672469" at="6,0,8,0" name="SimpleDES.actions.ForEachBodyFactory" />
+    </file>
+  </root>
+  <root nodeRef="r:69b854b5-1607-4a31-a5d5-03c17535ea4a(SimpleDES.actions)/8013817401925998385">
+    <file name="StartupFunctionFactory.java">
+      <node id="8013817401925998949" at="17,102,18,199" concept="2" />
+      <node id="8013817401925999010" at="18,199,19,74" concept="0" />
+      <node id="8013817401926035253" at="19,74,20,75" concept="0" />
+      <node id="8013817401925998385" at="25,0,26,0" concept="5" trace="name$MnvL" />
+      <node id="8013817401925998385" at="29,0,30,0" concept="5" trace="function$Ah6u" />
+      <node id="8013817401925998386" at="17,0,22,0" concept="1" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;ILorg/jetbrains/mps/openapi/model/SModel;)V" />
+      <scope id="8013817401925998386" at="17,102,20,75">
+        <var name="newFunction" id="8013817401925998950" />
+      </scope>
+      <scope id="8013817401925998386" at="17,0,22,0">
+        <var name="enclosingNode" id="8013817401925998386" />
+        <var name="index" id="8013817401925998386" />
+        <var name="model" id="8013817401925998386" />
+        <var name="newNode" id="8013817401925998386" />
+        <var name="sampleNode" id="8013817401925998386" />
+      </scope>
+      <unit id="8013817401925998385" at="24,0,27,0" name="SimpleDES.actions.StartupFunctionFactory$PROPS" />
+      <unit id="8013817401925998385" at="28,0,31,0" name="SimpleDES.actions.StartupFunctionFactory$LINKS" />
+      <unit id="8013817401925998386" at="16,0,23,0" name="SimpleDES.actions.StartupFunctionFactory$NodeFactory_8013817401925998386" />
+      <unit id="8013817401925998385" at="15,0,32,0" name="SimpleDES.actions.StartupFunctionFactory" />
+    </file>
+  </root>
+</debug-info>
+

@@ -1,0 +1,5 @@
+# Project exclude paths
+/languages/Collections/classes_gen/
+/languages/Collections/generator/classes_gen/
+/languages/SimpleDES/classes_gen/
+/languages/SimpleDES/generator/classes_gen/
