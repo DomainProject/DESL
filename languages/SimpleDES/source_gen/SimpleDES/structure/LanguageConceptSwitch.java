@@ -14,11 +14,14 @@ public final class LanguageConceptSwitch {
   public static final int EventType = 2;
   public static final int ExternalFunction = 3;
   public static final int ExternalFunctionPrototype = 4;
-  public static final int Handler = 5;
-  public static final int IExternalFunction = 6;
-  public static final int NewStruct = 7;
-  public static final int SendEvent = 8;
-  public static final int StartupFunction = 9;
+  public static final int FunctionDocs = 5;
+  public static final int Handler = 6;
+  public static final int IDocs = 7;
+  public static final int IExternalFunction = 8;
+  public static final int NewStruct = 9;
+  public static final int ParameterDocs = 10;
+  public static final int SendEvent = 11;
+  public static final int StartupFunction = 12;
 
   public LanguageConceptSwitch() {
     LanguageConceptIndexBuilder builder = new LanguageConceptIndexBuilder(0xc4765525912b41b9L, 0xace4ce3b88117666L);
@@ -27,9 +30,12 @@ public final class LanguageConceptSwitch {
     builder.put(0x7c2c5977e3e10df9L, EventType);
     builder.put(0x6f36cc77d0c6228bL, ExternalFunction);
     builder.put(0x6f36cc77d0c6228cL, ExternalFunctionPrototype);
+    builder.put(0x6579f899e5d7c058L, FunctionDocs);
     builder.put(0x4644f902f2f0d238L, Handler);
+    builder.put(0x6579f899e5fee6d4L, IDocs);
     builder.put(0x6f36cc77d0c630e1L, IExternalFunction);
     builder.put(0x2e28a92d075e35d5L, NewStruct);
+    builder.put(0x6579f899e5d7c060L, ParameterDocs);
     builder.put(0x68458b9b5da4ec77L, SendEvent);
     builder.put(0x6f36cc77d0a48d39L, StartupFunction);
     myIndex = builder.seal();

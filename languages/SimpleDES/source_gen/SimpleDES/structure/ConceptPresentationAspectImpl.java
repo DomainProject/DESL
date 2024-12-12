@@ -14,9 +14,12 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_EventType;
   private ConceptPresentation props_ExternalFunction;
   private ConceptPresentation props_ExternalFunctionPrototype;
+  private ConceptPresentation props_FunctionDocs;
   private ConceptPresentation props_Handler;
+  private ConceptPresentation props_IDocs;
   private ConceptPresentation props_IExternalFunction;
   private ConceptPresentation props_NewStruct;
+  private ConceptPresentation props_ParameterDocs;
   private ConceptPresentation props_SendEvent;
   private ConceptPresentation props_StartupFunction;
 
@@ -60,12 +63,25 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_ExternalFunctionPrototype = cpb.create();
         }
         return props_ExternalFunctionPrototype;
+      case LanguageConceptSwitch.FunctionDocs:
+        if (props_FunctionDocs == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.presentationByReference(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6579f899e5d7c058L, 0x6579f899e5d7c091L, "function", "", "");
+          props_FunctionDocs = cpb.create();
+        }
+        return props_FunctionDocs;
       case LanguageConceptSwitch.Handler:
         if (props_Handler == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           props_Handler = cpb.create();
         }
         return props_Handler;
+      case LanguageConceptSwitch.IDocs:
+        if (props_IDocs == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          props_IDocs = cpb.create();
+        }
+        return props_IDocs;
       case LanguageConceptSwitch.IExternalFunction:
         if (props_IExternalFunction == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -79,6 +95,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_NewStruct = cpb.create();
         }
         return props_NewStruct;
+      case LanguageConceptSwitch.ParameterDocs:
+        if (props_ParameterDocs == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.presentationByReference(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6579f899e5d7c060L, 0x6579f899e5f274c0L, "parameter", "", "");
+          props_ParameterDocs = cpb.create();
+        }
+        return props_ParameterDocs;
       case LanguageConceptSwitch.SendEvent:
         if (props_SendEvent == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

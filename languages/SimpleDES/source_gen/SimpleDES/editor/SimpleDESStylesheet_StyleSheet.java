@@ -8,6 +8,7 @@ import jetbrains.mps.openapi.editor.style.Style;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.editor.runtime.style.StyleAttributes;
 import jetbrains.mps.nodeEditor.MPSColors;
+import jetbrains.mps.nodeEditor.MPSFonts;
 
 public class SimpleDESStylesheet_StyleSheet {
   public static class BraceStyleStyleClass extends AbstractStyleClass {
@@ -41,6 +42,18 @@ public class SimpleDESStylesheet_StyleSheet {
     @Override
     public void apply(Style style, EditorCell editorCell) {
       style.set(StyleAttributes.TEXT_COLOR, getStyleRegistry().getSimpleColor(MPSColors.DARK_MAGENTA));
+    }
+
+  }
+  public static class DocsElementStyleClass extends AbstractStyleClass {
+    public DocsElementStyleClass(EditorBuilderEnvironment builderEnv) {
+      super(builderEnv);
+    }
+
+    @Override
+    public void apply(Style style, EditorCell editorCell) {
+      style.set(StyleAttributes.TEXT_COLOR, getStyleRegistry().getSimpleColor(MPSColors.gray));
+      style.set(StyleAttributes.FONT_STYLE, MPSFonts.ITALIC);
     }
 
   }

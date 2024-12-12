@@ -8,9 +8,11 @@
     <import index="clbe" ref="r:61d840b4-12c1-49ea-b142-b2a1550a9b15(com.mbeddr.core.udt.structure)" />
     <import index="x27k" ref="r:75ecab8a-8931-4140-afc6-4b46398710fc(com.mbeddr.core.modules.structure)" />
     <import index="3vkx" ref="r:1c91fcc2-cf14-47f5-a4d4-3b424626f0d4(com.mbeddr.cc.requirements.c.structure)" />
+    <import index="zqge" ref="r:59e90602-6655-4552-86eb-441a42a9a0e4(jetbrains.mps.lang.text.structure)" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
     <import index="c4fa" ref="r:9f0e84b6-2ec7-4f9e-83e0-feedc77b63a3(com.mbeddr.core.statements.structure)" implicit="true" />
     <import index="mj1l" ref="r:c371cf98-dcc8-4a43-8eb8-8a8096de18b2(com.mbeddr.core.expressions.structure)" implicit="true" />
+    <import index="tpee" ref="r:00000000-0000-4000-0000-011c895902ca(jetbrains.mps.baseLanguage.structure)" implicit="true" />
   </imports>
   <registry>
     <language id="c72da2b9-7cce-4447-8389-f407dc1158b7" name="jetbrains.mps.lang.structure">
@@ -218,6 +220,12 @@
     <property role="TrG5h" value="ExternalFunction" />
     <property role="3GE5qa" value="externalFunction" />
     <ref role="1TJDcQ" to="x27k:5_l8w1EmTvx" resolve="Function" />
+    <node concept="1TJgyj" id="6lTY9B_Qgbn" role="1TKVEi">
+      <property role="IQ2ns" value="7312148809882600151" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="docs" />
+      <ref role="20lvS9" node="6lTY9B_PW1o" resolve="FunctionDocs" />
+    </node>
     <node concept="PrWs8" id="6WQN7vgNRC6" role="PzmwI">
       <ref role="PrY4T" node="6WQN7vgLz3x" resolve="IExternalFunction" />
     </node>
@@ -248,6 +256,60 @@
     <property role="TrG5h" value="NewStruct" />
     <property role="34LRSv" value="new struct" />
     <ref role="1TJDcQ" to="mj1l:7FQByU3CrCM" resolve="Expression" />
+  </node>
+  <node concept="1TIwiD" id="6lTY9B_PW1o">
+    <property role="EcuMT" value="7312148809882517592" />
+    <property role="TrG5h" value="FunctionDocs" />
+    <property role="3GE5qa" value="docs" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" />
+    <node concept="1TJgyj" id="6lTY9B_PW2h" role="1TKVEi">
+      <property role="IQ2ns" value="7312148809882517649" />
+      <property role="20kJfa" value="function" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" to="x27k:5_l8w1EmTvx" resolve="Function" />
+    </node>
+    <node concept="1TJgyj" id="6lTY9B_PW1u" role="1TKVEi">
+      <property role="IQ2ns" value="7312148809882517598" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="parametersDescription" />
+      <property role="20lbJX" value="fLJekj5/_0__n" />
+      <ref role="20lvS9" node="6lTY9B_PW1w" resolve="ParameterDocs" />
+    </node>
+    <node concept="1TJgyj" id="6lTY9B_PWdc" role="1TKVEi">
+      <property role="IQ2ns" value="7312148809882518348" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="notes" />
+      <ref role="20lvS9" to="zqge:2cLqkTm6vgh" resolve="Text" />
+    </node>
+    <node concept="PrWs8" id="6lTY9B_ZIrr" role="PzmwI">
+      <ref role="PrY4T" node="6lTY9B_ZIrk" resolve="IDocs" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="6lTY9B_PW1w">
+    <property role="EcuMT" value="7312148809882517600" />
+    <property role="TrG5h" value="ParameterDocs" />
+    <property role="3GE5qa" value="docs" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" />
+    <node concept="1TJgyj" id="6lTY9B_WBj0" role="1TKVEi">
+      <property role="IQ2ns" value="7312148809884267712" />
+      <property role="20kJfa" value="parameter" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" to="x27k:6Q7bJ$$my3n" resolve="Argument" />
+    </node>
+    <node concept="PrWs8" id="6lTY9B_ZIru" role="PzmwI">
+      <ref role="PrY4T" node="6lTY9B_ZIrk" resolve="IDocs" />
+    </node>
+  </node>
+  <node concept="PlHQZ" id="6lTY9B_ZIrk">
+    <property role="EcuMT" value="7312148809885083348" />
+    <property role="3GE5qa" value="docs" />
+    <property role="TrG5h" value="IDocs" />
+    <node concept="1TJgyj" id="6lTY9B_ZIrp" role="1TKVEi">
+      <property role="IQ2ns" value="7312148809885083353" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="description" />
+      <ref role="20lvS9" to="tpee:f$Xl_Og" resolve="StringLiteral" />
+    </node>
   </node>
 </model>
 
