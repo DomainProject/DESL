@@ -18,49 +18,53 @@
       <node id="3297662491776905618" at="23,72,24,193" concept="2" />
       <node id="3297662491776905812" at="24,193,25,81" concept="0" />
       <node id="3297662491777116025" at="25,81,26,166" concept="0" />
-      <node id="3297662491776909222" at="26,166,27,110" concept="0" />
-      <node id="3297662491776950062" at="27,110,28,120" concept="0" />
-      <node id="8013817401929379841" at="28,120,29,0" concept="4" />
-      <node id="8013817401929588220" at="29,0,30,36" concept="3" />
-      <node id="8013817401929380349" at="30,36,31,203" concept="2" />
-      <node id="8013817401929381514" at="31,203,32,80" concept="0" />
-      <node id="8013817401929395258" at="32,80,33,119" concept="0" />
-      <node id="3326094335675004576" at="33,119,34,0" concept="4" />
-      <node id="3326094335675005688" at="34,0,35,34" concept="3" />
-      <node id="3326094335675007813" at="35,34,36,203" concept="2" />
-      <node id="3326094335675009987" at="36,203,37,78" concept="0" />
-      <node id="3326094335675033107" at="37,78,38,119" concept="0" />
-      <node id="8013817401930049720" at="38,119,39,0" concept="4" />
-      <node id="8013817401930050490" at="39,0,40,213" concept="2" />
-      <node id="8013817401930155761" at="40,213,41,96" concept="0" />
-      <node id="8013817401930063180" at="41,96,42,199" concept="2" />
-      <node id="8013817401930472821" at="42,199,43,198" concept="2" />
-      <node id="8013817401930475015" at="43,198,44,150" concept="0" />
-      <node id="8013817401930494033" at="44,150,45,71" concept="0" />
-      <node id="8013817401930078026" at="45,71,46,75" concept="0" />
-      <node id="8013817401930054264" at="46,75,47,121" concept="0" />
-      <node id="8013817401930515338" at="47,121,48,191" concept="2" />
-      <node id="8013817401930517534" at="48,191,49,244" concept="0" />
-      <node id="8013817401930537130" at="49,244,50,82" concept="0" />
-      <node id="8013817401930297094" at="50,82,51,0" concept="4" />
-      <node id="8013817401930297901" at="51,0,52,208" concept="2" />
-      <node id="8013817401930306864" at="52,208,53,91" concept="0" />
-      <node id="8013817401930318153" at="53,91,54,0" concept="4" />
-      <node id="8013817401930320103" at="54,0,55,126" concept="0" />
-      <node id="3297662491776892431" at="60,0,61,0" concept="5" trace="name$MnvL" />
-      <node id="3297662491776892431" at="64,0,65,0" concept="5" trace="event$M7WS" />
-      <node id="3297662491776892431" at="65,0,66,0" concept="5" trace="events$uflG" />
-      <node id="3297662491776892431" at="66,0,67,0" concept="5" trace="eventHandlers$XNOV" />
-      <node id="3297662491776892431" at="67,0,68,0" concept="5" trace="opaqueTypes$lHSV" />
-      <node id="3297662491776892431" at="68,0,69,0" concept="5" trace="baseType$zMGV" />
-      <node id="3297662491776892431" at="69,0,70,0" concept="5" trace="type$sXU3" />
-      <node id="3297662491776892431" at="70,0,71,0" concept="5" trace="arguments$6da0" />
-      <node id="3297662491776892431" at="71,0,72,0" concept="5" trace="type$eikV" />
-      <node id="3297662491776892431" at="72,0,73,0" concept="5" trace="prototype$lY0a" />
-      <node id="3297662491776892431" at="73,0,74,0" concept="5" trace="externalFunctions$LqEg" />
-      <node id="3297662491776892432" at="21,0,57,0" concept="1" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;ILorg/jetbrains/mps/openapi/model/SModel;)V" />
-      <scope id="3297662491776892432" at="21,102,55,126">
+      <node id="3343634265064578753" at="26,166,27,196" concept="2" />
+      <node id="3343634265064586901" at="27,196,28,85" concept="0" />
+      <node id="3297662491776909222" at="28,85,29,113" concept="0" />
+      <node id="3297662491776950062" at="29,113,30,120" concept="0" />
+      <node id="8013817401929379841" at="30,120,31,0" concept="4" />
+      <node id="8013817401929588220" at="31,0,32,36" concept="3" />
+      <node id="8013817401929380349" at="32,36,33,203" concept="2" />
+      <node id="8013817401929381514" at="33,203,34,80" concept="0" />
+      <node id="8013817401929395258" at="34,80,35,119" concept="0" />
+      <node id="3326094335675004576" at="35,119,36,0" concept="4" />
+      <node id="3326094335675005688" at="36,0,37,34" concept="3" />
+      <node id="3326094335675007813" at="37,34,38,203" concept="2" />
+      <node id="3326094335675009987" at="38,203,39,78" concept="0" />
+      <node id="3326094335675033107" at="39,78,40,119" concept="0" />
+      <node id="8013817401930049720" at="40,119,41,0" concept="4" />
+      <node id="8013817401930050490" at="41,0,42,213" concept="2" />
+      <node id="8013817401930155761" at="42,213,43,96" concept="0" />
+      <node id="8013817401930063180" at="43,96,44,199" concept="2" />
+      <node id="8013817401930472821" at="44,199,45,198" concept="2" />
+      <node id="8013817401930475015" at="45,198,46,150" concept="0" />
+      <node id="8013817401930494033" at="46,150,47,71" concept="0" />
+      <node id="8013817401930078026" at="47,71,48,75" concept="0" />
+      <node id="8013817401930054264" at="48,75,49,121" concept="0" />
+      <node id="8013817401930515338" at="49,121,50,191" concept="2" />
+      <node id="8013817401930517534" at="50,191,51,244" concept="0" />
+      <node id="8013817401930537130" at="51,244,52,82" concept="0" />
+      <node id="8013817401930297094" at="52,82,53,0" concept="4" />
+      <node id="8013817401930297901" at="53,0,54,208" concept="2" />
+      <node id="8013817401930306864" at="54,208,55,91" concept="0" />
+      <node id="8013817401930318153" at="55,91,56,0" concept="4" />
+      <node id="8013817401930320103" at="56,0,57,126" concept="0" />
+      <node id="3297662491776892431" at="62,0,63,0" concept="5" trace="name$MnvL" />
+      <node id="3297662491776892431" at="66,0,67,0" concept="5" trace="event$5cyK" />
+      <node id="3297662491776892431" at="67,0,68,0" concept="5" trace="eventType$MGmZ" />
+      <node id="3297662491776892431" at="68,0,69,0" concept="5" trace="events$uflG" />
+      <node id="3297662491776892431" at="69,0,70,0" concept="5" trace="eventHandlers$XNOV" />
+      <node id="3297662491776892431" at="70,0,71,0" concept="5" trace="opaqueTypes$lHSV" />
+      <node id="3297662491776892431" at="71,0,72,0" concept="5" trace="baseType$zMGV" />
+      <node id="3297662491776892431" at="72,0,73,0" concept="5" trace="type$sXU3" />
+      <node id="3297662491776892431" at="73,0,74,0" concept="5" trace="arguments$6da0" />
+      <node id="3297662491776892431" at="74,0,75,0" concept="5" trace="type$eikV" />
+      <node id="3297662491776892431" at="75,0,76,0" concept="5" trace="prototype$lY0a" />
+      <node id="3297662491776892431" at="76,0,77,0" concept="5" trace="externalFunctions$LqEg" />
+      <node id="3297662491776892432" at="21,0,59,0" concept="1" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;ILorg/jetbrains/mps/openapi/model/SModel;)V" />
+      <scope id="3297662491776892432" at="21,102,57,126">
         <var name="bitmapOpaqueType" id="3326094335675007816" />
+        <var name="eventDefinition" id="3343634265064578756" />
         <var name="intCollection" id="8013817401930515341" />
         <var name="newEventHandler" id="3297662491776905621" />
         <var name="newEventType" id="3297662491776892455" />
@@ -70,17 +74,17 @@
         <var name="topologyPrototype" id="8013817401930297904" />
         <var name="topologyTypeDecl" id="8013817401929380352" />
       </scope>
-      <scope id="3297662491776892432" at="21,0,57,0">
+      <scope id="3297662491776892432" at="21,0,59,0">
         <var name="enclosingNode" id="3297662491776892432" />
         <var name="index" id="3297662491776892432" />
         <var name="model" id="3297662491776892432" />
         <var name="newNode" id="3297662491776892432" />
         <var name="sampleNode" id="3297662491776892432" />
       </scope>
-      <unit id="3297662491776892431" at="59,0,62,0" name="SimpleDES.actions.DESModelFactory$PROPS" />
-      <unit id="3297662491776892431" at="63,0,75,0" name="SimpleDES.actions.DESModelFactory$LINKS" />
-      <unit id="3297662491776892432" at="20,0,58,0" name="SimpleDES.actions.DESModelFactory$NodeFactory_3297662491776892432" />
-      <unit id="3297662491776892431" at="19,0,76,0" name="SimpleDES.actions.DESModelFactory" />
+      <unit id="3297662491776892431" at="61,0,64,0" name="SimpleDES.actions.DESModelFactory$PROPS" />
+      <unit id="3297662491776892431" at="65,0,78,0" name="SimpleDES.actions.DESModelFactory$LINKS" />
+      <unit id="3297662491776892432" at="20,0,60,0" name="SimpleDES.actions.DESModelFactory$NodeFactory_3297662491776892432" />
+      <unit id="3297662491776892431" at="19,0,79,0" name="SimpleDES.actions.DESModelFactory" />
     </file>
   </root>
   <root nodeRef="r:69b854b5-1607-4a31-a5d5-03c17535ea4a(SimpleDES.actions)/5103575337110310021">
@@ -106,7 +110,7 @@
       <node id="5103575337110310121" at="36,66,37,155" concept="0" />
       <node id="5103575337110310130" at="37,155,38,0" concept="4" />
       <node id="5103575337110310021" at="43,0,44,0" concept="5" trace="name$MnvL" />
-      <node id="5103575337110310021" at="47,0,48,0" concept="5" trace="function$HqZ0" />
+      <node id="5103575337110310021" at="47,0,48,0" concept="5" trace="function$5bPH" />
       <node id="5103575337110310021" at="48,0,49,0" concept="5" trace="type$sXU3" />
       <node id="5103575337110310021" at="49,0,50,0" concept="5" trace="arguments$6da0" />
       <node id="5103575337110310022" at="18,0,40,0" concept="1" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;ILorg/jetbrains/mps/openapi/model/SModel;)V" />

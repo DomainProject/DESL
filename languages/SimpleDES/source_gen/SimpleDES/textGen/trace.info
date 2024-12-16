@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<debug-info version="2">
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1082113931046:jetbrains.mps.baseLanguage.structure.ContinueStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123155:jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123159:jetbrains.mps.baseLanguage.structure.IfStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123165:jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068581242864:jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068581242878:jetbrains.mps.baseLanguage.structure.ReturnStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1070462154015:jetbrains.mps.baseLanguage.structure.StaticFieldDeclaration" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1081236700938:jetbrains.mps.baseLanguage.structure.StaticMethodDeclaration" />
+  <root>
+    <file name="TextGenAspectDescriptor.java">
+      <unit at="64,0,68,0" name="SimpleDES.textGen.TextGenAspectDescriptor$CONCEPTS" />
+      <unit at="16,0,69,0" name="SimpleDES.textGen.TextGenAspectDescriptor" />
+    </file>
+  </root>
+  <root nodeRef="r:eb88f38c-5da2-4104-b158-3a01b585020f(SimpleDES.textGen)/3343634265051771286">
+    <file name="DocsM2M_TextGen.java">
+      <node id="3343634265051771286" at="15,54,16,55" concept="4" />
+      <node id="3343634265051771286" at="16,55,17,25" concept="1" />
+      <node id="3343634265051771499" at="17,25,18,20" concept="1" />
+      <node id="3343634265051771286" at="19,30,20,159" concept="1" />
+      <node id="3343634265051771286" at="25,0,26,0" concept="6" trace="UnitConcept$1g" />
+      <node id="3343634265051771286" at="18,20,21,5" concept="2" />
+      <node id="3343634265051771286" at="14,0,23,0" concept="3" trace="generateText#(Ljetbrains/mps/text/rt/TextGenContext;)V" />
+      <scope id="3343634265051771286" at="19,30,20,159" />
+      <scope id="3343634265051771286" at="15,54,21,5">
+        <var name="tgs" id="3343634265051771286" />
+      </scope>
+      <scope id="3343634265051771286" at="14,0,23,0">
+        <var name="ctx" id="3343634265051771286" />
+      </scope>
+      <unit id="3343634265051771286" at="24,0,27,0" name="SimpleDES.textGen.DocsM2M_TextGen$CONCEPTS" />
+      <unit id="3343634265051771286" at="13,0,28,0" name="SimpleDES.textGen.DocsM2M_TextGen" />
+    </file>
+    <file name="TextGenAspectDescriptor.java">
+      <node id="3343634265051771286" at="26,41,27,37" concept="5" />
+      <node id="3343634265051771286" at="37,58,38,49" concept="4" />
+      <node id="3343634265051771286" at="38,49,39,52" concept="4" />
+      <node id="3343634265051771286" at="39,52,40,84" concept="1" />
+      <node id="3343634265051771286" at="40,84,41,17" concept="0" />
+      <node id="3343634265051771286" at="51,57,52,26" concept="5" />
+      <node id="3343634265051771286" at="57,62,58,16" concept="5" />
+      <node id="3343634265051771286" at="51,0,54,0" concept="7" trace="getFileName_DocsM2M#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/String;" />
+      <node id="3343634265051771286" at="57,0,60,0" concept="7" trace="getFileExtension_DocsM2M#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/String;" />
+      <node id="3343634265051771286" at="36,58,42,7" concept="2" />
+      <scope id="3343634265051771286" at="26,41,27,37" />
+      <scope id="3343634265051771286" at="51,57,52,26" />
+      <scope id="3343634265051771286" at="57,62,58,16" />
+      <scope id="3343634265051771286" at="51,0,54,0">
+        <var name="node" id="3343634265051771286" />
+      </scope>
+      <scope id="3343634265051771286" at="57,0,60,0">
+        <var name="node" id="3343634265051771286" />
+      </scope>
+      <scope id="3343634265051771286" at="37,58,41,17">
+        <var name="ext" id="3343634265051771286" />
+        <var name="fname" id="3343634265051771286" />
+      </scope>
+    </file>
+  </root>
+  <root nodeRef="r:eb88f38c-5da2-4104-b158-3a01b585020f(SimpleDES.textGen)/3343634265051771343">
+    <file name="RootSimM2M_TextGen.java">
+      <node id="3343634265051771343" at="15,54,16,55" concept="4" />
+      <node id="3343634265051771343" at="16,55,17,25" concept="1" />
+      <node id="3343634265051771396" at="17,25,18,26" concept="1" />
+      <node id="3343634265051771343" at="19,30,20,159" concept="1" />
+      <node id="3343634265051771343" at="25,0,26,0" concept="6" trace="UnitConcept$1g" />
+      <node id="3343634265051771343" at="18,26,21,5" concept="2" />
+      <node id="3343634265051771343" at="14,0,23,0" concept="3" trace="generateText#(Ljetbrains/mps/text/rt/TextGenContext;)V" />
+      <scope id="3343634265051771343" at="19,30,20,159" />
+      <scope id="3343634265051771343" at="15,54,21,5">
+        <var name="tgs" id="3343634265051771343" />
+      </scope>
+      <scope id="3343634265051771343" at="14,0,23,0">
+        <var name="ctx" id="3343634265051771343" />
+      </scope>
+      <unit id="3343634265051771343" at="24,0,27,0" name="SimpleDES.textGen.RootSimM2M_TextGen$CONCEPTS" />
+      <unit id="3343634265051771343" at="13,0,28,0" name="SimpleDES.textGen.RootSimM2M_TextGen" />
+    </file>
+    <file name="TextGenAspectDescriptor.java">
+      <node id="3343634265051771343" at="28,44,29,40" concept="5" />
+      <node id="3343634265051771343" at="43,61,44,52" concept="4" />
+      <node id="3343634265051771343" at="44,52,45,55" concept="4" />
+      <node id="3343634265051771343" at="45,55,46,84" concept="1" />
+      <node id="3343634265051771343" at="46,84,47,17" concept="0" />
+      <node id="3343634265051771343" at="54,60,55,26" concept="5" />
+      <node id="3343634265051771343" at="60,65,61,16" concept="5" />
+      <node id="3343634265051771343" at="54,0,57,0" concept="7" trace="getFileName_RootSimM2M#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/String;" />
+      <node id="3343634265051771343" at="60,0,63,0" concept="7" trace="getFileExtension_RootSimM2M#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/String;" />
+      <node id="3343634265051771343" at="42,7,48,7" concept="2" />
+      <scope id="3343634265051771343" at="28,44,29,40" />
+      <scope id="3343634265051771343" at="54,60,55,26" />
+      <scope id="3343634265051771343" at="60,65,61,16" />
+      <scope id="3343634265051771343" at="54,0,57,0">
+        <var name="node" id="3343634265051771343" />
+      </scope>
+      <scope id="3343634265051771343" at="60,0,63,0">
+        <var name="node" id="3343634265051771343" />
+      </scope>
+      <scope id="3343634265051771343" at="43,61,47,17">
+        <var name="ext" id="3343634265051771343" />
+        <var name="fname" id="3343634265051771343" />
+      </scope>
+    </file>
+  </root>
+</debug-info>
+

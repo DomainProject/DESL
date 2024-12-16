@@ -31,6 +31,7 @@ public class SimpleDESStylesheet_StyleSheet {
     @Override
     public void apply(Style style, EditorCell editorCell) {
       style.set(StyleAttributes.TEXT_COLOR, getStyleRegistry().getSimpleColor(MPSColors.LIGHT_BLUE));
+      style.set(StyleAttributes.FONT_STYLE, MPSFonts.BOLD);
     }
 
   }

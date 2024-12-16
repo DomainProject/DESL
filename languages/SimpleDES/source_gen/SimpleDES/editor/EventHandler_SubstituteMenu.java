@@ -38,7 +38,7 @@ public class EventHandler_SubstituteMenu extends SubstituteMenuBase {
   public class SMP_ReferenceScope_zbm4fo_a extends ReferenceScopeSubstituteMenuPart {
 
     public SMP_ReferenceScope_zbm4fo_a() {
-      super(CONCEPTS.EventHandler$Ov, LINKS.event$M7WS, new EditorMenuDescriptorBase("reference scope substitute menu part", null));
+      super(CONCEPTS.EventHandler$Ov, LINKS.event$5cyK, new EditorMenuDescriptorBase("reference scope substitute menu part", null));
     }
 
   }
@@ -63,6 +63,6 @@ public class EventHandler_SubstituteMenu extends SubstituteMenuBase {
   }
 
   private static final class LINKS {
-    /*package*/ static final SReferenceLink event$M7WS = MetaAdapterFactory.getReferenceLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4644f902f2f0d238L, 0x2dc3a690837ac751L, "event");
+    /*package*/ static final SReferenceLink event$5cyK = MetaAdapterFactory.getReferenceLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x74d88000543a2aa2L, "event");
   }
 }

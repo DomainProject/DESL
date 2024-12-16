@@ -13,20 +13,22 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
-public final class RemoveDocumentation_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
+public final class AddDocumentationToHandler_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
 
-  public RemoveDocumentation_Intention() {
-    super(Kind.NORMAL, false, new SNodePointer("r:82324c7e-502f-4c1e-82ff-000ec785c25b(SimpleDES.intentions)", "7312148809884717305"));
+  public AddDocumentationToHandler_Intention() {
+    super(Kind.NORMAL, false, new SNodePointer("r:82324c7e-502f-4c1e-82ff-000ec785c25b(SimpleDES.intentions)", "8419620242269873853"));
   }
 
   @Override
   public String getPresentation() {
-    return "RemoveDocumentation";
+    return "AddDocumentationToHandler";
   }
 
   @Override
@@ -46,35 +48,31 @@ public final class RemoveDocumentation_Intention extends AbstractIntentionDescri
 
     @Override
     public String getDescription(final SNode node, final EditorContext editorContext) {
-      return "Remove Documentation";
+      return "Add Documentation";
     }
 
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SLinkOperations.setTarget(node, LINKS.docs$95P3, null);
+      SLinkOperations.setTarget(node, LINKS.docs$5cjJ, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x74d88000542f2672L, "SimpleDES.structure.EventHandlerDocs")));
+      SLinkOperations.setTarget(SLinkOperations.getTarget(node, LINKS.docs$5cjJ), LINKS.handler$I7Vk, node);
     }
 
     @Override
     public boolean isApplicable(final SNode node, final EditorContext editorContext) {
-      if (!(isApplicableToNode(node, editorContext))) {
-        return false;
-      }
       return true;
     }
 
-    private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-      return (SLinkOperations.getTarget(node, LINKS.docs$95P3) != null);
-    }
 
 
     @Override
     public IntentionDescriptor getDescriptor() {
-      return RemoveDocumentation_Intention.this;
+      return AddDocumentationToHandler_Intention.this;
     }
 
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink docs$95P3 = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228bL, 0x6579f899e5d902d7L, "docs");
+    /*package*/ static final SContainmentLink docs$5cjJ = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x74d88000543a2aa1L, "docs");
+    /*package*/ static final SReferenceLink handler$I7Vk = MetaAdapterFactory.getReferenceLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x74d88000542f2672L, 0x74d88000542f2674L, "handler");
   }
 }

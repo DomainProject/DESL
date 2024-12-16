@@ -8,9 +8,9 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Collection;
-import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Vertical;
+import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Horizontal;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor;
+import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Vertical;
 import jetbrains.mps.lang.editor.cellProviders.SingleRoleCellProvider;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
@@ -24,8 +24,10 @@ import jetbrains.mps.openapi.editor.style.Style;
 import jetbrains.mps.editor.runtime.style.StyleImpl;
 import jetbrains.mps.editor.runtime.style.StyleAttributes;
 import com.mbeddr.core.modules.editor.deleteFunction;
+import jetbrains.mps.nodeEditor.cells.EditorCell_Constant;
+import jetbrains.mps.nodeEditor.cells.EditorCell_Component;
+import javax.swing.JComponent;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import org.jetbrains.mps.openapi.language.SConcept;
 
 /*package*/ class ExternalFunction_EditorBuilder_a extends AbstractEditorBuilder {
   @NotNull
@@ -47,34 +49,47 @@ import org.jetbrains.mps.openapi.language.SConcept;
   }
 
   private EditorCell createCollection_0() {
-    EditorCell_Collection editorCell = new EditorCell_Collection(getEditorContext(), myNode, new CellLayout_Vertical());
+    EditorCell_Collection editorCell = new EditorCell_Collection(getEditorContext(), myNode, new CellLayout_Horizontal());
     editorCell.setCellId("Collection_vd652s_a");
     editorCell.setBig(true);
     setCellContext(editorCell);
-    if (nodeCondition_vd652s_a0a()) {
-      editorCell.addEditorCell(createRefNode_0());
-    }
-    if (nodeCondition_vd652s_a1a()) {
-      editorCell.addEditorCell(createComponent_0());
-    }
     editorCell.addEditorCell(createCollection_1());
+    editorCell.addEditorCell(createConstant_0());
+    if (nodeCondition_vd652s_a2a()) {
+      editorCell.addEditorCell(createCollection_3());
+    }
+    if (nodeCondition_vd652s_a3a()) {
+      editorCell.addEditorCell(createCollection_4());
+    }
     return editorCell;
   }
-  private boolean nodeCondition_vd652s_a0a() {
+  private boolean nodeCondition_vd652s_a2a() {
+    return (SLinkOperations.getTarget(myNode, LINKS.docs$95P3) == null);
+  }
+  private boolean nodeCondition_vd652s_a3a() {
     return (SLinkOperations.getTarget(myNode, LINKS.docs$95P3) != null);
   }
-  private boolean nodeCondition_vd652s_a1a() {
-    return (new IAttributeDescriptor.NodeAttribute(CONCEPTS.ImplementsExternalFunction$fm).get(myNode) == null);
+  private EditorCell createCollection_1() {
+    EditorCell_Collection editorCell = new EditorCell_Collection(getEditorContext(), myNode, new CellLayout_Vertical());
+    editorCell.setCellId("Collection_vd652s_a0");
+    if (nodeCondition_vd652s_a0a0()) {
+      editorCell.addEditorCell(createRefNode_0());
+    }
+    editorCell.addEditorCell(createCollection_2());
+    return editorCell;
+  }
+  private boolean nodeCondition_vd652s_a0a0() {
+    return (SLinkOperations.getTarget(myNode, LINKS.docs$95P3) != null);
   }
   private EditorCell createRefNode_0() {
-    SingleRoleCellProvider provider = new docsSingleRoleHandler_vd652s_a0(myNode, LINKS.docs$95P3, getEditorContext());
+    SingleRoleCellProvider provider = new docsSingleRoleHandler_vd652s_a0a(myNode, LINKS.docs$95P3, getEditorContext());
     return provider.createCell();
   }
-  private static class docsSingleRoleHandler_vd652s_a0 extends SingleRoleCellProvider {
+  private static class docsSingleRoleHandler_vd652s_a0a extends SingleRoleCellProvider {
     @NotNull
     private SNode myNode;
 
-    public docsSingleRoleHandler_vd652s_a0(SNode ownerNode, SContainmentLink containmentLink, EditorContext context) {
+    public docsSingleRoleHandler_vd652s_a0a(SNode ownerNode, SContainmentLink containmentLink, EditorContext context) {
       super(containmentLink, context);
       myNode = ownerNode;
     }
@@ -121,33 +136,29 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return "<no docs>";
     }
   }
-  private EditorCell createComponent_0() {
-    EditorCell editorCell = getCellFactory().createEditorComponentCell(myNode, "com.mbeddr.core.modules.editor.preventNameManglingFlag");
-    return editorCell;
-  }
-  private EditorCell createCollection_1() {
+  private EditorCell createCollection_2() {
     EditorCell_Collection editorCell = new EditorCell_Collection(getEditorContext(), myNode, new CellLayout_Indent());
-    editorCell.setCellId("Collection_vd652s_c0");
+    editorCell.setCellId("Collection_vd652s_b0a");
     Style style = new StyleImpl();
     style.set(StyleAttributes.SELECTABLE, false);
     editorCell.getStyle().putAll(style);
-    editorCell.addEditorCell(createComponent_1());
+    editorCell.addEditorCell(createComponent_0());
     editorCell.addEditorCell(createRefNode_1());
     return editorCell;
   }
-  private EditorCell createComponent_1() {
+  private EditorCell createComponent_0() {
     EditorCell editorCell = getCellFactory().createEditorComponentCell(myNode, "com.mbeddr.core.modules.editor.functionSignature");
     return editorCell;
   }
   private EditorCell createRefNode_1() {
-    SingleRoleCellProvider provider = new bodySingleRoleHandler_vd652s_b2a(myNode, LINKS.body$1GE0, getEditorContext());
+    SingleRoleCellProvider provider = new bodySingleRoleHandler_vd652s_b1a0(myNode, LINKS.body$1GE0, getEditorContext());
     return provider.createCell();
   }
-  private static class bodySingleRoleHandler_vd652s_b2a extends SingleRoleCellProvider {
+  private static class bodySingleRoleHandler_vd652s_b1a0 extends SingleRoleCellProvider {
     @NotNull
     private SNode myNode;
 
-    public bodySingleRoleHandler_vd652s_b2a(SNode ownerNode, SContainmentLink containmentLink, EditorContext context) {
+    public bodySingleRoleHandler_vd652s_b1a0(SNode ownerNode, SContainmentLink containmentLink, EditorContext context) {
       super(containmentLink, context);
       myNode = ownerNode;
     }
@@ -199,13 +210,49 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return "<no body>";
     }
   }
+  private EditorCell createConstant_0() {
+    EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "");
+    editorCell.setCellId("Constant_vd652s_b0");
+    editorCell.setDefaultText("");
+    return editorCell;
+  }
+  private EditorCell createCollection_3() {
+    EditorCell_Collection editorCell = new EditorCell_Collection(getEditorContext(), myNode, new CellLayout_Horizontal());
+    editorCell.setCellId("Collection_vd652s_c0");
+    Style style = new StyleImpl();
+    style.set(StyleAttributes.SELECTABLE, false);
+    editorCell.getStyle().putAll(style);
+    editorCell.addEditorCell(createJComponent_0());
+    return editorCell;
+  }
+  private EditorCell createJComponent_0() {
+    EditorCell editorCell = EditorCell_Component.createComponentCell(getEditorContext(), myNode, _QueryFunction_JComponent_vd652s_a0c0(), "JComponent_vd652s_a2a");
+    editorCell.setCellId("JComponent_vd652s_a2a_0");
+    return editorCell;
+  }
+  private JComponent _QueryFunction_JComponent_vd652s_a0c0() {
+    return ButtonFactory.addDocumentation(getEditorContext(), myNode);
+  }
+  private EditorCell createCollection_4() {
+    EditorCell_Collection editorCell = new EditorCell_Collection(getEditorContext(), myNode, new CellLayout_Horizontal());
+    editorCell.setCellId("Collection_vd652s_d0");
+    Style style = new StyleImpl();
+    style.set(StyleAttributes.SELECTABLE, false);
+    editorCell.getStyle().putAll(style);
+    editorCell.addEditorCell(createJComponent_1());
+    return editorCell;
+  }
+  private EditorCell createJComponent_1() {
+    EditorCell editorCell = EditorCell_Component.createComponentCell(getEditorContext(), myNode, _QueryFunction_JComponent_vd652s_a0d0(), "JComponent_vd652s_a3a");
+    editorCell.setCellId("JComponent_vd652s_a3a_0");
+    return editorCell;
+  }
+  private JComponent _QueryFunction_JComponent_vd652s_a0d0() {
+    return ButtonFactory.removeDocumentation(getEditorContext(), myNode);
+  }
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink docs$95P3 = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228bL, 0x6579f899e5d902d7L, "docs");
     /*package*/ static final SContainmentLink body$1GE0 = MetaAdapterFactory.getContainmentLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x595522006a5b97e1L, 0x3a16e3a9c7ad9954L, "body");
-  }
-
-  private static final class CONCEPTS {
-    /*package*/ static final SConcept ImplementsExternalFunction$fm = MetaAdapterFactory.getConcept(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x784970cb60159ea5L, "com.mbeddr.core.modules.structure.ImplementsExternalFunction");
   }
 }

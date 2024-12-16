@@ -112,7 +112,7 @@
     </language>
   </registry>
   <node concept="2S6QgY" id="6lTY9B_Qbxk">
-    <property role="TrG5h" value="AddDocumentation" />
+    <property role="TrG5h" value="AddDocumentationToFunction" />
     <ref role="2ZfgGC" to="rdv6:6WQN7vgLyab" resolve="ExternalFunction" />
     <node concept="2S6ZIM" id="6lTY9B_Qbxl" role="2ZfVej">
       <node concept="3clFbS" id="6lTY9B_Qbxm" role="2VODD2">
@@ -231,7 +231,7 @@
     </node>
   </node>
   <node concept="2S6QgY" id="6lTY9B_Yl3T">
-    <property role="TrG5h" value="RemoveDocumentation" />
+    <property role="TrG5h" value="RemoveDocumentationFromFunction" />
     <ref role="2ZfgGC" to="rdv6:6WQN7vgLyab" resolve="ExternalFunction" />
     <node concept="2S6ZIM" id="6lTY9B_Yl3U" role="2ZfVej">
       <node concept="3clFbS" id="6lTY9B_Yl3V" role="2VODD2">
@@ -268,6 +268,99 @@
               </node>
             </node>
             <node concept="3x8VRR" id="6lTY9B_Yvl7" role="2OqNvi" />
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
+  <node concept="2S6QgY" id="7jow01kbMqX">
+    <property role="TrG5h" value="AddDocumentationToHandler" />
+    <ref role="2ZfgGC" to="rdv6:2R3DD23rX3g" resolve="EventHandler" />
+    <node concept="2S6ZIM" id="7jow01kbMqY" role="2ZfVej">
+      <node concept="3clFbS" id="7jow01kbMqZ" role="2VODD2">
+        <node concept="3clFbF" id="7jow01kbYbR" role="3cqZAp">
+          <node concept="Xl_RD" id="7jow01kbYbQ" role="3clFbG">
+            <property role="Xl_RC" value="Add Documentation" />
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="2Sbjvc" id="7jow01kbMr0" role="2ZfgGD">
+      <node concept="3clFbS" id="7jow01kbMr1" role="2VODD2">
+        <node concept="3clFbF" id="7jow01kc7oF" role="3cqZAp">
+          <node concept="37vLTI" id="7jow01kc8ab" role="3clFbG">
+            <node concept="2ShNRf" id="7jow01kc8fn" role="37vLTx">
+              <node concept="3zrR0B" id="7jow01kc8di" role="2ShVmc">
+                <node concept="3Tqbb2" id="7jow01kc8dj" role="3zrR0E">
+                  <ref role="ehGHo" to="rdv6:7jow01kbMpM" resolve="EventHandlerDocs" />
+                </node>
+              </node>
+            </node>
+            <node concept="2OqwBi" id="7jow01kc7zL" role="37vLTJ">
+              <node concept="2Sf5sV" id="7jow01kc7oE" role="2Oq$k0" />
+              <node concept="3TrEf2" id="7jow01kc7NE" role="2OqNvi">
+                <ref role="3Tt5mk" to="rdv6:7jow01keyEx" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="7jow01kc8h2" role="3cqZAp">
+          <node concept="37vLTI" id="7jow01kc9A_" role="3clFbG">
+            <node concept="2Sf5sV" id="7jow01kc9Gb" role="37vLTx" />
+            <node concept="2OqwBi" id="7jow01kc8Ra" role="37vLTJ">
+              <node concept="2OqwBi" id="7jow01kc8sq" role="2Oq$k0">
+                <node concept="2Sf5sV" id="7jow01kc8h1" role="2Oq$k0" />
+                <node concept="3TrEf2" id="7jow01kc8Fo" role="2OqNvi">
+                  <ref role="3Tt5mk" to="rdv6:7jow01keyEx" />
+                </node>
+              </node>
+              <node concept="3TrEf2" id="7jow01kc9dd" role="2OqNvi">
+                <ref role="3Tt5mk" to="rdv6:7jow01kbMpO" resolve="handler" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
+  <node concept="2S6QgY" id="7jow01kcaw6">
+    <property role="TrG5h" value="RemoveDocumentationFromHandler" />
+    <ref role="2ZfgGC" to="rdv6:2R3DD23rX3g" resolve="EventHandler" />
+    <node concept="2S6ZIM" id="7jow01kcaw7" role="2ZfVej">
+      <node concept="3clFbS" id="7jow01kcaw8" role="2VODD2">
+        <node concept="3clFbF" id="7jow01kcaN1" role="3cqZAp">
+          <node concept="Xl_RD" id="7jow01kcaN0" role="3clFbG">
+            <property role="Xl_RC" value="Remove Documentation" />
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="2Sbjvc" id="7jow01kcaw9" role="2ZfgGD">
+      <node concept="3clFbS" id="7jow01kcawa" role="2VODD2">
+        <node concept="3clFbF" id="7jow01kceP$" role="3cqZAp">
+          <node concept="37vLTI" id="7jow01kcfAs" role="3clFbG">
+            <node concept="10Nm6u" id="7jow01kcfAU" role="37vLTx" />
+            <node concept="2OqwBi" id="7jow01kcf0E" role="37vLTJ">
+              <node concept="2Sf5sV" id="7jow01kcePz" role="2Oq$k0" />
+              <node concept="3TrEf2" id="7jow01kcffX" role="2OqNvi">
+                <ref role="3Tt5mk" to="rdv6:7jow01keyEx" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="2SaL7w" id="7jow01kcb$B" role="2ZfVeh">
+      <node concept="3clFbS" id="7jow01kcb$C" role="2VODD2">
+        <node concept="3clFbF" id="7jow01kcbMy" role="3cqZAp">
+          <node concept="2OqwBi" id="7jow01kcdWm" role="3clFbG">
+            <node concept="2OqwBi" id="7jow01kcccT" role="2Oq$k0">
+              <node concept="2Sf5sV" id="7jow01kcbMx" role="2Oq$k0" />
+              <node concept="3TrEf2" id="7jow01kcd5C" role="2OqNvi">
+                <ref role="3Tt5mk" to="rdv6:7jow01keyEx" />
+              </node>
+            </node>
+            <node concept="3x8VRR" id="7jow01kcewK" role="2OqNvi" />
           </node>
         </node>
       </node>

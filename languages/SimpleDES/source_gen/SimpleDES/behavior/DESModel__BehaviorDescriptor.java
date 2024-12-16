@@ -16,6 +16,7 @@ import org.jetbrains.annotations.NotNull;
 import com.mbeddr.core.modules.behavior.Module__BehaviorDescriptor;
 import java.util.ArrayList;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
@@ -37,7 +38,8 @@ public final class DESModel__BehaviorDescriptor extends BaseBHDescriptor {
   /*package*/ static Iterable<SNode> allReferenceableContentsInChunk_id6clJcrKmVSn(@NotNull SNode __thisNode__) {
     List<SNode> base = Module__BehaviorDescriptor.flattenedContents_id5DwX9xlFNJe.invokeSpecial(__thisNode__);
     List<SNode> added = new ArrayList<SNode>();
-    ListSequence.fromList(added).addSequence(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.structs$JAXN)));
+    ListSequence.fromList(added).addSequence(Sequence.fromIterable(SLinkOperations.collect(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, LINKS.structs$JAXN), CONCEPTS.StructDefinition$7R), LINKS.struct$10Oz)));
+    ListSequence.fromList(added).addSequence(Sequence.fromIterable(SLinkOperations.collect(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, LINKS.structs$JAXN), CONCEPTS.ExternalStructDefinition$8P), LINKS.declaration$PHIG)));
     ListSequence.fromList(added).addElement(SLinkOperations.getTarget(__thisNode__, LINKS.state$YYuT));
     ListSequence.fromList(added).addSequence(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.configuration$XHIx)));
     for (SNode function : ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.externalFunctions$LqEg))) {
@@ -109,6 +111,8 @@ public final class DESModel__BehaviorDescriptor extends BaseBHDescriptor {
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink structs$JAXN = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x6e7ca07799a0fb0fL, "structs");
+    /*package*/ static final SContainmentLink struct$10Oz = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x5808433cc497c577L, 0x5808433cc497c57dL, "struct");
+    /*package*/ static final SContainmentLink declaration$PHIG = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x5808433cc497c579L, 0x5808433cc4985d2bL, "declaration");
     /*package*/ static final SContainmentLink state$YYuT = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x68458b9b5dbb0c16L, "state");
     /*package*/ static final SContainmentLink configuration$XHIx = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x3507db05f7c55ff1L, "configuration");
     /*package*/ static final SContainmentLink prototype$lY0a = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228cL, 0x6f36cc77d0d15795L, "prototype");
@@ -118,6 +122,8 @@ public final class DESModel__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   private static final class CONCEPTS {
+    /*package*/ static final SConcept StructDefinition$7R = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x5808433cc497c577L, "SimpleDES.structure.StructDefinition");
+    /*package*/ static final SConcept ExternalStructDefinition$8P = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x5808433cc497c579L, "SimpleDES.structure.ExternalStructDefinition");
     /*package*/ static final SConcept Function$K8 = MetaAdapterFactory.getConcept(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x595522006a5b97e1L, "com.mbeddr.core.modules.structure.Function");
     /*package*/ static final SConcept ExternalFunctionPrototype$V4 = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228cL, "SimpleDES.structure.ExternalFunctionPrototype");
   }

@@ -22,9 +22,11 @@ public class DESModelFactory {
       SNode newEventType = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x7c2c5977e3e10df9L, "SimpleDES.structure.EventType"));
       SPropertyOperations.assign(newEventType, PROPS.name$MnvL, "INIT");
       SNode newEventHandler = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, "SimpleDES.structure.EventHandler"));
-      SLinkOperations.setTarget(newEventHandler, LINKS.event$M7WS, newEventType);
+      SLinkOperations.setTarget(newEventHandler, LINKS.event$5cyK, newEventType);
       EventHandler__BehaviorDescriptor.CreateHandler_id2R3DD23w4Ig.invoke(newEventHandler, "handler_" + SPropertyOperations.getString(newEventType, PROPS.name$MnvL));
-      ListSequence.fromList(SLinkOperations.getChildren(newNode, LINKS.events$uflG)).addElement(newEventType);
+      SNode eventDefinition = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2e66f9a613f69c80L, "SimpleDES.structure.EventDefinition"));
+      SLinkOperations.setTarget(eventDefinition, LINKS.eventType$MGmZ, newEventType);
+      ListSequence.fromList(SLinkOperations.getChildren(newNode, LINKS.events$uflG)).addElement(eventDefinition);
       ListSequence.fromList(SLinkOperations.getChildren(newNode, LINKS.eventHandlers$XNOV)).addElement(newEventHandler);
 
       // Create Topology opaque type
@@ -61,7 +63,8 @@ public class DESModelFactory {
   }
 
   private static final class LINKS {
-    /*package*/ static final SReferenceLink event$M7WS = MetaAdapterFactory.getReferenceLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4644f902f2f0d238L, 0x2dc3a690837ac751L, "event");
+    /*package*/ static final SReferenceLink event$5cyK = MetaAdapterFactory.getReferenceLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x74d88000543a2aa2L, "event");
+    /*package*/ static final SContainmentLink eventType$MGmZ = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2e66f9a613f69c80L, 0x2e66f9a613f69c82L, "eventType");
     /*package*/ static final SContainmentLink events$uflG = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x2dc3a69083753b9fL, "events");
     /*package*/ static final SContainmentLink eventHandlers$XNOV = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x3507db05f7c55ff6L, "eventHandlers");
     /*package*/ static final SContainmentLink opaqueTypes$lHSV = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x6f36cc77d0d825c5L, "opaqueTypes");

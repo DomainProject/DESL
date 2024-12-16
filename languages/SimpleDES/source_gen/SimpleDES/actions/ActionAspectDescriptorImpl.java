@@ -18,7 +18,7 @@ public class ActionAspectDescriptorImpl extends BaseActionAspectDescriptor imple
       switch (concept.getName()) {
         case "DESModel":
           return Collections.<NodeFactory>singletonList(new DESModelFactory.NodeFactory_3297662491776892432());
-        case "Handler":
+        case "EventHandler":
           return Collections.<NodeFactory>singletonList(new HandlerFactory.NodeFactory_5103575337110310022());
         case "StartupFunction":
           return Collections.<NodeFactory>singletonList(new StartupFunctionFactory.NodeFactory_8013817401925998386());

@@ -22,16 +22,16 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
-public final class AddDocumentation_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
+public final class AddDocumentationToFunction_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
 
-  public AddDocumentation_Intention() {
+  public AddDocumentationToFunction_Intention() {
     super(Kind.NORMAL, false, new SNodePointer("r:82324c7e-502f-4c1e-82ff-000ec785c25b(SimpleDES.intentions)", "7312148809882581076"));
   }
 
   @Override
   public String getPresentation() {
-    return "AddDocumentation";
+    return "AddDocumentationToFunction";
   }
 
   @Override
@@ -74,7 +74,7 @@ public final class AddDocumentation_Intention extends AbstractIntentionDescripto
 
     @Override
     public IntentionDescriptor getDescriptor() {
-      return AddDocumentation_Intention.this;
+      return AddDocumentationToFunction_Intention.this;
     }
 
   }

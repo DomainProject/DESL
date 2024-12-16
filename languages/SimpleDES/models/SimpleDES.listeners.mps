@@ -52,10 +52,18 @@
         <child id="1144104376918" name="parameter" index="1xVPHs" />
       </concept>
       <concept id="1179409122411" name="jetbrains.mps.lang.smodel.structure.Node_ConceptMethodCall" flags="nn" index="2qgKlT" />
+      <concept id="4693937538533521280" name="jetbrains.mps.lang.smodel.structure.OfConceptOperation" flags="ng" index="v3k3i">
+        <child id="4693937538533538124" name="requestedConcept" index="v3oSu" />
+      </concept>
+      <concept id="2396822768958367367" name="jetbrains.mps.lang.smodel.structure.AbstractTypeCastExpression" flags="nn" index="$5XWr">
+        <child id="6733348108486823193" name="leftExpression" index="1m5AlR" />
+        <child id="3906496115198199033" name="conceptArgument" index="3oSUPX" />
+      </concept>
       <concept id="1171407110247" name="jetbrains.mps.lang.smodel.structure.Node_GetAncestorOperation" flags="nn" index="2Xjw5R" />
       <concept id="1144101972840" name="jetbrains.mps.lang.smodel.structure.OperationParm_Concept" flags="ng" index="1xMEDy">
         <child id="1207343664468" name="conceptArgument" index="ri$Ld" />
       </concept>
+      <concept id="1140137987495" name="jetbrains.mps.lang.smodel.structure.SNodeTypeCastExpression" flags="nn" index="1PxgMI" />
       <concept id="1138056143562" name="jetbrains.mps.lang.smodel.structure.SLinkAccess" flags="nn" index="3TrEf2">
         <reference id="1138056516764" name="link" index="3Tt5mk" />
       </concept>
@@ -123,19 +131,26 @@
               <node concept="2GrKxI" id="6x5yTHtKiiu" role="2Gsz3X">
                 <property role="TrG5h" value="handler" />
               </node>
-              <node concept="2OqwBi" id="6x5yTHtKkPd" role="2GsD0m">
-                <node concept="2OqwBi" id="6x5yTHtKiJ9" role="2Oq$k0">
-                  <node concept="j_vvf" id="6x5yTHtKijD" role="2Oq$k0" />
-                  <node concept="2Xjw5R" id="6x5yTHtKkhA" role="2OqNvi">
-                    <node concept="1xMEDy" id="6x5yTHtKkhC" role="1xVPHs">
-                      <node concept="chp4Y" id="6x5yTHtKkkl" role="ri$Ld">
-                        <ref role="cht4Q" to="rdv6:1FqAw$nj9oK" resolve="DESModel" />
+              <node concept="2OqwBi" id="6UO3mnNfn6E" role="2GsD0m">
+                <node concept="2OqwBi" id="6x5yTHtKkPd" role="2Oq$k0">
+                  <node concept="2OqwBi" id="6x5yTHtKiJ9" role="2Oq$k0">
+                    <node concept="j_vvf" id="6x5yTHtKijD" role="2Oq$k0" />
+                    <node concept="2Xjw5R" id="6x5yTHtKkhA" role="2OqNvi">
+                      <node concept="1xMEDy" id="6x5yTHtKkhC" role="1xVPHs">
+                        <node concept="chp4Y" id="6x5yTHtKkkl" role="ri$Ld">
+                          <ref role="cht4Q" to="rdv6:1FqAw$nj9oK" resolve="DESModel" />
+                        </node>
                       </node>
                     </node>
                   </node>
+                  <node concept="3Tsc0h" id="6x5yTHtKlFl" role="2OqNvi">
+                    <ref role="3TtcxE" to="rdv6:3k7QKnRLlZQ" resolve="eventHandlers" />
+                  </node>
                 </node>
-                <node concept="3Tsc0h" id="6x5yTHtKlFl" role="2OqNvi">
-                  <ref role="3TtcxE" to="rdv6:3k7QKnRLlZQ" resolve="eventHandlers" />
+                <node concept="v3k3i" id="6UO3mnNfr$_" role="2OqNvi">
+                  <node concept="chp4Y" id="6UO3mnNfrQ4" role="v3oSu">
+                    <ref role="cht4Q" to="rdv6:2R3DD23rX3g" resolve="EventHandler" />
+                  </node>
                 </node>
               </node>
               <node concept="3clFbS" id="6x5yTHtKiiw" role="2LFqv$">
@@ -169,7 +184,12 @@
       <node concept="3clFbS" id="6x5yTHtLOK4" role="2VODD2">
         <node concept="3clFbF" id="6x5yTHtLQ63" role="3cqZAp">
           <node concept="2OqwBi" id="6x5yTHtLQh7" role="3clFbG">
-            <node concept="j_sak" id="6x5yTHtLQ62" role="2Oq$k0" />
+            <node concept="1PxgMI" id="6UO3mnNfhQq" role="2Oq$k0">
+              <node concept="chp4Y" id="6UO3mnNfi65" role="3oSUPX">
+                <ref role="cht4Q" to="rdv6:2R3DD23rX3g" resolve="EventHandler" />
+              </node>
+              <node concept="j_sak" id="6x5yTHtLQ62" role="1m5AlR" />
+            </node>
             <node concept="2qgKlT" id="6x5yTHtLQs$" role="2OqNvi">
               <ref role="37wK5l" to="ws6g:6x5yTHtJLeY" resolve="CreateStateArgument" />
               <node concept="2OqwBi" id="6x5yTHtLTxN" role="37wK5m">

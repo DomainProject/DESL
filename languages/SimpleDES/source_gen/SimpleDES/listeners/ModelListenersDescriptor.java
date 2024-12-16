@@ -11,6 +11,7 @@ import com.mbeddr.mpsutil.modellisteners.runtime.PropertyListener;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.internal.collections.runtime.Sequence;
 import SimpleDES.behavior.EventHandler__BehaviorDescriptor;
 import com.mbeddr.core.modules.behavior.ITypeDeclaration__BehaviorDescriptor;
 import com.mbeddr.mpsutil.modellisteners.runtime.ChildListener;
@@ -30,7 +31,7 @@ public class ModelListenersDescriptor implements IModelListenersDescriptor {
       @Override
       public void propertyChanged(final SNode instance, String propertyName, String oldValue, String newValue) {
         if (instance == SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(instance, CONCEPTS.DESModel$DK, false, false), LINKS.state$YYuT)) {
-          for (SNode handler : ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.getNodeAncestor(instance, CONCEPTS.DESModel$DK, false, false), LINKS.eventHandlers$XNOV))) {
+          for (SNode handler : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(SNodeOperations.getNodeAncestor(instance, CONCEPTS.DESModel$DK, false, false), LINKS.eventHandlers$XNOV), CONCEPTS.EventHandler$Ov))) {
             EventHandler__BehaviorDescriptor.CreateStateArgument_id6x5yTHtJLeY.invoke(handler, ITypeDeclaration__BehaviorDescriptor.createType_id3o2OLGv7CoR.invoke(instance));
           }
         }
@@ -39,7 +40,7 @@ public class ModelListenersDescriptor implements IModelListenersDescriptor {
     ListSequence.fromList(listeners).addElement(new ChildListener(CONCEPTS.DESModel$DK, LINKS.eventHandlers$XNOV) {
       @Override
       public void childAdded(final SNode instance, final SNode child) {
-        EventHandler__BehaviorDescriptor.CreateStateArgument_id6x5yTHtJLeY.invoke(child, ITypeDeclaration__BehaviorDescriptor.createType_id3o2OLGv7CoR.invoke(SLinkOperations.getTarget(instance, LINKS.state$YYuT)));
+        EventHandler__BehaviorDescriptor.CreateStateArgument_id6x5yTHtJLeY.invoke(SNodeOperations.cast(child, CONCEPTS.EventHandler$Ov), ITypeDeclaration__BehaviorDescriptor.createType_id3o2OLGv7CoR.invoke(SLinkOperations.getTarget(instance, LINKS.state$YYuT)));
       }
     });
 
@@ -49,6 +50,7 @@ public class ModelListenersDescriptor implements IModelListenersDescriptor {
   private static final class CONCEPTS {
     /*package*/ static final SConcept StructDeclaration$ox = MetaAdapterFactory.getConcept(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x58bef62304fc0a2fL, "com.mbeddr.core.udt.structure.StructDeclaration");
     /*package*/ static final SConcept DESModel$DK = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, "SimpleDES.structure.DESModel");
+    /*package*/ static final SConcept EventHandler$Ov = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, "SimpleDES.structure.EventHandler");
   }
 
   private static final class PROPS {
