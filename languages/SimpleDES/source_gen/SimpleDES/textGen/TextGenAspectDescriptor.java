@@ -10,8 +10,10 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.text.rt.TextGenModelOutline;
 import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class TextGenAspectDescriptor extends TextGenAspectBase {
   private final LanguageConceptSwitch myIndex = new LanguageConceptSwitch();
@@ -25,8 +27,26 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
     switch (myIndex.index(concept)) {
       case LanguageConceptSwitch.DocsM2M:
         return new DocsM2M_TextGen();
+      case LanguageConceptSwitch.EmptyLine:
+        return new EmptyLine_TextGen();
+      case LanguageConceptSwitch.EventDocs:
+        return new EventDocs_TextGen();
+      case LanguageConceptSwitch.EventHandler:
+        return new EventHandler_TextGen();
+      case LanguageConceptSwitch.EventHandlerDocs:
+        return new EventHandlerDocs_TextGen();
+      case LanguageConceptSwitch.ExternalFunctionPrototype:
+        return new ExternalFunctionPrototype_TextGen();
+      case LanguageConceptSwitch.ExternalStructDefinition:
+        return new ExternalStructDefinition_TextGen();
+      case LanguageConceptSwitch.FunctionDocs:
+        return new FunctionDocs_TextGen();
+      case LanguageConceptSwitch.ParameterDocs:
+        return new ParameterDocs_TextGen();
       case LanguageConceptSwitch.RootSimM2M:
         return new RootSimM2M_TextGen();
+      case LanguageConceptSwitch.StructDefinition:
+        return new StructDefinition_TextGen();
     }
     return null;
   }
@@ -49,13 +69,13 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
     }
   }
   private static String getFileName_DocsM2M(SNode node) {
-    return node.getName();
+    return SPropertyOperations.getString(node, PROPS.name$MnvL);
   }
   private static String getFileName_RootSimM2M(SNode node) {
     return node.getName();
   }
   private static String getFileExtension_DocsM2M(SNode node) {
-    return null;
+    return "md";
   }
   private static String getFileExtension_RootSimM2M(SNode node) {
     return null;
@@ -64,5 +84,9 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
   private static final class CONCEPTS {
     /*package*/ static final SConcept DocsM2M$wA = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2e66f9a61334f362L, "SimpleDES.structure.DocsM2M");
     /*package*/ static final SConcept RootSimM2M$x5 = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2e66f9a61334f363L, "SimpleDES.structure.RootSimM2M");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

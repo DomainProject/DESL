@@ -118,7 +118,6 @@
     <dependency reexport="false">f3ed62ca-3490-40d0-890b-9b3133cc2ead(com.mbeddr.cc.requirements.c)</dependency>
     <dependency reexport="false">99e1808b-e2d7-4c11-a40f-23376c03dda3(Collections)</dependency>
     <dependency reexport="false">c7fb639f-be78-4307-89b0-b5959c3fa8c8(jetbrains.mps.lang.text)</dependency>
-    <dependency reexport="false">a9a262e8-f805-4598-88c6-14f38937d309(Chemistry)</dependency>
   </dependencies>
   <languageVersions>
     <language slang="l:309e0004-4976-4416-b947-ec02ae4ecef2:com.mbeddr.mpsutil.modellisteners" version="0" />
