@@ -15,7 +15,10 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_ForEachItemInCollection;
   private ConceptPresentation props_ForeachBody;
   private ConceptPresentation props_ICollectionDotTarget;
+  private ConceptPresentation props_IGetFirstElementInCollection;
   private ConceptPresentation props_NewCollection;
+  private ConceptPresentation props_RemoveFirst;
+  private ConceptPresentation props_RemoveFromCollection;
   private ConceptPresentation props_VariableReference;
 
   @Override
@@ -65,6 +68,12 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_ICollectionDotTarget = cpb.create();
         }
         return props_ICollectionDotTarget;
+      case LanguageConceptSwitch.IGetFirstElementInCollection:
+        if (props_IGetFirstElementInCollection == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          props_IGetFirstElementInCollection = cpb.create();
+        }
+        return props_IGetFirstElementInCollection;
       case LanguageConceptSwitch.NewCollection:
         if (props_NewCollection == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -72,6 +81,21 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_NewCollection = cpb.create();
         }
         return props_NewCollection;
+      case LanguageConceptSwitch.RemoveFirst:
+        if (props_RemoveFirst == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.shortDesc("remove the first element in a collection that satifies a condition");
+          cpb.rawPresentation("removeFirst");
+          props_RemoveFirst = cpb.create();
+        }
+        return props_RemoveFirst;
+      case LanguageConceptSwitch.RemoveFromCollection:
+        if (props_RemoveFromCollection == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("remove");
+          props_RemoveFromCollection = cpb.create();
+        }
+        return props_RemoveFromCollection;
       case LanguageConceptSwitch.VariableReference:
         if (props_VariableReference == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

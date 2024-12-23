@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<product version="3" modelHash="-6fdxoyzbjhmecwh6fhg5buvnbouxb3c">
-  <files names="BehaviorAspectDescriptor.java:FindFirst__BehaviorDescriptor.java:ForeachBody__BehaviorDescriptor.java:ICollectionDotTarget__BehaviorDescriptor.java" />
+<product version="3" modelHash="6cg4xzubla6hnznub9ps9bxfyjkoytt">
+  <files names="BehaviorAspectDescriptor.java:FindFirst__BehaviorDescriptor.java:ForeachBody__BehaviorDescriptor.java:ICollectionDotTarget__BehaviorDescriptor.java:IGetFirstElementInCollection__BehaviorDescriptor.java" />
 </product>
 

@@ -40,8 +40,7 @@ public final class DESModel__BehaviorDescriptor extends BaseBHDescriptor {
     List<SNode> added = new ArrayList<SNode>();
     ListSequence.fromList(added).addSequence(Sequence.fromIterable(SLinkOperations.collect(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, LINKS.structs$JAXN), CONCEPTS.StructDefinition$7R), LINKS.struct$10Oz)));
     ListSequence.fromList(added).addSequence(Sequence.fromIterable(SLinkOperations.collect(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, LINKS.structs$JAXN), CONCEPTS.ExternalStructDefinition$8P), LINKS.declaration$PHIG)));
-    ListSequence.fromList(added).addElement(SLinkOperations.getTarget(__thisNode__, LINKS.state$YYuT));
-    ListSequence.fromList(added).addSequence(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.configuration$XHIx)));
+    ListSequence.fromList(added).addSequence(Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, LINKS.configuration$XHIx), CONCEPTS.GlobalVarDecl$PV)));
     for (SNode function : ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.externalFunctions$LqEg))) {
       {
         final SNode f = function;
@@ -56,9 +55,13 @@ public final class DESModel__BehaviorDescriptor extends BaseBHDescriptor {
         }
       }
     }
-    ListSequence.fromList(added).addSequence(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.constants$f8yu)));
-    ListSequence.fromList(added).addSequence(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.typedefs$4qMf)));
-
+    ListSequence.fromList(added).addSequence(Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, LINKS.macros$Sq68), CONCEPTS.MacroVariable$z9)));
+    ListSequence.fromList(added).addSequence(Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, LINKS.macros$Sq68), CONCEPTS.MacroFunction$$7)));
+    ListSequence.fromList(added).addSequence(Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, LINKS.macros$Sq68), CONCEPTS.ExternalMacro$H2)));
+    ListSequence.fromList(added).addSequence(Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, LINKS.typedefs$4qMf), CONCEPTS.TypeDefinition$Jr)));
+    for (SNode entity : ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.classes$SNAM))) {
+      ListSequence.fromList(added).addElement(SLinkOperations.getTarget(entity, LINKS.state$NqNO));
+    }
     ListSequence.fromList(base).addSequence(ListSequence.fromList(added));
     return base;
   }
@@ -113,18 +116,24 @@ public final class DESModel__BehaviorDescriptor extends BaseBHDescriptor {
     /*package*/ static final SContainmentLink structs$JAXN = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x6e7ca07799a0fb0fL, "structs");
     /*package*/ static final SContainmentLink struct$10Oz = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x5808433cc497c577L, 0x5808433cc497c57dL, "struct");
     /*package*/ static final SContainmentLink declaration$PHIG = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x5808433cc497c579L, 0x5808433cc4985d2bL, "declaration");
-    /*package*/ static final SContainmentLink state$YYuT = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x68458b9b5dbb0c16L, "state");
     /*package*/ static final SContainmentLink configuration$XHIx = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x3507db05f7c55ff1L, "configuration");
     /*package*/ static final SContainmentLink prototype$lY0a = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228cL, 0x6f36cc77d0d15795L, "prototype");
     /*package*/ static final SContainmentLink externalFunctions$LqEg = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x6f36cc77d0a2c4ceL, "externalFunctions");
-    /*package*/ static final SContainmentLink constants$f8yu = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x419685d70bf1552fL, "constants");
+    /*package*/ static final SContainmentLink macros$Sq68 = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x74450034d00e6949L, "macros");
     /*package*/ static final SContainmentLink typedefs$4qMf = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x726080b55108e3b4L, "typedefs");
+    /*package*/ static final SContainmentLink state$NqNO = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x4117a694e5b8c1a2L, "state");
+    /*package*/ static final SContainmentLink classes$SNAM = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x4117a694e5ba8536L, "classes");
   }
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept StructDefinition$7R = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x5808433cc497c577L, "SimpleDES.structure.StructDefinition");
     /*package*/ static final SConcept ExternalStructDefinition$8P = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x5808433cc497c579L, "SimpleDES.structure.ExternalStructDefinition");
+    /*package*/ static final SConcept GlobalVarDecl$PV = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4ba181fb0880155eL, "SimpleDES.structure.GlobalVarDecl");
     /*package*/ static final SConcept Function$K8 = MetaAdapterFactory.getConcept(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x595522006a5b97e1L, "com.mbeddr.core.modules.structure.Function");
     /*package*/ static final SConcept ExternalFunctionPrototype$V4 = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228cL, "SimpleDES.structure.ExternalFunctionPrototype");
+    /*package*/ static final SConcept MacroVariable$z9 = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x74450034d00e6945L, "SimpleDES.structure.MacroVariable");
+    /*package*/ static final SConcept MacroFunction$$7 = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x74450034d00e6947L, "SimpleDES.structure.MacroFunction");
+    /*package*/ static final SConcept ExternalMacro$H2 = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x28a47bf149ea91f0L, "SimpleDES.structure.ExternalMacro");
+    /*package*/ static final SConcept TypeDefinition$Jr = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4ba181fb0873ae26L, "SimpleDES.structure.TypeDefinition");
   }
 }

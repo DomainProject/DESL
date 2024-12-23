@@ -137,29 +137,9 @@
     <property role="TrG5h" value="FindFirst" />
     <property role="34LRSv" value="findFirst" />
     <property role="R4oN_" value="find the first element in a collection that satisfies a condition" />
-    <ref role="1TJDcQ" to="tpck:gw2VY9q" />
-    <node concept="1TJgyj" id="3UB6E8djoy3" role="1TKVEi">
-      <property role="IQ2ns" value="4514606434772420739" />
-      <property role="20lmBu" value="fLJjDmT/aggregation" />
-      <property role="20kJfa" value="condition" />
-      <ref role="20lvS9" to="c4fa:3CmSUB7FmO3" resolve="Statement" />
-    </node>
-    <node concept="1TJgyj" id="3UB6E8dnTdu" role="1TKVEi">
-      <property role="IQ2ns" value="4514606434773603166" />
-      <property role="20lmBu" value="fLJjDmT/aggregation" />
-      <property role="20kJfa" value="variable" />
-      <ref role="20lvS9" to="c4fa:3CmSUB7FprA" resolve="LocalVariableDeclaration" />
-    </node>
-    <node concept="PrWs8" id="3UB6E8djoBb" role="PzmwI">
-      <ref role="PrY4T" node="3UB6E8dkw2_" resolve="ICollectionDotTarget" />
-    </node>
-    <node concept="PrWs8" id="3UB6E8dq0ve" role="PzmwI">
-      <ref role="PrY4T" to="c4fa:1OcdQnySJNS" resolve="ILocalVarScopeProvider" />
-    </node>
-    <node concept="1TJgyi" id="3UB6E8dnTd_" role="1TKVEl">
-      <property role="IQ2nx" value="4514606434773603173" />
-      <property role="TrG5h" value="variableName" />
-      <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
+    <node concept="PrWs8" id="7h503jfTBwg" role="PzmwI">
+      <ref role="PrY4T" node="7h503jfTyeG" resolve="IGetFirstElementInCollection" />
     </node>
   </node>
   <node concept="PlHQZ" id="3UB6E8dkw2_">
@@ -167,6 +147,57 @@
     <property role="TrG5h" value="ICollectionDotTarget" />
     <node concept="PrWs8" id="3UB6E8dkw2A" role="PrDN$">
       <ref role="PrY4T" to="mj1l:40tXLnqhXcx" resolve="IGenericDotTarget" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="7h503jfTxvO">
+    <property role="EcuMT" value="8378102908618938356" />
+    <property role="TrG5h" value="RemoveFirst" />
+    <property role="34LRSv" value="removeFirst" />
+    <property role="R4oN_" value="remove the first element in a collection that satifies a condition" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
+    <node concept="PrWs8" id="7h503jfTBwh" role="PzmwI">
+      <ref role="PrY4T" node="7h503jfTyeG" resolve="IGetFirstElementInCollection" />
+    </node>
+  </node>
+  <node concept="PlHQZ" id="7h503jfTyeG">
+    <property role="EcuMT" value="8378102908618941356" />
+    <property role="TrG5h" value="IGetFirstElementInCollection" />
+    <node concept="1TJgyj" id="7h503jfTyeI" role="1TKVEi">
+      <property role="IQ2ns" value="8378102908618941358" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="condition" />
+      <ref role="20lvS9" to="c4fa:3CmSUB7FmO3" resolve="Statement" />
+    </node>
+    <node concept="1TJgyj" id="7h503jfTyeJ" role="1TKVEi">
+      <property role="IQ2ns" value="8378102908618941359" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="variable" />
+      <ref role="20lvS9" to="c4fa:3CmSUB7FprA" resolve="LocalVariableDeclaration" />
+    </node>
+    <node concept="1TJgyi" id="7h503jfTyeH" role="1TKVEl">
+      <property role="IQ2nx" value="8378102908618941357" />
+      <property role="TrG5h" value="variableName" />
+      <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
+    </node>
+    <node concept="PrWs8" id="7h503jfTAso" role="PrDN$">
+      <ref role="PrY4T" node="3UB6E8dkw2_" resolve="ICollectionDotTarget" />
+    </node>
+    <node concept="PrWs8" id="7h503jfTAsp" role="PrDN$">
+      <ref role="PrY4T" to="c4fa:1OcdQnySJNS" resolve="ILocalVarScopeProvider" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="7h503jg19jO">
+    <property role="EcuMT" value="8378102908620936436" />
+    <property role="TrG5h" value="RemoveFromCollection" />
+    <property role="34LRSv" value="remove" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
+    <node concept="PrWs8" id="7h503jg19jP" role="PzmwI">
+      <ref role="PrY4T" node="3UB6E8dkw2_" resolve="ICollectionDotTarget" />
+    </node>
+    <node concept="1TJgyj" id="7h503jg19jR" role="1TKVEi">
+      <property role="IQ2ns" value="8378102908620936439" />
+      <property role="20kJfa" value="variable" />
+      <ref role="20lvS9" to="mj1l:1LDGRqyYkTP" resolve="IVariableDeclaration" />
     </node>
   </node>
 </model>

@@ -15,6 +15,7 @@ public final class BehaviorAspectDescriptor extends BaseBehaviorAspectDescriptor
   private final BHDescriptor myForeachBody__BehaviorDescriptor = new ForeachBody__BehaviorDescriptor();
   private final BHDescriptor myFindFirst__BehaviorDescriptor = new FindFirst__BehaviorDescriptor();
   private final BHDescriptor myICollectionDotTarget__BehaviorDescriptor = new ICollectionDotTarget__BehaviorDescriptor();
+  private final BHDescriptor myIGetFirstElementInCollection__BehaviorDescriptor = new IGetFirstElementInCollection__BehaviorDescriptor();
 
   public BehaviorAspectDescriptor() {
   }
@@ -29,9 +30,11 @@ public final class BehaviorAspectDescriptor extends BaseBehaviorAspectDescriptor
         return myForeachBody__BehaviorDescriptor;
       case 2:
         return myICollectionDotTarget__BehaviorDescriptor;
+      case 3:
+        return myIGetFirstElementInCollection__BehaviorDescriptor;
       default:
     }
     return null;
   }
-  private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x3ea71aa20d4d8882L), MetaIdFactory.conceptId(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x259b4ab975eac219L), MetaIdFactory.conceptId(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x3ea71aa20d5200a5L)).seal();
+  private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x3ea71aa20d4d8882L), MetaIdFactory.conceptId(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x259b4ab975eac219L), MetaIdFactory.conceptId(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x3ea71aa20d5200a5L), MetaIdFactory.conceptId(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x74450034cfe623acL)).seal();
 }

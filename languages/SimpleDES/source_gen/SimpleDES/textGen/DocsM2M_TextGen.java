@@ -9,14 +9,14 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.traceable.behavior.UnitConcept__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class DocsM2M_TextGen extends TextGenDescriptorBase {
   @Override
@@ -39,15 +39,15 @@ public class DocsM2M_TextGen extends TextGenDescriptorBase {
     tgs.newLine();
     for (SNode event : ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.events$uflG))) {
       tgs.append("- `");
-      tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(event, LINKS.eventType$MGmZ), PROPS.name$MnvL));
+      tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(SNodeOperations.cast(event, CONCEPTS.EventDefinition$wO), LINKS.eventType$MGmZ), PROPS.name$MnvL));
       tgs.append("`");
-      if ((SLinkOperations.getTarget(SLinkOperations.getTarget(event, LINKS.docs$MHy4), LINKS.description$lsoR) != null)) {
+      if ((SLinkOperations.getTarget(SLinkOperations.getTarget(SNodeOperations.cast(event, CONCEPTS.EventDefinition$wO), LINKS.docs$MHy4), LINKS.description$lsoR) != null)) {
         tgs.append(": ");
         tgs.newLine();
       } else {
         tgs.newLine();
       }
-      tgs.appendNode(SLinkOperations.getTarget(event, LINKS.docs$MHy4));
+      tgs.appendNode(SLinkOperations.getTarget(SNodeOperations.cast(event, CONCEPTS.EventDefinition$wO), LINKS.docs$MHy4));
     }
 
     tgs.newLine();
@@ -58,7 +58,7 @@ public class DocsM2M_TextGen extends TextGenDescriptorBase {
     tgs.newLine();
     tgs.append("```c");
     tgs.newLine();
-    for (SNode constant : ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.constants$f8yu))) {
+    for (SNode constant : ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.macros$Sq68))) {
       tgs.appendNode(constant);
     }
     tgs.append("```");
@@ -85,8 +85,6 @@ public class DocsM2M_TextGen extends TextGenDescriptorBase {
     tgs.append("## State");
     tgs.newLine();
     tgs.append("```c");
-    tgs.newLine();
-    tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.state$YYuT));
     tgs.newLine();
     tgs.append("```");
     tgs.newLine();
@@ -157,25 +155,22 @@ public class DocsM2M_TextGen extends TextGenDescriptorBase {
     tgs.append("---");
     tgs.newLine();
 
+    tgs.append("## Startup Code");
+    tgs.newLine();
+    tgs.append("```c");
+    tgs.newLine();
+    for (SNode statement : ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(SLinkOperations.getTarget(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.startup$LlvU), LINKS.function$Ah6u), LINKS.body$1GE0), LINKS.statements$euTV))) {
+      tgs.appendNode(statement);
+      tgs.newLine();
+    }
+    tgs.append("```");
+    tgs.newLine();
+    tgs.newLine();
+    tgs.append("---");
+    tgs.newLine();
+
     tgs.append("## Handlers");
     tgs.newLine();
-    for (SNode handler : ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.eventHandlers$XNOV))) {
-      {
-        final SNode eventHandler = handler;
-        if (SNodeOperations.isInstanceOf(eventHandler, CONCEPTS.EventHandler$Ov)) {
-          if ((SLinkOperations.getTarget(eventHandler, LINKS.docs$5cjJ) != null)) {
-            tgs.appendNode(SLinkOperations.getTarget(eventHandler, LINKS.docs$5cjJ));
-            tgs.append("  ");
-            tgs.newLine();
-          }
-          tgs.append("```c");
-          tgs.newLine();
-          tgs.appendNode(eventHandler);
-          tgs.append("```");
-          tgs.newLine();
-        }
-      }
-    }
     if (tgs.needPositions()) {
       tgs.fillUnitInfo(UnitConcept__BehaviorDescriptor.getUnitName_id4pl5GY7LKmR.invoke(SNodeOperations.cast(ctx.getPrimaryInput(), CONCEPTS.UnitConcept$1g)));
     }
@@ -186,26 +181,27 @@ public class DocsM2M_TextGen extends TextGenDescriptorBase {
     /*package*/ static final SProperty description$4JIv = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x3507db05f7c560b5L, "description");
   }
 
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept EventDefinition$wO = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2e66f9a613f69c80L, "SimpleDES.structure.EventDefinition");
+    /*package*/ static final SConcept ExternalFunctionPrototype$V4 = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228cL, "SimpleDES.structure.ExternalFunctionPrototype");
+    /*package*/ static final SConcept ExternalFunction$U_ = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228bL, "SimpleDES.structure.ExternalFunction");
+    /*package*/ static final SInterfaceConcept UnitConcept$1g = MetaAdapterFactory.getInterfaceConcept(0x9ded098bad6a4657L, 0xbfd948636cfe8bc3L, 0x465516cf87c705a4L, "jetbrains.mps.lang.traceable.structure.UnitConcept");
+  }
+
   private static final class LINKS {
     /*package*/ static final SContainmentLink eventType$MGmZ = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2e66f9a613f69c80L, 0x2e66f9a613f69c82L, "eventType");
     /*package*/ static final SContainmentLink docs$MHy4 = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2e66f9a613f69c80L, 0x2e66f9a613f69c87L, "docs");
     /*package*/ static final SContainmentLink description$lsoR = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6579f899e5fee6d4L, 0x6579f899e5fee6d9L, "description");
     /*package*/ static final SContainmentLink events$uflG = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x2dc3a69083753b9fL, "events");
-    /*package*/ static final SContainmentLink constants$f8yu = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x419685d70bf1552fL, "constants");
+    /*package*/ static final SContainmentLink macros$Sq68 = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x74450034d00e6949L, "macros");
     /*package*/ static final SContainmentLink typedefs$4qMf = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x726080b55108e3b4L, "typedefs");
-    /*package*/ static final SContainmentLink state$YYuT = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x68458b9b5dbb0c16L, "state");
     /*package*/ static final SContainmentLink structs$JAXN = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x6e7ca07799a0fb0fL, "structs");
     /*package*/ static final SContainmentLink externalFunctions$LqEg = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x6f36cc77d0a2c4ceL, "externalFunctions");
     /*package*/ static final SContainmentLink docs$95P3 = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228bL, 0x6579f899e5d902d7L, "docs");
     /*package*/ static final SContainmentLink configuration$XHIx = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x3507db05f7c55ff1L, "configuration");
-    /*package*/ static final SContainmentLink docs$5cjJ = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x74d88000543a2aa1L, "docs");
-    /*package*/ static final SContainmentLink eventHandlers$XNOV = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x3507db05f7c55ff6L, "eventHandlers");
-  }
-
-  private static final class CONCEPTS {
-    /*package*/ static final SConcept ExternalFunctionPrototype$V4 = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228cL, "SimpleDES.structure.ExternalFunctionPrototype");
-    /*package*/ static final SConcept ExternalFunction$U_ = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228bL, "SimpleDES.structure.ExternalFunction");
-    /*package*/ static final SConcept EventHandler$Ov = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, "SimpleDES.structure.EventHandler");
-    /*package*/ static final SInterfaceConcept UnitConcept$1g = MetaAdapterFactory.getInterfaceConcept(0x9ded098bad6a4657L, 0xbfd948636cfe8bc3L, 0x465516cf87c705a4L, "jetbrains.mps.lang.traceable.structure.UnitConcept");
+    /*package*/ static final SContainmentLink startup$LlvU = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x6f36cc77d0a2c4cdL, "startup");
+    /*package*/ static final SContainmentLink function$Ah6u = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0a48d39L, 0x6f36cc77d0a48d3aL, "function");
+    /*package*/ static final SContainmentLink body$1GE0 = MetaAdapterFactory.getContainmentLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x595522006a5b97e1L, 0x3a16e3a9c7ad9954L, "body");
+    /*package*/ static final SContainmentLink statements$euTV = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad9955L, 0x3a16e3a9c7ad9956L, "statements");
   }
 }

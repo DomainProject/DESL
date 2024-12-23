@@ -13,7 +13,7 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1070475587102:jetbrains.mps.baseLanguage.structure.SuperConstructorInvocation" />
   <root>
     <file name="ConstraintsAspectDescriptor.java">
-      <unit at="13,0,37,0" name="SimpleDES.constraints.ConstraintsAspectDescriptor" />
+      <unit at="13,0,41,0" name="SimpleDES.constraints.ConstraintsAspectDescriptor" />
     </file>
   </root>
   <root nodeRef="r:048a4be0-4bfd-44e1-a4fe-33b591fb5056(SimpleDES.constraints)/3297662491775994316">
@@ -62,57 +62,85 @@
   </root>
   <root nodeRef="r:048a4be0-4bfd-44e1-a4fe-33b591fb5056(SimpleDES.constraints)/3326094335675350371">
     <file name="NewStruct_Constraints.java">
-      <node id="3326094335675350371" at="22,34,23,33" concept="10" />
-      <node id="3326094335675350371" at="30,127,31,128" concept="5" />
-      <node id="3326094335675350371" at="31,128,32,0" concept="7" />
-      <node id="3326094335675350371" at="33,55,34,71" concept="2" />
-      <node id="3326094335675350371" at="35,9,36,0" concept="7" />
-      <node id="3326094335675350371" at="36,0,37,22" concept="6" />
-      <node id="3326094335675351237" at="42,5,43,56" concept="5" />
-      <node id="3326094335675351240" at="44,105,45,530" concept="6" />
-      <node id="3326094335675354424" at="47,5,48,17" concept="6" />
-      <node id="3326094335675350371" at="50,0,51,0" concept="8" trace="canBeChildBreakingPoint" />
-      <node id="3326094335675350371" at="53,0,54,0" concept="8" trace="NewStruct$mo" />
-      <node id="3326094335675350371" at="54,0,55,0" concept="8" trace="LocalVariableDeclaration$ft" />
-      <node id="3326094335675350371" at="55,0,56,0" concept="8" trace="PointerType$HX" />
-      <node id="3326094335675350371" at="56,0,57,0" concept="8" trace="StructType$B3" />
-      <node id="3326094335675350371" at="60,0,61,0" concept="8" trace="type$sXU3" />
-      <node id="3326094335675350371" at="61,0,62,0" concept="8" trace="baseType$zMGV" />
-      <node id="3326094335675350371" at="22,0,25,0" concept="1" trace="NewStruct_Constraints#()V" />
-      <node id="3326094335675350371" at="32,0,35,9" concept="3" />
-      <node id="3326094335675351237" at="43,56,46,7" concept="3" />
-      <node id="3326094335675351237" at="41,128,47,5" concept="0" />
-      <node id="3326094335675350371" at="41,0,50,0" concept="9" trace="staticCanBeAChild#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/language/SAbstractConcept;Lorg/jetbrains/mps/openapi/language/SContainmentLink;)Z" />
-      <node id="3326094335675350371" at="29,0,39,0" concept="4" trace="invoke#(Ljetbrains/mps/smodel/runtime/ConstraintContext_CanBeChild;Ljetbrains/mps/smodel/runtime/CheckingNodeContext;)Ljava/lang/Boolean;" />
-      <node id="3326094335675350371" at="27,103,39,6" concept="6" />
-      <node id="3326094335675350371" at="26,0,41,0" concept="4" trace="calculateCanBeChildConstraint#()Ljetbrains/mps/smodel/runtime/ConstraintFunction;" />
-      <scope id="3326094335675350371" at="22,34,23,33" />
-      <scope id="3326094335675350371" at="33,55,34,71" />
-      <scope id="3326094335675351239" at="44,105,45,530" />
-      <scope id="3326094335675350371" at="22,0,25,0" />
-      <scope id="3326094335675351237" at="42,5,46,7">
+      <node id="3326094335675350371" at="23,34,24,33" concept="10" />
+      <node id="3326094335675350371" at="31,127,32,128" concept="5" />
+      <node id="3326094335675350371" at="32,128,33,0" concept="7" />
+      <node id="3326094335675350371" at="34,55,35,71" concept="2" />
+      <node id="3326094335675350371" at="36,9,37,0" concept="7" />
+      <node id="3326094335675350371" at="37,0,38,22" concept="6" />
+      <node id="3326094335675351237" at="43,5,44,56" concept="5" />
+      <node id="3326094335675351240" at="45,105,46,530" concept="6" />
+      <node id="2928601933952988466" at="49,5,50,46" concept="5" />
+      <node id="2928601933953003621" at="52,9,53,104" concept="5" />
+      <node id="2928601933954402903" at="55,13,56,112" concept="5" />
+      <node id="2928601933954421305" at="57,97,58,610" concept="6" />
+      <node id="3326094335675354424" at="64,5,65,17" concept="6" />
+      <node id="3326094335675350371" at="67,0,68,0" concept="8" trace="canBeChildBreakingPoint" />
+      <node id="3326094335675350371" at="70,0,71,0" concept="8" trace="NewStruct$mo" />
+      <node id="3326094335675350371" at="71,0,72,0" concept="8" trace="LocalVariableDeclaration$ft" />
+      <node id="3326094335675350371" at="72,0,73,0" concept="8" trace="StructType$B3" />
+      <node id="3326094335675350371" at="73,0,74,0" concept="8" trace="PointerType$HX" />
+      <node id="3326094335675350371" at="74,0,75,0" concept="8" trace="AssignmentExpr$mZ" />
+      <node id="3326094335675350371" at="75,0,76,0" concept="8" trace="GenericDotExpression$uQ" />
+      <node id="3326094335675350371" at="76,0,77,0" concept="8" trace="GenericMemberRef$bk" />
+      <node id="3326094335675350371" at="80,0,81,0" concept="8" trace="type$sXU3" />
+      <node id="3326094335675350371" at="81,0,82,0" concept="8" trace="baseType$zMGV" />
+      <node id="3326094335675350371" at="82,0,83,0" concept="8" trace="left$SkXz" />
+      <node id="3326094335675350371" at="83,0,84,0" concept="8" trace="target$CEPF" />
+      <node id="3326094335675350371" at="84,0,85,0" concept="8" trace="member$wUNL" />
+      <node id="3326094335675350371" at="23,0,26,0" concept="1" trace="NewStruct_Constraints#()V" />
+      <node id="3326094335675350371" at="33,0,36,9" concept="3" />
+      <node id="3326094335675351237" at="44,56,47,7" concept="3" />
+      <node id="2928601933954402903" at="56,112,59,15" concept="3" />
+      <node id="3326094335675351237" at="42,128,48,5" concept="0" />
+      <node id="2928601933954402903" at="54,101,60,13" concept="0" />
+      <node id="2928601933953003621" at="53,104,61,11" concept="3" />
+      <node id="3326094335675350371" at="30,0,40,0" concept="4" trace="invoke#(Ljetbrains/mps/smodel/runtime/ConstraintContext_CanBeChild;Ljetbrains/mps/smodel/runtime/CheckingNodeContext;)Ljava/lang/Boolean;" />
+      <node id="2928601933953003621" at="51,85,62,9" concept="0" />
+      <node id="3326094335675350371" at="28,103,40,6" concept="6" />
+      <node id="2928601933952988466" at="50,46,63,7" concept="3" />
+      <node id="3326094335675350371" at="27,0,42,0" concept="4" trace="calculateCanBeChildConstraint#()Ljetbrains/mps/smodel/runtime/ConstraintFunction;" />
+      <node id="2928601933952988466" at="48,5,64,5" concept="0" />
+      <node id="3326094335675350371" at="42,0,67,0" concept="9" trace="staticCanBeAChild#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/language/SAbstractConcept;Lorg/jetbrains/mps/openapi/language/SContainmentLink;)Z" />
+      <scope id="3326094335675350371" at="23,34,24,33" />
+      <scope id="3326094335675350371" at="34,55,35,71" />
+      <scope id="3326094335675351239" at="45,105,46,530" />
+      <scope id="2928601933954402907" at="57,97,58,610" />
+      <scope id="3326094335675350371" at="23,0,26,0" />
+      <scope id="3326094335675351237" at="43,5,47,7">
         <var name="localVariableDeclaration" id="3326094335675351237" />
       </scope>
-      <scope id="3326094335675350371" at="30,127,37,22">
+      <scope id="2928601933954402903" at="55,13,59,15">
+        <var name="genericMemberRef" id="2928601933954402903" />
+      </scope>
+      <scope id="2928601933953003623" at="54,101,60,13" />
+      <scope id="3326094335675350371" at="31,127,38,22">
         <var name="result" id="3326094335675350371" />
       </scope>
-      <scope id="3326094335675350373" at="41,128,48,17" />
-      <scope id="3326094335675350371" at="41,0,50,0">
+      <scope id="2928601933953003621" at="52,9,61,11">
+        <var name="genericDotExpression" id="2928601933953003621" />
+      </scope>
+      <scope id="3326094335675350371" at="30,0,40,0">
+        <var name="checkingNodeContext" id="3326094335675350371" />
+        <var name="context" id="3326094335675350371" />
+      </scope>
+      <scope id="2928601933952988470" at="51,85,62,9" />
+      <scope id="3326094335675350371" at="28,103,40,6" />
+      <scope id="2928601933952988466" at="49,5,63,7">
+        <var name="assignmentExpr" id="2928601933952988466" />
+      </scope>
+      <scope id="3326094335675350371" at="27,0,42,0" />
+      <scope id="3326094335675350373" at="42,128,65,17" />
+      <scope id="3326094335675350371" at="42,0,67,0">
         <var name="childConcept" id="3326094335675350371" />
         <var name="link" id="3326094335675350371" />
         <var name="node" id="3326094335675350371" />
         <var name="parentNode" id="3326094335675350371" />
       </scope>
-      <scope id="3326094335675350371" at="29,0,39,0">
-        <var name="checkingNodeContext" id="3326094335675350371" />
-        <var name="context" id="3326094335675350371" />
-      </scope>
-      <scope id="3326094335675350371" at="27,103,39,6" />
-      <scope id="3326094335675350371" at="26,0,41,0" />
-      <unit id="3326094335675350371" at="59,0,63,0" name="SimpleDES.constraints.NewStruct_Constraints$LINKS" />
-      <unit id="3326094335675350371" at="52,0,58,0" name="SimpleDES.constraints.NewStruct_Constraints$CONCEPTS" />
-      <unit id="3326094335675350371" at="28,15,39,5" name="SimpleDES.constraints.NewStruct_Constraints$1" />
-      <unit id="3326094335675350371" at="21,0,64,0" name="SimpleDES.constraints.NewStruct_Constraints" />
+      <unit id="3326094335675350371" at="79,0,86,0" name="SimpleDES.constraints.NewStruct_Constraints$LINKS" />
+      <unit id="3326094335675350371" at="69,0,78,0" name="SimpleDES.constraints.NewStruct_Constraints$CONCEPTS" />
+      <unit id="3326094335675350371" at="29,15,40,5" name="SimpleDES.constraints.NewStruct_Constraints$1" />
+      <unit id="3326094335675350371" at="22,0,87,0" name="SimpleDES.constraints.NewStruct_Constraints" />
     </file>
   </root>
   <root nodeRef="r:048a4be0-4bfd-44e1-a4fe-33b591fb5056(SimpleDES.constraints)/3471844367036595664">
@@ -207,6 +235,97 @@
       <unit id="3471844367041254621" at="48,0,53,0" name="SimpleDES.constraints.FunctionDocs_Constraints$LINKS" />
       <unit id="3471844367041254622" at="27,48,38,5" name="SimpleDES.constraints.FunctionDocs_Constraints$1" />
       <unit id="3471844367041254621" at="20,0,59,0" name="SimpleDES.constraints.FunctionDocs_Constraints" />
+    </file>
+  </root>
+  <root nodeRef="r:048a4be0-4bfd-44e1-a4fe-33b591fb5056(SimpleDES.constraints)/4839193101007130194">
+    <file name="StructDocs_Constraints.java">
+      <node id="4839193101007130194" at="19,35,20,34" concept="10" />
+      <node id="4839193101007130871" at="27,116,28,20" concept="6" />
+      <node id="4839193101007131093" at="31,119,32,85" concept="2" />
+      <node id="4839193101007136521" at="32,85,33,138" concept="2" />
+      <node id="4839193101007130194" at="35,6,36,131" concept="5" />
+      <node id="4839193101007130871" at="36,131,37,42" concept="2" />
+      <node id="4839193101007130194" at="37,42,38,22" concept="6" />
+      <node id="4839193101007130194" at="42,0,43,0" concept="8" trace="StructDocs$6o" />
+      <node id="4839193101007130194" at="46,0,47,0" concept="8" trace="struct$wvo0" />
+      <node id="4839193101007130194" at="50,0,51,0" concept="8" trace="structName$y9BZ" />
+      <node id="4839193101007130194" at="51,0,52,0" concept="8" trace="name$MnvL" />
+      <node id="4839193101007130194" at="19,0,22,0" concept="1" trace="StructDocs_Constraints#()V" />
+      <node id="4839193101007130871" at="26,0,30,0" concept="4" trace="validate#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
+      <node id="4839193101007130871" at="30,0,35,0" concept="4" trace="onReferenceSet#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)V" />
+      <node id="4839193101007130871" at="24,90,35,6" concept="5" />
+      <node id="4839193101007130194" at="23,0,40,0" concept="4" trace="getSpecifiedReferences#()Ljava/util/Map;" />
+      <scope id="4839193101007130194" at="19,35,20,34" />
+      <scope id="4839193101007130871" at="27,116,28,20" />
+      <scope id="4839193101007130935" at="31,119,33,138" />
+      <scope id="4839193101007130194" at="19,0,22,0" />
+      <scope id="4839193101007130871" at="26,0,30,0">
+        <var name="newReferentNode" id="4839193101007130871" />
+        <var name="oldReferentNode" id="4839193101007130871" />
+        <var name="referenceNode" id="4839193101007130871" />
+      </scope>
+      <scope id="4839193101007130871" at="30,0,35,0">
+        <var name="newReferentNode" id="4839193101007130871" />
+        <var name="oldReferentNode" id="4839193101007130871" />
+        <var name="referenceNode" id="4839193101007130871" />
+      </scope>
+      <scope id="4839193101007130194" at="24,90,38,22">
+        <var name="d0" id="4839193101007130871" />
+        <var name="references" id="4839193101007130194" />
+      </scope>
+      <scope id="4839193101007130194" at="23,0,40,0" />
+      <unit id="4839193101007130194" at="41,0,44,0" name="SimpleDES.constraints.StructDocs_Constraints$CONCEPTS" />
+      <unit id="4839193101007130194" at="45,0,48,0" name="SimpleDES.constraints.StructDocs_Constraints$LINKS" />
+      <unit id="4839193101007130194" at="49,0,53,0" name="SimpleDES.constraints.StructDocs_Constraints$PROPS" />
+      <unit id="4839193101007130871" at="25,48,35,5" name="SimpleDES.constraints.StructDocs_Constraints$1" />
+      <unit id="4839193101007130194" at="18,0,54,0" name="SimpleDES.constraints.StructDocs_Constraints" />
+    </file>
+  </root>
+  <root nodeRef="r:048a4be0-4bfd-44e1-a4fe-33b591fb5056(SimpleDES.constraints)/4839193101007162158">
+    <file name="StructMemberDocs_Constraints.java">
+      <node id="4839193101007162158" at="21,41,22,40" concept="10" />
+      <node id="4839193101007162702" at="29,116,30,20" concept="6" />
+      <node id="4839193101007162937" at="33,119,34,85" concept="2" />
+      <node id="4839193101007167770" at="34,85,35,138" concept="2" />
+      <node id="4839193101007193663" at="35,138,36,159" concept="2" />
+      <node id="4839193101007162158" at="38,6,39,131" concept="5" />
+      <node id="4839193101007162702" at="39,131,40,42" concept="2" />
+      <node id="4839193101007162158" at="40,42,41,22" concept="6" />
+      <node id="4839193101007162158" at="45,0,46,0" concept="8" trace="StructMemberDocs$6R" />
+      <node id="4839193101007162158" at="49,0,50,0" concept="8" trace="member$DfOv" />
+      <node id="4839193101007162158" at="50,0,51,0" concept="8" trace="memberType$Df_u" />
+      <node id="4839193101007162158" at="51,0,52,0" concept="8" trace="type$sXU3" />
+      <node id="4839193101007162158" at="55,0,56,0" concept="8" trace="memberName$Dfmt" />
+      <node id="4839193101007162158" at="56,0,57,0" concept="8" trace="name$MnvL" />
+      <node id="4839193101007162158" at="21,0,24,0" concept="1" trace="StructMemberDocs_Constraints#()V" />
+      <node id="4839193101007162702" at="28,0,32,0" concept="4" trace="validate#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
+      <node id="4839193101007162702" at="32,0,38,0" concept="4" trace="onReferenceSet#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)V" />
+      <node id="4839193101007162702" at="26,90,38,6" concept="5" />
+      <node id="4839193101007162158" at="25,0,43,0" concept="4" trace="getSpecifiedReferences#()Ljava/util/Map;" />
+      <scope id="4839193101007162158" at="21,41,22,40" />
+      <scope id="4839193101007162702" at="29,116,30,20" />
+      <scope id="4839193101007162158" at="21,0,24,0" />
+      <scope id="4839193101007162766" at="33,119,36,159" />
+      <scope id="4839193101007162702" at="28,0,32,0">
+        <var name="newReferentNode" id="4839193101007162702" />
+        <var name="oldReferentNode" id="4839193101007162702" />
+        <var name="referenceNode" id="4839193101007162702" />
+      </scope>
+      <scope id="4839193101007162702" at="32,0,38,0">
+        <var name="newReferentNode" id="4839193101007162702" />
+        <var name="oldReferentNode" id="4839193101007162702" />
+        <var name="referenceNode" id="4839193101007162702" />
+      </scope>
+      <scope id="4839193101007162158" at="26,90,41,22">
+        <var name="d0" id="4839193101007162702" />
+        <var name="references" id="4839193101007162158" />
+      </scope>
+      <scope id="4839193101007162158" at="25,0,43,0" />
+      <unit id="4839193101007162158" at="44,0,47,0" name="SimpleDES.constraints.StructMemberDocs_Constraints$CONCEPTS" />
+      <unit id="4839193101007162158" at="54,0,58,0" name="SimpleDES.constraints.StructMemberDocs_Constraints$PROPS" />
+      <unit id="4839193101007162158" at="48,0,53,0" name="SimpleDES.constraints.StructMemberDocs_Constraints$LINKS" />
+      <unit id="4839193101007162702" at="27,48,38,5" name="SimpleDES.constraints.StructMemberDocs_Constraints$1" />
+      <unit id="4839193101007162158" at="20,0,59,0" name="SimpleDES.constraints.StructMemberDocs_Constraints" />
     </file>
   </root>
   <root nodeRef="r:048a4be0-4bfd-44e1-a4fe-33b591fb5056(SimpleDES.constraints)/6343394003426729574">

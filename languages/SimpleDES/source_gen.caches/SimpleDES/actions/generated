@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<product version="3" modelHash="d7dbb32naokj72htqhykm540hjr1hjq">
-  <files names="ActionAspectDescriptorImpl.java:DESModelFactory.java:ForEachBodyFactory.java:HandlerFactory.java:StartupFunctionFactory.java" />
+<product version="3" modelHash="-1c8twyr4vua04rwlk1r5hjk169d3vfn">
+  <files names="ActionAspectDescriptorImpl.java:DESModelFactory.java:ForEachBodyFactory.java:HandlerFactory.java:StartupFunctionFactory.java:StartupHandlerFactory.java" />
 </product>
 

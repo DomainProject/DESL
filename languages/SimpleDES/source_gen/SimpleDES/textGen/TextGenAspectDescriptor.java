@@ -78,7 +78,7 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
     return "md";
   }
   private static String getFileExtension_RootSimM2M(SNode node) {
-    return null;
+    return "c";
   }
 
   private static final class CONCEPTS {

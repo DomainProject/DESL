@@ -19,7 +19,10 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptForEachItemInCollection = createDescriptorForForEachItemInCollection();
   /*package*/ final ConceptDescriptor myConceptForeachBody = createDescriptorForForeachBody();
   /*package*/ final ConceptDescriptor myConceptICollectionDotTarget = createDescriptorForICollectionDotTarget();
+  /*package*/ final ConceptDescriptor myConceptIGetFirstElementInCollection = createDescriptorForIGetFirstElementInCollection();
   /*package*/ final ConceptDescriptor myConceptNewCollection = createDescriptorForNewCollection();
+  /*package*/ final ConceptDescriptor myConceptRemoveFirst = createDescriptorForRemoveFirst();
+  /*package*/ final ConceptDescriptor myConceptRemoveFromCollection = createDescriptorForRemoveFromCollection();
   /*package*/ final ConceptDescriptor myConceptVariableReference = createDescriptorForVariableReference();
   private final LanguageConceptSwitch myIndexSwitch;
 
@@ -39,7 +42,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptAddToCollection, myConceptCollection, myConceptFindFirst, myConceptForEachItemInCollection, myConceptForeachBody, myConceptICollectionDotTarget, myConceptNewCollection, myConceptVariableReference);
+    return Arrays.asList(myConceptAddToCollection, myConceptCollection, myConceptFindFirst, myConceptForEachItemInCollection, myConceptForeachBody, myConceptICollectionDotTarget, myConceptIGetFirstElementInCollection, myConceptNewCollection, myConceptRemoveFirst, myConceptRemoveFromCollection, myConceptVariableReference);
   }
 
   @Override
@@ -58,8 +61,14 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptForeachBody;
       case LanguageConceptSwitch.ICollectionDotTarget:
         return myConceptICollectionDotTarget;
+      case LanguageConceptSwitch.IGetFirstElementInCollection:
+        return myConceptIGetFirstElementInCollection;
       case LanguageConceptSwitch.NewCollection:
         return myConceptNewCollection;
+      case LanguageConceptSwitch.RemoveFirst:
+        return myConceptRemoveFirst;
+      case LanguageConceptSwitch.RemoveFromCollection:
+        return myConceptRemoveFromCollection;
       case LanguageConceptSwitch.VariableReference:
         return myConceptVariableReference;
       default:
@@ -96,13 +105,9 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   private static ConceptDescriptor createDescriptorForFindFirst() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("Collections", "FindFirst", 0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x3ea71aa20d4d8882L);
     b.class_(false, false, false);
-    b.parent(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x3ea71aa20d5200a5L);
-    b.parent(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x1d0c3765e2e2fcf8L);
+    b.parent(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x74450034cfe623acL);
     b.origin("r:7c7377c1-dded-46c2-9c44-39493c999dbb(Collections.structure)/4514606434772420738");
     b.version(3);
-    b.property("variableName", 0x3ea71aa20d5f9365L).type(PrimitiveTypeId.STRING).origin("4514606434773603173").done();
-    b.aggregate("condition", 0x3ea71aa20d4d8883L).target(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad6d03L).optional(true).ordered(true).multiple(false).origin("4514606434772420739").done();
-    b.aggregate("variable", 0x3ea71aa20d5f935eL).target(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad96e6L).optional(true).ordered(true).multiple(false).origin("4514606434773603166").done();
     b.alias("findFirst");
     return b.create();
   }
@@ -136,6 +141,18 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.version(3);
     return b.create();
   }
+  private static ConceptDescriptor createDescriptorForIGetFirstElementInCollection() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("Collections", "IGetFirstElementInCollection", 0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x74450034cfe623acL);
+    b.interface_();
+    b.parent(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x3ea71aa20d5200a5L);
+    b.parent(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x1d0c3765e2e2fcf8L);
+    b.origin("r:7c7377c1-dded-46c2-9c44-39493c999dbb(Collections.structure)/8378102908618941356");
+    b.version(3);
+    b.property("variableName", 0x74450034cfe623adL).type(PrimitiveTypeId.STRING).origin("8378102908618941357").done();
+    b.aggregate("condition", 0x74450034cfe623aeL).target(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad6d03L).optional(true).ordered(true).multiple(false).origin("8378102908618941358").done();
+    b.aggregate("variable", 0x74450034cfe623afL).target(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad96e6L).optional(true).ordered(true).multiple(false).origin("8378102908618941359").done();
+    return b.create();
+  }
   private static ConceptDescriptor createDescriptorForNewCollection() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("Collections", "NewCollection", 0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0xcc29beb5056b0a2L);
     b.class_(false, false, false);
@@ -144,6 +161,25 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.origin("r:7c7377c1-dded-46c2-9c44-39493c999dbb(Collections.structure)/919468708904480930");
     b.version(3);
     b.alias("new collection");
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForRemoveFirst() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("Collections", "RemoveFirst", 0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x74450034cfe617f4L);
+    b.class_(false, false, false);
+    b.parent(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x74450034cfe623acL);
+    b.origin("r:7c7377c1-dded-46c2-9c44-39493c999dbb(Collections.structure)/8378102908618938356");
+    b.version(3);
+    b.alias("removeFirst");
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForRemoveFromCollection() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("Collections", "RemoveFromCollection", 0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x74450034d00494f4L);
+    b.class_(false, false, false);
+    b.parent(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x3ea71aa20d5200a5L);
+    b.origin("r:7c7377c1-dded-46c2-9c44-39493c999dbb(Collections.structure)/8378102908620936436");
+    b.version(3);
+    b.associate("variable", 0x74450034d00494f7L).target(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x1c69b376a2f94e75L).optional(true).origin("8378102908620936439").done();
+    b.alias("remove");
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForVariableReference() {

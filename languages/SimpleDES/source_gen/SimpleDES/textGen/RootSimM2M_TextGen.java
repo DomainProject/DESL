@@ -5,23 +5,131 @@ package SimpleDES.textGen;
 import jetbrains.mps.text.rt.TextGenDescriptorBase;
 import jetbrains.mps.text.rt.TextGenContext;
 import jetbrains.mps.text.impl.TextGenSupport;
-import jetbrains.mps.lang.traceable.behavior.UnitConcept__BehaviorDescriptor;
+import java.util.List;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
+import java.util.ArrayList;
+import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.lang.traceable.behavior.UnitConcept__BehaviorDescriptor;
+import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public class RootSimM2M_TextGen extends TextGenDescriptorBase {
   @Override
   public void generateText(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     tgs.createUnitInfo();
-    tgs.append("RootSim");
+
+    // headers
+    tgs.append("#include <ROOT-Sim.h>");
+    tgs.newLine();
+    List<String> headers = ListSequence.fromList(new ArrayList<String>());
+    for (final SNode externalFunction : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.externalFunctions$LqEg), CONCEPTS.ExternalFunctionPrototype$V4))) {
+      if (isEmptyString(ListSequence.fromList(headers).findFirst((it) -> it.equals(SPropertyOperations.getString(externalFunction, PROPS.headerName$Qm9Y))))) {
+        ListSequence.fromList(headers).addElement(SPropertyOperations.getString(externalFunction, PROPS.headerName$Qm9Y));
+        tgs.append("#include <");
+        tgs.append(SPropertyOperations.getString(externalFunction, PROPS.headerName$Qm9Y));
+        tgs.append(".h>");
+        tgs.newLine();
+      }
+    }
+    for (final SNode externalStruct : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.structs$JAXN), CONCEPTS.ExternalStructDefinition$8P))) {
+      if (isEmptyString(ListSequence.fromList(headers).findFirst((it) -> it.equals(SPropertyOperations.getString(externalStruct, PROPS.headerName$Tdv1))))) {
+        ListSequence.fromList(headers).addElement(SPropertyOperations.getString(externalStruct, PROPS.headerName$Tdv1));
+        tgs.append("#include <");
+        tgs.append(SPropertyOperations.getString(externalStruct, PROPS.headerName$Tdv1));
+        tgs.append(".h>");
+        tgs.newLine();
+      }
+    }
+    tgs.newLine();
+
+    // constants
+    for (SNode constant : ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.macros$Sq68))) {
+      tgs.appendNode(constant);
+    }
+    tgs.newLine();
+
+    // global variables
+    for (SNode globalVariable : ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.configuration$XHIx))) {
+      tgs.appendNode(globalVariable);
+    }
+    tgs.newLine();
+
+    // external functions definitions
+    for (SNode function : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.externalFunctions$LqEg), CONCEPTS.ExternalFunction$U_))) {
+      tgs.appendNode(function);
+      tgs.newLine();
+    }
+    tgs.newLine();
+
+
+    // ProcessEvent
+    tgs.append("void ProcessEvent(lp_id_t me, simtime_t now, unsigned event_type, const void *content, __unused unsigned size, void *s  )\n");
+    tgs.newLine();
+    tgs.append("{");
+    tgs.newLine();
+    ctx.getBuffer().area().increaseIndent();
+    tgs.indent();
+    tgs.append("switch(event_type) {");
+    tgs.newLine();
+    ctx.getBuffer().area().increaseIndent();
+    ctx.getBuffer().area().decreaseIndent();
+    tgs.indent();
+    tgs.append("}");
+    tgs.newLine();
+    ctx.getBuffer().area().decreaseIndent();
+    tgs.append("}");
+    tgs.newLine();
+
+    // main
+    tgs.append("int main(int argc, char **argv)");
+    tgs.newLine();
+    tgs.append("{");
+    tgs.newLine();
+    ctx.getBuffer().area().increaseIndent();
+    for (SNode statement : ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(SLinkOperations.getTarget(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.startup$LlvU), LINKS.function$Ah6u), LINKS.body$1GE0), LINKS.statements$euTV))) {
+      tgs.indent();
+      tgs.appendNode(statement);
+      tgs.newLine();
+    }
+    ctx.getBuffer().area().decreaseIndent();
+    tgs.append("}");
+    tgs.newLine();
     if (tgs.needPositions()) {
       tgs.fillUnitInfo(UnitConcept__BehaviorDescriptor.getUnitName_id4pl5GY7LKmR.invoke(SNodeOperations.cast(ctx.getPrimaryInput(), CONCEPTS.UnitConcept$1g)));
     }
   }
+  private static boolean isEmptyString(String str) {
+    return str == null || str.isEmpty();
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty headerName$Qm9Y = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228cL, 0x5808433cc4903a50L, "headerName");
+    /*package*/ static final SProperty headerName$Tdv1 = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x5808433cc497c579L, 0x5808433cc4a5e3ceL, "headerName");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink externalFunctions$LqEg = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x6f36cc77d0a2c4ceL, "externalFunctions");
+    /*package*/ static final SContainmentLink structs$JAXN = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x6e7ca07799a0fb0fL, "structs");
+    /*package*/ static final SContainmentLink macros$Sq68 = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x74450034d00e6949L, "macros");
+    /*package*/ static final SContainmentLink configuration$XHIx = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x3507db05f7c55ff1L, "configuration");
+    /*package*/ static final SContainmentLink startup$LlvU = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x6f36cc77d0a2c4cdL, "startup");
+    /*package*/ static final SContainmentLink function$Ah6u = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0a48d39L, 0x6f36cc77d0a48d3aL, "function");
+    /*package*/ static final SContainmentLink body$1GE0 = MetaAdapterFactory.getContainmentLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x595522006a5b97e1L, 0x3a16e3a9c7ad9954L, "body");
+    /*package*/ static final SContainmentLink statements$euTV = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad9955L, 0x3a16e3a9c7ad9956L, "statements");
+  }
 
   private static final class CONCEPTS {
+    /*package*/ static final SConcept ExternalFunctionPrototype$V4 = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228cL, "SimpleDES.structure.ExternalFunctionPrototype");
+    /*package*/ static final SConcept ExternalStructDefinition$8P = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x5808433cc497c579L, "SimpleDES.structure.ExternalStructDefinition");
+    /*package*/ static final SConcept ExternalFunction$U_ = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228bL, "SimpleDES.structure.ExternalFunction");
     /*package*/ static final SInterfaceConcept UnitConcept$1g = MetaAdapterFactory.getInterfaceConcept(0x9ded098bad6a4657L, 0xbfd948636cfe8bc3L, 0x465516cf87c705a4L, "jetbrains.mps.lang.traceable.structure.UnitConcept");
   }
 }
