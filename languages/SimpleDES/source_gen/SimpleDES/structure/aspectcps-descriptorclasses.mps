@@ -3183,7 +3183,7 @@
                           <uo k="s:originTrace" v="n:4690400695377540995" />
                         </node>
                         <node concept="Xl_RD" id="i0" role="37wK5m">
-                          <property role="Xl_RC" value="entity" />
+                          <property role="Xl_RC" value="class" />
                           <uo k="s:originTrace" v="n:4690400695377540995" />
                         </node>
                         <node concept="Xl_RD" id="i1" role="37wK5m">
@@ -8357,7 +8357,7 @@
                         <node concept="liA8E" id="Kb" role="2OqNvi">
                           <ref role="37wK5l" to="bzg8:~ConceptDescriptorBuilder2.aggregate(java.lang.String,long)" resolve="aggregate" />
                           <node concept="Xl_RD" id="Kc" role="37wK5m">
-                            <property role="Xl_RC" value="processAllocation" />
+                            <property role="Xl_RC" value="processAllocations" />
                           </node>
                           <node concept="11gdke" id="Kd" role="37wK5m">
                             <property role="11gdj1" value="4117a694e6409a0eL" />
@@ -14153,7 +14153,7 @@
                     <node concept="liA8E" id="1i9" role="2OqNvi">
                       <ref role="37wK5l" to="bzg8:~ConceptDescriptorBuilder2.associate(java.lang.String,long)" resolve="associate" />
                       <node concept="Xl_RD" id="1ia" role="37wK5m">
-                        <property role="Xl_RC" value="entity" />
+                        <property role="Xl_RC" value="class" />
                       </node>
                       <node concept="11gdke" id="1ib" role="37wK5m">
                         <property role="11gdj1" value="4117a694e6394c33L" />

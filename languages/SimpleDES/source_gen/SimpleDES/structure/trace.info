@@ -55,8 +55,8 @@
       <node id="8241728834324980660" at="240,209,241,200" concept="0" />
       <node id="5781293655542339018" at="241,200,242,196" concept="0" />
       <node id="4690400695369237814" at="242,196,243,200" concept="0" />
-      <node id="4690400695378024974" at="243,200,244,209" concept="0" />
-      <node id="8378102908621580617" at="244,209,245,198" concept="0" />
+      <node id="4690400695378024974" at="243,200,244,210" concept="0" />
+      <node id="8378102908621580617" at="244,210,245,198" concept="0" />
       <node id="1935028353745327664" at="245,198,246,22" concept="4" />
       <node id="1935028353745327664" at="227,0,248,0" concept="7" trace="createDescriptorForDESModel#()Ljetbrains/mps/smodel/runtime/ConceptDescriptor;" />
       <scope id="1935028353745327664" at="101,42,102,33" />
@@ -357,8 +357,8 @@
     <file name="ConceptPresentationAspectImpl.java">
       <node id="4690400695377540995" at="50,0,51,0" concept="1" trace="props_ProcessAllocation" />
       <node id="4690400695377540995" at="323,46,324,76" concept="3" />
-      <node id="4690400695377540995" at="324,76,325,140" concept="0" />
-      <node id="4690400695377540995" at="325,140,326,49" concept="0" />
+      <node id="4690400695377540995" at="324,76,325,139" concept="0" />
+      <node id="4690400695377540995" at="325,139,326,49" concept="0" />
       <node id="4690400695377540995" at="327,9,328,39" concept="4" />
       <node id="4690400695377540995" at="322,51,327,9" concept="2" />
       <scope id="4690400695377540995" at="323,46,326,49">
@@ -377,8 +377,8 @@
       <node id="4690400695377540995" at="572,161,573,34" concept="0" />
       <node id="4690400695377540995" at="573,34,574,96" concept="0" />
       <node id="4690400695377540995" at="574,96,575,17" concept="0" />
-      <node id="4690400695377546291" at="575,17,576,170" concept="0" />
-      <node id="4690400695377540999" at="576,170,577,203" concept="0" />
+      <node id="4690400695377546291" at="575,17,576,169" concept="0" />
+      <node id="4690400695377540999" at="576,169,577,203" concept="0" />
       <node id="4690400695377540995" at="577,203,578,22" concept="4" />
       <node id="4690400695377540995" at="571,0,580,0" concept="7" trace="createDescriptorForProcessAllocation#()Ljetbrains/mps/smodel/runtime/ConceptDescriptor;" />
       <scope id="4690400695377540995" at="173,51,174,42" />

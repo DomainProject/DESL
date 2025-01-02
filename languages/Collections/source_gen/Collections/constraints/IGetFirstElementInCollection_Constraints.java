@@ -8,98 +8,50 @@ import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.Map;
 import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
-import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class IGetFirstElementInCollection_Constraints extends BaseConstraintsDescriptor {
   public IGetFirstElementInCollection_Constraints() {
     super(CONCEPTS.IGetFirstElementInCollection$9F);
   }
 
-  public static class VariableName_Property extends BasePropertyConstraintsDescriptor {
-    public VariableName_Property(ConstraintsDescriptor container) {
-      super(PROPS.variableName$InHV, container, false, true, false);
+  public static class ElemName_Property extends BasePropertyConstraintsDescriptor {
+    public ElemName_Property(ConstraintsDescriptor container) {
+      super(PROPS.elemName$InHV, container, false, true, false);
     }
     @Override
     public void setPropertyValue(SNode node, Object propertyValue) {
       staticSetPropertyValue(node, SPropertyOperations.castString(propertyValue));
     }
     private static void staticSetPropertyValue(SNode node, String propertyValue) {
-      SPropertyOperations.assign(node, PROPS.variableName$InHV, propertyValue);
-      if ((SLinkOperations.getTarget(node, LINKS.variable$IobX) == null)) {
-        SNode var = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad96e6L, "com.mbeddr.core.statements.structure.LocalVariableDeclaration"));
-        SPropertyOperations.assign(var, PROPS.name$MnvL, propertyValue);
-
-        // get left expression in dot expression (left.right)
-        SNode leftExpression = SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(node, CONCEPTS.GenericDotExpression$uQ, false, false), LINKS.expression$PfNq);
-
-        // leftExpression is the reference to the collection, it may be a local variable, function argument, struct member, ...
-        {
-          final SNode localVarRef = leftExpression;
-          if (SNodeOperations.isInstanceOf(localVarRef, CONCEPTS.LocalVarRef$VQ)) {
-            SLinkOperations.setTarget(var, LINKS.type$sXU3, SNodeOperations.copyNode(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(SLinkOperations.getTarget(localVarRef, LINKS.var$YUyC), LINKS.type$sXU3), CONCEPTS.Collection$YT), LINKS.type$eikV)));
-          }
-        }
-        {
-          final SNode dotExpression = leftExpression;
-          if (SNodeOperations.isInstanceOf(dotExpression, CONCEPTS.GenericDotExpression$uQ)) {
-            // in this case, we have a struct member (struct.member or struct->member)
-            SLinkOperations.setTarget(var, LINKS.type$sXU3, SNodeOperations.copyNode(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(dotExpression, LINKS.target$CEPF), CONCEPTS.GenericMemberRef$bk), LINKS.member$wUNL), LINKS.type$sXU3), CONCEPTS.Collection$YT), LINKS.type$eikV)));
-          }
-        }
-        {
-          final SNode argument = leftExpression;
-          if (SNodeOperations.isInstanceOf(argument, CONCEPTS.ArgumentRef$iE)) {
-            SLinkOperations.setTarget(var, LINKS.type$sXU3, SNodeOperations.copyNode(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(SLinkOperations.getTarget(argument, LINKS.arg$WIp5), LINKS.type$sXU3), CONCEPTS.Collection$YT), LINKS.type$eikV)));
-          }
-        }
-        // todo add other references (if useful)
-
-        SLinkOperations.setTarget(node, LINKS.variable$IobX, var);
-      } else {
-        SPropertyOperations.assign(SLinkOperations.getTarget(node, LINKS.variable$IobX), PROPS.name$MnvL, propertyValue);
-      }
+      SPropertyOperations.assign(node, PROPS.elemName$InHV, propertyValue);
+      SPropertyOperations.assign(SLinkOperations.getTarget(node, LINKS.elem$IobX), PROPS.name$MnvL, propertyValue);
 
     }
   }
   @Override
   protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
     Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(PROPS.variableName$InHV, new VariableName_Property(this));
+    properties.put(PROPS.elemName$InHV, new ElemName_Property(this));
     return properties;
   }
 
   private static final class CONCEPTS {
     /*package*/ static final SInterfaceConcept IGetFirstElementInCollection$9F = MetaAdapterFactory.getInterfaceConcept(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x74450034cfe623acL, "Collections.structure.IGetFirstElementInCollection");
-    /*package*/ static final SConcept GenericDotExpression$uQ = MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x401df715da462c0cL, "com.mbeddr.core.expressions.structure.GenericDotExpression");
-    /*package*/ static final SConcept LocalVarRef$VQ = MetaAdapterFactory.getConcept(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x1d0c3765e2e1d67aL, "com.mbeddr.core.statements.structure.LocalVarRef");
-    /*package*/ static final SConcept Collection$YT = MetaAdapterFactory.getConcept(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x6f36cc77d0af8690L, "Collections.structure.Collection");
-    /*package*/ static final SConcept GenericMemberRef$bk = MetaAdapterFactory.getConcept(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x619e8ce80b8d18e4L, "com.mbeddr.core.udt.structure.GenericMemberRef");
-    /*package*/ static final SConcept ArgumentRef$iE = MetaAdapterFactory.getConcept(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x1d0c3765e2e7d0baL, "com.mbeddr.core.modules.structure.ArgumentRef");
   }
 
   private static final class PROPS {
-    /*package*/ static final SProperty variableName$InHV = MetaAdapterFactory.getProperty(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x74450034cfe623acL, 0x74450034cfe623adL, "variableName");
+    /*package*/ static final SProperty elemName$InHV = MetaAdapterFactory.getProperty(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x74450034cfe623acL, 0x74450034cfe623adL, "elemName");
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink expression$PfNq = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x29b5b7c4a3763232L, 0x64ae61a4018a9c50L, "expression");
-    /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
-    /*package*/ static final SReferenceLink var$YUyC = MetaAdapterFactory.getReferenceLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x1d0c3765e2e1d67aL, 0x1d0c3765e2e1fe27L, "var");
-    /*package*/ static final SContainmentLink type$eikV = MetaAdapterFactory.getContainmentLink(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x6f36cc77d0af8690L, 0x6f36cc77d0af8691L, "type");
-    /*package*/ static final SContainmentLink target$CEPF = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x401df715da462c0cL, 0x619e8ce80b7ff48bL, "target");
-    /*package*/ static final SReferenceLink member$wUNL = MetaAdapterFactory.getReferenceLink(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x619e8ce80b8d18e4L, 0x619e8ce80b8d18e6L, "member");
-    /*package*/ static final SReferenceLink arg$WIp5 = MetaAdapterFactory.getReferenceLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x1d0c3765e2e7d0baL, 0x1d0c3765e2e7d0bbL, "arg");
-    /*package*/ static final SContainmentLink variable$IobX = MetaAdapterFactory.getContainmentLink(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x74450034cfe623acL, 0x74450034cfe623afL, "variable");
+    /*package*/ static final SContainmentLink elem$IobX = MetaAdapterFactory.getContainmentLink(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x74450034cfe623acL, 0x74450034cfe623afL, "elem");
   }
 }

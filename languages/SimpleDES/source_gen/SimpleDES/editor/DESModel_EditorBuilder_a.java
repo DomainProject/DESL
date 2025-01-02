@@ -1323,9 +1323,9 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
     return editorCell;
   }
   private EditorCell createRefNodeList_7() {
-    AbstractCellListHandler handler = new processAllocationListHandler_sobt4q_cc0(myNode, getEditorContext());
+    AbstractCellListHandler handler = new processAllocationsListHandler_sobt4q_cc0(myNode, getEditorContext());
     EditorCell_Collection editorCell = handler.createCells(new CellLayout_Indent(), false);
-    editorCell.setCellId("refNodeList_processAllocation");
+    editorCell.setCellId("refNodeList_processAllocations");
     Style style = new StyleImpl();
     style.set(StyleAttributes.INDENT_LAYOUT_ON_NEW_LINE, true);
     style.set(StyleAttributes.INDENT_LAYOUT_INDENT, true);
@@ -1334,11 +1334,11 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
     editorCell.setSRole(handler.getElementSRole());
     return editorCell;
   }
-  private static class processAllocationListHandler_sobt4q_cc0 extends RefNodeListHandler {
+  private static class processAllocationsListHandler_sobt4q_cc0 extends RefNodeListHandler {
     @NotNull
     private SNode myNode;
 
-    public processAllocationListHandler_sobt4q_cc0(SNode ownerNode, EditorContext context) {
+    public processAllocationsListHandler_sobt4q_cc0(SNode ownerNode, EditorContext context) {
       super(context, false);
       myNode = ownerNode;
     }
@@ -1348,7 +1348,7 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
       return myNode;
     }
     public SContainmentLink getSLink() {
-      return LINKS.processAllocation$cuUJ;
+      return LINKS.processAllocations$cuUJ;
     }
     public SAbstractConcept getChildSConcept() {
       return CONCEPTS.ProcessAllocation$5Z;
@@ -1361,7 +1361,7 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
     }
     public EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(processAllocationListHandler_sobt4q_cc0.this.getNode(), LINKS.processAllocation$cuUJ));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(processAllocationsListHandler_sobt4q_cc0.this.getNode(), LINKS.processAllocations$cuUJ));
       try {
         EditorCell emptyCell = null;
         emptyCell = super.createEmptyCell();
@@ -1436,6 +1436,6 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
     /*package*/ static final SContainmentLink configuration$XHIx = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x3507db05f7c55ff1L, "configuration");
     /*package*/ static final SContainmentLink startup$LlvU = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x6f36cc77d0a2c4cdL, "startup");
     /*package*/ static final SContainmentLink classes$SNAM = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x4117a694e5ba8536L, "classes");
-    /*package*/ static final SContainmentLink processAllocation$cuUJ = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x4117a694e6409a0eL, "processAllocation");
+    /*package*/ static final SContainmentLink processAllocations$cuUJ = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x4117a694e6409a0eL, "processAllocations");
   }
 }

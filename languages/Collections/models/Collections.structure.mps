@@ -7,9 +7,9 @@
   <imports>
     <import index="clbe" ref="r:61d840b4-12c1-49ea-b142-b2a1550a9b15(com.mbeddr.core.udt.structure)" />
     <import index="x27k" ref="r:75ecab8a-8931-4140-afc6-4b46398710fc(com.mbeddr.core.modules.structure)" />
-    <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
-    <import index="mj1l" ref="r:c371cf98-dcc8-4a43-8eb8-8a8096de18b2(com.mbeddr.core.expressions.structure)" implicit="true" />
     <import index="c4fa" ref="r:9f0e84b6-2ec7-4f9e-83e0-feedc77b63a3(com.mbeddr.core.statements.structure)" implicit="true" />
+    <import index="mj1l" ref="r:c371cf98-dcc8-4a43-8eb8-8a8096de18b2(com.mbeddr.core.expressions.structure)" implicit="true" />
+    <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
   </imports>
   <registry>
     <language id="c72da2b9-7cce-4447-8389-f407dc1158b7" name="jetbrains.mps.lang.structure">
@@ -55,13 +55,19 @@
     <property role="EcuMT" value="919468708905377089" />
     <property role="TrG5h" value="AddToCollection" />
     <property role="34LRSv" value="add" />
-    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
-    <node concept="PrWs8" id="N2AYHgp5P2" role="PzmwI">
-      <ref role="PrY4T" node="3UB6E8dkw2_" resolve="ICollectionDotTarget" />
+    <property role="R4oN_" value="add element to collection" />
+    <ref role="1TJDcQ" to="c4fa:3CmSUB7FmO3" resolve="Statement" />
+    <node concept="1TJgyj" id="2PnOsd7F_93" role="1TKVEi">
+      <property role="IQ2ns" value="3267310691332018755" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="collection" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" to="mj1l:7FQByU3CrCM" resolve="Expression" />
     </node>
     <node concept="1TJgyj" id="1Yx5zgmXJIa" role="1TKVEi">
       <property role="IQ2ns" value="2279127299405577098" />
       <property role="20kJfa" value="variable" />
+      <property role="20lbJX" value="fLJekj4/_1" />
       <ref role="20lvS9" to="mj1l:1LDGRqyYkTP" resolve="IVariableDeclaration" />
     </node>
   </node>
@@ -83,24 +89,14 @@
     <property role="TrG5h" value="ForeachBody" />
     <property role="3GE5qa" value="foreach" />
     <ref role="1TJDcQ" to="c4fa:3CmSUB7Fp_l" resolve="StatementList" />
-    <node concept="1TJgyj" id="439UGmpFWI_" role="1TKVEi">
-      <property role="IQ2ns" value="4668520623154121637" />
-      <property role="20lmBu" value="fLJjDmT/aggregation" />
-      <property role="20kJfa" value="variable" />
-      <ref role="20lvS9" to="c4fa:3CmSUB7FprA" resolve="LocalVariableDeclaration" />
-    </node>
-    <node concept="1TJgyi" id="439UGmpH4K6" role="1TKVEl">
-      <property role="IQ2nx" value="4668520623154416646" />
-      <property role="TrG5h" value="variableName" />
-      <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
-    </node>
   </node>
   <node concept="1TIwiD" id="2mriF_PpuDu">
     <property role="EcuMT" value="2709841761192503902" />
     <property role="TrG5h" value="ForEachItemInCollection" />
     <property role="34LRSv" value="foreach" />
     <property role="3GE5qa" value="foreach" />
-    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
+    <property role="R4oN_" value="iterate on collection items" />
+    <ref role="1TJDcQ" to="c4fa:3CmSUB7FmO3" resolve="Statement" />
     <node concept="1TJgyj" id="2mriF_PpxPk" role="1TKVEi">
       <property role="IQ2ns" value="2709841761192516948" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
@@ -108,11 +104,24 @@
       <property role="20lbJX" value="fLJekj4/_1" />
       <ref role="20lvS9" node="2mriF_PUG8p" resolve="ForeachBody" />
     </node>
-    <node concept="PrWs8" id="2mriF_PpuDv" role="PzmwI">
-      <ref role="PrY4T" node="3UB6E8dkw2_" resolve="ICollectionDotTarget" />
+    <node concept="1TJgyj" id="2PnOsd7sg04" role="1TKVEi">
+      <property role="IQ2ns" value="3267310691328000004" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="variable" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" to="c4fa:3CmSUB7FprA" resolve="LocalVariableDeclaration" />
     </node>
-    <node concept="PrWs8" id="3UB6E8dj1xe" role="PzmwI">
-      <ref role="PrY4T" to="c4fa:7k_CvRMnl1X" resolve="IBreakContainer" />
+    <node concept="1TJgyj" id="2PnOsd7EYYv" role="1TKVEi">
+      <property role="IQ2ns" value="3267310691331862431" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="collection" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" to="mj1l:7FQByU3CrCM" resolve="Expression" />
+    </node>
+    <node concept="1TJgyi" id="2PnOsd7sg03" role="1TKVEl">
+      <property role="IQ2nx" value="3267310691328000003" />
+      <property role="TrG5h" value="variableName" />
+      <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
     </node>
   </node>
   <node concept="1TIwiD" id="N2AYHglF2y">
@@ -121,32 +130,20 @@
     <property role="34LRSv" value="new collection" />
     <ref role="1TJDcQ" to="mj1l:7FQByU3CrCM" resolve="Expression" />
   </node>
-  <node concept="1TIwiD" id="1Yx5zgmOnIY">
-    <property role="EcuMT" value="2279127299403119550" />
-    <property role="TrG5h" value="VariableReference" />
-    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
-    <node concept="1TJgyj" id="1Yx5zgmOnIZ" role="1TKVEi">
-      <property role="IQ2ns" value="2279127299403119551" />
-      <property role="20kJfa" value="variable" />
-      <property role="20lbJX" value="fLJekj4/_1" />
-      <ref role="20lvS9" to="mj1l:1LDGRqyYkTP" resolve="IVariableDeclaration" />
-    </node>
-  </node>
   <node concept="1TIwiD" id="3UB6E8djoy2">
     <property role="EcuMT" value="4514606434772420738" />
     <property role="TrG5h" value="FindFirst" />
     <property role="34LRSv" value="findFirst" />
     <property role="R4oN_" value="find the first element in a collection that satisfies a condition" />
-    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
+    <ref role="1TJDcQ" to="c4fa:3CmSUB7FmO3" resolve="Statement" />
+    <node concept="1TJgyj" id="3Pw7xgHHxY_" role="1TKVEi">
+      <property role="IQ2ns" value="4422567906092916645" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="destVariable" />
+      <ref role="20lvS9" to="c4fa:3CmSUB7FprA" resolve="LocalVariableDeclaration" />
+    </node>
     <node concept="PrWs8" id="7h503jfTBwg" role="PzmwI">
       <ref role="PrY4T" node="7h503jfTyeG" resolve="IGetFirstElementInCollection" />
-    </node>
-  </node>
-  <node concept="PlHQZ" id="3UB6E8dkw2_">
-    <property role="EcuMT" value="4514606434772713637" />
-    <property role="TrG5h" value="ICollectionDotTarget" />
-    <node concept="PrWs8" id="3UB6E8dkw2A" role="PrDN$">
-      <ref role="PrY4T" to="mj1l:40tXLnqhXcx" resolve="IGenericDotTarget" />
     </node>
   </node>
   <node concept="1TIwiD" id="7h503jfTxvO">
@@ -154,7 +151,7 @@
     <property role="TrG5h" value="RemoveFirst" />
     <property role="34LRSv" value="removeFirst" />
     <property role="R4oN_" value="remove the first element in a collection that satifies a condition" />
-    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
+    <ref role="1TJDcQ" to="c4fa:3CmSUB7FmO3" resolve="Statement" />
     <node concept="PrWs8" id="7h503jfTBwh" role="PzmwI">
       <ref role="PrY4T" node="7h503jfTyeG" resolve="IGetFirstElementInCollection" />
     </node>
@@ -166,21 +163,24 @@
       <property role="IQ2ns" value="8378102908618941358" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <property role="20kJfa" value="condition" />
-      <ref role="20lvS9" to="c4fa:3CmSUB7FmO3" resolve="Statement" />
+      <ref role="20lvS9" to="mj1l:7FQByU3CrCZ" resolve="BinaryComparisonExpression" />
     </node>
     <node concept="1TJgyj" id="7h503jfTyeJ" role="1TKVEi">
       <property role="IQ2ns" value="8378102908618941359" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
-      <property role="20kJfa" value="variable" />
+      <property role="20kJfa" value="elem" />
       <ref role="20lvS9" to="c4fa:3CmSUB7FprA" resolve="LocalVariableDeclaration" />
+    </node>
+    <node concept="1TJgyj" id="2PnOsd7F_9l" role="1TKVEi">
+      <property role="IQ2ns" value="3267310691332018773" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="collection" />
+      <ref role="20lvS9" to="mj1l:7FQByU3CrCM" resolve="Expression" />
     </node>
     <node concept="1TJgyi" id="7h503jfTyeH" role="1TKVEl">
       <property role="IQ2nx" value="8378102908618941357" />
-      <property role="TrG5h" value="variableName" />
+      <property role="TrG5h" value="elemName" />
       <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
-    </node>
-    <node concept="PrWs8" id="7h503jfTAso" role="PrDN$">
-      <ref role="PrY4T" node="3UB6E8dkw2_" resolve="ICollectionDotTarget" />
     </node>
     <node concept="PrWs8" id="7h503jfTAsp" role="PrDN$">
       <ref role="PrY4T" to="c4fa:1OcdQnySJNS" resolve="ILocalVarScopeProvider" />
@@ -190,14 +190,19 @@
     <property role="EcuMT" value="8378102908620936436" />
     <property role="TrG5h" value="RemoveFromCollection" />
     <property role="34LRSv" value="remove" />
-    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
-    <node concept="PrWs8" id="7h503jg19jP" role="PzmwI">
-      <ref role="PrY4T" node="3UB6E8dkw2_" resolve="ICollectionDotTarget" />
-    </node>
+    <property role="R4oN_" value="remove element from collection" />
+    <ref role="1TJDcQ" to="c4fa:3CmSUB7FmO3" resolve="Statement" />
     <node concept="1TJgyj" id="7h503jg19jR" role="1TKVEi">
       <property role="IQ2ns" value="8378102908620936439" />
       <property role="20kJfa" value="variable" />
       <ref role="20lvS9" to="mj1l:1LDGRqyYkTP" resolve="IVariableDeclaration" />
+    </node>
+    <node concept="1TJgyj" id="2PnOsd7F_9F" role="1TKVEi">
+      <property role="IQ2ns" value="3267310691332018795" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="collection" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" to="mj1l:7FQByU3CrCM" resolve="Expression" />
     </node>
   </node>
 </model>

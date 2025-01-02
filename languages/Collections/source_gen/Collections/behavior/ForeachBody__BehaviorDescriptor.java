@@ -42,7 +42,7 @@ public final class ForeachBody__BehaviorDescriptor extends BaseBHDescriptor {
     List<SNode> declarations = new ArrayList<SNode>();
     ListSequence.fromList(declarations).addSequence(Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, LINKS.statements$euTV), CONCEPTS.LocalVariableDeclaration$ft)));
     ListSequence.fromList(declarations).addSequence(Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, LINKS.statements$euTV), CONCEPTS.StatementList$y1)).where((it) -> SPropertyOperations.getBoolean(it, PROPS.isInvisible$H923)).translate((it) -> (Iterable<SNode>) ILocalVarScopeProvider__BehaviorDescriptor.getContributedLocalVariables_id3LB9aGm4C$b.invoke(it, node)));
-    ListSequence.fromList(declarations).addElement(SLinkOperations.getTarget(__thisNode__, LINKS.variable$h_hI));
+    ListSequence.fromList(declarations).addElement(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(__thisNode__), CONCEPTS.ForEachItemInCollection$TU), LINKS.variable$xerT));
     return declarations;
   }
   /*package*/ static boolean isInclusionIndexDependent_id2tBHhziHcNe(@NotNull SNode __thisNode__) {
@@ -99,12 +99,13 @@ public final class ForeachBody__BehaviorDescriptor extends BaseBHDescriptor {
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink statements$euTV = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad9955L, 0x3a16e3a9c7ad9956L, "statements");
-    /*package*/ static final SContainmentLink variable$h_hI = MetaAdapterFactory.getContainmentLink(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x259b4ab975eac219L, 0x40c9eac599afcba5L, "variable");
+    /*package*/ static final SContainmentLink variable$xerT = MetaAdapterFactory.getContainmentLink(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x259b4ab97565ea5eL, 0x2d57d1c347710004L, "variable");
   }
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept LocalVariableDeclaration$ft = MetaAdapterFactory.getConcept(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad96e6L, "com.mbeddr.core.statements.structure.LocalVariableDeclaration");
     /*package*/ static final SConcept StatementList$y1 = MetaAdapterFactory.getConcept(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad9955L, "com.mbeddr.core.statements.structure.StatementList");
+    /*package*/ static final SConcept ForEachItemInCollection$TU = MetaAdapterFactory.getConcept(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x259b4ab97565ea5eL, "Collections.structure.ForEachItemInCollection");
   }
 
   private static final class PROPS {

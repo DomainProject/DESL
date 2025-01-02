@@ -14,12 +14,10 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_FindFirst;
   private ConceptPresentation props_ForEachItemInCollection;
   private ConceptPresentation props_ForeachBody;
-  private ConceptPresentation props_ICollectionDotTarget;
   private ConceptPresentation props_IGetFirstElementInCollection;
   private ConceptPresentation props_NewCollection;
   private ConceptPresentation props_RemoveFirst;
   private ConceptPresentation props_RemoveFromCollection;
-  private ConceptPresentation props_VariableReference;
 
   @Override
   @Nullable
@@ -29,6 +27,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
       case LanguageConceptSwitch.AddToCollection:
         if (props_AddToCollection == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.shortDesc("add element to collection");
           cpb.rawPresentation("add");
           props_AddToCollection = cpb.create();
         }
@@ -51,6 +50,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
       case LanguageConceptSwitch.ForEachItemInCollection:
         if (props_ForEachItemInCollection == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.shortDesc("iterate on collection items");
           cpb.rawPresentation("foreach");
           props_ForEachItemInCollection = cpb.create();
         }
@@ -62,12 +62,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_ForeachBody = cpb.create();
         }
         return props_ForeachBody;
-      case LanguageConceptSwitch.ICollectionDotTarget:
-        if (props_ICollectionDotTarget == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          props_ICollectionDotTarget = cpb.create();
-        }
-        return props_ICollectionDotTarget;
       case LanguageConceptSwitch.IGetFirstElementInCollection:
         if (props_IGetFirstElementInCollection == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -92,17 +86,11 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
       case LanguageConceptSwitch.RemoveFromCollection:
         if (props_RemoveFromCollection == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.shortDesc("remove element from collection");
           cpb.rawPresentation("remove");
           props_RemoveFromCollection = cpb.create();
         }
         return props_RemoveFromCollection;
-      case LanguageConceptSwitch.VariableReference:
-        if (props_VariableReference == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.presentationByReference(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x1fa1163416d17bbeL, 0x1fa1163416d17bbfL, "variable", "", "");
-          props_VariableReference = cpb.create();
-        }
-        return props_VariableReference;
     }
     return null;
   }

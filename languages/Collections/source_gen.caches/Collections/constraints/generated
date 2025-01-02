@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<product version="3" modelHash="48olott57ezcedonsbul5i5c7avs7q2">
-  <files names="ConstraintsAspectDescriptor.java:FindFirst_Constraints.java:ForeachBody_Constraints.java:ICollectionDotTarget_Constraints.java:IGetFirstElementInCollection_Constraints.java:NewCollection_Constraints.java:RemoveFirst_Constraints.java" />
+<product version="3" modelHash="-2qnxjccc22q5q87p0wf8dkl815li2qe">
+  <files names="ConstraintsAspectDescriptor.java:FindFirst_Constraints.java:ForEachItemInCollection_Constraints.java:ForeachBody_Constraints.java:IGetFirstElementInCollection_Constraints.java:NewCollection_Constraints.java:RemoveFirst_Constraints.java" />
 </product>
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<product version="3" modelHash="cl6f8wpwx7ctsr6kzf87drrw87g63tv">
-  <files names="TypesystemDescriptor.java" />
+<product version="3" modelHash="-7jz85r3feafg2eoefjzve7lrmve3d7">
+  <files names="TypesystemDescriptor.java:check_ForEachItemInCollection_NonTypesystemRule.java" />
 </product>
 

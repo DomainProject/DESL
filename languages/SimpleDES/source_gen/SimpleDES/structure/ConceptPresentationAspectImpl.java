@@ -322,7 +322,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
       case LanguageConceptSwitch.ProcessAllocation:
         if (props_ProcessAllocation == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.presentationByReference(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6393783L, 0x4117a694e6394c33L, "entity", "", "");
+          cpb.presentationByReference(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6393783L, 0x4117a694e6394c33L, "class", "", "");
           props_ProcessAllocation = cpb.create();
         }
         return props_ProcessAllocation;

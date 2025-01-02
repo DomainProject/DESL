@@ -27,9 +27,8 @@ public class RootSimM2M_TextGen extends TextGenDescriptorBase {
     tgs.createUnitInfo();
 
     // headers
-    tgs.append("#include <ROOT-Sim.h>");
-    tgs.newLine();
     List<String> headers = ListSequence.fromList(new ArrayList<String>());
+    ListSequence.fromList(headers).addElement("ROOT-Sim.h");
     for (final SNode externalFunction : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.externalFunctions$LqEg), CONCEPTS.ExternalFunctionPrototype$V4))) {
       if (isEmptyString(ListSequence.fromList(headers).findFirst((it) -> it.equals(SPropertyOperations.getString(externalFunction, PROPS.headerName$Qm9Y))))) {
         ListSequence.fromList(headers).addElement(SPropertyOperations.getString(externalFunction, PROPS.headerName$Qm9Y));
@@ -48,17 +47,71 @@ public class RootSimM2M_TextGen extends TextGenDescriptorBase {
         tgs.newLine();
       }
     }
+    for (final SNode externalMacro : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.macros$Sq68), CONCEPTS.ExternalMacro$H2))) {
+      if (isEmptyString(ListSequence.fromList(headers).findFirst((it) -> it.equals(SPropertyOperations.getString(externalMacro, PROPS.headerName$vMtZ))))) {
+        ListSequence.fromList(headers).addElement(SPropertyOperations.getString(externalMacro, PROPS.headerName$vMtZ));
+        tgs.append("#include <");
+        tgs.append(SPropertyOperations.getString(externalMacro, PROPS.headerName$vMtZ));
+        tgs.append(".h>");
+        tgs.newLine();
+      }
+    }
     tgs.newLine();
 
-    // constants
-    for (SNode constant : ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.macros$Sq68))) {
+    // events
+    tgs.append("/* EVENT TYPES */");
+    tgs.newLine();
+    for (SNode event : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.events$uflG), CONCEPTS.EventDefinition$wO))) {
+      if (SPropertyOperations.getString(SLinkOperations.getTarget(event, LINKS.eventType$MGmZ), PROPS.name$MnvL) != "INIT") {
+        tgs.append("#define ");
+        tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(event, LINKS.eventType$MGmZ), PROPS.name$MnvL));
+        tgs.append(" ");
+        tgs.append(String.valueOf(20 + SNodeOperations.getIndexInParent(event)));
+        tgs.newLine();
+      }
+    }
+    tgs.newLine();
+
+    // macros
+    for (SNode constant : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.macros$Sq68), CONCEPTS.MacroVariable$z9))) {
       tgs.appendNode(constant);
     }
+    tgs.newLine();
+    for (SNode constant : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.macros$Sq68), CONCEPTS.MacroFunction$$7))) {
+      tgs.appendNode(constant);
+    }
+    tgs.newLine();
+
+    tgs.append("enum class { ");
+    for (SNode c : ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.classes$SNAM))) {
+      tgs.append(SPropertyOperations.getString(c, PROPS.name$MnvL));
+      tgs.append(", ");
+    }
+    tgs.append("classUnknown };");
+    tgs.newLine();
+    tgs.newLine();
+
+    // WHAT_CLASS macro
+    tgs.append("#define WHAT_CLASS(id) ");
+    tgs.append("(");
+    for (SNode allocation : ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.processAllocations$cuUJ))) {
+      tgs.appendNode(allocation);
+      tgs.append(" : ");
+    }
+    tgs.append("classUnknown))");
+    tgs.newLine();
     tgs.newLine();
 
     // global variables
     for (SNode globalVariable : ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.configuration$XHIx))) {
       tgs.appendNode(globalVariable);
+    }
+    tgs.newLine();
+
+    // structs
+    for (SNode struct : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.structs$JAXN), CONCEPTS.StructDefinition$7R))) {
+      tgs.appendNode(struct);
+      tgs.newLine();
     }
     tgs.newLine();
 
@@ -69,23 +122,157 @@ public class RootSimM2M_TextGen extends TextGenDescriptorBase {
     }
     tgs.newLine();
 
+    // ProcessEvent for each class
+    for (SNode c : ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.classes$SNAM))) {
+      tgs.append("void ProcessEvent");
+      tgs.append(SPropertyOperations.getString(c, PROPS.name$MnvL));
+      tgs.append("(lp_id_t me, simtime_t now, unsigned event_type, const void *content, ");
+      tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(c, LINKS.state$NqNO), PROPS.name$MnvL));
+      tgs.append("*state)");
+      tgs.newLine();
+      tgs.append("{");
+      tgs.newLine();
+      ctx.getBuffer().area().increaseIndent();
+      tgs.indent();
+      tgs.append("switch(event_type) {");
+      tgs.newLine();
+      ctx.getBuffer().area().increaseIndent();
+      for (SNode handler : ListSequence.fromList(SLinkOperations.getChildren(c, LINKS.handlers$Nr2P))) {
+        tgs.newLine();
+        tgs.indent();
+        tgs.append("case ");
+        tgs.append(SPropertyOperations.getString(handler, PROPS.eventName$AHdn));
+        tgs.append(":");
+        tgs.newLine();
+        tgs.newLine();
+        ctx.getBuffer().area().increaseIndent();
+        for (SNode statement : ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(SLinkOperations.getTarget(handler, LINKS.function$5bPH), LINKS.body$1GE0), LINKS.statements$euTV))) {
+          tgs.indent();
+          tgs.appendNode(statement);
+          tgs.newLine();
+        }
+        tgs.indent();
+        tgs.append("break;");
+        tgs.newLine();
+        ctx.getBuffer().area().decreaseIndent();
+      }
+
+      tgs.indent();
+      tgs.append("default:");
+      ctx.getBuffer().area().increaseIndent();
+      tgs.indent();
+      tgs.append("fprintf(stderr, \"Unknown event type! (me = %d - event type = %d)\", me, event_type);");
+      tgs.newLine();
+      tgs.indent();
+      tgs.append("abort();");
+      tgs.newLine();
+      ctx.getBuffer().area().decreaseIndent();
+
+      ctx.getBuffer().area().decreaseIndent();
+      tgs.indent();
+      tgs.append("}");
+      tgs.newLine();
+      ctx.getBuffer().area().decreaseIndent();
+      tgs.append("}");
+      tgs.newLine();
+    }
+    tgs.newLine();
 
     // ProcessEvent
-    tgs.append("void ProcessEvent(lp_id_t me, simtime_t now, unsigned event_type, const void *content, __unused unsigned size, void *s  )\n");
+    tgs.append("void ProcessEvent(lp_id_t me, simtime_t now, unsigned event_type, const void *content, void *data)");
     tgs.newLine();
     tgs.append("{");
     tgs.newLine();
     ctx.getBuffer().area().increaseIndent();
     tgs.indent();
-    tgs.append("switch(event_type) {");
+    tgs.append("switch(what_class(me)) {");
     tgs.newLine();
     ctx.getBuffer().area().increaseIndent();
+    for (SNode c : ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.classes$SNAM))) {
+      tgs.newLine();
+      tgs.indent();
+      tgs.append("case ");
+      tgs.append(SPropertyOperations.getString(c, PROPS.name$MnvL));
+      tgs.append(":");
+      tgs.newLine();
+      tgs.newLine();
+      ctx.getBuffer().area().increaseIndent();
+      tgs.indent();
+      tgs.append("ProcessEvent");
+      tgs.append(SPropertyOperations.getString(c, PROPS.name$MnvL));
+      tgs.append("(me, now, event_type, content, (");
+      tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(c, LINKS.state$NqNO), PROPS.name$MnvL));
+      tgs.append(" *)data);");
+      tgs.newLine();
+      tgs.indent();
+      tgs.append("break;");
+      tgs.newLine();
+      ctx.getBuffer().area().decreaseIndent();
+    }
     ctx.getBuffer().area().decreaseIndent();
     tgs.indent();
     tgs.append("}");
     tgs.newLine();
     ctx.getBuffer().area().decreaseIndent();
     tgs.append("}");
+    tgs.newLine();
+    tgs.newLine();
+
+    // simulation_configuration
+
+    int lps = 0;
+    for (SNode allocation : ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.processAllocations$cuUJ))) {
+      {
+        final SNode interval = SLinkOperations.getTarget(allocation, LINKS.processes$hZqx);
+        if (SNodeOperations.isInstanceOf(interval, CONCEPTS.ProcessArray$Ux)) {
+          lps += (SPropertyOperations.getInteger(interval, PROPS.right$2uAQ) - SPropertyOperations.getInteger(interval, PROPS.left$2u8O) + 1);
+        }
+      }
+      {
+        final SNode sequence = SLinkOperations.getTarget(allocation, LINKS.processes$hZqx);
+        if (SNodeOperations.isInstanceOf(sequence, CONCEPTS.ProcessSequence$B$)) {
+          lps += ListSequence.fromList(SLinkOperations.getChildren(sequence, LINKS.processes$2JvY)).count();
+        }
+      }
+    }
+
+    tgs.append("struct simulation_configuration conf = {");
+    tgs.newLine();
+    ctx.getBuffer().area().increaseIndent();
+    tgs.indent();
+    tgs.append(".lps = ");
+    tgs.append(String.valueOf(lps));
+    tgs.append(",");
+    tgs.newLine();
+    tgs.indent();
+    tgs.append(".num_threads = 0,");
+    tgs.newLine();
+    tgs.indent();
+    tgs.append(".gvt_period = 1000,");
+    tgs.newLine();
+    tgs.indent();
+    tgs.append(".log_level = LOG_INFO");
+    tgs.newLine();
+    tgs.indent();
+    tgs.append(".stats_file = \"");
+    tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL));
+    tgs.append("_stats\",");
+    tgs.newLine();
+    tgs.indent();
+    tgs.append(".ckpt_interval = 0,");
+    tgs.newLine();
+    tgs.indent();
+    tgs.append(".core_binding = true,");
+    tgs.newLine();
+    tgs.indent();
+    tgs.append(".serial = false");
+    tgs.newLine();
+    tgs.indent();
+    tgs.append(".dispatcher = ProcessEvent");
+    tgs.newLine();
+    ctx.getBuffer().area().decreaseIndent();
+    tgs.append("};");
+    tgs.newLine();
     tgs.newLine();
 
     // main
@@ -99,6 +286,12 @@ public class RootSimM2M_TextGen extends TextGenDescriptorBase {
       tgs.appendNode(statement);
       tgs.newLine();
     }
+    tgs.indent();
+    tgs.append("RootsimInit(&conf);");
+    tgs.newLine();
+    tgs.indent();
+    tgs.append("return RootsimRun();");
+    tgs.newLine();
     ctx.getBuffer().area().decreaseIndent();
     tgs.append("}");
     tgs.newLine();
@@ -113,23 +306,44 @@ public class RootSimM2M_TextGen extends TextGenDescriptorBase {
   private static final class PROPS {
     /*package*/ static final SProperty headerName$Qm9Y = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228cL, 0x5808433cc4903a50L, "headerName");
     /*package*/ static final SProperty headerName$Tdv1 = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x5808433cc497c579L, 0x5808433cc4a5e3ceL, "headerName");
+    /*package*/ static final SProperty headerName$vMtZ = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x28a47bf149ea91f0L, 0x28a47bf149ea91f2L, "headerName");
+    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty eventName$AHdn = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x3aa70864b453eff1L, "eventName");
+    /*package*/ static final SProperty right$2uAQ = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6486788L, 0x4117a694e648678cL, "right");
+    /*package*/ static final SProperty left$2u8O = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6486788L, 0x4117a694e648678aL, "left");
   }
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink externalFunctions$LqEg = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x6f36cc77d0a2c4ceL, "externalFunctions");
     /*package*/ static final SContainmentLink structs$JAXN = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x6e7ca07799a0fb0fL, "structs");
     /*package*/ static final SContainmentLink macros$Sq68 = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x74450034d00e6949L, "macros");
+    /*package*/ static final SContainmentLink eventType$MGmZ = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2e66f9a613f69c80L, 0x2e66f9a613f69c82L, "eventType");
+    /*package*/ static final SContainmentLink events$uflG = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x2dc3a69083753b9fL, "events");
+    /*package*/ static final SContainmentLink classes$SNAM = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x4117a694e5ba8536L, "classes");
+    /*package*/ static final SContainmentLink processAllocations$cuUJ = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x4117a694e6409a0eL, "processAllocations");
     /*package*/ static final SContainmentLink configuration$XHIx = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x3507db05f7c55ff1L, "configuration");
-    /*package*/ static final SContainmentLink startup$LlvU = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x6f36cc77d0a2c4cdL, "startup");
-    /*package*/ static final SContainmentLink function$Ah6u = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0a48d39L, 0x6f36cc77d0a48d3aL, "function");
+    /*package*/ static final SContainmentLink state$NqNO = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x4117a694e5b8c1a2L, "state");
+    /*package*/ static final SContainmentLink function$5bPH = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x74d88000543a2a9fL, "function");
     /*package*/ static final SContainmentLink body$1GE0 = MetaAdapterFactory.getContainmentLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x595522006a5b97e1L, 0x3a16e3a9c7ad9954L, "body");
     /*package*/ static final SContainmentLink statements$euTV = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad9955L, 0x3a16e3a9c7ad9956L, "statements");
+    /*package*/ static final SContainmentLink handlers$Nr2P = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x4117a694e5b8c1a3L, "handlers");
+    /*package*/ static final SContainmentLink processes$hZqx = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6393783L, 0x4117a694e6393787L, "processes");
+    /*package*/ static final SContainmentLink processes$2JvY = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e64867a6L, 0x4117a694e64867a7L, "processes");
+    /*package*/ static final SContainmentLink startup$LlvU = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x6f36cc77d0a2c4cdL, "startup");
+    /*package*/ static final SContainmentLink function$Ah6u = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0a48d39L, 0x6f36cc77d0a48d3aL, "function");
   }
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept ExternalFunctionPrototype$V4 = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228cL, "SimpleDES.structure.ExternalFunctionPrototype");
     /*package*/ static final SConcept ExternalStructDefinition$8P = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x5808433cc497c579L, "SimpleDES.structure.ExternalStructDefinition");
+    /*package*/ static final SConcept ExternalMacro$H2 = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x28a47bf149ea91f0L, "SimpleDES.structure.ExternalMacro");
+    /*package*/ static final SConcept EventDefinition$wO = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2e66f9a613f69c80L, "SimpleDES.structure.EventDefinition");
+    /*package*/ static final SConcept MacroVariable$z9 = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x74450034d00e6945L, "SimpleDES.structure.MacroVariable");
+    /*package*/ static final SConcept MacroFunction$$7 = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x74450034d00e6947L, "SimpleDES.structure.MacroFunction");
+    /*package*/ static final SConcept StructDefinition$7R = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x5808433cc497c577L, "SimpleDES.structure.StructDefinition");
     /*package*/ static final SConcept ExternalFunction$U_ = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228bL, "SimpleDES.structure.ExternalFunction");
+    /*package*/ static final SConcept ProcessArray$Ux = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6486788L, "SimpleDES.structure.ProcessArray");
+    /*package*/ static final SConcept ProcessSequence$B$ = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e64867a6L, "SimpleDES.structure.ProcessSequence");
     /*package*/ static final SInterfaceConcept UnitConcept$1g = MetaAdapterFactory.getInterfaceConcept(0x9ded098bad6a4657L, 0xbfd948636cfe8bc3L, 0x465516cf87c705a4L, "jetbrains.mps.lang.traceable.structure.UnitConcept");
   }
 }

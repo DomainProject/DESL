@@ -25,6 +25,8 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
   @Override
   public TextGenDescriptor getDescriptor(@NotNull SAbstractConcept concept) {
     switch (myIndex.index(concept)) {
+      case LanguageConceptSwitch.CreateArray:
+        return new CreateArray_TextGen();
       case LanguageConceptSwitch.DocsM2M:
         return new DocsM2M_TextGen();
       case LanguageConceptSwitch.EmptyLine:
@@ -41,10 +43,18 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new ExternalStructDefinition_TextGen();
       case LanguageConceptSwitch.FunctionDocs:
         return new FunctionDocs_TextGen();
+      case LanguageConceptSwitch.InitializeState:
+        return new InitializeState_TextGen();
+      case LanguageConceptSwitch.NewStruct:
+        return new NewStruct_TextGen();
       case LanguageConceptSwitch.ParameterDocs:
         return new ParameterDocs_TextGen();
+      case LanguageConceptSwitch.ProcessAllocation:
+        return new ProcessAllocation_TextGen();
       case LanguageConceptSwitch.RootSimM2M:
         return new RootSimM2M_TextGen();
+      case LanguageConceptSwitch.SendEvent:
+        return new SendEvent_TextGen();
       case LanguageConceptSwitch.StructDefinition:
         return new StructDefinition_TextGen();
     }

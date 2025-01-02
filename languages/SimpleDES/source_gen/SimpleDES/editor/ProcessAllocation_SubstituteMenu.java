@@ -38,7 +38,7 @@ public class ProcessAllocation_SubstituteMenu extends SubstituteMenuBase {
   public class SMP_ReferenceScope_jjo0hg_a extends ReferenceScopeSubstituteMenuPart {
 
     public SMP_ReferenceScope_jjo0hg_a() {
-      super(CONCEPTS.ProcessAllocation$5Z, LINKS.entity$8$vc, new EditorMenuDescriptorBase("reference scope substitute menu part", null));
+      super(CONCEPTS.ProcessAllocation$5Z, LINKS.class$8$vc, new EditorMenuDescriptorBase("reference scope substitute menu part", null));
     }
 
   }
@@ -63,6 +63,6 @@ public class ProcessAllocation_SubstituteMenu extends SubstituteMenuBase {
   }
 
   private static final class LINKS {
-    /*package*/ static final SReferenceLink entity$8$vc = MetaAdapterFactory.getReferenceLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6393783L, 0x4117a694e6394c33L, "entity");
+    /*package*/ static final SReferenceLink class$8$vc = MetaAdapterFactory.getReferenceLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6393783L, 0x4117a694e6394c33L, "class");
   }
 }

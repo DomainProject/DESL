@@ -7,7 +7,6 @@
   <imports>
     <import index="clbe" ref="r:61d840b4-12c1-49ea-b142-b2a1550a9b15(com.mbeddr.core.udt.structure)" />
     <import index="x27k" ref="r:75ecab8a-8931-4140-afc6-4b46398710fc(com.mbeddr.core.modules.structure)" />
-    <import index="3vkx" ref="r:1c91fcc2-cf14-47f5-a4d4-3b424626f0d4(com.mbeddr.cc.requirements.c.structure)" />
     <import index="zqge" ref="r:59e90602-6655-4552-86eb-441a42a9a0e4(jetbrains.mps.lang.text.structure)" />
     <import index="87nw" ref="r:ca2ab6bb-f6e7-4c0f-a88c-b78b9b31fff3(de.slisson.mps.richtext.structure)" implicit="true" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
@@ -127,7 +126,7 @@
     <node concept="1TJgyj" id="44nDDjAg9Ce" role="1TKVEi">
       <property role="IQ2ns" value="4690400695378024974" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
-      <property role="20kJfa" value="processAllocation" />
+      <property role="20kJfa" value="processAllocations" />
       <property role="20lbJX" value="fLJekj5/_0__n" />
       <ref role="20lvS9" node="44nDDjAeju3" resolve="ProcessAllocation" />
     </node>
@@ -569,7 +568,7 @@
     <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
     <node concept="1TJgyj" id="44nDDjAekKN" role="1TKVEi">
       <property role="IQ2ns" value="4690400695377546291" />
-      <property role="20kJfa" value="entity" />
+      <property role="20kJfa" value="class" />
       <property role="20lbJX" value="fLJekj4/_1" />
       <ref role="20lvS9" node="44nDDj_Ic6w" resolve="ClassDefinition" />
     </node>

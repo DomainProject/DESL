@@ -241,7 +241,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.aggregate("typedefs", 0x726080b55108e3b4L).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4ba181fb0873ae25L).optional(true).ordered(true).multiple(true).origin("8241728834324980660").done();
     b.aggregate("docs", 0x503b47f2f8d215caL).target(0x92d2ea165a424fdfL, 0xa676c7604efe3504L, 0x237c8da86a9e4e61L).optional(true).ordered(true).multiple(true).origin("5781293655542339018").done();
     b.aggregate("classes", 0x4117a694e5ba8536L).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L).optional(false).ordered(true).multiple(true).origin("4690400695369237814").done();
-    b.aggregate("processAllocation", 0x4117a694e6409a0eL).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6393783L).optional(true).ordered(true).multiple(true).origin("4690400695378024974").done();
+    b.aggregate("processAllocations", 0x4117a694e6409a0eL).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6393783L).optional(true).ordered(true).multiple(true).origin("4690400695378024974").done();
     b.aggregate("macros", 0x74450034d00e6949L).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x74450034d00e6944L).optional(true).ordered(true).multiple(true).origin("8378102908621580617").done();
     return b.create();
   }
@@ -573,7 +573,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.class_(false, false, false);
     b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(SimpleDES.structure)/4690400695377540995");
     b.version(3);
-    b.associate("entity", 0x4117a694e6394c33L).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L).optional(false).origin("4690400695377546291").done();
+    b.associate("class", 0x4117a694e6394c33L).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L).optional(false).origin("4690400695377546291").done();
     b.aggregate("processes", 0x4117a694e6393787L).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e64ff7baL).optional(false).ordered(true).multiple(false).origin("4690400695377540999").done();
     return b.create();
   }

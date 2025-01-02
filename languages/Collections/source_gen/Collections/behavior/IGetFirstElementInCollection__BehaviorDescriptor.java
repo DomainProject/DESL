@@ -34,7 +34,7 @@ public final class IGetFirstElementInCollection__BehaviorDescriptor extends Base
 
   /*package*/ static Iterable<SNode> getContributedLocalVariables_id3LB9aGm4C$b(@NotNull SNode __thisNode__, SNode node) {
     List<SNode> declarations = new ArrayList<SNode>();
-    ListSequence.fromList(declarations).addElement(SLinkOperations.getTarget(__thisNode__, LINKS.variable$IobX));
+    ListSequence.fromList(declarations).addElement(SLinkOperations.getTarget(__thisNode__, LINKS.elem$IobX));
     return declarations;
   }
   /*package*/ static boolean isInclusionIndexDependent_id2tBHhziHcNe(@NotNull SNode __thisNode__) {
@@ -90,6 +90,6 @@ public final class IGetFirstElementInCollection__BehaviorDescriptor extends Base
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink variable$IobX = MetaAdapterFactory.getContainmentLink(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x74450034cfe623acL, 0x74450034cfe623afL, "variable");
+    /*package*/ static final SContainmentLink elem$IobX = MetaAdapterFactory.getContainmentLink(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x74450034cfe623acL, 0x74450034cfe623afL, "elem");
   }
 }

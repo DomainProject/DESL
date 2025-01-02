@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<product version="3" modelHash="bgv1b0qr6kwel5lvpvye5a43nmngfy2">
-  <files names="DocsM2M_TextGen.java:EmptyLine_TextGen.java:EventDocs_TextGen.java:EventHandlerDocs_TextGen.java:EventHandler_TextGen.java:ExternalFunctionPrototype_TextGen.java:ExternalStructDefinition_TextGen.java:FunctionDocs_TextGen.java:ParameterDocs_TextGen.java:RootSimM2M_TextGen.java:StructDefinition_TextGen.java:TextGenAspectDescriptor.java" />
+<product version="3" modelHash="-esn9c4kmxr3t9y6zy4tz7ccwb048ig2">
+  <files names="CreateArray_TextGen.java:DocsM2M_TextGen.java:EmptyLine_TextGen.java:EventDocs_TextGen.java:EventHandlerDocs_TextGen.java:EventHandler_TextGen.java:ExternalFunctionPrototype_TextGen.java:ExternalStructDefinition_TextGen.java:FunctionDocs_TextGen.java:InitializeState_TextGen.java:NewStruct_TextGen.java:ParameterDocs_TextGen.java:ProcessAllocation_TextGen.java:RootSimM2M_TextGen.java:SendEvent_TextGen.java:StructDefinition_TextGen.java:TextGenAspectDescriptor.java" />
 </product>
 
