@@ -72,6 +72,9 @@ public class QueriesGenerated extends QueryProviderBase {
     for (SNode type : ListSequence.fromList(SModelOperations.nodes(_context.getModel(), CONCEPTS.TypeDefinition$Jr))) {
       SPropertyOperations.assign(type, PROPS.preventNameMangling$DOH5, true);
     }
+    for (SNode struct : ListSequence.fromList(SModelOperations.nodes(_context.getModel(), CONCEPTS.ExternalStructDefinition$8P))) {
+      SPropertyOperations.assign(SLinkOperations.getTarget(struct, LINKS.declaration$PHIG), PROPS.preventNameMangling$DOH5, true);
+    }
   }
   private final Map<String, ScriptCodeBlock> mscbMethods = new HashMap<String, ScriptCodeBlock>();
   {
@@ -217,10 +220,12 @@ public class QueriesGenerated extends QueryProviderBase {
     /*package*/ static final SContainmentLink structs$JAXN = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x6e7ca07799a0fb0fL, "structs");
     /*package*/ static final SContainmentLink externalFunctions$LqEg = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x6f36cc77d0a2c4ceL, "externalFunctions");
     /*package*/ static final SContainmentLink prototype$lY0a = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228cL, 0x6f36cc77d0d15795L, "prototype");
+    /*package*/ static final SContainmentLink declaration$PHIG = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x5808433cc497c579L, 0x5808433cc4985d2bL, "declaration");
   }
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept ExternalFunctionPrototype$V4 = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228cL, "SimpleDES.structure.ExternalFunctionPrototype");
     /*package*/ static final SConcept TypeDefinition$Jr = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4ba181fb0873ae26L, "SimpleDES.structure.TypeDefinition");
+    /*package*/ static final SConcept ExternalStructDefinition$8P = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x5808433cc497c579L, "SimpleDES.structure.ExternalStructDefinition");
   }
 }

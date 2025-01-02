@@ -209,7 +209,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(SimpleDES.structure)/4690400695369122208");
     b.version(3);
     b.aggregate("state", 0x4117a694e5b8c1a2L).target(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x58bef62304fc0a2fL).optional(true).ordered(true).multiple(false).origin("4690400695369122210").done();
-    b.aggregate("handlers", 0x4117a694e5b8c1a3L).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L).optional(true).ordered(true).multiple(true).origin("4690400695369122211").done();
+    b.aggregate("handlers", 0x4117a694e5b8c1a3L).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6eb40d65f333345bL).optional(true).ordered(true).multiple(true).origin("4690400695369122211").done();
     b.aggregate("startup", 0x6ea143d20905c7edL).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6ea143d20905c7ecL).optional(true).ordered(true).multiple(false).origin("7971727384796055533").done();
     return b.create();
   }
@@ -298,7 +298,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(SimpleDES.structure)/3297662491775979728");
     b.version(3);
     b.property("eventName", 0x3aa70864b453eff1L).type(PrimitiveTypeId.STRING).origin("4226356003925651441").done();
-    b.associate("event", 0x74d88000543a2aa2L).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x7c2c5977e3e10df9L).optional(false).origin("8419620242270595746").done();
+    b.associate("event", 0x74d88000543a2aa2L).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x7c2c5977e3e10df9L).optional(true).origin("8419620242270595746").done();
     b.aggregate("variables", 0x68458b9b5db03ca0L).target(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad96e6L).optional(true).ordered(true).multiple(true).origin("7513565052745563296").done();
     b.aggregate("function", 0x74d88000543a2a9fL).target(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x595522006a5b97e1L).optional(false).ordered(true).multiple(false).origin("8419620242270595743").done();
     b.aggregate("docs", 0x74d88000543a2aa1L).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x74d88000542f2672L).optional(true).ordered(true).multiple(false).origin("8419620242270595745").done();
@@ -573,7 +573,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.class_(false, false, false);
     b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(SimpleDES.structure)/4690400695377540995");
     b.version(3);
-    b.associate("class", 0x4117a694e6394c33L).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L).optional(false).origin("4690400695377546291").done();
+    b.associate("class", 0x4117a694e6394c33L).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L).optional(true).origin("4690400695377546291").done();
     b.aggregate("processes", 0x4117a694e6393787L).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e64ff7baL).optional(false).ordered(true).multiple(false).origin("4690400695377540999").done();
     return b.create();
   }

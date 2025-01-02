@@ -123,7 +123,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
       case LanguageConceptSwitch.EventHandler:
         if (props_EventHandler == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.presentationByReference(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x74d88000543a2aa2L, "event", "", "");
+          cpb.rawPresentation("EventHandler");
           props_EventHandler = cpb.create();
         }
         return props_EventHandler;
@@ -322,7 +322,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
       case LanguageConceptSwitch.ProcessAllocation:
         if (props_ProcessAllocation == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.presentationByReference(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6393783L, 0x4117a694e6394c33L, "class", "", "");
+          cpb.rawPresentation("ProcessAllocation");
           props_ProcessAllocation = cpb.create();
         }
         return props_ProcessAllocation;

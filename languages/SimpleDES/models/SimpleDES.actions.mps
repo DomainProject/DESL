@@ -83,13 +83,22 @@
       </concept>
       <concept id="1158701162220" name="jetbrains.mps.lang.actions.structure.NodeSetupFunction" flags="in" index="37Y9Zx" />
       <concept id="5584396657084912703" name="jetbrains.mps.lang.actions.structure.NodeSetupFunction_NewNode" flags="nn" index="1r4Lsj" />
+      <concept id="5584396657084920670" name="jetbrains.mps.lang.actions.structure.NodeSetupFunction_EnclosingNode" flags="nn" index="1r4N1M" />
     </language>
     <language id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel">
+      <concept id="1177026924588" name="jetbrains.mps.lang.smodel.structure.RefConcept_Reference" flags="nn" index="chp4Y">
+        <reference id="1177026940964" name="conceptDeclaration" index="cht4Q" />
+      </concept>
       <concept id="1179409122411" name="jetbrains.mps.lang.smodel.structure.Node_ConceptMethodCall" flags="nn" index="2qgKlT" />
+      <concept id="2396822768958367367" name="jetbrains.mps.lang.smodel.structure.AbstractTypeCastExpression" flags="nn" index="$5XWr">
+        <child id="6733348108486823193" name="leftExpression" index="1m5AlR" />
+        <child id="3906496115198199033" name="conceptArgument" index="3oSUPX" />
+      </concept>
       <concept id="1180636770613" name="jetbrains.mps.lang.smodel.structure.SNodeCreator" flags="nn" index="3zrR0B">
         <child id="1180636770616" name="createdType" index="3zrR0E" />
       </concept>
       <concept id="1144146199828" name="jetbrains.mps.lang.smodel.structure.Node_CopyOperation" flags="nn" index="1$rogu" />
+      <concept id="1140137987495" name="jetbrains.mps.lang.smodel.structure.SNodeTypeCastExpression" flags="nn" index="1PxgMI" />
       <concept id="1138055754698" name="jetbrains.mps.lang.smodel.structure.SNodeType" flags="in" index="3Tqbb2">
         <reference id="1138405853777" name="concept" index="ehGHo" />
       </concept>
@@ -1196,7 +1205,7 @@
                 <property role="3oM_SC" value="Create" />
               </node>
               <node concept="3oM_SD" id="50VhZbSIHvq" role="1PaTwD">
-                <property role="3oM_SC" value="&quot;data&quot;" />
+                <property role="3oM_SC" value="&quot;state&quot;" />
               </node>
               <node concept="3oM_SD" id="50VhZbSIHvW" role="1PaTwD">
                 <property role="3oM_SC" value="argument" />
@@ -1233,14 +1242,51 @@
               </node>
             </node>
           </node>
+          <node concept="3cpWs8" id="730YTbVRPK5" role="3cqZAp">
+            <node concept="3cpWsn" id="730YTbVRPK8" role="3cpWs9">
+              <property role="TrG5h" value="statePointer" />
+              <node concept="3Tqbb2" id="730YTbVRPK3" role="1tU5fm">
+                <ref role="ehGHo" to="yq40:fwMInzpHoK" resolve="PointerType" />
+              </node>
+              <node concept="2ShNRf" id="730YTbVRQ9m" role="33vP2m">
+                <node concept="3zrR0B" id="730YTbVRQ9k" role="2ShVmc">
+                  <node concept="3Tqbb2" id="730YTbVRQ9l" role="3zrR0E">
+                    <ref role="ehGHo" to="yq40:fwMInzpHoK" resolve="PointerType" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="3clFbF" id="730YTbVRQxB" role="3cqZAp">
+            <node concept="37vLTI" id="730YTbVRSbm" role="3clFbG">
+              <node concept="2OqwBi" id="730YTbVRRcz" role="37vLTJ">
+                <node concept="37vLTw" id="730YTbVRQx_" role="2Oq$k0">
+                  <ref role="3cqZAo" node="730YTbVRPK8" resolve="statePointer" />
+                </node>
+                <node concept="3TrEf2" id="730YTbVRRDG" role="2OqNvi">
+                  <ref role="3Tt5mk" to="c4fa:6IWRcVPT6tm" resolve="baseType" />
+                </node>
+              </node>
+              <node concept="2OqwBi" id="730YTbVRLMy" role="37vLTx">
+                <node concept="2OqwBi" id="730YTbVRL5P" role="2Oq$k0">
+                  <node concept="1PxgMI" id="730YTbVRKT_" role="2Oq$k0">
+                    <node concept="chp4Y" id="730YTbVRKUH" role="3oSUPX">
+                      <ref role="cht4Q" to="rdv6:44nDDj_Ic6w" resolve="ClassDefinition" />
+                    </node>
+                    <node concept="1r4N1M" id="730YTbVRKHE" role="1m5AlR" />
+                  </node>
+                  <node concept="3TrEf2" id="730YTbVRLjf" role="2OqNvi">
+                    <ref role="3Tt5mk" to="rdv6:44nDDj_Ic6y" />
+                  </node>
+                </node>
+                <node concept="2qgKlT" id="730YTbVRNsj" role="2OqNvi">
+                  <ref role="37wK5l" to="qd6m:3o2OLGv7CoR" resolve="createType" />
+                </node>
+              </node>
+            </node>
+          </node>
           <node concept="3clFbF" id="50VhZbSJlSn" role="3cqZAp">
             <node concept="37vLTI" id="50VhZbSJoi1" role="3clFbG">
-              <node concept="2OqwBi" id="6UxgX88V6G7" role="37vLTx">
-                <node concept="37vLTw" id="50VhZbSJol8" role="2Oq$k0">
-                  <ref role="3cqZAo" node="50VhZbSIO$B" resolve="voidPointer" />
-                </node>
-                <node concept="1$rogu" id="6UxgX88V9l9" role="2OqNvi" />
-              </node>
               <node concept="2OqwBi" id="50VhZbSJmzr" role="37vLTJ">
                 <node concept="37vLTw" id="50VhZbSJlSl" role="2Oq$k0">
                   <ref role="3cqZAo" node="50VhZbSJhCZ" resolve="data" />
@@ -1248,6 +1294,9 @@
                 <node concept="3TrEf2" id="50VhZbSJnNq" role="2OqNvi">
                   <ref role="3Tt5mk" to="mj1l:hEaDaGor64" resolve="type" />
                 </node>
+              </node>
+              <node concept="37vLTw" id="730YTbVRSuz" role="37vLTx">
+                <ref role="3cqZAo" node="730YTbVRPK8" resolve="statePointer" />
               </node>
             </node>
           </node>

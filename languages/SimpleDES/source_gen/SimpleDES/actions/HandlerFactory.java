@@ -10,9 +10,11 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
+import com.mbeddr.core.modules.behavior.ITypeDeclaration__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 public class HandlerFactory {
   public static class NodeFactory_5103575337110310022 implements NodeFactory {
@@ -53,10 +55,12 @@ public class HandlerFactory {
       SLinkOperations.setTarget(content, LINKS.type$sXU3, voidPointer);
       ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(newNode, LINKS.function$5bPH), LINKS.arguments$6da0)).addElement(content);
 
-      // Create "data" argument
+      // Create "state" argument
       SNode data = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x6d872ef9245a20d7L, "com.mbeddr.core.modules.structure.Argument"));
       SPropertyOperations.assign(data, PROPS.name$MnvL, "state");
-      SLinkOperations.setTarget(data, LINKS.type$sXU3, SNodeOperations.copyNode(voidPointer));
+      SNode statePointer = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x3bf5377ae9044dedL, 0x97545a516023bfaaL, 0x3e0cae5e366d630L, "com.mbeddr.core.pointers.structure.PointerType"));
+      SLinkOperations.setTarget(statePointer, LINKS.baseType$zMGV, ITypeDeclaration__BehaviorDescriptor.createType_id3o2OLGv7CoR.invoke(SLinkOperations.getTarget(SNodeOperations.cast(enclosingNode, CONCEPTS.ClassDefinition$NR), LINKS.state$NqNO)));
+      SLinkOperations.setTarget(data, LINKS.type$sXU3, statePointer);
       ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(newNode, LINKS.function$5bPH), LINKS.arguments$6da0)).addElement(data);
     }
   }
@@ -70,5 +74,10 @@ public class HandlerFactory {
     /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
     /*package*/ static final SContainmentLink arguments$6da0 = MetaAdapterFactory.getContainmentLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x707ac195dd5d51f2L, 0x4f39f90935e92f45L, "arguments");
     /*package*/ static final SContainmentLink baseType$zMGV = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x6bbcdccef5e46755L, 0x6bbcdccef5e46756L, "baseType");
+    /*package*/ static final SContainmentLink state$NqNO = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x4117a694e5b8c1a2L, "state");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ClassDefinition$NR = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, "SimpleDES.structure.ClassDefinition");
   }
 }

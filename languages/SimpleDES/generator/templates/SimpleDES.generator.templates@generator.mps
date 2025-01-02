@@ -455,6 +455,41 @@
             </node>
           </node>
         </node>
+        <node concept="2Gpval" id="730YTbVFzlQ" role="3cqZAp">
+          <node concept="2GrKxI" id="730YTbVFzlS" role="2Gsz3X">
+            <property role="TrG5h" value="struct" />
+          </node>
+          <node concept="2OqwBi" id="730YTbVFzxO" role="2GsD0m">
+            <node concept="1Q6Npb" id="730YTbVFznh" role="2Oq$k0" />
+            <node concept="2SmgA7" id="730YTbVFzUb" role="2OqNvi">
+              <node concept="chp4Y" id="730YTbVFzW7" role="1dBWTz">
+                <ref role="cht4Q" to="rdv6:5w8gNN4_WlT" resolve="ExternalStructDefinition" />
+              </node>
+            </node>
+          </node>
+          <node concept="3clFbS" id="730YTbVFzlW" role="2LFqv$">
+            <node concept="3clFbF" id="730YTbVFzYK" role="3cqZAp">
+              <node concept="37vLTI" id="730YTbVFCwo" role="3clFbG">
+                <node concept="3clFbT" id="730YTbVFCyM" role="37vLTx">
+                  <property role="3clFbU" value="true" />
+                </node>
+                <node concept="2OqwBi" id="730YTbVF_dK" role="37vLTJ">
+                  <node concept="2OqwBi" id="730YTbVF$aT" role="2Oq$k0">
+                    <node concept="2GrUjf" id="730YTbVFzYJ" role="2Oq$k0">
+                      <ref role="2Gs0qQ" node="730YTbVFzlS" resolve="struct" />
+                    </node>
+                    <node concept="3TrEf2" id="730YTbVF$AV" role="2OqNvi">
+                      <ref role="3Tt5mk" to="rdv6:5w8gNN4A5OF" resolve="declaration" />
+                    </node>
+                  </node>
+                  <node concept="3TrcHB" id="730YTbVFBcg" role="2OqNvi">
+                    <ref role="3TsBF5" to="x27k:5Oog2UbP_d2" resolve="preventNameMangling" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
       </node>
     </node>
   </node>

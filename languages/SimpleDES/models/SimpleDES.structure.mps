@@ -185,7 +185,6 @@
     <node concept="1TJgyj" id="7jow01keyEy" role="1TKVEi">
       <property role="IQ2ns" value="8419620242270595746" />
       <property role="20kJfa" value="event" />
-      <property role="20lbJX" value="fLJekj4/_1" />
       <ref role="20lvS9" node="7KGmnvzSgRT" resolve="EventType" />
     </node>
     <node concept="PrWs8" id="6UO3mnNcNhs" role="PzmwI">
@@ -549,7 +548,7 @@
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <property role="20kJfa" value="handlers" />
       <property role="20lbJX" value="fLJekj5/_0__n" />
-      <ref role="20lvS9" node="2R3DD23rX3g" resolve="EventHandler" />
+      <ref role="20lvS9" node="6UO3mnNcNhr" resolve="IHandler" />
     </node>
     <node concept="1TJgyj" id="6UxgX891svH" role="1TKVEi">
       <property role="IQ2ns" value="7971727384796055533" />
@@ -569,7 +568,6 @@
     <node concept="1TJgyj" id="44nDDjAekKN" role="1TKVEi">
       <property role="IQ2ns" value="4690400695377546291" />
       <property role="20kJfa" value="class" />
-      <property role="20lbJX" value="fLJekj4/_1" />
       <ref role="20lvS9" node="44nDDj_Ic6w" resolve="ClassDefinition" />
     </node>
     <node concept="1TJgyj" id="44nDDjAeju7" role="1TKVEi">
