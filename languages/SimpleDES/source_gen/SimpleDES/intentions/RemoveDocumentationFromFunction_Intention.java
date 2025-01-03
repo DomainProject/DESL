@@ -12,10 +12,7 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
-import org.jetbrains.mps.openapi.language.SContainmentLink;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class RemoveDocumentationFromFunction_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -51,7 +48,6 @@ public final class RemoveDocumentationFromFunction_Intention extends AbstractInt
 
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SLinkOperations.setTarget(node, LINKS.docs$95P3, null);
     }
 
     @Override
@@ -63,7 +59,7 @@ public final class RemoveDocumentationFromFunction_Intention extends AbstractInt
     }
 
     private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-      return (SLinkOperations.getTarget(node, LINKS.docs$95P3) != null);
+      return false;
     }
 
 
@@ -72,9 +68,5 @@ public final class RemoveDocumentationFromFunction_Intention extends AbstractInt
       return RemoveDocumentationFromFunction_Intention.this;
     }
 
-  }
-
-  private static final class LINKS {
-    /*package*/ static final SContainmentLink docs$95P3 = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228bL, 0x6579f899e5d902d7L, "docs");
   }
 }

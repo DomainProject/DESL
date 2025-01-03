@@ -12,14 +12,14 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
-import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class AddDocumentationToFunction_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
@@ -56,12 +56,9 @@ public final class AddDocumentationToFunction_Intention extends AbstractIntentio
 
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SLinkOperations.setTarget(node, LINKS.docs$95P3, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6579f899e5d7c058L, "SimpleDES.structure.FunctionDocs")));
-      SLinkOperations.setTarget(SLinkOperations.getTarget(node, LINKS.docs$95P3), LINKS.function$KLga, node);
       for (SNode parameter : ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.arguments$6da0))) {
         SNode parameterDoc = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6579f899e5d7c060L, "SimpleDES.structure.ParameterDocs"));
         SLinkOperations.setTarget(parameterDoc, LINKS.parameter$d8oD, SNodeOperations.as(parameter, CONCEPTS.Argument$9m));
-        ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(node, LINKS.docs$95P3), LINKS.parametersDescription$HNUz)).addElement(parameterDoc);
       }
     }
 
@@ -80,10 +77,7 @@ public final class AddDocumentationToFunction_Intention extends AbstractIntentio
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink docs$95P3 = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228bL, 0x6579f899e5d902d7L, "docs");
-    /*package*/ static final SReferenceLink function$KLga = MetaAdapterFactory.getReferenceLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6579f899e5d7c058L, 0x6579f899e5d7c091L, "function");
     /*package*/ static final SReferenceLink parameter$d8oD = MetaAdapterFactory.getReferenceLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6579f899e5d7c060L, 0x6579f899e5f274c0L, "parameter");
-    /*package*/ static final SContainmentLink parametersDescription$HNUz = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6579f899e5d7c058L, 0x6579f899e5d7c05eL, "parametersDescription");
     /*package*/ static final SContainmentLink arguments$6da0 = MetaAdapterFactory.getContainmentLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x707ac195dd5d51f2L, 0x4f39f90935e92f45L, "arguments");
   }
 

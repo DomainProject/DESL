@@ -17,7 +17,6 @@ import jetbrains.mps.nodeEditor.EditorSettings;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class ButtonFactory {
@@ -86,92 +85,18 @@ public class ButtonFactory {
 
 
   public static JComponent addDocumentation(final EditorContext editorContext, final SNode node) {
-    JButton button = ButtonFactory.createButton(node, editorContext, "Add Documentation", new Runnable() {
-      @Override
-      public void run() {
-        {
-          final SNode function = node;
-          if (SNodeOperations.isInstanceOf(function, CONCEPTS.ExternalFunction$U_)) {
-            SLinkOperations.setTarget(function, LINKS.docs$95P3, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6579f899e5d7c058L, "SimpleDES.structure.FunctionDocs")));
-            SLinkOperations.setTarget(SLinkOperations.getTarget(function, LINKS.docs$95P3), LINKS.function$KLga, function);
-            for (SNode parameter : ListSequence.fromList(SLinkOperations.getChildren(function, LINKS.arguments$6da0))) {
-              SNode parameterDoc = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6579f899e5d7c060L, "SimpleDES.structure.ParameterDocs"));
-              SLinkOperations.setTarget(parameterDoc, LINKS.parameter$d8oD, SNodeOperations.as(parameter, CONCEPTS.Argument$9m));
-              ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(function, LINKS.docs$95P3), LINKS.parametersDescription$HNUz)).addElement(parameterDoc);
-              SelectionUtil.selectNode(editorContext, SLinkOperations.getTarget(function, LINKS.docs$95P3));
-            }
-          }
-        }
-        {
-          final SNode handler = node;
-          if (SNodeOperations.isInstanceOf(handler, CONCEPTS.EventHandler$Ov)) {
-            SLinkOperations.setTarget(handler, LINKS.docs$5cjJ, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x74d88000542f2672L, "SimpleDES.structure.EventHandlerDocs")));
-            SLinkOperations.setTarget(SLinkOperations.getTarget(handler, LINKS.docs$5cjJ), LINKS.handler$I7Vk, handler);
-            SelectionUtil.selectNode(editorContext, SLinkOperations.getTarget(handler, LINKS.docs$5cjJ));
-          }
-        }
-        {
-          final SNode eventDefinition = node;
-          if (SNodeOperations.isInstanceOf(eventDefinition, CONCEPTS.EventDefinition$wO)) {
-            SLinkOperations.setTarget(eventDefinition, LINKS.docs$MHy4, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2e66f9a613f69c83L, "SimpleDES.structure.EventDocs")));
-            SLinkOperations.setTarget(SLinkOperations.getTarget(eventDefinition, LINKS.docs$MHy4), LINKS.event$PJOt, SLinkOperations.getTarget(eventDefinition, LINKS.eventType$MGmZ));
-            SelectionUtil.selectNode(editorContext, SLinkOperations.getTarget(eventDefinition, LINKS.docs$MHy4));
-          }
-        }
-        {
-          final SNode structDefinition = node;
-          if (SNodeOperations.isInstanceOf(structDefinition, CONCEPTS.StructDefinition$7R)) {
-            SLinkOperations.setTarget(structDefinition, LINKS.docs$jIAo, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4328447c790cec2cL, "SimpleDES.structure.StructDocs")));
-            SLinkOperations.setTarget(SLinkOperations.getTarget(structDefinition, LINKS.docs$jIAo), LINKS.struct$wvo0, SLinkOperations.getTarget(structDefinition, LINKS.struct$10Oz));
-            for (SNode member : ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(structDefinition, LINKS.struct$10Oz), LINKS.members$C59R))) {
-              SNode structMemberDocs = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4328447c790cec2dL, "SimpleDES.structure.StructMemberDocs"));
-              SLinkOperations.setTarget(structMemberDocs, LINKS.member$DfOv, SNodeOperations.as(member, CONCEPTS.Member$J1));
-              ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(structDefinition, LINKS.docs$jIAo), LINKS.structMembersDocs$y9R0)).addElement(structMemberDocs);
-              SelectionUtil.selectNode(editorContext, SLinkOperations.getTarget(structDefinition, LINKS.docs$jIAo));
-            }
-          }
-        }
-      }
-    });
-    return button;
+    /*
+       return
+
+    */
+
+
+    return null;
   }
 
 
   public static JComponent removeDocumentation(final EditorContext editorContext, final SNode node) {
-    JButton button = ButtonFactory.createButton(node, editorContext, "Remove Documentation", new Runnable() {
-      @Override
-      public void run() {
-        {
-          final SNode function = node;
-          if (SNodeOperations.isInstanceOf(function, CONCEPTS.ExternalFunction$U_)) {
-            SLinkOperations.setTarget(function, LINKS.docs$95P3, null);
-            SelectionUtil.selectNode(editorContext, function);
-          }
-        }
-        {
-          final SNode handler = node;
-          if (SNodeOperations.isInstanceOf(handler, CONCEPTS.EventHandler$Ov)) {
-            SLinkOperations.setTarget(handler, LINKS.docs$5cjJ, null);
-            SelectionUtil.selectNode(editorContext, handler);
-          }
-        }
-        {
-          final SNode eventDefinition = node;
-          if (SNodeOperations.isInstanceOf(eventDefinition, CONCEPTS.EventDefinition$wO)) {
-            SLinkOperations.setTarget(eventDefinition, LINKS.docs$MHy4, null);
-            SelectionUtil.selectNode(editorContext, eventDefinition);
-          }
-        }
-        {
-          final SNode structDefinition = node;
-          if (SNodeOperations.isInstanceOf(structDefinition, CONCEPTS.StructDefinition$7R)) {
-            SLinkOperations.setTarget(structDefinition, LINKS.docs$jIAo, null);
-            SelectionUtil.selectNode(editorContext, structDefinition);
-          }
-        }
-      }
-    });
-    return button;
+    return null;
   }
 
 
@@ -191,29 +116,9 @@ public class ButtonFactory {
     /*package*/ static final SContainmentLink struct$10Oz = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x5808433cc497c577L, 0x5808433cc497c57dL, "struct");
     /*package*/ static final SContainmentLink eventType$MGmZ = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2e66f9a613f69c80L, 0x2e66f9a613f69c82L, "eventType");
     /*package*/ static final SContainmentLink events$uflG = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x2dc3a69083753b9fL, "events");
-    /*package*/ static final SContainmentLink docs$95P3 = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228bL, 0x6579f899e5d902d7L, "docs");
-    /*package*/ static final SReferenceLink function$KLga = MetaAdapterFactory.getReferenceLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6579f899e5d7c058L, 0x6579f899e5d7c091L, "function");
-    /*package*/ static final SReferenceLink parameter$d8oD = MetaAdapterFactory.getReferenceLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6579f899e5d7c060L, 0x6579f899e5f274c0L, "parameter");
-    /*package*/ static final SContainmentLink parametersDescription$HNUz = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6579f899e5d7c058L, 0x6579f899e5d7c05eL, "parametersDescription");
-    /*package*/ static final SContainmentLink arguments$6da0 = MetaAdapterFactory.getContainmentLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x707ac195dd5d51f2L, 0x4f39f90935e92f45L, "arguments");
-    /*package*/ static final SContainmentLink docs$5cjJ = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x74d88000543a2aa1L, "docs");
-    /*package*/ static final SReferenceLink handler$I7Vk = MetaAdapterFactory.getReferenceLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x74d88000542f2672L, 0x74d88000542f2674L, "handler");
-    /*package*/ static final SContainmentLink docs$MHy4 = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2e66f9a613f69c80L, 0x2e66f9a613f69c87L, "docs");
-    /*package*/ static final SReferenceLink event$PJOt = MetaAdapterFactory.getReferenceLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2e66f9a613f69c83L, 0x2e66f9a613f69cbaL, "event");
-    /*package*/ static final SContainmentLink docs$jIAo = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x5808433cc497c577L, 0x4328447c790ecbf2L, "docs");
-    /*package*/ static final SReferenceLink struct$wvo0 = MetaAdapterFactory.getReferenceLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4328447c790cec2cL, 0x4328447c790cec2fL, "struct");
-    /*package*/ static final SReferenceLink member$DfOv = MetaAdapterFactory.getReferenceLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4328447c790cec2dL, 0x4328447c790d8b20L, "member");
-    /*package*/ static final SContainmentLink structMembersDocs$y9R0 = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4328447c790cec2cL, 0x4328447c790d0e21L, "structMembersDocs");
-    /*package*/ static final SContainmentLink members$C59R = MetaAdapterFactory.getContainmentLink(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x6285e27d4ff6c9f5L, 0x6285e27d4ff7db92L, "members");
   }
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept DESModel$DK = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, "SimpleDES.structure.DESModel");
-    /*package*/ static final SConcept ExternalFunction$U_ = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228bL, "SimpleDES.structure.ExternalFunction");
-    /*package*/ static final SConcept Argument$9m = MetaAdapterFactory.getConcept(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x6d872ef9245a20d7L, "com.mbeddr.core.modules.structure.Argument");
-    /*package*/ static final SConcept EventHandler$Ov = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, "SimpleDES.structure.EventHandler");
-    /*package*/ static final SConcept EventDefinition$wO = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2e66f9a613f69c80L, "SimpleDES.structure.EventDefinition");
-    /*package*/ static final SConcept StructDefinition$7R = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x5808433cc497c577L, "SimpleDES.structure.StructDefinition");
-    /*package*/ static final SConcept Member$J1 = MetaAdapterFactory.getConcept(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x51a277741cc50918L, "com.mbeddr.core.udt.structure.Member");
   }
 }

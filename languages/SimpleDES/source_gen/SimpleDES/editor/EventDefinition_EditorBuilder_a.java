@@ -9,7 +9,6 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Collection;
 import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Horizontal;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Component;
 import javax.swing.JComponent;
 import java.awt.Dimension;
@@ -25,12 +24,10 @@ import jetbrains.mps.editor.runtime.impl.cellActions.CellAction_DeleteSmart;
 import jetbrains.mps.openapi.editor.cells.DefaultSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SEmptyContainmentSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfo;
-import jetbrains.mps.openapi.editor.menus.transformation.SNodeLocation;
 import jetbrains.mps.openapi.editor.style.Style;
 import jetbrains.mps.editor.runtime.style.StyleImpl;
 import SimpleDES.editor.SimpleDESStylesheet_StyleSheet.EventTypeStyleClass;
-import jetbrains.mps.nodeEditor.cells.EditorCell_Constant;
-import jetbrains.mps.editor.runtime.style.StyleAttributes;
+import jetbrains.mps.openapi.editor.menus.transformation.SNodeLocation;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 /*package*/ class EventDefinition_EditorBuilder_a extends AbstractEditorBuilder {
@@ -59,20 +56,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
     setCellContext(editorCell);
     editorCell.addEditorCell(createJComponent_0());
     editorCell.addEditorCell(createCollection_1());
-    editorCell.addEditorCell(createConstant_0());
-    if (nodeCondition_3gtvm7_a3a()) {
-      editorCell.addEditorCell(createCollection_2());
-    }
-    if (nodeCondition_3gtvm7_a4a()) {
-      editorCell.addEditorCell(createCollection_3());
-    }
     return editorCell;
-  }
-  private boolean nodeCondition_3gtvm7_a3a() {
-    return (SLinkOperations.getTarget(myNode, LINKS.docs$MHy4) == null);
-  }
-  private boolean nodeCondition_3gtvm7_a4a() {
-    return (SLinkOperations.getTarget(myNode, LINKS.docs$MHy4) != null);
   }
   private EditorCell createJComponent_0() {
     EditorCell editorCell = EditorCell_Component.createComponentCell(getEditorContext(), myNode, _QueryFunction_JComponent_3gtvm7_a0a(), "JComponent_3gtvm7_a0");
@@ -90,7 +74,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
       @Override
       protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        Graphics2D g2d = as_ashz73_a0a1a3a0a0a0m(g, Graphics2D.class);
+        Graphics2D g2d = as_ashz73_a0a1a3a0a0a0k(g, Graphics2D.class);
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         g2d.setColor(Color.BLACK);
         g2d.fillOval(0, 0, bullet_diameter, bullet_diameter);
@@ -103,79 +87,18 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
   private EditorCell createCollection_1() {
     EditorCell_Collection editorCell = new EditorCell_Collection(getEditorContext(), myNode, new CellLayout_Vertical());
     editorCell.setCellId("Collection_3gtvm7_b0");
-    if (nodeCondition_3gtvm7_a0b0()) {
-      editorCell.addEditorCell(createRefNode_0());
-    }
-    editorCell.addEditorCell(createRefNode_1());
+    editorCell.addEditorCell(createRefNode_0());
     return editorCell;
   }
-  private boolean nodeCondition_3gtvm7_a0b0() {
-    return (SLinkOperations.getTarget(myNode, LINKS.docs$MHy4) != null);
-  }
   private EditorCell createRefNode_0() {
-    SingleRoleCellProvider provider = new docsSingleRoleHandler_3gtvm7_a1a(myNode, LINKS.docs$MHy4, getEditorContext());
+    SingleRoleCellProvider provider = new eventTypeSingleRoleHandler_3gtvm7_a1a(myNode, LINKS.eventType$MGmZ, getEditorContext());
     return provider.createCell();
   }
-  private static class docsSingleRoleHandler_3gtvm7_a1a extends SingleRoleCellProvider {
+  private static class eventTypeSingleRoleHandler_3gtvm7_a1a extends SingleRoleCellProvider {
     @NotNull
     private SNode myNode;
 
-    public docsSingleRoleHandler_3gtvm7_a1a(SNode ownerNode, SContainmentLink containmentLink, EditorContext context) {
-      super(containmentLink, context);
-      myNode = ownerNode;
-    }
-
-    @Override
-    @NotNull
-    public SNode getNode() {
-      return myNode;
-    }
-
-    protected EditorCell createChildCell(SNode child) {
-      EditorCell editorCell = getUpdateSession().updateChildNodeCell(child);
-      editorCell.setAction(CellActionType.DELETE, new CellAction_DeleteSmart(getNode(), LINKS.docs$MHy4, child));
-      editorCell.setAction(CellActionType.BACKSPACE, new CellAction_DeleteSmart(getNode(), LINKS.docs$MHy4, child));
-      installCellInfo(child, editorCell, false);
-      return editorCell;
-    }
-
-
-
-    private void installCellInfo(SNode child, EditorCell editorCell, boolean isEmpty) {
-      if (editorCell.getSubstituteInfo() == null || editorCell.getSubstituteInfo() instanceof DefaultSubstituteInfo) {
-        editorCell.setSubstituteInfo((isEmpty ? new SEmptyContainmentSubstituteInfo(editorCell) : new SChildSubstituteInfo(editorCell)));
-      }
-      if (editorCell.getSRole() == null) {
-        editorCell.setSRole(LINKS.docs$MHy4);
-      }
-    }
-    @Override
-    protected EditorCell createEmptyCell() {
-      getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(getNode(), LINKS.docs$MHy4));
-      try {
-        EditorCell editorCell = super.createEmptyCell();
-        editorCell.setCellId("empty_docs");
-        installCellInfo(null, editorCell, true);
-        setCellContext(editorCell);
-        return editorCell;
-      } finally {
-        getCellFactory().popCellContext();
-      }
-    }
-    protected String getNoTargetText() {
-      return "<no docs>";
-    }
-  }
-  private EditorCell createRefNode_1() {
-    SingleRoleCellProvider provider = new eventTypeSingleRoleHandler_3gtvm7_b1a(myNode, LINKS.eventType$MGmZ, getEditorContext());
-    return provider.createCell();
-  }
-  private static class eventTypeSingleRoleHandler_3gtvm7_b1a extends SingleRoleCellProvider {
-    @NotNull
-    private SNode myNode;
-
-    public eventTypeSingleRoleHandler_3gtvm7_b1a(SNode ownerNode, SContainmentLink containmentLink, EditorContext context) {
+    public eventTypeSingleRoleHandler_3gtvm7_a1a(SNode ownerNode, SContainmentLink containmentLink, EditorContext context) {
       super(containmentLink, context);
       myNode = ownerNode;
     }
@@ -225,52 +148,11 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
       return "<no eventType>";
     }
   }
-  private EditorCell createConstant_0() {
-    EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "      ");
-    editorCell.setCellId("Constant_3gtvm7_c0");
-    editorCell.setDefaultText("");
-    return editorCell;
-  }
-  private EditorCell createCollection_2() {
-    EditorCell_Collection editorCell = new EditorCell_Collection(getEditorContext(), myNode, new CellLayout_Vertical());
-    editorCell.setCellId("Collection_3gtvm7_d0");
-    Style style = new StyleImpl();
-    style.set(StyleAttributes.SELECTABLE, false);
-    editorCell.getStyle().putAll(style);
-    editorCell.addEditorCell(createJComponent_1());
-    return editorCell;
-  }
-  private EditorCell createJComponent_1() {
-    EditorCell editorCell = EditorCell_Component.createComponentCell(getEditorContext(), myNode, _QueryFunction_JComponent_3gtvm7_a0d0(), "JComponent_3gtvm7_a3a");
-    editorCell.setCellId("JComponent_3gtvm7_a3a_0");
-    return editorCell;
-  }
-  private JComponent _QueryFunction_JComponent_3gtvm7_a0d0() {
-    return ButtonFactory.addDocumentation(getEditorContext(), myNode);
-  }
-  private EditorCell createCollection_3() {
-    EditorCell_Collection editorCell = new EditorCell_Collection(getEditorContext(), myNode, new CellLayout_Vertical());
-    editorCell.setCellId("Collection_3gtvm7_e0");
-    Style style = new StyleImpl();
-    style.set(StyleAttributes.SELECTABLE, false);
-    editorCell.getStyle().putAll(style);
-    editorCell.addEditorCell(createJComponent_2());
-    return editorCell;
-  }
-  private EditorCell createJComponent_2() {
-    EditorCell editorCell = EditorCell_Component.createComponentCell(getEditorContext(), myNode, _QueryFunction_JComponent_3gtvm7_a0e0(), "JComponent_3gtvm7_a4a");
-    editorCell.setCellId("JComponent_3gtvm7_a4a_0");
-    return editorCell;
-  }
-  private JComponent _QueryFunction_JComponent_3gtvm7_a0e0() {
-    return ButtonFactory.removeDocumentation(getEditorContext(), myNode);
-  }
-  private static <T> T as_ashz73_a0a1a3a0a0a0m(Object o, Class<T> type) {
+  private static <T> T as_ashz73_a0a1a3a0a0a0k(Object o, Class<T> type) {
     return (type.isInstance(o) ? (T) o : null);
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink docs$MHy4 = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2e66f9a613f69c80L, 0x2e66f9a613f69c87L, "docs");
     /*package*/ static final SContainmentLink eventType$MGmZ = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2e66f9a613f69c80L, 0x2e66f9a613f69c82L, "eventType");
   }
 }

@@ -60,7 +60,7 @@ public class SendEvent_TextGen extends TextGenDescriptorBase {
 
     tgs.append("sizeof(");
     tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.with$_CC9));
-    tgs.append(");");
+    tgs.append("));");
     tgs.newLine();
 
     if (tgs.needPositions()) {

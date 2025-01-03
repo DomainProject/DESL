@@ -25,12 +25,18 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
   @Override
   public TextGenDescriptor getDescriptor(@NotNull SAbstractConcept concept) {
     switch (myIndex.index(concept)) {
+      case LanguageConceptSwitch.ClassDefinition:
+        return new ClassDefinition_TextGen();
       case LanguageConceptSwitch.CreateArray:
         return new CreateArray_TextGen();
+      case LanguageConceptSwitch.DocsEntry:
+        return new DocsEntry_TextGen();
       case LanguageConceptSwitch.DocsM2M:
         return new DocsM2M_TextGen();
       case LanguageConceptSwitch.EmptyLine:
         return new EmptyLine_TextGen();
+      case LanguageConceptSwitch.EventDefinition:
+        return new EventDefinition_TextGen();
       case LanguageConceptSwitch.EventDocs:
         return new EventDocs_TextGen();
       case LanguageConceptSwitch.EventHandler:
@@ -43,18 +49,30 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new ExternalStructDefinition_TextGen();
       case LanguageConceptSwitch.FunctionDocs:
         return new FunctionDocs_TextGen();
+      case LanguageConceptSwitch.Header:
+        return new Header_TextGen();
       case LanguageConceptSwitch.InitializeState:
         return new InitializeState_TextGen();
+      case LanguageConceptSwitch.Item:
+        return new Item_TextGen();
+      case LanguageConceptSwitch.ItemList:
+        return new ItemList_TextGen();
       case LanguageConceptSwitch.NewStruct:
         return new NewStruct_TextGen();
       case LanguageConceptSwitch.ParameterDocs:
         return new ParameterDocs_TextGen();
+      case LanguageConceptSwitch.PlainText:
+        return new PlainText_TextGen();
       case LanguageConceptSwitch.ProcessAllocation:
         return new ProcessAllocation_TextGen();
+      case LanguageConceptSwitch.ProcessArray:
+        return new ProcessArray_TextGen();
       case LanguageConceptSwitch.RootSimM2M:
         return new RootSimM2M_TextGen();
       case LanguageConceptSwitch.SendEvent:
         return new SendEvent_TextGen();
+      case LanguageConceptSwitch.StartupFunction:
+        return new StartupFunction_TextGen();
       case LanguageConceptSwitch.StructDefinition:
         return new StructDefinition_TextGen();
     }

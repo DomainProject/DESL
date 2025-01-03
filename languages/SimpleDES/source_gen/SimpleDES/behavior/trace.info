@@ -217,7 +217,7 @@
       <node id="8378102908621883166" at="58,184,59,184" concept="2" />
       <node id="2928601933955677055" at="59,184,60,184" concept="2" />
       <node id="8241728834325368108" at="60,184,61,187" concept="2" />
-      <node id="8378102908620337242" at="62,111,63,99" concept="2" />
+      <node id="8378102908620337242" at="62,167,63,99" concept="2" />
       <node id="3821263627525143726" at="64,5,65,74" concept="2" />
       <node id="3821263627525227630" at="65,74,66,16" concept="7" />
       <node id="7585097954833394629" at="73,114,74,21" concept="2" />
@@ -249,6 +249,7 @@
       <node id="7585097954833394629" at="135,0,136,0" concept="9" trace="MacroFunction$$7" />
       <node id="7585097954833394629" at="136,0,137,0" concept="9" trace="ExternalMacro$H2" />
       <node id="7585097954833394629" at="137,0,138,0" concept="9" trace="TypeDefinition$Jr" />
+      <node id="7585097954833394629" at="138,0,139,0" concept="9" trace="ClassDefinition$NR" />
       <node id="7585097954833394629" at="35,0,37,0" concept="10" trace="___init___#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
       <node id="7585097954833394629" at="69,0,71,0" concept="1" trace="DESModel__BehaviorDescriptor#()V" />
       <node id="8013817401928254300" at="46,33,49,9" concept="4" />
@@ -271,7 +272,7 @@
       <scope id="7585097954833394629" at="69,46,69,46" />
       <scope id="8013817401928254302" at="47,68,48,53" />
       <scope id="8013817401928348141" at="53,85,54,102" />
-      <scope id="8378102908620287868" at="62,111,63,99" />
+      <scope id="8378102908620287868" at="62,167,63,99" />
       <scope id="7585097954833394629" at="73,114,74,21" />
       <scope id="7585097954833394629" at="80,26,81,56" />
       <scope id="7585097954833394629" at="84,13,85,91" />
@@ -327,9 +328,9 @@
       <scope id="7585097954833394629" at="38,0,68,0">
         <var name="__thisNode__" id="7585097954833394629" />
       </scope>
-      <unit id="7585097954833394629" at="128,0,139,0" name="SimpleDES.behavior.DESModel__BehaviorDescriptor$CONCEPTS" />
       <unit id="7585097954833394629" at="115,0,127,0" name="SimpleDES.behavior.DESModel__BehaviorDescriptor$LINKS" />
-      <unit id="7585097954833394629" at="28,0,140,0" name="SimpleDES.behavior.DESModel__BehaviorDescriptor" />
+      <unit id="7585097954833394629" at="128,0,140,0" name="SimpleDES.behavior.DESModel__BehaviorDescriptor$CONCEPTS" />
+      <unit id="7585097954833394629" at="28,0,141,0" name="SimpleDES.behavior.DESModel__BehaviorDescriptor" />
     </file>
   </root>
 </debug-info>

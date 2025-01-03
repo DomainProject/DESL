@@ -27,6 +27,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_FunctionDocs;
   private ConceptPresentation props_GlobalVarDecl;
   private ConceptPresentation props_Header;
+  private ConceptPresentation props_IClassDefinition;
   private ConceptPresentation props_IDocs;
   private ConceptPresentation props_IDocsElement;
   private ConceptPresentation props_IEventDefinition;
@@ -35,7 +36,9 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_IGlobalVarDecl;
   private ConceptPresentation props_IHandler;
   private ConceptPresentation props_IMacro;
+  private ConceptPresentation props_IProcessAllocation;
   private ConceptPresentation props_IProcessList;
+  private ConceptPresentation props_IStartupFunction;
   private ConceptPresentation props_IStructDefinition;
   private ConceptPresentation props_IText;
   private ConceptPresentation props_ITypeDefinition;
@@ -190,6 +193,12 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_Header = cpb.create();
         }
         return props_Header;
+      case LanguageConceptSwitch.IClassDefinition:
+        if (props_IClassDefinition == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          props_IClassDefinition = cpb.create();
+        }
+        return props_IClassDefinition;
       case LanguageConceptSwitch.IDocs:
         if (props_IDocs == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -238,12 +247,24 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_IMacro = cpb.create();
         }
         return props_IMacro;
+      case LanguageConceptSwitch.IProcessAllocation:
+        if (props_IProcessAllocation == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          props_IProcessAllocation = cpb.create();
+        }
+        return props_IProcessAllocation;
       case LanguageConceptSwitch.IProcessList:
         if (props_IProcessList == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           props_IProcessList = cpb.create();
         }
         return props_IProcessList;
+      case LanguageConceptSwitch.IStartupFunction:
+        if (props_IStartupFunction == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          props_IStartupFunction = cpb.create();
+        }
+        return props_IStartupFunction;
       case LanguageConceptSwitch.IStructDefinition:
         if (props_IStructDefinition == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

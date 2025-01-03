@@ -266,7 +266,7 @@
         <child id="5449779939268247022" name="elements" index="13wVKl" />
       </concept>
       <concept id="5449779939266939638" name="SimpleDES.structure.ItemList" flags="ng" index="13FWGd">
-        <child id="5449779939266939643" name="elements" index="13FWG0" />
+        <child id="5449779939266939643" name="items" index="13FWG0" />
       </concept>
       <concept id="5449779939266939628" name="SimpleDES.structure.PlainText" flags="ng" index="13FWGn">
         <property id="5449779939267565410" name="text" index="13H_qp" />
@@ -4081,6 +4081,46 @@
   </node>
   <node concept="d_wKT" id="730YTbVAXEd">
     <property role="TrG5h" value="phold" />
+    <node concept="13wVKn" id="5kjbDRbRY8Q" role="2BlNMq">
+      <node concept="13FWG$" id="5kjbDRbRY8S" role="13wVKl">
+        <property role="13FWGr" value="Process Allocation" />
+      </node>
+      <node concept="13FWGn" id="5kjbDRbRY8T" role="13wVKl">
+        <property role="13H_qp" value="There is only a single class, so all the processes involved in the simulation belong to this class." />
+      </node>
+    </node>
+    <node concept="13wVKn" id="5kjbDRbC2Fr" role="32KCjO">
+      <node concept="13FWG$" id="5kjbDRbC2Ft" role="13wVKl">
+        <property role="13FWGr" value="Global variables" />
+      </node>
+      <node concept="13FWGn" id="5kjbDRbC2Fu" role="13wVKl">
+        <property role="13H_qp" value="PHold can be configured through these global variables:" />
+      </node>
+    </node>
+    <node concept="13wVKn" id="5kjbDRb$iR1" role="zq6c1">
+      <node concept="13FWG$" id="5kjbDRb$iR3" role="13wVKl">
+        <property role="13FWGr" value="Types" />
+      </node>
+      <node concept="13FWGn" id="5kjbDRb$iR4" role="13wVKl">
+        <property role="13H_qp" value="The following types are actually defined in ROOT-Sim, maybe it would be useful to create an &quot;ExternalType&quot; concept." />
+      </node>
+    </node>
+    <node concept="13wVKn" id="5kjbDRb$iQW" role="2$iQ_X">
+      <node concept="13FWG$" id="5kjbDRb$iQY" role="13wVKl">
+        <property role="13FWGr" value="Macros" />
+      </node>
+      <node concept="13FWGn" id="5kjbDRb$iQZ" role="13wVKl">
+        <property role="13H_qp" value="The only macro required is the number of LPs involved in the simulation:" />
+      </node>
+    </node>
+    <node concept="13wVKn" id="5kjbDRb$iQO" role="2IHDOf">
+      <node concept="13FWG$" id="5kjbDRb$iQQ" role="13wVKl">
+        <property role="13FWGr" value="Events" />
+      </node>
+      <node concept="13FWGn" id="5kjbDRb$iQS" role="13wVKl">
+        <property role="13H_qp" value="The simulation events in PHold are the following:" />
+      </node>
+    </node>
     <node concept="138pi_" id="730YTbVAXPW" role="32KCjO">
       <property role="TrG5h" value="p_remote" />
       <node concept="rcJHQ" id="730YTbVAXQu" role="2C2TGm">
@@ -4139,15 +4179,15 @@
     <node concept="2Eb5v6" id="730YTbVAXEg" role="2ZVIAM">
       <property role="TrG5h" value="bitmap" />
     </node>
-    <node concept="2Z$$5e" id="730YTbVAXEh" role="2Z_0yU">
-      <node concept="N3Fnx" id="730YTbVAXEi" role="2Z$$5d">
-        <property role="TrG5h" value="startup" />
-        <node concept="19Rifw" id="730YTbVAXEj" role="2C2TGm" />
-        <node concept="3XIRFW" id="730YTbVAXEk" role="3XIRFX">
-          <node concept="3XISUE" id="730YTbVAXEl" role="3XIRFZ" />
-        </node>
+    <node concept="13wVKn" id="5kjbDRckwDO" role="2$Fiey">
+      <node concept="13FWG$" id="5kjbDRckwDQ" role="13wVKl">
+        <property role="13FWGr" value="Classes" />
+      </node>
+      <node concept="13FWGn" id="5kjbDRckwDS" role="13wVKl">
+        <property role="13H_qp" value="PHold only requires a single class" />
       </node>
     </node>
+    <node concept="2tIAlt" id="5kjbDRckwDU" role="2$Fiey" />
     <node concept="2$FQsO" id="730YTbVAXEm" role="2$Fiey">
       <property role="TrG5h" value="classA" />
       <node concept="2IF7p0" id="730YTbVUJr3" role="2$FQsR">
@@ -4466,11 +4506,29 @@
         </node>
       </node>
     </node>
+    <node concept="13wVKn" id="5kjbDRb$iR6" role="3RR5HS">
+      <node concept="13FWG$" id="5kjbDRb$iR8" role="13wVKl">
+        <property role="13FWGr" value="Structs" />
+      </node>
+      <node concept="13FWGn" id="5kjbDRb$iR9" role="13wVKl">
+        <property role="13H_qp" value="The following structs are defined:" />
+      </node>
+    </node>
     <node concept="2sBSp5" id="730YTbVAXEI" role="3RR5HS">
       <property role="TrG5h" value="rng_t" />
       <property role="2sFq3M" value="ROOT-Sim/random" />
       <node concept="1sgJKc" id="730YTbVAXEJ" role="2s$1Sn">
         <property role="TrG5h" value="rng_t" />
+      </node>
+    </node>
+    <node concept="2tIAlt" id="5kjbDRb$iRe" role="3RR5HS" />
+    <node concept="13wVKn" id="5kjbDRb$iRb" role="3RR5HS">
+      <node concept="13FWGd" id="5kjbDRb$iRf" role="13wVKl">
+        <node concept="13H_qt" id="5kjbDRb$iRh" role="13FWG0">
+          <node concept="13FWGn" id="5kjbDRb$iRj" role="13H_E7">
+            <property role="13H_qp" value="The container for the pseudo random-bak number generator context" />
+          </node>
+        </node>
       </node>
     </node>
     <node concept="2tIAlt" id="730YTbVAXG0" role="3RR5HS" />
@@ -4483,6 +4541,16 @@
         </node>
       </node>
     </node>
+    <node concept="2tIAlt" id="5kjbDRb$iRp" role="3RR5HS" />
+    <node concept="13wVKn" id="5kjbDRb$iRm" role="3RR5HS">
+      <node concept="13FWGd" id="5kjbDRb$iRo" role="13wVKl">
+        <node concept="13H_qt" id="5kjbDRb$iRq" role="13FWG0">
+          <node concept="13FWGn" id="5kjbDRb$iRs" role="13H_E7">
+            <property role="13H_qp" value="The message exchanged by the LPs" />
+          </node>
+        </node>
+      </node>
+    </node>
     <node concept="13OyZt" id="730YTbVAXQ6" role="zq6c1">
       <property role="TrG5h" value="simtime_t" />
       <node concept="2fgwQN" id="730YTbVAXQd" role="rcJHR" />
@@ -4490,6 +4558,14 @@
     <node concept="13OyZt" id="730YTbVAYZI" role="zq6c1">
       <property role="TrG5h" value="lp_id_t" />
       <node concept="26Vqp1" id="730YTbVAZ4M" role="rcJHR" />
+    </node>
+    <node concept="13wVKn" id="1KZIYOVUXYI" role="2Z_0yT">
+      <node concept="13FWG$" id="1KZIYOVUXYK" role="13wVKl">
+        <property role="13FWGr" value="External functions" />
+      </node>
+      <node concept="13FWGn" id="1KZIYOVUXYM" role="13wVKl">
+        <property role="13H_qp" value="External functions" />
+      </node>
     </node>
     <node concept="2ZWeVV" id="730YTbVAYS5" role="2Z_0yT">
       <property role="2sA7_G" value="ROOT-Sim/random" />
@@ -4510,6 +4586,11 @@
             </node>
           </node>
         </node>
+      </node>
+    </node>
+    <node concept="13wVKn" id="1KZIYOVV3uv" role="2Z_0yT">
+      <node concept="13FWGn" id="1KZIYOVV3ux" role="13wVKl">
+        <property role="13H_qp" value="second external function:" />
       </node>
     </node>
     <node concept="2ZWeVV" id="730YTbVB05U" role="2Z_0yT">
@@ -4557,6 +4638,23 @@
       <node concept="2BnW4s" id="730YTbWQcef" role="2BbD4j">
         <property role="2BnW4u" value="0" />
         <property role="2BnW4o" value="8191" />
+      </node>
+    </node>
+    <node concept="13wVKn" id="1KZIYOW3D8F" role="2Z_0yU">
+      <node concept="13FWG$" id="1KZIYOW3D8H" role="13wVKl">
+        <property role="13FWGr" value="Startup code" />
+      </node>
+      <node concept="13FWGn" id="1KZIYOW3D8K" role="13wVKl">
+        <property role="13H_qp" value="No startup code" />
+      </node>
+    </node>
+    <node concept="2Z$$5e" id="1KZIYOW3D8u" role="2Z_0yU">
+      <node concept="N3Fnx" id="1KZIYOW3D8v" role="2Z$$5d">
+        <property role="TrG5h" value="startup" />
+        <node concept="19Rifw" id="1KZIYOW3D8w" role="2C2TGm" />
+        <node concept="3XIRFW" id="1KZIYOW3D8x" role="3XIRFX">
+          <node concept="3XISUE" id="1KZIYOW3D8y" role="3XIRFZ" />
+        </node>
       </node>
     </node>
   </node>

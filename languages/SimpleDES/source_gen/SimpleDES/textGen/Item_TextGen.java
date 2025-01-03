@@ -9,15 +9,15 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
-public class ExternalFunctionPrototype_TextGen extends TextGenDescriptorBase {
+public class Item_TextGen extends TextGenDescriptorBase {
   @Override
   public void generateText(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
-    tgs.append("external ");
-    tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.prototype$lY0a));
+    tgs.append("* ");
+    tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.item$ZdQj));
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink prototype$lY0a = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228cL, 0x6f36cc77d0d15795L, "prototype");
+    /*package*/ static final SContainmentLink item$ZdQj = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4ba181fb0817d766L, 0x4ba181fb0817db7cL, "item");
   }
 }

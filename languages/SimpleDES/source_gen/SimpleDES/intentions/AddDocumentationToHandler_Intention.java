@@ -12,12 +12,7 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
-import org.jetbrains.mps.openapi.language.SContainmentLink;
-import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public final class AddDocumentationToHandler_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -53,8 +48,6 @@ public final class AddDocumentationToHandler_Intention extends AbstractIntention
 
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SLinkOperations.setTarget(node, LINKS.docs$5cjJ, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x74d88000542f2672L, "SimpleDES.structure.EventHandlerDocs")));
-      SLinkOperations.setTarget(SLinkOperations.getTarget(node, LINKS.docs$5cjJ), LINKS.handler$I7Vk, node);
     }
 
     @Override
@@ -69,10 +62,5 @@ public final class AddDocumentationToHandler_Intention extends AbstractIntention
       return AddDocumentationToHandler_Intention.this;
     }
 
-  }
-
-  private static final class LINKS {
-    /*package*/ static final SContainmentLink docs$5cjJ = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x74d88000543a2aa1L, "docs");
-    /*package*/ static final SReferenceLink handler$I7Vk = MetaAdapterFactory.getReferenceLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x74d88000542f2672L, 0x74d88000542f2674L, "handler");
   }
 }

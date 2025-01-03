@@ -456,10 +456,17 @@
           <node concept="2GrKxI" id="7h503jfYEXS" role="2Gsz3X">
             <property role="TrG5h" value="entity" />
           </node>
-          <node concept="2OqwBi" id="7h503jfYMUj" role="2GsD0m">
-            <node concept="13iPFW" id="7h503jfYLsL" role="2Oq$k0" />
-            <node concept="3Tsc0h" id="7h503jfYQ1o" role="2OqNvi">
-              <ref role="3TtcxE" to="rdv6:44nDDj_ICkQ" resolve="classes" />
+          <node concept="2OqwBi" id="5kjbDRbDvyw" role="2GsD0m">
+            <node concept="2OqwBi" id="7h503jfYMUj" role="2Oq$k0">
+              <node concept="13iPFW" id="7h503jfYLsL" role="2Oq$k0" />
+              <node concept="3Tsc0h" id="7h503jfYQ1o" role="2OqNvi">
+                <ref role="3TtcxE" to="rdv6:44nDDj_ICkQ" resolve="classes" />
+              </node>
+            </node>
+            <node concept="v3k3i" id="5kjbDRbDAP7" role="2OqNvi">
+              <node concept="chp4Y" id="5kjbDRbDCXZ" role="v3oSu">
+                <ref role="cht4Q" to="rdv6:44nDDj_Ic6w" resolve="ClassDefinition" />
+              </node>
             </node>
           </node>
           <node concept="3clFbS" id="7h503jfYEXW" role="2LFqv$">
@@ -474,7 +481,7 @@
                       <ref role="2Gs0qQ" node="7h503jfYEXS" resolve="entity" />
                     </node>
                     <node concept="3TrEf2" id="7h503jfZbqG" role="2OqNvi">
-                      <ref role="3Tt5mk" to="rdv6:44nDDj_Ic6y" resolve="state" />
+                      <ref role="3Tt5mk" to="rdv6:44nDDj_Ic6y" />
                     </node>
                   </node>
                 </node>
@@ -855,6 +862,7 @@
     </node>
   </node>
   <node concept="13h7C7" id="44nDDj_Krq1">
+    <property role="3GE5qa" value="classDefinition" />
     <ref role="13h7C2" to="rdv6:44nDDj_Ic6w" resolve="ClassDefinition" />
     <node concept="13hLZK" id="44nDDj_Krq2" role="13h7CW">
       <node concept="3clFbS" id="44nDDj_Krq3" role="2VODD2" />

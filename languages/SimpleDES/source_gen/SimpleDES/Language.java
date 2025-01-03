@@ -17,6 +17,8 @@ import SimpleDES.editor.EditorAspectDescriptorImpl;
 import jetbrains.mps.openapi.intentions.IntentionAspectDescriptor;
 import SimpleDES.intentions.IntentionsDescriptor;
 import jetbrains.mps.text.rt.TextGenAspectDescriptor;
+import jetbrains.mps.lang.typesystem.runtime.IHelginsDescriptor;
+import SimpleDES.typesystem.TypesystemDescriptor;
 import jetbrains.mps.smodel.runtime.StructureAspectDescriptor;
 import jetbrains.mps.smodel.runtime.ConceptPresentationAspect;
 import SimpleDES.structure.ConceptPresentationAspectImpl;
@@ -69,6 +71,9 @@ public class Language extends LanguageRuntime {
     }
     if (aspectClass == TextGenAspectDescriptor.class) {
       return aspectClass.cast(new SimpleDES.textGen.TextGenAspectDescriptor());
+    }
+    if (aspectClass == IHelginsDescriptor.class) {
+      return aspectClass.cast(new TypesystemDescriptor());
     }
     if (aspectClass == StructureAspectDescriptor.class) {
       return aspectClass.cast(new SimpleDES.structure.StructureAspectDescriptor());

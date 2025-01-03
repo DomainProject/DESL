@@ -59,7 +59,7 @@ public final class DESModel__BehaviorDescriptor extends BaseBHDescriptor {
     ListSequence.fromList(added).addSequence(Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, LINKS.macros$Sq68), CONCEPTS.MacroFunction$$7)));
     ListSequence.fromList(added).addSequence(Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, LINKS.macros$Sq68), CONCEPTS.ExternalMacro$H2)));
     ListSequence.fromList(added).addSequence(Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, LINKS.typedefs$4qMf), CONCEPTS.TypeDefinition$Jr)));
-    for (SNode entity : ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.classes$SNAM))) {
+    for (SNode entity : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, LINKS.classes$SNAM), CONCEPTS.ClassDefinition$NR))) {
       ListSequence.fromList(added).addElement(SLinkOperations.getTarget(entity, LINKS.state$NqNO));
     }
     ListSequence.fromList(base).addSequence(ListSequence.fromList(added));
@@ -135,5 +135,6 @@ public final class DESModel__BehaviorDescriptor extends BaseBHDescriptor {
     /*package*/ static final SConcept MacroFunction$$7 = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x74450034d00e6947L, "SimpleDES.structure.MacroFunction");
     /*package*/ static final SConcept ExternalMacro$H2 = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x28a47bf149ea91f0L, "SimpleDES.structure.ExternalMacro");
     /*package*/ static final SConcept TypeDefinition$Jr = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4ba181fb0873ae26L, "SimpleDES.structure.TypeDefinition");
+    /*package*/ static final SConcept ClassDefinition$NR = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, "SimpleDES.structure.ClassDefinition");
   }
 }

@@ -92,8 +92,8 @@
       <property role="IQ2ns" value="8013817401925878989" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <property role="20kJfa" value="startup" />
-      <property role="20lbJX" value="fLJekj4/_1" />
-      <ref role="20lvS9" node="6WQN7vgD8OT" resolve="StartupFunction" />
+      <property role="20lbJX" value="fLJekj5/_0__n" />
+      <ref role="20lvS9" node="1KZIYOVV8Yk" resolve="IStartupFunction" />
     </node>
     <node concept="1TJgyj" id="6WQN7vgCGje" role="1TKVEi">
       <property role="IQ2ns" value="8013817401925878990" />
@@ -121,14 +121,14 @@
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <property role="20kJfa" value="classes" />
       <property role="20lbJX" value="fLJekj6/_1__n" />
-      <ref role="20lvS9" node="44nDDj_Ic6w" resolve="ClassDefinition" />
+      <ref role="20lvS9" node="5kjbDRbC2Fw" resolve="IClassDefinition" />
     </node>
     <node concept="1TJgyj" id="44nDDjAg9Ce" role="1TKVEi">
       <property role="IQ2ns" value="4690400695378024974" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <property role="20kJfa" value="processAllocations" />
       <property role="20lbJX" value="fLJekj5/_0__n" />
-      <ref role="20lvS9" node="44nDDjAeju3" resolve="ProcessAllocation" />
+      <ref role="20lvS9" node="5kjbDRbN5er" resolve="IProcessAllocation" />
     </node>
     <node concept="1TJgyj" id="7h503jg3A_9" role="1TKVEi">
       <property role="IQ2ns" value="8378102908621580617" />
@@ -176,12 +176,6 @@
       <property role="20lbJX" value="fLJekj4/_1" />
       <ref role="20lvS9" to="x27k:5_l8w1EmTvx" resolve="Function" />
     </node>
-    <node concept="1TJgyj" id="7jow01keyEx" role="1TKVEi">
-      <property role="IQ2ns" value="8419620242270595745" />
-      <property role="20lmBu" value="fLJjDmT/aggregation" />
-      <property role="20kJfa" value="docs" />
-      <ref role="20lvS9" node="7jow01kbMpM" resolve="EventHandlerDocs" />
-    </node>
     <node concept="1TJgyj" id="7jow01keyEy" role="1TKVEi">
       <property role="IQ2ns" value="8419620242270595746" />
       <property role="20kJfa" value="event" />
@@ -222,6 +216,7 @@
   <node concept="1TIwiD" id="6WQN7vgD8OT">
     <property role="EcuMT" value="8013817401925995833" />
     <property role="TrG5h" value="StartupFunction" />
+    <property role="3GE5qa" value="startupFunction" />
     <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
     <node concept="1TJgyj" id="6WQN7vgD8OU" role="1TKVEi">
       <property role="IQ2ns" value="8013817401925995834" />
@@ -230,18 +225,15 @@
       <property role="20lbJX" value="fLJekj4/_1" />
       <ref role="20lvS9" to="x27k:5_l8w1EmTvx" resolve="Function" />
     </node>
+    <node concept="PrWs8" id="1KZIYOVV8Yl" role="PzmwI">
+      <ref role="PrY4T" node="1KZIYOVV8Yk" resolve="IStartupFunction" />
+    </node>
   </node>
   <node concept="1TIwiD" id="6WQN7vgLyab">
     <property role="EcuMT" value="8013817401928196747" />
     <property role="TrG5h" value="ExternalFunction" />
     <property role="3GE5qa" value="externalFunction" />
     <ref role="1TJDcQ" to="x27k:5_l8w1EmTvx" resolve="Function" />
-    <node concept="1TJgyj" id="6lTY9B_Qgbn" role="1TKVEi">
-      <property role="IQ2ns" value="7312148809882600151" />
-      <property role="20lmBu" value="fLJjDmT/aggregation" />
-      <property role="20kJfa" value="docs" />
-      <ref role="20lvS9" node="6lTY9B_PW1o" resolve="FunctionDocs" />
-    </node>
     <node concept="PrWs8" id="6WQN7vgNRC6" role="PzmwI">
       <ref role="PrY4T" node="6WQN7vgLz3x" resolve="IExternalFunction" />
     </node>
@@ -383,12 +375,6 @@
       <property role="20lbJX" value="fLJekj4/_1" />
       <ref role="20lvS9" to="clbe:5yYXyc4Z0CJ" resolve="StructDeclaration" />
     </node>
-    <node concept="1TJgyj" id="4cCh7LT3GJM" role="1TKVEi">
-      <property role="IQ2ns" value="4839193101007244274" />
-      <property role="20lmBu" value="fLJjDmT/aggregation" />
-      <property role="20kJfa" value="docs" />
-      <ref role="20lvS9" node="4cCh7LT3eKG" resolve="StructDocs" />
-    </node>
   </node>
   <node concept="PlHQZ" id="5w8gNN4_WlS">
     <property role="EcuMT" value="6343394003426723192" />
@@ -456,12 +442,6 @@
       <property role="20kJfa" value="eventType" />
       <property role="20lbJX" value="fLJekj4/_1" />
       <ref role="20lvS9" node="7KGmnvzSgRT" resolve="EventType" />
-    </node>
-    <node concept="1TJgyj" id="2TAYqojXDM7" role="1TKVEi">
-      <property role="IQ2ns" value="3343634265063988359" />
-      <property role="20lmBu" value="fLJjDmT/aggregation" />
-      <property role="20kJfa" value="docs" />
-      <ref role="20lvS9" node="2TAYqojXDM3" resolve="EventDocs" />
     </node>
     <node concept="PrWs8" id="4IxwvG8pCdi" role="PzmwI">
       <ref role="PrY4T" node="4IxwvG8pCdh" resolve="IEventDefinition" />
@@ -536,6 +516,7 @@
   <node concept="1TIwiD" id="44nDDj_Ic6w">
     <property role="EcuMT" value="4690400695369122208" />
     <property role="TrG5h" value="ClassDefinition" />
+    <property role="3GE5qa" value="classDefinition" />
     <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
     <node concept="1TJgyj" id="44nDDj_Ic6y" role="1TKVEi">
       <property role="IQ2ns" value="4690400695369122210" />
@@ -557,6 +538,9 @@
       <ref role="20lvS9" node="6UxgX891svG" resolve="StartupHandler" />
     </node>
     <node concept="PrWs8" id="44nDDj_Ic6x" role="PzmwI">
+      <ref role="PrY4T" node="5kjbDRbC2Fw" resolve="IClassDefinition" />
+    </node>
+    <node concept="PrWs8" id="5kjbDRbF2cn" role="PzmwI">
       <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
     </node>
   </node>
@@ -576,6 +560,9 @@
       <property role="20kJfa" value="processes" />
       <property role="20lbJX" value="fLJekj4/_1" />
       <ref role="20lvS9" node="44nDDjAjZuU" resolve="IProcessList" />
+    </node>
+    <node concept="PrWs8" id="5kjbDRbN5es" role="PzmwI">
+      <ref role="PrY4T" node="5kjbDRbN5er" resolve="IProcessAllocation" />
     </node>
   </node>
   <node concept="1TIwiD" id="44nDDjAi6u8">
@@ -731,6 +718,18 @@
     <node concept="PrWs8" id="4IxwvG8t3x2" role="PrDN$">
       <ref role="PrY4T" node="4IxwvG8sUS_" resolve="ITypeDefinition" />
     </node>
+    <node concept="PrWs8" id="5kjbDRb$m2l" role="PrDN$">
+      <ref role="PrY4T" node="4IxwvG8woHX" resolve="IGlobalVarDecl" />
+    </node>
+    <node concept="PrWs8" id="5kjbDRbC2Fy" role="PrDN$">
+      <ref role="PrY4T" node="5kjbDRbC2Fw" resolve="IClassDefinition" />
+    </node>
+    <node concept="PrWs8" id="5kjbDRbN5et" role="PrDN$">
+      <ref role="PrY4T" node="5kjbDRbN5er" resolve="IProcessAllocation" />
+    </node>
+    <node concept="PrWs8" id="1KZIYOVV8Yo" role="PrDN$">
+      <ref role="PrY4T" node="1KZIYOVV8Yk" resolve="IStartupFunction" />
+    </node>
   </node>
   <node concept="PlHQZ" id="4IxwvG83$Ft">
     <property role="EcuMT" value="5449779939266939613" />
@@ -776,7 +775,7 @@
     <node concept="1TJgyj" id="4IxwvG83$FV" role="1TKVEi">
       <property role="IQ2ns" value="5449779939266939643" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
-      <property role="20kJfa" value="elements" />
+      <property role="20kJfa" value="items" />
       <property role="20lbJX" value="fLJekj5/_0__n" />
       <ref role="20lvS9" node="4IxwvG85XtA" resolve="Item" />
     </node>
@@ -854,6 +853,21 @@
     <property role="EcuMT" value="5449779939274492797" />
     <property role="TrG5h" value="IGlobalVarDecl" />
     <property role="3GE5qa" value="configuration" />
+  </node>
+  <node concept="PlHQZ" id="5kjbDRbC2Fw">
+    <property role="EcuMT" value="6130294773042391776" />
+    <property role="TrG5h" value="IClassDefinition" />
+    <property role="3GE5qa" value="classDefinition" />
+  </node>
+  <node concept="PlHQZ" id="5kjbDRbN5er">
+    <property role="EcuMT" value="6130294773045285787" />
+    <property role="3GE5qa" value="processAllocation" />
+    <property role="TrG5h" value="IProcessAllocation" />
+  </node>
+  <node concept="PlHQZ" id="1KZIYOVV8Yk">
+    <property role="EcuMT" value="2035552184181755796" />
+    <property role="TrG5h" value="IStartupFunction" />
+    <property role="3GE5qa" value="startupFunction" />
   </node>
 </model>
 
