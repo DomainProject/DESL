@@ -12,6 +12,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.generator.template.MappingScriptContext;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.Map;
 import jetbrains.mps.generator.impl.query.ScriptCodeBlock;
 import java.util.HashMap;
@@ -102,6 +103,16 @@ public class QueriesGenerated extends QueryProviderBase {
     }
     for (SNode struct : ListSequence.fromList(SModelOperations.nodes(_context.getModel(), CONCEPTS.ExternalStructDefinition$8P))) {
       SPropertyOperations.assign(SLinkOperations.getTarget(struct, LINKS.declaration$PHIG), PROPS.preventNameMangling$DOH5, true);
+    }
+
+    for (SNode variable : ListSequence.fromList(SModelOperations.nodes(_context.getModel(), CONCEPTS.GlobalVarDecl$PV))) {
+      SPropertyOperations.assign(variable, PROPS.preventNameMangling$DOH5, true);
+    }
+
+    for (SNode variable : ListSequence.fromList(SModelOperations.nodes(_context.getModel(), CONCEPTS.LocalVariableDeclaration$ft))) {
+      if ((SNodeOperations.getNodeAncestor(variable, CONCEPTS.EventHandler$Ov, false, false) != null)) {
+        SPropertyOperations.assign(variable, PROPS.name$MnvL, SPropertyOperations.getString(variable, PROPS.name$MnvL) + "_" + SPropertyOperations.getString(SNodeOperations.getNodeAncestor(variable, CONCEPTS.EventHandler$Ov, false, false), PROPS.eventName$AHdn));
+      }
     }
   }
   private final Map<String, ScriptCodeBlock> mscbMethods = new HashMap<String, ScriptCodeBlock>();
@@ -242,6 +253,7 @@ public class QueriesGenerated extends QueryProviderBase {
   private static final class PROPS {
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
     /*package*/ static final SProperty preventNameMangling$DOH5 = MetaAdapterFactory.getProperty(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x595522006a5b934fL, 0x5d18402e8bd65342L, "preventNameMangling");
+    /*package*/ static final SProperty eventName$AHdn = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x3aa70864b453eff1L, "eventName");
   }
 
   private static final class LINKS {
@@ -262,5 +274,8 @@ public class QueriesGenerated extends QueryProviderBase {
     /*package*/ static final SConcept ExternalFunctionPrototype$V4 = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228cL, "SimpleDES.structure.ExternalFunctionPrototype");
     /*package*/ static final SConcept TypeDefinition$Jr = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4ba181fb0873ae26L, "SimpleDES.structure.TypeDefinition");
     /*package*/ static final SConcept ExternalStructDefinition$8P = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x5808433cc497c579L, "SimpleDES.structure.ExternalStructDefinition");
+    /*package*/ static final SConcept GlobalVarDecl$PV = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4ba181fb0880155eL, "SimpleDES.structure.GlobalVarDecl");
+    /*package*/ static final SConcept EventHandler$Ov = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, "SimpleDES.structure.EventHandler");
+    /*package*/ static final SConcept LocalVariableDeclaration$ft = MetaAdapterFactory.getConcept(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad96e6L, "com.mbeddr.core.statements.structure.LocalVariableDeclaration");
   }
 }

@@ -36,7 +36,9 @@ public class ForEachItemInCollection_TextGen extends TextGenDescriptorBase {
     tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$6qqU));
     tgs.indent();
     tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableName$xecS));
-    tgs.append(" = list_next(iterator);");
+    tgs.append(" = list_next(");
+    tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableName$xecS));
+    tgs.append(");");
     tgs.newLine();
     ctx.getBuffer().area().decreaseIndent();
     tgs.indent();

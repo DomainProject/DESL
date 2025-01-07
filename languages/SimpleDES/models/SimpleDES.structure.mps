@@ -535,7 +535,14 @@
       <property role="IQ2ns" value="7971727384796055533" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <property role="20kJfa" value="startup" />
-      <ref role="20lvS9" node="6UxgX891svG" resolve="StartupHandler" />
+      <ref role="20lvS9" node="6WQN7vgD8OT" resolve="StartupFunction" />
+    </node>
+    <node concept="1TJgyj" id="38L9WlO79h3" role="1TKVEi">
+      <property role="IQ2ns" value="3616715704765289539" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="commonVariables" />
+      <property role="20lbJX" value="fLJekj5/_0__n" />
+      <ref role="20lvS9" to="c4fa:3CmSUB7FprA" resolve="LocalVariableDeclaration" />
     </node>
     <node concept="PrWs8" id="44nDDj_Ic6x" role="PzmwI">
       <ref role="PrY4T" node="5kjbDRbC2Fw" resolve="IClassDefinition" />
@@ -868,6 +875,23 @@
     <property role="EcuMT" value="2035552184181755796" />
     <property role="TrG5h" value="IStartupFunction" />
     <property role="3GE5qa" value="startupFunction" />
+  </node>
+  <node concept="1TIwiD" id="1CQK280Kq96">
+    <property role="EcuMT" value="1888908346002612806" />
+    <property role="TrG5h" value="InitTopology" />
+    <property role="34LRSv" value="InitTopology" />
+    <ref role="1TJDcQ" to="c4fa:3CmSUB7FmO3" resolve="Statement" />
+    <node concept="1TJgyi" id="1CQK2811Qbn" role="1TKVEl">
+      <property role="IQ2nx" value="1888908346007184087" />
+      <property role="TrG5h" value="variableName" />
+      <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
+    </node>
+    <node concept="1TJgyj" id="1CQK280Kq97" role="1TKVEi">
+      <property role="IQ2ns" value="1888908346002612807" />
+      <property role="20kJfa" value="variable" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" to="mj1l:1LDGRqyYkTP" resolve="IVariableDeclaration" />
+    </node>
   </node>
 </model>
 

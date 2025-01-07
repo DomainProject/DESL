@@ -70,6 +70,11 @@
       <property role="20lbJX" value="fLJekj4/_1" />
       <ref role="20lvS9" to="mj1l:1LDGRqyYkTP" resolve="IVariableDeclaration" />
     </node>
+    <node concept="1TJgyi" id="38L9WlNSznF" role="1TKVEl">
+      <property role="IQ2nx" value="3616715704761464299" />
+      <property role="TrG5h" value="variableName" />
+      <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
+    </node>
   </node>
   <node concept="1TIwiD" id="6WQN7vgFSqg">
     <property role="EcuMT" value="8013817401926715024" />
@@ -203,6 +208,11 @@
       <property role="20kJfa" value="collection" />
       <property role="20lbJX" value="fLJekj4/_1" />
       <ref role="20lvS9" to="mj1l:7FQByU3CrCM" resolve="Expression" />
+    </node>
+    <node concept="1TJgyi" id="38L9WlNQueN" role="1TKVEl">
+      <property role="IQ2nx" value="3616715704760918963" />
+      <property role="TrG5h" value="variableName" />
+      <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
     </node>
   </node>
 </model>

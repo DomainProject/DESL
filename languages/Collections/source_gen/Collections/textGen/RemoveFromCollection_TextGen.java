@@ -11,7 +11,6 @@ import jetbrains.mps.lang.traceable.behavior.TraceableConcept__BehaviorDescripto
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
@@ -23,7 +22,7 @@ public class RemoveFromCollection_TextGen extends TextGenDescriptorBase {
     tgs.append("list_detach_by_content(");
     tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.collection$QseB));
     tgs.append(", ");
-    tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.variable$mVLX), PROPS.name$MnvL));
+    tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableName$FJHk));
     tgs.append(");");
     tgs.newLine();
     if (tgs.needPositions()) {
@@ -33,11 +32,10 @@ public class RemoveFromCollection_TextGen extends TextGenDescriptorBase {
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink collection$QseB = MetaAdapterFactory.getContainmentLink(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x74450034d00494f4L, 0x2d57d1c347ae526bL, "collection");
-    /*package*/ static final SReferenceLink variable$mVLX = MetaAdapterFactory.getReferenceLink(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x74450034d00494f4L, 0x74450034d00494f7L, "variable");
   }
 
   private static final class PROPS {
-    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty variableName$FJHk = MetaAdapterFactory.getProperty(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x74450034d00494f4L, 0x323127c573d9e3b3L, "variableName");
   }
 
   private static final class CONCEPTS {

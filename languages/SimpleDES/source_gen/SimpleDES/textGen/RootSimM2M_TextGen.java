@@ -35,9 +35,12 @@ public class RootSimM2M_TextGen extends TextGenDescriptorBase {
     tgs.newLine();
     tgs.append("#include <stdlib.h>");
     tgs.newLine();
+    tgs.append("#include <list.h>");
+    tgs.newLine();
     ListSequence.fromList(headers).addElement("ROOT-Sim");
     ListSequence.fromList(headers).addElement("stdio");
     ListSequence.fromList(headers).addElement("stdlib");
+
     for (final SNode externalFunction : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.externalFunctions$LqEg), CONCEPTS.ExternalFunctionPrototype$V4))) {
       if (isEmptyString(ListSequence.fromList(headers).findFirst((it) -> it.equals(SPropertyOperations.getString(externalFunction, PROPS.headerName$Qm9Y))))) {
         ListSequence.fromList(headers).addElement(SPropertyOperations.getString(externalFunction, PROPS.headerName$Qm9Y));
@@ -110,7 +113,7 @@ public class RootSimM2M_TextGen extends TextGenDescriptorBase {
       tgs.appendNode(allocation);
       tgs.append(" : ");
     }
-    tgs.append("classUnknown))");
+    tgs.append("classUnknown)");
     tgs.newLine();
     tgs.newLine();
 
@@ -152,32 +155,35 @@ public class RootSimM2M_TextGen extends TextGenDescriptorBase {
       tgs.append("{");
       tgs.newLine();
       ctx.getBuffer().area().increaseIndent();
+
+      for (SNode variable : ListSequence.fromList(SLinkOperations.getChildren(c, LINKS.commonVariables$AOvb))) {
+        tgs.indent();
+        tgs.appendNode(variable);
+        tgs.newLine();
+      }
+      tgs.newLine();
+
       tgs.indent();
       tgs.append("switch(event_type) {");
       tgs.newLine();
       ctx.getBuffer().area().increaseIndent();
-      for (SNode handler : ListSequence.fromList(SLinkOperations.getChildren(c, LINKS.handlers$Nr2P))) {
+      for (SNode handler : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(c, LINKS.handlers$Nr2P), CONCEPTS.EventHandler$Ov))) {
         tgs.newLine();
-        {
-          final SNode eventHandler = handler;
-          if (SNodeOperations.isInstanceOf(eventHandler, CONCEPTS.EventHandler$Ov)) {
-            tgs.indent();
-            tgs.append("case ");
-            tgs.append(SPropertyOperations.getString(eventHandler, PROPS.eventName$AHdn));
-            tgs.append(":");
-            tgs.newLine();
-            ctx.getBuffer().area().increaseIndent();
-            for (SNode statement : ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(SLinkOperations.getTarget(eventHandler, LINKS.function$5bPH), LINKS.body$1GE0), LINKS.statements$euTV))) {
-              tgs.indent();
-              tgs.appendNode(statement);
-              tgs.newLine();
-            }
-            tgs.indent();
-            tgs.append("break;");
-            tgs.newLine();
-            ctx.getBuffer().area().decreaseIndent();
-          }
+        tgs.indent();
+        tgs.append("case ");
+        tgs.append(SPropertyOperations.getString(handler, PROPS.eventName$AHdn));
+        tgs.append(":");
+        tgs.newLine();
+        ctx.getBuffer().area().increaseIndent();
+        for (SNode statement : ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(SLinkOperations.getTarget(handler, LINKS.function$5bPH), LINKS.body$1GE0), LINKS.statements$euTV))) {
+          tgs.indent();
+          tgs.appendNode(statement);
+          tgs.newLine();
         }
+        tgs.indent();
+        tgs.append("break;");
+        tgs.newLine();
+        ctx.getBuffer().area().decreaseIndent();
       }
 
       tgs.newLine();
@@ -186,7 +192,7 @@ public class RootSimM2M_TextGen extends TextGenDescriptorBase {
       tgs.newLine();
       ctx.getBuffer().area().increaseIndent();
       tgs.indent();
-      tgs.append("fprintf(stderr, \"Unknown event type! (me = %d - event type = %d)\", me, event_type);");
+      tgs.append("fprintf(stderr, \"Unknown event type! (me = %ld - event type = %d)\", me, event_type);");
       tgs.newLine();
       tgs.indent();
       tgs.append("abort();");
@@ -210,7 +216,7 @@ public class RootSimM2M_TextGen extends TextGenDescriptorBase {
     tgs.newLine();
     ctx.getBuffer().area().increaseIndent();
     tgs.indent();
-    tgs.append("switch(what_class(me)) {");
+    tgs.append("switch(WHAT_CLASS(me)) {");
     tgs.newLine();
     ctx.getBuffer().area().increaseIndent();
     for (SNode c : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.classes$SNAM), CONCEPTS.ClassDefinition$NR))) {
@@ -233,6 +239,18 @@ public class RootSimM2M_TextGen extends TextGenDescriptorBase {
       tgs.newLine();
       ctx.getBuffer().area().decreaseIndent();
     }
+    tgs.newLine();
+    tgs.indent();
+    tgs.append("case classUnknown:");
+    tgs.newLine();
+    ctx.getBuffer().area().increaseIndent();
+    tgs.indent();
+    tgs.append("fprintf(stderr, \"Unknown class!\");");
+    tgs.newLine();
+    tgs.indent();
+    tgs.append("abort();");
+    tgs.newLine();
+    ctx.getBuffer().area().decreaseIndent();
     ctx.getBuffer().area().decreaseIndent();
     tgs.indent();
     tgs.append("}");
@@ -269,13 +287,13 @@ public class RootSimM2M_TextGen extends TextGenDescriptorBase {
     tgs.append(",");
     tgs.newLine();
     tgs.indent();
-    tgs.append(".num_threads = 0,");
+    tgs.append(".n_threads = 0,");
     tgs.newLine();
     tgs.indent();
     tgs.append(".gvt_period = 1000,");
     tgs.newLine();
     tgs.indent();
-    tgs.append(".log_level = LOG_INFO");
+    tgs.append(".log_level = LOG_INFO,");
     tgs.newLine();
     tgs.indent();
     tgs.append(".stats_file = \"");
@@ -289,7 +307,7 @@ public class RootSimM2M_TextGen extends TextGenDescriptorBase {
     tgs.append(".core_binding = true,");
     tgs.newLine();
     tgs.indent();
-    tgs.append(".serial = false");
+    tgs.append(".serial = false,");
     tgs.newLine();
     tgs.indent();
     tgs.append(".dispatcher = ProcessEvent");
@@ -348,6 +366,7 @@ public class RootSimM2M_TextGen extends TextGenDescriptorBase {
     /*package*/ static final SContainmentLink processAllocations$cuUJ = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x4117a694e6409a0eL, "processAllocations");
     /*package*/ static final SContainmentLink state$NqNO = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x4117a694e5b8c1a2L, "state");
     /*package*/ static final SContainmentLink configuration$XHIx = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x3507db05f7c55ff1L, "configuration");
+    /*package*/ static final SContainmentLink commonVariables$AOvb = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x323127c5741c9443L, "commonVariables");
     /*package*/ static final SContainmentLink function$5bPH = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x74d88000543a2a9fL, "function");
     /*package*/ static final SContainmentLink body$1GE0 = MetaAdapterFactory.getContainmentLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x595522006a5b97e1L, 0x3a16e3a9c7ad9954L, "body");
     /*package*/ static final SContainmentLink statements$euTV = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad9955L, 0x3a16e3a9c7ad9956L, "statements");

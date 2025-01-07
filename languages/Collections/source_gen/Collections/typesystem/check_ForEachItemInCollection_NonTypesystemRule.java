@@ -11,6 +11,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -24,6 +25,12 @@ public class check_ForEachItemInCollection_NonTypesystemRule extends AbstractNon
       {
         final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(forEachItemInCollection, "Invalid collection selected", "r:f7027455-26e7-41b0-8d35-b674745aad0f(Collections.typesystem)", "3267310691329532284", null, errorTarget);
+      }
+    }
+    if (!(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SLinkOperations.getTarget(forEachItemInCollection, LINKS.variable$xerT), LINKS.type$sXU3), CONCEPTS.PointerType$HX))) {
+      {
+        final MessageTarget errorTarget = new NodeMessageTarget();
+        IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(forEachItemInCollection, "Iteration variable must be a pointer", "r:f7027455-26e7-41b0-8d35-b674745aad0f(Collections.typesystem)", "3616715704757109176", null, errorTarget);
       }
     }
   }
@@ -43,6 +50,7 @@ public class check_ForEachItemInCollection_NonTypesystemRule extends AbstractNon
   }
 
   private static final class CONCEPTS {
+    /*package*/ static final SConcept PointerType$HX = MetaAdapterFactory.getConcept(0x3bf5377ae9044dedL, 0x97545a516023bfaaL, 0x3e0cae5e366d630L, "com.mbeddr.core.pointers.structure.PointerType");
     /*package*/ static final SConcept ForEachItemInCollection$TU = MetaAdapterFactory.getConcept(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x259b4ab97565ea5eL, "Collections.structure.ForEachItemInCollection");
   }
 }

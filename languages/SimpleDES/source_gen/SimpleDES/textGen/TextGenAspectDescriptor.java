@@ -51,6 +51,8 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new FunctionDocs_TextGen();
       case LanguageConceptSwitch.Header:
         return new Header_TextGen();
+      case LanguageConceptSwitch.InitTopology:
+        return new InitTopology_TextGen();
       case LanguageConceptSwitch.InitializeState:
         return new InitializeState_TextGen();
       case LanguageConceptSwitch.Item:

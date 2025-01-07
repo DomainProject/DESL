@@ -42,6 +42,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_IStructDefinition;
   private ConceptPresentation props_IText;
   private ConceptPresentation props_ITypeDefinition;
+  private ConceptPresentation props_InitTopology;
   private ConceptPresentation props_InitializeState;
   private ConceptPresentation props_Item;
   private ConceptPresentation props_ItemList;
@@ -283,6 +284,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_ITypeDefinition = cpb.create();
         }
         return props_ITypeDefinition;
+      case LanguageConceptSwitch.InitTopology:
+        if (props_InitTopology == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("InitTopology");
+          props_InitTopology = cpb.create();
+        }
+        return props_InitTopology;
       case LanguageConceptSwitch.InitializeState:
         if (props_InitializeState == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
