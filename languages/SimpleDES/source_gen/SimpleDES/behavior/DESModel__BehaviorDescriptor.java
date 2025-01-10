@@ -59,9 +59,10 @@ public final class DESModel__BehaviorDescriptor extends BaseBHDescriptor {
     ListSequence.fromList(added).addSequence(Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, LINKS.macros$Sq68), CONCEPTS.MacroFunction$$7)));
     ListSequence.fromList(added).addSequence(Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, LINKS.macros$Sq68), CONCEPTS.ExternalMacro$H2)));
     ListSequence.fromList(added).addSequence(Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, LINKS.typedefs$4qMf), CONCEPTS.TypeDefinition$Jr)));
-    for (SNode entity : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, LINKS.classes$SNAM), CONCEPTS.ClassDefinition$NR))) {
-      ListSequence.fromList(added).addElement(SLinkOperations.getTarget(entity, LINKS.state$NqNO));
+    for (SNode c : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, LINKS.classes$SNAM), CONCEPTS.ClassDefinition$NR))) {
+      ListSequence.fromList(added).addElement(SLinkOperations.getTarget(c, LINKS.stateStruct$NqNO));
     }
+    ListSequence.fromList(added).addElement(SLinkOperations.getTarget(__thisNode__, LINKS.messageStruct$xVlJ));
     ListSequence.fromList(base).addSequence(ListSequence.fromList(added));
     return base;
   }
@@ -121,8 +122,9 @@ public final class DESModel__BehaviorDescriptor extends BaseBHDescriptor {
     /*package*/ static final SContainmentLink externalFunctions$LqEg = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x6f36cc77d0a2c4ceL, "externalFunctions");
     /*package*/ static final SContainmentLink macros$Sq68 = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x74450034d00e6949L, "macros");
     /*package*/ static final SContainmentLink typedefs$4qMf = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x726080b55108e3b4L, "typedefs");
-    /*package*/ static final SContainmentLink state$NqNO = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x4117a694e5b8c1a2L, "state");
+    /*package*/ static final SContainmentLink stateStruct$NqNO = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x4117a694e5b8c1a2L, "stateStruct");
     /*package*/ static final SContainmentLink classes$SNAM = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x4117a694e5ba8536L, "classes");
+    /*package*/ static final SContainmentLink messageStruct$xVlJ = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x6de6339fa564bed8L, "messageStruct");
   }
 
   private static final class CONCEPTS {

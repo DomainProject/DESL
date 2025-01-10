@@ -24,6 +24,8 @@ public class ActionAspectDescriptorImpl extends BaseActionAspectDescriptor imple
           return Collections.<NodeFactory>singletonList(new StartupFunctionFactory.NodeFactory_8013817401925998386());
         case "StartupHandler":
           return Collections.<NodeFactory>singletonList(new StartupHandlerFactory.NodeFactory_7971727384798017761());
+        case "TerminationFunction":
+          return Collections.<NodeFactory>singletonList(new TerminationFunctionFactory.NodeFactory_1477309532093105809());
         default:
       }
     }

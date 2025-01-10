@@ -217,76 +217,78 @@
       <node id="8378102908621883166" at="58,184,59,184" concept="2" />
       <node id="2928601933955677055" at="59,184,60,184" concept="2" />
       <node id="8241728834325368108" at="60,184,61,187" concept="2" />
-      <node id="8378102908620337242" at="62,167,63,99" concept="2" />
-      <node id="3821263627525143726" at="64,5,65,74" concept="2" />
-      <node id="3821263627525227630" at="65,74,66,16" concept="7" />
-      <node id="7585097954833394629" at="73,114,74,21" concept="2" />
-      <node id="7585097954833394629" at="78,114,79,49" concept="6" />
-      <node id="7585097954833394629" at="80,26,81,56" concept="12" />
-      <node id="7585097954833394629" at="84,13,85,91" concept="7" />
-      <node id="7585097954833394629" at="86,14,87,58" concept="12" />
-      <node id="7585097954833394629" at="92,128,93,49" concept="6" />
-      <node id="7585097954833394629" at="94,26,95,56" concept="12" />
-      <node id="7585097954833394629" at="98,14,99,58" concept="12" />
-      <node id="7585097954833394629" at="105,48,106,22" concept="7" />
-      <node id="7585097954833394629" at="111,40,112,19" concept="7" />
-      <node id="7585097954833394629" at="116,0,117,0" concept="9" trace="structs$JAXN" />
-      <node id="7585097954833394629" at="117,0,118,0" concept="9" trace="struct$10Oz" />
-      <node id="7585097954833394629" at="118,0,119,0" concept="9" trace="declaration$PHIG" />
-      <node id="7585097954833394629" at="119,0,120,0" concept="9" trace="configuration$XHIx" />
-      <node id="7585097954833394629" at="120,0,121,0" concept="9" trace="prototype$lY0a" />
-      <node id="7585097954833394629" at="121,0,122,0" concept="9" trace="externalFunctions$LqEg" />
-      <node id="7585097954833394629" at="122,0,123,0" concept="9" trace="macros$Sq68" />
-      <node id="7585097954833394629" at="123,0,124,0" concept="9" trace="typedefs$4qMf" />
-      <node id="7585097954833394629" at="124,0,125,0" concept="9" trace="state$NqNO" />
-      <node id="7585097954833394629" at="125,0,126,0" concept="9" trace="classes$SNAM" />
-      <node id="7585097954833394629" at="129,0,130,0" concept="9" trace="StructDefinition$7R" />
-      <node id="7585097954833394629" at="130,0,131,0" concept="9" trace="ExternalStructDefinition$8P" />
-      <node id="7585097954833394629" at="131,0,132,0" concept="9" trace="GlobalVarDecl$PV" />
-      <node id="7585097954833394629" at="132,0,133,0" concept="9" trace="Function$K8" />
-      <node id="7585097954833394629" at="133,0,134,0" concept="9" trace="ExternalFunctionPrototype$V4" />
-      <node id="7585097954833394629" at="134,0,135,0" concept="9" trace="MacroVariable$z9" />
-      <node id="7585097954833394629" at="135,0,136,0" concept="9" trace="MacroFunction$$7" />
-      <node id="7585097954833394629" at="136,0,137,0" concept="9" trace="ExternalMacro$H2" />
-      <node id="7585097954833394629" at="137,0,138,0" concept="9" trace="TypeDefinition$Jr" />
-      <node id="7585097954833394629" at="138,0,139,0" concept="9" trace="ClassDefinition$NR" />
+      <node id="8378102908620337242" at="62,162,63,100" concept="2" />
+      <node id="7919073755545967030" at="64,5,65,111" concept="2" />
+      <node id="3821263627525143726" at="65,111,66,74" concept="2" />
+      <node id="3821263627525227630" at="66,74,67,16" concept="7" />
+      <node id="7585097954833394629" at="74,114,75,21" concept="2" />
+      <node id="7585097954833394629" at="79,114,80,49" concept="6" />
+      <node id="7585097954833394629" at="81,26,82,56" concept="12" />
+      <node id="7585097954833394629" at="85,13,86,91" concept="7" />
+      <node id="7585097954833394629" at="87,14,88,58" concept="12" />
+      <node id="7585097954833394629" at="93,128,94,49" concept="6" />
+      <node id="7585097954833394629" at="95,26,96,56" concept="12" />
+      <node id="7585097954833394629" at="99,14,100,58" concept="12" />
+      <node id="7585097954833394629" at="106,48,107,22" concept="7" />
+      <node id="7585097954833394629" at="112,40,113,19" concept="7" />
+      <node id="7585097954833394629" at="117,0,118,0" concept="9" trace="structs$JAXN" />
+      <node id="7585097954833394629" at="118,0,119,0" concept="9" trace="struct$10Oz" />
+      <node id="7585097954833394629" at="119,0,120,0" concept="9" trace="declaration$PHIG" />
+      <node id="7585097954833394629" at="120,0,121,0" concept="9" trace="configuration$XHIx" />
+      <node id="7585097954833394629" at="121,0,122,0" concept="9" trace="prototype$lY0a" />
+      <node id="7585097954833394629" at="122,0,123,0" concept="9" trace="externalFunctions$LqEg" />
+      <node id="7585097954833394629" at="123,0,124,0" concept="9" trace="macros$Sq68" />
+      <node id="7585097954833394629" at="124,0,125,0" concept="9" trace="typedefs$4qMf" />
+      <node id="7585097954833394629" at="125,0,126,0" concept="9" trace="stateStruct$NqNO" />
+      <node id="7585097954833394629" at="126,0,127,0" concept="9" trace="classes$SNAM" />
+      <node id="7585097954833394629" at="127,0,128,0" concept="9" trace="messageStruct$xVlJ" />
+      <node id="7585097954833394629" at="131,0,132,0" concept="9" trace="StructDefinition$7R" />
+      <node id="7585097954833394629" at="132,0,133,0" concept="9" trace="ExternalStructDefinition$8P" />
+      <node id="7585097954833394629" at="133,0,134,0" concept="9" trace="GlobalVarDecl$PV" />
+      <node id="7585097954833394629" at="134,0,135,0" concept="9" trace="Function$K8" />
+      <node id="7585097954833394629" at="135,0,136,0" concept="9" trace="ExternalFunctionPrototype$V4" />
+      <node id="7585097954833394629" at="136,0,137,0" concept="9" trace="MacroVariable$z9" />
+      <node id="7585097954833394629" at="137,0,138,0" concept="9" trace="MacroFunction$$7" />
+      <node id="7585097954833394629" at="138,0,139,0" concept="9" trace="ExternalMacro$H2" />
+      <node id="7585097954833394629" at="139,0,140,0" concept="9" trace="TypeDefinition$Jr" />
+      <node id="7585097954833394629" at="140,0,141,0" concept="9" trace="ClassDefinition$NR" />
       <node id="7585097954833394629" at="35,0,37,0" concept="10" trace="___init___#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
-      <node id="7585097954833394629" at="69,0,71,0" concept="1" trace="DESModel__BehaviorDescriptor#()V" />
+      <node id="7585097954833394629" at="70,0,72,0" concept="1" trace="DESModel__BehaviorDescriptor#()V" />
       <node id="8013817401928254300" at="46,33,49,9" concept="4" />
       <node id="8013817401928348137" at="52,33,55,9" concept="4" />
       <node id="8378102908620287862" at="61,187,64,5" concept="3" />
-      <node id="7585097954833394629" at="79,49,82,5" concept="4" />
-      <node id="7585097954833394629" at="93,49,96,5" concept="4" />
-      <node id="7585097954833394629" at="72,0,76,0" concept="5" trace="initNode#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/core/aspects/behaviour/api/SConstructor;[Ljava/lang/Object;)V" />
-      <node id="7585097954833394629" at="96,5,100,5" concept="11" />
-      <node id="7585097954833394629" at="103,0,108,0" concept="5" trace="getDeclaredMethods#()Ljava/util/List;" />
-      <node id="7585097954833394629" at="109,0,114,0" concept="5" trace="getConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
+      <node id="7585097954833394629" at="80,49,83,5" concept="4" />
+      <node id="7585097954833394629" at="94,49,97,5" concept="4" />
+      <node id="7585097954833394629" at="73,0,77,0" concept="5" trace="initNode#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/core/aspects/behaviour/api/SConstructor;[Ljava/lang/Object;)V" />
+      <node id="7585097954833394629" at="97,5,101,5" concept="11" />
+      <node id="7585097954833394629" at="104,0,109,0" concept="5" trace="getDeclaredMethods#()Ljava/util/List;" />
+      <node id="7585097954833394629" at="110,0,115,0" concept="5" trace="getConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
       <node id="8013817401928254300" at="44,123,50,7" concept="0" />
       <node id="8013817401928348137" at="50,7,56,7" concept="0" />
-      <node id="7585097954833394629" at="82,5,88,5" concept="11" />
-      <node id="7585097954833394629" at="91,0,102,0" concept="5" trace="invokeSpecial0#(Lorg/jetbrains/mps/openapi/language/SAbstractConcept;Ljetbrains/mps/core/aspects/behaviour/api/SMethod;[Ljava/lang/Object;)null" />
-      <node id="7585097954833394629" at="77,0,90,0" concept="5" trace="invokeSpecial0#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/core/aspects/behaviour/api/SMethod;[Ljava/lang/Object;)null" />
+      <node id="7585097954833394629" at="83,5,89,5" concept="11" />
+      <node id="7585097954833394629" at="92,0,103,0" concept="5" trace="invokeSpecial0#(Lorg/jetbrains/mps/openapi/language/SAbstractConcept;Ljetbrains/mps/core/aspects/behaviour/api/SMethod;[Ljava/lang/Object;)null" />
+      <node id="7585097954833394629" at="78,0,91,0" concept="5" trace="invokeSpecial0#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/core/aspects/behaviour/api/SMethod;[Ljava/lang/Object;)null" />
       <node id="8013817401928209213" at="43,191,57,5" concept="3" />
-      <node id="7585097954833394629" at="38,0,68,0" concept="10" trace="allReferenceableContentsInChunk_id6clJcrKmVSn#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/Iterable;" />
+      <node id="7585097954833394629" at="38,0,69,0" concept="10" trace="allReferenceableContentsInChunk_id6clJcrKmVSn#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/Iterable;" />
       <scope id="7585097954833394629" at="35,63,35,63" />
-      <scope id="7585097954833394629" at="69,46,69,46" />
+      <scope id="7585097954833394629" at="70,46,70,46" />
       <scope id="8013817401928254302" at="47,68,48,53" />
       <scope id="8013817401928348141" at="53,85,54,102" />
-      <scope id="8378102908620287868" at="62,167,63,99" />
-      <scope id="7585097954833394629" at="73,114,74,21" />
-      <scope id="7585097954833394629" at="80,26,81,56" />
-      <scope id="7585097954833394629" at="84,13,85,91" />
-      <scope id="7585097954833394629" at="86,14,87,58" />
-      <scope id="7585097954833394629" at="94,26,95,56" />
-      <scope id="7585097954833394629" at="98,14,99,58" />
-      <scope id="7585097954833394629" at="105,48,106,22" />
-      <scope id="7585097954833394629" at="111,40,112,19" />
+      <scope id="8378102908620287868" at="62,162,63,100" />
+      <scope id="7585097954833394629" at="74,114,75,21" />
+      <scope id="7585097954833394629" at="81,26,82,56" />
+      <scope id="7585097954833394629" at="85,13,86,91" />
+      <scope id="7585097954833394629" at="87,14,88,58" />
+      <scope id="7585097954833394629" at="95,26,96,56" />
+      <scope id="7585097954833394629" at="99,14,100,58" />
+      <scope id="7585097954833394629" at="106,48,107,22" />
+      <scope id="7585097954833394629" at="112,40,113,19" />
       <scope id="7585097954833394629" at="35,0,37,0">
         <var name="__thisNode__" id="7585097954833394629" />
       </scope>
-      <scope id="7585097954833394629" at="69,0,71,0" />
+      <scope id="7585097954833394629" at="70,0,72,0" />
       <scope id="8378102908620287862" at="61,187,64,5">
-        <var name="entity" id="8378102908620287864" />
+        <var name="c" id="8378102908620287864" />
       </scope>
       <scope id="8013817401928254300" at="45,7,49,9">
         <var name="f" id="8013817401928254300" />
@@ -294,26 +296,26 @@
       <scope id="8013817401928348137" at="51,7,55,9">
         <var name="p" id="8013817401928348137" />
       </scope>
-      <scope id="7585097954833394629" at="72,0,76,0">
+      <scope id="7585097954833394629" at="73,0,77,0">
         <var name="constructor" id="7585097954833394629" />
         <var name="node" id="7585097954833394629" />
         <var name="parameters" id="7585097954833394629" />
       </scope>
-      <scope id="7585097954833394629" at="103,0,108,0" />
-      <scope id="7585097954833394629" at="109,0,114,0" />
-      <scope id="7585097954833394629" at="92,128,100,5">
+      <scope id="7585097954833394629" at="104,0,109,0" />
+      <scope id="7585097954833394629" at="110,0,115,0" />
+      <scope id="7585097954833394629" at="93,128,101,5">
         <var name="methodIndex" id="7585097954833394629" />
       </scope>
-      <scope id="7585097954833394629" at="78,114,88,5">
+      <scope id="7585097954833394629" at="79,114,89,5">
         <var name="methodIndex" id="7585097954833394629" />
       </scope>
-      <scope id="7585097954833394629" at="91,0,102,0">
+      <scope id="7585097954833394629" at="92,0,103,0">
         <var name="concept" id="7585097954833394629" />
         <var name="method" id="7585097954833394629" />
         <var name="parameters" id="7585097954833394629" />
       </scope>
       <scope id="8013817401928209219" at="44,123,56,7" />
-      <scope id="7585097954833394629" at="77,0,90,0">
+      <scope id="7585097954833394629" at="78,0,91,0">
         <var name="method" id="7585097954833394629" />
         <var name="node" id="7585097954833394629" />
         <var name="parameters" id="7585097954833394629" />
@@ -321,16 +323,16 @@
       <scope id="8013817401928209213" at="43,191,57,5">
         <var name="function" id="8013817401928209215" />
       </scope>
-      <scope id="7139820346889413119" at="38,113,66,16">
+      <scope id="7139820346889413119" at="38,113,67,16">
         <var name="added" id="3821263627525090802" />
         <var name="base" id="3821263627525074709" />
       </scope>
-      <scope id="7585097954833394629" at="38,0,68,0">
+      <scope id="7585097954833394629" at="38,0,69,0">
         <var name="__thisNode__" id="7585097954833394629" />
       </scope>
-      <unit id="7585097954833394629" at="115,0,127,0" name="SimpleDES.behavior.DESModel__BehaviorDescriptor$LINKS" />
-      <unit id="7585097954833394629" at="128,0,140,0" name="SimpleDES.behavior.DESModel__BehaviorDescriptor$CONCEPTS" />
-      <unit id="7585097954833394629" at="28,0,141,0" name="SimpleDES.behavior.DESModel__BehaviorDescriptor" />
+      <unit id="7585097954833394629" at="130,0,142,0" name="SimpleDES.behavior.DESModel__BehaviorDescriptor$CONCEPTS" />
+      <unit id="7585097954833394629" at="116,0,129,0" name="SimpleDES.behavior.DESModel__BehaviorDescriptor$LINKS" />
+      <unit id="7585097954833394629" at="28,0,143,0" name="SimpleDES.behavior.DESModel__BehaviorDescriptor" />
     </file>
   </root>
 </debug-info>

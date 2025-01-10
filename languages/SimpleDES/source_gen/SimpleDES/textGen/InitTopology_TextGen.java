@@ -40,10 +40,14 @@ public class InitTopology_TextGen extends TextGenDescriptorBase {
       }
     }
 
+    int sqrt = ((int) Math.floor(Math.sqrt(lps)));
+
     if ((SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.RootSimM2M$x5, false, false) != null)) {
       tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableName$Fc4X));
       tgs.append(" = InitializeTopology(TOPOLOGY_HEXAGON, ");
-      tgs.append(String.valueOf(lps));
+      tgs.append(String.valueOf(sqrt));
+      tgs.append(", ");
+      tgs.append(String.valueOf(sqrt));
       tgs.append(");");
       tgs.newLine();
     }

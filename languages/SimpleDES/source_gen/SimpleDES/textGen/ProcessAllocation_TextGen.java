@@ -9,7 +9,6 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
@@ -21,6 +20,7 @@ public class ProcessAllocation_TextGen extends TextGenDescriptorBase {
   public void generateText(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
 
+    // code
     if ((SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.DocsM2M$wA, false, false) == null)) {
       {
         final SNode interval = SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.processes$hZqx);
@@ -31,24 +31,6 @@ public class ProcessAllocation_TextGen extends TextGenDescriptorBase {
           tgs.append(String.valueOf(SPropertyOperations.getInteger(interval, PROPS.right$2uAQ)));
           tgs.append(") ? ");
           tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.class$8$vc), PROPS.name$MnvL));
-        }
-      }
-      {
-        final SNode sequence = SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.processes$hZqx);
-        if (SNodeOperations.isInstanceOf(sequence, CONCEPTS.ProcessSequence$B$)) {
-          tgs.append("(");
-          for (SNode value : ListSequence.fromList(SLinkOperations.getChildren(sequence, LINKS.processes$2JvY))) {
-            if (SNodeOperations.getIndexInParent(value) == ListSequence.fromList(SLinkOperations.getChildren(sequence, LINKS.processes$2JvY)).count() - 1) {
-              tgs.append("id == ");
-              tgs.appendNode(value);
-              tgs.append(") ? ");
-              tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.class$8$vc), PROPS.name$MnvL));
-            } else {
-              tgs.append("id == ");
-              tgs.appendNode(value);
-              tgs.append(" || ");
-            }
-          }
         }
       }
       return;
@@ -67,12 +49,10 @@ public class ProcessAllocation_TextGen extends TextGenDescriptorBase {
   private static final class LINKS {
     /*package*/ static final SContainmentLink processes$hZqx = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6393783L, 0x4117a694e6393787L, "processes");
     /*package*/ static final SReferenceLink class$8$vc = MetaAdapterFactory.getReferenceLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6393783L, 0x4117a694e6394c33L, "class");
-    /*package*/ static final SContainmentLink processes$2JvY = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e64867a6L, 0x4117a694e64867a7L, "processes");
   }
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept ProcessArray$Ux = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6486788L, "SimpleDES.structure.ProcessArray");
-    /*package*/ static final SConcept ProcessSequence$B$ = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e64867a6L, "SimpleDES.structure.ProcessSequence");
     /*package*/ static final SConcept DocsM2M$wA = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2e66f9a61334f362L, "SimpleDES.structure.DocsM2M");
   }
 

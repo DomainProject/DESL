@@ -74,6 +74,13 @@
       <property role="20lbJX" value="fLJekj5/_0__n" />
       <ref role="20lvS9" node="5w8gNN4_WlS" resolve="IStructDefinition" />
     </node>
+    <node concept="1TJgyj" id="6RAcTY_pbVo" role="1TKVEi">
+      <property role="IQ2ns" value="7919073755545255640" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="messageStruct" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" to="clbe:5yYXyc4Z0CJ" resolve="StructDeclaration" />
+    </node>
     <node concept="1TJgyj" id="3k7QKnRLlZL" role="1TKVEi">
       <property role="IQ2ns" value="3821263627525382129" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
@@ -521,7 +528,8 @@
     <node concept="1TJgyj" id="44nDDj_Ic6y" role="1TKVEi">
       <property role="IQ2ns" value="4690400695369122210" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
-      <property role="20kJfa" value="state" />
+      <property role="20kJfa" value="stateStruct" />
+      <property role="20lbJX" value="fLJekj4/_1" />
       <ref role="20lvS9" to="clbe:5yYXyc4Z0CJ" resolve="StructDeclaration" />
     </node>
     <node concept="1TJgyj" id="44nDDj_Ic6z" role="1TKVEi">
@@ -543,6 +551,12 @@
       <property role="20kJfa" value="commonVariables" />
       <property role="20lbJX" value="fLJekj5/_0__n" />
       <ref role="20lvS9" to="c4fa:3CmSUB7FprA" resolve="LocalVariableDeclaration" />
+    </node>
+    <node concept="1TJgyj" id="1i0tj4VIroX" role="1TKVEi">
+      <property role="IQ2ns" value="1477309532093396541" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="termination" />
+      <ref role="20lvS9" node="1i0tj4VHkpH" resolve="TerminationFunction" />
     </node>
     <node concept="PrWs8" id="44nDDj_Ic6x" role="PzmwI">
       <ref role="PrY4T" node="5kjbDRbC2Fw" resolve="IClassDefinition" />
@@ -602,9 +616,6 @@
       <property role="20kJfa" value="processes" />
       <property role="20lbJX" value="fLJekj6/_1__n" />
       <ref role="20lvS9" to="tpee:fzcmrck" resolve="IntegerConstant" />
-    </node>
-    <node concept="PrWs8" id="44nDDjAjZuX" role="PzmwI">
-      <ref role="PrY4T" node="44nDDjAjZuU" resolve="IProcessList" />
     </node>
   </node>
   <node concept="PlHQZ" id="44nDDjAjZuU">
@@ -736,6 +747,9 @@
     </node>
     <node concept="PrWs8" id="1KZIYOVV8Yo" role="PrDN$">
       <ref role="PrY4T" node="1KZIYOVV8Yk" resolve="IStartupFunction" />
+    </node>
+    <node concept="PrWs8" id="1i0tj4VNbNq" role="PrDN$">
+      <ref role="PrY4T" node="1i0tj4VHkpN" resolve="ITerminationFunction" />
     </node>
   </node>
   <node concept="PlHQZ" id="4IxwvG83$Ft">
@@ -892,6 +906,41 @@
       <property role="20lbJX" value="fLJekj4/_1" />
       <ref role="20lvS9" to="mj1l:1LDGRqyYkTP" resolve="IVariableDeclaration" />
     </node>
+  </node>
+  <node concept="1TIwiD" id="44hRiq2RepC">
+    <property role="EcuMT" value="4688771844543407720" />
+    <property role="3GE5qa" value="M2M" />
+    <property role="TrG5h" value="UseM2M" />
+    <property role="19KtqR" value="true" />
+    <ref role="1TJDcQ" node="1FqAw$nj9oK" resolve="DESModel" />
+  </node>
+  <node concept="1TIwiD" id="1i0tj4VHkpH">
+    <property role="EcuMT" value="1477309532093105773" />
+    <property role="TrG5h" value="TerminationFunction" />
+    <property role="3GE5qa" value="terminationFunction" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" />
+    <node concept="1TJgyj" id="1i0tj4VHkpI" role="1TKVEi">
+      <property role="IQ2ns" value="1477309532093105774" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="function" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" to="x27k:5_l8w1EmTvx" resolve="Function" />
+    </node>
+    <node concept="PrWs8" id="1i0tj4VHkpO" role="PzmwI">
+      <ref role="PrY4T" node="1i0tj4VHkpN" resolve="ITerminationFunction" />
+    </node>
+  </node>
+  <node concept="PlHQZ" id="1i0tj4VHkpN">
+    <property role="EcuMT" value="1477309532093105779" />
+    <property role="TrG5h" value="ITerminationFunction" />
+    <property role="3GE5qa" value="terminationFunction" />
+  </node>
+  <node concept="1TIwiD" id="7Ri6sFnndrI">
+    <property role="EcuMT" value="9066337358837503726" />
+    <property role="3GE5qa" value="M2M" />
+    <property role="TrG5h" value="RossM2M" />
+    <property role="19KtqR" value="true" />
+    <ref role="1TJDcQ" node="1FqAw$nj9oK" resolve="DESModel" />
   </node>
 </model>
 

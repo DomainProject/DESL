@@ -40,6 +40,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_IProcessList;
   private ConceptPresentation props_IStartupFunction;
   private ConceptPresentation props_IStructDefinition;
+  private ConceptPresentation props_ITerminationFunction;
   private ConceptPresentation props_IText;
   private ConceptPresentation props_ITypeDefinition;
   private ConceptPresentation props_InitTopology;
@@ -55,13 +56,16 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_ProcessArray;
   private ConceptPresentation props_ProcessSequence;
   private ConceptPresentation props_RootSimM2M;
+  private ConceptPresentation props_RossM2M;
   private ConceptPresentation props_SendEvent;
   private ConceptPresentation props_StartupFunction;
   private ConceptPresentation props_StartupHandler;
   private ConceptPresentation props_StructDefinition;
   private ConceptPresentation props_StructDocs;
   private ConceptPresentation props_StructMemberDocs;
+  private ConceptPresentation props_TerminationFunction;
   private ConceptPresentation props_TypeDefinition;
+  private ConceptPresentation props_UseM2M;
 
   @Override
   @Nullable
@@ -272,6 +276,12 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_IStructDefinition = cpb.create();
         }
         return props_IStructDefinition;
+      case LanguageConceptSwitch.ITerminationFunction:
+        if (props_ITerminationFunction == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          props_ITerminationFunction = cpb.create();
+        }
+        return props_ITerminationFunction;
       case LanguageConceptSwitch.IText:
         if (props_IText == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -376,6 +386,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_RootSimM2M = cpb.create();
         }
         return props_RootSimM2M;
+      case LanguageConceptSwitch.RossM2M:
+        if (props_RossM2M == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.presentationByName();
+          props_RossM2M = cpb.create();
+        }
+        return props_RossM2M;
       case LanguageConceptSwitch.SendEvent:
         if (props_SendEvent == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -418,6 +435,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_StructMemberDocs = cpb.create();
         }
         return props_StructMemberDocs;
+      case LanguageConceptSwitch.TerminationFunction:
+        if (props_TerminationFunction == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("TerminationFunction");
+          props_TerminationFunction = cpb.create();
+        }
+        return props_TerminationFunction;
       case LanguageConceptSwitch.TypeDefinition:
         if (props_TypeDefinition == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -425,6 +449,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_TypeDefinition = cpb.create();
         }
         return props_TypeDefinition;
+      case LanguageConceptSwitch.UseM2M:
+        if (props_UseM2M == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.presentationByName();
+          props_UseM2M = cpb.create();
+        }
+        return props_UseM2M;
     }
     return null;
   }

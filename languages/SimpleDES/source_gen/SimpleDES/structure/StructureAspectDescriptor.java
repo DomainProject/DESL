@@ -44,6 +44,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptIProcessList = createDescriptorForIProcessList();
   /*package*/ final ConceptDescriptor myConceptIStartupFunction = createDescriptorForIStartupFunction();
   /*package*/ final ConceptDescriptor myConceptIStructDefinition = createDescriptorForIStructDefinition();
+  /*package*/ final ConceptDescriptor myConceptITerminationFunction = createDescriptorForITerminationFunction();
   /*package*/ final ConceptDescriptor myConceptIText = createDescriptorForIText();
   /*package*/ final ConceptDescriptor myConceptITypeDefinition = createDescriptorForITypeDefinition();
   /*package*/ final ConceptDescriptor myConceptInitTopology = createDescriptorForInitTopology();
@@ -59,13 +60,16 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptProcessArray = createDescriptorForProcessArray();
   /*package*/ final ConceptDescriptor myConceptProcessSequence = createDescriptorForProcessSequence();
   /*package*/ final ConceptDescriptor myConceptRootSimM2M = createDescriptorForRootSimM2M();
+  /*package*/ final ConceptDescriptor myConceptRossM2M = createDescriptorForRossM2M();
   /*package*/ final ConceptDescriptor myConceptSendEvent = createDescriptorForSendEvent();
   /*package*/ final ConceptDescriptor myConceptStartupFunction = createDescriptorForStartupFunction();
   /*package*/ final ConceptDescriptor myConceptStartupHandler = createDescriptorForStartupHandler();
   /*package*/ final ConceptDescriptor myConceptStructDefinition = createDescriptorForStructDefinition();
   /*package*/ final ConceptDescriptor myConceptStructDocs = createDescriptorForStructDocs();
   /*package*/ final ConceptDescriptor myConceptStructMemberDocs = createDescriptorForStructMemberDocs();
+  /*package*/ final ConceptDescriptor myConceptTerminationFunction = createDescriptorForTerminationFunction();
   /*package*/ final ConceptDescriptor myConceptTypeDefinition = createDescriptorForTypeDefinition();
+  /*package*/ final ConceptDescriptor myConceptUseM2M = createDescriptorForUseM2M();
   private final LanguageConceptSwitch myIndexSwitch;
 
   public StructureAspectDescriptor() {
@@ -91,7 +95,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptClassDefinition, myConceptCreateArray, myConceptDESModel, myConceptDocsEntry, myConceptDocsM2M, myConceptEmptyLine, myConceptEventDefinition, myConceptEventDocs, myConceptEventHandler, myConceptEventHandlerDocs, myConceptEventType, myConceptExternalFunction, myConceptExternalFunctionPrototype, myConceptExternalMacro, myConceptExternalStructDefinition, myConceptFunctionDocs, myConceptGlobalVarDecl, myConceptHeader, myConceptIClassDefinition, myConceptIDocs, myConceptIDocsElement, myConceptIEventDefinition, myConceptIExternalFunction, myConceptIFiller, myConceptIGlobalVarDecl, myConceptIHandler, myConceptIMacro, myConceptIProcessAllocation, myConceptIProcessList, myConceptIStartupFunction, myConceptIStructDefinition, myConceptIText, myConceptITypeDefinition, myConceptInitTopology, myConceptInitializeState, myConceptItem, myConceptItemList, myConceptMacroFunction, myConceptMacroVariable, myConceptNewStruct, myConceptParameterDocs, myConceptPlainText, myConceptProcessAllocation, myConceptProcessArray, myConceptProcessSequence, myConceptRootSimM2M, myConceptSendEvent, myConceptStartupFunction, myConceptStartupHandler, myConceptStructDefinition, myConceptStructDocs, myConceptStructMemberDocs, myConceptTypeDefinition);
+    return Arrays.asList(myConceptClassDefinition, myConceptCreateArray, myConceptDESModel, myConceptDocsEntry, myConceptDocsM2M, myConceptEmptyLine, myConceptEventDefinition, myConceptEventDocs, myConceptEventHandler, myConceptEventHandlerDocs, myConceptEventType, myConceptExternalFunction, myConceptExternalFunctionPrototype, myConceptExternalMacro, myConceptExternalStructDefinition, myConceptFunctionDocs, myConceptGlobalVarDecl, myConceptHeader, myConceptIClassDefinition, myConceptIDocs, myConceptIDocsElement, myConceptIEventDefinition, myConceptIExternalFunction, myConceptIFiller, myConceptIGlobalVarDecl, myConceptIHandler, myConceptIMacro, myConceptIProcessAllocation, myConceptIProcessList, myConceptIStartupFunction, myConceptIStructDefinition, myConceptITerminationFunction, myConceptIText, myConceptITypeDefinition, myConceptInitTopology, myConceptInitializeState, myConceptItem, myConceptItemList, myConceptMacroFunction, myConceptMacroVariable, myConceptNewStruct, myConceptParameterDocs, myConceptPlainText, myConceptProcessAllocation, myConceptProcessArray, myConceptProcessSequence, myConceptRootSimM2M, myConceptRossM2M, myConceptSendEvent, myConceptStartupFunction, myConceptStartupHandler, myConceptStructDefinition, myConceptStructDocs, myConceptStructMemberDocs, myConceptTerminationFunction, myConceptTypeDefinition, myConceptUseM2M);
   }
 
   @Override
@@ -160,6 +164,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptIStartupFunction;
       case LanguageConceptSwitch.IStructDefinition:
         return myConceptIStructDefinition;
+      case LanguageConceptSwitch.ITerminationFunction:
+        return myConceptITerminationFunction;
       case LanguageConceptSwitch.IText:
         return myConceptIText;
       case LanguageConceptSwitch.ITypeDefinition:
@@ -190,6 +196,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptProcessSequence;
       case LanguageConceptSwitch.RootSimM2M:
         return myConceptRootSimM2M;
+      case LanguageConceptSwitch.RossM2M:
+        return myConceptRossM2M;
       case LanguageConceptSwitch.SendEvent:
         return myConceptSendEvent;
       case LanguageConceptSwitch.StartupFunction:
@@ -202,8 +210,12 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptStructDocs;
       case LanguageConceptSwitch.StructMemberDocs:
         return myConceptStructMemberDocs;
+      case LanguageConceptSwitch.TerminationFunction:
+        return myConceptTerminationFunction;
       case LanguageConceptSwitch.TypeDefinition:
         return myConceptTypeDefinition;
+      case LanguageConceptSwitch.UseM2M:
+        return myConceptUseM2M;
       default:
         return null;
     }
@@ -221,10 +233,11 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.parent(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L);
     b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(SimpleDES.structure)/4690400695369122208");
     b.version(3);
-    b.aggregate("state", 0x4117a694e5b8c1a2L).target(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x58bef62304fc0a2fL).optional(true).ordered(true).multiple(false).origin("4690400695369122210").done();
+    b.aggregate("stateStruct", 0x4117a694e5b8c1a2L).target(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x58bef62304fc0a2fL).optional(false).ordered(true).multiple(false).origin("4690400695369122210").done();
     b.aggregate("handlers", 0x4117a694e5b8c1a3L).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6eb40d65f333345bL).optional(true).ordered(true).multiple(true).origin("4690400695369122211").done();
     b.aggregate("startup", 0x6ea143d20905c7edL).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0a48d39L).optional(true).ordered(true).multiple(false).origin("7971727384796055533").done();
     b.aggregate("commonVariables", 0x323127c5741c9443L).target(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad96e6L).optional(true).ordered(true).multiple(true).origin("3616715704765289539").done();
+    b.aggregate("termination", 0x148075313bb9b63dL).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x148075313bb5466dL).optional(true).ordered(true).multiple(false).origin("1477309532093396541").done();
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForCreateArray() {
@@ -248,6 +261,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.property("description", 0x3507db05f7c560b5L).type(PrimitiveTypeId.STRING).origin("3821263627525382325").done();
     b.aggregate("opaqueTypes", 0x6f36cc77d0d825c5L).target(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x2fdc4aa2eaa02L).optional(true).ordered(true).multiple(true).origin("8013817401929377221").done();
     b.aggregate("structs", 0x6e7ca07799a0fb0fL).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x5808433cc497c578L).optional(true).ordered(true).multiple(true).origin("7961414676823210767").done();
+    b.aggregate("messageStruct", 0x6de6339fa564bed8L).target(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x58bef62304fc0a2fL).optional(false).ordered(true).multiple(false).origin("7919073755545255640").done();
     b.aggregate("configuration", 0x3507db05f7c55ff1L).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4ba181fb08818b7dL).optional(true).ordered(true).multiple(true).origin("3821263627525382129").done();
     b.aggregate("events", 0x2dc3a69083753b9fL).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4ba181fb08668351L).optional(true).ordered(true).multiple(true).origin("3297662491776334751").done();
     b.aggregate("startup", 0x6f36cc77d0a2c4cdL).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1c3fbbed3bec8f94L).optional(true).ordered(true).multiple(true).origin("8013817401925878989").done();
@@ -457,6 +471,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.parent(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x55132e9dcba02ae0L);
     b.parent(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x55132e9dcbcc539bL);
     b.parent(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1c3fbbed3bec8f94L);
+    b.parent(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x148075313bb54673L);
     b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(SimpleDES.structure)/5449779939259122050");
     b.version(3);
     return b.create();
@@ -507,6 +522,13 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("SimpleDES", "IStructDefinition", 0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x5808433cc497c578L);
     b.interface_();
     b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(SimpleDES.structure)/6343394003426723192");
+    b.version(3);
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForITerminationFunction() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("SimpleDES", "ITerminationFunction", 0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x148075313bb54673L);
+    b.interface_();
+    b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(SimpleDES.structure)/1477309532093105779");
     b.version(3);
     return b.create();
   }
@@ -639,7 +661,6 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   private static ConceptDescriptor createDescriptorForProcessSequence() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("SimpleDES", "ProcessSequence", 0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e64867a6L);
     b.class_(false, false, false);
-    b.parent(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e64ff7baL);
     b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(SimpleDES.structure)/4690400695378536358");
     b.version(3);
     b.aggregate("processes", 0x4117a694e64867a7L).target(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc59b314L).optional(false).ordered(true).multiple(true).origin("4690400695378536359").done();
@@ -651,6 +672,15 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     // extends: SimpleDES.structure.DESModel
     b.super_(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L);
     b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(SimpleDES.structure)/3343634265051296611");
+    b.version(3);
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForRossM2M() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("SimpleDES", "RossM2M", 0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x7dd219cad75cd6eeL);
+    b.class_(false, false, true);
+    // extends: SimpleDES.structure.DESModel
+    b.super_(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L);
+    b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(SimpleDES.structure)/9066337358837503726");
     b.version(3);
     return b.create();
   }
@@ -717,6 +747,15 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.aggregate("memberType", 0x4328447c790d8b1fL).target(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba36L).optional(true).ordered(true).multiple(false).origin("4839193101007162143").done();
     return b.create();
   }
+  private static ConceptDescriptor createDescriptorForTerminationFunction() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("SimpleDES", "TerminationFunction", 0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x148075313bb5466dL);
+    b.class_(false, false, false);
+    b.parent(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x148075313bb54673L);
+    b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(SimpleDES.structure)/1477309532093105773");
+    b.version(3);
+    b.aggregate("function", 0x148075313bb5466eL).target(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x595522006a5b97e1L).optional(false).ordered(true).multiple(false).origin("1477309532093105774").done();
+    return b.create();
+  }
   private static ConceptDescriptor createDescriptorForTypeDefinition() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("SimpleDES", "TypeDefinition", 0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4ba181fb0873ae26L);
     b.class_(false, false, false);
@@ -724,6 +763,15 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.super_(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x54e261614fd09a11L);
     b.parent(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4ba181fb0873ae25L);
     b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(SimpleDES.structure)/5449779939273584166");
+    b.version(3);
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForUseM2M() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("SimpleDES", "UseM2M", 0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4111dd2682dce668L);
+    b.class_(false, false, true);
+    // extends: SimpleDES.structure.DESModel
+    b.super_(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L);
+    b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(SimpleDES.structure)/4688771844543407720");
     b.version(3);
     return b.create();
   }

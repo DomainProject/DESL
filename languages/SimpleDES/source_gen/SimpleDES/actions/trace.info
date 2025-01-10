@@ -9,7 +9,52 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1070462154015:jetbrains.mps.baseLanguage.structure.StaticFieldDeclaration" />
   <root>
     <file name="ActionAspectDescriptorImpl.java">
-      <unit at="12,0,34,0" name="SimpleDES.actions.ActionAspectDescriptorImpl" />
+      <unit at="12,0,36,0" name="SimpleDES.actions.ActionAspectDescriptorImpl" />
+    </file>
+  </root>
+  <root nodeRef="r:69b854b5-1607-4a31-a5d5-03c17535ea4a(SimpleDES.actions)/1477309532093105808">
+    <file name="TerminationFunctionFactory.java">
+      <node id="1477309532093270816" at="18,102,19,236" concept="0" />
+      <node id="1477309532093282173" at="19,236,20,117" concept="0" />
+      <node id="1477309532094650122" at="20,117,21,0" concept="5" />
+      <node id="1477309532094651513" at="21,0,22,287" concept="0" />
+      <node id="1477309532093269597" at="22,287,23,0" concept="5" />
+      <node id="1477309532093105829" at="23,0,24,190" concept="2" />
+      <node id="1477309532093105973" at="24,190,25,241" concept="0" />
+      <node id="1477309532093121352" at="25,241,26,60" concept="0" />
+      <node id="1477309532093180741" at="26,60,27,0" concept="5" />
+      <node id="1477309532093137541" at="27,0,28,196" concept="2" />
+      <node id="1477309532093137663" at="28,196,29,202" concept="2" />
+      <node id="1477309532093137821" at="29,202,30,244" concept="0" />
+      <node id="1477309532093158071" at="30,244,31,70" concept="0" />
+      <node id="1477309532093147800" at="31,70,32,72" concept="0" />
+      <node id="1477309532093171630" at="32,72,33,72" concept="0" />
+      <node id="1477309532093180758" at="33,72,34,0" concept="5" />
+      <node id="1477309532093180777" at="34,0,35,151" concept="0" />
+      <node id="1477309532093266003" at="35,151,36,157" concept="0" />
+      <node id="1477309532093105808" at="41,0,42,0" concept="6" trace="function$cpRu" />
+      <node id="1477309532093105808" at="42,0,43,0" concept="6" trace="type$sXU3" />
+      <node id="1477309532093105808" at="43,0,44,0" concept="6" trace="baseType$zMGV" />
+      <node id="1477309532093105808" at="44,0,45,0" concept="6" trace="arguments$6da0" />
+      <node id="1477309532093105808" at="48,0,49,0" concept="6" trace="name$MnvL" />
+      <node id="1477309532093105808" at="49,0,50,0" concept="6" trace="const$VWr7" />
+      <node id="1477309532093105809" at="18,0,38,0" concept="1" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;ILorg/jetbrains/mps/openapi/model/SModel;)V" />
+      <scope id="1477309532093105809" at="18,102,36,157">
+        <var name="me" id="1477309532093105832" />
+        <var name="snapshot" id="1477309532093137544" />
+        <var name="voidPointer" id="1477309532093137666" />
+      </scope>
+      <scope id="1477309532093105809" at="18,0,38,0">
+        <var name="enclosingNode" id="1477309532093105809" />
+        <var name="index" id="1477309532093105809" />
+        <var name="model" id="1477309532093105809" />
+        <var name="newNode" id="1477309532093105809" />
+        <var name="sampleNode" id="1477309532093105809" />
+      </scope>
+      <unit id="1477309532093105808" at="47,0,51,0" name="SimpleDES.actions.TerminationFunctionFactory$PROPS" />
+      <unit id="1477309532093105808" at="40,0,46,0" name="SimpleDES.actions.TerminationFunctionFactory$LINKS" />
+      <unit id="1477309532093105809" at="17,0,39,0" name="SimpleDES.actions.TerminationFunctionFactory$NodeFactory_1477309532093105809" />
+      <unit id="1477309532093105808" at="16,0,52,0" name="SimpleDES.actions.TerminationFunctionFactory" />
     </file>
   </root>
   <root nodeRef="r:69b854b5-1607-4a31-a5d5-03c17535ea4a(SimpleDES.actions)/3297662491776892431">
@@ -93,15 +138,15 @@
       <node id="5781293655540963900" at="58,32,59,192" concept="2" />
       <node id="5781293655540968587" at="59,192,60,65" concept="0" />
       <node id="8124770336485891077" at="60,65,61,203" concept="2" />
-      <node id="8124770336485894247" at="61,203,62,248" concept="0" />
-      <node id="5781293655540981271" at="62,248,63,69" concept="0" />
+      <node id="8124770336485894247" at="61,203,62,254" concept="0" />
+      <node id="5781293655540981271" at="62,254,63,69" concept="0" />
       <node id="5781293655540993995" at="63,69,64,153" concept="0" />
       <node id="5103575337110310021" at="69,0,70,0" concept="6" trace="name$MnvL" />
       <node id="5103575337110310021" at="73,0,74,0" concept="6" trace="function$5bPH" />
       <node id="5103575337110310021" at="74,0,75,0" concept="6" trace="type$sXU3" />
       <node id="5103575337110310021" at="75,0,76,0" concept="6" trace="arguments$6da0" />
       <node id="5103575337110310021" at="76,0,77,0" concept="6" trace="baseType$zMGV" />
-      <node id="5103575337110310021" at="77,0,78,0" concept="6" trace="state$NqNO" />
+      <node id="5103575337110310021" at="77,0,78,0" concept="6" trace="stateStruct$NqNO" />
       <node id="5103575337110310021" at="81,0,82,0" concept="6" trace="ClassDefinition$NR" />
       <node id="5103575337110310022" at="21,0,66,0" concept="1" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;ILorg/jetbrains/mps/openapi/model/SModel;)V" />
       <scope id="5103575337110310022" at="21,102,64,153">
