@@ -142,8 +142,8 @@ public class QueriesGenerated extends QueryProviderBase {
     for (SNode type : ListSequence.fromList(SModelOperations.nodes(_context.getModel(), CONCEPTS.TypeDefinition$Jr))) {
       SPropertyOperations.assign(type, PROPS.preventNameMangling$DOH5, true);
     }
-    for (SNode struct : ListSequence.fromList(SModelOperations.nodes(_context.getModel(), CONCEPTS.ExternalStructDefinition$8P))) {
-      SPropertyOperations.assign(SLinkOperations.getTarget(struct, LINKS.declaration$PHIG), PROPS.preventNameMangling$DOH5, true);
+    for (SNode struct : ListSequence.fromList(SModelOperations.nodes(_context.getModel(), CONCEPTS.StructDeclaration$ox))) {
+      SPropertyOperations.assign(struct, PROPS.preventNameMangling$DOH5, true);
     }
 
     for (SNode variable : ListSequence.fromList(SModelOperations.nodes(_context.getModel(), CONCEPTS.GlobalVarDecl$PV))) {
@@ -153,6 +153,8 @@ public class QueriesGenerated extends QueryProviderBase {
     for (SNode terminationFunction : ListSequence.fromList(SModelOperations.nodes(_context.getModel(), CONCEPTS.TerminationFunction$Wj))) {
       SPropertyOperations.assign(SLinkOperations.getTarget(terminationFunction, LINKS.function$cpRu), PROPS.preventNameMangling$DOH5, true);
     }
+
+
 
     for (SNode variable : ListSequence.fromList(SModelOperations.nodes(_context.getModel(), CONCEPTS.LocalVariableDeclaration$ft))) {
       if ((SNodeOperations.getNodeAncestor(variable, CONCEPTS.EventHandler$Ov, false, false) != null)) {
@@ -375,14 +377,13 @@ public class QueriesGenerated extends QueryProviderBase {
     /*package*/ static final SContainmentLink events$uflG = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x2dc3a69083753b9fL, "events");
     /*package*/ static final SContainmentLink classes$SNAM = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x4117a694e5ba8536L, "classes");
     /*package*/ static final SContainmentLink prototype$lY0a = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228cL, 0x6f36cc77d0d15795L, "prototype");
-    /*package*/ static final SContainmentLink declaration$PHIG = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x5808433cc497c579L, 0x5808433cc4985d2bL, "declaration");
     /*package*/ static final SContainmentLink function$cpRu = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x148075313bb5466dL, 0x148075313bb5466eL, "function");
   }
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept ExternalFunctionPrototype$V4 = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228cL, "SimpleDES.structure.ExternalFunctionPrototype");
     /*package*/ static final SConcept TypeDefinition$Jr = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4ba181fb0873ae26L, "SimpleDES.structure.TypeDefinition");
-    /*package*/ static final SConcept ExternalStructDefinition$8P = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x5808433cc497c579L, "SimpleDES.structure.ExternalStructDefinition");
+    /*package*/ static final SConcept StructDeclaration$ox = MetaAdapterFactory.getConcept(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x58bef62304fc0a2fL, "com.mbeddr.core.udt.structure.StructDeclaration");
     /*package*/ static final SConcept GlobalVarDecl$PV = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4ba181fb0880155eL, "SimpleDES.structure.GlobalVarDecl");
     /*package*/ static final SConcept TerminationFunction$Wj = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x148075313bb5466dL, "SimpleDES.structure.TerminationFunction");
     /*package*/ static final SConcept EventHandler$Ov = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, "SimpleDES.structure.EventHandler");

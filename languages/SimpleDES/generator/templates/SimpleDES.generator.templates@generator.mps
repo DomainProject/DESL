@@ -10,6 +10,7 @@
   <imports>
     <import index="rdv6" ref="r:79077d65-28d5-4f56-905b-4bcf5185c60e(SimpleDES.structure)" />
     <import index="x27k" ref="r:75ecab8a-8931-4140-afc6-4b46398710fc(com.mbeddr.core.modules.structure)" implicit="true" />
+    <import index="clbe" ref="r:61d840b4-12c1-49ea-b142-b2a1550a9b15(com.mbeddr.core.udt.structure)" implicit="true" />
     <import index="c4fa" ref="r:9f0e84b6-2ec7-4f9e-83e0-feedc77b63a3(com.mbeddr.core.statements.structure)" implicit="true" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
   </imports>
@@ -271,7 +272,7 @@
             <node concept="1Q6Npb" id="730YTbVFznh" role="2Oq$k0" />
             <node concept="2SmgA7" id="730YTbVFzUb" role="2OqNvi">
               <node concept="chp4Y" id="730YTbVFzW7" role="1dBWTz">
-                <ref role="cht4Q" to="rdv6:5w8gNN4_WlT" resolve="ExternalStructDefinition" />
+                <ref role="cht4Q" to="clbe:5yYXyc4Z0CJ" resolve="StructDeclaration" />
               </node>
             </node>
           </node>
@@ -282,13 +283,8 @@
                   <property role="3clFbU" value="true" />
                 </node>
                 <node concept="2OqwBi" id="730YTbVF_dK" role="37vLTJ">
-                  <node concept="2OqwBi" id="730YTbVF$aT" role="2Oq$k0">
-                    <node concept="2GrUjf" id="730YTbVFzYJ" role="2Oq$k0">
-                      <ref role="2Gs0qQ" node="730YTbVFzlS" resolve="struct" />
-                    </node>
-                    <node concept="3TrEf2" id="730YTbVF$AV" role="2OqNvi">
-                      <ref role="3Tt5mk" to="rdv6:5w8gNN4A5OF" resolve="declaration" />
-                    </node>
+                  <node concept="2GrUjf" id="730YTbVFzYJ" role="2Oq$k0">
+                    <ref role="2Gs0qQ" node="730YTbVFzlS" resolve="struct" />
                   </node>
                   <node concept="3TrcHB" id="730YTbVFBcg" role="2OqNvi">
                     <ref role="3TsBF5" to="x27k:5Oog2UbP_d2" resolve="preventNameMangling" />
@@ -365,6 +361,8 @@
             </node>
           </node>
         </node>
+        <node concept="3clFbH" id="4OHhT56FOKy" role="3cqZAp" />
+        <node concept="3clFbH" id="4OHhT56FO9E" role="3cqZAp" />
         <node concept="3clFbH" id="38L9WlPw643" role="3cqZAp" />
         <node concept="2Gpval" id="38L9WlPw64l" role="3cqZAp">
           <node concept="2GrKxI" id="38L9WlPw64n" role="2Gsz3X">

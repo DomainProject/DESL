@@ -13,6 +13,7 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import java.util.Objects;
 import com.mbeddr.core.modules.behavior.ITypeDeclaration__BehaviorDescriptor;
 import jetbrains.mps.lang.traceable.behavior.UnitConcept__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
@@ -68,6 +69,7 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
       ctx.getBuffer().area().increaseIndent();
       if (SPropertyOperations.getString(SLinkOperations.getTarget(event, LINKS.eventType$MGmZ), PROPS.name$MnvL) != "INIT" || SPropertyOperations.getString(SLinkOperations.getTarget(event, LINKS.eventType$MGmZ), PROPS.name$MnvL) != "LP_INIT") {
         tgs.indent();
+        tgs.append("event_");
         tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(event, LINKS.eventType$MGmZ), PROPS.name$MnvL));
         tgs.append(",");
         tgs.newLine();
@@ -82,7 +84,7 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
 
     tgs.append("struct ");
     tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.messageStruct$xVlJ), PROPS.name$MnvL));
-    tgs.append("{");
+    tgs.append(" {");
     tgs.newLine();
     ctx.getBuffer().area().increaseIndent();
     tgs.indent();
@@ -94,7 +96,7 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
       tgs.appendNode(member);
     }
     ctx.getBuffer().area().decreaseIndent();
-    tgs.append("}");
+    tgs.append("};");
     tgs.newLine();
     tgs.newLine();
 
@@ -106,21 +108,40 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     ExternalFunctions.externalFunctions(ctx.getPrimaryInput(), ctx);
 
 
-    for (SNode c : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.classes$SNAM), CONCEPTS.ClassDefinition$NR))) {
+    for (final SNode c : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.classes$SNAM), CONCEPTS.ClassDefinition$NR))) {
 
       // init function ( {node.name}_{class.name}_init(...) )
 
       SNode initHandler = Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(c, LINKS.handlers$Nr2P), CONCEPTS.EventHandler$Ov)).findFirst((it) -> SPropertyOperations.getString(it, PROPS.eventName$AHdn) == "INIT" || SPropertyOperations.getString(it, PROPS.eventName$AHdn) == "LP_INIT");
 
+      SNode stateArgumentInit = Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(SLinkOperations.getTarget(initHandler, LINKS.function$5bPH), LINKS.arguments$6da0), CONCEPTS.Argument$9m)).findFirst((it) -> SNodeOperations.isInstanceOf(SLinkOperations.getTarget(it, LINKS.type$sXU3), CONCEPTS.PointerType$HX) && Objects.equals(SNodeOperations.getConcept(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(it, LINKS.type$sXU3), CONCEPTS.PointerType$HX), LINKS.baseType$zMGV)), SNodeOperations.getConcept(ITypeDeclaration__BehaviorDescriptor.createType_id3o2OLGv7CoR.invoke(SLinkOperations.getTarget(c, LINKS.stateStruct$NqNO)))));
       tgs.append("void ");
       tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL));
       tgs.append("_");
       tgs.append(SPropertyOperations.getString(c, PROPS.name$MnvL));
       tgs.append("_init(");
-      tgs.appendNode(ITypeDeclaration__BehaviorDescriptor.createType_id3o2OLGv7CoR.invoke(SLinkOperations.getTarget(c, LINKS.stateStruct$NqNO)));
-      tgs.append(" *s, tw_lp *lp)");
+      tgs.appendNode(stateArgumentInit);
+      tgs.append(", tw_lp *lp)");
       tgs.newLine();
-      tgs.appendNode(SLinkOperations.getTarget(SLinkOperations.getTarget(initHandler, LINKS.function$5bPH), LINKS.body$1GE0));
+
+      // append the function's statements, creating the "me" and "now" variables at the beginning, mocking the "me" and "now" parameters in SimpleDES handlers
+      tgs.append("{");
+      tgs.newLine();
+      ctx.getBuffer().area().increaseIndent();
+      tgs.indent();
+      tgs.append("tw_lpid me = lp->gid;");
+      tgs.newLine();
+      tgs.indent();
+      tgs.append("double now = 0;");
+      tgs.newLine();
+      for (SNode statement : ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(SLinkOperations.getTarget(initHandler, LINKS.function$5bPH), LINKS.body$1GE0), LINKS.statements$euTV))) {
+        tgs.indent();
+        tgs.appendNode(statement);
+        tgs.newLine();
+      }
+      ctx.getBuffer().area().decreaseIndent();
+      tgs.append("}");
+      tgs.newLine();
 
       /*
         determine if a pre_run handler must be defined (i.e., if the INIT event handler
@@ -142,34 +163,45 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
       tgs.append(SPropertyOperations.getString(c, PROPS.name$MnvL));
       tgs.append("_event(");
       tgs.appendNode(ITypeDeclaration__BehaviorDescriptor.createType_id3o2OLGv7CoR.invoke(SLinkOperations.getTarget(c, LINKS.stateStruct$NqNO)));
-      tgs.append("*s, tw_bf *bf, ");
+      tgs.append(" *state, tw_bf *bf, ");
       tgs.appendNode(ITypeDeclaration__BehaviorDescriptor.createType_id3o2OLGv7CoR.invoke(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.messageStruct$xVlJ)));
-      tgs.append(" *msg, tw_lp *lp)");
+      tgs.append(" *content, tw_lp *lp)");
       tgs.newLine();
       tgs.append("{");
       tgs.newLine();
       ctx.getBuffer().area().increaseIndent();
+
+      // create "me" and "now" variables
       tgs.indent();
-      tgs.append("switch(msg->event_type) {");
+      tgs.append("tw_lpid me = lp->gid;");
+      tgs.newLine();
+      tgs.indent();
+      tgs.append("double now = 0;");
+      tgs.newLine();
+
+      tgs.indent();
+      tgs.append("switch(content->event_type) {");
       tgs.newLine();
       ctx.getBuffer().area().increaseIndent();
       for (SNode handler : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(c, LINKS.handlers$Nr2P), CONCEPTS.EventHandler$Ov))) {
-        tgs.newLine();
-        tgs.indent();
-        tgs.append("case ");
-        tgs.append(SPropertyOperations.getString(handler, PROPS.eventName$AHdn));
-        tgs.append(":");
-        tgs.newLine();
-        ctx.getBuffer().area().increaseIndent();
-        for (SNode statement : ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(SLinkOperations.getTarget(handler, LINKS.function$5bPH), LINKS.body$1GE0), LINKS.statements$euTV))) {
-          tgs.indent();
-          tgs.appendNode(statement);
+        if (!(SPropertyOperations.getString(handler, PROPS.eventName$AHdn).equals("INIT")) && !(SPropertyOperations.getString(handler, PROPS.eventName$AHdn).equals("LP_INIT"))) {
           tgs.newLine();
+          tgs.indent();
+          tgs.append("case event_");
+          tgs.append(SPropertyOperations.getString(handler, PROPS.eventName$AHdn));
+          tgs.append(":");
+          tgs.newLine();
+          ctx.getBuffer().area().increaseIndent();
+          for (SNode statement : ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(SLinkOperations.getTarget(handler, LINKS.function$5bPH), LINKS.body$1GE0), LINKS.statements$euTV))) {
+            tgs.indent();
+            tgs.appendNode(statement);
+            tgs.newLine();
+          }
+          tgs.indent();
+          tgs.append("break;");
+          tgs.newLine();
+          ctx.getBuffer().area().decreaseIndent();
         }
-        tgs.indent();
-        tgs.append("break;");
-        tgs.newLine();
-        ctx.getBuffer().area().decreaseIndent();
       }
 
       tgs.newLine();
@@ -178,7 +210,7 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
       tgs.newLine();
       ctx.getBuffer().area().increaseIndent();
       tgs.indent();
-      tgs.append("fprintf(stderr, \"Unknown event type! (event type = %d)\", msg->event_type);");
+      tgs.append("fprintf(stderr, \"Unknown event type! (event type = %d)\", content->event_type);");
       tgs.newLine();
       tgs.indent();
       tgs.append("abort();");
@@ -259,40 +291,40 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
       tgs.append("{");
       tgs.newLine();
       tgs.indent();
-      tgs.append("(init_f)");
+      tgs.append("(init_f) ");
       tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL));
       tgs.append("_");
       tgs.append(SPropertyOperations.getString(c, PROPS.name$MnvL));
-      tgs.append("_init");
+      tgs.append("_init,");
       tgs.newLine();
       // pre_run is not considered atm
       tgs.indent();
-      tgs.append("(pre_run_f) NULL");
+      tgs.append("(pre_run_f) NULL,");
       tgs.newLine();
       tgs.indent();
-      tgs.append("(event_f)");
+      tgs.append("(event_f) ");
       tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL));
       tgs.append("_");
       tgs.append(SPropertyOperations.getString(c, PROPS.name$MnvL));
-      tgs.append("_event");
+      tgs.append("_event,");
       tgs.newLine();
       // todo implement reverse events (?)
       tgs.indent();
-      tgs.append("(revent_f) NULL");
+      tgs.append("(revent_f) NULL,");
       tgs.newLine();
       tgs.indent();
-      tgs.append("(commit_f) NULL");
+      tgs.append("(commit_f) NULL,");
       tgs.newLine();
       tgs.indent();
-      tgs.append("(final_f)");
+      tgs.append("(final_f) ");
       tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL));
       tgs.append("_");
       tgs.append(SPropertyOperations.getString(c, PROPS.name$MnvL));
-      tgs.append("_final");
+      tgs.append("_final,");
       tgs.newLine();
       // use LINEAR or ROUND-ROBIN mapping
       tgs.indent();
-      tgs.append("(map_f) NULL");
+      tgs.append("(map_f) NULL,");
       tgs.newLine();
       tgs.indent();
       tgs.append("sizeof(");
@@ -353,6 +385,7 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     tgs.indent();
     tgs.append("g_tw_nlp = ");
     tgs.append(String.valueOf(lps));
+    tgs.append(";");
     tgs.newLine();
     tgs.indent();
     tgs.append("unsigned int custom_lps_per_pe = g_tw_nlp/tw_nnodes();");
@@ -408,8 +441,11 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     /*package*/ static final SContainmentLink messageStruct$xVlJ = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x6de6339fa564bed8L, "messageStruct");
     /*package*/ static final SContainmentLink members$C59R = MetaAdapterFactory.getContainmentLink(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x6285e27d4ff6c9f5L, 0x6285e27d4ff7db92L, "members");
     /*package*/ static final SContainmentLink handlers$Nr2P = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x4117a694e5b8c1a3L, "handlers");
-    /*package*/ static final SContainmentLink stateStruct$NqNO = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x4117a694e5b8c1a2L, "stateStruct");
     /*package*/ static final SContainmentLink function$5bPH = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x74d88000543a2a9fL, "function");
+    /*package*/ static final SContainmentLink arguments$6da0 = MetaAdapterFactory.getContainmentLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x707ac195dd5d51f2L, 0x4f39f90935e92f45L, "arguments");
+    /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
+    /*package*/ static final SContainmentLink baseType$zMGV = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x6bbcdccef5e46755L, 0x6bbcdccef5e46756L, "baseType");
+    /*package*/ static final SContainmentLink stateStruct$NqNO = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x4117a694e5b8c1a2L, "stateStruct");
     /*package*/ static final SContainmentLink body$1GE0 = MetaAdapterFactory.getContainmentLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x595522006a5b97e1L, 0x3a16e3a9c7ad9954L, "body");
     /*package*/ static final SContainmentLink statements$euTV = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad9955L, 0x3a16e3a9c7ad9956L, "statements");
     /*package*/ static final SContainmentLink to$WtFs = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x68458b9b5da4ec77L, 0x6f2af7ea6983412cL, "to");
@@ -431,6 +467,8 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
   private static final class CONCEPTS {
     /*package*/ static final SConcept EventDefinition$wO = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2e66f9a613f69c80L, "SimpleDES.structure.EventDefinition");
     /*package*/ static final SConcept EventHandler$Ov = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, "SimpleDES.structure.EventHandler");
+    /*package*/ static final SConcept Argument$9m = MetaAdapterFactory.getConcept(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x6d872ef9245a20d7L, "com.mbeddr.core.modules.structure.Argument");
+    /*package*/ static final SConcept PointerType$HX = MetaAdapterFactory.getConcept(0x3bf5377ae9044dedL, 0x97545a516023bfaaL, 0x3e0cae5e366d630L, "com.mbeddr.core.pointers.structure.PointerType");
     /*package*/ static final SConcept SendEvent$u = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x68458b9b5da4ec77L, "SimpleDES.structure.SendEvent");
     /*package*/ static final SConcept ArgumentRef$iE = MetaAdapterFactory.getConcept(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x1d0c3765e2e7d0baL, "com.mbeddr.core.modules.structure.ArgumentRef");
     /*package*/ static final SConcept ClassDefinition$NR = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, "SimpleDES.structure.ClassDefinition");
