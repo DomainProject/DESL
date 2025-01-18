@@ -11,8 +11,8 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import java.util.Objects;
 import com.mbeddr.core.modules.behavior.ITypeDeclaration__BehaviorDescriptor;
+import java.util.Objects;
 import jetbrains.mps.lang.traceable.behavior.TraceableConcept__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -85,20 +85,20 @@ public class SendEvent_TextGen extends TextGenDescriptorBase {
       tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.when$PyFU));
       tgs.append(", lp);");
       tgs.newLine();
+      tgs.indent();
+      tgs.appendNode(ITypeDeclaration__BehaviorDescriptor.createType_id3o2OLGv7CoR.invoke(SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.DESModel$DK, false, false), LINKS.messageStruct$xVlJ)));
+      tgs.append(" *");
+      tgs.append(dataName);
+      tgs.append(" = tw_event_data(");
+      tgs.append(eventName);
+      tgs.append(");");
+      tgs.newLine();
       if (!(Objects.equals(SNodeOperations.getConcept(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.with$_CC9)), CONCEPTS.NullExpression$Oy))) {
         tgs.indent();
         tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.with$_CC9));
         tgs.append(".event_type = event_");
         tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.event$JXN2), PROPS.name$MnvL));
         tgs.append(";");
-        tgs.newLine();
-        tgs.indent();
-        tgs.appendNode(ITypeDeclaration__BehaviorDescriptor.createType_id3o2OLGv7CoR.invoke(SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.DESModel$DK, false, false), LINKS.messageStruct$xVlJ)));
-        tgs.append(" *");
-        tgs.append(dataName);
-        tgs.append(" = tw_event_data(");
-        tgs.append(eventName);
-        tgs.append(");");
         tgs.newLine();
         tgs.indent();
         tgs.append("memcpy(");
@@ -108,6 +108,13 @@ public class SendEvent_TextGen extends TextGenDescriptorBase {
         tgs.append(", sizeof(");
         tgs.appendNode(ITypeDeclaration__BehaviorDescriptor.createType_id3o2OLGv7CoR.invoke(SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.DESModel$DK, false, false), LINKS.messageStruct$xVlJ)));
         tgs.append("));");
+        tgs.newLine();
+      } else {
+        tgs.indent();
+        tgs.append(dataName);
+        tgs.append("->event_type = event_");
+        tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.event$JXN2), PROPS.name$MnvL));
+        tgs.append(";");
         tgs.newLine();
       }
 

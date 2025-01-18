@@ -42,15 +42,14 @@ public class InitTopology_TextGen extends TextGenDescriptorBase {
 
     int sqrt = ((int) Math.floor(Math.sqrt(lps)));
 
-    if ((SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.RootSimM2M$x5, false, false) != null)) {
-      tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableName$Fc4X));
-      tgs.append(" = InitializeTopology(TOPOLOGY_HEXAGON, ");
-      tgs.append(String.valueOf(sqrt));
-      tgs.append(", ");
-      tgs.append(String.valueOf(sqrt));
-      tgs.append(");");
-      tgs.newLine();
-    }
+    tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableName$Fc4X));
+    tgs.append(" = InitializeTopology(TOPOLOGY_HEXAGON, ");
+    tgs.append(String.valueOf(sqrt));
+    tgs.append(", ");
+    tgs.append(String.valueOf(sqrt));
+    tgs.append(");");
+    tgs.newLine();
+
     if (tgs.needPositions()) {
       tgs.fillPositionInfo(TraceableConcept__BehaviorDescriptor.getTraceableProperty_id4pl5GY7LKmH.invoke(SNodeOperations.cast(ctx.getPrimaryInput(), CONCEPTS.TraceableConcept$L)));
     }
@@ -67,7 +66,6 @@ public class InitTopology_TextGen extends TextGenDescriptorBase {
     /*package*/ static final SConcept ProcessSequence$B$ = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e64867a6L, "SimpleDES.structure.ProcessSequence");
     /*package*/ static final SConcept DESModel$DK = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, "SimpleDES.structure.DESModel");
     /*package*/ static final SConcept ProcessAllocation$5Z = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6393783L, "SimpleDES.structure.ProcessAllocation");
-    /*package*/ static final SConcept RootSimM2M$x5 = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2e66f9a61334f363L, "SimpleDES.structure.RootSimM2M");
     /*package*/ static final SInterfaceConcept TraceableConcept$L = MetaAdapterFactory.getInterfaceConcept(0x9ded098bad6a4657L, 0xbfd948636cfe8bc3L, 0x465516cf87c705a3L, "jetbrains.mps.lang.traceable.structure.TraceableConcept");
   }
 

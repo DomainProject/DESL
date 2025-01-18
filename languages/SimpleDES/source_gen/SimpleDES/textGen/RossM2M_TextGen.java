@@ -324,7 +324,7 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
       tgs.newLine();
       // use LINEAR or ROUND-ROBIN mapping
       tgs.indent();
-      tgs.append("(map_f) NULL,");
+      tgs.append("(map_f) lpTypeMapper,");
       tgs.newLine();
       tgs.indent();
       tgs.append("sizeof(");
@@ -370,6 +370,8 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     tgs.append("tw_init(&argc, &argv);");
     tgs.newLine();
     tgs.newLine();
+
+    StartupCode.startupCode(ctx.getPrimaryInput(), ctx);
 
     tgs.indent();
     tgs.append("// define LP-to-PE mapping");
