@@ -15,6 +15,7 @@ public class Item_TextGen extends TextGenDescriptorBase {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     tgs.append("* ");
     tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.item$ZdQj));
+    tgs.newLine();
   }
 
   private static final class LINKS {

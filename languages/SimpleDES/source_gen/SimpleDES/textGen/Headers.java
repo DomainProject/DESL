@@ -27,7 +27,7 @@ public abstract class Headers {
     ListSequence.fromList(headers).addElement("stdlib");
 
     // todo include list only if collections are used
-    tgs.append("#include <list.h>");
+    tgs.append("#include <datatypes/list.h>");
     tgs.newLine();
 
     for (final SNode externalFunction : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(root, LINKS.externalFunctions$LqEg), CONCEPTS.ExternalFunctionPrototype$V4))) {

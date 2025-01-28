@@ -24,9 +24,9 @@ public class InitializeState_TextGen extends TextGenDescriptorBase {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     tgs.createPositionInfo();
 
-    // State must be allocated and set - through SetState - only for ROOT-Sim
+    // State must be allocated and set - through SetState - only for ROOT-Sim and USE
 
-    if ((SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.RootSimM2M$x5, false, false) != null)) {
+    if ((SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.RootSimM2M$x5, false, false) != null) || (SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.UseM2M$UU, false, false) != null)) {
       SNode stateType = ITypeDeclaration__BehaviorDescriptor.createType_id3o2OLGv7CoR.invoke(SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.ClassDefinition$NR, false, false), LINKS.stateStruct$NqNO));
       tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.stateVariable$Lo8Y), PROPS.name$MnvL));
       tgs.append(" = (");
@@ -67,6 +67,7 @@ public class InitializeState_TextGen extends TextGenDescriptorBase {
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept ClassDefinition$NR = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, "SimpleDES.structure.ClassDefinition");
+    /*package*/ static final SConcept UseM2M$UU = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4111dd2682dce668L, "SimpleDES.structure.UseM2M");
     /*package*/ static final SConcept RootSimM2M$x5 = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2e66f9a61334f363L, "SimpleDES.structure.RootSimM2M");
     /*package*/ static final SInterfaceConcept TraceableConcept$L = MetaAdapterFactory.getInterfaceConcept(0x9ded098bad6a4657L, 0xbfd948636cfe8bc3L, 0x465516cf87c705a3L, "jetbrains.mps.lang.traceable.structure.TraceableConcept");
   }

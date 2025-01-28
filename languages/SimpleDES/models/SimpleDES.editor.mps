@@ -486,6 +486,7 @@
     </node>
   </node>
   <node concept="24kQdi" id="2SCEiO7nznm">
+    <property role="3GE5qa" value="structManagement" />
     <ref role="1XX52x" to="rdv6:2SCEiO7nznl" resolve="NewStruct" />
     <node concept="3EZMnI" id="2SCEiO7nzno" role="2wV5jI">
       <node concept="3F0ifn" id="2SCEiO7nznu" role="3EZMnx">
@@ -4766,6 +4767,138 @@
     <ref role="1XX52x" to="rdv6:1i0tj4VHkpH" resolve="TerminationFunction" />
     <node concept="3F1sOY" id="1i0tj4VHkpL" role="2wV5jI">
       <ref role="1NtTu8" to="rdv6:1i0tj4VHkpI" resolve="function" />
+    </node>
+  </node>
+  <node concept="24kQdi" id="BBY2rYonzW">
+    <property role="3GE5qa" value="structManagement" />
+    <ref role="1XX52x" to="rdv6:BBY2rYonzQ" resolve="ReleaseStruct" />
+    <node concept="3EZMnI" id="BBY2rYonzY" role="2wV5jI">
+      <node concept="3F0ifn" id="BBY2rYon$4" role="3EZMnx">
+        <property role="3F0ifm" value="release" />
+      </node>
+      <node concept="3F0ifn" id="BBY2rYon$7" role="3EZMnx">
+        <property role="3F0ifm" value="(" />
+        <ref role="1k5W1q" node="2R3DD23tMJM" resolve="BraceStyle" />
+      </node>
+      <node concept="1iCGBv" id="BBY2rYon$d" role="3EZMnx">
+        <ref role="1NtTu8" to="rdv6:BBY2rYonzV" resolve="struct" />
+        <node concept="1sVBvm" id="BBY2rYon$f" role="1sWHZn">
+          <node concept="3F0A7n" id="BBY2rYon$l" role="2wV5jI">
+            <property role="1Intyy" value="true" />
+            <ref role="1NtTu8" to="tpck:h0TrG11" resolve="name" />
+          </node>
+        </node>
+      </node>
+      <node concept="3F0ifn" id="BBY2rYon$a" role="3EZMnx">
+        <property role="3F0ifm" value=")" />
+        <ref role="1k5W1q" node="2R3DD23tMJM" resolve="BraceStyle" />
+      </node>
+      <node concept="l2Vlx" id="BBY2rYon$1" role="2iSdaV" />
+    </node>
+  </node>
+  <node concept="24kQdi" id="2hQH9io1V_b">
+    <property role="3GE5qa" value="random" />
+    <ref role="1XX52x" to="rdv6:2hQH9io1V_7" resolve="Expent" />
+    <node concept="3EZMnI" id="2hQH9io1V_d" role="2wV5jI">
+      <node concept="3F0ifn" id="2hQH9io1V_j" role="3EZMnx">
+        <property role="3F0ifm" value="Expent" />
+      </node>
+      <node concept="3F0ifn" id="2hQH9io1V_m" role="3EZMnx">
+        <property role="3F0ifm" value="(" />
+        <ref role="1k5W1q" node="2R3DD23tMJM" resolve="BraceStyle" />
+      </node>
+      <node concept="3F1sOY" id="2hQH9iowz3V" role="3EZMnx">
+        <ref role="1NtTu8" to="rdv6:2hQH9iowz3T" resolve="ctx" />
+      </node>
+      <node concept="3F0ifn" id="2hQH9iowz3Y" role="3EZMnx">
+        <property role="3F0ifm" value="," />
+        <node concept="11L4FC" id="2hQH9iowz40" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+      </node>
+      <node concept="3F1sOY" id="2hQH9iohEkc" role="3EZMnx">
+        <ref role="1NtTu8" to="rdv6:2hQH9iohDTM" resolve="mean" />
+      </node>
+      <node concept="3F0ifn" id="2hQH9io1V_p" role="3EZMnx">
+        <property role="3F0ifm" value=")" />
+        <ref role="1k5W1q" node="2R3DD23tMJM" resolve="BraceStyle" />
+      </node>
+      <node concept="l2Vlx" id="2hQH9io1V_g" role="2iSdaV" />
+    </node>
+  </node>
+  <node concept="24kQdi" id="2hQH9io1V_u">
+    <property role="3GE5qa" value="random" />
+    <ref role="1XX52x" to="rdv6:2hQH9io1V_6" resolve="Random" />
+    <node concept="3EZMnI" id="2hQH9io1V_w" role="2wV5jI">
+      <node concept="3F0ifn" id="2hQH9io1V_A" role="3EZMnx">
+        <property role="3F0ifm" value="Random" />
+      </node>
+      <node concept="3F0ifn" id="2hQH9io1V_D" role="3EZMnx">
+        <property role="3F0ifm" value="(" />
+        <ref role="1k5W1q" node="2R3DD23tMJM" resolve="BraceStyle" />
+      </node>
+      <node concept="3F1sOY" id="2hQH9iowz43" role="3EZMnx">
+        <ref role="1NtTu8" to="rdv6:2hQH9iowz41" resolve="ctx" />
+      </node>
+      <node concept="3F0ifn" id="2hQH9io1V_G" role="3EZMnx">
+        <property role="3F0ifm" value=")" />
+        <ref role="1k5W1q" node="2R3DD23tMJM" resolve="BraceStyle" />
+      </node>
+      <node concept="l2Vlx" id="2hQH9io1V_z" role="2iSdaV" />
+    </node>
+  </node>
+  <node concept="24kQdi" id="2hQH9iorxst">
+    <property role="3GE5qa" value="random" />
+    <ref role="1XX52x" to="rdv6:2hQH9iorxir" resolve="InitRandomContext" />
+    <node concept="3EZMnI" id="2hQH9iorxsv" role="2wV5jI">
+      <node concept="3F0ifn" id="2hQH9iorxs_" role="3EZMnx">
+        <property role="3F0ifm" value="InitRandomContext" />
+      </node>
+      <node concept="3F0ifn" id="2hQH9iorxsC" role="3EZMnx">
+        <property role="3F0ifm" value="(" />
+        <ref role="1k5W1q" node="2R3DD23tMJM" resolve="BraceStyle" />
+      </node>
+      <node concept="3F1sOY" id="2hQH9iorxsS" role="3EZMnx">
+        <ref role="1NtTu8" to="rdv6:2hQH9iorxss" resolve="stateContext" />
+      </node>
+      <node concept="3F0ifn" id="2hQH9iorxsF" role="3EZMnx">
+        <property role="3F0ifm" value=")" />
+        <ref role="1k5W1q" node="2R3DD23tMJM" resolve="BraceStyle" />
+      </node>
+      <node concept="3F0ifn" id="2hQH9iorxsV" role="3EZMnx">
+        <property role="3F0ifm" value=";" />
+      </node>
+      <node concept="l2Vlx" id="2hQH9iorxsy" role="2iSdaV" />
+    </node>
+  </node>
+  <node concept="24kQdi" id="2hQH9iq3_Bl">
+    <property role="3GE5qa" value="topology" />
+    <ref role="1XX52x" to="rdv6:2hQH9iq3_B3" resolve="GetReceiver" />
+    <node concept="3EZMnI" id="2hQH9iq3_Bn" role="2wV5jI">
+      <node concept="3F0ifn" id="2hQH9iq3_Bt" role="3EZMnx">
+        <property role="3F0ifm" value="GetReceiver" />
+      </node>
+      <node concept="3F0ifn" id="2hQH9iq3_Bw" role="3EZMnx">
+        <property role="3F0ifm" value="(" />
+        <ref role="1k5W1q" node="2R3DD23tMJM" resolve="BraceStyle" />
+      </node>
+      <node concept="3F0A7n" id="2hQH9iq3_BA" role="3EZMnx">
+        <ref role="1NtTu8" to="rdv6:2hQH9iq3_Bk" resolve="geometry" />
+      </node>
+      <node concept="3F0ifn" id="1DzcFKAyV4s" role="3EZMnx">
+        <property role="3F0ifm" value="," />
+        <node concept="11L4FC" id="1DzcFKAza03" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+      </node>
+      <node concept="3F0A7n" id="1DzcFKAyV4v" role="3EZMnx">
+        <ref role="1NtTu8" to="rdv6:1DzcFKAyV4q" resolve="direction" />
+      </node>
+      <node concept="3F0ifn" id="2hQH9iq3_Bz" role="3EZMnx">
+        <property role="3F0ifm" value=")" />
+        <ref role="1k5W1q" node="2R3DD23tMJM" resolve="BraceStyle" />
+      </node>
+      <node concept="l2Vlx" id="2hQH9iq3_Bq" role="2iSdaV" />
     </node>
   </node>
 </model>

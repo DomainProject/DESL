@@ -51,6 +51,8 @@ public class RootSimM2M_TextGen extends TextGenDescriptorBase {
     // macros
     tgs.append("#define malloc rs_malloc");
     tgs.newLine();
+    tgs.append("#define free rs_free");
+    tgs.newLine();
     Macros.macros(ctx.getPrimaryInput(), ctx);
 
     // what_class macro
@@ -112,6 +114,16 @@ public class RootSimM2M_TextGen extends TextGenDescriptorBase {
         tgs.newLine();
         ctx.getBuffer().area().decreaseIndent();
       }
+
+      tgs.newLine();
+      tgs.indent();
+      tgs.append("case LP_FINI:");
+      tgs.newLine();
+      ctx.getBuffer().area().increaseIndent();
+      tgs.indent();
+      tgs.append("break;");
+      tgs.newLine();
+      ctx.getBuffer().area().decreaseIndent();
 
       tgs.newLine();
       tgs.indent();

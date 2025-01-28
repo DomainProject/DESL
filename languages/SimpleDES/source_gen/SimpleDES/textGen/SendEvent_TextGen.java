@@ -27,9 +27,9 @@ public class SendEvent_TextGen extends TextGenDescriptorBase {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     tgs.createPositionInfo();
 
-    if ((SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.RootSimM2M$x5, false, false) != null)) {
+    if ((SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.RootSimM2M$x5, false, false) != null) || (SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.UseM2M$UU, false, false) != null)) {
 
-      // ROOT-Sim
+      // ROOT-Sim and USE
 
       tgs.append("ScheduleNewEvent(");
       tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.to$WtFs));
@@ -155,6 +155,7 @@ public class SendEvent_TextGen extends TextGenDescriptorBase {
     /*package*/ static final SConcept NullExpression$Oy = MetaAdapterFactory.getConcept(0x3bf5377ae9044dedL, 0x97545a516023bfaaL, 0x49ac54536384df46L, "com.mbeddr.core.pointers.structure.NullExpression");
     /*package*/ static final SConcept LocalVarRef$VQ = MetaAdapterFactory.getConcept(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x1d0c3765e2e1d67aL, "com.mbeddr.core.statements.structure.LocalVarRef");
     /*package*/ static final SConcept PointerType$HX = MetaAdapterFactory.getConcept(0x3bf5377ae9044dedL, 0x97545a516023bfaaL, 0x3e0cae5e366d630L, "com.mbeddr.core.pointers.structure.PointerType");
+    /*package*/ static final SConcept UseM2M$UU = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4111dd2682dce668L, "SimpleDES.structure.UseM2M");
     /*package*/ static final SConcept RootSimM2M$x5 = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2e66f9a61334f363L, "SimpleDES.structure.RootSimM2M");
     /*package*/ static final SConcept RossM2M$aQ = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x7dd219cad75cd6eeL, "SimpleDES.structure.RossM2M");
     /*package*/ static final SConcept Function$K8 = MetaAdapterFactory.getConcept(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x595522006a5b97e1L, "com.mbeddr.core.modules.structure.Function");

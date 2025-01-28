@@ -20,11 +20,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_EventHandler;
   private ConceptPresentation props_EventHandlerDocs;
   private ConceptPresentation props_EventType;
+  private ConceptPresentation props_Expent;
   private ConceptPresentation props_ExternalFunction;
   private ConceptPresentation props_ExternalFunctionPrototype;
   private ConceptPresentation props_ExternalMacro;
   private ConceptPresentation props_ExternalStructDefinition;
   private ConceptPresentation props_FunctionDocs;
+  private ConceptPresentation props_GetReceiver;
   private ConceptPresentation props_GlobalVarDecl;
   private ConceptPresentation props_Header;
   private ConceptPresentation props_IClassDefinition;
@@ -43,6 +45,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_ITerminationFunction;
   private ConceptPresentation props_IText;
   private ConceptPresentation props_ITypeDefinition;
+  private ConceptPresentation props_InitRandomContext;
   private ConceptPresentation props_InitTopology;
   private ConceptPresentation props_InitializeState;
   private ConceptPresentation props_Item;
@@ -55,6 +58,8 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_ProcessAllocation;
   private ConceptPresentation props_ProcessArray;
   private ConceptPresentation props_ProcessSequence;
+  private ConceptPresentation props_Random;
+  private ConceptPresentation props_ReleaseStruct;
   private ConceptPresentation props_RootSimM2M;
   private ConceptPresentation props_RossM2M;
   private ConceptPresentation props_SendEvent;
@@ -149,6 +154,14 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_EventType = cpb.create();
         }
         return props_EventType;
+      case LanguageConceptSwitch.Expent:
+        if (props_Expent == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.shortDesc("get an exponentially distributed random value");
+          cpb.rawPresentation("Expent");
+          props_Expent = cpb.create();
+        }
+        return props_Expent;
       case LanguageConceptSwitch.ExternalFunction:
         if (props_ExternalFunction == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -184,6 +197,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_FunctionDocs = cpb.create();
         }
         return props_FunctionDocs;
+      case LanguageConceptSwitch.GetReceiver:
+        if (props_GetReceiver == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("GetReceiver");
+          props_GetReceiver = cpb.create();
+        }
+        return props_GetReceiver;
       case LanguageConceptSwitch.GlobalVarDecl:
         if (props_GlobalVarDecl == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -294,6 +314,14 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_ITypeDefinition = cpb.create();
         }
         return props_ITypeDefinition;
+      case LanguageConceptSwitch.InitRandomContext:
+        if (props_InitRandomContext == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.shortDesc("initialize the rand context field in state");
+          cpb.rawPresentation("InitRandomContext");
+          props_InitRandomContext = cpb.create();
+        }
+        return props_InitRandomContext;
       case LanguageConceptSwitch.InitTopology:
         if (props_InitTopology == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -379,6 +407,21 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_ProcessSequence = cpb.create();
         }
         return props_ProcessSequence;
+      case LanguageConceptSwitch.Random:
+        if (props_Random == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.shortDesc("get a random number");
+          cpb.rawPresentation("Random");
+          props_Random = cpb.create();
+        }
+        return props_Random;
+      case LanguageConceptSwitch.ReleaseStruct:
+        if (props_ReleaseStruct == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("ReleaseStruct");
+          props_ReleaseStruct = cpb.create();
+        }
+        return props_ReleaseStruct;
       case LanguageConceptSwitch.RootSimM2M:
         if (props_RootSimM2M == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

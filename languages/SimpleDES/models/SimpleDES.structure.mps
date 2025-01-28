@@ -16,6 +16,15 @@
   </imports>
   <registry>
     <language id="c72da2b9-7cce-4447-8389-f407dc1158b7" name="jetbrains.mps.lang.structure">
+      <concept id="3348158742936976480" name="jetbrains.mps.lang.structure.structure.EnumerationMemberDeclaration" flags="ng" index="25R33">
+        <property id="1421157252384165432" name="memberId" index="3tVfz5" />
+      </concept>
+      <concept id="3348158742936976479" name="jetbrains.mps.lang.structure.structure.EnumerationDeclaration" flags="ng" index="25R3W">
+        <child id="3348158742936976577" name="members" index="25R1y" />
+      </concept>
+      <concept id="1082978164218" name="jetbrains.mps.lang.structure.structure.DataTypeDeclaration" flags="ng" index="AxPO6">
+        <property id="7791109065626895363" name="datatypeId" index="3F6X1D" />
+      </concept>
       <concept id="1169125787135" name="jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration" flags="ig" index="PkWjJ">
         <property id="6714410169261853888" name="conceptId" index="EcuMT" />
         <property id="4628067390765907488" name="conceptShortDescription" index="R4oN_" />
@@ -275,6 +284,7 @@
     <property role="EcuMT" value="3326094335675348437" />
     <property role="TrG5h" value="NewStruct" />
     <property role="34LRSv" value="new struct" />
+    <property role="3GE5qa" value="structManagement" />
     <ref role="1TJDcQ" to="mj1l:7FQByU3CrCM" resolve="Expression" />
   </node>
   <node concept="1TIwiD" id="6lTY9B_PW1o">
@@ -941,6 +951,164 @@
     <property role="TrG5h" value="RossM2M" />
     <property role="19KtqR" value="true" />
     <ref role="1TJDcQ" node="1FqAw$nj9oK" resolve="DESModel" />
+  </node>
+  <node concept="1TIwiD" id="BBY2rYonzQ">
+    <property role="EcuMT" value="713811912321759478" />
+    <property role="TrG5h" value="ReleaseStruct" />
+    <property role="3GE5qa" value="structManagement" />
+    <property role="34LRSv" value="ReleaseStruct" />
+    <ref role="1TJDcQ" to="c4fa:3CmSUB7FmO3" resolve="Statement" />
+    <node concept="1TJgyj" id="BBY2rYonzV" role="1TKVEi">
+      <property role="IQ2ns" value="713811912321759483" />
+      <property role="20kJfa" value="struct" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" to="mj1l:1LDGRqyYkTP" resolve="IVariableDeclaration" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="2hQH9io1V_6">
+    <property role="EcuMT" value="2627485982916065606" />
+    <property role="TrG5h" value="Random" />
+    <property role="34LRSv" value="Random" />
+    <property role="R4oN_" value="get a random number" />
+    <property role="3GE5qa" value="random" />
+    <ref role="1TJDcQ" to="mj1l:7FQByU3CrCM" resolve="Expression" />
+    <node concept="1TJgyj" id="2hQH9iowz41" role="1TKVEi">
+      <property role="IQ2ns" value="2627485982924091649" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="ctx" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" to="mj1l:7FQByU3CrCM" resolve="Expression" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="2hQH9io1V_7">
+    <property role="EcuMT" value="2627485982916065607" />
+    <property role="TrG5h" value="Expent" />
+    <property role="R4oN_" value="get an exponentially distributed random value" />
+    <property role="3GE5qa" value="random" />
+    <ref role="1TJDcQ" to="mj1l:7FQByU3CrCM" resolve="Expression" />
+    <node concept="1TJgyj" id="2hQH9iohDTM" role="1TKVEi">
+      <property role="IQ2ns" value="2627485982920187506" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="mean" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" to="mj1l:7FQByU3CrCM" resolve="Expression" />
+    </node>
+    <node concept="1TJgyj" id="2hQH9iowz3T" role="1TKVEi">
+      <property role="IQ2ns" value="2627485982924091641" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="ctx" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" to="mj1l:7FQByU3CrCM" resolve="Expression" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="2hQH9iorxir">
+    <property role="EcuMT" value="2627485982922773659" />
+    <property role="3GE5qa" value="random" />
+    <property role="TrG5h" value="InitRandomContext" />
+    <property role="34LRSv" value="InitRandomContext" />
+    <property role="R4oN_" value="initialize the rand context field in state" />
+    <ref role="1TJDcQ" to="c4fa:3CmSUB7FmO3" resolve="Statement" />
+    <node concept="1TJgyj" id="2hQH9iorxss" role="1TKVEi">
+      <property role="IQ2ns" value="2627485982922774300" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="stateContext" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" to="mj1l:40tXLnqhyKc" resolve="GenericDotExpression" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="2hQH9iq3_B3">
+    <property role="EcuMT" value="2627485982950054339" />
+    <property role="TrG5h" value="GetReceiver" />
+    <property role="3GE5qa" value="topology" />
+    <ref role="1TJDcQ" to="mj1l:7FQByU3CrCM" resolve="Expression" />
+    <node concept="1TJgyi" id="2hQH9iq3_Bk" role="1TKVEl">
+      <property role="IQ2nx" value="2627485982950054356" />
+      <property role="TrG5h" value="geometry" />
+      <ref role="AX2Wp" node="2hQH9iq3_B4" resolve="TopologyGeometry" />
+    </node>
+    <node concept="1TJgyi" id="1DzcFKAyV4q" role="1TKVEl">
+      <property role="IQ2nx" value="1901419251362410778" />
+      <property role="TrG5h" value="direction" />
+      <ref role="AX2Wp" node="2hQH9iqdUIw" resolve="TopologyDirection" />
+    </node>
+  </node>
+  <node concept="25R3W" id="2hQH9iq3_B4">
+    <property role="3F6X1D" value="2627485982950054340" />
+    <property role="TrG5h" value="TopologyGeometry" />
+    <property role="3GE5qa" value="topology" />
+    <node concept="25R33" id="2hQH9iq3_B5" role="25R1y">
+      <property role="3tVfz5" value="2627485982950054341" />
+      <property role="TrG5h" value="TOPOLOGY_HEXAGON" />
+    </node>
+    <node concept="25R33" id="2hQH9iq3_B8" role="25R1y">
+      <property role="3tVfz5" value="2627485982950054344" />
+      <property role="TrG5h" value="TOPOLOGY_SQUARE" />
+    </node>
+    <node concept="25R33" id="2hQH9iq3_Ba" role="25R1y">
+      <property role="3tVfz5" value="2627485982950054346" />
+      <property role="TrG5h" value="TOPOLOGY_TORUS" />
+    </node>
+    <node concept="25R33" id="2hQH9iq3_Bb" role="25R1y">
+      <property role="3tVfz5" value="2627485982950054347" />
+      <property role="TrG5h" value="TOPOLOGY_RING" />
+    </node>
+    <node concept="25R33" id="2hQH9iq3_Bc" role="25R1y">
+      <property role="3tVfz5" value="2627485982950054348" />
+      <property role="TrG5h" value="TOPOLOGY_BIDRING" />
+    </node>
+    <node concept="25R33" id="2hQH9iq3_Bd" role="25R1y">
+      <property role="3tVfz5" value="2627485982950054349" />
+      <property role="TrG5h" value="TOPOLOGY_STAR" />
+    </node>
+    <node concept="25R33" id="2hQH9iq3_Be" role="25R1y">
+      <property role="3tVfz5" value="2627485982950054350" />
+      <property role="TrG5h" value="TOPOLOGY_FCMESH" />
+    </node>
+    <node concept="25R33" id="2hQH9iq3_Bf" role="25R1y">
+      <property role="3tVfz5" value="2627485982950054351" />
+      <property role="TrG5h" value="TOPOLOGY_GRAPH" />
+    </node>
+  </node>
+  <node concept="25R3W" id="2hQH9iqdUIw">
+    <property role="3F6X1D" value="2627485982952762272" />
+    <property role="3GE5qa" value="topology" />
+    <property role="TrG5h" value="TopologyDirection" />
+    <node concept="25R33" id="2hQH9iqdUIx" role="25R1y">
+      <property role="3tVfz5" value="2627485982952762273" />
+      <property role="TrG5h" value="DIRECTION_E" />
+    </node>
+    <node concept="25R33" id="2hQH9iqdUIz" role="25R1y">
+      <property role="3tVfz5" value="2627485982952762275" />
+      <property role="TrG5h" value="DIRECTION_W" />
+    </node>
+    <node concept="25R33" id="2hQH9iqdUI$" role="25R1y">
+      <property role="3tVfz5" value="2627485982952762276" />
+      <property role="TrG5h" value="DIRECTION_N" />
+    </node>
+    <node concept="25R33" id="2hQH9iqdUI_" role="25R1y">
+      <property role="3tVfz5" value="2627485982952762277" />
+      <property role="TrG5h" value="DIRECTION_S" />
+    </node>
+    <node concept="25R33" id="1DzcFKAyUQX" role="25R1y">
+      <property role="3tVfz5" value="1901419251362409917" />
+      <property role="TrG5h" value="DIRECTION_NE" />
+    </node>
+    <node concept="25R33" id="1DzcFKAyUQY" role="25R1y">
+      <property role="3tVfz5" value="1901419251362409918" />
+      <property role="TrG5h" value="DIRECTION_SW" />
+    </node>
+    <node concept="25R33" id="1DzcFKAyUQZ" role="25R1y">
+      <property role="3tVfz5" value="1901419251362409919" />
+      <property role="TrG5h" value="DIRECTION_NW" />
+    </node>
+    <node concept="25R33" id="1DzcFKAyUR0" role="25R1y">
+      <property role="3tVfz5" value="1901419251362409920" />
+      <property role="TrG5h" value="DIRECTION_SE" />
+    </node>
+    <node concept="25R33" id="1DzcFKAyV4o" role="25R1y">
+      <property role="3tVfz5" value="1901419251362410776" />
+      <property role="TrG5h" value="DIRECTION_RANDOM" />
+    </node>
   </node>
 </model>
 

@@ -43,14 +43,20 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new EventHandler_TextGen();
       case LanguageConceptSwitch.EventHandlerDocs:
         return new EventHandlerDocs_TextGen();
+      case LanguageConceptSwitch.Expent:
+        return new Expent_TextGen();
       case LanguageConceptSwitch.ExternalFunctionPrototype:
         return new ExternalFunctionPrototype_TextGen();
       case LanguageConceptSwitch.ExternalStructDefinition:
         return new ExternalStructDefinition_TextGen();
       case LanguageConceptSwitch.FunctionDocs:
         return new FunctionDocs_TextGen();
+      case LanguageConceptSwitch.GetReceiver:
+        return new GetReceiver_TextGen();
       case LanguageConceptSwitch.Header:
         return new Header_TextGen();
+      case LanguageConceptSwitch.InitRandomContext:
+        return new InitRandomContext_TextGen();
       case LanguageConceptSwitch.InitTopology:
         return new InitTopology_TextGen();
       case LanguageConceptSwitch.InitializeState:
@@ -69,6 +75,10 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new ProcessAllocation_TextGen();
       case LanguageConceptSwitch.ProcessArray:
         return new ProcessArray_TextGen();
+      case LanguageConceptSwitch.Random:
+        return new Random_TextGen();
+      case LanguageConceptSwitch.ReleaseStruct:
+        return new ReleaseStruct_TextGen();
       case LanguageConceptSwitch.RootSimM2M:
         return new RootSimM2M_TextGen();
       case LanguageConceptSwitch.RossM2M:
@@ -123,7 +133,7 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
     return SPropertyOperations.getString(node, PROPS.name$MnvL) + "_rootsim";
   }
   private static String getFileName_UseM2M(SNode node) {
-    return node.getName();
+    return SPropertyOperations.getString(node, PROPS.name$MnvL) + "_use";
   }
   private static String getFileName_RossM2M(SNode node) {
     return SPropertyOperations.getString(node, PROPS.name$MnvL) + "_ross";

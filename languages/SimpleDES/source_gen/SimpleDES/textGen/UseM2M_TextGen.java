@@ -31,6 +31,9 @@ public class UseM2M_TextGen extends TextGenDescriptorBase {
     tgs.append("#include <ROOT-Sim.h>");
     tgs.newLine();
     ListSequence.fromList(headers).addElement("ROOT-Sim");
+    // exclude ROOT-Sim's topology and random
+    ListSequence.fromList(headers).addElement("ROOT-Sim/topology");
+    ListSequence.fromList(headers).addElement("ROOT-Sim/random");
     Headers.headers(ctx.getPrimaryInput(), headers, ctx);
 
     // events
@@ -43,6 +46,15 @@ public class UseM2M_TextGen extends TextGenDescriptorBase {
         tgs.newLine();
       }
     }
+
+    // define ROOT-Sim events and types
+    tgs.append("#define LP_INIT INIT");
+    tgs.newLine();
+    tgs.append("#define lp_id_t unsigned int");
+    tgs.newLine();
+    tgs.append("#define simtime_t double");
+    tgs.newLine();
+
     tgs.newLine();
 
     // macros
@@ -51,8 +63,18 @@ public class UseM2M_TextGen extends TextGenDescriptorBase {
     // what class macro
     WhatClass.whatClass(ctx.getPrimaryInput(), ctx);
 
+    // define uint64_t and uint32_t
+    tgs.append("typedef unsigned long uint64_t;");
+    tgs.newLine();
+    tgs.append("typedef unsigned int uint32_t;");
+    tgs.newLine();
+    tgs.newLine();
+
     // state structs
     StateStructs.stateStructs(ctx.getPrimaryInput(), ctx);
+
+    // message struct
+    tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.messageStruct$xVlJ));
 
     // structs
     Structs.structs(ctx.getPrimaryInput(), ctx);
@@ -125,11 +147,20 @@ public class UseM2M_TextGen extends TextGenDescriptorBase {
       ctx.getBuffer().area().decreaseIndent();
       tgs.append("}");
       tgs.newLine();
+
+      // OnGVT
+      tgs.append("bool OnGVT(unsigned int me, void *snapshot)");
+      tgs.newLine();
+      tgs.appendNode(SLinkOperations.getTarget(SLinkOperations.getTarget(SLinkOperations.getTarget(c, LINKS.termination$42K6), LINKS.function$cpRu), LINKS.body$1GE0));
+      tgs.newLine();
     }
     tgs.newLine();
 
+
     // ProcessEvent
-    tgs.append("void ProcessEvent(lp_id_t me, simtime_t now, unsigned event_type, const void *content, void *data)");
+    tgs.append("void ProcessEvent(lp_id_t me, simtime_t now, int event_type, ");
+    tgs.appendNode(ITypeDeclaration__BehaviorDescriptor.createType_id3o2OLGv7CoR.invoke(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.messageStruct$xVlJ)));
+    tgs.append(" *content, unsigned int size, void *data)");
     tgs.newLine();
     tgs.append("{");
     tgs.newLine();
@@ -189,12 +220,15 @@ public class UseM2M_TextGen extends TextGenDescriptorBase {
   private static final class LINKS {
     /*package*/ static final SContainmentLink eventType$MGmZ = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2e66f9a613f69c80L, 0x2e66f9a613f69c82L, "eventType");
     /*package*/ static final SContainmentLink events$uflG = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x2dc3a69083753b9fL, "events");
+    /*package*/ static final SContainmentLink messageStruct$xVlJ = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x6de6339fa564bed8L, "messageStruct");
     /*package*/ static final SContainmentLink stateStruct$NqNO = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x4117a694e5b8c1a2L, "stateStruct");
     /*package*/ static final SContainmentLink commonVariables$AOvb = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x323127c5741c9443L, "commonVariables");
     /*package*/ static final SContainmentLink function$5bPH = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x74d88000543a2a9fL, "function");
     /*package*/ static final SContainmentLink body$1GE0 = MetaAdapterFactory.getContainmentLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x595522006a5b97e1L, 0x3a16e3a9c7ad9954L, "body");
     /*package*/ static final SContainmentLink statements$euTV = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad9955L, 0x3a16e3a9c7ad9956L, "statements");
     /*package*/ static final SContainmentLink handlers$Nr2P = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x4117a694e5b8c1a3L, "handlers");
+    /*package*/ static final SContainmentLink termination$42K6 = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x148075313bb9b63dL, "termination");
+    /*package*/ static final SContainmentLink function$cpRu = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x148075313bb5466dL, 0x148075313bb5466eL, "function");
     /*package*/ static final SContainmentLink classes$SNAM = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x4117a694e5ba8536L, "classes");
   }
 

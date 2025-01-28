@@ -56,6 +56,30 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     // structs
     Structs.structs(ctx.getPrimaryInput(), ctx);
 
+    // checkpoint struct
+    tgs.append("struct checkpoint {");
+    tgs.newLine();
+    ctx.getBuffer().area().increaseIndent();
+
+    if (SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL).contains("pcs")) {
+      tgs.indent();
+      tgs.append("int32_t channel_to_reallocate;");
+      tgs.newLine();
+      tgs.indent();
+      tgs.append("int32_t channel_to_free;");
+      tgs.newLine();
+      tgs.indent();
+      tgs.append("struct lp_state_type state;");
+      tgs.newLine();
+    } else if (SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL).contains("phold")) {
+      // todo
+    }
+
+    ctx.getBuffer().area().decreaseIndent();
+    tgs.append("};");
+    tgs.newLine();
+    tgs.newLine();
+
     /*
       events enum and message struct, foreach class
       (ROSS requires the event type to be explicit in the received message, 
@@ -91,6 +115,9 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL));
     tgs.append("_EVENT_TYPE event_type;");
     tgs.newLine();
+    tgs.indent();
+    tgs.append("struct checkpoint cp;");
+    tgs.newLine();
     for (SNode member : ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.messageStruct$xVlJ), LINKS.members$C59R))) {
       tgs.indent();
       tgs.appendNode(member);
@@ -106,6 +133,47 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
 
     // external functions definition
     ExternalFunctions.externalFunctions(ctx.getPrimaryInput(), ctx);
+
+    // allocation_by_index (PCS)
+    if (SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL).contains("pcs")) {
+      tgs.append("static void allocation_by_index(struct lp_state_type *pointer, int index)\n{\n  double summ;\n\n  pcs_SET_CHANNEL(pointer, index);\n\n  struct channel *c = (struct channel *)malloc(sizeof(struct channel));\n  if (c == NULL) {\n    printf(\"malloc error: unable to allocate memory!\");\n    puts(\"\");\n    exit(-1);\n  }\n  ;\n  c->channel_id = index;\n  c->sir_data = (struct sir_data_per_cell *)malloc(sizeof(struct sir_data_per_cell));\n  if (c->sir_data == NULL) {\n    printf(\"malloc error: unable to allocate memory!\");\n    puts(\"\");\n    exit(-1);\n  }\n  ;\n  list_insert_tail(pointer->channels, c);\n\n\n  summ = 0.0;\n\n  __typeof(list_head(pointer->channels)) ch = list_head(pointer->channels);\n  while(ch != NULL) {\n    ch->sir_data->fading = Expent(pointer->ctx, 1.0);\n    summ += pcs_generate_cross_path_gain(pointer->ctx) * ch->sir_data->power * ch->sir_data->fading;\n    ch = list_next(ch);\n  }\n\n\n  if (fabsf(summ) < pcs_FLT_EPSILON)\n  {\n    c->sir_data->power = pcs_MIN_POWER;\n  }\n  else\n  {\n    c->sir_data->fading = Expent(pointer->ctx, 1.0);\n    c->sir_data->power = ((pcs_SIR_AIM * summ) / (pcs_generate_path_gain(pointer->ctx) * c->sir_data->fading));\n    if (c->sir_data->power < pcs_MIN_POWER)\n    {\n      c->sir_data->power = pcs_MIN_POWER;\n    }\n    if (c->sir_data->power > pcs_MAX_POWER)\n    {\n      c->sir_data->power = pcs_MAX_POWER;\n    }\n  }\n}");
+      tgs.newLine();
+      tgs.newLine();
+    }
+
+    // restore state function
+    // todo the following function is (vergognosamente) application-specific
+    if (SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL).contains("pcs")) {
+      tgs.append("void RESTORE_STATE(struct lp_state_type *state, const struct checkpoint *contents)");
+      tgs.newLine();
+      tgs.append("{");
+      tgs.newLine();
+      ctx.getBuffer().area().increaseIndent();
+      tgs.indent();
+      tgs.append("*state = contents->state;");
+      tgs.newLine();
+      tgs.indent();
+      tgs.append("if (contents->channel_to_reallocate != -1)");
+      tgs.newLine();
+      tgs.indent();
+      tgs.indent();
+      tgs.append("allocation_by_index(state, contents->channel_to_reallocate);");
+      tgs.newLine();
+      tgs.indent();
+      tgs.append("if (contents->channel_to_free != -1)");
+      tgs.newLine();
+      tgs.indent();
+      tgs.indent();
+      tgs.append("pcs_deallocation(state->me, state, contents->channel_to_free, 0);");
+      tgs.newLine();
+      ctx.getBuffer().area().decreaseIndent();
+      tgs.append("}");
+      tgs.newLine();
+    } else if (SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL).contains("phold")) {
+      // todo
+    }
+
+    tgs.newLine();
 
 
     for (final SNode c : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.classes$SNAM), CONCEPTS.ClassDefinition$NR))) {
@@ -179,6 +247,33 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
       tgs.append("double now = 0;");
       tgs.newLine();
 
+      // struct checkpoint instantiation
+      if (SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL).contains("pcs")) {
+        tgs.indent();
+        tgs.append("struct checkpoint cp = {");
+        tgs.newLine();
+        ctx.getBuffer().area().increaseIndent();
+        tgs.indent();
+        tgs.append(".state = *state,");
+        tgs.newLine();
+        tgs.indent();
+        tgs.append(".channel_to_free = -1,");
+        tgs.newLine();
+        tgs.indent();
+        tgs.append(".channel_to_reallocate = -1,");
+        tgs.newLine();
+        ctx.getBuffer().area().decreaseIndent();
+        tgs.indent();
+        tgs.append("};");
+        tgs.newLine();
+      } else if (SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL).contains("phold")) {
+        // todo
+      }
+
+      tgs.indent();
+      tgs.append("content->cp = cp;");
+      tgs.newLine();
+
       tgs.indent();
       tgs.append("switch(content->event_type) {");
       tgs.newLine();
@@ -196,6 +291,7 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
             tgs.indent();
             tgs.appendNode(statement);
             tgs.newLine();
+            UpdateCheckpoint.UpdateCheckpoint(statement, ctx);
           }
           tgs.indent();
           tgs.append("break;");
@@ -256,30 +352,30 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     tgs.newLine();
 
     // lpTypeMapper function
-    tgs.append("tw_lpid lpTypeMapper(tw_lpid gid)");
+    tgs.append("tw_lpid custom_mapping_lp_to_pe(tw_lpid gid)");
     tgs.newLine();
     tgs.append("{");
+    tgs.newLine();
     ctx.getBuffer().area().increaseIndent();
-    for (SNode allocation : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.processAllocations$cuUJ), CONCEPTS.ProcessAllocation$5Z))) {
-      SNode array = SNodeOperations.cast(SLinkOperations.getTarget(allocation, LINKS.processes$hZqx), CONCEPTS.ProcessArray$Ux);
-      tgs.indent();
-      tgs.append("if (gid >= ");
-      tgs.append(String.valueOf(SPropertyOperations.getInteger(array, PROPS.left$2u8O)));
-      tgs.append(" && gid <= ");
-      tgs.append(String.valueOf(SPropertyOperations.getInteger(array, PROPS.right$2uAQ)));
-      tgs.append(")");
-      tgs.newLine();
-      ctx.getBuffer().area().increaseIndent();
-      tgs.indent();
-      tgs.append("return TYPE_");
-      tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(allocation, LINKS.class$8$vc), PROPS.name$MnvL));
-      tgs.append(";");
-      tgs.newLine();
-      ctx.getBuffer().area().decreaseIndent();
-    }
+    tgs.indent();
+    tgs.append("return (tw_peid) gid / g_tw_nlp;");
+    tgs.newLine();
     ctx.getBuffer().area().decreaseIndent();
     tgs.append("}");
     tgs.newLine();
+    tgs.newLine();
+
+    // reverse handler
+    tgs.append("void reverse(struct lp_state_type * s, tw_bf * bf, struct event_content_type *msg, tw_lp * lp)");
+    tgs.newLine();
+    tgs.append("{");
+    tgs.newLine();
+    ctx.getBuffer().area().increaseIndent();
+    tgs.indent();
+    tgs.append("RESTORE_STATE(s, &msg->cp);");
+    tgs.newLine();
+    ctx.getBuffer().area().decreaseIndent();
+    tgs.append("}");
     tgs.newLine();
 
     // model_lps array
@@ -308,9 +404,8 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
       tgs.append(SPropertyOperations.getString(c, PROPS.name$MnvL));
       tgs.append("_event,");
       tgs.newLine();
-      // todo implement reverse events (?)
       tgs.indent();
-      tgs.append("(revent_f) NULL,");
+      tgs.append("(revent_f) reverse,");
       tgs.newLine();
       tgs.indent();
       tgs.append("(commit_f) NULL,");
@@ -324,7 +419,7 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
       tgs.newLine();
       // use LINEAR or ROUND-ROBIN mapping
       tgs.indent();
-      tgs.append("(map_f) lpTypeMapper,");
+      tgs.append("(map_f) custom_mapping_lp_to_pe,");
       tgs.newLine();
       tgs.indent();
       tgs.append("sizeof(");
@@ -372,14 +467,6 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     tgs.newLine();
 
     StartupCode.startupCode(ctx.getPrimaryInput(), ctx);
-
-    tgs.indent();
-    tgs.append("// define LP-to-PE mapping");
-    tgs.newLine();
-    tgs.indent();
-    tgs.append("g_tw_mapping = LINEAR;");
-    tgs.newLine();
-    tgs.newLine();
 
     tgs.indent();
     tgs.append("// define the number of LPs per PE");
@@ -454,16 +541,15 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     /*package*/ static final SReferenceLink arg$WIp5 = MetaAdapterFactory.getReferenceLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x1d0c3765e2e7d0baL, 0x1d0c3765e2e7d0bbL, "arg");
     /*package*/ static final SContainmentLink classes$SNAM = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x4117a694e5ba8536L, "classes");
     /*package*/ static final SContainmentLink processes$hZqx = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6393783L, 0x4117a694e6393787L, "processes");
-    /*package*/ static final SReferenceLink class$8$vc = MetaAdapterFactory.getReferenceLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6393783L, 0x4117a694e6394c33L, "class");
-    /*package*/ static final SContainmentLink processAllocations$cuUJ = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x4117a694e6409a0eL, "processAllocations");
     /*package*/ static final SContainmentLink processes$2JvY = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e64867a6L, 0x4117a694e64867a7L, "processes");
+    /*package*/ static final SContainmentLink processAllocations$cuUJ = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x4117a694e6409a0eL, "processAllocations");
   }
 
   private static final class PROPS {
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
     /*package*/ static final SProperty eventName$AHdn = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x3aa70864b453eff1L, "eventName");
-    /*package*/ static final SProperty left$2u8O = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6486788L, 0x4117a694e648678aL, "left");
     /*package*/ static final SProperty right$2uAQ = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6486788L, 0x4117a694e648678cL, "right");
+    /*package*/ static final SProperty left$2u8O = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6486788L, 0x4117a694e648678aL, "left");
   }
 
   private static final class CONCEPTS {
@@ -475,8 +561,8 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     /*package*/ static final SConcept ArgumentRef$iE = MetaAdapterFactory.getConcept(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x1d0c3765e2e7d0baL, "com.mbeddr.core.modules.structure.ArgumentRef");
     /*package*/ static final SConcept ClassDefinition$NR = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, "SimpleDES.structure.ClassDefinition");
     /*package*/ static final SConcept ProcessArray$Ux = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6486788L, "SimpleDES.structure.ProcessArray");
-    /*package*/ static final SConcept ProcessAllocation$5Z = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6393783L, "SimpleDES.structure.ProcessAllocation");
     /*package*/ static final SConcept ProcessSequence$B$ = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e64867a6L, "SimpleDES.structure.ProcessSequence");
+    /*package*/ static final SConcept ProcessAllocation$5Z = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6393783L, "SimpleDES.structure.ProcessAllocation");
     /*package*/ static final SInterfaceConcept UnitConcept$1g = MetaAdapterFactory.getInterfaceConcept(0x9ded098bad6a4657L, 0xbfd948636cfe8bc3L, 0x465516cf87c705a4L, "jetbrains.mps.lang.traceable.structure.UnitConcept");
   }
 }
