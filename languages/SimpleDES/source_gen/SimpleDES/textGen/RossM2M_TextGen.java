@@ -50,6 +50,13 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     // macros
     Macros.macros(ctx.getPrimaryInput(), ctx);
 
+    // typedefs
+    tgs.append("typedef double simtime_t;");
+    tgs.newLine();
+    tgs.append("typedef unsigned long lp_id_t;");
+    tgs.newLine();
+    tgs.newLine();
+
     // state structs
     StateStructs.stateStructs(ctx.getPrimaryInput(), ctx);
 
@@ -72,7 +79,9 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
       tgs.append("struct lp_state_type state;");
       tgs.newLine();
     } else if (SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL).contains("phold")) {
-      // todo
+      tgs.indent();
+      tgs.append("struct phold_state state;");
+      tgs.newLine();
     }
 
     ctx.getBuffer().area().decreaseIndent();
@@ -170,7 +179,17 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
       tgs.append("}");
       tgs.newLine();
     } else if (SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL).contains("phold")) {
-      // todo
+      tgs.append("void RESTORE_STATE(struct phold_state *state, const struct checkpoint *contents)");
+      tgs.newLine();
+      tgs.append("{");
+      tgs.newLine();
+      ctx.getBuffer().area().increaseIndent();
+      tgs.indent();
+      tgs.append("*state = contents->state;");
+      tgs.newLine();
+      ctx.getBuffer().area().decreaseIndent();
+      tgs.append("}");
+      tgs.newLine();
     }
 
     tgs.newLine();
@@ -248,10 +267,10 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
       tgs.newLine();
 
       // struct checkpoint instantiation
+      tgs.indent();
+      tgs.append("struct checkpoint cp = {");
+      tgs.newLine();
       if (SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL).contains("pcs")) {
-        tgs.indent();
-        tgs.append("struct checkpoint cp = {");
-        tgs.newLine();
         ctx.getBuffer().area().increaseIndent();
         tgs.indent();
         tgs.append(".state = *state,");
@@ -263,12 +282,14 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
         tgs.append(".channel_to_reallocate = -1,");
         tgs.newLine();
         ctx.getBuffer().area().decreaseIndent();
-        tgs.indent();
-        tgs.append("};");
-        tgs.newLine();
       } else if (SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL).contains("phold")) {
-        // todo
+        tgs.indent();
+        tgs.append(".state = *state,");
+        tgs.newLine();
       }
+      tgs.indent();
+      tgs.append("};");
+      tgs.newLine();
 
       tgs.indent();
       tgs.append("content->cp = cp;");
@@ -366,8 +387,13 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     tgs.newLine();
 
     // reverse handler
-    tgs.append("void reverse(struct lp_state_type * s, tw_bf * bf, struct event_content_type *msg, tw_lp * lp)");
-    tgs.newLine();
+    if (SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL).contains("pcs")) {
+      tgs.append("void reverse(struct lp_state_type * s, tw_bf * bf, struct event_content_type *msg, tw_lp * lp)");
+      tgs.newLine();
+    } else {
+      tgs.append("void reverse(struct phold_state* s, tw_bf* bf, struct phold_message *msg, tw_lp * lp)");
+      tgs.newLine();
+    }
     tgs.append("{");
     tgs.newLine();
     ctx.getBuffer().area().increaseIndent();

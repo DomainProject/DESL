@@ -23,7 +23,9 @@ public class InitRandomContext_TextGen extends TextGenDescriptorBase {
       tgs.append(" = (struct rng_t *)malloc(sizeof(struct rng_t));");
       tgs.newLine();
       tgs.indent();
-      tgs.append("if (state->ctx == NULL) {");
+      tgs.append("if (!");
+      tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.stateContext$AbdP));
+      tgs.append(") {");
       tgs.newLine();
       ctx.getBuffer().area().increaseIndent();
       tgs.indent();

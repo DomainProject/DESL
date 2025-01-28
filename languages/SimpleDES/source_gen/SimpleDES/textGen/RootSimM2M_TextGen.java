@@ -32,6 +32,9 @@ public class RootSimM2M_TextGen extends TextGenDescriptorBase {
     tgs.append("#include <ROOT-Sim.h>");
     tgs.newLine();
     ListSequence.fromList(headers).addElement("ROOT-Sim");
+    tgs.append("#include <math.h>");
+    tgs.newLine();
+    ListSequence.fromList(headers).addElement("math");
     Headers.headers(ctx.getPrimaryInput(), headers, ctx);
 
     // events
@@ -115,15 +118,17 @@ public class RootSimM2M_TextGen extends TextGenDescriptorBase {
         ctx.getBuffer().area().decreaseIndent();
       }
 
-      tgs.newLine();
-      tgs.indent();
-      tgs.append("case LP_FINI:");
-      tgs.newLine();
-      ctx.getBuffer().area().increaseIndent();
-      tgs.indent();
-      tgs.append("break;");
-      tgs.newLine();
-      ctx.getBuffer().area().decreaseIndent();
+      if (Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.events$uflG), CONCEPTS.EventDefinition$wO)).where((it) -> SPropertyOperations.getString(SLinkOperations.getTarget(it, LINKS.eventType$MGmZ), PROPS.name$MnvL) == "LP_FINI").isEmpty()) {
+        tgs.newLine();
+        tgs.indent();
+        tgs.append("case LP_FINI:");
+        tgs.newLine();
+        ctx.getBuffer().area().increaseIndent();
+        tgs.indent();
+        tgs.append("break;");
+        tgs.newLine();
+        ctx.getBuffer().area().decreaseIndent();
+      }
 
       tgs.newLine();
       tgs.indent();

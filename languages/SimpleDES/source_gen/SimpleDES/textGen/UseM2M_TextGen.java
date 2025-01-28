@@ -108,7 +108,7 @@ public class UseM2M_TextGen extends TextGenDescriptorBase {
       tgs.append("switch(event_type) {");
       tgs.newLine();
       ctx.getBuffer().area().increaseIndent();
-      for (SNode handler : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(c, LINKS.handlers$Nr2P), CONCEPTS.EventHandler$Ov))) {
+      for (SNode handler : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(c, LINKS.handlers$Nr2P), CONCEPTS.EventHandler$Ov)).where((it) -> SPropertyOperations.getString(it, PROPS.eventName$AHdn) != "LP_FINI")) {
         tgs.newLine();
         tgs.indent();
         tgs.append("case ");
