@@ -51,6 +51,8 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new ExternalStructDefinition_TextGen();
       case LanguageConceptSwitch.FunctionDocs:
         return new FunctionDocs_TextGen();
+      case LanguageConceptSwitch.GetRandContext:
+        return new GetRandContext_TextGen();
       case LanguageConceptSwitch.GetReceiver:
         return new GetReceiver_TextGen();
       case LanguageConceptSwitch.Header:
@@ -79,6 +81,8 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new Random_TextGen();
       case LanguageConceptSwitch.ReleaseStruct:
         return new ReleaseStruct_TextGen();
+      case LanguageConceptSwitch.RngType:
+        return new RngType_TextGen();
       case LanguageConceptSwitch.RootSimM2M:
         return new RootSimM2M_TextGen();
       case LanguageConceptSwitch.RossM2M:

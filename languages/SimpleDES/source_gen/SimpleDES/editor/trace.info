@@ -16,7 +16,7 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/5351203823916750322:jetbrains.mps.baseLanguage.structure.TryUniversalStatement" />
   <root>
     <file name="EditorAspectDescriptorImpl.java">
-      <unit at="17,0,155,0" name="SimpleDES.editor.EditorAspectDescriptorImpl" />
+      <unit at="17,0,159,0" name="SimpleDES.editor.EditorAspectDescriptorImpl" />
     </file>
     <file name="EventDocs_SubstituteMenu.java">
       <unit at="61,0,64,0" name="SimpleDES.editor.EventDocs_SubstituteMenu$CONCEPTS" />
@@ -199,8 +199,8 @@
   </root>
   <root nodeRef="r:b9d4912c-8e8b-4f1b-b887-99265d0b4cdb(SimpleDES.editor)/1790084664611115753">
     <file name="EditorAspectDescriptorImpl.java">
-      <node id="1790084664611115753" at="116,44,117,62" concept="7" />
-      <scope id="1790084664611115753" at="116,44,117,62" />
+      <node id="1790084664611115753" at="120,44,121,62" concept="7" />
+      <scope id="1790084664611115753" at="120,44,121,62" />
     </file>
     <file name="HorizontalBar.java">
       <node id="1790084664611115753" at="15,47,16,35" concept="7" />
@@ -2331,8 +2331,8 @@
       <unit id="1790084664634376754" at="15,0,44,0" name="SimpleDES.editor.DESModelSpacer_ComponentBuilder_a" />
     </file>
     <file name="EditorAspectDescriptorImpl.java">
-      <node id="1790084664634376754" at="114,45,115,63" concept="7" />
-      <scope id="1790084664634376754" at="114,45,115,63" />
+      <node id="1790084664634376754" at="118,45,119,63" concept="7" />
+      <scope id="1790084664634376754" at="118,45,119,63" />
     </file>
   </root>
   <root nodeRef="r:b9d4912c-8e8b-4f1b-b887-99265d0b4cdb(SimpleDES.editor)/1888908346002612808">
@@ -2513,6 +2513,129 @@
       <unit id="1888908346002612808" at="83,42,91,5" name="SimpleDES.editor.InitTopology_EditorBuilder_a$1" />
       <unit id="1888908346002612827" at="109,0,152,0" name="SimpleDES.editor.InitTopology_EditorBuilder_a$Inline_Builder0" />
       <unit id="1888908346002612808" at="36,0,175,0" name="SimpleDES.editor.InitTopology_EditorBuilder_a" />
+    </file>
+  </root>
+  <root nodeRef="r:b9d4912c-8e8b-4f1b-b887-99265d0b4cdb(SimpleDES.editor)/2575222304967586467">
+    <file name="RngType_Editor.java">
+      <node id="2575222304967586467" at="11,79,12,73" concept="7" />
+      <node id="2575222304967586467" at="11,0,14,0" concept="4" trace="createEditorCell#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <scope id="2575222304967586467" at="11,79,12,73" />
+      <scope id="2575222304967586467" at="11,0,14,0">
+        <var name="editorContext" id="2575222304967586467" />
+        <var name="node" id="2575222304967586467" />
+      </scope>
+      <unit id="2575222304967586467" at="10,0,15,0" name="SimpleDES.editor.RngType_Editor" />
+    </file>
+    <file name="RngType_EditorBuilder_a.java">
+      <node id="2575222304967586467" at="16,87,17,19" concept="12" />
+      <node id="2575222304967586467" at="17,19,18,18" concept="1" />
+      <node id="2575222304967586467" at="23,26,24,18" concept="7" />
+      <node id="2575222304967586467" at="27,39,28,30" concept="7" />
+      <node id="2575222304967586469" at="31,41,32,100" concept="5" />
+      <node id="2575222304967586469" at="32,100,33,46" concept="1" />
+      <node id="2575222304967586469" at="33,46,34,28" concept="1" />
+      <node id="2575222304967586469" at="34,28,35,31" concept="1" />
+      <node id="2575222304967586469" at="35,31,36,34" concept="1" />
+      <node id="2575222304967586469" at="36,34,37,22" concept="7" />
+      <node id="2575222304967586467" at="13,0,15,0" concept="2" trace="myNode" />
+      <node id="2575222304967586467" at="27,0,30,0" concept="4" trace="createCell#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="2575222304967586467" at="16,0,20,0" concept="0" trace="RngType_EditorBuilder_a#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)V" />
+      <node id="2575222304967586467" at="21,0,26,0" concept="4" trace="getNode#()Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="2575222304967586469" at="31,0,39,0" concept="4" trace="createConstant_0#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <scope id="2575222304967586467" at="23,26,24,18" />
+      <scope id="2575222304967586467" at="27,39,28,30" />
+      <scope id="2575222304967586467" at="16,87,18,18" />
+      <scope id="2575222304967586467" at="27,0,30,0" />
+      <scope id="2575222304967586467" at="16,0,20,0">
+        <var name="context" id="2575222304967586467" />
+        <var name="node" id="2575222304967586467" />
+      </scope>
+      <scope id="2575222304967586467" at="21,0,26,0" />
+      <scope id="2575222304967586469" at="31,41,37,22">
+        <var name="editorCell" id="2575222304967586469" />
+      </scope>
+      <scope id="2575222304967586469" at="31,0,39,0" />
+      <unit id="2575222304967586467" at="12,0,40,0" name="SimpleDES.editor.RngType_EditorBuilder_a" />
+    </file>
+  </root>
+  <root nodeRef="r:b9d4912c-8e8b-4f1b-b887-99265d0b4cdb(SimpleDES.editor)/2575222304969090884">
+    <file name="GetRandContext_Editor.java">
+      <node id="2575222304969090884" at="11,79,12,80" concept="7" />
+      <node id="2575222304969090884" at="11,0,14,0" concept="4" trace="createEditorCell#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <scope id="2575222304969090884" at="11,79,12,80" />
+      <scope id="2575222304969090884" at="11,0,14,0">
+        <var name="editorContext" id="2575222304969090884" />
+        <var name="node" id="2575222304969090884" />
+      </scope>
+      <unit id="2575222304969090884" at="10,0,15,0" name="SimpleDES.editor.GetRandContext_Editor" />
+    </file>
+    <file name="GetRandContext_EditorBuilder_a.java">
+      <node id="2575222304969090884" at="21,94,22,19" concept="12" />
+      <node id="2575222304969090884" at="22,19,23,18" concept="1" />
+      <node id="2575222304969090884" at="28,26,29,18" concept="7" />
+      <node id="2575222304969090884" at="32,39,33,32" concept="7" />
+      <node id="2575222304969090884" at="36,43,37,118" concept="5" />
+      <node id="2575222304969090884" at="37,118,38,48" concept="1" />
+      <node id="2575222304969090884" at="38,48,39,28" concept="1" />
+      <node id="2575222304969090884" at="39,28,40,31" concept="1" />
+      <node id="2575222304969090892" at="40,31,41,49" concept="1" />
+      <node id="2575222304969090895" at="41,49,42,49" concept="1" />
+      <node id="2575222304969090898" at="42,49,43,49" concept="1" />
+      <node id="2575222304969090884" at="43,49,44,22" concept="7" />
+      <node id="2575222304969090892" at="46,41,47,107" concept="5" />
+      <node id="2575222304969090892" at="47,107,48,47" concept="1" />
+      <node id="2575222304969090892" at="48,47,49,34" concept="1" />
+      <node id="2575222304969090892" at="49,34,50,22" concept="7" />
+      <node id="2575222304969090895" at="52,41,53,94" concept="5" />
+      <node id="2575222304969090895" at="53,94,54,47" concept="1" />
+      <node id="2575222304969090895" at="54,47,55,34" concept="5" />
+      <node id="2575222304969090895" at="55,34,56,60" concept="1" />
+      <node id="2575222304969090895" at="56,60,57,40" concept="1" />
+      <node id="2575222304969090895" at="57,40,58,34" concept="1" />
+      <node id="2575222304969090895" at="58,34,59,22" concept="7" />
+      <node id="2575222304969090898" at="61,41,62,94" concept="5" />
+      <node id="2575222304969090898" at="62,94,63,47" concept="1" />
+      <node id="2575222304969090898" at="63,47,64,34" concept="5" />
+      <node id="2575222304969090898" at="64,34,65,60" concept="1" />
+      <node id="2575222304969090898" at="65,60,66,40" concept="1" />
+      <node id="2575222304969090898" at="66,40,67,34" concept="1" />
+      <node id="2575222304969090898" at="67,34,68,22" concept="7" />
+      <node id="2575222304969090884" at="18,0,20,0" concept="2" trace="myNode" />
+      <node id="2575222304969090884" at="32,0,35,0" concept="4" trace="createCell#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="2575222304969090884" at="21,0,25,0" concept="0" trace="GetRandContext_EditorBuilder_a#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)V" />
+      <node id="2575222304969090884" at="26,0,31,0" concept="4" trace="getNode#()Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="2575222304969090892" at="46,0,52,0" concept="4" trace="createConstant_0#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="2575222304969090895" at="52,0,61,0" concept="4" trace="createConstant_1#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="2575222304969090898" at="61,0,70,0" concept="4" trace="createConstant_2#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="2575222304969090884" at="36,0,46,0" concept="4" trace="createCollection_0#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <scope id="2575222304969090884" at="28,26,29,18" />
+      <scope id="2575222304969090884" at="32,39,33,32" />
+      <scope id="2575222304969090884" at="21,94,23,18" />
+      <scope id="2575222304969090884" at="32,0,35,0" />
+      <scope id="2575222304969090884" at="21,0,25,0">
+        <var name="context" id="2575222304969090884" />
+        <var name="node" id="2575222304969090884" />
+      </scope>
+      <scope id="2575222304969090892" at="46,41,50,22">
+        <var name="editorCell" id="2575222304969090892" />
+      </scope>
+      <scope id="2575222304969090884" at="26,0,31,0" />
+      <scope id="2575222304969090892" at="46,0,52,0" />
+      <scope id="2575222304969090895" at="52,41,59,22">
+        <var name="editorCell" id="2575222304969090895" />
+        <var name="style" id="2575222304969090895" />
+      </scope>
+      <scope id="2575222304969090898" at="61,41,68,22">
+        <var name="editorCell" id="2575222304969090898" />
+        <var name="style" id="2575222304969090898" />
+      </scope>
+      <scope id="2575222304969090884" at="36,43,44,22">
+        <var name="editorCell" id="2575222304969090884" />
+      </scope>
+      <scope id="2575222304969090895" at="52,0,61,0" />
+      <scope id="2575222304969090898" at="61,0,70,0" />
+      <scope id="2575222304969090884" at="36,0,46,0" />
+      <unit id="2575222304969090884" at="17,0,71,0" name="SimpleDES.editor.GetRandContext_EditorBuilder_a" />
     </file>
   </root>
   <root nodeRef="r:b9d4912c-8e8b-4f1b-b887-99265d0b4cdb(SimpleDES.editor)/2627485982916065611">

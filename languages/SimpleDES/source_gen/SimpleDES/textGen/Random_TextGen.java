@@ -25,7 +25,9 @@ public class Random_TextGen extends TextGenDescriptorBase {
     } else if ((SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.UseM2M$UU, false, false) != null)) {
       tgs.append("Random()");
     } else if ((SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.RossM2M$aQ, false, false) != null)) {
-      tgs.append("tw_rand_unif(lp->rng)");
+      tgs.append("tw_rand_unif(");
+      tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.ctx$bQr0));
+      tgs.append(")");
     }
     if (tgs.needPositions()) {
       tgs.fillPositionInfo(TraceableConcept__BehaviorDescriptor.getTraceableProperty_id4pl5GY7LKmH.invoke(SNodeOperations.cast(ctx.getPrimaryInput(), CONCEPTS.TraceableConcept$L)));

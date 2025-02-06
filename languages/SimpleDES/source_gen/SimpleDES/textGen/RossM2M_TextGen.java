@@ -156,15 +156,15 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     if (SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL).contains("pcs")) {
       tgs.append("typedef struct {\n    struct channel channel_pool[pcs_CHANNELS_PER_CELL];\n    struct sir_data_per_cell sir_data_pool[pcs_CHANNELS_PER_CELL];\n    bool channel_used[pcs_CHANNELS_PER_CELL];\n} channel_allocator_t;\n\nstatic channel_allocator_t **allocators;\n");
       tgs.newLine();
-      tgs.append("void init_allocators(uint32_t num) {\n    num_lps = num;\n    allocators = malloc(num * sizeof(channel_allocator_t *));\n    if(allocators == NULL) {\n        perror(\"Unable to initialize channel allocators\");\n        abort();\n    }\n    for (uint32_t i = 0; i < num; i++) {\n        allocators[i] = malloc(sizeof(channel_allocator_t));\n        if(allocators[i] == NULL) {\n            printf(\"Unable to initialize channel allocator %d\", i);\n            perror(\"\");\n            abort();\n        }\n        memset(allocators[i], 0, sizeof(channel_allocator_t));\n        for (int j = 0; j < pcs_CHANNELS_PER_CELL; j++) {\n            allocators[i]->channel_used[j] = false;\n        }\n    }\n}\n");
+      tgs.append("void init_allocators(uint32_t num) {\n    allocators = malloc(num * sizeof(channel_allocator_t *));\n    if(allocators == NULL) {\n        perror(\"Unable to initialize channel allocators\");\n        abort();\n    }\n    for (uint32_t i = 0; i < num; i++) {\n        allocators[i] = malloc(sizeof(channel_allocator_t));\n        if(allocators[i] == NULL) {\n            printf(\"Unable to initialize channel allocator %d\", i);\n            perror(\"\");\n            abort();\n        }\n        memset(allocators[i], 0, sizeof(channel_allocator_t));\n        for (int j = 0; j < pcs_CHANNELS_PER_CELL; j++) {\n            allocators[i]->channel_used[j] = false;\n        }\n    }\n}\n");
       tgs.newLine();
-      tgs.append("void destroy_allocators() {\n    for (uint32_t i = 0; i < num_lps; i++) {\n        free(allocators[i]);\n    }\n    free(allocators);\n}\n");
+      tgs.append("void destroy_allocators() {\n    for (uint32_t i = 0; i < total_lps; i++) {\n        free(allocators[i]);\n    }\n    free(allocators);\n}\n");
       tgs.newLine();
       tgs.append("struct channel *allocate_channel(lp_id_t lp, int32_t id) {\n    if (id < 0 || id >= pcs_CHANNELS_PER_CELL) return NULL;\n    channel_allocator_t *allocator = allocators[lp];\n    if (!allocator->channel_used[id]) {\n        allocator->channel_used[id] = true;\n        return &allocator->channel_pool[id];\n    }\n\n    printf(\"Could not allocate channel %d for lp %lu\", id, lp);\n    abort();\n}\n");
       tgs.newLine();
       tgs.append("struct sir_data_per_cell *allocate_sir_data(lp_id_t lp, int32_t id) {\n   channel_allocator_t *allocator = allocators[lp];\n   return &allocator->sir_data_pool[id];\n}\n");
       tgs.newLine();
-      tgs.append("void deallocate_channel(lp_id_t lp, struct channel *c) {\n\n    channel_allocator_t *allocator = allocators[lp];\n    int id = c->channel_id;\n    if (id >= 0 && id < pcs_CHANNELS_PER_CELL) {\n        allocator->channel_used[id] = false;\n#ifdef DEBUG\n        printf(\"deallocate_channel: Deallocated channel %d for lp %lu\n\", c->channel_id, lp);\n#endif\n    } else {\n        printf(\"LP %lu trying to deallocate an invalid channel %d.\", lp, c->channel_id);\n        abort();\n    }\n}\n");
+      tgs.append("void deallocate_channel(lp_id_t lp, struct channel *c) {\n\n    channel_allocator_t *allocator = allocators[lp];\n    int id = c->channel_id;\n    if (id >= 0 && id < pcs_CHANNELS_PER_CELL) {\n        allocator->channel_used[id] = false;\n#ifdef DEBUG\n        printf(\"deallocate_channel: Deallocated channel %d for lp %lu\", c->channel_id, lp);\n        puts(\"\");\n#endif\n    } else {\n        printf(\"LP %lu trying to deallocate an invalid channel %d.\", lp, c->channel_id);\n        abort();\n    }\n}\n");
       tgs.newLine();
       tgs.append("int32_t get_channel_id(lp_id_t lp, struct channel *c) {\n    channel_allocator_t *allocator = allocators[lp];\n    for (int i = 0; i < pcs_CHANNELS_PER_CELL; i++) {\n        if (&allocator->channel_pool[i] == c) {\n            return i;\n        }\n    }\n    return -1; // Not found\n}\n");
       tgs.newLine();
@@ -173,14 +173,16 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     }
 
     // custom mapping (LPs are evenly distributed among PEs, the leftovers are assigned to the first PE)
-    tgs.append("tw_peid custom_mapping_lp_to_pe(tw_lpid gid)\n{\n    tw_lpid ret;\n    unsigned min_num_lps_per_pe = total_lps / tw_nnodes();\n    unsigned extra_lps = total_lps % tw_nnodes();\n\n    if (gid < min_num_lps_per_pe + extra_lps)\n        ret = 0;\n    else\n        ret = (gid - extra_lps) / min_num_lps_per_pe;\n#ifdef DEBUG\n    printf(\"LP with GID %lu mapped on node %lu\n\", gid, ret);\n#endif\n\n    return ret;\n}\n");
+    tgs.append("tw_peid custom_mapping_lp_to_pe(tw_lpid gid)\n{\n    tw_lpid ret;\n    unsigned min_num_lps_per_pe = total_lps / tw_nnodes();\n    unsigned extra_lps = total_lps % tw_nnodes();\n\n    if (gid < min_num_lps_per_pe + extra_lps)\n        ret = 0;\n    else\n        ret = (gid - extra_lps) / min_num_lps_per_pe;\n#ifdef DEBUG\n    printf(\"LP with GID %lu mapped on node %lu\", gid, ret);\n    puts(\"\");\n#endif\n\n    return ret;\n}\n");
     tgs.newLine();
-    tgs.append("tw_lp *custom_mapping_lpgid_to_local(tw_lpid gid)\n{\n    tw_lpid ret;\n    unsigned min_num_lps_per_pe = total_lps / tw_nnodes();\n    unsigned extra_lps = total_lps % tw_nnodes();\n\n    if (gid < min_num_lps_per_pe + extra_lps) {\n        ret = gid;\n    } else {\n        ret = (gid - extra_lps) % min_num_lps_per_pe;\n    }\n\n#ifdef DEBUG\n    printf(\"[%lu] LP with GID %lu mapped on LID %lu\n\", g_tw_mynode, gid, ret);\n#endif\n\n    return g_tw_lp[ret];\n}\n");
+    tgs.append("tw_lp *custom_mapping_lpgid_to_local(tw_lpid gid)\n{\n    tw_lpid ret;\n    unsigned min_num_lps_per_pe = total_lps / tw_nnodes();\n    unsigned extra_lps = total_lps % tw_nnodes();\n\n    if (gid < min_num_lps_per_pe + extra_lps) {\n        ret = gid;\n    } else {\n        ret = (gid - extra_lps) % min_num_lps_per_pe;\n    }\n\n#ifdef DEBUG\n    printf(\"[%lu] LP with GID %lu mapped on LID %lu\", g_tw_mynode, gid, ret);\n    puts(\"\");\n#endif\n\n    return g_tw_lp[ret];\n}\n");
     tgs.newLine();
-    tgs.append("void custom_mapping_setup(void)\n{\n    int lpid;\n    unsigned long gid;\n\n    // set up KPs\n    for (int kpid = 0; kpid < g_tw_nkp; kpid++)\n        tw_kp_onpe(kpid, g_tw_pe);\n\n    // figure out how many LPs are on this PE\n    unsigned min_num_lps_per_pe = total_lps/tw_nnodes();\n    unsigned extra_lps = total_lps - (min_num_lps_per_pe * tw_nnodes());\n    unsigned lps_on_pe = min_num_lps_per_pe;\n    if (g_tw_mynode == 0) {\n        lps_on_pe += extra_lps;\n    }\n\n    // set up the LPs\n    for (lpid = 0; lpid < lps_on_pe; lpid++) {\n\n        gid = g_tw_mynode * min_num_lps_per_pe + lpid + extra_lps * (g_tw_mynode != 0);\n#ifdef DEBUG\n        printf(\"[%lu] Setting up mapping: LP %d to GID %lu\n\", g_tw_mynode, lpid, gid);\n#endif\n        // map LP to KP\n        tw_lp_onpe(lpid, g_tw_pe, gid);\n        tw_lp_onkp(g_tw_lp[lpid], g_tw_kp[lpid % g_tw_nkp]);\n    }\n}\n");
+    tgs.append("void custom_mapping_setup(void)\n{\n    int lpid;\n    unsigned long gid;\n\n    // set up KPs\n    for (int kpid = 0; kpid < g_tw_nkp; kpid++)\n        tw_kp_onpe(kpid, g_tw_pe);\n\n    // figure out how many LPs are on this PE\n    unsigned min_num_lps_per_pe = total_lps/tw_nnodes();\n    unsigned extra_lps = total_lps - (min_num_lps_per_pe * tw_nnodes());\n    unsigned lps_on_pe = min_num_lps_per_pe;\n    if (g_tw_mynode == 0) {\n        lps_on_pe += extra_lps;\n    }\n\n    // set up the LPs\n    for (lpid = 0; lpid < lps_on_pe; lpid++) {\n\n        gid = g_tw_mynode * min_num_lps_per_pe + lpid + extra_lps * (g_tw_mynode != 0);\n#ifdef DEBUG\n        printf(\"[%lu] Setting up mapping: LP %d to GID %lu\", g_tw_mynode, lpid, gid);\n        puts(\"\");\n#endif\n        // map LP to KP\n        tw_lp_onpe(lpid, g_tw_pe, gid);\n        tw_lp_onkp(g_tw_lp[lpid], g_tw_kp[lpid % g_tw_nkp]);\n    }\n}\n");
     tgs.newLine();
 
     // external functions definition
+
+    boolean containsContext;
     for (SNode function : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.externalFunctions$LqEg), CONCEPTS.ExternalFunction$U_))) {
       //  if the function uses an API from the rand library, add a tw_lp *lp parameter to its signature
       if (ListSequence.fromList(SNodeOperations.getNodeDescendants(function, CONCEPTS.Expent$Yu, false, new SAbstractConcept[]{})).isNotEmpty() || ListSequence.fromList(SNodeOperations.getNodeDescendants(function, CONCEPTS.Random$XZ, false, new SAbstractConcept[]{})).isNotEmpty()) {
@@ -188,12 +190,23 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
         tgs.append(" ");
         tgs.append(SPropertyOperations.getString(function, PROPS.name$MnvL));
         tgs.append("(");
+        containsContext = false;
         for (SNode arg : ListSequence.fromList(SLinkOperations.getChildren(function, LINKS.arguments$6da0))) {
+          if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(arg, LINKS.type$sXU3), CONCEPTS.RngType$1E)) {
+            containsContext = true;
+          }
           tgs.appendNode(arg);
-          tgs.append(", ");
+          if (SNodeOperations.getIndexInParent(arg) == ListSequence.fromList(SLinkOperations.getChildren(function, LINKS.arguments$6da0)).count() - 1 && containsContext) {
+            tgs.append(")");
+            tgs.newLine();
+          } else {
+            tgs.append(", ");
+          }
         }
-        tgs.append("tw_lp *lp)");
-        tgs.newLine();
+        if (!(containsContext)) {
+          tgs.append("tw_lp *lp)");
+          tgs.newLine();
+        }
         tgs.appendNode(SLinkOperations.getTarget(function, LINKS.body$1GE0));
         tgs.newLine();
       } else {
@@ -211,7 +224,8 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
 
     // allocation_by_index (PCS)
     if (SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL).contains("pcs")) {
-      tgs.append("static void allocation_by_index(struct lp_state_type *pointer, int index)\n{\n  double summ;\n\n  pcs_SET_CHANNEL(pointer, index);\n\n  struct channel *c = (struct channel *)malloc(sizeof(struct channel));\n  if (c == NULL) {\n    printf(\"malloc error: unable to allocate memory!\");\n    puts(\"\");\n    exit(-1);\n  }\n  ;\n  c->channel_id = index;\n  c->sir_data = (struct sir_data_per_cell *)malloc(sizeof(struct sir_data_per_cell));\n  if (c->sir_data == NULL) {\n    printf(\"malloc error: unable to allocate memory!\");\n    puts(\"\");\n    exit(-1);\n  }\n  ;\n  list_insert_tail(pointer->channels, c);\n\n\n  summ = 0.0;\n\n  __typeof(list_head(pointer->channels)) ch = list_head(pointer->channels);\n  while(ch != NULL) {\n    ch->sir_data->fading = Expent(pointer->ctx, 1.0);\n    summ += pcs_generate_cross_path_gain(pointer->ctx) * ch->sir_data->power * ch->sir_data->fading;\n    ch = list_next(ch);\n  }\n\n\n  if (fabsf(summ) < pcs_FLT_EPSILON)\n  {\n    c->sir_data->power = pcs_MIN_POWER;\n  }\n  else\n  {\n    c->sir_data->fading = Expent(pointer->ctx, 1.0);\n    c->sir_data->power = ((pcs_SIR_AIM * summ) / (pcs_generate_path_gain(pointer->ctx) * c->sir_data->fading));\n    if (c->sir_data->power < pcs_MIN_POWER)\n    {\n      c->sir_data->power = pcs_MIN_POWER;\n    }\n    if (c->sir_data->power > pcs_MAX_POWER)\n    {\n      c->sir_data->power = pcs_MAX_POWER;\n    }\n  }\n}");
+      tgs.append("static void allocation_by_index(struct lp_state_type *pointer, int index, tw_lp *lp)\n{\n    double summ;\n\n    pcs_SET_CHANNEL(pointer, index);\n\n    struct channel *c = allocate_channel(custom_mapping_lpgid_to_local(pointer->me)->id, index);\n    list_insert_tail(pointer->channels, c);\n\n\n    summ = 0.0;\n\n    __typeof(list_head(pointer->channels)) ch = list_head(pointer->channels);\n    while(ch != NULL) {\n        ch->sir_data->fading = tw_rand_exponential(lp->rng, 1.0);\n        summ += generate_cross_path_gain(lp->rng) * ch->sir_data->power * ch->sir_data->fading;\n        ch = list_next(ch);\n    }\n\n    assert(c != NULL);\n\n    if (fabs(summ) < DBL_EPSILON)\n    {\n        c->sir_data->power = pcs_MIN_POWER;\n    }\n    else\n    {\n        c->sir_data->fading = tw_rand_exponential(lp->rng, 1.0);\n        c->sir_data->power = ((pcs_SIR_AIM * summ) / (generate_path_gain(lp->rng) * c->sir_data->fading));\n        if (c->sir_data->power < pcs_MIN_POWER)\n        {\n            c->sir_data->power = pcs_MIN_POWER;\n        }\n        if (c->sir_data->power > pcs_MAX_POWER)\n        {\n            c->sir_data->power = pcs_MAX_POWER;\n        }\n    }\n}\n");
+      tgs.newLine();
       tgs.newLine();
       tgs.newLine();
     }
@@ -219,42 +233,10 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     // restore state function
     // todo the following function is (vergognosamente) application-specific
     if (SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL).contains("pcs")) {
-      tgs.append("void RESTORE_STATE(struct lp_state_type *state, const struct checkpoint *contents)");
-      tgs.newLine();
-      tgs.append("{");
-      tgs.newLine();
-      ctx.getBuffer().area().increaseIndent();
-      tgs.indent();
-      tgs.append("*state = contents->state;");
-      tgs.newLine();
-      tgs.indent();
-      tgs.append("if (contents->channel_to_reallocate != -1)");
-      tgs.newLine();
-      tgs.indent();
-      tgs.indent();
-      tgs.append("allocation_by_index(state, contents->channel_to_reallocate);");
-      tgs.newLine();
-      tgs.indent();
-      tgs.append("if (contents->channel_to_free != -1)");
-      tgs.newLine();
-      tgs.indent();
-      tgs.indent();
-      tgs.append("pcs_deallocation(state->me, state, contents->channel_to_free, 0);");
-      tgs.newLine();
-      ctx.getBuffer().area().decreaseIndent();
-      tgs.append("}");
+      tgs.append("void RESTORE_STATE(struct lp_state_type *state, struct event_content_type *msg, tw_lp *lp)\n{\n    struct checkpoint *cp = &msg->cp;\n    *state = cp->state;\n\n    if (cp->channel_to_reallocate != -1) {\n        allocation_by_index(state, cp->channel_to_reallocate, lp);\n    }\n    if (cp->channel_to_free != -1) {\n\n        __typeof(list_head(state->channels)) ch = list_head(state->channels);\n        while(ch != NULL) {\n            tw_rand_reverse_unif(lp->rng);\n            ch = list_next(ch);\n        }\n\n        deallocation(state->me, state, cp->channel_to_free, 0);\n\n        double summ = 0.0;\n\n        ch = list_head(state->channels);\n        while(ch != NULL) {\n            ch->sir_data->fading = tw_rand_exponential(lp->rng, 1.0);\n            summ += generate_cross_path_gain(lp->rng) * ch->sir_data->power * ch->sir_data->fading;\n            ch = list_next(ch);\n        }\n\n        ch = list_head(state->channels);\n        while (ch != NULL) {\n            if (fabs(summ) < DBL_EPSILON)\n            {\n                ch->sir_data->power = pcs_MIN_POWER;\n            }\n            else\n            {\n                ch->sir_data->fading = tw_rand_exponential(lp->rng, 1.0);\n                ch->sir_data->power = ((pcs_SIR_AIM * summ) / (generate_path_gain(lp->rng) * ch->sir_data->fading));\n                if (ch->sir_data->power < pcs_MIN_POWER)\n                {\n                    ch->sir_data->power = pcs_MIN_POWER;\n                }\n                if (ch->sir_data->power > pcs_MAX_POWER)\n                {\n                    ch->sir_data->power = pcs_MAX_POWER;\n                }\n            }\n\n            ch = list_next(ch);\n        }\n    }\n\n\n    switch (msg->event_type) {\n        case event_START_CALL:\n            tw_rand_reverse_unif(lp->rng);\n            /* fall through */\n        case event_HANDOFF_RECV:\n            tw_rand_reverse_unif(lp->rng);\n            break;\n        case event_END_CALL:\n        case event_LP_INIT:\n        case event_HANDOFF_LEAVE:\n            break;\n        case event_FADING_RECHECK: {\n            __typeof(list_head(state->channels)) ch = list_head(state->channels);\n            while(ch != NULL) {\n                tw_rand_reverse_unif(lp->rng);\n                ch = list_next(ch);\n            }\n            break;\n        }\n    }\n\n}");
       tgs.newLine();
     } else if (SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL).contains("phold")) {
-      tgs.append("void RESTORE_STATE(struct phold_state *state, const struct checkpoint *contents)");
-      tgs.newLine();
-      tgs.append("{");
-      tgs.newLine();
-      ctx.getBuffer().area().increaseIndent();
-      tgs.indent();
-      tgs.append("*state = contents->state;");
-      tgs.newLine();
-      ctx.getBuffer().area().decreaseIndent();
-      tgs.append("}");
+      tgs.append("void RESTORE_STATE(struct phold_state *state, struct phold_message *msg, tw_lp *lp)\n{\n    struct checkpoint *cp = &msg->cp;\n    *state = cp->state;\n\n    if (msg->event_type == event_EVENT) {\n\ttw_rand_reverse_unif(lp->rng);\n    }\n}\n");
       tgs.newLine();
     }
 
@@ -438,20 +420,6 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     tgs.newLine();
     tgs.newLine();
 
-    // lpTypeMapper function
-    tgs.append("tw_lpid custom_mapping_lp_to_pe(tw_lpid gid)");
-    tgs.newLine();
-    tgs.append("{");
-    tgs.newLine();
-    ctx.getBuffer().area().increaseIndent();
-    tgs.indent();
-    tgs.append("return (tw_peid) gid / g_tw_nlp;");
-    tgs.newLine();
-    ctx.getBuffer().area().decreaseIndent();
-    tgs.append("}");
-    tgs.newLine();
-    tgs.newLine();
-
     // reverse handler
     if (SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL).contains("pcs")) {
       tgs.append("void reverse(struct lp_state_type * s, tw_bf * bf, struct event_content_type *msg, tw_lp * lp)");
@@ -464,10 +432,14 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     tgs.newLine();
     ctx.getBuffer().area().increaseIndent();
     tgs.indent();
-    tgs.append("RESTORE_STATE(s, &msg->cp);");
+    tgs.append("fflush(stdout);");
+    tgs.newLine();
+    tgs.indent();
+    tgs.append("RESTORE_STATE(s, msg, lp);");
     tgs.newLine();
     ctx.getBuffer().area().decreaseIndent();
     tgs.append("}");
+    tgs.newLine();
     tgs.newLine();
 
     // model_lps array
@@ -509,9 +481,8 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
       tgs.append(SPropertyOperations.getString(c, PROPS.name$MnvL));
       tgs.append("_final,");
       tgs.newLine();
-      // use LINEAR or ROUND-ROBIN mapping
       tgs.indent();
-      tgs.append("(map_f) NULL,");
+      tgs.append("(map_f) custom_mapping_lp_to_pe,");
       tgs.newLine();
       tgs.indent();
       tgs.append("sizeof(");
@@ -561,6 +532,22 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     StartupCode.startupCode(ctx.getPrimaryInput(), ctx);
 
     tgs.indent();
+    tgs.append("g_tw_ts_end = 50000.0;");
+    tgs.newLine();
+    tgs.newLine();
+
+    tgs.indent();
+    tgs.append("g_tw_mapping = CUSTOM;");
+    tgs.newLine();
+    tgs.indent();
+    tgs.append("g_tw_custom_initial_mapping = &custom_mapping_setup;");
+    tgs.newLine();
+    tgs.indent();
+    tgs.append("g_tw_custom_lp_global_to_local_map = &custom_mapping_lpgid_to_local;");
+    tgs.newLine();
+    tgs.newLine();
+
+    tgs.indent();
     tgs.append("// define the number of LPs per PE");
     tgs.newLine();
     tgs.indent();
@@ -572,15 +559,12 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     tgs.append("unsigned int custom_lps_per_pe = g_tw_nlp/tw_nnodes();");
     tgs.newLine();
     tgs.indent();
-    tgs.append("unsigned int leftover_lps = g_tw_lps % tw_nnodes();");
+    tgs.append("unsigned int leftover_lps = g_tw_nlp % tw_nnodes();");
     tgs.newLine();
     tgs.newLine();
 
     tgs.indent();
     tgs.append("if(g_tw_mynode == 0)\n          custom_lps_per_pe += leftover_lps;\n");
-
-    tgs.indent();
-    tgs.append("g_tw_mapping = LINEAR;");
     tgs.newLine();
 
     tgs.indent();
@@ -601,6 +585,12 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     tgs.newLine();
     tgs.newLine();
 
+    if (SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL).contains("pcs")) {
+      tgs.indent();
+      tgs.append("init_allocators(g_tw_nlp);");
+      tgs.newLine();
+    }
+
     tgs.indent();
     tgs.append("tw_run();");
     tgs.newLine();
@@ -608,6 +598,13 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     tgs.append("tw_end();");
     tgs.newLine();
     tgs.newLine();
+
+    if (SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL).contains("pcs")) {
+      tgs.indent();
+      tgs.append("destroy_allocators();");
+      tgs.newLine();
+      tgs.newLine();
+    }
 
     tgs.indent();
     tgs.append("return 0;");
@@ -658,6 +655,7 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     /*package*/ static final SConcept EventDefinition$wO = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2e66f9a613f69c80L, "SimpleDES.structure.EventDefinition");
     /*package*/ static final SConcept ProcessArray$Ux = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6486788L, "SimpleDES.structure.ProcessArray");
     /*package*/ static final SConcept ProcessAllocation$5Z = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6393783L, "SimpleDES.structure.ProcessAllocation");
+    /*package*/ static final SConcept RngType$1E = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x23bd070ad14172a2L, "SimpleDES.structure.RngType");
     /*package*/ static final SConcept Random$XZ = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2476b4949807b946L, "SimpleDES.structure.Random");
     /*package*/ static final SConcept Expent$Yu = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2476b4949807b947L, "SimpleDES.structure.Expent");
     /*package*/ static final SConcept ExternalFunction$U_ = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228bL, "SimpleDES.structure.ExternalFunction");

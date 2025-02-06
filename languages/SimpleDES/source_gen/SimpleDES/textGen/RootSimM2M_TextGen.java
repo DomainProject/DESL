@@ -32,6 +32,9 @@ public class RootSimM2M_TextGen extends TextGenDescriptorBase {
     tgs.append("#include <ROOT-Sim.h>");
     tgs.newLine();
     ListSequence.fromList(headers).addElement("ROOT-Sim");
+    tgs.append("#include <ROOT-Sim/random.h>");
+    tgs.newLine();
+    ListSequence.fromList(headers).addElement("ROOT-Sim/random");
     tgs.append("#include <math.h>");
     tgs.newLine();
     ListSequence.fromList(headers).addElement("math");

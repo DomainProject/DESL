@@ -172,6 +172,11 @@ public class QueriesGenerated extends QueryProviderBase {
     for (SNode function : ListSequence.fromList(SModelOperations.nodes(_context.getModel(), CONCEPTS.ExternalFunctionPrototype$V4))) {
       SPropertyOperations.assign(SLinkOperations.getTarget(function, LINKS.prototype$lY0a), PROPS.preventNameMangling$DOH5, true);
     }
+
+    for (SNode function : ListSequence.fromList(SModelOperations.nodes(_context.getModel(), CONCEPTS.ExternalFunction$U_))) {
+      SPropertyOperations.assign(function, PROPS.preventNameMangling$DOH5, true);
+    }
+
     for (SNode type : ListSequence.fromList(SModelOperations.nodes(_context.getModel(), CONCEPTS.TypeDefinition$Jr))) {
       SPropertyOperations.assign(type, PROPS.preventNameMangling$DOH5, true);
     }
@@ -446,6 +451,7 @@ public class QueriesGenerated extends QueryProviderBase {
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept ExternalFunctionPrototype$V4 = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228cL, "SimpleDES.structure.ExternalFunctionPrototype");
+    /*package*/ static final SConcept ExternalFunction$U_ = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228bL, "SimpleDES.structure.ExternalFunction");
     /*package*/ static final SConcept TypeDefinition$Jr = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4ba181fb0873ae26L, "SimpleDES.structure.TypeDefinition");
     /*package*/ static final SConcept StructDeclaration$ox = MetaAdapterFactory.getConcept(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x58bef62304fc0a2fL, "com.mbeddr.core.udt.structure.StructDeclaration");
     /*package*/ static final SConcept GlobalVarDecl$PV = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4ba181fb0880155eL, "SimpleDES.structure.GlobalVarDecl");

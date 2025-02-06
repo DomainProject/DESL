@@ -26,6 +26,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_ExternalMacro;
   private ConceptPresentation props_ExternalStructDefinition;
   private ConceptPresentation props_FunctionDocs;
+  private ConceptPresentation props_GetRandContext;
   private ConceptPresentation props_GetReceiver;
   private ConceptPresentation props_GlobalVarDecl;
   private ConceptPresentation props_Header;
@@ -60,6 +61,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_ProcessSequence;
   private ConceptPresentation props_Random;
   private ConceptPresentation props_ReleaseStruct;
+  private ConceptPresentation props_RngType;
   private ConceptPresentation props_RootSimM2M;
   private ConceptPresentation props_RossM2M;
   private ConceptPresentation props_SendEvent;
@@ -197,6 +199,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_FunctionDocs = cpb.create();
         }
         return props_FunctionDocs;
+      case LanguageConceptSwitch.GetRandContext:
+        if (props_GetRandContext == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("GetRandContext");
+          props_GetRandContext = cpb.create();
+        }
+        return props_GetRandContext;
       case LanguageConceptSwitch.GetReceiver:
         if (props_GetReceiver == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -422,6 +431,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_ReleaseStruct = cpb.create();
         }
         return props_ReleaseStruct;
+      case LanguageConceptSwitch.RngType:
+        if (props_RngType == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("RngType");
+          props_RngType = cpb.create();
+        }
+        return props_RngType;
       case LanguageConceptSwitch.RootSimM2M:
         if (props_RootSimM2M == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

@@ -29,7 +29,9 @@ public class Expent_TextGen extends TextGenDescriptorBase {
       tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.mean$hrJN));
       tgs.append(")");
     } else if ((SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.RossM2M$aQ, false, false) != null)) {
-      tgs.append("tw_rand_exponential(lp->rng, ");
+      tgs.append("tw_rand_exponential(");
+      tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.ctx$bOzn));
+      tgs.append(", ");
       tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.mean$hrJN));
       tgs.append(")");
     }

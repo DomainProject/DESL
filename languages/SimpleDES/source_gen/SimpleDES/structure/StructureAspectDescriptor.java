@@ -33,6 +33,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptExternalMacro = createDescriptorForExternalMacro();
   /*package*/ final ConceptDescriptor myConceptExternalStructDefinition = createDescriptorForExternalStructDefinition();
   /*package*/ final ConceptDescriptor myConceptFunctionDocs = createDescriptorForFunctionDocs();
+  /*package*/ final ConceptDescriptor myConceptGetRandContext = createDescriptorForGetRandContext();
   /*package*/ final ConceptDescriptor myConceptGetReceiver = createDescriptorForGetReceiver();
   /*package*/ final ConceptDescriptor myConceptGlobalVarDecl = createDescriptorForGlobalVarDecl();
   /*package*/ final ConceptDescriptor myConceptHeader = createDescriptorForHeader();
@@ -67,6 +68,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptProcessSequence = createDescriptorForProcessSequence();
   /*package*/ final ConceptDescriptor myConceptRandom = createDescriptorForRandom();
   /*package*/ final ConceptDescriptor myConceptReleaseStruct = createDescriptorForReleaseStruct();
+  /*package*/ final ConceptDescriptor myConceptRngType = createDescriptorForRngType();
   /*package*/ final ConceptDescriptor myConceptRootSimM2M = createDescriptorForRootSimM2M();
   /*package*/ final ConceptDescriptor myConceptRossM2M = createDescriptorForRossM2M();
   /*package*/ final ConceptDescriptor myConceptSendEvent = createDescriptorForSendEvent();
@@ -105,7 +107,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptClassDefinition, myConceptCreateArray, myConceptDESModel, myConceptDocsEntry, myConceptDocsM2M, myConceptEmptyLine, myConceptEventDefinition, myConceptEventDocs, myConceptEventHandler, myConceptEventHandlerDocs, myConceptEventType, myConceptExpent, myConceptExternalFunction, myConceptExternalFunctionPrototype, myConceptExternalMacro, myConceptExternalStructDefinition, myConceptFunctionDocs, myConceptGetReceiver, myConceptGlobalVarDecl, myConceptHeader, myConceptIClassDefinition, myConceptIDocs, myConceptIDocsElement, myConceptIEventDefinition, myConceptIExternalFunction, myConceptIFiller, myConceptIGlobalVarDecl, myConceptIHandler, myConceptIMacro, myConceptIProcessAllocation, myConceptIProcessList, myConceptIStartupFunction, myConceptIStructDefinition, myConceptITerminationFunction, myConceptIText, myConceptITypeDefinition, myConceptInitRandomContext, myConceptInitTopology, myConceptInitializeState, myConceptItem, myConceptItemList, myConceptMacroFunction, myConceptMacroVariable, myConceptNewStruct, myConceptParameterDocs, myConceptPlainText, myConceptProcessAllocation, myConceptProcessArray, myConceptProcessSequence, myConceptRandom, myConceptReleaseStruct, myConceptRootSimM2M, myConceptRossM2M, myConceptSendEvent, myConceptStartupFunction, myConceptStartupHandler, myConceptStructDefinition, myConceptStructDocs, myConceptStructMemberDocs, myConceptTerminationFunction, myConceptTypeDefinition, myConceptUseM2M);
+    return Arrays.asList(myConceptClassDefinition, myConceptCreateArray, myConceptDESModel, myConceptDocsEntry, myConceptDocsM2M, myConceptEmptyLine, myConceptEventDefinition, myConceptEventDocs, myConceptEventHandler, myConceptEventHandlerDocs, myConceptEventType, myConceptExpent, myConceptExternalFunction, myConceptExternalFunctionPrototype, myConceptExternalMacro, myConceptExternalStructDefinition, myConceptFunctionDocs, myConceptGetRandContext, myConceptGetReceiver, myConceptGlobalVarDecl, myConceptHeader, myConceptIClassDefinition, myConceptIDocs, myConceptIDocsElement, myConceptIEventDefinition, myConceptIExternalFunction, myConceptIFiller, myConceptIGlobalVarDecl, myConceptIHandler, myConceptIMacro, myConceptIProcessAllocation, myConceptIProcessList, myConceptIStartupFunction, myConceptIStructDefinition, myConceptITerminationFunction, myConceptIText, myConceptITypeDefinition, myConceptInitRandomContext, myConceptInitTopology, myConceptInitializeState, myConceptItem, myConceptItemList, myConceptMacroFunction, myConceptMacroVariable, myConceptNewStruct, myConceptParameterDocs, myConceptPlainText, myConceptProcessAllocation, myConceptProcessArray, myConceptProcessSequence, myConceptRandom, myConceptReleaseStruct, myConceptRngType, myConceptRootSimM2M, myConceptRossM2M, myConceptSendEvent, myConceptStartupFunction, myConceptStartupHandler, myConceptStructDefinition, myConceptStructDocs, myConceptStructMemberDocs, myConceptTerminationFunction, myConceptTypeDefinition, myConceptUseM2M);
   }
 
   @Override
@@ -146,6 +148,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptExternalStructDefinition;
       case LanguageConceptSwitch.FunctionDocs:
         return myConceptFunctionDocs;
+      case LanguageConceptSwitch.GetRandContext:
+        return myConceptGetRandContext;
       case LanguageConceptSwitch.GetReceiver:
         return myConceptGetReceiver;
       case LanguageConceptSwitch.GlobalVarDecl:
@@ -214,6 +218,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptRandom;
       case LanguageConceptSwitch.ReleaseStruct:
         return myConceptReleaseStruct;
+      case LanguageConceptSwitch.RngType:
+        return myConceptRngType;
       case LanguageConceptSwitch.RootSimM2M:
         return myConceptRootSimM2M;
       case LanguageConceptSwitch.RossM2M:
@@ -437,6 +443,15 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.aggregate("returnType", 0x302e780ea4ef54dcL).target(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba36L).optional(true).ordered(true).multiple(false).origin("3471844367041254620").done();
     return b.create();
   }
+  private static ConceptDescriptor createDescriptorForGetRandContext() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("SimpleDES", "GetRandContext", 0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x23bd070ad1586743L);
+    b.class_(false, false, false);
+    // extends: com.mbeddr.core.expressions.structure.Expression
+    b.super_(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba32L);
+    b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(SimpleDES.structure)/2575222304969090883");
+    b.version(3);
+    return b.create();
+  }
   private static ConceptDescriptor createDescriptorForGetReceiver() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("SimpleDES", "GetReceiver", 0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2476b4949a0e59c3L);
     b.class_(false, false, false);
@@ -599,7 +614,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.super_(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad6d03L);
     b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(SimpleDES.structure)/2627485982922773659");
     b.version(3);
-    b.aggregate("stateContext", 0x2476b494986e171cL).target(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x401df715da462c0cL).optional(false).ordered(true).multiple(false).origin("2627485982922774300").done();
+    b.aggregate("stateContext", 0x2476b494986e171cL).target(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba32L).optional(false).ordered(true).multiple(false).origin("2627485982922774300").done();
     b.alias("InitRandomContext");
     return b.create();
   }
@@ -743,6 +758,15 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.version(3);
     b.associate("struct", 0x9e7f826fe6178fbL).target(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x1c69b376a2f94e75L).optional(false).origin("713811912321759483").done();
     b.alias("ReleaseStruct");
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForRngType() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("SimpleDES", "RngType", 0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x23bd070ad14172a2L);
+    b.class_(false, false, false);
+    // extends: com.mbeddr.core.expressions.structure.Type
+    b.super_(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba36L);
+    b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(SimpleDES.structure)/2575222304967586466");
+    b.version(3);
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForRootSimM2M() {
