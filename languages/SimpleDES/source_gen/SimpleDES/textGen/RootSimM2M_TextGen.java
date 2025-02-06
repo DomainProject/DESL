@@ -40,12 +40,13 @@ public class RootSimM2M_TextGen extends TextGenDescriptorBase {
     // events
     tgs.append("/* EVENT TYPES */");
     tgs.newLine();
+    int i = 0;
     for (SNode event : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.events$uflG), CONCEPTS.EventDefinition$wO))) {
       if (SPropertyOperations.getString(SLinkOperations.getTarget(event, LINKS.eventType$MGmZ), PROPS.name$MnvL) != "INIT" && SPropertyOperations.getString(SLinkOperations.getTarget(event, LINKS.eventType$MGmZ), PROPS.name$MnvL) != "LP_INIT" && SPropertyOperations.getString(SLinkOperations.getTarget(event, LINKS.eventType$MGmZ), PROPS.name$MnvL) != "FINI" && SPropertyOperations.getString(SLinkOperations.getTarget(event, LINKS.eventType$MGmZ), PROPS.name$MnvL) != "LP_FINI") {
         tgs.append("#define ");
         tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(event, LINKS.eventType$MGmZ), PROPS.name$MnvL));
         tgs.append(" ");
-        tgs.append(String.valueOf(1 + SNodeOperations.getIndexInParent(event)));
+        tgs.append(String.valueOf(++i));
         tgs.newLine();
       }
     }
@@ -75,6 +76,12 @@ public class RootSimM2M_TextGen extends TextGenDescriptorBase {
 
     // external functions definition
     ExternalFunctions.externalFunctions(ctx.getPrimaryInput(), ctx);
+
+    // busy loop
+    if (SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL).contains("phold")) {
+      tgs.append("void __attribute__ ((noinline)) busy_loop(unsigned long long max) {\n    for (unsigned long long i = 0; i < max; i++) {\n        __asm__ volatile(\"pause\" : \"+g\" (i) : :);\n    }\n}\n");
+      tgs.newLine();
+    }
 
     // ProcessEvent for each class
     for (SNode c : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.classes$SNAM), CONCEPTS.ClassDefinition$NR))) {

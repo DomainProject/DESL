@@ -5,13 +5,13 @@ package SimpleDES.textGen;
 import jetbrains.mps.text.rt.TextGenDescriptorBase;
 import jetbrains.mps.text.rt.TextGenContext;
 import jetbrains.mps.text.impl.TextGenSupport;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.Objects;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.traceable.behavior.TraceableConcept__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
@@ -24,6 +24,50 @@ public class NewStruct_TextGen extends TextGenDescriptorBase {
   public void generateText(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     tgs.createPositionInfo();
+
+    if ((SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.RossM2M$aQ, false, false) != null) && SPropertyOperations.getString(SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.DESModel$DK, false, false), PROPS.name$MnvL).contains("pcs")) {
+
+      {
+        final SNode lvd = SNodeOperations.getParent(ctx.getPrimaryInput());
+        if (SNodeOperations.isInstanceOf(lvd, CONCEPTS.LocalVariableDeclaration$ft)) {
+          {
+            final SNode ptrType = SLinkOperations.getTarget(lvd, LINKS.type$sXU3);
+            if (SNodeOperations.isInstanceOf(ptrType, CONCEPTS.PointerType$HX)) {
+              {
+                final SNode structType = SLinkOperations.getTarget(ptrType, LINKS.baseType$zMGV);
+                if (SNodeOperations.isInstanceOf(structType, CONCEPTS.StructType$B3)) {
+                  if (SPropertyOperations.getString(SLinkOperations.getTarget(structType, LINKS.struct$WCsg), PROPS.name$MnvL) == "channel") {
+                    tgs.append("allocate_channel(custom_mapping_lpgid_to_local(pointer->me)->id, index)");
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      {
+        final SNode assignmentExpr = SNodeOperations.getParent(ctx.getPrimaryInput());
+        if (SNodeOperations.isInstanceOf(assignmentExpr, CONCEPTS.AssignmentExpr$mZ)) {
+          {
+            final SNode dotExpression = SLinkOperations.getTarget(assignmentExpr, LINKS.left$SkXz);
+            if (SNodeOperations.isInstanceOf(dotExpression, CONCEPTS.GenericDotExpression$uQ)) {
+              {
+                final SNode member = SLinkOperations.getTarget(dotExpression, LINKS.target$CEPF);
+                if (SNodeOperations.isInstanceOf(member, CONCEPTS.GenericMemberRef$bk)) {
+                  if (SPropertyOperations.getString(SLinkOperations.getTarget(member, LINKS.member$wUNL), PROPS.name$MnvL) == "sir_data") {
+                    tgs.append("allocate_sir_data(custom_mapping_lpgid_to_local(pointer->me)->id, index)");
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      return;
+    }
+
     SNode structType = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x58bef62304fc0a38L, "com.mbeddr.core.udt.structure.StructType"));
     {
       final SNode localVariableDeclaration = SNodeOperations.getParent(ctx.getPrimaryInput());
@@ -100,17 +144,20 @@ public class NewStruct_TextGen extends TextGenDescriptorBase {
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept LocalVariableDeclaration$ft = MetaAdapterFactory.getConcept(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad96e6L, "com.mbeddr.core.statements.structure.LocalVariableDeclaration");
-    /*package*/ static final SConcept StructType$B3 = MetaAdapterFactory.getConcept(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x58bef62304fc0a38L, "com.mbeddr.core.udt.structure.StructType");
     /*package*/ static final SConcept PointerType$HX = MetaAdapterFactory.getConcept(0x3bf5377ae9044dedL, 0x97545a516023bfaaL, 0x3e0cae5e366d630L, "com.mbeddr.core.pointers.structure.PointerType");
+    /*package*/ static final SConcept StructType$B3 = MetaAdapterFactory.getConcept(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x58bef62304fc0a38L, "com.mbeddr.core.udt.structure.StructType");
     /*package*/ static final SConcept AssignmentExpr$mZ = MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x4e85add925440dL, "com.mbeddr.core.expressions.structure.AssignmentExpr");
     /*package*/ static final SConcept GenericDotExpression$uQ = MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x401df715da462c0cL, "com.mbeddr.core.expressions.structure.GenericDotExpression");
     /*package*/ static final SConcept GenericMemberRef$bk = MetaAdapterFactory.getConcept(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x619e8ce80b8d18e4L, "com.mbeddr.core.udt.structure.GenericMemberRef");
+    /*package*/ static final SConcept DESModel$DK = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, "SimpleDES.structure.DESModel");
+    /*package*/ static final SConcept RossM2M$aQ = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x7dd219cad75cd6eeL, "SimpleDES.structure.RossM2M");
     /*package*/ static final SInterfaceConcept TraceableConcept$L = MetaAdapterFactory.getInterfaceConcept(0x9ded098bad6a4657L, 0xbfd948636cfe8bc3L, 0x465516cf87c705a3L, "jetbrains.mps.lang.traceable.structure.TraceableConcept");
   }
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
     /*package*/ static final SContainmentLink baseType$zMGV = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x6bbcdccef5e46755L, 0x6bbcdccef5e46756L, "baseType");
+    /*package*/ static final SReferenceLink struct$WCsg = MetaAdapterFactory.getReferenceLink(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x58bef62304fc0a38L, 0x58bef62304fc0a39L, "struct");
     /*package*/ static final SContainmentLink left$SkXz = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba34L, 0x7af69e2e83a1ba40L, "left");
     /*package*/ static final SContainmentLink target$CEPF = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x401df715da462c0cL, 0x619e8ce80b7ff48bL, "target");
     /*package*/ static final SReferenceLink member$wUNL = MetaAdapterFactory.getReferenceLink(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x619e8ce80b8d18e4L, 0x619e8ce80b8d18e6L, "member");

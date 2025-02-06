@@ -386,11 +386,19 @@
   </registry>
   <node concept="d_wKT" id="2y$uZ59HOHR">
     <property role="TrG5h" value="pcs" />
+    <node concept="13wVKn" id="17T$_Au1Yr8" role="2IHDOf">
+      <node concept="13FWG$" id="17T$_Au1YuO" role="13wVKl">
+        <property role="13FWGr" value="Personal Communication Service (PCS)" />
+      </node>
+      <node concept="13FWGn" id="17T$_Au1YuQ" role="13wVKl">
+        <property role="13H_qp" value="The Personal Communication Service (PCS) model serves as a benchmark for Parallel Discrete Event Simulation (PDES), evaluating the efficiency of event synchronization and load balancing in large-scale simulations. It represents a wireless communication network where mobile devices move between predefined service areas (cells) and initiate or receive calls. The network is structured as a grid of cells, each functioning as an independent processing entity, making PCS highly suitable for parallel execution." />
+      </node>
+    </node>
     <node concept="2BbD4n" id="58BjBcx85at" role="2BlNMq">
       <ref role="2BbIEB" node="4OHhT54iJwT" resolve="classA" />
       <node concept="2BnW4s" id="58BjBcx85gq" role="2BbD4j">
         <property role="2BnW4u" value="0" />
-        <property role="2BnW4o" value="65535" />
+        <property role="2BnW4o" value="39999" />
       </node>
     </node>
     <node concept="138pi_" id="1dn0vY9LXWj" role="32KCjO">
@@ -416,6 +424,11 @@
         <property role="TrG5h" value="LP_INIT" />
       </node>
     </node>
+    <node concept="13wVKn" id="17T$_Au1YDS" role="2IHDOf">
+      <node concept="13FWGn" id="17T$_Au1YH$" role="13wVKl">
+        <property role="13H_qp" value="LP_INIT represents the initialization events, where the simulation state is defined for every LP" />
+      </node>
+    </node>
     <node concept="X$6kA" id="6UxgX88PYNC" role="2IHDOf">
       <node concept="2vNlie" id="6UxgX88PYND" role="X$6k$">
         <property role="TrG5h" value="START_CALL" />
@@ -424,6 +437,11 @@
     <node concept="X$6kA" id="6UxgX88PYRk" role="2IHDOf">
       <node concept="2vNlie" id="6UxgX88PYRl" role="X$6k$">
         <property role="TrG5h" value="END_CALL" />
+      </node>
+    </node>
+    <node concept="13wVKn" id="17T$_Au1YLg" role="2IHDOf">
+      <node concept="13FWGn" id="17T$_Au1YOW" role="13wVKl">
+        <property role="13H_qp" value="The previous two events define the initiation and termination of a mobile communication session" />
       </node>
     </node>
     <node concept="X$6kA" id="1i0tj4VRF9O" role="2IHDOf">
@@ -436,9 +454,19 @@
         <property role="TrG5h" value="HANDOFF_LEAVE" />
       </node>
     </node>
+    <node concept="13wVKn" id="17T$_Au1YSC" role="2IHDOf">
+      <node concept="13FWGn" id="17T$_Au1YWk" role="13wVKl">
+        <property role="13H_qp" value="Handoff is the process of transferring an active call from one cell to another one, within a mobile network" />
+      </node>
+    </node>
     <node concept="X$6kA" id="6UxgX88PZ2o" role="2IHDOf">
       <node concept="2vNlie" id="6UxgX88PZ2p" role="X$6k$">
         <property role="TrG5h" value="FADING_RECHECK" />
+      </node>
+    </node>
+    <node concept="13wVKn" id="17T$_Au1Z00" role="2IHDOf">
+      <node concept="13FWGn" id="17T$_Au1Z3G" role="13wVKl">
+        <property role="13H_qp" value="The fading recheck event refers to the mechanism used to monitor the signal quality between a mobile device and its associated cell" />
       </node>
     </node>
     <node concept="138pi_" id="4IxwvG8C4OG" role="32KCjO">
@@ -607,13 +635,13 @@
     <node concept="2$iQ_L" id="2y$uZ59HRz7" role="2$iQ_X">
       <property role="TrG5h" value="COMPLETE_CALLS" />
       <node concept="3TlMh9" id="2y$uZ59HRz8" role="2DQcEM">
-        <property role="2hmy$m" value="5000" />
+        <property role="2hmy$m" value="10000" />
       </node>
     </node>
     <node concept="2$iQ_L" id="2y$uZ59HRTd" role="2$iQ_X">
       <property role="TrG5h" value="TA" />
       <node concept="3TlMh9" id="2y$uZ59HRTe" role="2DQcEM">
-        <property role="2hmy$m" value="0.9" />
+        <property role="2hmy$m" value="0.12" />
       </node>
     </node>
     <node concept="2$iQ_L" id="2y$uZ59HSfr" role="2$iQ_X">
@@ -4519,30 +4547,15 @@
                 </node>
               </node>
             </node>
-            <node concept="1_a8vi" id="5nMj4vnff7$" role="3XIRFZ">
-              <node concept="3XIRFW" id="5nMj4vnff7_" role="1_amYn" />
-              <node concept="1_amY7" id="5nMj4vnffbU" role="1_amZ$">
-                <property role="TrG5h" value="i" />
-                <node concept="26Vqph" id="5nMj4vnffbT" role="2C2TGm" />
-                <node concept="3TlMh9" id="5nMj4vnffcc" role="3XIe9u">
-                  <property role="2hmy$m" value="0" />
-                </node>
-              </node>
-              <node concept="3Tl9Jn" id="5nMj4vnffdf" role="1_amZB">
-                <node concept="4ZOvp" id="5nMj4vnffdu" role="3TlMhJ">
+            <node concept="1_9egQ" id="29ImrPs4OWQ" role="3XIRFZ">
+              <node concept="3O_q_g" id="29ImrPs4OWO" role="1_9egR">
+                <ref role="3O_q_h" node="29ImrPrXtmu" resolve="busy_loop" />
+                <node concept="4ZOvp" id="29ImrPs4OWW" role="3O_q_j">
                   <ref role="2DPCA0" node="5nMj4vnfeLO" resolve="BUSY_LOOP_DURATION" />
-                </node>
-                <node concept="3ZVu4v" id="5nMj4vnffcD" role="3TlMhI">
-                  <ref role="3ZVs_2" node="5nMj4vnffbU" resolve="i" />
-                </node>
-              </node>
-              <node concept="3TM6Ey" id="5nMj4vnfftS" role="1_amZy">
-                <node concept="3ZVu4v" id="5nMj4vnfflw" role="1_9fRO">
-                  <ref role="3ZVs_2" node="5nMj4vnffbU" resolve="i" />
                 </node>
               </node>
             </node>
-            <node concept="3XISUE" id="5nMj4vnffyk" role="3XIRFZ" />
+            <node concept="3XISUE" id="29ImrPs4OZx" role="3XIRFZ" />
             <node concept="3XIRlf" id="730YTbWBL1F" role="3XIRFZ">
               <property role="TrG5h" value="dest" />
               <node concept="rcJHQ" id="730YTbWBL1D" role="2C2TGm">
@@ -4813,14 +4826,6 @@
       <property role="TrG5h" value="lp_id_t" />
       <node concept="26Vqp1" id="730YTbVAZ4M" role="rcJHR" />
     </node>
-    <node concept="13wVKn" id="1KZIYOVUXYI" role="2Z_0yT">
-      <node concept="13FWG$" id="1KZIYOVUXYK" role="13wVKl">
-        <property role="13FWGr" value="External functions" />
-      </node>
-      <node concept="13FWGn" id="1KZIYOVUXYM" role="13wVKl">
-        <property role="13H_qp" value="External functions" />
-      </node>
-    </node>
     <node concept="2$iQ_L" id="5nMj4vnf0Jt" role="2$iQ_X">
       <property role="TrG5h" value="COMPLETE_EVENTS" />
       <node concept="3TlMh9" id="5nMj4vnf0JT" role="2DQcEM">
@@ -4868,6 +4873,17 @@
       <node concept="1dpRTG" id="5nMj4vn25fu" role="HszBJ">
         <property role="TrG5h" value="dummy_data" />
         <node concept="26Vqpk" id="5nMj4vn25ft" role="2C2TGm" />
+      </node>
+    </node>
+    <node concept="2ZWeVV" id="29ImrPrXtmt" role="2Z_0yT">
+      <property role="2sA7_G" value="ROOT-Sim" />
+      <node concept="N3Fnw" id="29ImrPrXtmu" role="2ZTTJy">
+        <property role="TrG5h" value="busy_loop" />
+        <node concept="19Rifw" id="29ImrPrXtm_" role="2C2TGm" />
+        <node concept="19RgSI" id="29ImrPrXtsj" role="1UOdpc">
+          <property role="TrG5h" value="max" />
+          <node concept="26Vqp1" id="29ImrPrXtsi" role="2C2TGm" />
+        </node>
       </node>
     </node>
   </node>

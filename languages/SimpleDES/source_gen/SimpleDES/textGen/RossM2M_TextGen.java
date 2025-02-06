@@ -13,6 +13,7 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import java.util.Objects;
 import com.mbeddr.core.modules.behavior.ITypeDeclaration__BehaviorDescriptor;
 import jetbrains.mps.lang.traceable.behavior.UnitConcept__BehaviorDescriptor;
@@ -54,6 +55,17 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     tgs.append("typedef double simtime_t;");
     tgs.newLine();
     tgs.append("typedef unsigned long lp_id_t;");
+    tgs.newLine();
+    tgs.newLine();
+
+    long total_lps = 0;
+    for (SNode processAllocation : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.processAllocations$cuUJ), CONCEPTS.ProcessAllocation$5Z))) {
+      total_lps += (SPropertyOperations.getInteger(SNodeOperations.cast(SLinkOperations.getTarget(processAllocation, LINKS.processes$hZqx), CONCEPTS.ProcessArray$Ux), PROPS.right$2uAQ) - SPropertyOperations.getInteger(SNodeOperations.cast(SLinkOperations.getTarget(processAllocation, LINKS.processes$hZqx), CONCEPTS.ProcessArray$Ux), PROPS.left$2u8O) + 1);
+    }
+
+    tgs.append("unsigned total_lps = ");
+    tgs.append(String.valueOf(total_lps));
+    tgs.append(";");
     tgs.newLine();
     tgs.newLine();
 
@@ -140,8 +152,62 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     // global variables
     Configuration.configuration(ctx.getPrimaryInput(), ctx);
 
+    // custom allocator (to make malloc reversible)
+    if (SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL).contains("pcs")) {
+      tgs.append("typedef struct {\n    struct channel channel_pool[pcs_CHANNELS_PER_CELL];\n    struct sir_data_per_cell sir_data_pool[pcs_CHANNELS_PER_CELL];\n    bool channel_used[pcs_CHANNELS_PER_CELL];\n} channel_allocator_t;\n\nstatic channel_allocator_t **allocators;\n");
+      tgs.newLine();
+      tgs.append("void init_allocators(uint32_t num) {\n    num_lps = num;\n    allocators = malloc(num * sizeof(channel_allocator_t *));\n    if(allocators == NULL) {\n        perror(\"Unable to initialize channel allocators\");\n        abort();\n    }\n    for (uint32_t i = 0; i < num; i++) {\n        allocators[i] = malloc(sizeof(channel_allocator_t));\n        if(allocators[i] == NULL) {\n            printf(\"Unable to initialize channel allocator %d\", i);\n            perror(\"\");\n            abort();\n        }\n        memset(allocators[i], 0, sizeof(channel_allocator_t));\n        for (int j = 0; j < pcs_CHANNELS_PER_CELL; j++) {\n            allocators[i]->channel_used[j] = false;\n        }\n    }\n}\n");
+      tgs.newLine();
+      tgs.append("void destroy_allocators() {\n    for (uint32_t i = 0; i < num_lps; i++) {\n        free(allocators[i]);\n    }\n    free(allocators);\n}\n");
+      tgs.newLine();
+      tgs.append("struct channel *allocate_channel(lp_id_t lp, int32_t id) {\n    if (id < 0 || id >= pcs_CHANNELS_PER_CELL) return NULL;\n    channel_allocator_t *allocator = allocators[lp];\n    if (!allocator->channel_used[id]) {\n        allocator->channel_used[id] = true;\n        return &allocator->channel_pool[id];\n    }\n\n    printf(\"Could not allocate channel %d for lp %lu\", id, lp);\n    abort();\n}\n");
+      tgs.newLine();
+      tgs.append("struct sir_data_per_cell *allocate_sir_data(lp_id_t lp, int32_t id) {\n   channel_allocator_t *allocator = allocators[lp];\n   return &allocator->sir_data_pool[id];\n}\n");
+      tgs.newLine();
+      tgs.append("void deallocate_channel(lp_id_t lp, struct channel *c) {\n\n    channel_allocator_t *allocator = allocators[lp];\n    int id = c->channel_id;\n    if (id >= 0 && id < pcs_CHANNELS_PER_CELL) {\n        allocator->channel_used[id] = false;\n#ifdef DEBUG\n        printf(\"deallocate_channel: Deallocated channel %d for lp %lu\n\", c->channel_id, lp);\n#endif\n    } else {\n        printf(\"LP %lu trying to deallocate an invalid channel %d.\", lp, c->channel_id);\n        abort();\n    }\n}\n");
+      tgs.newLine();
+      tgs.append("int32_t get_channel_id(lp_id_t lp, struct channel *c) {\n    channel_allocator_t *allocator = allocators[lp];\n    for (int i = 0; i < pcs_CHANNELS_PER_CELL; i++) {\n        if (&allocator->channel_pool[i] == c) {\n            return i;\n        }\n    }\n    return -1; // Not found\n}\n");
+      tgs.newLine();
+      tgs.append("struct channel *get_channel(lp_id_t lp, int32_t index) {\n    channel_allocator_t *allocator = allocators[lp];\n    return &allocator->channel_pool[index];\n}\n");
+      tgs.newLine();
+    }
+
+    // custom mapping (LPs are evenly distributed among PEs, the leftovers are assigned to the first PE)
+    tgs.append("tw_peid custom_mapping_lp_to_pe(tw_lpid gid)\n{\n    tw_lpid ret;\n    unsigned min_num_lps_per_pe = total_lps / tw_nnodes();\n    unsigned extra_lps = total_lps % tw_nnodes();\n\n    if (gid < min_num_lps_per_pe + extra_lps)\n        ret = 0;\n    else\n        ret = (gid - extra_lps) / min_num_lps_per_pe;\n#ifdef DEBUG\n    printf(\"LP with GID %lu mapped on node %lu\n\", gid, ret);\n#endif\n\n    return ret;\n}\n");
+    tgs.newLine();
+    tgs.append("tw_lp *custom_mapping_lpgid_to_local(tw_lpid gid)\n{\n    tw_lpid ret;\n    unsigned min_num_lps_per_pe = total_lps / tw_nnodes();\n    unsigned extra_lps = total_lps % tw_nnodes();\n\n    if (gid < min_num_lps_per_pe + extra_lps) {\n        ret = gid;\n    } else {\n        ret = (gid - extra_lps) % min_num_lps_per_pe;\n    }\n\n#ifdef DEBUG\n    printf(\"[%lu] LP with GID %lu mapped on LID %lu\n\", g_tw_mynode, gid, ret);\n#endif\n\n    return g_tw_lp[ret];\n}\n");
+    tgs.newLine();
+    tgs.append("void custom_mapping_setup(void)\n{\n    int lpid;\n    unsigned long gid;\n\n    // set up KPs\n    for (int kpid = 0; kpid < g_tw_nkp; kpid++)\n        tw_kp_onpe(kpid, g_tw_pe);\n\n    // figure out how many LPs are on this PE\n    unsigned min_num_lps_per_pe = total_lps/tw_nnodes();\n    unsigned extra_lps = total_lps - (min_num_lps_per_pe * tw_nnodes());\n    unsigned lps_on_pe = min_num_lps_per_pe;\n    if (g_tw_mynode == 0) {\n        lps_on_pe += extra_lps;\n    }\n\n    // set up the LPs\n    for (lpid = 0; lpid < lps_on_pe; lpid++) {\n\n        gid = g_tw_mynode * min_num_lps_per_pe + lpid + extra_lps * (g_tw_mynode != 0);\n#ifdef DEBUG\n        printf(\"[%lu] Setting up mapping: LP %d to GID %lu\n\", g_tw_mynode, lpid, gid);\n#endif\n        // map LP to KP\n        tw_lp_onpe(lpid, g_tw_pe, gid);\n        tw_lp_onkp(g_tw_lp[lpid], g_tw_kp[lpid % g_tw_nkp]);\n    }\n}\n");
+    tgs.newLine();
+
     // external functions definition
-    ExternalFunctions.externalFunctions(ctx.getPrimaryInput(), ctx);
+    for (SNode function : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.externalFunctions$LqEg), CONCEPTS.ExternalFunction$U_))) {
+      //  if the function uses an API from the rand library, add a tw_lp *lp parameter to its signature
+      if (ListSequence.fromList(SNodeOperations.getNodeDescendants(function, CONCEPTS.Expent$Yu, false, new SAbstractConcept[]{})).isNotEmpty() || ListSequence.fromList(SNodeOperations.getNodeDescendants(function, CONCEPTS.Random$XZ, false, new SAbstractConcept[]{})).isNotEmpty()) {
+        tgs.appendNode(SLinkOperations.getTarget(function, LINKS.type$sXU3));
+        tgs.append(" ");
+        tgs.append(SPropertyOperations.getString(function, PROPS.name$MnvL));
+        tgs.append("(");
+        for (SNode arg : ListSequence.fromList(SLinkOperations.getChildren(function, LINKS.arguments$6da0))) {
+          tgs.appendNode(arg);
+          tgs.append(", ");
+        }
+        tgs.append("tw_lp *lp)");
+        tgs.newLine();
+        tgs.appendNode(SLinkOperations.getTarget(function, LINKS.body$1GE0));
+        tgs.newLine();
+      } else {
+        tgs.appendNode(function);
+        tgs.newLine();
+      }
+    }
+
+
+    if (SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL).contains("phold")) {
+      tgs.append("void __attribute__ ((noinline)) busy_loop(unsigned long long max) {\n    for (unsigned long long i = 0; i < max; i++) {\n        __asm__ volatile(\"pause\" : \"+g\" (i) : :);\n    }\n}\n");
+      tgs.newLine();
+    }
+
 
     // allocation_by_index (PCS)
     if (SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL).contains("pcs")) {
@@ -445,7 +511,7 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
       tgs.newLine();
       // use LINEAR or ROUND-ROBIN mapping
       tgs.indent();
-      tgs.append("(map_f) custom_mapping_lp_to_pe,");
+      tgs.append("(map_f) NULL,");
       tgs.newLine();
       tgs.indent();
       tgs.append("sizeof(");
@@ -505,8 +571,17 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     tgs.indent();
     tgs.append("unsigned int custom_lps_per_pe = g_tw_nlp/tw_nnodes();");
     tgs.newLine();
+    tgs.indent();
+    tgs.append("unsigned int leftover_lps = g_tw_lps % tw_nnodes();");
+    tgs.newLine();
     tgs.newLine();
 
+    tgs.indent();
+    tgs.append("if(g_tw_mynode == 0)\n          custom_lps_per_pe += leftover_lps;\n");
+
+    tgs.indent();
+    tgs.append("g_tw_mapping = LINEAR;");
+    tgs.newLine();
 
     tgs.indent();
     tgs.append("// set model_lps");
@@ -553,42 +628,46 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
   private static final class LINKS {
     /*package*/ static final SContainmentLink eventType$MGmZ = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2e66f9a613f69c80L, 0x2e66f9a613f69c82L, "eventType");
     /*package*/ static final SContainmentLink events$uflG = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x2dc3a69083753b9fL, "events");
+    /*package*/ static final SContainmentLink processes$hZqx = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6393783L, 0x4117a694e6393787L, "processes");
+    /*package*/ static final SContainmentLink processAllocations$cuUJ = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x4117a694e6409a0eL, "processAllocations");
     /*package*/ static final SContainmentLink messageStruct$xVlJ = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x6de6339fa564bed8L, "messageStruct");
     /*package*/ static final SContainmentLink members$C59R = MetaAdapterFactory.getContainmentLink(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x6285e27d4ff6c9f5L, 0x6285e27d4ff7db92L, "members");
+    /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
+    /*package*/ static final SContainmentLink arguments$6da0 = MetaAdapterFactory.getContainmentLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x707ac195dd5d51f2L, 0x4f39f90935e92f45L, "arguments");
+    /*package*/ static final SContainmentLink body$1GE0 = MetaAdapterFactory.getContainmentLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x595522006a5b97e1L, 0x3a16e3a9c7ad9954L, "body");
+    /*package*/ static final SContainmentLink externalFunctions$LqEg = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x6f36cc77d0a2c4ceL, "externalFunctions");
     /*package*/ static final SContainmentLink handlers$Nr2P = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x4117a694e5b8c1a3L, "handlers");
     /*package*/ static final SContainmentLink function$5bPH = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x74d88000543a2a9fL, "function");
-    /*package*/ static final SContainmentLink arguments$6da0 = MetaAdapterFactory.getContainmentLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x707ac195dd5d51f2L, 0x4f39f90935e92f45L, "arguments");
-    /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
     /*package*/ static final SContainmentLink baseType$zMGV = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x6bbcdccef5e46755L, 0x6bbcdccef5e46756L, "baseType");
     /*package*/ static final SContainmentLink stateStruct$NqNO = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x4117a694e5b8c1a2L, "stateStruct");
-    /*package*/ static final SContainmentLink body$1GE0 = MetaAdapterFactory.getContainmentLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x595522006a5b97e1L, 0x3a16e3a9c7ad9954L, "body");
     /*package*/ static final SContainmentLink statements$euTV = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad9955L, 0x3a16e3a9c7ad9956L, "statements");
     /*package*/ static final SContainmentLink to$WtFs = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x68458b9b5da4ec77L, 0x6f2af7ea6983412cL, "to");
     /*package*/ static final SReferenceLink arg$WIp5 = MetaAdapterFactory.getReferenceLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x1d0c3765e2e7d0baL, 0x1d0c3765e2e7d0bbL, "arg");
     /*package*/ static final SContainmentLink classes$SNAM = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x4117a694e5ba8536L, "classes");
-    /*package*/ static final SContainmentLink processes$hZqx = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6393783L, 0x4117a694e6393787L, "processes");
     /*package*/ static final SContainmentLink processes$2JvY = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e64867a6L, 0x4117a694e64867a7L, "processes");
-    /*package*/ static final SContainmentLink processAllocations$cuUJ = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x4117a694e6409a0eL, "processAllocations");
   }
 
   private static final class PROPS {
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
-    /*package*/ static final SProperty eventName$AHdn = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x3aa70864b453eff1L, "eventName");
     /*package*/ static final SProperty right$2uAQ = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6486788L, 0x4117a694e648678cL, "right");
     /*package*/ static final SProperty left$2u8O = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6486788L, 0x4117a694e648678aL, "left");
+    /*package*/ static final SProperty eventName$AHdn = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x3aa70864b453eff1L, "eventName");
   }
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept EventDefinition$wO = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2e66f9a613f69c80L, "SimpleDES.structure.EventDefinition");
+    /*package*/ static final SConcept ProcessArray$Ux = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6486788L, "SimpleDES.structure.ProcessArray");
+    /*package*/ static final SConcept ProcessAllocation$5Z = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6393783L, "SimpleDES.structure.ProcessAllocation");
+    /*package*/ static final SConcept Random$XZ = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2476b4949807b946L, "SimpleDES.structure.Random");
+    /*package*/ static final SConcept Expent$Yu = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2476b4949807b947L, "SimpleDES.structure.Expent");
+    /*package*/ static final SConcept ExternalFunction$U_ = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228bL, "SimpleDES.structure.ExternalFunction");
     /*package*/ static final SConcept EventHandler$Ov = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, "SimpleDES.structure.EventHandler");
     /*package*/ static final SConcept Argument$9m = MetaAdapterFactory.getConcept(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x6d872ef9245a20d7L, "com.mbeddr.core.modules.structure.Argument");
     /*package*/ static final SConcept PointerType$HX = MetaAdapterFactory.getConcept(0x3bf5377ae9044dedL, 0x97545a516023bfaaL, 0x3e0cae5e366d630L, "com.mbeddr.core.pointers.structure.PointerType");
     /*package*/ static final SConcept SendEvent$u = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x68458b9b5da4ec77L, "SimpleDES.structure.SendEvent");
     /*package*/ static final SConcept ArgumentRef$iE = MetaAdapterFactory.getConcept(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x1d0c3765e2e7d0baL, "com.mbeddr.core.modules.structure.ArgumentRef");
     /*package*/ static final SConcept ClassDefinition$NR = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, "SimpleDES.structure.ClassDefinition");
-    /*package*/ static final SConcept ProcessArray$Ux = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6486788L, "SimpleDES.structure.ProcessArray");
     /*package*/ static final SConcept ProcessSequence$B$ = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e64867a6L, "SimpleDES.structure.ProcessSequence");
-    /*package*/ static final SConcept ProcessAllocation$5Z = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6393783L, "SimpleDES.structure.ProcessAllocation");
     /*package*/ static final SInterfaceConcept UnitConcept$1g = MetaAdapterFactory.getInterfaceConcept(0x9ded098bad6a4657L, 0xbfd948636cfe8bc3L, 0x465516cf87c705a4L, "jetbrains.mps.lang.traceable.structure.UnitConcept");
   }
 }
