@@ -29,35 +29,41 @@ This repository contains an MPS project featuring two custom languages. To use t
 ## Reproducibility Guide for DESL IDE
 
 ### Overview
-This guide describes the steps to generate the DESL IDE from the project solution `SimpleDES.build`.
+This guide describes the steps to generate the DESL IDE from the project solution `DESL.build`.
+
+![desl-build](https://github.com/user-attachments/assets/9cd05056-6c73-443e-9626-8c71aff549e2)
+
 
 ### Steps to Build the IDE
 
 #### 1. Build the Languages
 Before generating the IDE, you need to build the languages used in the project:
 
-1. Navigate to the `SimpleDES` language in MPS.
-2. Right-click on `SimpleDES` -> Select **Rebuild Language 'SimpleDES'**.
-3. Navigate to the `Collections` language in MPS.
-4. Right-click on `Collections` -> Select **Rebuild Language 'Collections'**.
+1. Navigate to the `DESL` language in MPS.
+2. Right-click on `DESL` -> Select **Rebuild Language 'DESL'**.
+4. Navigate to the `Collections` language in MPS.
+5. Right-click on `Collections` -> Select **Rebuild Language 'Collections'**.
+
+![desl-rebuild-lang](https://github.com/user-attachments/assets/0d06e295-eef6-483a-878e-1ece4298b7ec)
+
 
 #### 2. Run the Ant Scripts
 Once the languages are built, execute the Ant scripts:
 
-1. Locate the Ant scripts `SimpleDES` and `SimpleDESDistribution`, inside the solution `SimpleDES.build`.
-2. Right-click on each script -> Select **Run 'SimpleDES'** and **Run 'SimpleDESDistribution'**.
+1. Locate the Ant scripts `DESL` and `DESLDistribution`, inside the solution `DESL.build`.
+2. Right-click on each script -> Select **Run 'DESL'** and **Run 'DESLDistribution'**.
 
 #### 3. Locate the Generated IDE Archives
 After running the Ant scripts, the generated IDE archives can be found in:
 
 ```bash
-SimpleDES/build/artifacts
+DESL/build/artifacts
 ```
 
 For Linux, the archive will have a name like:
 
 ```bash
-SimpleDES-241.SNAPSHOT.tar.gz
+DESL-241.SNAPSHOT.tar.gz
 ```
 
 #### 4. Setup the IDE Execution Script
@@ -65,29 +71,50 @@ SimpleDES-241.SNAPSHOT.tar.gz
 The execution script for the IDE is located in:
 
 ```bash
-SimpleDES/solutions/SimpleDES.build/source_gen/SimpleDES/build/
+DESL/solutions/DESL.build/source_gen/DESL/build/
 ```
 
 Copy the contents of this directory into the `bin` directory of the generated archive:
 
 ```bash
-SimpleDES-241.SNAPSHOT/bin
+DESL-241.SNAPSHOT/bin
 ```
 
 #### 5. Include JetBrains Runtime (JBR)
 
 To include JetBrains Runtime:
 1. Copy the `jbr` directory from the MPS installation base directory.
-2. Paste it into `SimpleDES-241.SNAPSHOT/`.
+2. Paste it into `DESL-241.SNAPSHOT/`.
 
 #### 6. Include Mbeddr Plugin Distribution
 
 To finalize the setup, include the Mbeddr plugin distribution:
 1. Download the two zip files for the [Mbeddr plugin distribution](#Installing-Mbeddr-Plugin-Distribution)
-2. Paste it into `SimpleDES-241.SNAPSHOT/plugins`.
+2. Paste it into `DESL-241.SNAPSHOT/plugins`.
 
 #### 7. Run the IDE
 To run the IDE, execute the script:
 ```bash
-SimpleDES-241.SNAPSHOT/bin/desl.sh
+DESL-241.SNAPSHOT/bin/desl.sh
 ```
+
+## Creating a DESL model
+
+You can create a DESL model either by cloning this repository and opening the project in MPS or by using the DESL IDE. In both cases, you will need to create a DESLModel into an existing DESL solution.
+
+### Creating a new DESL solution
+1. Right-click on the project's root directory and select `New` > `Solution`<br><br>
+   ![immagine](https://github.com/user-attachments/assets/de6c079d-7f53-4083-9843-a55a1ed83a3d)
+2. Enter a name for the solution and click `OK`<br><br>
+   ![immagine](https://github.com/user-attachments/assets/c3e49a2d-5c68-4b9b-b939-93a0a80a191b)
+3. Create a new model inside the newly created solution<br><br>
+   ![immagine](https://github.com/user-attachments/assets/54b8bfa2-41bf-4c3a-90cf-62d7ee1dee21)
+4. Set the model's name and click `OK`<br><br>
+   ![immagine](https://github.com/user-attachments/assets/3bd00a0c-9794-4ea9-8500-2554081f7fd0)
+5. In the model properties window, navigate to the `Used Languages` panel and click `+`
+6. Select `DESL` and `Collections` from the list, then click `OK`<br><br>
+   ![immagine](https://github.com/user-attachments/assets/151bf139-82ab-49c7-9b14-b6296f881a8d)
+7. Right-click on the created model and select `New` > `DESL` > `DESLModel`<br><br>
+   ![immagine](https://github.com/user-attachments/assets/6f7998ee-69e4-4d56-93d0-9f1286f31e88)
+
+To add a new model to an existing solution, simply follow step 7.
