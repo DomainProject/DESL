@@ -24,3 +24,70 @@ This repository contains an MPS project featuring two custom languages. To use t
 
 3. **Restart MPS**  
    After installing the plugins, restart MPS to apply the changes.
+
+
+## Reproducibility Guide for DESL IDE
+
+### Overview
+This guide describes the steps to generate the DESL IDE from the project solution `SimpleDES.build`.
+
+### Steps to Build the IDE
+
+#### 1. Build the Languages
+Before generating the IDE, you need to build the languages used in the project:
+
+1. Navigate to the `SimpleDES` language in MPS.
+2. Right-click on `SimpleDES` -> Select **Rebuild Language 'SimpleDES'**.
+3. Navigate to the `Collections` language in MPS.
+4. Right-click on `Collections` -> Select **Rebuild Language 'Collections'**.
+
+#### 2. Run the Ant Scripts
+Once the languages are built, execute the Ant scripts:
+
+1. Locate the Ant scripts `SimpleDES` and `SimpleDESDistribution`, inside the solution `SimpleDES.build`.
+2. Right-click on each script -> Select **Run 'SimpleDES'** and **Run 'SimpleDESDistribution'**.
+
+#### 3. Locate the Generated IDE Archives
+After running the Ant scripts, the generated IDE archives can be found in:
+
+```bash
+SimpleDES/build/artifacts
+```
+
+For Linux, the archive will have a name like:
+
+```bash
+SimpleDES-241.SNAPSHOT.tar.gz
+```
+
+#### 4. Setup the IDE Execution Script
+
+The execution script for the IDE is located in:
+
+```bash
+SimpleDES/solutions/SimpleDES.build/source_gen/SimpleDES/build/
+```
+
+Copy the contents of this directory into the `bin` directory of the generated archive:
+
+```bash
+SimpleDES-241.SNAPSHOT/bin
+```
+
+#### 5. Include JetBrains Runtime (JBR)
+
+To include JetBrains Runtime:
+1. Copy the `jbr` directory from the MPS installation base directory.
+2. Paste it into `SimpleDES-241.SNAPSHOT/`.
+
+#### 6. Include Mbeddr Plugin Distribution
+
+To finalize the setup, include the Mbeddr plugin distribution:
+1. Download the two zip files for the [Mbeddr plugin distribution](#Installing-Mbeddr-Plugin-Distribution)
+2. Paste it into `SimpleDES-241.SNAPSHOT/plugins`.
+
+#### 7. Run the IDE
+To run the IDE, execute the script:
+```bash
+SimpleDES-241.SNAPSHOT/bin/desl.sh
+```
