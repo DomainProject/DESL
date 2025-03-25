@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<debug-info version="2">
+  <root nodeRef="r:99d864f5-4c09-4f1c-a910-41d3b71de8d7(SimpleDES.build)/5382703825352943750">
+    <file name="SimpleDES.xml">
+      <unit id="5382703825352943750" at="1,0,1190,10" name="SimpleDES.build.SimpleDES" />
+    </file>
+  </root>
+  <root nodeRef="r:99d864f5-4c09-4f1c-a910-41d3b71de8d7(SimpleDES.build)/5382703825352943952">
+    <file name="SimpleDESDistribution.xml">
+      <unit id="5382703825352943952" at="1,0,242,10" name="SimpleDES.build.SimpleDESDistribution" />
+    </file>
+  </root>
+  <root nodeRef="r:99d864f5-4c09-4f1c-a910-41d3b71de8d7(SimpleDES.build)/5382703825352944623">
+    <file name="Info.plist.xml">
+      <unit id="5382703825352944623" at="1,0,187,8" name="SimpleDES.build.Info$plist" />
+    </file>
+  </root>
+</debug-info>
+
