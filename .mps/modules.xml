@@ -5,8 +5,9 @@
       <modulePath path="$PROJECT_DIR$/_spreferences/PlatformTemplates/module.msd" folder="_spreferences" />
       <modulePath path="$PROJECT_DIR$/_spreferences/TypeSizeConfiguration/module.msd" folder="_spreferences" />
       <modulePath path="$PROJECT_DIR$/languages/Collections/Collections.mpl" folder="" />
-      <modulePath path="$PROJECT_DIR$/languages/SimpleDES/SimpleDES.mpl" folder="" />
-      <modulePath path="$PROJECT_DIR$/solutions/DESSolution/DESSolution.msd" folder="" />
+      <modulePath path="$PROJECT_DIR$/languages/DESL/DESL.mpl" folder="" />
+      <modulePath path="$PROJECT_DIR$/solutions/DESL.build/DESL.build.msd" folder="" />
+      <modulePath path="$PROJECT_DIR$/solutions/DESLSolution/DESLSolution.msd" folder="" />
     </projectModules>
   </component>
 </project>

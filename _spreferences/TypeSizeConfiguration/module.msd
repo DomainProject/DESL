@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="SimpleDES.__spreferences.TypeSizeConfiguration" uuid="~_PreferencesModule#SimpleDES.__spreferences.TypeSizeConfiguration" moduleVersion="0" generatorOutputPath="">
+<solution name="DESL.__spreferences.TypeSizeConfiguration" uuid="~_PreferencesModule#SimpleDES.__spreferences.TypeSizeConfiguration" moduleVersion="0" generatorOutputPath="">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot path="${module}/models" />
@@ -26,7 +26,7 @@
     <language slang="l:7a5dda62-9140-4668-ab76-d5ed1746f2b2:jetbrains.mps.lang.typesystem" version="5" />
   </languageVersions>
   <dependencyVersions>
-    <module reference="~_PreferencesModule#SimpleDES.__spreferences.TypeSizeConfiguration(SimpleDES.__spreferences.TypeSizeConfiguration)" version="0" />
+    <module reference="~_PreferencesModule#SimpleDES.__spreferences.TypeSizeConfiguration(DESL.__spreferences.TypeSizeConfiguration)" version="0" />
   </dependencyVersions>
 </solution>
 

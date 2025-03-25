@@ -195,7 +195,7 @@
                     <ref role="1M0zk5" node="4VPM9qF_0bp" resolve="assignment" />
                   </node>
                   <node concept="3TrEf2" id="4VPM9qF_3qt" role="2OqNvi">
-                    <ref role="3Tt5mk" to="mj1l:7FQByU3CrD0" />
+                    <ref role="3Tt5mk" to="mj1l:7FQByU3CrD0" resolve="left" />
                   </node>
                 </node>
                 <node concept="3clFbS" id="4VPM9qF_1Xw" role="Jncv$">
@@ -206,7 +206,7 @@
                         <ref role="1M0zk5" node="4VPM9qF_1Xx" resolve="genericDotExpression" />
                       </node>
                       <node concept="3TrEf2" id="4VPM9qF_4$C" role="2OqNvi">
-                        <ref role="3Tt5mk" to="mj1l:66uzewbvZib" />
+                        <ref role="3Tt5mk" to="mj1l:66uzewbvZib" resolve="target" />
                       </node>
                     </node>
                     <node concept="3clFbS" id="4VPM9qF_3N1" role="Jncv$">
@@ -215,7 +215,7 @@
                         <node concept="2OqwBi" id="38L9WlNM0cc" role="JncvB">
                           <node concept="2OqwBi" id="38L9WlNLZBJ" role="2Oq$k0">
                             <node concept="Jnkvi" id="38L9WlNLZug" role="2Oq$k0">
-                              <ref role="1M0zk5" node="4VPM9qF_3N2" resolve="member" />
+                              <ref role="1M0zk5" node="4VPM9qF_3N2" resolve="memberRef" />
                             </node>
                             <node concept="3TrEf2" id="38L9WlNLZSl" role="2OqNvi">
                               <ref role="3Tt5mk" to="clbe:66uzewbzhzA" resolve="member" />
@@ -266,7 +266,7 @@
                     <ref role="1M0zk5" node="4VPM9qF_0bp" resolve="assignment" />
                   </node>
                   <node concept="3TrEf2" id="4VPM9qF_gLv" role="2OqNvi">
-                    <ref role="3Tt5mk" to="mj1l:7FQByU3CrD0" />
+                    <ref role="3Tt5mk" to="mj1l:7FQByU3CrD0" resolve="left" />
                   </node>
                 </node>
                 <node concept="3clFbS" id="4VPM9qF_eW8" role="Jncv$">
@@ -278,11 +278,11 @@
                           <ref role="1M0zk5" node="4VPM9qF_eWa" resolve="localVarRef" />
                         </node>
                         <node concept="3TrEf2" id="38L9WlNM1W8" role="2OqNvi">
-                          <ref role="3Tt5mk" to="c4fa:1OcdQnySvSB" />
+                          <ref role="3Tt5mk" to="c4fa:1OcdQnySvSB" resolve="var" />
                         </node>
                       </node>
                       <node concept="3TrEf2" id="38L9WlNM1W9" role="2OqNvi">
-                        <ref role="3Tt5mk" to="mj1l:hEaDaGor64" />
+                        <ref role="3Tt5mk" to="mj1l:hEaDaGor64" resolve="type" />
                       </node>
                     </node>
                     <node concept="3clFbS" id="38L9WlNM1Wa" role="Jncv$">
@@ -293,7 +293,7 @@
                               <ref role="1M0zk5" node="38L9WlNM1Wh" resolve="collection" />
                             </node>
                             <node concept="3TrEf2" id="38L9WlNM1Wf" role="2OqNvi">
-                              <ref role="3Tt5mk" to="mj1t:6WQN7vgFSqh" />
+                              <ref role="3Tt5mk" to="mj1t:6WQN7vgFSqh" resolve="type" />
                             </node>
                           </node>
                           <node concept="37vLTw" id="38L9WlNM1Wg" role="37vLTJ">
@@ -811,11 +811,11 @@
                         <ref role="1M0zk5" node="38L9WlNM3gP" resolve="structType" />
                       </node>
                       <node concept="3TrEf2" id="38L9WlNMjZB" role="2OqNvi">
-                        <ref role="3Tt5mk" to="clbe:5yYXyc4Z0CT" />
+                        <ref role="3Tt5mk" to="clbe:5yYXyc4Z0CT" resolve="struct" />
                       </node>
                     </node>
                     <node concept="3Tsc0h" id="38L9WlNMjZC" role="2OqNvi">
-                      <ref role="3TtcxE" to="clbe:6a5SBPfXXIi" />
+                      <ref role="3TtcxE" to="clbe:6a5SBPfXXIi" resolve="members" />
                     </node>
                   </node>
                   <node concept="TSZUe" id="38L9WlNMjZD" role="2OqNvi">
