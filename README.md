@@ -1,4 +1,4 @@
-# SimpleDES
+# DESL
 
 This repository contains an MPS project featuring two custom languages. To use these languages, you need to install the Mbeddr plugin distribution in JetBrains MPS. This guide will walk you through the steps to install the required dependencies.
 
