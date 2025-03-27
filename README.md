@@ -118,3 +118,9 @@ You can create a DESL model either by cloning this repository and opening the pr
    ![immagine](https://github.com/user-attachments/assets/6f7998ee-69e4-4d56-93d0-9f1286f31e88)
 
 To add a new model to an existing solution, simply follow step 7.
+
+## Generating executable code
+There is currently no developed toolchain for generating code within the different target simulation environments. To generate the executable code from a DESL model, right-click on the model and select `Preview Generated Text`. This action will open four windows, containing the generated code for the three target simulation runtimes — ROOT-Sim, ROSS, and USE — as well as the corresponding documentation artifact.
+
+![immagine](https://github.com/user-attachments/assets/acf0c1ab-f899-4b16-8938-eda48a0963a7)
+
