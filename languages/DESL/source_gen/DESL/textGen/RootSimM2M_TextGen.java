@@ -271,6 +271,11 @@ public class RootSimM2M_TextGen extends TextGenDescriptorBase {
     tgs.indent();
     tgs.append(".committed = CanEnd,");
     tgs.newLine();
+    if (SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL).contains("pcs")) {
+      tgs.indent();
+      tgs.append(".termination_time = 600.0,");
+      tgs.newLine();
+    }
     ctx.getBuffer().area().decreaseIndent();
     tgs.append("};");
     tgs.newLine();

@@ -1608,6 +1608,31 @@
               </node>
               <node concept="l8MVK" id="1i0tj4W1qur" role="lcghm" />
             </node>
+            <node concept="3clFbJ" id="2fjDKp1Cas3" role="3cqZAp">
+              <node concept="3clFbS" id="2fjDKp1Cas5" role="3clFbx">
+                <node concept="lc7rE" id="2fjDKp1Cl7S" role="3cqZAp">
+                  <node concept="la8eA" id="2fjDKp1Cl7T" role="lcghm">
+                    <property role="lacIc" value=".termination_time = 600.0," />
+                    <property role="ldcpH" value="true" />
+                  </node>
+                  <node concept="l8MVK" id="2fjDKp1Cl7U" role="lcghm" />
+                </node>
+              </node>
+              <node concept="2OqwBi" id="2fjDKp1Cfw8" role="3clFbw">
+                <node concept="2OqwBi" id="2fjDKp1Cb3X" role="2Oq$k0">
+                  <node concept="117lpO" id="2fjDKp1Cas9" role="2Oq$k0" />
+                  <node concept="3TrcHB" id="2fjDKp1Cewk" role="2OqNvi">
+                    <ref role="3TsBF5" to="tpck:h0TrG11" resolve="name" />
+                  </node>
+                </node>
+                <node concept="liA8E" id="2fjDKp1Cj4a" role="2OqNvi">
+                  <ref role="37wK5l" to="wyt6:~String.contains(java.lang.CharSequence)" resolve="contains" />
+                  <node concept="Xl_RD" id="2fjDKp1CkTa" role="37wK5m">
+                    <property role="Xl_RC" value="pcs" />
+                  </node>
+                </node>
+              </node>
+            </node>
           </node>
         </node>
         <node concept="lc7rE" id="7fUe7DKSuie" role="3cqZAp">
