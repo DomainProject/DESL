@@ -1374,29 +1374,24 @@
                 <node concept="3ZVu4v" id="4OHhT54iK5n" role="3TlMhI">
                   <ref role="3ZVs_2" node="4OHhT54iK5a" resolve="w" />
                 </node>
-                <node concept="2BOciq" id="6SysiDpsnAC" role="3TlMhJ">
-                  <node concept="2BOcih" id="6SysiDpsnAD" role="3TlMhI">
-                    <node concept="2qmXGp" id="6SysiDpsnAE" role="3TlMhI">
-                      <node concept="3ZUYvv" id="4OHhT54iK5m" role="1_9fRO">
-                        <ref role="3ZUYvu" node="4OHhT54iK6c" resolve="state" />
-                      </node>
-                      <node concept="1E4Tgc" id="4OHhT54iK5l" role="1ESnxz">
-                        <ref role="1E4Tge" node="4OHhT54iJSO" resolve="channel_counter" />
-                      </node>
+                <node concept="2BOcih" id="6SysiDpsnAD" role="3TlMhJ">
+                  <node concept="2qmXGp" id="6SysiDpsnAE" role="3TlMhI">
+                    <node concept="3ZUYvv" id="4OHhT54iK5m" role="1_9fRO">
+                      <ref role="3ZUYvu" node="4OHhT54iK6c" resolve="state" />
                     </node>
-                    <node concept="2BPB98" id="6SysiDpsnAF" role="3TlMhJ">
-                      <node concept="2BOcij" id="6SysiDpsnAG" role="1_9fRO">
-                        <node concept="3wxvTy" id="4OHhT54iK5i" role="3TlMhI">
-                          <node concept="26Vqph" id="4OHhT54iK5j" role="3wxvTG" />
-                        </node>
-                        <node concept="3TlMh9" id="6SysiDpsnAH" role="3TlMhJ">
-                          <property role="2hmy$m" value="8" />
-                        </node>
-                      </node>
+                    <node concept="1E4Tgc" id="4OHhT54iK5l" role="1ESnxz">
+                      <ref role="1E4Tge" node="4OHhT54iJSO" resolve="channel_counter" />
                     </node>
                   </node>
-                  <node concept="3TlMh9" id="6SysiDpsnHL" role="3TlMhJ">
-                    <property role="2hmy$m" value="1" />
+                  <node concept="2BPB98" id="6SysiDpsnAF" role="3TlMhJ">
+                    <node concept="2BOcij" id="6SysiDpsnAG" role="1_9fRO">
+                      <node concept="3wxvTy" id="4OHhT54iK5i" role="3TlMhI">
+                        <node concept="26Vqph" id="4OHhT54iK5j" role="3wxvTG" />
+                      </node>
+                      <node concept="3TlMh9" id="6SysiDpsnAH" role="3TlMhJ">
+                        <property role="2hmy$m" value="8" />
+                      </node>
+                    </node>
                   </node>
                 </node>
               </node>
