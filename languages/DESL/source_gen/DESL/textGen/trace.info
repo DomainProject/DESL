@@ -1056,39 +1056,42 @@
       <node id="4480120030376904839" at="35,117,36,0" concept="10" />
       <node id="4480120030376901276" at="36,0,37,28" concept="2" />
       <node id="4480120030376904861" at="37,28,38,0" concept="10" />
-      <node id="4480120030376476880" at="40,30,41,181" concept="2" />
-      <node id="4480120030376476880" at="46,0,47,0" concept="11" trace="UseM2M$UU" />
-      <node id="4480120030376476880" at="47,0,48,0" concept="11" trace="RootSimM2M$x5" />
-      <node id="4480120030376476880" at="48,0,49,0" concept="11" trace="Function$K8" />
-      <node id="4480120030376476880" at="49,0,50,0" concept="11" trace="PointerType$HX" />
-      <node id="4480120030376476880" at="50,0,51,0" concept="11" trace="DESLModel$DK" />
-      <node id="4480120030376476880" at="51,0,52,0" concept="11" trace="ClassDefinition$NR" />
-      <node id="4480120030376476880" at="52,0,53,0" concept="11" trace="RossM2M$aQ" />
-      <node id="4480120030376476880" at="53,0,54,0" concept="11" trace="TraceableConcept$L" />
-      <node id="4480120030376476880" at="57,0,58,0" concept="11" trace="arguments$6da0" />
-      <node id="4480120030376476880" at="58,0,59,0" concept="11" trace="type$sXU3" />
-      <node id="4480120030376476880" at="59,0,60,0" concept="11" trace="baseType$zMGV" />
-      <node id="4480120030376476880" at="60,0,61,0" concept="11" trace="classes$SNAM" />
-      <node id="4480120030376476880" at="61,0,62,0" concept="11" trace="stateStruct$NqNO" />
-      <node id="4480120030376476880" at="65,0,66,0" concept="11" trace="name$MnvL" />
-      <node id="4480120030376476880" at="39,5,42,5" concept="4" />
-      <node id="4480120030376476907" at="26,29,39,5" concept="4" />
-      <node id="4480120030376476880" at="23,0,44,0" concept="5" trace="generateText#(Ljetbrains/mps/text/rt/TextGenContext;)V" />
-      <scope id="4480120030376476880" at="40,30,41,181" />
+      <node id="4578727061189857992" at="39,12,40,37" concept="2" />
+      <node id="4480120030376476880" at="42,30,43,181" concept="2" />
+      <node id="4480120030376476880" at="48,0,49,0" concept="11" trace="UseM2M$UU" />
+      <node id="4480120030376476880" at="49,0,50,0" concept="11" trace="RootSimM2M$x5" />
+      <node id="4480120030376476880" at="50,0,51,0" concept="11" trace="Function$K8" />
+      <node id="4480120030376476880" at="51,0,52,0" concept="11" trace="PointerType$HX" />
+      <node id="4480120030376476880" at="52,0,53,0" concept="11" trace="DESLModel$DK" />
+      <node id="4480120030376476880" at="53,0,54,0" concept="11" trace="ClassDefinition$NR" />
+      <node id="4480120030376476880" at="54,0,55,0" concept="11" trace="RossM2M$aQ" />
+      <node id="4480120030376476880" at="55,0,56,0" concept="11" trace="TraceableConcept$L" />
+      <node id="4480120030376476880" at="59,0,60,0" concept="11" trace="arguments$6da0" />
+      <node id="4480120030376476880" at="60,0,61,0" concept="11" trace="type$sXU3" />
+      <node id="4480120030376476880" at="61,0,62,0" concept="11" trace="baseType$zMGV" />
+      <node id="4480120030376476880" at="62,0,63,0" concept="11" trace="classes$SNAM" />
+      <node id="4480120030376476880" at="63,0,64,0" concept="11" trace="stateStruct$NqNO" />
+      <node id="4480120030376476880" at="67,0,68,0" concept="11" trace="name$MnvL" />
+      <node id="4578727061189852327" at="39,10,41,5" concept="0" />
+      <node id="4480120030376476880" at="41,5,44,5" concept="4" />
+      <node id="4480120030376476907" at="26,29,41,5" concept="4" />
+      <node id="4480120030376476880" at="23,0,46,0" concept="5" trace="generateText#(Ljetbrains/mps/text/rt/TextGenContext;)V" />
+      <scope id="4578727061189852328" at="39,12,40,37" />
+      <scope id="4480120030376476880" at="42,30,43,181" />
       <scope id="4480120030376868993" at="35,117,38,0" />
       <scope id="4480120030376476909" at="27,215,34,0">
         <var name="stateStructName" id="4480120030376551633" />
       </scope>
-      <scope id="4480120030376476880" at="24,54,42,5">
+      <scope id="4480120030376476880" at="24,54,44,5">
         <var name="tgs" id="4480120030376476880" />
       </scope>
-      <scope id="4480120030376476880" at="23,0,44,0">
+      <scope id="4480120030376476880" at="23,0,46,0">
         <var name="ctx" id="4480120030376476880" />
       </scope>
-      <unit id="4480120030376476880" at="64,0,67,0" name="DESL.textGen.GetRandContext_TextGen$PROPS" />
-      <unit id="4480120030376476880" at="56,0,63,0" name="DESL.textGen.GetRandContext_TextGen$LINKS" />
-      <unit id="4480120030376476880" at="45,0,55,0" name="DESL.textGen.GetRandContext_TextGen$CONCEPTS" />
-      <unit id="4480120030376476880" at="22,0,68,0" name="DESL.textGen.GetRandContext_TextGen" />
+      <unit id="4480120030376476880" at="66,0,69,0" name="DESL.textGen.GetRandContext_TextGen$PROPS" />
+      <unit id="4480120030376476880" at="58,0,65,0" name="DESL.textGen.GetRandContext_TextGen$LINKS" />
+      <unit id="4480120030376476880" at="47,0,57,0" name="DESL.textGen.GetRandContext_TextGen$CONCEPTS" />
+      <unit id="4480120030376476880" at="22,0,70,0" name="DESL.textGen.GetRandContext_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
       <node id="4480120030376476880" at="54,48,55,44" concept="8" />
@@ -3004,127 +3007,136 @@
       <node id="7919073755539609141" at="530,18,531,0" concept="10" />
       <node id="6305685530380433657" at="531,0,532,56" concept="2" />
       <node id="4480120030396892993" at="532,56,533,0" concept="10" />
-      <node id="4480120030396900934" at="533,0,534,17" concept="2" />
-      <node id="4480120030396900934" at="534,17,535,41" concept="2" />
-      <node id="4480120030396909036" at="535,41,536,18" concept="2" />
-      <node id="4480120030396909111" at="536,18,537,18" concept="2" />
-      <node id="4480120030396909137" at="537,18,538,0" concept="10" />
-      <node id="4480120030396917078" at="538,0,539,17" concept="2" />
-      <node id="4480120030396917078" at="539,17,540,41" concept="2" />
-      <node id="4480120030396925156" at="540,41,541,18" concept="2" />
-      <node id="4480120030396940089" at="541,18,542,17" concept="2" />
-      <node id="4480120030396940089" at="542,17,543,71" concept="2" />
-      <node id="4480120030396941250" at="543,71,544,18" concept="2" />
-      <node id="4480120030396957151" at="544,18,545,17" concept="2" />
-      <node id="4480120030396957151" at="545,17,546,87" concept="2" />
-      <node id="4480120030396957415" at="546,87,547,18" concept="2" />
-      <node id="4480120030396957470" at="547,18,548,18" concept="2" />
-      <node id="7919073755539608861" at="548,18,549,0" concept="10" />
-      <node id="7919073755539609096" at="549,0,550,17" concept="2" />
-      <node id="7919073755539609096" at="550,17,551,53" concept="2" />
-      <node id="7919073755539609097" at="551,53,552,18" concept="2" />
-      <node id="7919073755539609276" at="552,18,553,17" concept="2" />
-      <node id="7919073755539609276" at="553,17,554,30" concept="2" />
-      <node id="7919073755539733349" at="554,30,555,36" concept="2" />
-      <node id="7919073755559039167" at="555,36,556,20" concept="2" />
-      <node id="7919073755539760995" at="556,20,557,18" concept="2" />
-      <node id="7919073755539768498" at="557,18,558,17" concept="2" />
-      <node id="7919073755539768498" at="558,17,559,73" concept="2" />
-      <node id="7919073755539768596" at="559,73,560,18" concept="2" />
-      <node id="3342195165119092708" at="560,18,561,17" concept="2" />
-      <node id="3342195165119092708" at="561,17,562,70" concept="2" />
-      <node id="3342195165119093928" at="562,70,563,18" concept="2" />
-      <node id="4480120030397024634" at="563,18,564,18" concept="2" />
-      <node id="3342195165119093978" at="564,18,565,0" concept="10" />
-      <node id="3342195165119102461" at="565,0,566,17" concept="2" />
-      <node id="3342195165119102461" at="566,17,567,87" concept="2" />
-      <node id="4473961559108014015" at="567,87,568,18" concept="2" />
-      <node id="7919073755539609063" at="568,18,569,0" concept="10" />
-      <node id="7919073755539608655" at="569,0,570,17" concept="2" />
-      <node id="7919073755539608655" at="570,17,571,35" concept="2" />
-      <node id="7919073755539608732" at="571,35,572,18" concept="2" />
-      <node id="7919073755539607911" at="572,18,573,17" concept="2" />
-      <node id="7919073755539607911" at="573,17,574,45" concept="2" />
-      <node id="7919073755539607912" at="574,45,575,18" concept="2" />
-      <node id="7919073755539607915" at="575,18,576,17" concept="2" />
-      <node id="7919073755539607915" at="576,17,577,59" concept="2" />
-      <node id="7919073755539776182" at="577,59,578,165" concept="2" />
-      <node id="7919073755541272751" at="578,165,579,22" concept="2" />
-      <node id="7919073755539607916" at="579,22,580,18" concept="2" />
-      <node id="4480120030397014966" at="580,18,581,18" concept="2" />
-      <node id="7919073755541307323" at="581,18,582,0" concept="10" />
-      <node id="7919073755541290112" at="582,0,583,17" concept="2" />
-      <node id="7919073755541290112" at="583,17,584,39" concept="2" />
-      <node id="7919073755541290162" at="584,39,585,18" concept="2" />
-      <node id="4480120030397005655" at="585,18,586,18" concept="2" />
-      <node id="4480120030396957497" at="586,18,587,0" concept="10" />
-      <node id="4480120030396973373" at="588,96,589,19" concept="2" />
-      <node id="4480120030396973373" at="589,19,590,47" concept="2" />
-      <node id="4480120030396973586" at="590,47,591,20" concept="2" />
-      <node id="7919073755541316433" at="592,5,593,0" concept="10" />
-      <node id="7919073755541325075" at="593,0,594,17" concept="2" />
-      <node id="7919073755541325075" at="594,17,595,28" concept="2" />
-      <node id="7919073755541325125" at="595,28,596,18" concept="2" />
-      <node id="7919073755541325268" at="596,18,597,17" concept="2" />
-      <node id="7919073755541325268" at="597,17,598,28" concept="2" />
-      <node id="7919073755541325269" at="598,28,599,18" concept="2" />
-      <node id="4480120030396997671" at="599,18,600,18" concept="2" />
-      <node id="4480120030396973613" at="600,18,601,0" concept="10" />
-      <node id="4480120030396989489" at="602,96,603,19" concept="2" />
-      <node id="4480120030396989489" at="603,19,604,42" concept="2" />
-      <node id="4480120030396989632" at="604,42,605,20" concept="2" />
-      <node id="4480120030396989687" at="605,20,606,20" concept="2" />
-      <node id="7919073755541350589" at="607,5,608,0" concept="10" />
-      <node id="7919073755541350999" at="608,0,609,17" concept="2" />
-      <node id="7919073755541350999" at="609,17,610,28" concept="2" />
-      <node id="7919073755541351058" at="610,28,611,18" concept="2" />
-      <node id="7919073755541290275" at="611,18,612,0" concept="10" />
-      <node id="9066337358837503729" at="612,0,613,44" concept="2" />
-      <node id="7919073755539581334" at="613,44,614,20" concept="2" />
-      <node id="7919073755539592098" at="614,20,615,18" concept="2" />
-      <node id="7919073755539358574" at="615,18,616,0" concept="10" />
-      <node id="7919073755539358576" at="616,0,617,0" concept="10" />
-      <node id="7919073755539358578" at="617,0,618,0" concept="10" />
-      <node id="7919073755539358580" at="618,0,619,0" concept="10" />
-      <node id="9066337358837503729" at="620,30,621,159" concept="2" />
-      <node id="9066337358837503729" at="626,0,627,0" concept="11" trace="eventType$MGmZ" />
-      <node id="9066337358837503729" at="627,0,628,0" concept="11" trace="events$uflG" />
-      <node id="9066337358837503729" at="628,0,629,0" concept="11" trace="processes$hZqx" />
-      <node id="9066337358837503729" at="629,0,630,0" concept="11" trace="processAllocations$cuUJ" />
-      <node id="9066337358837503729" at="630,0,631,0" concept="11" trace="messageStruct$xVlJ" />
-      <node id="9066337358837503729" at="631,0,632,0" concept="11" trace="members$C59R" />
-      <node id="9066337358837503729" at="632,0,633,0" concept="11" trace="type$sXU3" />
-      <node id="9066337358837503729" at="633,0,634,0" concept="11" trace="arguments$6da0" />
-      <node id="9066337358837503729" at="634,0,635,0" concept="11" trace="body$1GE0" />
-      <node id="9066337358837503729" at="635,0,636,0" concept="11" trace="externalFunctions$LqEg" />
-      <node id="9066337358837503729" at="636,0,637,0" concept="11" trace="handlers$Nr2P" />
-      <node id="9066337358837503729" at="637,0,638,0" concept="11" trace="function$5bPH" />
-      <node id="9066337358837503729" at="638,0,639,0" concept="11" trace="baseType$zMGV" />
-      <node id="9066337358837503729" at="639,0,640,0" concept="11" trace="stateStruct$NqNO" />
-      <node id="9066337358837503729" at="640,0,641,0" concept="11" trace="statements$euTV" />
-      <node id="9066337358837503729" at="641,0,642,0" concept="11" trace="to$WtFs" />
-      <node id="9066337358837503729" at="642,0,643,0" concept="11" trace="arg$WIp5" />
-      <node id="9066337358837503729" at="643,0,644,0" concept="11" trace="classes$SNAM" />
-      <node id="9066337358837503729" at="644,0,645,0" concept="11" trace="processes$2JvY" />
-      <node id="9066337358837503729" at="648,0,649,0" concept="11" trace="name$MnvL" />
-      <node id="9066337358837503729" at="649,0,650,0" concept="11" trace="right$2uAQ" />
-      <node id="9066337358837503729" at="650,0,651,0" concept="11" trace="left$2u8O" />
-      <node id="9066337358837503729" at="651,0,652,0" concept="11" trace="eventName$AHdn" />
-      <node id="9066337358837503729" at="655,0,656,0" concept="11" trace="EventDefinition$wO" />
-      <node id="9066337358837503729" at="656,0,657,0" concept="11" trace="ProcessArray$Ux" />
-      <node id="9066337358837503729" at="657,0,658,0" concept="11" trace="ProcessAllocation$5Z" />
-      <node id="9066337358837503729" at="658,0,659,0" concept="11" trace="RngType$1E" />
-      <node id="9066337358837503729" at="659,0,660,0" concept="11" trace="Random$XZ" />
-      <node id="9066337358837503729" at="660,0,661,0" concept="11" trace="Expent$Yu" />
-      <node id="9066337358837503729" at="661,0,662,0" concept="11" trace="ExternalFunction$U_" />
-      <node id="9066337358837503729" at="662,0,663,0" concept="11" trace="EventHandler$Ov" />
-      <node id="9066337358837503729" at="663,0,664,0" concept="11" trace="Argument$9m" />
-      <node id="9066337358837503729" at="664,0,665,0" concept="11" trace="PointerType$HX" />
-      <node id="9066337358837503729" at="665,0,666,0" concept="11" trace="SendEvent$u" />
-      <node id="9066337358837503729" at="666,0,667,0" concept="11" trace="ArgumentRef$iE" />
-      <node id="9066337358837503729" at="667,0,668,0" concept="11" trace="ClassDefinition$NR" />
-      <node id="9066337358837503729" at="668,0,669,0" concept="11" trace="ProcessSequence$B$" />
-      <node id="9066337358837503729" at="669,0,670,0" concept="11" trace="UnitConcept$1g" />
+      <node id="4578727061195095097" at="533,0,534,22" concept="9" />
+      <node id="4578727061191678597" at="535,96,536,19" concept="2" />
+      <node id="4578727061191678597" at="536,19,537,41" concept="2" />
+      <node id="4578727061191678598" at="537,41,538,20" concept="2" />
+      <node id="4578727061191678599" at="538,20,539,20" concept="2" />
+      <node id="4578727061191695959" at="540,105,541,19" concept="2" />
+      <node id="4578727061191695959" at="541,19,542,42" concept="2" />
+      <node id="4578727061191695960" at="542,42,543,20" concept="2" />
+      <node id="4578727061191695961" at="543,20,544,20" concept="2" />
+      <node id="4480120030396900934" at="545,12,546,19" concept="2" />
+      <node id="4480120030396900934" at="546,19,547,43" concept="2" />
+      <node id="4480120030396909036" at="547,43,548,20" concept="2" />
+      <node id="4480120030396909111" at="548,20,549,20" concept="2" />
+      <node id="4480120030396909137" at="550,5,551,0" concept="10" />
+      <node id="4480120030396917078" at="551,0,552,17" concept="2" />
+      <node id="4480120030396917078" at="552,17,553,41" concept="2" />
+      <node id="4480120030396925156" at="553,41,554,18" concept="2" />
+      <node id="4480120030396940089" at="554,18,555,17" concept="2" />
+      <node id="4480120030396940089" at="555,17,556,71" concept="2" />
+      <node id="4480120030396941250" at="556,71,557,18" concept="2" />
+      <node id="4480120030396957151" at="557,18,558,17" concept="2" />
+      <node id="4480120030396957151" at="558,17,559,87" concept="2" />
+      <node id="4480120030396957415" at="559,87,560,18" concept="2" />
+      <node id="4480120030396957470" at="560,18,561,18" concept="2" />
+      <node id="7919073755539608861" at="561,18,562,0" concept="10" />
+      <node id="7919073755539609096" at="562,0,563,17" concept="2" />
+      <node id="7919073755539609096" at="563,17,564,53" concept="2" />
+      <node id="7919073755539609097" at="564,53,565,18" concept="2" />
+      <node id="7919073755539609276" at="565,18,566,17" concept="2" />
+      <node id="7919073755539609276" at="566,17,567,30" concept="2" />
+      <node id="7919073755539733349" at="567,30,568,36" concept="2" />
+      <node id="7919073755559039167" at="568,36,569,20" concept="2" />
+      <node id="7919073755539760995" at="569,20,570,18" concept="2" />
+      <node id="7919073755539768498" at="570,18,571,17" concept="2" />
+      <node id="7919073755539768498" at="571,17,572,73" concept="2" />
+      <node id="7919073755539768596" at="572,73,573,18" concept="2" />
+      <node id="3342195165119092708" at="573,18,574,17" concept="2" />
+      <node id="3342195165119092708" at="574,17,575,70" concept="2" />
+      <node id="3342195165119093928" at="575,70,576,18" concept="2" />
+      <node id="4480120030397024634" at="576,18,577,18" concept="2" />
+      <node id="3342195165119093978" at="577,18,578,0" concept="10" />
+      <node id="3342195165119102461" at="578,0,579,17" concept="2" />
+      <node id="3342195165119102461" at="579,17,580,87" concept="2" />
+      <node id="4473961559108014015" at="580,87,581,18" concept="2" />
+      <node id="7919073755539609063" at="581,18,582,0" concept="10" />
+      <node id="7919073755539608655" at="582,0,583,17" concept="2" />
+      <node id="7919073755539608655" at="583,17,584,35" concept="2" />
+      <node id="7919073755539608732" at="584,35,585,18" concept="2" />
+      <node id="7919073755539607911" at="585,18,586,17" concept="2" />
+      <node id="7919073755539607911" at="586,17,587,45" concept="2" />
+      <node id="7919073755539607912" at="587,45,588,18" concept="2" />
+      <node id="7919073755539607915" at="588,18,589,17" concept="2" />
+      <node id="7919073755539607915" at="589,17,590,59" concept="2" />
+      <node id="7919073755539776182" at="590,59,591,165" concept="2" />
+      <node id="7919073755541272751" at="591,165,592,22" concept="2" />
+      <node id="7919073755539607916" at="592,22,593,18" concept="2" />
+      <node id="4480120030397014966" at="593,18,594,18" concept="2" />
+      <node id="7919073755541307323" at="594,18,595,0" concept="10" />
+      <node id="7919073755541290112" at="595,0,596,17" concept="2" />
+      <node id="7919073755541290112" at="596,17,597,39" concept="2" />
+      <node id="7919073755541290162" at="597,39,598,18" concept="2" />
+      <node id="4480120030397005655" at="598,18,599,18" concept="2" />
+      <node id="4480120030396957497" at="599,18,600,0" concept="10" />
+      <node id="4480120030396973373" at="601,96,602,19" concept="2" />
+      <node id="4480120030396973373" at="602,19,603,47" concept="2" />
+      <node id="4480120030396973586" at="603,47,604,20" concept="2" />
+      <node id="7919073755541316433" at="605,5,606,0" concept="10" />
+      <node id="7919073755541325075" at="606,0,607,17" concept="2" />
+      <node id="7919073755541325075" at="607,17,608,28" concept="2" />
+      <node id="7919073755541325125" at="608,28,609,18" concept="2" />
+      <node id="7919073755541325268" at="609,18,610,17" concept="2" />
+      <node id="7919073755541325268" at="610,17,611,28" concept="2" />
+      <node id="7919073755541325269" at="611,28,612,18" concept="2" />
+      <node id="4480120030396997671" at="612,18,613,18" concept="2" />
+      <node id="4480120030396973613" at="613,18,614,0" concept="10" />
+      <node id="4480120030396989489" at="615,96,616,19" concept="2" />
+      <node id="4480120030396989489" at="616,19,617,42" concept="2" />
+      <node id="4480120030396989632" at="617,42,618,20" concept="2" />
+      <node id="4480120030396989687" at="618,20,619,20" concept="2" />
+      <node id="7919073755541350589" at="620,5,621,0" concept="10" />
+      <node id="7919073755541350999" at="621,0,622,17" concept="2" />
+      <node id="7919073755541350999" at="622,17,623,28" concept="2" />
+      <node id="7919073755541351058" at="623,28,624,18" concept="2" />
+      <node id="7919073755541290275" at="624,18,625,0" concept="10" />
+      <node id="9066337358837503729" at="625,0,626,44" concept="2" />
+      <node id="7919073755539581334" at="626,44,627,20" concept="2" />
+      <node id="7919073755539592098" at="627,20,628,18" concept="2" />
+      <node id="7919073755539358574" at="628,18,629,0" concept="10" />
+      <node id="7919073755539358576" at="629,0,630,0" concept="10" />
+      <node id="7919073755539358578" at="630,0,631,0" concept="10" />
+      <node id="7919073755539358580" at="631,0,632,0" concept="10" />
+      <node id="9066337358837503729" at="633,30,634,159" concept="2" />
+      <node id="9066337358837503729" at="639,0,640,0" concept="11" trace="eventType$MGmZ" />
+      <node id="9066337358837503729" at="640,0,641,0" concept="11" trace="events$uflG" />
+      <node id="9066337358837503729" at="641,0,642,0" concept="11" trace="processes$hZqx" />
+      <node id="9066337358837503729" at="642,0,643,0" concept="11" trace="processAllocations$cuUJ" />
+      <node id="9066337358837503729" at="643,0,644,0" concept="11" trace="messageStruct$xVlJ" />
+      <node id="9066337358837503729" at="644,0,645,0" concept="11" trace="members$C59R" />
+      <node id="9066337358837503729" at="645,0,646,0" concept="11" trace="type$sXU3" />
+      <node id="9066337358837503729" at="646,0,647,0" concept="11" trace="arguments$6da0" />
+      <node id="9066337358837503729" at="647,0,648,0" concept="11" trace="body$1GE0" />
+      <node id="9066337358837503729" at="648,0,649,0" concept="11" trace="externalFunctions$LqEg" />
+      <node id="9066337358837503729" at="649,0,650,0" concept="11" trace="handlers$Nr2P" />
+      <node id="9066337358837503729" at="650,0,651,0" concept="11" trace="function$5bPH" />
+      <node id="9066337358837503729" at="651,0,652,0" concept="11" trace="baseType$zMGV" />
+      <node id="9066337358837503729" at="652,0,653,0" concept="11" trace="stateStruct$NqNO" />
+      <node id="9066337358837503729" at="653,0,654,0" concept="11" trace="statements$euTV" />
+      <node id="9066337358837503729" at="654,0,655,0" concept="11" trace="to$WtFs" />
+      <node id="9066337358837503729" at="655,0,656,0" concept="11" trace="arg$WIp5" />
+      <node id="9066337358837503729" at="656,0,657,0" concept="11" trace="classes$SNAM" />
+      <node id="9066337358837503729" at="657,0,658,0" concept="11" trace="processes$2JvY" />
+      <node id="9066337358837503729" at="661,0,662,0" concept="11" trace="name$MnvL" />
+      <node id="9066337358837503729" at="662,0,663,0" concept="11" trace="right$2uAQ" />
+      <node id="9066337358837503729" at="663,0,664,0" concept="11" trace="left$2u8O" />
+      <node id="9066337358837503729" at="664,0,665,0" concept="11" trace="eventName$AHdn" />
+      <node id="9066337358837503729" at="668,0,669,0" concept="11" trace="EventDefinition$wO" />
+      <node id="9066337358837503729" at="669,0,670,0" concept="11" trace="ProcessArray$Ux" />
+      <node id="9066337358837503729" at="670,0,671,0" concept="11" trace="ProcessAllocation$5Z" />
+      <node id="9066337358837503729" at="671,0,672,0" concept="11" trace="RngType$1E" />
+      <node id="9066337358837503729" at="672,0,673,0" concept="11" trace="Random$XZ" />
+      <node id="9066337358837503729" at="673,0,674,0" concept="11" trace="Expent$Yu" />
+      <node id="9066337358837503729" at="674,0,675,0" concept="11" trace="ExternalFunction$U_" />
+      <node id="9066337358837503729" at="675,0,676,0" concept="11" trace="EventHandler$Ov" />
+      <node id="9066337358837503729" at="676,0,677,0" concept="11" trace="Argument$9m" />
+      <node id="9066337358837503729" at="677,0,678,0" concept="11" trace="PointerType$HX" />
+      <node id="9066337358837503729" at="678,0,679,0" concept="11" trace="SendEvent$u" />
+      <node id="9066337358837503729" at="679,0,680,0" concept="11" trace="ArgumentRef$iE" />
+      <node id="9066337358837503729" at="680,0,681,0" concept="11" trace="ClassDefinition$NR" />
+      <node id="9066337358837503729" at="681,0,682,0" concept="11" trace="ProcessSequence$B$" />
+      <node id="9066337358837503729" at="682,0,683,0" concept="11" trace="UnitConcept$1g" />
       <node id="4480120030390132671" at="202,16,204,11" concept="0" />
       <node id="2575222304959634034" at="61,23,64,5" concept="3" />
       <node id="4480120030389523232" at="194,110,197,11" concept="4" />
@@ -3133,12 +3145,13 @@
       <node id="6193096309033370886" at="427,10,430,5" concept="0" />
       <node id="7919073755539653976" at="508,91,511,9" concept="4" />
       <node id="7919073755539653996" at="514,91,517,9" concept="4" />
-      <node id="9066337358837503729" at="619,0,622,5" concept="4" />
+      <node id="9066337358837503729" at="632,0,635,5" concept="4" />
       <node id="7919073755547115639" at="141,18,145,5" concept="3" />
       <node id="4480120030390140520" at="205,9,209,9" concept="4" />
       <node id="2481019114554474361" at="218,0,222,5" concept="4" />
       <node id="5561179804142208109" at="271,20,276,7" concept="3" />
-      <node id="6450368232885519780" at="587,0,592,5" concept="4" />
+      <node id="4578727061191696040" at="545,10,550,5" concept="0" />
+      <node id="6450368232885519780" at="600,0,605,5" concept="4" />
       <node id="4480120030389717609" at="198,30,204,11" concept="4" />
       <node id="1349451222001566064" at="225,32,231,5" concept="4" />
       <node id="7919073755538883192" at="280,0,286,0" concept="7" />
@@ -3146,7 +3159,7 @@
       <node id="7919073755539822616" at="411,44,417,5" concept="3" />
       <node id="7919073755539653976" at="506,193,512,7" concept="0" />
       <node id="7919073755539653996" at="512,7,518,7" concept="0" />
-      <node id="6450368232885577845" at="601,0,607,5" concept="4" />
+      <node id="6450368232885577845" at="614,0,620,5" concept="4" />
       <node id="9066337358837671512" at="40,174,47,7" concept="4" />
       <node id="7919073755538714825" at="103,0,110,0" concept="7" />
       <node id="7919073755546682642" at="114,46,121,7" concept="4" />
@@ -3157,6 +3170,7 @@
       <node id="4480120030389437385" at="193,32,205,9" concept="3" />
       <node id="7919073755539653967" at="505,16,519,5" concept="3" />
       <node id="1349451221999391253" at="82,0,97,5" concept="4" />
+      <node id="4578727061191620996" at="534,22,550,5" concept="4" />
       <node id="1349451221998946786" at="320,20,337,7" concept="4" />
       <node id="2575222304956729006" at="155,51,173,5" concept="4" />
       <node id="5561179804123052207" at="350,157,369,9" concept="4" />
@@ -3165,14 +3179,14 @@
       <node id="4480120030388893021" at="185,28,216,5" concept="3" />
       <node id="7919073755539389540" at="448,44,495,5" concept="3" />
       <node id="9066337358838250107" at="245,0,405,5" concept="3" />
-      <node id="9066337358837503729" at="28,0,624,0" concept="5" trace="generateText#(Ljetbrains/mps/text/rt/TextGenContext;)V" />
+      <node id="9066337358837503729" at="28,0,637,0" concept="5" trace="generateText#(Ljetbrains/mps/text/rt/TextGenContext;)V" />
       <scope id="2575222304959634040" at="62,200,63,356" />
       <scope id="4480120030389523234" at="195,115,196,35" />
       <scope id="4480120030390132672" at="202,18,203,29" />
       <scope id="7919073755539267203" at="289,40,290,232" />
       <scope id="7919073755539653980" at="509,79,510,142" />
       <scope id="7919073755539654000" at="515,82,516,108" />
-      <scope id="9066337358837503729" at="620,30,621,159" />
+      <scope id="9066337358837503729" at="633,30,634,159" />
       <scope id="7919073755547115641" at="142,173,144,29" />
       <scope id="4480120030389717611" at="199,171,201,26" />
       <scope id="4480120030390140522" at="206,33,208,24" />
@@ -3188,7 +3202,7 @@
       <scope id="1349451221999746275" at="93,105,96,20" />
       <scope id="5561179804142208115" at="272,210,275,22" />
       <scope id="1349451221998984393" at="333,107,336,22" />
-      <scope id="6450368232885519782" at="588,96,591,20" />
+      <scope id="6450368232885519782" at="601,96,604,20" />
       <scope id="7919073755547115639" at="141,18,145,5">
         <var name="member" id="7919073755547115640" />
       </scope>
@@ -3201,7 +3215,10 @@
       <scope id="7919073755539653996" at="513,7,517,9">
         <var name="sequence" id="7919073755539653996" />
       </scope>
-      <scope id="6450368232885577847" at="602,96,606,20" />
+      <scope id="4578727061191620998" at="535,96,539,20" />
+      <scope id="4578727061191678655" at="540,105,544,20" />
+      <scope id="4578727061191696041" at="545,12,549,20" />
+      <scope id="6450368232885577847" at="615,96,619,20" />
       <scope id="9066337358837671513" at="41,479,46,22" />
       <scope id="7919073755546682644" at="115,244,120,22" />
       <scope id="5561179804142208109" at="271,20,276,7">
@@ -3254,20 +3271,20 @@
       <scope id="9066337358838250107" at="245,0,405,5">
         <var name="c" id="9066337358838250109" />
       </scope>
-      <scope id="9066337358837503729" at="29,54,622,5">
+      <scope id="9066337358837503729" at="29,54,635,5">
         <var name="containsContext" id="4480120030389498359" />
         <var name="headers" id="9066337358837649784" />
         <var name="lps" id="7919073755539666145" />
         <var name="tgs" id="9066337358837503729" />
         <var name="total_lps" id="2575222304959583296" />
       </scope>
-      <scope id="9066337358837503729" at="28,0,624,0">
+      <scope id="9066337358837503729" at="28,0,637,0">
         <var name="ctx" id="9066337358837503729" />
       </scope>
-      <unit id="9066337358837503729" at="647,0,653,0" name="DESL.textGen.RossM2M_TextGen$PROPS" />
-      <unit id="9066337358837503729" at="654,0,671,0" name="DESL.textGen.RossM2M_TextGen$CONCEPTS" />
-      <unit id="9066337358837503729" at="625,0,646,0" name="DESL.textGen.RossM2M_TextGen$LINKS" />
-      <unit id="9066337358837503729" at="27,0,672,0" name="DESL.textGen.RossM2M_TextGen" />
+      <unit id="9066337358837503729" at="660,0,666,0" name="DESL.textGen.RossM2M_TextGen$PROPS" />
+      <unit id="9066337358837503729" at="667,0,684,0" name="DESL.textGen.RossM2M_TextGen$CONCEPTS" />
+      <unit id="9066337358837503729" at="638,0,659,0" name="DESL.textGen.RossM2M_TextGen$LINKS" />
+      <unit id="9066337358837503729" at="27,0,685,0" name="DESL.textGen.RossM2M_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
       <node id="9066337358837503729" at="88,41,89,37" concept="8" />

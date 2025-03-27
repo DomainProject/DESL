@@ -206,7 +206,7 @@
       </concept>
     </language>
     <language id="c4765525-912b-41b9-ace4-ce3b88117666" name="DESL">
-      <concept id="1935028353745327664" name="DESL.structure.DESModel" flags="ng" index="d_wKT">
+      <concept id="1935028353745327664" name="DESL.structure.DESLModel" flags="ng" index="d_wKT">
         <child id="8241728834324980660" name="typedefs" index="zq6c1" />
         <child id="8378102908621580617" name="macros" index="2$iQ_X" />
         <child id="4690400695369237814" name="classes" index="2$Fiey" />
@@ -390,7 +390,7 @@
       <ref role="2BbIEB" node="4OHhT54iJwT" resolve="classA" />
       <node concept="2BnW4s" id="58BjBcx85gq" role="2BbD4j">
         <property role="2BnW4u" value="0" />
-        <property role="2BnW4o" value="39999" />
+        <property role="2BnW4o" value="22499" />
       </node>
     </node>
     <node concept="138pi_" id="1dn0vY9LXWj" role="32KCjO">
@@ -626,13 +626,13 @@
     <node concept="2$iQ_L" id="2y$uZ59HRTd" role="2$iQ_X">
       <property role="TrG5h" value="TA" />
       <node concept="3TlMh9" id="2y$uZ59HRTe" role="2DQcEM">
-        <property role="2hmy$m" value="0.12" />
+        <property role="2hmy$m" value="0.16" />
       </node>
     </node>
     <node concept="2$iQ_L" id="2y$uZ59HSfr" role="2$iQ_X">
       <property role="TrG5h" value="TA_DURATION" />
       <node concept="3TlMh9" id="2y$uZ59HSfs" role="2DQcEM">
-        <property role="2hmy$m" value="60" />
+        <property role="2hmy$m" value="120" />
       </node>
     </node>
     <node concept="2$iQ_L" id="2y$uZ59HSA2" role="2$iQ_X">
@@ -4588,14 +4588,14 @@
     <node concept="2$iQ_L" id="5nMj4vnffIk" role="2$iQ_X">
       <property role="TrG5h" value="NUM_LPS" />
       <node concept="3TlMh9" id="5nMj4vnffMr" role="2DQcEM">
-        <property role="2hmy$m" value="8192" />
+        <property role="2hmy$m" value="16000" />
       </node>
     </node>
     <node concept="2BbD4n" id="730YTbWQce5" role="2BlNMq">
       <ref role="2BbIEB" node="730YTbVAXEm" resolve="classA" />
       <node concept="2BnW4s" id="730YTbWQcef" role="2BbD4j">
         <property role="2BnW4u" value="0" />
-        <property role="2BnW4o" value="8191" />
+        <property role="2BnW4o" value="15999" />
       </node>
     </node>
     <node concept="13wVKn" id="1KZIYOW3D8F" role="2Z_0yU">

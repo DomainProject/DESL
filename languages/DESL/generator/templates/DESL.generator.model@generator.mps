@@ -93,9 +93,6 @@
       <concept id="1167756080639" name="jetbrains.mps.lang.generator.structure.PropertyMacro_GetPropertyValue" flags="in" index="3zFVjK" />
       <concept id="1167951910403" name="jetbrains.mps.lang.generator.structure.SourceSubstituteMacro_SourceNodesQuery" flags="in" index="3JmXsc" />
       <concept id="1168024337012" name="jetbrains.mps.lang.generator.structure.SourceSubstituteMacro_SourceNodeQuery" flags="in" index="3NFfHV" />
-      <concept id="1118786554307" name="jetbrains.mps.lang.generator.structure.LoopMacro" flags="ln" index="1WS0z7">
-        <child id="1167952069335" name="sourceNodesQuery" index="3Jn$fo" />
-      </concept>
     </language>
     <language id="efda956e-491e-4f00-ba14-36af2f213ecf" name="com.mbeddr.core.udt">
       <concept id="841971064023554" name="com.mbeddr.core.udt.structure.OpaqueTypeDecl" flags="ng" index="2Eb5v6" />
@@ -205,6 +202,22 @@
   </node>
   <node concept="XkwF5" id="2jDROuKhEfb">
     <property role="TrG5h" value="map_RootSim" />
+    <node concept="2tIAlt" id="3YaU035_3w2" role="2Z_0yT">
+      <node concept="2b32R4" id="3YaU035_3Ya" role="lGtFl">
+        <node concept="3JmXsc" id="3YaU035_3Yd" role="2P8S$">
+          <node concept="3clFbS" id="3YaU035_3Ye" role="2VODD2">
+            <node concept="3clFbF" id="3YaU035_3Yk" role="3cqZAp">
+              <node concept="2OqwBi" id="3YaU035_3Yf" role="3clFbG">
+                <node concept="3Tsc0h" id="3YaU035_3Yi" role="2OqNvi">
+                  <ref role="3TtcxE" to="rdv6:6WQN7vgCGje" resolve="externalFunctions" />
+                </node>
+                <node concept="30H73N" id="3YaU035_3Yj" role="2Oq$k0" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
     <node concept="2tIAlt" id="2jDROuKivWg" role="2BlNMq">
       <node concept="2b32R4" id="2jDROuKix8W" role="lGtFl">
         <node concept="3JmXsc" id="2jDROuKix8Z" role="2P8S$">
@@ -247,22 +260,6 @@
                   <ref role="3TtcxE" to="rdv6:3k7QKnRLlZL" resolve="configuration" />
                 </node>
                 <node concept="30H73N" id="2jDROuKiu6B" role="2Oq$k0" />
-              </node>
-            </node>
-          </node>
-        </node>
-      </node>
-    </node>
-    <node concept="2tIAlt" id="2jDROuKirQX" role="2Z_0yT">
-      <node concept="1WS0z7" id="2jDROuKisOL" role="lGtFl">
-        <node concept="3JmXsc" id="2jDROuKisOO" role="3Jn$fo">
-          <node concept="3clFbS" id="2jDROuKisOP" role="2VODD2">
-            <node concept="3clFbF" id="2jDROuKisOV" role="3cqZAp">
-              <node concept="2OqwBi" id="2jDROuKisOQ" role="3clFbG">
-                <node concept="3Tsc0h" id="2jDROuKisOT" role="2OqNvi">
-                  <ref role="3TtcxE" to="rdv6:6WQN7vgCGje" resolve="externalFunctions" />
-                </node>
-                <node concept="30H73N" id="2jDROuKisOU" role="2Oq$k0" />
               </node>
             </node>
           </node>

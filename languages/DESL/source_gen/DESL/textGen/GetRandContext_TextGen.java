@@ -36,6 +36,8 @@ public class GetRandContext_TextGen extends TextGenDescriptorBase {
 
       tgs.append("lp->rng");
 
+    } else {
+      tgs.append("GetRandContext()");
     }
     if (tgs.needPositions()) {
       tgs.fillPositionInfo(TraceableConcept__BehaviorDescriptor.getTraceableProperty_id4pl5GY7LKmH.invoke(SNodeOperations.cast(ctx.getPrimaryInput(), CONCEPTS.TraceableConcept$L)));

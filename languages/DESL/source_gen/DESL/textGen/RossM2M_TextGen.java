@@ -531,10 +531,23 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
 
     StartupCode.startupCode(ctx.getPrimaryInput(), ctx);
 
-    tgs.indent();
-    tgs.append("g_tw_ts_end = 50000.0;");
-    tgs.newLine();
-    tgs.newLine();
+    // todo generalize
+    if (SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL).contains("pcs")) {
+      tgs.indent();
+      tgs.append("g_tw_ts_end = 600.0;");
+      tgs.newLine();
+      tgs.newLine();
+    } else if (SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL).contains("phold")) {
+      tgs.indent();
+      tgs.append("g_tw_ts_end = 5750.0;");
+      tgs.newLine();
+      tgs.newLine();
+    } else {
+      tgs.indent();
+      tgs.append("g_tw_ts_end = 50000.0;");
+      tgs.newLine();
+      tgs.newLine();
+    }
 
     tgs.indent();
     tgs.append("g_tw_mapping = CUSTOM;");
