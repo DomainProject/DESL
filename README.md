@@ -179,6 +179,6 @@ You can create a DESL model either by opening the project in MPS or by using the
    ![immagine](https://github.com/user-attachments/assets/151bf139-82ab-49c7-9b14-b6296f881a8d)
 7. Right-click on the created model and select `New` > `DESL` > `DESLModel`<br><br>
    ![immagine](https://github.com/user-attachments/assets/6f7998ee-69e4-4d56-93d0-9f1286f31e88)
-8. To generate the documentationa artifact and the `.c` files, rebuild the solution or right-click on the newly created model and select `Preview Generated Text`. 
+8. To generate the documentation artifact and the `.c` files, rebuild the solution or right-click on the newly created model and select `Preview Generated Text`. 
 
 To add a new model to an existing solution, simply follow step 7.
