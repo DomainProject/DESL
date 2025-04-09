@@ -1,0 +1,38 @@
+INCLUDE_DIRECTORIES(${ROSS_BINARY_DIR})
+IF(USE_DAMARIS)
+    INCLUDE_DIRECTORIES(${DAMARIS_INCLUDE}) 
+ENDIF(USE_DAMARIS)
+IF(BGPM)
+  INCLUDE_DIRECTORIES(${ROSS_SOURCE_DIR} ${BGPM_LIB})
+ELSE(NOT(BGPM))
+  INCLUDE_DIRECTORIES(${ROSS_SOURCE_DIR})
+ENDIF(BGPM)
+
+ADD_EXECUTABLE(pcs-desl pcs_ross.c)
+
+FIND_LIBRARY(ROOTSIM rscore PATHS ../../../ROOT-Sim/build/src)
+FIND_LIBRARY(RSRAND rsrng PATHS ../../../../libs/random-number-generators/build/src)
+FIND_LIBRARY(RSTOPOLOGY rstopology PATHS ../../../../libs/topology/build/src)
+
+
+IF(BGPM)
+  TARGET_LINK_LIBRARIES(pcs-desl ROSS ${ROOTSIM} ${RSRAND} ${RSTOPOLOGY} imp_bgpm m)
+ELSE(NOT(BGPM))
+    IF(USE_DAMARIS)
+        TARGET_LINK_LIBRARIES(pcs-desl ROSS ${ROOTSIM} ${RSRAND} ${RSTOPOLOGY} ROSS_Damaris m)
+    ELSE(NOT(USE_DAMARIS))
+        TARGET_LINK_LIBRARIES(pcs-desl ROSS ${ROOTSIM} ${RSRAND} ${RSTOPOLOGY} m)
+    ENDIF(USE_DAMARIS)
+ENDIF(BGPM)
+
+TARGET_INCLUDE_DIRECTORIES(pcs-desl PRIVATE ../../../ROOT-Sim/src)
+TARGET_INCLUDE_DIRECTORIES(pcs-desl PRIVATE ../../../../libs/random-number-generators/src/include)
+TARGET_INCLUDE_DIRECTORIES(pcs-desl PRIVATE ../../../../libs/topology/src/include)
+
+# target_compile_options(pcs PRIVATE ${MPI_C_INCLUDE_PATH} -fsanitize=address -fno-omit-frame-pointer)
+# target_link_options(pcs PRIVATE ${MPI_C_LINK_FLAGS} -fsanitize=address)
+
+ROSS_TEST_SCHEDULERS(pcs-desl)
+ROSS_TEST_INSTRUMENTATION(pcs-desl)
+
+INSTALL(FILES ${ROSS_BINARY_DIR}/../models/pcs/pcs DESTINATION bin PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE)

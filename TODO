@@ -1,0 +1,5 @@
+java 17
+libnuma (USE)
+mpich (ROSS)
+
+aggiungere parametri agli script di compilazione e esecuzione

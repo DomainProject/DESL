@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<debug-info version="2">
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1082485599095:jetbrains.mps.baseLanguage.structure.BlockStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123140:jetbrains.mps.baseLanguage.structure.ConstructorDeclaration" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123155:jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123159:jetbrains.mps.baseLanguage.structure.IfStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123165:jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068581242864:jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068581242878:jetbrains.mps.baseLanguage.structure.ReturnStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123157:jetbrains.mps.baseLanguage.structure.Statement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1070462154015:jetbrains.mps.baseLanguage.structure.StaticFieldDeclaration" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1081236700938:jetbrains.mps.baseLanguage.structure.StaticMethodDeclaration" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1070475587102:jetbrains.mps.baseLanguage.structure.SuperConstructorInvocation" />
+  <root>
+    <file name="ConstraintsAspectDescriptor.java">
+      <unit at="13,0,43,0" name="Collections.constraints.ConstraintsAspectDescriptor" />
+    </file>
+  </root>
+  <root nodeRef="r:33432198-75fb-48be-9abc-ea237b630e0d(Collections.constraints)/3267310691328002759">
+    <file name="ForEachItemInCollection_Constraints.java">
+      <node id="3267310691328002759" at="20,48,21,47" concept="10" />
+      <node id="3267310691328002812" at="25,67,26,68" concept="10" />
+      <node id="3267310691328002812" at="29,68,30,82" concept="2" />
+      <node id="3267310691328002815" at="32,82,33,79" concept="2" />
+      <node id="3267310691329456270" at="34,75,35,15" concept="6" />
+      <node id="3267310691328002978" at="36,14,37,121" concept="2" />
+      <node id="3267310691328002759" at="42,84,43,119" concept="5" />
+      <node id="3267310691328002812" at="43,119,44,77" concept="2" />
+      <node id="3267310691328002759" at="44,77,45,22" concept="6" />
+      <node id="3267310691328002759" at="49,0,50,0" concept="8" trace="ForEachItemInCollection$TU" />
+      <node id="3267310691328002759" at="53,0,54,0" concept="8" trace="variableName$xecS" />
+      <node id="3267310691328002759" at="54,0,55,0" concept="8" trace="name$MnvL" />
+      <node id="3267310691328002759" at="58,0,59,0" concept="8" trace="variable$xerT" />
+      <node id="3267310691328002976" at="36,12,38,7" concept="0" />
+      <node id="3267310691328002759" at="20,0,23,0" concept="1" trace="ForEachItemInCollection_Constraints#()V" />
+      <node id="3267310691328002812" at="25,0,28,0" concept="1" trace="VariableName_Property#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptor;)V" />
+      <node id="3267310691328002812" at="28,0,32,0" concept="4" trace="setPropertyValue#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/Object;)V" />
+      <node id="3267310691328002821" at="33,79,38,7" concept="3" />
+      <node id="3267310691328002759" at="41,0,47,0" concept="4" trace="getSpecifiedProperties#()Ljava/util/Map;" />
+      <node id="3267310691328002812" at="32,0,40,0" concept="9" trace="staticSetPropertyValue#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/String;)V" />
+      <scope id="3267310691328002759" at="20,48,21,47" />
+      <scope id="3267310691328002812" at="25,67,26,68" />
+      <scope id="3267310691328002812" at="29,68,30,82" />
+      <scope id="3267310691328002822" at="34,75,35,15" />
+      <scope id="3267310691328002977" at="36,14,37,121" />
+      <scope id="3267310691328002759" at="20,0,23,0" />
+      <scope id="3267310691328002812" at="25,0,28,0">
+        <var name="container" id="3267310691328002812" />
+      </scope>
+      <scope id="3267310691328002759" at="42,84,45,22">
+        <var name="properties" id="3267310691328002759" />
+      </scope>
+      <scope id="3267310691328002812" at="28,0,32,0">
+        <var name="node" id="3267310691328002812" />
+        <var name="propertyValue" id="3267310691328002812" />
+      </scope>
+      <scope id="3267310691328002814" at="32,82,38,7" />
+      <scope id="3267310691328002759" at="41,0,47,0" />
+      <scope id="3267310691328002812" at="32,0,40,0">
+        <var name="node" id="3267310691328002812" />
+        <var name="propertyValue" id="3267310691328002812" />
+      </scope>
+      <unit id="3267310691328002759" at="48,0,51,0" name="Collections.constraints.ForEachItemInCollection_Constraints$CONCEPTS" />
+      <unit id="3267310691328002759" at="57,0,60,0" name="Collections.constraints.ForEachItemInCollection_Constraints$LINKS" />
+      <unit id="3267310691328002759" at="52,0,56,0" name="Collections.constraints.ForEachItemInCollection_Constraints$PROPS" />
+      <unit id="3267310691328002812" at="24,0,41,0" name="Collections.constraints.ForEachItemInCollection_Constraints$VariableName_Property" />
+      <unit id="3267310691328002759" at="19,0,61,0" name="Collections.constraints.ForEachItemInCollection_Constraints" />
+    </file>
+  </root>
+  <root nodeRef="r:33432198-75fb-48be-9abc-ea237b630e0d(Collections.constraints)/3616715704760918964">
+    <file name="RemoveFromCollection_Constraints.java">
+      <node id="3616715704760918964" at="19,45,20,44" concept="10" />
+      <node id="3616715704760918965" at="27,116,28,20" concept="6" />
+      <node id="3616715704760919187" at="31,119,32,87" concept="2" />
+      <node id="3616715704760925980" at="32,87,33,140" concept="2" />
+      <node id="3616715704760918964" at="35,6,36,131" concept="5" />
+      <node id="3616715704760918965" at="36,131,37,42" concept="2" />
+      <node id="3616715704760918964" at="37,42,38,22" concept="6" />
+      <node id="3616715704760918964" at="42,0,43,0" concept="8" trace="RemoveFromCollection$gR" />
+      <node id="3616715704760918964" at="46,0,47,0" concept="8" trace="variable$mVLX" />
+      <node id="3616715704760918964" at="50,0,51,0" concept="8" trace="variableName$FJHk" />
+      <node id="3616715704760918964" at="51,0,52,0" concept="8" trace="name$MnvL" />
+      <node id="3616715704760918964" at="19,0,22,0" concept="1" trace="RemoveFromCollection_Constraints#()V" />
+      <node id="3616715704760918965" at="26,0,30,0" concept="4" trace="validate#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
+      <node id="3616715704760918965" at="30,0,35,0" concept="4" trace="onReferenceSet#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)V" />
+      <node id="3616715704760918965" at="24,90,35,6" concept="5" />
+      <node id="3616715704760918964" at="23,0,40,0" concept="4" trace="getSpecifiedReferences#()Ljava/util/Map;" />
+      <scope id="3616715704760918964" at="19,45,20,44" />
+      <scope id="3616715704760918965" at="27,116,28,20" />
+      <scope id="3616715704760919023" at="31,119,33,140" />
+      <scope id="3616715704760918964" at="19,0,22,0" />
+      <scope id="3616715704760918965" at="26,0,30,0">
+        <var name="newReferentNode" id="3616715704760918965" />
+        <var name="oldReferentNode" id="3616715704760918965" />
+        <var name="referenceNode" id="3616715704760918965" />
+      </scope>
+      <scope id="3616715704760918965" at="30,0,35,0">
+        <var name="newReferentNode" id="3616715704760918965" />
+        <var name="oldReferentNode" id="3616715704760918965" />
+        <var name="referenceNode" id="3616715704760918965" />
+      </scope>
+      <scope id="3616715704760918964" at="24,90,38,22">
+        <var name="d0" id="3616715704760918965" />
+        <var name="references" id="3616715704760918964" />
+      </scope>
+      <scope id="3616715704760918964" at="23,0,40,0" />
+      <unit id="3616715704760918964" at="41,0,44,0" name="Collections.constraints.RemoveFromCollection_Constraints$CONCEPTS" />
+      <unit id="3616715704760918964" at="45,0,48,0" name="Collections.constraints.RemoveFromCollection_Constraints$LINKS" />
+      <unit id="3616715704760918964" at="49,0,53,0" name="Collections.constraints.RemoveFromCollection_Constraints$PROPS" />
+      <unit id="3616715704760918965" at="25,48,35,5" name="Collections.constraints.RemoveFromCollection_Constraints$1" />
+      <unit id="3616715704760918964" at="18,0,54,0" name="Collections.constraints.RemoveFromCollection_Constraints" />
+    </file>
+  </root>
+  <root nodeRef="r:33432198-75fb-48be-9abc-ea237b630e0d(Collections.constraints)/3616715704761464300">
+    <file name="AddToCollection_Constraints.java">
+      <node id="3616715704761464300" at="19,40,20,39" concept="10" />
+      <node id="3616715704761464301" at="27,116,28,20" concept="6" />
+      <node id="3616715704761464535" at="31,119,32,87" concept="2" />
+      <node id="3616715704761469200" at="32,87,33,140" concept="2" />
+      <node id="3616715704761464300" at="35,6,36,131" concept="5" />
+      <node id="3616715704761464301" at="36,131,37,42" concept="2" />
+      <node id="3616715704761464300" at="37,42,38,22" concept="6" />
+      <node id="3616715704761464300" at="42,0,43,0" concept="8" trace="AddToCollection$NE" />
+      <node id="3616715704761464300" at="46,0,47,0" concept="8" trace="variable$Ze_t" />
+      <node id="3616715704761464300" at="50,0,51,0" concept="8" trace="variableName$U8ui" />
+      <node id="3616715704761464300" at="51,0,52,0" concept="8" trace="name$MnvL" />
+      <node id="3616715704761464300" at="19,0,22,0" concept="1" trace="AddToCollection_Constraints#()V" />
+      <node id="3616715704761464301" at="26,0,30,0" concept="4" trace="validate#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
+      <node id="3616715704761464301" at="30,0,35,0" concept="4" trace="onReferenceSet#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)V" />
+      <node id="3616715704761464301" at="24,90,35,6" concept="5" />
+      <node id="3616715704761464300" at="23,0,40,0" concept="4" trace="getSpecifiedReferences#()Ljava/util/Map;" />
+      <scope id="3616715704761464300" at="19,40,20,39" />
+      <scope id="3616715704761464301" at="27,116,28,20" />
+      <scope id="3616715704761464358" at="31,119,33,140" />
+      <scope id="3616715704761464300" at="19,0,22,0" />
+      <scope id="3616715704761464301" at="26,0,30,0">
+        <var name="newReferentNode" id="3616715704761464301" />
+        <var name="oldReferentNode" id="3616715704761464301" />
+        <var name="referenceNode" id="3616715704761464301" />
+      </scope>
+      <scope id="3616715704761464301" at="30,0,35,0">
+        <var name="newReferentNode" id="3616715704761464301" />
+        <var name="oldReferentNode" id="3616715704761464301" />
+        <var name="referenceNode" id="3616715704761464301" />
+      </scope>
+      <scope id="3616715704761464300" at="24,90,38,22">
+        <var name="d0" id="3616715704761464301" />
+        <var name="references" id="3616715704761464300" />
+      </scope>
+      <scope id="3616715704761464300" at="23,0,40,0" />
+      <unit id="3616715704761464300" at="41,0,44,0" name="Collections.constraints.AddToCollection_Constraints$CONCEPTS" />
+      <unit id="3616715704761464300" at="45,0,48,0" name="Collections.constraints.AddToCollection_Constraints$LINKS" />
+      <unit id="3616715704761464300" at="49,0,53,0" name="Collections.constraints.AddToCollection_Constraints$PROPS" />
+      <unit id="3616715704761464301" at="25,48,35,5" name="Collections.constraints.AddToCollection_Constraints$1" />
+      <unit id="3616715704761464300" at="18,0,54,0" name="Collections.constraints.AddToCollection_Constraints" />
+    </file>
+  </root>
+  <root nodeRef="r:33432198-75fb-48be-9abc-ea237b630e0d(Collections.constraints)/4514606434772421108">
+    <file name="NewCollection_Constraints.java">
+      <node id="4514606434772421108" at="22,38,23,37" concept="10" />
+      <node id="4514606434772421108" at="30,127,31,128" concept="5" />
+      <node id="4514606434772421108" at="31,128,32,0" concept="7" />
+      <node id="4514606434772421108" at="33,55,34,71" concept="2" />
+      <node id="4514606434772421108" at="35,9,36,0" concept="7" />
+      <node id="4514606434772421108" at="36,0,37,22" concept="6" />
+      <node id="5689674253701708181" at="41,128,42,0" concept="7" />
+      <node id="5689674253701708346" at="43,5,44,35" concept="5" />
+      <node id="5689674253701708885" at="45,84,46,117" concept="6" />
+      <node id="5689674253701743315" at="49,5,50,42" concept="5" />
+      <node id="5689674253701750622" at="52,9,53,100" concept="5" />
+      <node id="5689674253701758143" at="55,13,56,102" concept="5" />
+      <node id="5689674253701761934" at="57,87,58,174" concept="6" />
+      <node id="5689674253701803780" at="63,9,64,91" concept="5" />
+      <node id="5689674253701812376" at="65,83,66,172" concept="6" />
+      <node id="5689674253701743064" at="70,5,71,17" concept="6" />
+      <node id="4514606434772421108" at="73,0,74,0" concept="8" trace="canBeChildBreakingPoint" />
+      <node id="4514606434772421108" at="76,0,77,0" concept="8" trace="NewCollection$bv" />
+      <node id="4514606434772421108" at="77,0,78,0" concept="8" trace="LocalVariableDeclaration$ft" />
+      <node id="4514606434772421108" at="78,0,79,0" concept="8" trace="Collection$YT" />
+      <node id="4514606434772421108" at="79,0,80,0" concept="8" trace="AssignmentExpr$mZ" />
+      <node id="4514606434772421108" at="80,0,81,0" concept="8" trace="GenericDotExpression$uQ" />
+      <node id="4514606434772421108" at="81,0,82,0" concept="8" trace="GenericMemberRef$bk" />
+      <node id="4514606434772421108" at="82,0,83,0" concept="8" trace="LocalVarRef$VQ" />
+      <node id="4514606434772421108" at="86,0,87,0" concept="8" trace="type$sXU3" />
+      <node id="4514606434772421108" at="87,0,88,0" concept="8" trace="left$SkXz" />
+      <node id="4514606434772421108" at="88,0,89,0" concept="8" trace="target$CEPF" />
+      <node id="4514606434772421108" at="89,0,90,0" concept="8" trace="member$wUNL" />
+      <node id="4514606434772421108" at="90,0,91,0" concept="8" trace="var$YUyC" />
+      <node id="4514606434772421108" at="22,0,25,0" concept="1" trace="NewCollection_Constraints#()V" />
+      <node id="4514606434772421108" at="32,0,35,9" concept="3" />
+      <node id="5689674253701708346" at="44,35,47,7" concept="3" />
+      <node id="5689674253701758143" at="56,102,59,15" concept="3" />
+      <node id="5689674253701803780" at="64,91,67,11" concept="3" />
+      <node id="5689674253701708346" at="42,0,48,5" concept="0" />
+      <node id="5689674253701758143" at="54,101,60,13" concept="0" />
+      <node id="5689674253701803780" at="62,9,68,9" concept="0" />
+      <node id="5689674253701750622" at="53,100,61,11" concept="3" />
+      <node id="4514606434772421108" at="29,0,39,0" concept="4" trace="invoke#(Ljetbrains/mps/smodel/runtime/ConstraintContext_CanBeChild;Ljetbrains/mps/smodel/runtime/CheckingNodeContext;)Ljava/lang/Boolean;" />
+      <node id="5689674253701750622" at="51,81,62,9" concept="0" />
+      <node id="4514606434772421108" at="27,103,39,6" concept="6" />
+      <node id="4514606434772421108" at="26,0,41,0" concept="4" trace="calculateCanBeChildConstraint#()Ljetbrains/mps/smodel/runtime/ConstraintFunction;" />
+      <node id="5689674253701743315" at="50,42,69,7" concept="3" />
+      <node id="5689674253701743315" at="48,5,70,5" concept="0" />
+      <node id="4514606434772421108" at="41,0,73,0" concept="9" trace="staticCanBeAChild#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/language/SAbstractConcept;Lorg/jetbrains/mps/openapi/language/SContainmentLink;)Z" />
+      <scope id="4514606434772421108" at="22,38,23,37" />
+      <scope id="4514606434772421108" at="33,55,34,71" />
+      <scope id="5689674253701708350" at="45,84,46,117" />
+      <scope id="5689674253701758145" at="57,87,58,174" />
+      <scope id="5689674253701803784" at="65,83,66,172" />
+      <scope id="4514606434772421108" at="22,0,25,0" />
+      <scope id="5689674253701708346" at="43,5,47,7">
+        <var name="lvd" id="5689674253701708346" />
+      </scope>
+      <scope id="5689674253701758143" at="55,13,59,15">
+        <var name="member" id="5689674253701758143" />
+      </scope>
+      <scope id="5689674253701803780" at="63,9,67,11">
+        <var name="localVarRef" id="5689674253701803780" />
+      </scope>
+      <scope id="5689674253701750624" at="54,101,60,13" />
+      <scope id="4514606434772421108" at="30,127,37,22">
+        <var name="result" id="4514606434772421108" />
+      </scope>
+      <scope id="5689674253701750622" at="52,9,61,11">
+        <var name="genericDotExpression" id="5689674253701750622" />
+      </scope>
+      <scope id="4514606434772421108" at="29,0,39,0">
+        <var name="checkingNodeContext" id="4514606434772421108" />
+        <var name="context" id="4514606434772421108" />
+      </scope>
+      <scope id="4514606434772421108" at="27,103,39,6" />
+      <scope id="4514606434772421108" at="26,0,41,0" />
+      <scope id="5689674253701743319" at="51,81,68,9" />
+      <scope id="5689674253701743315" at="49,5,69,7">
+        <var name="assignment" id="5689674253701743315" />
+      </scope>
+      <scope id="4514606434772531593" at="41,128,71,17" />
+      <scope id="4514606434772421108" at="41,0,73,0">
+        <var name="childConcept" id="4514606434772421108" />
+        <var name="link" id="4514606434772421108" />
+        <var name="node" id="4514606434772421108" />
+        <var name="parentNode" id="4514606434772421108" />
+      </scope>
+      <unit id="4514606434772421108" at="85,0,92,0" name="Collections.constraints.NewCollection_Constraints$LINKS" />
+      <unit id="4514606434772421108" at="75,0,84,0" name="Collections.constraints.NewCollection_Constraints$CONCEPTS" />
+      <unit id="4514606434772421108" at="28,15,39,5" name="Collections.constraints.NewCollection_Constraints$1" />
+      <unit id="4514606434772421108" at="21,0,93,0" name="Collections.constraints.NewCollection_Constraints" />
+    </file>
+  </root>
+  <root nodeRef="r:33432198-75fb-48be-9abc-ea237b630e0d(Collections.constraints)/4514606434773603177">
+    <file name="FindFirst_Constraints.java">
+      <node id="4514606434773603177" at="10,34,11,33" concept="10" />
+      <node id="4514606434773603177" at="15,0,16,0" concept="8" trace="FindFirst$WX" />
+      <node id="4514606434773603177" at="10,0,13,0" concept="1" trace="FindFirst_Constraints#()V" />
+      <scope id="4514606434773603177" at="10,34,11,33" />
+      <scope id="4514606434773603177" at="10,0,13,0" />
+      <unit id="4514606434773603177" at="14,0,17,0" name="Collections.constraints.FindFirst_Constraints$CONCEPTS" />
+      <unit id="4514606434773603177" at="9,0,18,0" name="Collections.constraints.FindFirst_Constraints" />
+    </file>
+  </root>
+  <root nodeRef="r:33432198-75fb-48be-9abc-ea237b630e0d(Collections.constraints)/4668520623155748098">
+    <file name="ForeachBody_Constraints.java">
+      <node id="4668520623155748098" at="10,36,11,35" concept="10" />
+      <node id="4668520623155748098" at="15,0,16,0" concept="8" trace="ForeachBody$1Y" />
+      <node id="4668520623155748098" at="10,0,13,0" concept="1" trace="ForeachBody_Constraints#()V" />
+      <scope id="4668520623155748098" at="10,36,11,35" />
+      <scope id="4668520623155748098" at="10,0,13,0" />
+      <unit id="4668520623155748098" at="14,0,17,0" name="Collections.constraints.ForeachBody_Constraints$CONCEPTS" />
+      <unit id="4668520623155748098" at="9,0,18,0" name="Collections.constraints.ForeachBody_Constraints" />
+    </file>
+  </root>
+  <root nodeRef="r:33432198-75fb-48be-9abc-ea237b630e0d(Collections.constraints)/8378102908618938381">
+    <file name="RemoveFirst_Constraints.java">
+      <node id="8378102908618938381" at="10,36,11,35" concept="10" />
+      <node id="8378102908618938381" at="15,0,16,0" concept="8" trace="RemoveFirst$Tj" />
+      <node id="8378102908618938381" at="10,0,13,0" concept="1" trace="RemoveFirst_Constraints#()V" />
+      <scope id="8378102908618938381" at="10,36,11,35" />
+      <scope id="8378102908618938381" at="10,0,13,0" />
+      <unit id="8378102908618938381" at="14,0,17,0" name="Collections.constraints.RemoveFirst_Constraints$CONCEPTS" />
+      <unit id="8378102908618938381" at="9,0,18,0" name="Collections.constraints.RemoveFirst_Constraints" />
+    </file>
+  </root>
+  <root nodeRef="r:33432198-75fb-48be-9abc-ea237b630e0d(Collections.constraints)/8378102908618941360">
+    <file name="IGetFirstElementInCollection_Constraints.java">
+      <node id="8378102908618941360" at="20,53,21,52" concept="10" />
+      <node id="8378102908618944335" at="25,63,26,64" concept="10" />
+      <node id="8378102908618944335" at="29,68,30,82" concept="2" />
+      <node id="8378102908618945570" at="32,82,33,75" concept="2" />
+      <node id="4422567906093064969" at="33,75,34,115" concept="2" />
+      <node id="8378102908618946829" at="34,115,35,0" concept="7" />
+      <node id="8378102908618941360" at="39,84,40,119" concept="5" />
+      <node id="8378102908618944335" at="40,119,41,69" concept="2" />
+      <node id="8378102908618941360" at="41,69,42,22" concept="6" />
+      <node id="8378102908618941360" at="46,0,47,0" concept="8" trace="IGetFirstElementInCollection$9F" />
+      <node id="8378102908618941360" at="50,0,51,0" concept="8" trace="elemName$InHV" />
+      <node id="8378102908618941360" at="51,0,52,0" concept="8" trace="name$MnvL" />
+      <node id="8378102908618941360" at="55,0,56,0" concept="8" trace="elem$IobX" />
+      <node id="8378102908618941360" at="20,0,23,0" concept="1" trace="IGetFirstElementInCollection_Constraints#()V" />
+      <node id="8378102908618944335" at="25,0,28,0" concept="1" trace="ElemName_Property#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptor;)V" />
+      <node id="8378102908618944335" at="28,0,32,0" concept="4" trace="setPropertyValue#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/Object;)V" />
+      <node id="8378102908618944335" at="32,0,37,0" concept="9" trace="staticSetPropertyValue#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/String;)V" />
+      <node id="8378102908618941360" at="38,0,44,0" concept="4" trace="getSpecifiedProperties#()Ljava/util/Map;" />
+      <scope id="8378102908618941360" at="20,53,21,52" />
+      <scope id="8378102908618944335" at="25,63,26,64" />
+      <scope id="8378102908618944335" at="29,68,30,82" />
+      <scope id="8378102908618941360" at="20,0,23,0" />
+      <scope id="8378102908618944335" at="25,0,28,0">
+        <var name="container" id="8378102908618944335" />
+      </scope>
+      <scope id="8378102908618944437" at="32,82,35,0" />
+      <scope id="8378102908618941360" at="39,84,42,22">
+        <var name="properties" id="8378102908618941360" />
+      </scope>
+      <scope id="8378102908618944335" at="28,0,32,0">
+        <var name="node" id="8378102908618944335" />
+        <var name="propertyValue" id="8378102908618944335" />
+      </scope>
+      <scope id="8378102908618944335" at="32,0,37,0">
+        <var name="node" id="8378102908618944335" />
+        <var name="propertyValue" id="8378102908618944335" />
+      </scope>
+      <scope id="8378102908618941360" at="38,0,44,0" />
+      <unit id="8378102908618941360" at="45,0,48,0" name="Collections.constraints.IGetFirstElementInCollection_Constraints$CONCEPTS" />
+      <unit id="8378102908618941360" at="54,0,57,0" name="Collections.constraints.IGetFirstElementInCollection_Constraints$LINKS" />
+      <unit id="8378102908618941360" at="49,0,53,0" name="Collections.constraints.IGetFirstElementInCollection_Constraints$PROPS" />
+      <unit id="8378102908618944335" at="24,0,38,0" name="Collections.constraints.IGetFirstElementInCollection_Constraints$ElemName_Property" />
+      <unit id="8378102908618941360" at="19,0,58,0" name="Collections.constraints.IGetFirstElementInCollection_Constraints" />
+    </file>
+  </root>
+</debug-info>
+

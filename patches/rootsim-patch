@@ -1,0 +1,13 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index ebd3e521..fbe3060c 100755
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -15,7 +15,7 @@ include(CheckIPOSupported)
+ check_ipo_supported(RESULT SUPPORTS_IPO OUTPUT ERROR_IPO)
+ if(SUPPORTS_IPO)
+     set(CMAKE_INTERPROCEDURAL_OPTIMIZATION_RELEASE ON)
+-    set(CMAKE_C_COMPILE_OPTIONS_IPO "-flto")
++#    set(CMAKE_C_COMPILE_OPTIONS_IPO "-flto")
+ else()
+     message(WARNING "LTO is not supported")
+ endif()

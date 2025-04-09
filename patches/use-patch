@@ -1,0 +1,74 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 545a748..6accec5 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -55,9 +55,9 @@ endforeach()
+ #add_subdirectory(docs)
+ 
+ 
+-IF(CMAKE_BUILD_TYPE MATCHES Debug)
+-SETUP_TARGET_FOR_COVERAGE_LCOV(
+-        NAME coverage                 # New target name
+-        EXECUTABLE ctest -C ${ROOT_DIR}/CTestTestfile.cmake # Executable in PROJECT_BINARY_DIR
+-)
+-ENDIF()
++#IF(CMAKE_BUILD_TYPE MATCHES Debug)
++#SETUP_TARGET_FOR_COVERAGE_LCOV(
++#        NAME coverage                 # New target name
++#        EXECUTABLE ctest -C ${ROOT_DIR}/CTestTestfile.cmake # Executable in PROJECT_BINARY_DIR
++#)
++#ENDIF()
+diff --git a/src/include/ROOT-Sim.h b/src/include/ROOT-Sim.h
+index e89c856..466c758 100644
+--- a/src/include/ROOT-Sim.h
++++ b/src/include/ROOT-Sim.h
+@@ -105,7 +105,7 @@ typedef double simtime_t;
+ /// Infinite timestamp: this is the highest timestamp in a simulation run
+ #define INFTY DBL_MAX
+ 
+-#define MAX_LPs	4096
++#define MAX_LPs	(4096*4)
+ #define UNDEFINED_LP (MAX_LPs + 1)
+ 
+ // Topology library
+diff --git a/src/mm/segment.c b/src/mm/segment.c
+index dcfa39b..904887a 100644
+--- a/src/mm/segment.c
++++ b/src/mm/segment.c
+@@ -69,16 +69,15 @@ void *get_segment(GID_t gid, unsigned int numa_node, void ***pages) {
+ 
+ 	for(i = 0; i < NUM_MMAP; i++) {
+ 		mmapped[i] = mmap(the_address, MAX_MMAP, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS /*|MAP_FIXED*/, 0, 0);
+-
+ 		if(mmapped[i] == MAP_FAILED) {
+ 			rootsim_error(true, "Unable to mmap LPs memory\n");
+ 			return NULL;
+ 		}
+-
++        /*
+ 		if(mmapped[i] != the_address){			
+ 			rootsim_error(true, "Unable to mmap LPs memory on a contiguos address space\n");
+ 			return NULL;
+-		}
++		}*/
+ 
+ 
+ 	  if(pdes_config.enable_mbind){
+diff --git a/src/mm/segment.h b/src/mm/segment.h
+index a693ca4..9261638 100644
+--- a/src/mm/segment.h
++++ b/src/mm/segment.h
+@@ -7,11 +7,11 @@
+ 
+ 
+ #define SCALE (pdes_config.segment_shift)
+-#define NUM_PAGES_PER_SEGMENT ((512ULL * 512ULL)>>SCALE)
++#define NUM_PAGES_PER_SEGMENT ((512ULL * 512ULL)>>1)
+ 
+ #define PER_LP_PREALLOCATED_MEMORY (NUM_PAGES_PER_SEGMENT * PAGE_SIZE ) /// This should be power of 2 multiplied by a page size. This is 1GB per LP.
+ 
+-#define NUM_PAGES_PER_MMAP	(NUM_PAGES_PER_SEGMENT >> 2)
++#define NUM_PAGES_PER_MMAP	(NUM_PAGES_PER_SEGMENT )
+ #define MAX_MMAP			(NUM_PAGES_PER_MMAP * PAGE_SIZE) /// This is the maximum amount of memory that a single mmap() call is able to serve. TODO: this should be checked within configure.ac
+ #define NUM_MMAP			(((PER_LP_PREALLOCATED_MEMORY) / MAX_MMAP) == 0 ? 1 : ((PER_LP_PREALLOCATED_MEMORY) / MAX_MMAP))  
+ 
