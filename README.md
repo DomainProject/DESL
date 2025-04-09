@@ -182,10 +182,3 @@ You can create a DESL model either by opening the project in MPS or by using the
 8. To generate the documentationa artifact and the `.c` files, rebuild the solution or right-click on the newly created model and select `Preview Generated Text`. 
 
 To add a new model to an existing solution, simply follow step 7.
-
-
-You must get the latest version of [ROSS](https://github.com/ROSS-org/ROSS) (v8.0.0) and compile the static library. You can then compile the DESL-generated artifact in a similar way as for ROOT-Sim.
-
-#### USE
-
-You must get the latest version of [USE]([https://github.com/ROSS-org/ROSS](https://github.com/HPDCS/USE/tree/TOMACS2023)) (v-tomacs2023) and compile the static library. You can then compile the DESL-generated artifact in a similar way as for ROOT-Sim.
