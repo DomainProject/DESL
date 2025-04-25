@@ -199,7 +199,7 @@ This section provides a step-by-step walkthrough of the creation of a basic DESL
    
 7. Define the macros COMPLETE_EVENTS and NUM_LPS (any value can be selected for these macros):
    
-   ![immagine](https://github.com/user-attachments/assets/747980c8-55af-4297-b4f8-401fddc17a67)
+   ![image](https://github.com/user-attachments/assets/c37b1f98-2dad-4585-af35-1c99fe5f938f)
 
    *Note*: MPS uses a projectional editor, so it's not possible, for example, to create a macro by only starting typing `#define ...`; instead, you should press `CTRL` + `SPACE` to open the completion menu, and select the node's type you want to create. To create the macros `COMPLETE_EVENTS` and `NUM_LPS`, you should select MacroVariable from the completion menu:
 
@@ -208,17 +208,17 @@ This section provides a step-by-step walkthrough of the creation of a basic DESL
    
 9. Rename the empty struct and add a string field:
 
-   ![immagine](https://github.com/user-attachments/assets/ecc3f619-4eb9-4596-bb7b-0e944e7e776f)
+   ![image](https://github.com/user-attachments/assets/6dbade98-1531-485b-a600-24b789367634)
    
 11. Define a new class, including the termination function and the event handlers:
     
-    ![immagine](https://github.com/user-attachments/assets/d743dd8d-6811-4da1-b49e-ec1672ac58a5)
+    ![image](https://github.com/user-attachments/assets/332bfebc-7c1c-4c6a-9774-c170ff07d394)
    
    *Note*: when defining an event handler (generally speaking a function) you can encounter the error `Error: variable <name> may not be initialized!`; you can safely ignore this error.
    
 13. Define a process allocation of all the LPs to the defined class (note that the interval must be defined according to the `NUM_LPS` macro's value!):
 
-    ![immagine](https://github.com/user-attachments/assets/e06c38d7-236a-4d78-9623-680362cd021f)
+    ![image](https://github.com/user-attachments/assets/0b629ce9-8a17-472e-88fb-be8c7899396d)
    
 15. The model is now complete. Rebuild the solution `HelloWorld`:
 
@@ -237,6 +237,8 @@ This section provides a step-by-step walkthrough of the creation of a basic DESL
     ./bins/ROOTSIM-HelloWorld
     ```
 The other simulators can be tested by compiling the source files located at `DESLModels/solutions/HelloWorld/source_gen/HelloWorld/model`, following the instructions provided by the script `5-compile.sh`.
+
+This simple example represents a foundational starting point and can be easily extended to support more complex behaviors, such as the integration of external functions.
 
   
 
