@@ -9454,146 +9454,146 @@
     <file name="ButtonFactory.java">
       <node id="7977015571504542612" at="27,25,28,187" concept="5" />
       <node id="8758507347173860888" at="28,187,29,161" concept="1" />
-      <node id="7977015571504575714" at="29,161,30,58" concept="1" />
+      <node id="7977015571504575714" at="29,161,30,102" concept="1" />
       <node id="7977015571504624552" at="32,7,33,18" concept="7" />
       <node id="7977015571504641999" at="39,25,40,185" concept="5" />
       <node id="7977015571511058435" at="40,185,41,240" concept="1" />
       <node id="8758507347173919053" at="41,240,42,149" concept="1" />
-      <node id="7977015571504642010" at="42,149,43,56" concept="1" />
-      <node id="7977015571504642016" at="45,7,46,18" concept="7" />
-      <node id="7977015571510689578" at="52,25,53,193" concept="5" />
-      <node id="8758507347173963959" at="53,193,54,149" concept="1" />
-      <node id="7977015571510689589" at="54,149,55,56" concept="1" />
-      <node id="7977015571510689595" at="57,7,58,18" concept="7" />
-      <node id="7977015571510692649" at="64,25,65,196" concept="5" />
-      <node id="8758507347173966288" at="65,196,66,161" concept="1" />
-      <node id="7977015571510692660" at="66,161,67,58" concept="1" />
-      <node id="7977015571510692666" at="69,7,70,18" concept="7" />
-      <node id="3343634265069991097" at="76,25,77,183" concept="5" />
-      <node id="3343634265070011658" at="77,183,78,219" concept="1" />
-      <node id="3343634265069991103" at="78,219,79,147" concept="1" />
-      <node id="3343634265069991108" at="79,147,80,55" concept="1" />
-      <node id="3343634265069991114" at="82,7,83,18" concept="7" />
-      <node id="6130294773052325187" at="92,0,93,0" concept="9" />
-      <node id="6130294773052162684" at="93,0,94,16" concept="7" />
-      <node id="6130294773052173432" at="98,101,99,16" concept="7" />
-      <node id="6567999678832215487" at="103,129,104,40" concept="5" />
-      <node id="6567999678834911021" at="104,40,105,139" concept="1" />
-      <node id="6567999678832215507" at="108,51,109,83" concept="1" />
-      <node id="6567999678832215529" at="111,7,112,18" concept="7" />
-      <node id="7977015571504361195" at="116,0,117,0" concept="10" trace="DESLModel$DK" />
-      <node id="7977015571504361195" at="120,0,121,0" concept="10" trace="externalFunctions$LqEg" />
-      <node id="7977015571504361195" at="121,0,122,0" concept="10" trace="struct$10Oz" />
-      <node id="7977015571504361195" at="122,0,123,0" concept="10" trace="structs$JAXN" />
+      <node id="7977015571504642016" at="44,7,45,18" concept="7" />
+      <node id="7977015571510689578" at="51,25,52,193" concept="5" />
+      <node id="8758507347173963959" at="52,193,53,149" concept="1" />
+      <node id="7977015571510689595" at="55,7,56,18" concept="7" />
+      <node id="7977015571510692649" at="62,25,63,196" concept="5" />
+      <node id="9021956118181394833" at="63,196,64,249" concept="1" />
+      <node id="8758507347173966288" at="64,249,65,161" concept="1" />
+      <node id="7977015571510692666" at="67,7,68,18" concept="7" />
+      <node id="3343634265069991097" at="74,25,75,183" concept="5" />
+      <node id="3343634265070011658" at="75,183,76,219" concept="1" />
+      <node id="3343634265069991103" at="76,219,77,147" concept="1" />
+      <node id="3343634265069991108" at="77,147,78,104" concept="1" />
+      <node id="3343634265069991114" at="80,7,81,18" concept="7" />
+      <node id="6130294773052325187" at="90,0,91,0" concept="9" />
+      <node id="6130294773052162684" at="91,0,92,16" concept="7" />
+      <node id="6130294773052173432" at="96,101,97,16" concept="7" />
+      <node id="6567999678832215487" at="101,129,102,40" concept="5" />
+      <node id="6567999678834911021" at="102,40,103,139" concept="1" />
+      <node id="6567999678832215507" at="106,51,107,83" concept="1" />
+      <node id="6567999678832215529" at="109,7,110,18" concept="7" />
+      <node id="7977015571504361195" at="114,0,115,0" concept="10" trace="DESLModel$DK" />
+      <node id="7977015571504361195" at="118,0,119,0" concept="10" trace="externalFunctions$LqEg" />
+      <node id="7977015571504361195" at="119,0,120,0" concept="10" trace="body$1GE0" />
+      <node id="7977015571504361195" at="120,0,121,0" concept="10" trace="struct$10Oz" />
+      <node id="7977015571504361195" at="121,0,122,0" concept="10" trace="structs$JAXN" />
+      <node id="7977015571504361195" at="122,0,123,0" concept="10" trace="prototype$lY0a" />
       <node id="7977015571504361195" at="123,0,124,0" concept="10" trace="eventType$MGmZ" />
       <node id="7977015571504361195" at="124,0,125,0" concept="10" trace="events$uflG" />
-      <node id="1790084664609344500" at="98,0,101,0" concept="11" trace="removeDocumentation#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)Ljavax/swing/JComponent;" />
-      <node id="6567999678832215501" at="107,0,111,0" concept="4" trace="actionPerformed#(Ljava/awt/event/ActionEvent;)V" />
-      <node id="6130294773052142442" at="87,98,92,0" concept="6" />
+      <node id="1790084664609344500" at="96,0,99,0" concept="11" trace="removeDocumentation#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)Ljavax/swing/JComponent;" />
+      <node id="6567999678832215501" at="105,0,109,0" concept="4" trace="actionPerformed#(Ljava/awt/event/ActionEvent;)V" />
+      <node id="7977015571510689574" at="50,0,55,0" concept="4" trace="run#()V" />
+      <node id="6130294773052142442" at="85,98,90,0" concept="6" />
       <node id="7977015571504536840" at="26,0,32,0" concept="4" trace="run#()V" />
-      <node id="7977015571510689574" at="51,0,57,0" concept="4" trace="run#()V" />
-      <node id="7977015571510692645" at="63,0,69,0" concept="4" trace="run#()V" />
-      <node id="6567999678832215493" at="105,139,111,7" concept="1" />
-      <node id="7977015571504641995" at="38,0,45,0" concept="4" trace="run#()V" />
-      <node id="3343634265069991093" at="75,0,82,0" concept="4" trace="run#()V" />
+      <node id="7977015571504641995" at="38,0,44,0" concept="4" trace="run#()V" />
+      <node id="7977015571510692645" at="61,0,67,0" concept="4" trace="run#()V" />
+      <node id="6567999678832215493" at="103,139,109,7" concept="1" />
+      <node id="7977015571510689563" at="48,102,55,7" concept="5" />
+      <node id="3343634265069991093" at="73,0,80,0" concept="4" trace="run#()V" />
       <node id="7977015571504413973" at="24,100,32,7" concept="5" />
-      <node id="7977015571510689563" at="49,102,57,7" concept="5" />
-      <node id="7977015571510692634" at="61,109,69,7" concept="5" />
-      <node id="7977015571504641984" at="36,94,45,7" concept="5" />
-      <node id="3343634265069991082" at="73,97,82,7" concept="5" />
-      <node id="1790084664609323572" at="87,0,96,0" concept="11" trace="addDocumentation#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)Ljavax/swing/JComponent;" />
+      <node id="7977015571504641984" at="36,94,44,7" concept="5" />
+      <node id="7977015571510692634" at="59,109,67,7" concept="5" />
+      <node id="3343634265069991082" at="71,97,80,7" concept="5" />
+      <node id="1790084664609323572" at="85,0,94,0" concept="11" trace="addDocumentation#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)Ljavax/swing/JComponent;" />
+      <node id="7977015571510689561" at="48,0,58,0" concept="11" trace="createExternalStruct#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)Ljavax/swing/JComponent;" />
       <node id="7977015571504411112" at="24,0,35,0" concept="11" trace="createNextFunction#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)Ljavax/swing/JComponent;" />
-      <node id="7977015571510689561" at="49,0,60,0" concept="11" trace="createExternalStruct#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)Ljavax/swing/JComponent;" />
-      <node id="7977015571510692632" at="61,0,72,0" concept="11" trace="createNextFunctionPrototype#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)Ljavax/swing/JComponent;" />
-      <node id="6567999678832215539" at="103,0,114,0" concept="11" trace="createButton#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/openapi/editor/EditorContext;Ljava/lang/String;Ljava/lang/Runnable;)Ljavax/swing/JButton;" />
-      <node id="7977015571504641982" at="36,0,48,0" concept="11" trace="createStruct#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)Ljavax/swing/JComponent;" />
-      <node id="3343634265069991080" at="73,0,85,0" concept="11" trace="createNextEvent#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)Ljavax/swing/JComponent;" />
-      <scope id="1790084664609344501" at="98,101,99,16" />
-      <scope id="6567999678832215506" at="108,51,109,83" />
-      <scope id="7977015571504536844" at="27,25,30,58">
-        <var name="function" id="7977015571504542615" />
-      </scope>
-      <scope id="7977015571510689577" at="52,25,55,56">
+      <node id="7977015571504641982" at="36,0,47,0" concept="11" trace="createStruct#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)Ljavax/swing/JComponent;" />
+      <node id="7977015571510692632" at="59,0,70,0" concept="11" trace="createNextFunctionPrototype#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)Ljavax/swing/JComponent;" />
+      <node id="6567999678832215539" at="101,0,112,0" concept="11" trace="createButton#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/openapi/editor/EditorContext;Ljava/lang/String;Ljava/lang/Runnable;)Ljavax/swing/JButton;" />
+      <node id="3343634265069991080" at="71,0,83,0" concept="11" trace="createNextEvent#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)Ljavax/swing/JComponent;" />
+      <scope id="1790084664609344501" at="96,101,97,16" />
+      <scope id="6567999678832215506" at="106,51,107,83" />
+      <scope id="7977015571510689577" at="51,25,53,149">
         <var name="struct" id="7977015571510689579" />
       </scope>
-      <scope id="7977015571510692648" at="64,25,67,58">
+      <scope id="7977015571504536844" at="27,25,30,102">
+        <var name="function" id="7977015571504542615" />
+      </scope>
+      <scope id="7977015571504641998" at="39,25,42,149">
+        <var name="struct" id="7977015571504642000" />
+      </scope>
+      <scope id="7977015571510692648" at="62,25,65,161">
         <var name="function" id="7977015571510692650" />
       </scope>
-      <scope id="1790084664609344500" at="98,0,101,0">
+      <scope id="1790084664609344500" at="96,0,99,0">
         <var name="editorContext" id="1790084664609344538" />
         <var name="node" id="1790084664609344540" />
       </scope>
-      <scope id="7977015571504641998" at="39,25,43,56">
-        <var name="struct" id="7977015571504642000" />
-      </scope>
-      <scope id="3343634265069991096" at="76,25,80,55">
+      <scope id="3343634265069991096" at="74,25,78,104">
         <var name="event" id="3343634265069991098" />
       </scope>
-      <scope id="6567999678832215501" at="107,0,111,0">
+      <scope id="6567999678832215501" at="105,0,109,0">
         <var name="p0" id="6567999678832215504" />
       </scope>
+      <scope id="7977015571510689574" at="50,0,55,0" />
       <scope id="7977015571504536840" at="26,0,32,0" />
-      <scope id="7977015571510689574" at="51,0,57,0" />
-      <scope id="7977015571510692645" at="63,0,69,0" />
-      <scope id="7977015571504641995" at="38,0,45,0" />
-      <scope id="3343634265069991093" at="75,0,82,0" />
-      <scope id="1790084664609323573" at="87,98,94,16" />
+      <scope id="7977015571504641995" at="38,0,44,0" />
+      <scope id="7977015571510692645" at="61,0,67,0" />
+      <scope id="3343634265069991093" at="73,0,80,0" />
+      <scope id="1790084664609323573" at="85,98,92,16" />
+      <scope id="7977015571510689562" at="48,102,56,18">
+        <var name="button" id="7977015571510689564" />
+      </scope>
       <scope id="7977015571504411115" at="24,100,33,18">
         <var name="button" id="7977015571504413974" />
       </scope>
-      <scope id="7977015571510689562" at="49,102,58,18">
-        <var name="button" id="7977015571510689564" />
+      <scope id="7977015571504641983" at="36,94,45,18">
+        <var name="button" id="7977015571504641985" />
       </scope>
-      <scope id="7977015571510692633" at="61,109,70,18">
+      <scope id="7977015571510692633" at="59,109,68,18">
         <var name="button" id="7977015571510692635" />
       </scope>
-      <scope id="1790084664609323572" at="87,0,96,0">
+      <scope id="1790084664609323572" at="85,0,94,0">
         <var name="editorContext" id="1790084664609323610" />
         <var name="node" id="1790084664609323612" />
       </scope>
-      <scope id="6567999678832215484" at="103,129,112,18">
+      <scope id="6567999678832215484" at="101,129,110,18">
         <var name="button" id="6567999678832215488" />
       </scope>
-      <scope id="7977015571504641983" at="36,94,46,18">
-        <var name="button" id="7977015571504641985" />
+      <scope id="7977015571510689561" at="48,0,58,0">
+        <var name="editorContext" id="7977015571510689599" />
+        <var name="node" id="7977015571510689601" />
       </scope>
-      <scope id="3343634265069991081" at="73,97,83,18">
+      <scope id="3343634265069991081" at="71,97,81,18">
         <var name="button" id="3343634265069991083" />
       </scope>
       <scope id="7977015571504411112" at="24,0,35,0">
         <var name="editorContext" id="7977015571504447181" />
         <var name="node" id="7977015571504448829" />
       </scope>
-      <scope id="7977015571510689561" at="49,0,60,0">
-        <var name="editorContext" id="7977015571510689599" />
-        <var name="node" id="7977015571510689601" />
+      <scope id="7977015571504641982" at="36,0,47,0">
+        <var name="editorContext" id="7977015571504642020" />
+        <var name="node" id="7977015571504642022" />
       </scope>
-      <scope id="7977015571510692632" at="61,0,72,0">
+      <scope id="7977015571510692632" at="59,0,70,0">
         <var name="editorContext" id="7977015571510692670" />
         <var name="node" id="7977015571510692672" />
       </scope>
-      <scope id="6567999678832215539" at="103,0,114,0">
+      <scope id="6567999678832215539" at="101,0,112,0">
         <var name="action" id="6567999678832222226" />
         <var name="editorContext" id="6567999678832215533" />
         <var name="node" id="6567999678832215531" />
         <var name="title" id="6567999678832218406" />
       </scope>
-      <scope id="7977015571504641982" at="36,0,48,0">
-        <var name="editorContext" id="7977015571504642020" />
-        <var name="node" id="7977015571504642022" />
-      </scope>
-      <scope id="3343634265069991080" at="73,0,85,0">
+      <scope id="3343634265069991080" at="71,0,83,0">
         <var name="editorContext" id="3343634265069991118" />
         <var name="node" id="3343634265069991120" />
       </scope>
-      <unit id="7977015571504361195" at="115,0,118,0" name="DESL.editor.ButtonFactory$CONCEPTS" />
-      <unit id="6567999678832215499" at="106,33,111,5" name="DESL.editor.ButtonFactory$6" />
+      <unit id="7977015571504361195" at="113,0,116,0" name="DESL.editor.ButtonFactory$CONCEPTS" />
+      <unit id="6567999678832215499" at="104,33,109,5" name="DESL.editor.ButtonFactory$6" />
+      <unit id="7977015571510689572" at="49,99,55,5" name="DESL.editor.ButtonFactory$3" />
       <unit id="7977015571504536825" at="25,92,32,5" name="DESL.editor.ButtonFactory$1" />
-      <unit id="7977015571510689572" at="50,99,57,5" name="DESL.editor.ButtonFactory$3" />
-      <unit id="7977015571510692643" at="62,102,69,5" name="DESL.editor.ButtonFactory$4" />
-      <unit id="7977015571504361195" at="119,0,126,0" name="DESL.editor.ButtonFactory$LINKS" />
-      <unit id="7977015571504641993" at="37,90,45,5" name="DESL.editor.ButtonFactory$2" />
-      <unit id="3343634265069991091" at="74,89,82,5" name="DESL.editor.ButtonFactory$5" />
+      <unit id="7977015571504641993" at="37,90,44,5" name="DESL.editor.ButtonFactory$2" />
+      <unit id="7977015571510692643" at="60,102,67,5" name="DESL.editor.ButtonFactory$4" />
+      <unit id="3343634265069991091" at="72,89,80,5" name="DESL.editor.ButtonFactory$5" />
+      <unit id="7977015571504361195" at="117,0,126,0" name="DESL.editor.ButtonFactory$LINKS" />
       <unit id="7977015571504361195" at="22,0,127,0" name="DESL.editor.ButtonFactory" />
     </file>
   </root>
