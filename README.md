@@ -69,7 +69,7 @@ Accepted to ACM SIGSIM PADS 205
 
 ### Authors & Contacts
 
-* Simone Bauco <s.bauco@ing.uniroma2.it>
+* Simone Bauco <simone.bauco@uniroma2.it>
 * Romolo Marotta <romolo.marotta@gmail.com>
 * Alessandro Pellegrini <a.pellegrini@ing.uniroma2.it>
 
@@ -182,3 +182,55 @@ You can create a DESL model either by opening the project in MPS or by using the
 8. To generate the documentation artifact and the `.c` files, rebuild the solution or right-click on the newly created model and select `Preview Generated Text`. 
 
 To add a new model to an existing solution, simply follow step 7.
+
+### Hello World example
+
+This section provides a step-by-step walkthrough of the creation of a basic DESL model.
+
+1. In the DESL IDE, create a new solution called `HelloWorld`, as previously explained.
+2. Inside the newly created solution, create a model called `model`.
+3. Create a `DESLModel` called `HelloWorld`. In the IDE's logical view, the following structure should have been created:
+   
+   ![immagine](https://github.com/user-attachments/assets/e5d682bc-77d6-4edd-8233-17561ee337f1)
+   
+5. Define the events LP_INIT and HELLO_WORLD:
+   
+   ![immagine](https://github.com/user-attachments/assets/0f8d6a14-cc77-4a08-80bd-fd64faa5ca22)
+   
+7. Define the macros COMPLETE_EVENTS and NUM_LPS (any value can be selected for these macros):
+   
+   ![immagine](https://github.com/user-attachments/assets/747980c8-55af-4297-b4f8-401fddc17a67)
+   
+9. Rename the empty struct and add a string field:
+
+   ![immagine](https://github.com/user-attachments/assets/ecc3f619-4eb9-4596-bb7b-0e944e7e776f)
+   
+11. Define a new class, including the termination function and the event handlers:
+    
+    ![immagine](https://github.com/user-attachments/assets/d743dd8d-6811-4da1-b49e-ec1672ac58a5)
+   
+   *Note*: when defining an event handler (generally speaking a function) you can encounter the error `Error: variable <name> may not be initialized!`; you can safely ignore this error.
+   
+13. Define a process allocation of all the LPs to the defined class (note that the interval must be defined according to the `NUM_LPS` macro's value!):
+
+    ![immagine](https://github.com/user-attachments/assets/e06c38d7-236a-4d78-9623-680362cd021f)
+   
+15. The model is now complete. Rebuild the solution `HelloWorld`:
+
+    ![immagine](https://github.com/user-attachments/assets/44e64d0d-b72e-45e5-833c-07632a9b3246)
+
+    *Note*: if the model checker finds any errors, these can be ignored.  
+    
+17. The generated `.c` source files are located at `DESLModels/solutions/HelloWorld/source_gen/HelloWorld/model`
+18. For example, you can compile the source file for `ROOT-Sim` by executing
+    ```bash
+    gcc DESLModels/solutions/HelloWorld/source_gen/HelloWorld/model/HelloWorld_rootsim.c   -Iplatforms/ROOT-Sim/src/ -Ilibs/random-number-generators/src/include/ -Lplatforms/ROOT-Sim/build/src/ -Llibs/random-number-generators/build/src/ -Ilibs/topology/src/include/ -Llibs/topology/build/src/  -lrscore -lrsrng -lrstopology -lm -o bins/ROOTSIM-HelloWorld
+    ```
+19. To run the model, use the following command:
+    ```bash
+    ./bins/ROOTSIM-HelloWorld
+    ```
+The other simulators can be tested by compiling the source files located at `DESLModels/solutions/HelloWorld/source_gen/HelloWorld/model`, following the instructions provided by the script `5-compile.sh`.
+
+  
+
