@@ -200,6 +200,11 @@ This section provides a step-by-step walkthrough of the creation of a basic DESL
 7. Define the macros COMPLETE_EVENTS and NUM_LPS (any value can be selected for these macros):
    
    ![immagine](https://github.com/user-attachments/assets/747980c8-55af-4297-b4f8-401fddc17a67)
+
+   *Note*: MPS uses a projectional editor, so it's not possible, for example, to create a macro by only starting typing `#define ...`; instead, you should press `CTRL` + `SPACE` to open the completion menu, and select the node's type you want to create. To create the macros `COMPLETE_EVENTS` and `NUM_LPS`, you should select MacroVariable from the completion menu:
+
+    ![immagine](https://github.com/user-attachments/assets/fb494cd0-d9ed-42ea-93fe-62ccd5792511)
+
    
 9. Rename the empty struct and add a string field:
 
@@ -226,6 +231,7 @@ This section provides a step-by-step walkthrough of the creation of a basic DESL
     ```bash
     gcc DESLModels/solutions/HelloWorld/source_gen/HelloWorld/model/HelloWorld_rootsim.c   -Iplatforms/ROOT-Sim/src/ -Ilibs/random-number-generators/src/include/ -Lplatforms/ROOT-Sim/build/src/ -Llibs/random-number-generators/build/src/ -Ilibs/topology/src/include/ -Llibs/topology/build/src/  -lrscore -lrsrng -lrstopology -lm -o bins/ROOTSIM-HelloWorld
     ```
+    *Note*: this phase needs all the libraries to be compiled, so the script `5-compile.sh` must have been previously executed.
 19. To run the model, use the following command:
     ```bash
     ./bins/ROOTSIM-HelloWorld
