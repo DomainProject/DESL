@@ -1122,5 +1122,36 @@
     <property role="TrG5h" value="GetRandContext" />
     <ref role="1TJDcQ" to="mj1l:7FQByU3CrCM" resolve="Expression" />
   </node>
+  <node concept="1TIwiD" id="7LehL18wswR">
+    <property role="EcuMT" value="8957174844148009015" />
+    <property role="TrG5h" value="Printf" />
+    <property role="34LRSv" value="printf" />
+    <property role="3GE5qa" value="printf" />
+    <ref role="1TJDcQ" to="c4fa:3CmSUB7FmO3" resolve="Statement" />
+    <node concept="1TJgyi" id="7LehL18wswS" role="1TKVEl">
+      <property role="IQ2nx" value="8957174844148009016" />
+      <property role="TrG5h" value="string" />
+      <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
+    </node>
+    <node concept="1TJgyj" id="7LehL18wA3d" role="1TKVEi">
+      <property role="IQ2ns" value="8957174844148048077" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="variables" />
+      <property role="20lbJX" value="fLJekj5/_0__n" />
+      <ref role="20lvS9" node="7LehL18wswT" resolve="IVariableDeclarationSmartReference" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="7LehL18wswT">
+    <property role="EcuMT" value="8957174844148009017" />
+    <property role="TrG5h" value="IVariableDeclarationSmartReference" />
+    <property role="3GE5qa" value="printf" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" />
+    <node concept="1TJgyj" id="7LehL18wswU" role="1TKVEi">
+      <property role="IQ2ns" value="8957174844148009018" />
+      <property role="20kJfa" value="var" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" to="mj1l:1LDGRqyYkTP" resolve="IVariableDeclaration" />
+    </node>
+  </node>
 </model>
 

@@ -46,6 +46,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_ITerminationFunction;
   private ConceptPresentation props_IText;
   private ConceptPresentation props_ITypeDefinition;
+  private ConceptPresentation props_IVariableDeclarationSmartReference;
   private ConceptPresentation props_InitRandomContext;
   private ConceptPresentation props_InitTopology;
   private ConceptPresentation props_InitializeState;
@@ -56,6 +57,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_NewStruct;
   private ConceptPresentation props_ParameterDocs;
   private ConceptPresentation props_PlainText;
+  private ConceptPresentation props_Printf;
   private ConceptPresentation props_ProcessAllocation;
   private ConceptPresentation props_ProcessArray;
   private ConceptPresentation props_ProcessSequence;
@@ -323,6 +325,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_ITypeDefinition = cpb.create();
         }
         return props_ITypeDefinition;
+      case LanguageConceptSwitch.IVariableDeclarationSmartReference:
+        if (props_IVariableDeclarationSmartReference == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.presentationByReference(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x7c4e47104881c839L, 0x7c4e47104881c83aL, "var", "", "");
+          props_IVariableDeclarationSmartReference = cpb.create();
+        }
+        return props_IVariableDeclarationSmartReference;
       case LanguageConceptSwitch.InitRandomContext:
         if (props_InitRandomContext == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -395,6 +404,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_PlainText = cpb.create();
         }
         return props_PlainText;
+      case LanguageConceptSwitch.Printf:
+        if (props_Printf == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("printf");
+          props_Printf = cpb.create();
+        }
+        return props_Printf;
       case LanguageConceptSwitch.ProcessAllocation:
         if (props_ProcessAllocation == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

@@ -8,16 +8,16 @@ import org.jetbrains.mps.openapi.model.SNode;
 import javax.swing.JButton;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.awt.Font;
 import jetbrains.mps.nodeEditor.EditorSettings;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class ButtonFactory {
 
@@ -26,7 +26,7 @@ public class ButtonFactory {
       @Override
       public void run() {
         SNode function = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228bL, "DESL.structure.ExternalFunction"));
-        SNodeOperations.insertNextSiblingChild(node, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228bL, "DESL.structure.ExternalFunction")));
+        ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(node, CONCEPTS.DESLModel$DK), LINKS.externalFunctions$LqEg)).addElement(function);
         SelectionUtil.selectNode(editorContext, function);
       }
     });
@@ -39,7 +39,7 @@ public class ButtonFactory {
       public void run() {
         SNode struct = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x5808433cc497c577L, "DESL.structure.StructDefinition"));
         SLinkOperations.setTarget(struct, LINKS.struct$10Oz, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x58bef62304fc0a2fL, "com.mbeddr.core.udt.structure.StructDeclaration")));
-        SNodeOperations.insertNextSiblingChild(node, struct);
+        ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(node, CONCEPTS.DESLModel$DK), LINKS.structs$JAXN)).addElement(struct);
         SelectionUtil.selectNode(editorContext, struct);
       }
     });
@@ -51,7 +51,7 @@ public class ButtonFactory {
       @Override
       public void run() {
         SNode struct = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x5808433cc497c579L, "DESL.structure.ExternalStructDefinition"));
-        SNodeOperations.insertNextSiblingChild(node, struct);
+        ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(node, CONCEPTS.DESLModel$DK), LINKS.structs$JAXN)).addElement(struct);
         SelectionUtil.selectNode(editorContext, struct);
       }
     });
@@ -63,7 +63,7 @@ public class ButtonFactory {
       @Override
       public void run() {
         SNode function = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228cL, "DESL.structure.ExternalFunctionPrototype"));
-        SNodeOperations.insertNextSiblingChild(node, function);
+        ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(node, CONCEPTS.DESLModel$DK), LINKS.externalFunctions$LqEg)).addElement(function);
         SelectionUtil.selectNode(editorContext, function);
       }
     });
@@ -112,13 +112,15 @@ public class ButtonFactory {
     return button;
   }
 
-  private static final class LINKS {
-    /*package*/ static final SContainmentLink struct$10Oz = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x5808433cc497c577L, 0x5808433cc497c57dL, "struct");
-    /*package*/ static final SContainmentLink eventType$MGmZ = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2e66f9a613f69c80L, 0x2e66f9a613f69c82L, "eventType");
-    /*package*/ static final SContainmentLink events$uflG = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x2dc3a69083753b9fL, "events");
-  }
-
   private static final class CONCEPTS {
     /*package*/ static final SConcept DESLModel$DK = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, "DESL.structure.DESLModel");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink externalFunctions$LqEg = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x6f36cc77d0a2c4ceL, "externalFunctions");
+    /*package*/ static final SContainmentLink struct$10Oz = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x5808433cc497c577L, 0x5808433cc497c57dL, "struct");
+    /*package*/ static final SContainmentLink structs$JAXN = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x6e7ca07799a0fb0fL, "structs");
+    /*package*/ static final SContainmentLink eventType$MGmZ = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2e66f9a613f69c80L, 0x2e66f9a613f69c82L, "eventType");
+    /*package*/ static final SContainmentLink events$uflG = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x2dc3a69083753b9fL, "events");
   }
 }

@@ -12,7 +12,7 @@ git clone https://github.com/ROOT-Sim/random-number-generators libs/random-numbe
 
 
 for i in *.zip; do unzip -o $i; done
-for i in *.tar.gz; do tar -xvf $i; done
+# for i in *.tar.gz; do tar -xvf $i; done
 
 
 mv MPS\ 2024.1 MPS-2024.1

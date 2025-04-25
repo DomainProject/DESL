@@ -19,10 +19,10 @@ import jetbrains.mps.scope.Scope;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsContext;
 import jetbrains.mps.scope.ListScope;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SProperty;
 
 public class EventHandler_Constraints extends BaseConstraintsDescriptor {
@@ -52,7 +52,7 @@ public class EventHandler_Constraints extends BaseConstraintsDescriptor {
           }
           @Override
           public Scope createScope(final ReferenceConstraintsContext _context) {
-            return ListScope.forNamedElements(SNodeOperations.getNodeDescendants(SNodeOperations.getNodeAncestor(_context.getReferenceNode(), CONCEPTS.DESLModel$DK, false, false), CONCEPTS.EventType$wx, false, new SAbstractConcept[]{}));
+            return ListScope.forNamedElements(SLinkOperations.collect(SNodeOperations.ofConcept(SLinkOperations.getChildren(SNodeOperations.getNodeAncestor(_context.getReferenceNode(), CONCEPTS.DESLModel$DK, false, false), LINKS.events$uflG), CONCEPTS.EventDefinition$wO), LINKS.eventType$MGmZ));
           }
         };
       }
@@ -65,11 +65,13 @@ public class EventHandler_Constraints extends BaseConstraintsDescriptor {
   private static final class CONCEPTS {
     /*package*/ static final SConcept EventHandler$Ov = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, "DESL.structure.EventHandler");
     /*package*/ static final SConcept DESLModel$DK = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, "DESL.structure.DESLModel");
-    /*package*/ static final SConcept EventType$wx = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x7c2c5977e3e10df9L, "DESL.structure.EventType");
+    /*package*/ static final SConcept EventDefinition$wO = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2e66f9a613f69c80L, "DESL.structure.EventDefinition");
   }
 
   private static final class LINKS {
     /*package*/ static final SReferenceLink event$5cyK = MetaAdapterFactory.getReferenceLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x74d88000543a2aa2L, "event");
+    /*package*/ static final SContainmentLink events$uflG = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x2dc3a69083753b9fL, "events");
+    /*package*/ static final SContainmentLink eventType$MGmZ = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2e66f9a613f69c80L, 0x2e66f9a613f69c82L, "eventType");
   }
 
   private static final class PROPS {

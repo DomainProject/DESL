@@ -44,8 +44,6 @@ import jetbrains.mps.lang.editor.cellProviders.SingleRoleCellProvider;
 import jetbrains.mps.editor.runtime.impl.cellActions.CellAction_DeleteSmart;
 import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Vertical;
 import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Horizontal;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
@@ -806,7 +804,7 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
     return editorCell;
   }
   private JComponent _QueryFunction_JComponent_w5xk7i_a0a1cb0() {
-    return ButtonFactory.createStruct(getEditorContext(), ListSequence.fromList(SLinkOperations.getChildren(myNode, LINKS.structs$JAXN)).last());
+    return ButtonFactory.createStruct(getEditorContext(), myNode);
   }
   private EditorCell createCollection_4() {
     EditorCell_Collection editorCell = new EditorCell_Collection(getEditorContext(), myNode, new CellLayout_Vertical());
@@ -823,7 +821,7 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
     return editorCell;
   }
   private JComponent _QueryFunction_JComponent_w5xk7i_a0b1cb0() {
-    return ButtonFactory.createExternalStruct(getEditorContext(), ListSequence.fromList(SLinkOperations.getChildren(myNode, LINKS.structs$JAXN)).last());
+    return ButtonFactory.createExternalStruct(getEditorContext(), myNode);
   }
   private EditorCell createComponent_16() {
     EditorCell editorCell = getCellFactory().createEditorComponentCell(myNode, "DESL.editor.DESModelSpacer");
@@ -1007,7 +1005,7 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
     return editorCell;
   }
   private JComponent _QueryFunction_JComponent_w5xk7i_a0a1kb0() {
-    return ButtonFactory.createNextFunction(getEditorContext(), ListSequence.fromList(SLinkOperations.getChildren(myNode, LINKS.externalFunctions$LqEg)).last());
+    return ButtonFactory.createNextFunction(getEditorContext(), myNode);
   }
   private EditorCell createCollection_8() {
     EditorCell_Collection editorCell = new EditorCell_Collection(getEditorContext(), myNode, new CellLayout_Vertical());
@@ -1024,7 +1022,7 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
     return editorCell;
   }
   private JComponent _QueryFunction_JComponent_w5xk7i_a0b1kb0() {
-    return ButtonFactory.createNextFunctionPrototype(getEditorContext(), ListSequence.fromList(SLinkOperations.getChildren(myNode, LINKS.externalFunctions$LqEg)).last());
+    return ButtonFactory.createNextFunctionPrototype(getEditorContext(), myNode);
   }
   private EditorCell createComponent_22() {
     EditorCell editorCell = getCellFactory().createEditorComponentCell(myNode, "DESL.editor.DESModelSpacer");

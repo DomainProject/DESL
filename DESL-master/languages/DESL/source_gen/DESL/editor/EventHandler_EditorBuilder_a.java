@@ -125,9 +125,6 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
       editorCell.setReferenceCell(true);
       editorCell.setSRole(LINKS.event$5cyK);
     }
-    Style style = new StyleImpl();
-    style.set(StyleAttributes.READ_ONLY, true);
-    editorCell.getStyle().putAll(style);
     editorCell.setSubstituteInfo(new SReferenceSubstituteInfo(editorCell, referenceLink));
     Iterable<SNode> referenceAttributes = SNodeOperations.ofConcept(new IAttributeDescriptor.AllAttributes().list(myNode), CONCEPTS.LinkAttribute$v_);
     Iterable<SNode> currentReferenceAttributes = Sequence.fromIterable(referenceAttributes).where((it) -> Objects.equals(LinkAttribute__BehaviorDescriptor.getLink_id1avfQ4BEFo6.invoke(it), referenceLink));

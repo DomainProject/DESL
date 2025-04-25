@@ -73,6 +73,8 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new ParameterDocs_TextGen();
       case LanguageConceptSwitch.PlainText:
         return new PlainText_TextGen();
+      case LanguageConceptSwitch.Printf:
+        return new Printf_TextGen();
       case LanguageConceptSwitch.ProcessAllocation:
         return new ProcessAllocation_TextGen();
       case LanguageConceptSwitch.ProcessArray:
