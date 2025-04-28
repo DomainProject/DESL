@@ -208,29 +208,43 @@ This section provides a step-by-step walkthrough of the creation of a basic DESL
 
    ![image](https://github.com/user-attachments/assets/6dbade98-1531-485b-a600-24b789367634)
    
-7. In the `Handlers` section, click on the empty red space, press `CTRL` + `SPACE`, select `ClassDefinition` and define a new class, including the termination function and the event handlers:
-    
+7. In the `Handlers` section, click on the empty red space, press `CTRL` + `SPACE`, select `ClassDefinition` and define a new class:
+
+   ![immagine](https://github.com/user-attachments/assets/d2f4a528-1529-4248-9dfe-3619a52da1ab)
+
+8. Click on `<no termination>`, press `CTRL` + `SPACE` and select `TerminationFunction` to create a termination function:
+
+   ![immagine](https://github.com/user-attachments/assets/38a1a454-4021-408d-b7b2-0bc82c9d7e69)
+
+9. Click on `<< ... >>`, press `CTRL` + `SPACE` and select `EventHandler`.
+
+    ![immagine](https://github.com/user-attachments/assets/ea96396c-8490-4998-bb53-3c128fd62f44)
+
+    *Notes*: when defining an event handler (generally speaking a function) you can encounter the error `Error: variable <name> may not be initialized!`. You can safely ignore this error.
+
+10. Populate the class name, the state structure, the termination function and the event handlers as the following:
+        
     ![image](https://github.com/user-attachments/assets/332bfebc-7c1c-4c6a-9774-c170ff07d394)
    
-   *Notes*: to define the handler, click on `<< ... >>`, press `CTRL` + `SPACE` and select `EventHandler`. When defining an event handler (generally speaking a function) you can encounter the error `Error: variable <name> may not be initialized!`; you can safely ignore this error.
    
-8. In the `Process Allocation` section, click on `<< ... >>`, press `CTRL` + `SPACE` and select `ProcessAllocation`. You can define an allocation interval by clicking on the empty red space, then pressing `CTRL` + `SPACE` and selecting `ProcessArray` (note that the interval must be defined according to the `NUM_LPS` macro's value!):
+   
+11. In the `Process Allocation` section, click on `<< ... >>`, press `CTRL` + `SPACE` and select `ProcessAllocation`. You can define an allocation interval by clicking on the empty red space, then pressing `CTRL` + `SPACE` and selecting `ProcessArray` (note that the interval must be defined according to the `NUM_LPS` macro's value!):
 
     ![image](https://github.com/user-attachments/assets/0b629ce9-8a17-472e-88fb-be8c7899396d)
    
-9. The model is now complete. Rebuild the solution `HelloWorld`:
+12. The model is now complete. Rebuild the solution `HelloWorld`:
 
     ![immagine](https://github.com/user-attachments/assets/44e64d0d-b72e-45e5-833c-07632a9b3246)
 
     *Note*: if the model checker finds any errors, these can be ignored.  
     
-10. The generated `.c` source files are located at `DESLModels/solutions/HelloWorld/source_gen/HelloWorld/model`
-11. For example, you can compile the source file for `ROOT-Sim` by executing
+13. The generated `.c` source files are located at `DESLModels/solutions/HelloWorld/source_gen/HelloWorld/model`
+14. For example, you can compile the source file for `ROOT-Sim` by executing
     ```bash
     gcc DESLModels/solutions/HelloWorld/source_gen/HelloWorld/model/HelloWorld_rootsim.c   -Iplatforms/ROOT-Sim/src/ -Ilibs/random-number-generators/src/include/ -Lplatforms/ROOT-Sim/build/src/ -Llibs/random-number-generators/build/src/ -Ilibs/topology/src/include/ -Llibs/topology/build/src/  -lrscore -lrsrng -lrstopology -lm -o bins/ROOTSIM-HelloWorld
     ```
     *Note*: this phase needs all the libraries to be compiled, so the script `5-compile.sh` must have been previously executed.
-12. To run the model, use the following command:
+15. To run the model, use the following command:
     ```bash
     ./bins/ROOTSIM-HelloWorld
     ```
