@@ -62,17 +62,18 @@ public final class LanguageConceptSwitch {
   public static final int Random = 50;
   public static final int ReleaseStruct = 51;
   public static final int RngType = 52;
-  public static final int RootSimM2M = 53;
-  public static final int RossM2M = 54;
-  public static final int SendEvent = 55;
-  public static final int StartupFunction = 56;
-  public static final int StartupHandler = 57;
-  public static final int StructDefinition = 58;
-  public static final int StructDocs = 59;
-  public static final int StructMemberDocs = 60;
-  public static final int TerminationFunction = 61;
-  public static final int TypeDefinition = 62;
-  public static final int UseM2M = 63;
+  public static final int RootSimGPUM2M = 53;
+  public static final int RootSimM2M = 54;
+  public static final int RossM2M = 55;
+  public static final int SendEvent = 56;
+  public static final int StartupFunction = 57;
+  public static final int StartupHandler = 58;
+  public static final int StructDefinition = 59;
+  public static final int StructDocs = 60;
+  public static final int StructMemberDocs = 61;
+  public static final int TerminationFunction = 62;
+  public static final int TypeDefinition = 63;
+  public static final int UseM2M = 64;
 
   public LanguageConceptSwitch() {
     LanguageConceptIndexBuilder builder = new LanguageConceptIndexBuilder(0xc4765525912b41b9L, 0xace4ce3b88117666L);
@@ -129,6 +130,7 @@ public final class LanguageConceptSwitch {
     builder.put(0x2476b4949807b946L, Random);
     builder.put(0x9e7f826fe6178f6L, ReleaseStruct);
     builder.put(0x23bd070ad14172a2L, RngType);
+    builder.put(0xa56bb45af68e0a2L, RootSimGPUM2M);
     builder.put(0x2e66f9a61334f363L, RootSimM2M);
     builder.put(0x7dd219cad75cd6eeL, RossM2M);
     builder.put(0x68458b9b5da4ec77L, SendEvent);

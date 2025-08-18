@@ -8,7 +8,7 @@
   </languages>
   <imports>
     <import index="r4ju" ref="r:b9d4912c-8e8b-4f1b-b887-99265d0b4cdb(DESL.editor)" />
-    <import index="mj1t" ref="r:7c7377c1-dded-46c2-9c44-39493c999dbb(Collections.structure)" implicit="true" />
+    <import index="mj1t" ref="r:7c7377c1-dded-46c2-9c44-39493c999dbb(Collections.structure)" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
     <import index="c4fa" ref="r:9f0e84b6-2ec7-4f9e-83e0-feedc77b63a3(com.mbeddr.core.statements.structure)" implicit="true" />
     <import index="mj1l" ref="r:c371cf98-dcc8-4a43-8eb8-8a8096de18b2(com.mbeddr.core.expressions.structure)" implicit="true" />
@@ -81,10 +81,10 @@
         <property role="3F0ifm" value="(" />
         <ref role="1k5W1q" to="r4ju:2R3DD23tMJM" resolve="BraceStyle" />
       </node>
-      <node concept="1iCGBv" id="3Pw7xgHGkJC" role="3EZMnx">
-        <ref role="1NtTu8" to="mj1t:1Yx5zgmXJIa" resolve="variable" />
-        <node concept="1sVBvm" id="3Pw7xgHGkJE" role="1sWHZn">
-          <node concept="3F0A7n" id="3Pw7xgHGkJI" role="2wV5jI">
+      <node concept="1iCGBv" id="6lwIvDvqLG7" role="3EZMnx">
+        <ref role="1NtTu8" to="mj1t:1Yx5zgmXJIa" />
+        <node concept="1sVBvm" id="6lwIvDvqLG8" role="1sWHZn">
+          <node concept="3F0A7n" id="6lwIvDvqLG9" role="2wV5jI">
             <property role="1Intyy" value="true" />
             <ref role="1NtTu8" to="tpck:h0TrG11" resolve="name" />
           </node>
@@ -319,10 +319,10 @@
         <property role="3F0ifm" value="(" />
         <ref role="1k5W1q" to="r4ju:2R3DD23tMJM" resolve="BraceStyle" />
       </node>
-      <node concept="1iCGBv" id="7h503jg19jX" role="3EZMnx">
+      <node concept="1iCGBv" id="6lwIvDvqLFX" role="3EZMnx">
         <ref role="1NtTu8" to="mj1t:7h503jg19jR" resolve="variable" />
-        <node concept="1sVBvm" id="7h503jg19jY" role="1sWHZn">
-          <node concept="3F0A7n" id="7h503jg19jZ" role="2wV5jI">
+        <node concept="1sVBvm" id="6lwIvDvqLFZ" role="1sWHZn">
+          <node concept="3F0A7n" id="6lwIvDvqLG5" role="2wV5jI">
             <property role="1Intyy" value="true" />
             <ref role="1NtTu8" to="tpck:h0TrG11" resolve="name" />
           </node>

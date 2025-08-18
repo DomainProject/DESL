@@ -62,6 +62,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_Random;
   private ConceptPresentation props_ReleaseStruct;
   private ConceptPresentation props_RngType;
+  private ConceptPresentation props_RootSimGPUM2M;
   private ConceptPresentation props_RootSimM2M;
   private ConceptPresentation props_RossM2M;
   private ConceptPresentation props_SendEvent;
@@ -438,6 +439,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_RngType = cpb.create();
         }
         return props_RngType;
+      case LanguageConceptSwitch.RootSimGPUM2M:
+        if (props_RootSimGPUM2M == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.presentationByName();
+          props_RootSimGPUM2M = cpb.create();
+        }
+        return props_RootSimGPUM2M;
       case LanguageConceptSwitch.RootSimM2M:
         if (props_RootSimM2M == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

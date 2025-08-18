@@ -8,7 +8,6 @@ import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -29,7 +28,6 @@ public class RemoveFromCollection_Constraints extends BaseConstraintsDescriptor 
       }
       @Override
       public void onReferenceSet(final SNode referenceNode, final SNode oldReferentNode, final SNode newReferentNode) {
-        SLinkOperations.setTarget(referenceNode, LINKS.variable$mVLX, newReferentNode);
         SPropertyOperations.assign(referenceNode, PROPS.variableName$FJHk, SPropertyOperations.getString(newReferentNode, PROPS.name$MnvL));
       }
     };

@@ -83,6 +83,8 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new ReleaseStruct_TextGen();
       case LanguageConceptSwitch.RngType:
         return new RngType_TextGen();
+      case LanguageConceptSwitch.RootSimGPUM2M:
+        return new RootSimGPUM2M_TextGen();
       case LanguageConceptSwitch.RootSimM2M:
         return new RootSimM2M_TextGen();
       case LanguageConceptSwitch.RossM2M:
@@ -128,19 +130,28 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         outline.registerTextUnit((ext == null ? fname : (fname + '.' + ext)), root);
         continue;
       }
+      if (root.getConcept().equals(CONCEPTS.RootSimGPUM2M$GC)) {
+        String fname = getFileName_RootSimGPUM2M(root);
+        String ext = getFileExtension_RootSimGPUM2M(root);
+        outline.registerTextUnit((ext == null ? fname : (fname + '.' + ext)), root);
+        continue;
+      }
     }
   }
   private static String getFileName_DocsM2M(SNode node) {
     return SPropertyOperations.getString(node, PROPS.name$MnvL);
   }
   private static String getFileName_RootSimM2M(SNode node) {
-    return SPropertyOperations.getString(node, PROPS.name$MnvL) + "_rootsim";
+    return SPropertyOperations.getString(node, PROPS.name$MnvL);
   }
   private static String getFileName_UseM2M(SNode node) {
-    return SPropertyOperations.getString(node, PROPS.name$MnvL) + "_use";
+    return SPropertyOperations.getString(node, PROPS.name$MnvL);
   }
   private static String getFileName_RossM2M(SNode node) {
-    return SPropertyOperations.getString(node, PROPS.name$MnvL) + "_ross";
+    return SPropertyOperations.getString(node, PROPS.name$MnvL);
+  }
+  private static String getFileName_RootSimGPUM2M(SNode node) {
+    return SPropertyOperations.getString(node, PROPS.name$MnvL);
   }
   private static String getFileExtension_DocsM2M(SNode node) {
     return "md";
@@ -154,12 +165,16 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
   private static String getFileExtension_RossM2M(SNode node) {
     return "c";
   }
+  private static String getFileExtension_RootSimGPUM2M(SNode node) {
+    return "cu";
+  }
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept DocsM2M$wA = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2e66f9a61334f362L, "DESL.structure.DocsM2M");
     /*package*/ static final SConcept RootSimM2M$x5 = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2e66f9a61334f363L, "DESL.structure.RootSimM2M");
     /*package*/ static final SConcept UseM2M$UU = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4111dd2682dce668L, "DESL.structure.UseM2M");
     /*package*/ static final SConcept RossM2M$aQ = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x7dd219cad75cd6eeL, "DESL.structure.RossM2M");
+    /*package*/ static final SConcept RootSimGPUM2M$GC = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0xa56bb45af68e0a2L, "DESL.structure.RootSimGPUM2M");
   }
 
   private static final class PROPS {

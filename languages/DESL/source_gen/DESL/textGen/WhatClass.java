@@ -17,7 +17,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
 public abstract class WhatClass {
   public static void whatClass(SNode root, final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
-    tgs.append("enum class { ");
+    tgs.append("enum cls { ");
     for (SNode c : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(root, LINKS.classes$SNAM), CONCEPTS.ClassDefinition$NR))) {
       tgs.append(SPropertyOperations.getString(c, PROPS.name$MnvL));
       tgs.append(", ");

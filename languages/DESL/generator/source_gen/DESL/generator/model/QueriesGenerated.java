@@ -37,16 +37,19 @@ public class QueriesGenerated extends QueryProviderBase {
     super(1);
   }
   public static Object propertyMacro_GetValue_1_0(final PropertyMacroContext _context) {
-    return SPropertyOperations.getString(_context.getNode(), PROPS.name$MnvL);
+    return SPropertyOperations.getString(_context.getNode(), PROPS.name$MnvL) + "_rootsim";
   }
   public static Object propertyMacro_GetValue_2_0(final PropertyMacroContext _context) {
-    return SPropertyOperations.getString(_context.getNode(), PROPS.name$MnvL);
+    return SPropertyOperations.getString(_context.getNode(), PROPS.name$MnvL) + "_ross";
   }
   public static Object propertyMacro_GetValue_3_0(final PropertyMacroContext _context) {
-    return SPropertyOperations.getString(_context.getNode(), PROPS.name$MnvL);
+    return SPropertyOperations.getString(_context.getNode(), PROPS.name$MnvL) + "_use";
   }
   public static Object propertyMacro_GetValue_5_0(final PropertyMacroContext _context) {
     return SPropertyOperations.getString(_context.getNode(), PROPS.name$MnvL);
+  }
+  public static Object propertyMacro_GetValue_6_0(final PropertyMacroContext _context) {
+    return SPropertyOperations.getString(_context.getNode(), PROPS.name$MnvL) + "_rootsim_gpu";
   }
   public static SNode sourceNodeQuery_1_0(final SourceSubstituteMacroNodeContext _context) {
     return SLinkOperations.getTarget(_context.getNode(), LINKS.messageStruct$xVlJ);
@@ -58,6 +61,9 @@ public class QueriesGenerated extends QueryProviderBase {
     return SLinkOperations.getTarget(_context.getNode(), LINKS.messageStruct$xVlJ);
   }
   public static SNode sourceNodeQuery_5_0(final SourceSubstituteMacroNodeContext _context) {
+    return SLinkOperations.getTarget(_context.getNode(), LINKS.messageStruct$xVlJ);
+  }
+  public static SNode sourceNodeQuery_6_0(final SourceSubstituteMacroNodeContext _context) {
     return SLinkOperations.getTarget(_context.getNode(), LINKS.messageStruct$xVlJ);
   }
   public static Iterable<SNode> sourceNodesQuery_1_0(final SourceSubstituteMacroNodesContext _context) {
@@ -168,6 +174,33 @@ public class QueriesGenerated extends QueryProviderBase {
   public static Iterable<SNode> sourceNodesQuery_5_8(final SourceSubstituteMacroNodesContext _context) {
     return SLinkOperations.getChildren(_context.getNode(), LINKS.classes$SNAM);
   }
+  public static Iterable<SNode> sourceNodesQuery_6_0(final SourceSubstituteMacroNodesContext _context) {
+    return SLinkOperations.getChildren(_context.getNode(), LINKS.processAllocations$cuUJ);
+  }
+  public static Iterable<SNode> sourceNodesQuery_6_1(final SourceSubstituteMacroNodesContext _context) {
+    return SLinkOperations.getChildren(_context.getNode(), LINKS.startup$LlvU);
+  }
+  public static Iterable<SNode> sourceNodesQuery_6_2(final SourceSubstituteMacroNodesContext _context) {
+    return SLinkOperations.getChildren(_context.getNode(), LINKS.configuration$XHIx);
+  }
+  public static Iterable<SNode> sourceNodesQuery_6_3(final SourceSubstituteMacroNodesContext _context) {
+    return SLinkOperations.getChildren(_context.getNode(), LINKS.externalFunctions$LqEg);
+  }
+  public static Iterable<SNode> sourceNodesQuery_6_4(final SourceSubstituteMacroNodesContext _context) {
+    return SLinkOperations.getChildren(_context.getNode(), LINKS.structs$JAXN);
+  }
+  public static Iterable<SNode> sourceNodesQuery_6_5(final SourceSubstituteMacroNodesContext _context) {
+    return SLinkOperations.getChildren(_context.getNode(), LINKS.typedefs$4qMf);
+  }
+  public static Iterable<SNode> sourceNodesQuery_6_6(final SourceSubstituteMacroNodesContext _context) {
+    return SLinkOperations.getChildren(_context.getNode(), LINKS.macros$Sq68);
+  }
+  public static Iterable<SNode> sourceNodesQuery_6_7(final SourceSubstituteMacroNodesContext _context) {
+    return SLinkOperations.getChildren(_context.getNode(), LINKS.events$uflG);
+  }
+  public static Iterable<SNode> sourceNodesQuery_6_8(final SourceSubstituteMacroNodesContext _context) {
+    return SLinkOperations.getChildren(_context.getNode(), LINKS.classes$SNAM);
+  }
   public static void mappingScript_CodeBlock_4(final MappingScriptContext _context) {
     for (SNode function : ListSequence.fromList(SModelOperations.nodes(_context.getModel(), CONCEPTS.ExternalFunctionPrototype$V4))) {
       SPropertyOperations.assign(SLinkOperations.getTarget(function, LINKS.prototype$lY0a), PROPS.preventNameMangling$DOH5, true);
@@ -227,6 +260,7 @@ public class QueriesGenerated extends QueryProviderBase {
     snqMethods.put("2659902553932198806", new SNQ(i++));
     snqMethods.put("2659902553932085197", new SNQ(i++));
     snqMethods.put("2659902553936076868", new SNQ(i++));
+    snqMethods.put("744988696350856001", new SNQ(i++));
   }
   @NotNull
   @Override
@@ -250,6 +284,8 @@ public class QueriesGenerated extends QueryProviderBase {
           return QueriesGenerated.sourceNodeQuery_3_0(ctx);
         case 3:
           return QueriesGenerated.sourceNodeQuery_5_0(ctx);
+        case 4:
+          return QueriesGenerated.sourceNodeQuery_6_0(ctx);
         default:
           throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no method for query %s (key: #%d)", ctx.getTemplateReference(), methodKey));
       }
@@ -294,6 +330,15 @@ public class QueriesGenerated extends QueryProviderBase {
     snsqMethods.put("2659902553936074053", new SNsQ(i++));
     snsqMethods.put("2659902553936071287", new SNsQ(i++));
     snsqMethods.put("2659902553936090948", new SNsQ(i++));
+    snsqMethods.put("744988696350884197", new SNsQ(i++));
+    snsqMethods.put("744988696350878232", new SNsQ(i++));
+    snsqMethods.put("744988696350866168", new SNsQ(i++));
+    snsqMethods.put("744988696350861953", new SNsQ(i++));
+    snsqMethods.put("744988696350858764", new SNsQ(i++));
+    snsqMethods.put("744988696350846221", new SNsQ(i++));
+    snsqMethods.put("744988696350817367", new SNsQ(i++));
+    snsqMethods.put("744988696350790922", new SNsQ(i++));
+    snsqMethods.put("744988696350879268", new SNsQ(i++));
   }
   @NotNull
   @Override
@@ -381,6 +426,24 @@ public class QueriesGenerated extends QueryProviderBase {
           return IterableUtil.asCollection(QueriesGenerated.sourceNodesQuery_5_7(ctx));
         case 35:
           return IterableUtil.asCollection(QueriesGenerated.sourceNodesQuery_5_8(ctx));
+        case 36:
+          return IterableUtil.asCollection(QueriesGenerated.sourceNodesQuery_6_0(ctx));
+        case 37:
+          return IterableUtil.asCollection(QueriesGenerated.sourceNodesQuery_6_1(ctx));
+        case 38:
+          return IterableUtil.asCollection(QueriesGenerated.sourceNodesQuery_6_2(ctx));
+        case 39:
+          return IterableUtil.asCollection(QueriesGenerated.sourceNodesQuery_6_3(ctx));
+        case 40:
+          return IterableUtil.asCollection(QueriesGenerated.sourceNodesQuery_6_4(ctx));
+        case 41:
+          return IterableUtil.asCollection(QueriesGenerated.sourceNodesQuery_6_5(ctx));
+        case 42:
+          return IterableUtil.asCollection(QueriesGenerated.sourceNodesQuery_6_6(ctx));
+        case 43:
+          return IterableUtil.asCollection(QueriesGenerated.sourceNodesQuery_6_7(ctx));
+        case 44:
+          return IterableUtil.asCollection(QueriesGenerated.sourceNodesQuery_6_8(ctx));
         default:
           throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no method for query %s (key: #%d)", ctx.getTemplateReference(), methodKey));
       }
@@ -393,6 +456,7 @@ public class QueriesGenerated extends QueryProviderBase {
     pvqMethods.put("2659902553932166019", new PVQ(i++, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "map_ROSS"));
     pvqMethods.put("2659902553932127127", new PVQ(i++, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "map_USE"));
     pvqMethods.put("2659902553936055319", new PVQ(i++, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "map_docs"));
+    pvqMethods.put("744988696350791954", new PVQ(i++, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "map_RootSimGPU"));
   }
   @NotNull
   @Override
@@ -417,6 +481,8 @@ public class QueriesGenerated extends QueryProviderBase {
           return QueriesGenerated.propertyMacro_GetValue_3_0(ctx);
         case 3:
           return QueriesGenerated.propertyMacro_GetValue_5_0(ctx);
+        case 4:
+          return QueriesGenerated.propertyMacro_GetValue_6_0(ctx);
         default:
           throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no method for query %s (key: #%d)", ctx.getTemplateReference(), methodKey));
       }

@@ -37,7 +37,6 @@ public abstract class StateStructs {
         tgs.newLine();
       } else {
         tgs.appendNode(SLinkOperations.getTarget(c, LINKS.stateStruct$NqNO));
-        tgs.newLine();
       }
 
     }
