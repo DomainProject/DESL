@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<product version="3" modelHash="-eyh2vstmu1u19wurb7ya1faac1xgvk">
+  <files names="Expression_Rebalance_Intention.java:IntentionsDescriptor.java:commentIn_Intention.java:commentOut_Intention.java:surroundWithCast_Intention.java:surroundWithNot_Intention.java:surroundWithParens_Intention.java:surroundWithQuestionMarkOp_Intention.java:surroundWithStaticValueExpr_Intention.java:toggleCastToInt_Intention.java:unwrap_Intention.java:wrapWithIWrapperExpression_Intention.java" />
+</product>
+

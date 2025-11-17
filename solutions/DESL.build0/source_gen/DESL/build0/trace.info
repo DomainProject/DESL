@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<debug-info version="2">
+  <root nodeRef="r:87b953a5-ac21-4bb5-ba82-1f745e7a0143(DESL.build0)/10958087243921366">
+    <file name="DESL.xml">
+      <unit id="10958087243921366" at="1,0,1038,10" name="DESL.build0.DESL" />
+    </file>
+  </root>
+  <root nodeRef="r:87b953a5-ac21-4bb5-ba82-1f745e7a0143(DESL.build0)/10958087243921579">
+    <file name="DESLDistribution.xml">
+      <unit id="10958087243921579" at="1,0,307,10" name="DESL.build0.DESLDistribution" />
+    </file>
+  </root>
+  <root nodeRef="r:87b953a5-ac21-4bb5-ba82-1f745e7a0143(DESL.build0)/10958087243922386">
+    <file name="Info.plist.xml">
+      <unit id="10958087243922386" at="1,0,88,8" name="DESL.build0.Info$plist" />
+    </file>
+  </root>
+</debug-info>
+

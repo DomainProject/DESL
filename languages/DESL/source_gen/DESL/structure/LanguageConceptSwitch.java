@@ -105,7 +105,7 @@ public final class LanguageConceptSwitch {
     builder.put(0x6f36cc77d0c630e1L, IExternalFunction);
     builder.put(0x4ba181fb07970182L, IFiller);
     builder.put(0x4ba181fb08818b7dL, IGlobalVarDecl);
-    builder.put(0x6eb40d65f333345bL, IHandler);
+    builder.put(0x549487e5d88a4291L, IHandler);
     builder.put(0x74450034d00e6944L, IMacro);
     builder.put(0x55132e9dcbcc539bL, IProcessAllocation);
     builder.put(0x4117a694e64ff7baL, IProcessList);

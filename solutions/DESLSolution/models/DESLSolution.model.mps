@@ -4,7 +4,6 @@
   <languages>
     <use id="c4765525-912b-41b9-ace4-ce3b88117666" name="DESL" version="0" />
     <use id="99e1808b-e2d7-4c11-a40f-23376c03dda3" name="Collections" version="0" />
-    <use id="2374bc90-7e37-41f1-a9c4-c2e35194c36a" name="com.mbeddr.doc" version="4" />
     <devkit ref="d2a9c55c-6bdc-4cc2-97e1-4ba7552f5584(com.mbeddr.core)" />
   </languages>
   <imports />
@@ -251,7 +250,7 @@
       <concept id="3297662491775979728" name="DESL.structure.EventHandler" flags="ng" index="2IF7p0">
         <property id="4226356003925651441" name="eventName" index="2eXeul" />
         <reference id="8419620242270595746" name="event" index="wSEEy" />
-        <child id="8419620242270595743" name="function" index="wSEEv" />
+        <child id="8419620242270595743" name="forwardFunction" index="wSEEv" />
       </concept>
       <concept id="1477309532093105773" name="DESL.structure.TerminationFunction" flags="ng" index="Jdjds">
         <child id="1477309532093105774" name="function" index="Jdjdv" />

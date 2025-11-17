@@ -141,15 +141,15 @@ public class UseM2M_TextGen extends TextGenDescriptorBase {
       tgs.append("switch(event_type) {");
       tgs.newLine();
       ctx.getBuffer().area().increaseIndent();
-      for (SNode handler : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(c, LINKS.handlers$Nr2P), CONCEPTS.EventHandler$Ov)).where((it) -> SPropertyOperations.getString(it, PROPS.eventName$AHdn) != "LP_FINI")) {
+      for (SNode handler : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(c, LINKS.handlers$Nr2P), CONCEPTS.EventHandler$Ov)).where((it) -> SPropertyOperations.getString(it, PROPS.eventName$cuOv) != "LP_FINI")) {
         tgs.newLine();
         tgs.indent();
         tgs.append("case ");
-        tgs.append(SPropertyOperations.getString(handler, PROPS.eventName$AHdn));
+        tgs.append(SPropertyOperations.getString(handler, PROPS.eventName$cuOv));
         tgs.append(":");
         tgs.newLine();
         ctx.getBuffer().area().increaseIndent();
-        for (SNode statement : ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(SLinkOperations.getTarget(handler, LINKS.function$5bPH), LINKS.body$1GE0), LINKS.statements$euTV))) {
+        for (SNode statement : ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(SLinkOperations.getTarget(handler, LINKS.forwardFunction$5bPH), LINKS.body$1GE0), LINKS.statements$euTV))) {
           tgs.indent();
           tgs.appendNode(statement);
           tgs.newLine();
@@ -257,7 +257,7 @@ public class UseM2M_TextGen extends TextGenDescriptorBase {
     /*package*/ static final SContainmentLink classes$SNAM = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x4117a694e5ba8536L, "classes");
     /*package*/ static final SContainmentLink stateStruct$NqNO = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x4117a694e5b8c1a2L, "stateStruct");
     /*package*/ static final SContainmentLink commonVariables$AOvb = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x323127c5741c9443L, "commonVariables");
-    /*package*/ static final SContainmentLink function$5bPH = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x74d88000543a2a9fL, "function");
+    /*package*/ static final SContainmentLink forwardFunction$5bPH = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x74d88000543a2a9fL, "forwardFunction");
     /*package*/ static final SContainmentLink body$1GE0 = MetaAdapterFactory.getContainmentLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x595522006a5b97e1L, 0x3a16e3a9c7ad9954L, "body");
     /*package*/ static final SContainmentLink statements$euTV = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad9955L, 0x3a16e3a9c7ad9956L, "statements");
     /*package*/ static final SContainmentLink handlers$Nr2P = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x4117a694e5b8c1a3L, "handlers");
@@ -267,7 +267,7 @@ public class UseM2M_TextGen extends TextGenDescriptorBase {
 
   private static final class PROPS {
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
-    /*package*/ static final SProperty eventName$AHdn = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x3aa70864b453eff1L, "eventName");
+    /*package*/ static final SProperty eventName$cuOv = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x549487e5d9aa9e02L, "eventName");
   }
 
   private static final class CONCEPTS {

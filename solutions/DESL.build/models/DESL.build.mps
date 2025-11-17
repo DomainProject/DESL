@@ -215,6 +215,7 @@
         <property id="3497141547781541445" name="minor" index="2OjLBK" />
         <property id="3497141547781541444" name="major" index="2OjLBL" />
         <child id="6845119683729294884" name="progressColor" index="27hGoL" />
+        <child id="6845119683729280452" name="icon" index="27igRh" />
         <child id="922958177840117051" name="script" index="2gvbiD" />
         <child id="6108265972537182996" name="splashScreen" index="2EqU2t" />
         <child id="6108265972537229337" name="buildNumber" index="2EteIg" />
@@ -222,8 +223,6 @@
         <child id="6108265972537372848" name="fullName" index="2EtHGT" />
         <child id="8795525031433238889" name="textColor" index="HFo83" />
         <child id="1462305029084462472" name="buildDate" index="R$TG_" />
-        <child id="62678610895108195" name="svg_small" index="1hH5mY" />
-        <child id="62678610895108142" name="svg" index="1hH5nN" />
         <child id="772379520210716142" name="welcomeLogo" index="3vi$VU" />
         <child id="4157435862321767641" name="version" index="3ZAC$U" />
       </concept>
@@ -317,22 +316,6 @@
           <property role="3MwjfP" value="FFFFFF" />
         </node>
       </node>
-      <node concept="55IIr" id="4ENd9L1j6yN" role="1hH5nN">
-        <node concept="2Ry0Ak" id="4ENd9L1j6yO" role="iGT6I">
-          <property role="2Ry0Am" value="icons" />
-          <node concept="2Ry0Ak" id="4ENd9L1j6yP" role="2Ry0An">
-            <property role="2Ry0Am" value="simpledes.svg" />
-          </node>
-        </node>
-      </node>
-      <node concept="55IIr" id="4ENd9L1j6yQ" role="1hH5mY">
-        <node concept="2Ry0Ak" id="4ENd9L1j6yR" role="iGT6I">
-          <property role="2Ry0Am" value="icons" />
-          <node concept="2Ry0Ak" id="4ENd9L1j6yS" role="2Ry0An">
-            <property role="2Ry0Am" value="simpledes_16.svg" />
-          </node>
-        </node>
-      </node>
       <node concept="3ZAF1B" id="4ENd9L1j6yT" role="3ZAC$U">
         <node concept="3_J27D" id="4ENd9L1j6yU" role="3ZAF1W">
           <node concept="3Mxwew" id="4ENd9L1j6yV" role="3MwsjC">
@@ -350,6 +333,14 @@
           </node>
         </node>
         <node concept="NbPM2" id="4ENd9L1j6z0" role="3ZAF11" />
+      </node>
+      <node concept="55IIr" id="I4p70szh_Q" role="27igRh">
+        <node concept="2Ry0Ak" id="I4p70szh_T" role="iGT6I">
+          <property role="2Ry0Am" value="icons" />
+          <node concept="2Ry0Ak" id="I4p70szhA2" role="2Ry0An">
+            <property role="2Ry0Am" value="icon.png" />
+          </node>
+        </node>
       </node>
     </node>
     <node concept="2kB4xC" id="4ENd9L1j6y9" role="1l3spd">
@@ -370,17 +361,11 @@
     </node>
     <node concept="398rNT" id="4ENd9L1j6yf" role="1l3spd">
       <property role="TrG5h" value="mps_home" />
-      <node concept="55IIr" id="4ENd9L1j6Lo" role="398pKh">
-        <node concept="2Ry0Ak" id="4ENd9L1j6Lr" role="iGT6I">
-          <property role="2Ry0Am" value=".." />
-          <node concept="2Ry0Ak" id="4ENd9L1j6Lt" role="2Ry0An">
-            <property role="2Ry0Am" value=".." />
-            <node concept="2Ry0Ak" id="4ENd9L1j6Lw" role="2Ry0An">
-              <property role="2Ry0Am" value="MPS" />
-              <node concept="2Ry0Ak" id="4ENd9L1j6Lz" role="2Ry0An">
-                <property role="2Ry0Am" value="MPS-2024.1" />
-              </node>
-            </node>
+      <node concept="55IIr" id="AV_a1_Rva" role="398pKh">
+        <node concept="2Ry0Ak" id="AV_a1_Rvd" role="iGT6I">
+          <property role="2Ry0Am" value="MPS-2025-2-1-generic" />
+          <node concept="2Ry0Ak" id="AV_a1_Rvg" role="2Ry0An">
+            <property role="2Ry0Am" value="MPS-2025.2.1" />
           </node>
         </node>
       </node>
@@ -427,31 +412,21 @@
         </node>
       </node>
     </node>
-    <node concept="2sgV4H" id="2AYSQNwOJ2R" role="1l3spa">
+    <node concept="2sgV4H" id="I4p70sM53X" role="1l3spa">
       <ref role="1l3spb" to="p6ld:4i9pOwKTFVe" resolve="mbeddr" />
-      <node concept="55IIr" id="2AYSQNwOJ2T" role="2JcizS">
-        <node concept="2Ry0Ak" id="2AYSQNwOJ30" role="iGT6I">
-          <property role="2Ry0Am" value="build" />
-          <node concept="2Ry0Ak" id="2AYSQNwOJ33" role="2Ry0An">
-            <property role="2Ry0Am" value="dependencies" />
-            <node concept="2Ry0Ak" id="2AYSQNwOJ36" role="2Ry0An">
-              <property role="2Ry0Am" value="mbeddr" />
-            </node>
-          </node>
+      <node concept="398BVA" id="I4p70sMqyq" role="2JcizS">
+        <ref role="398BVh" node="4ENd9L1j6yf" resolve="mps_home" />
+        <node concept="2Ry0Ak" id="I4p70sMqys" role="iGT6I">
+          <property role="2Ry0Am" value="plugins" />
         </node>
       </node>
     </node>
     <node concept="2sgV4H" id="4ENd9L1j9XS" role="1l3spa">
       <ref role="1l3spb" to="al5i:3AVJcIMlF8l" resolve="com.mbeddr.platform" />
-      <node concept="55IIr" id="4ENd9L1j9XU" role="2JcizS">
-        <node concept="2Ry0Ak" id="2AYSQNwOJ39" role="iGT6I">
-          <property role="2Ry0Am" value="build" />
-          <node concept="2Ry0Ak" id="2AYSQNwOJ3c" role="2Ry0An">
-            <property role="2Ry0Am" value="dependencies" />
-            <node concept="2Ry0Ak" id="2AYSQNwOJ3f" role="2Ry0An">
-              <property role="2Ry0Am" value="com.mbeddr.platform" />
-            </node>
-          </node>
+      <node concept="398BVA" id="I4p70sMqy_" role="2JcizS">
+        <ref role="398BVh" node="4ENd9L1j6yf" resolve="mps_home" />
+        <node concept="2Ry0Ak" id="I4p70sMqyA" role="iGT6I">
+          <property role="2Ry0Am" value="plugins" />
         </node>
       </node>
     </node>
@@ -579,7 +554,7 @@
           <ref role="3_I8Xa" to="ffeo:5DF4H224yvv" resolve="mps-rcp" />
         </node>
         <node concept="m$_wl" id="4ENd9L1j6$g" role="39821P">
-          <ref role="m_rDy" node="4ENd9L1j6zq" resolve="SimpleDES" />
+          <ref role="m_rDy" node="4ENd9L1j6zq" resolve="DESL" />
           <node concept="pUk6x" id="4ENd9L1j6$h" role="pUk7w" />
         </node>
         <node concept="3_J27D" id="4ENd9L1j6$i" role="Nbhlr">
@@ -621,7 +596,7 @@
       </node>
     </node>
     <node concept="m$_wf" id="4ENd9L1j6zq" role="3989C9">
-      <property role="m$_wk" value="SimpleDES" />
+      <property role="m$_wk" value="DESL" />
       <node concept="3_J27D" id="4ENd9L1j6zr" role="m$_yQ">
         <node concept="3Mxwew" id="4ENd9L1j6zs" role="3MwsjC">
           <property role="3MwjfP" value="DESL" />
@@ -633,7 +608,7 @@
         </node>
       </node>
       <node concept="m$f5U" id="2AYSQNwOJ3Y" role="m$_yh">
-        <ref role="m$f5T" node="4ENd9L1j6zp" resolve="SimpleDES" />
+        <ref role="m$f5T" node="4ENd9L1j6zp" resolve="DESL" />
       </node>
       <node concept="m$_yC" id="4ENd9L1j6zw" role="m$_yJ">
         <ref role="m$_y1" to="ffeo:4k71ibbKLe8" resolve="jetbrains.mps.core" />
@@ -725,13 +700,8 @@
           </node>
           <node concept="1SiIV0" id="4ENd9L1j6LH" role="3bR37C">
             <node concept="3bR9La" id="4ENd9L1j6LI" role="1SiIV1">
-              <ref role="3bR37D" node="4ENd9L1j6z6" resolve="SimpleDES" />
+              <ref role="3bR37D" node="4ENd9L1j6z6" resolve="DESL" />
             </node>
-          </node>
-        </node>
-        <node concept="1SiIV0" id="4ENd9L1j6LB" role="3bR37C">
-          <node concept="3bR9La" id="4ENd9L1j6LC" role="1SiIV1">
-            <ref role="3bR37D" node="4ENd9L1j6zc" resolve="Collections" />
           </node>
         </node>
         <node concept="3rtmxn" id="4ENd9L1j9XH" role="3bR31x">
@@ -774,93 +744,70 @@
             <ref role="1Busuk" to="p6ld:7uZw0yZ43Mi" resolve="com.mbeddr.core.udt" />
           </node>
         </node>
+        <node concept="1SiIV0" id="I4p70s_SIW" role="3bR37C">
+          <node concept="3bR9La" id="I4p70s_SIX" role="1SiIV1">
+            <ref role="3bR37D" node="I4p70s_C83" resolve="Collections" />
+          </node>
+        </node>
       </node>
-      <node concept="1E1JtD" id="4ENd9L1j6zc" role="2G$12L">
+      <node concept="1E1JtD" id="I4p70s_C83" role="2G$12L">
         <property role="BnDLt" value="true" />
         <property role="TrG5h" value="Collections" />
         <property role="3LESm3" value="99e1808b-e2d7-4c11-a40f-23376c03dda3" />
-        <node concept="55IIr" id="4ENd9L1j6z7" role="3LF7KH">
-          <node concept="2Ry0Ak" id="4ENd9L1j6z8" role="iGT6I">
+        <node concept="55IIr" id="I4p70s_C86" role="3LF7KH">
+          <node concept="2Ry0Ak" id="I4p70s_C88" role="iGT6I">
             <property role="2Ry0Am" value="languages" />
-            <node concept="2Ry0Ak" id="4ENd9L1j6z9" role="2Ry0An">
+            <node concept="2Ry0Ak" id="I4p70s_C8f" role="2Ry0An">
               <property role="2Ry0Am" value="Collections" />
-              <node concept="2Ry0Ak" id="4ENd9L1j6za" role="2Ry0An">
+              <node concept="2Ry0Ak" id="I4p70s_C8i" role="2Ry0An">
                 <property role="2Ry0Am" value="Collections.mpl" />
               </node>
             </node>
           </node>
         </node>
-        <node concept="1BupzO" id="4ENd9L1j6$Q" role="3bR31x">
+        <node concept="1SiIV0" id="I4p70s_SIq" role="3bR37C">
+          <node concept="3bR9La" id="I4p70s_SIr" role="1SiIV1">
+            <ref role="3bR37D" node="4ENd9L1j6z6" resolve="DESL" />
+          </node>
+        </node>
+        <node concept="1SiIV0" id="I4p70s_SIs" role="3bR37C">
+          <node concept="3bR9La" id="I4p70s_SIt" role="1SiIV1">
+            <ref role="3bR37D" to="p6ld:7uZw0yZ43Mi" resolve="com.mbeddr.core.udt" />
+          </node>
+        </node>
+        <node concept="1SiIV0" id="I4p70s_SIu" role="3bR37C">
+          <node concept="3bR9La" id="I4p70s_SIv" role="1SiIV1">
+            <ref role="3bR37D" to="p6ld:7uZw0yZ43L9" resolve="com.mbeddr.core.modules" />
+          </node>
+        </node>
+        <node concept="1BupzO" id="I4p70s_SI$" role="3bR31x">
           <property role="3ZfqAx" value="models" />
           <property role="1Hdu6h" value="true" />
           <property role="1HemKv" value="true" />
-          <node concept="3LXTmp" id="4ENd9L1j6$R" role="1HemKq">
-            <node concept="55IIr" id="4ENd9L1j6$M" role="3LXTmr">
-              <node concept="2Ry0Ak" id="4ENd9L1j6$N" role="iGT6I">
+          <node concept="3LXTmp" id="I4p70s_SI_" role="1HemKq">
+            <node concept="55IIr" id="I4p70s_SIw" role="3LXTmr">
+              <node concept="2Ry0Ak" id="I4p70s_SIx" role="iGT6I">
                 <property role="2Ry0Am" value="languages" />
-                <node concept="2Ry0Ak" id="4ENd9L1j6$O" role="2Ry0An">
+                <node concept="2Ry0Ak" id="I4p70s_SIy" role="2Ry0An">
                   <property role="2Ry0Am" value="Collections" />
-                  <node concept="2Ry0Ak" id="4ENd9L1j6$P" role="2Ry0An">
+                  <node concept="2Ry0Ak" id="I4p70s_SIz" role="2Ry0An">
                     <property role="2Ry0Am" value="models" />
                   </node>
                 </node>
               </node>
             </node>
-            <node concept="3qWCbU" id="4ENd9L1j6$S" role="3LXTna">
+            <node concept="3qWCbU" id="I4p70s_SIA" role="3LXTna">
               <property role="3qWCbO" value="**/*.mps, **/*.mpsr, **/.model" />
             </node>
           </node>
         </node>
-        <node concept="1yeLz9" id="4ENd9L1j6$T" role="1TViLv">
-          <property role="TrG5h" value="Collections.generator" />
-          <property role="3LESm3" value="f7111406-2ca9-4a91-bb6d-b19dc5e95796" />
-          <node concept="1BupzO" id="4ENd9L1j6$Z" role="3bR31x">
-            <property role="3ZfqAx" value="generator/templates" />
-            <property role="1Hdu6h" value="true" />
-            <property role="1HemKv" value="true" />
-            <node concept="3LXTmp" id="4ENd9L1j6_0" role="1HemKq">
-              <node concept="55IIr" id="4ENd9L1j6$U" role="3LXTmr">
-                <node concept="2Ry0Ak" id="4ENd9L1j6$V" role="iGT6I">
-                  <property role="2Ry0Am" value="languages" />
-                  <node concept="2Ry0Ak" id="4ENd9L1j6$W" role="2Ry0An">
-                    <property role="2Ry0Am" value="Collections" />
-                    <node concept="2Ry0Ak" id="4ENd9L1j6$X" role="2Ry0An">
-                      <property role="2Ry0Am" value="generator" />
-                      <node concept="2Ry0Ak" id="4ENd9L1j6$Y" role="2Ry0An">
-                        <property role="2Ry0Am" value="templates" />
-                      </node>
-                    </node>
-                  </node>
-                </node>
-              </node>
-              <node concept="3qWCbU" id="4ENd9L1j6_1" role="3LXTna">
-                <property role="3qWCbO" value="**/*.mps, **/*.mpsr, **/.model" />
-              </node>
-            </node>
-          </node>
-        </node>
-        <node concept="1SiIV0" id="4ENd9L1j6LO" role="3bR37C">
-          <node concept="3bR9La" id="4ENd9L1j6LP" role="1SiIV1">
-            <ref role="3bR37D" node="4ENd9L1j6z6" resolve="SimpleDES" />
-          </node>
-        </node>
-        <node concept="1SiIV0" id="2AYSQNwOJ3z" role="3bR37C">
-          <node concept="3bR9La" id="2AYSQNwOJ3$" role="1SiIV1">
-            <ref role="3bR37D" to="p6ld:7uZw0yZ43Mi" resolve="com.mbeddr.core.udt" />
-          </node>
-        </node>
-        <node concept="1SiIV0" id="2AYSQNwOJ3_" role="3bR37C">
-          <node concept="3bR9La" id="2AYSQNwOJ3A" role="1SiIV1">
-            <ref role="3bR37D" to="p6ld:7uZw0yZ43L9" resolve="com.mbeddr.core.modules" />
-          </node>
-        </node>
-        <node concept="1SiIV0" id="2AYSQNwOJ3F" role="3bR37C">
-          <node concept="1Busua" id="2AYSQNwOJ3G" role="1SiIV1">
+        <node concept="1SiIV0" id="I4p70s_SIB" role="3bR37C">
+          <node concept="1Busua" id="I4p70s_SIC" role="1SiIV1">
             <ref role="1Busuk" to="p6ld:7uZw0yZ43LU" resolve="com.mbeddr.core.expressions" />
           </node>
         </node>
-        <node concept="1SiIV0" id="2AYSQNwOJ3H" role="3bR37C">
-          <node concept="1Busua" id="2AYSQNwOJ3I" role="1SiIV1">
+        <node concept="1SiIV0" id="I4p70s_SID" role="3bR37C">
+          <node concept="1Busua" id="I4p70s_SIE" role="1SiIV1">
             <ref role="1Busuk" to="p6ld:7uZw0yZ43JM" resolve="com.mbeddr.core.statements" />
           </node>
         </node>
@@ -948,7 +895,7 @@
     <property role="turDy" value="DESLBuildDistribution.xml" />
     <property role="2DA0ip" value="../.." />
     <node concept="2sgV4H" id="4ENd9L1j6_h" role="1l3spa">
-      <ref role="1l3spb" node="4ENd9L1j6y6" resolve="SimpleDES" />
+      <ref role="1l3spb" node="4ENd9L1j6y6" resolve="DESL" />
     </node>
     <node concept="1l3spV" id="4ENd9L1j6_i" role="1l3spN">
       <node concept="1tmT9g" id="4ENd9L1j6Ap" role="39821P">
@@ -1060,15 +1007,15 @@
               <node concept="2Ry0Ak" id="4ENd9L1j6_x" role="iGT6I">
                 <property role="2Ry0Am" value="solutions" />
                 <node concept="2Ry0Ak" id="4ENd9L1j6_y" role="2Ry0An">
-                  <property role="2Ry0Am" value="SimpleDES.build" />
+                  <property role="2Ry0Am" value="DESL.build" />
                   <node concept="2Ry0Ak" id="4ENd9L1j6_z" role="2Ry0An">
                     <property role="2Ry0Am" value="source_gen" />
                     <node concept="2Ry0Ak" id="4ENd9L1j6_$" role="2Ry0An">
-                      <property role="2Ry0Am" value="SimpleDES" />
+                      <property role="2Ry0Am" value="DESL" />
                       <node concept="2Ry0Ak" id="4ENd9L1j6__" role="2Ry0An">
                         <property role="2Ry0Am" value="build" />
                         <node concept="2Ry0Ak" id="4ENd9L1j6_A" role="2Ry0An">
-                          <property role="2Ry0Am" value="simpledes.vmoptions" />
+                          <property role="2Ry0Am" value="desl.vmoptions" />
                         </node>
                       </node>
                     </node>
@@ -1086,15 +1033,15 @@
               <node concept="2Ry0Ak" id="4ENd9L1j6_B" role="iGT6I">
                 <property role="2Ry0Am" value="solutions" />
                 <node concept="2Ry0Ak" id="4ENd9L1j6_C" role="2Ry0An">
-                  <property role="2Ry0Am" value="SimpleDES.build" />
+                  <property role="2Ry0Am" value="DESL.build" />
                   <node concept="2Ry0Ak" id="4ENd9L1j6_D" role="2Ry0An">
                     <property role="2Ry0Am" value="source_gen" />
                     <node concept="2Ry0Ak" id="4ENd9L1j6_E" role="2Ry0An">
-                      <property role="2Ry0Am" value="SimpleDES" />
+                      <property role="2Ry0Am" value="DESL" />
                       <node concept="2Ry0Ak" id="4ENd9L1j6_F" role="2Ry0An">
                         <property role="2Ry0Am" value="build" />
                         <node concept="2Ry0Ak" id="4ENd9L1j6_G" role="2Ry0An">
-                          <property role="2Ry0Am" value="simpledes64.vmoptions" />
+                          <property role="2Ry0Am" value="desl64.vmoptions" />
                         </node>
                       </node>
                     </node>
@@ -1116,15 +1063,15 @@
               <node concept="2Ry0Ak" id="4ENd9L1j6_H" role="iGT6I">
                 <property role="2Ry0Am" value="solutions" />
                 <node concept="2Ry0Ak" id="4ENd9L1j6_I" role="2Ry0An">
-                  <property role="2Ry0Am" value="SimpleDES.build" />
+                  <property role="2Ry0Am" value="DESL.build" />
                   <node concept="2Ry0Ak" id="4ENd9L1j6_J" role="2Ry0An">
                     <property role="2Ry0Am" value="source_gen" />
                     <node concept="2Ry0Ak" id="4ENd9L1j6_K" role="2Ry0An">
-                      <property role="2Ry0Am" value="SimpleDES" />
+                      <property role="2Ry0Am" value="DESL" />
                       <node concept="2Ry0Ak" id="4ENd9L1j6_L" role="2Ry0An">
                         <property role="2Ry0Am" value="build" />
                         <node concept="2Ry0Ak" id="4ENd9L1j6_M" role="2Ry0An">
-                          <property role="2Ry0Am" value="simpledes.sh" />
+                          <property role="2Ry0Am" value="desl.sh" />
                         </node>
                       </node>
                     </node>
@@ -1136,7 +1083,7 @@
         </node>
         <node concept="3_J27D" id="4ENd9L1j6AX" role="Nbhlr">
           <node concept="3Mxwew" id="4ENd9L1j6AY" role="3MwsjC">
-            <property role="3MwjfP" value="SimpleDES" />
+            <property role="3MwjfP" value="DESL" />
           </node>
           <node concept="3Mxwew" id="4ENd9L1j6AZ" role="3MwsjC">
             <property role="3MwjfP" value="-" />
@@ -1167,7 +1114,7 @@
               <property role="2$htvj" value="*" />
               <node concept="NbPM2" id="4ENd9L1j6Ce" role="2$htvi">
                 <node concept="3Mxwew" id="4ENd9L1j6Cf" role="3MwsjC">
-                  <property role="3MwjfP" value="simpledes.exe.vmoptions" />
+                  <property role="3MwjfP" value="desl.exe.vmoptions" />
                 </node>
               </node>
             </node>
@@ -1178,15 +1125,15 @@
               <node concept="2Ry0Ak" id="4ENd9L1j6Ci" role="iGT6I">
                 <property role="2Ry0Am" value="solutions" />
                 <node concept="2Ry0Ak" id="4ENd9L1j6Cj" role="2Ry0An">
-                  <property role="2Ry0Am" value="SimpleDES.build" />
+                  <property role="2Ry0Am" value="DESL.build" />
                   <node concept="2Ry0Ak" id="4ENd9L1j6Ck" role="2Ry0An">
                     <property role="2Ry0Am" value="source_gen" />
                     <node concept="2Ry0Ak" id="4ENd9L1j6Cl" role="2Ry0An">
-                      <property role="2Ry0Am" value="SimpleDES" />
+                      <property role="2Ry0Am" value="DESL" />
                       <node concept="2Ry0Ak" id="4ENd9L1j6Cm" role="2Ry0An">
                         <property role="2Ry0Am" value="build" />
                         <node concept="2Ry0Ak" id="4ENd9L1j6Cn" role="2Ry0An">
-                          <property role="2Ry0Am" value="simpledes.vmoptions" />
+                          <property role="2Ry0Am" value="desl.vmoptions" />
                         </node>
                       </node>
                     </node>
@@ -1200,7 +1147,7 @@
               <property role="2$htvj" value="*" />
               <node concept="NbPM2" id="4ENd9L1j6Cq" role="2$htvi">
                 <node concept="3Mxwew" id="4ENd9L1j6Cr" role="3MwsjC">
-                  <property role="3MwjfP" value="simpledes64.exe.vmoptions" />
+                  <property role="3MwjfP" value="desl64.exe.vmoptions" />
                 </node>
               </node>
             </node>
@@ -1211,15 +1158,15 @@
               <node concept="2Ry0Ak" id="4ENd9L1j6Cu" role="iGT6I">
                 <property role="2Ry0Am" value="solutions" />
                 <node concept="2Ry0Ak" id="4ENd9L1j6Cv" role="2Ry0An">
-                  <property role="2Ry0Am" value="SimpleDES.build" />
+                  <property role="2Ry0Am" value="DESL.build" />
                   <node concept="2Ry0Ak" id="4ENd9L1j6Cw" role="2Ry0An">
                     <property role="2Ry0Am" value="source_gen" />
                     <node concept="2Ry0Ak" id="4ENd9L1j6Cx" role="2Ry0An">
-                      <property role="2Ry0Am" value="SimpleDES" />
+                      <property role="2Ry0Am" value="DESL" />
                       <node concept="2Ry0Ak" id="4ENd9L1j6Cy" role="2Ry0An">
                         <property role="2Ry0Am" value="build" />
                         <node concept="2Ry0Ak" id="4ENd9L1j6Cz" role="2Ry0An">
-                          <property role="2Ry0Am" value="simpledes64.vmoptions" />
+                          <property role="2Ry0Am" value="desl64.vmoptions" />
                         </node>
                       </node>
                     </node>
@@ -1283,15 +1230,15 @@
               <node concept="2Ry0Ak" id="4ENd9L1j6_N" role="iGT6I">
                 <property role="2Ry0Am" value="solutions" />
                 <node concept="2Ry0Ak" id="4ENd9L1j6_O" role="2Ry0An">
-                  <property role="2Ry0Am" value="SimpleDES.build" />
+                  <property role="2Ry0Am" value="DESL.build" />
                   <node concept="2Ry0Ak" id="4ENd9L1j6_P" role="2Ry0An">
                     <property role="2Ry0Am" value="source_gen" />
                     <node concept="2Ry0Ak" id="4ENd9L1j6_Q" role="2Ry0An">
-                      <property role="2Ry0Am" value="SimpleDES" />
+                      <property role="2Ry0Am" value="DESL" />
                       <node concept="2Ry0Ak" id="4ENd9L1j6_R" role="2Ry0An">
                         <property role="2Ry0Am" value="build" />
                         <node concept="2Ry0Ak" id="4ENd9L1j6_S" role="2Ry0An">
-                          <property role="2Ry0Am" value="simpledes.bat" />
+                          <property role="2Ry0Am" value="desl.bat" />
                         </node>
                       </node>
                     </node>
@@ -1448,7 +1395,7 @@
         </node>
         <node concept="3_J27D" id="4ENd9L1j6Dc" role="Nbhlr">
           <node concept="3Mxwew" id="4ENd9L1j6Dd" role="3MwsjC">
-            <property role="3MwjfP" value="SimpleDES" />
+            <property role="3MwjfP" value="DESL" />
           </node>
           <node concept="3Mxwew" id="4ENd9L1j6De" role="3MwsjC">
             <property role="3MwjfP" value="-" />
@@ -1464,7 +1411,7 @@
       <node concept="3981dG" id="4ENd9L1j6El" role="39821P">
         <node concept="3_J27D" id="4ENd9L1j6Em" role="Nbhlr">
           <node concept="3Mxwew" id="4ENd9L1j6En" role="3MwsjC">
-            <property role="3MwjfP" value="SimpleDES" />
+            <property role="3MwjfP" value="DESL" />
           </node>
           <node concept="3Mxwew" id="4ENd9L1j6Eo" role="3MwsjC">
             <property role="3MwjfP" value="-" />
@@ -1544,7 +1491,7 @@
                   <property role="2$htvj" value="*" />
                   <node concept="NbPM2" id="4ENd9L1j6ED" role="2$htvi">
                     <node concept="3Mxwew" id="4ENd9L1j6EE" role="3MwsjC">
-                      <property role="3MwjfP" value="simpledes" />
+                      <property role="3MwjfP" value="desl" />
                     </node>
                   </node>
                 </node>
@@ -1563,11 +1510,11 @@
                 <node concept="2Ry0Ak" id="4ENd9L1j6_T" role="iGT6I">
                   <property role="2Ry0Am" value="solutions" />
                   <node concept="2Ry0Ak" id="4ENd9L1j6_U" role="2Ry0An">
-                    <property role="2Ry0Am" value="SimpleDES.build" />
+                    <property role="2Ry0Am" value="DESL.build" />
                     <node concept="2Ry0Ak" id="4ENd9L1j6_V" role="2Ry0An">
                       <property role="2Ry0Am" value="source_gen" />
                       <node concept="2Ry0Ak" id="4ENd9L1j6_W" role="2Ry0An">
-                        <property role="2Ry0Am" value="SimpleDES" />
+                        <property role="2Ry0Am" value="DESL" />
                         <node concept="2Ry0Ak" id="4ENd9L1j6_X" role="2Ry0An">
                           <property role="2Ry0Am" value="build" />
                           <node concept="2Ry0Ak" id="4ENd9L1j6_Y" role="2Ry0An">
@@ -1701,15 +1648,15 @@
                   <node concept="2Ry0Ak" id="4ENd9L1j6Fi" role="iGT6I">
                     <property role="2Ry0Am" value="solutions" />
                     <node concept="2Ry0Ak" id="4ENd9L1j6Fj" role="2Ry0An">
-                      <property role="2Ry0Am" value="SimpleDES.build" />
+                      <property role="2Ry0Am" value="DESL.build" />
                       <node concept="2Ry0Ak" id="4ENd9L1j6Fk" role="2Ry0An">
                         <property role="2Ry0Am" value="source_gen" />
                         <node concept="2Ry0Ak" id="4ENd9L1j6Fl" role="2Ry0An">
-                          <property role="2Ry0Am" value="SimpleDES" />
+                          <property role="2Ry0Am" value="DESL" />
                           <node concept="2Ry0Ak" id="4ENd9L1j6Fm" role="2Ry0An">
                             <property role="2Ry0Am" value="build" />
                             <node concept="2Ry0Ak" id="4ENd9L1j6Fn" role="2Ry0An">
-                              <property role="2Ry0Am" value="simpledes64.vmoptions" />
+                              <property role="2Ry0Am" value="desl64.vmoptions" />
                             </node>
                           </node>
                         </node>
@@ -1718,8 +1665,8 @@
                   </node>
                 </node>
                 <node concept="2$htT0" id="4ENd9L1j6Fo" role="28jJR8">
-                  <property role="2$htTZ" value="simpledes64.vmoptions" />
-                  <property role="2$htTY" value="simpledes.vmoptions" />
+                  <property role="2$htTZ" value="desl64.vmoptions" />
+                  <property role="2$htTY" value="desl.vmoptions" />
                 </node>
               </node>
             </node>
@@ -1813,7 +1760,7 @@
           </node>
           <node concept="3_J27D" id="4ENd9L1j6FI" role="Nbhlr">
             <node concept="3Mxwew" id="4ENd9L1j6FJ" role="3MwsjC">
-              <property role="3MwjfP" value="SimpleDES " />
+              <property role="3MwjfP" value="DESL " />
             </node>
             <node concept="3Mxwey" id="4ENd9L1j6FK" role="3MwsjC">
               <ref role="3Mxwex" node="4ENd9L1j6_k" resolve="version" />
@@ -1893,7 +1840,7 @@
                   <property role="2$htvj" value="*" />
                   <node concept="NbPM2" id="4ENd9L1j6Gi" role="2$htvi">
                     <node concept="3Mxwew" id="4ENd9L1j6Gj" role="3MwsjC">
-                      <property role="3MwjfP" value="simpledes" />
+                      <property role="3MwjfP" value="desl" />
                     </node>
                   </node>
                 </node>
@@ -1912,11 +1859,11 @@
                 <node concept="2Ry0Ak" id="4ENd9L1j6Gp" role="iGT6I">
                   <property role="2Ry0Am" value="solutions" />
                   <node concept="2Ry0Ak" id="4ENd9L1j6Gq" role="2Ry0An">
-                    <property role="2Ry0Am" value="SimpleDES.build" />
+                    <property role="2Ry0Am" value="DESL.build" />
                     <node concept="2Ry0Ak" id="4ENd9L1j6Gr" role="2Ry0An">
                       <property role="2Ry0Am" value="source_gen" />
                       <node concept="2Ry0Ak" id="4ENd9L1j6Gs" role="2Ry0An">
-                        <property role="2Ry0Am" value="SimpleDES" />
+                        <property role="2Ry0Am" value="DESL" />
                         <node concept="2Ry0Ak" id="4ENd9L1j6Gt" role="2Ry0An">
                           <property role="2Ry0Am" value="build" />
                           <node concept="2Ry0Ak" id="4ENd9L1j6Gu" role="2Ry0An">
@@ -2050,7 +1997,7 @@
                   <node concept="2Ry0Ak" id="4ENd9L1j6Ha" role="iGT6I">
                     <property role="2Ry0Am" value="solutions" />
                     <node concept="2Ry0Ak" id="4ENd9L1j6Hb" role="2Ry0An">
-                      <property role="2Ry0Am" value="SimpleDES.build" />
+                      <property role="2Ry0Am" value="DESL.build" />
                       <node concept="2Ry0Ak" id="4ENd9L1j6Hc" role="2Ry0An">
                         <property role="2Ry0Am" value="source_gen" />
                         <node concept="2Ry0Ak" id="4ENd9L1j6Hd" role="2Ry0An">
@@ -2162,7 +2109,7 @@
           </node>
           <node concept="3_J27D" id="4ENd9L1j6HN" role="Nbhlr">
             <node concept="3Mxwew" id="4ENd9L1j6HO" role="3MwsjC">
-              <property role="3MwjfP" value="SimpleDES " />
+              <property role="3MwjfP" value="DESL " />
             </node>
             <node concept="3Mxwey" id="4ENd9L1j6HP" role="3MwsjC">
               <ref role="3Mxwex" node="4ENd9L1j6_k" resolve="version" />
@@ -2174,7 +2121,7 @@
         </node>
         <node concept="3_J27D" id="4ENd9L1j6HR" role="Nbhlr">
           <node concept="3Mxwew" id="4ENd9L1j6HS" role="3MwsjC">
-            <property role="3MwjfP" value="SimpleDES" />
+            <property role="3MwjfP" value="DESL" />
           </node>
           <node concept="3Mxwew" id="4ENd9L1j6HT" role="3MwsjC">
             <property role="3MwjfP" value="-" />
@@ -2190,15 +2137,27 @@
     </node>
     <node concept="398rNT" id="4ENd9L1j6_j" role="1l3spd">
       <property role="TrG5h" value="mps_home" />
-      <node concept="55IIr" id="2AYSQNwOJ44" role="398pKh">
-        <node concept="2Ry0Ak" id="2AYSQNwOJ47" role="iGT6I">
+      <node concept="55IIr" id="I4p70sGzlO" role="398pKh">
+        <node concept="2Ry0Ak" id="I4p70sGzlP" role="iGT6I">
           <property role="2Ry0Am" value=".." />
-          <node concept="2Ry0Ak" id="2AYSQNwOJ4a" role="2Ry0An">
+          <node concept="2Ry0Ak" id="I4p70sGzlQ" role="2Ry0An">
             <property role="2Ry0Am" value=".." />
-            <node concept="2Ry0Ak" id="2AYSQNwOJ4j" role="2Ry0An">
-              <property role="2Ry0Am" value="MPS" />
-              <node concept="2Ry0Ak" id="2AYSQNwOJ4m" role="2Ry0An">
-                <property role="2Ry0Am" value="MPS-2024.1-generic" />
+            <node concept="2Ry0Ak" id="I4p70sGzlR" role="2Ry0An">
+              <property role="2Ry0Am" value=".local" />
+              <node concept="2Ry0Ak" id="I4p70sGzlS" role="2Ry0An">
+                <property role="2Ry0Am" value="share" />
+                <node concept="2Ry0Ak" id="I4p70sGzlT" role="2Ry0An">
+                  <property role="2Ry0Am" value="JetBrains" />
+                  <node concept="2Ry0Ak" id="I4p70sGzlU" role="2Ry0An">
+                    <property role="2Ry0Am" value="Toolbox" />
+                    <node concept="2Ry0Ak" id="I4p70sGzlV" role="2Ry0An">
+                      <property role="2Ry0Am" value="apps" />
+                      <node concept="2Ry0Ak" id="I4p70sGzlW" role="2Ry0An">
+                        <property role="2Ry0Am" value="mps" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
               </node>
             </node>
           </node>

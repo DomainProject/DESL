@@ -2,9 +2,9 @@
 <model ref="r:b9d4912c-8e8b-4f1b-b887-99265d0b4cdb(DESL.editor)">
   <persistence version="9" />
   <languages>
-    <use id="18bc6592-03a6-4e29-a83a-7ff23bde13ba" name="jetbrains.mps.lang.editor" version="14" />
+    <use id="18bc6592-03a6-4e29-a83a-7ff23bde13ba" name="jetbrains.mps.lang.editor" version="15" />
     <use id="aee9cad2-acd4-4608-aef2-0004f6a1cdbd" name="jetbrains.mps.lang.actions" version="4" />
-    <use id="9d69e719-78c8-4286-90db-fb19c107d049" name="com.mbeddr.mpsutil.grammarcells" version="2" />
+    <use id="602c36ad-cc55-47ff-8c40-73d7f12f035c" name="jetbrains.mps.lang.editor.forms" version="0" />
     <devkit ref="fbc25dd2-5da4-483a-8b19-70928e1b62d7(jetbrains.mps.devkit.general-purpose)" />
   </languages>
   <imports>
@@ -19,11 +19,8 @@
     <import index="exr9" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.nodeEditor(MPS.Editor/)" />
     <import index="hyam" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.awt.event(JDK/)" />
     <import index="z60i" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.awt(JDK/)" />
-    <import index="qd6m" ref="r:c4c3f7d3-0acf-4671-a134-5fab66c4e637(com.mbeddr.core.modules.behavior)" />
-    <import index="ywuz" ref="r:c6ce92e7-5a98-4a6f-866a-ec8b9e945dd8(com.mbeddr.core.expressions.behavior)" />
-    <import index="j4gk" ref="r:44b6f9b4-bfdb-4b99-b104-960ec485d777(com.mbeddr.core.statements.editor)" />
-    <import index="uddc" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.openapi.editor.menus.transformation(MPS.Editor/)" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
+    <import index="w8o" ref="r:e84d12fa-9ad2-42d4-95e8-d9ef0c30fdf9(ReversibleFunctions.structure)" implicit="true" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" implicit="true" />
     <import index="clbe" ref="r:61d840b4-12c1-49ea-b142-b2a1550a9b15(com.mbeddr.core.udt.structure)" implicit="true" />
   </imports>
@@ -265,6 +262,17 @@
       <concept id="1146644641414" name="jetbrains.mps.baseLanguage.structure.ProtectedVisibility" flags="nn" index="3Tmbuc" />
       <concept id="1170345865475" name="jetbrains.mps.baseLanguage.structure.AnonymousClass" flags="ig" index="1Y3b0j">
         <reference id="1170346070688" name="classifier" index="1Y3XeK" />
+      </concept>
+    </language>
+    <language id="602c36ad-cc55-47ff-8c40-73d7f12f035c" name="jetbrains.mps.lang.editor.forms">
+      <concept id="312429380032619384" name="jetbrains.mps.lang.editor.forms.structure.CellModel_Checkbox" flags="ng" index="2yq9I_">
+        <reference id="3696012239575138271" name="propertyDeclaration" index="225u1j" />
+        <child id="8215612579904156902" name="label" index="2fqkNU" />
+        <child id="1340057216891284122" name="ui" index="1563LE" />
+      </concept>
+      <concept id="1340057216891283515" name="jetbrains.mps.lang.editor.forms.structure.CheckboxUI_Text" flags="ng" index="1563Vb">
+        <property id="1340057216891283520" name="falseText" index="1563UK" />
+        <property id="1340057216891283518" name="trueText" index="1563Ve" />
       </concept>
     </language>
     <language id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel">
@@ -709,7 +717,7 @@
         <ref role="1NtTu8" to="rdv6:7jow01kbMpO" resolve="handler" />
         <node concept="1sVBvm" id="7jow01kbMqI" role="1sWHZn">
           <node concept="1iCGBv" id="7jow01kbMqO" role="2wV5jI">
-            <ref role="1NtTu8" to="rdv6:7jow01keyEy" resolve="event" />
+            <ref role="1NtTu8" to="rdv6:5ikxYnpEDS1" resolve="event" />
             <node concept="1sVBvm" id="7jow01kbMqP" role="1sWHZn">
               <node concept="3F0A7n" id="7jow01kbMqT" role="2wV5jI">
                 <property role="1Intyy" value="true" />
@@ -798,7 +806,7 @@
           </node>
         </node>
         <node concept="1iCGBv" id="4OHhT55SNbA" role="3EZMnx">
-          <ref role="1NtTu8" to="rdv6:7jow01keyEy" resolve="event" />
+          <ref role="1NtTu8" to="rdv6:5ikxYnpEDS1" resolve="event" />
           <node concept="1sVBvm" id="4OHhT55SNbB" role="1sWHZn">
             <node concept="3F0A7n" id="4OHhT55SNbC" role="2wV5jI">
               <property role="1Intyy" value="true" />
@@ -816,7 +824,7 @@
           </node>
         </node>
         <node concept="1iCGBv" id="4OHhT55SNbO" role="3EZMnx">
-          <ref role="1NtTu8" to="rdv6:7jow01keyEv" resolve="function" />
+          <ref role="1NtTu8" to="rdv6:7jow01keyEv" resolve="forwardFunction" />
           <node concept="1sVBvm" id="4OHhT55SNbP" role="1sWHZn">
             <node concept="3F2HdR" id="4OHhT55SNbQ" role="2wV5jI">
               <ref role="1NtTu8" to="x27k:4WTYg$PUiX5" resolve="arguments" />
@@ -843,10 +851,10 @@
         <node concept="2iRfu4" id="4OHhT55SNbx" role="2iSdaV" />
       </node>
       <node concept="1iCGBv" id="4OHhT55SNsm" role="3EZMnx">
-        <ref role="1NtTu8" to="rdv6:7jow01keyEv" resolve="function" />
+        <ref role="1NtTu8" to="rdv6:7jow01keyEv" resolve="forwardFunction" />
         <node concept="1sVBvm" id="4OHhT55SNsn" role="1sWHZn">
           <node concept="3F1sOY" id="4OHhT55SNso" role="2wV5jI">
-            <ref role="1NtTu8" to="x27k:3CmSUB7Fp_k" resolve="body" />
+            <ref role="1NtTu8" to="w8o:5U1XgQxbRAA" resolve="revBody" />
           </node>
         </node>
         <node concept="pVoyu" id="4OHhT55SNsp" role="3F10Kt">
@@ -2680,6 +2688,40 @@
       <node concept="3F0ifn" id="1znE8iC$ZJG" role="3EZMnx">
         <property role="3F0ifm" value="{" />
       </node>
+      <node concept="PMmxH" id="5ikxYnpTLXm" role="3EZMnx">
+        <ref role="PMmxG" node="1znE8iDq08M" resolve="DESModelSpacer" />
+        <node concept="pVoyu" id="5ikxYnpTMne" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+        <node concept="lj46D" id="5ikxYnpTMnf" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+      </node>
+      <node concept="2yq9I_" id="5ikxYnpTKr6" role="3EZMnx">
+        <ref role="225u1j" to="rdv6:5ikxYnpTHZB" resolve="requiresReversibleHandlers" />
+        <node concept="1563Vb" id="5ikxYnpYEsn" role="1563LE">
+          <property role="1563UK" value="[ ]" />
+          <property role="1563Ve" value="[x]" />
+        </node>
+        <node concept="pVoyu" id="5ikxYnpTL8x" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+        <node concept="lj46D" id="5ikxYnpTL8y" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+        <node concept="3F0ifn" id="5ikxYnpYEsp" role="2fqkNU">
+          <property role="3F0ifm" value="Requires reversible handlers" />
+        </node>
+      </node>
+      <node concept="PMmxH" id="5ikxYnpTMFC" role="3EZMnx">
+        <ref role="PMmxG" node="1znE8iDq08M" resolve="DESModelSpacer" />
+        <node concept="pVoyu" id="5ikxYnpTMFD" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+        <node concept="lj46D" id="5ikxYnpTMFE" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+      </node>
       <node concept="3F0ifn" id="1znE8iC$ZJP" role="3EZMnx">
         <property role="3F0ifm" value="Events:" />
         <ref role="1k5W1q" node="2R3DD23u1NA" resolve="Keyword" />
@@ -3421,6 +3463,24 @@
           <property role="VOm3f" value="true" />
         </node>
         <node concept="lj46D" id="44nDDjAgd4M" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+      </node>
+      <node concept="3F1sOY" id="5WFqJEvamPM" role="3EZMnx">
+        <ref role="1NtTu8" to="rdv6:5WFqJEva8$9" resolve="testFunction" />
+        <node concept="pVoyu" id="5WFqJEvamYK" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+        <node concept="lj46D" id="5WFqJEvamYL" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+      </node>
+      <node concept="PMmxH" id="5WFqJEvan7J" role="3EZMnx">
+        <ref role="PMmxG" node="1znE8iDq08M" resolve="DESModelSpacer" />
+        <node concept="pVoyu" id="5WFqJEvancP" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+        <node concept="lj46D" id="5WFqJEvangH" role="3F10Kt">
           <property role="VOm3f" value="true" />
         </node>
       </node>

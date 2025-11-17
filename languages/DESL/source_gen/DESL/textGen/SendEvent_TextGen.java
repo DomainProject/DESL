@@ -73,8 +73,8 @@ public class SendEvent_TextGen extends TextGenDescriptorBase {
       // ROSS
 
       int numEvents = ListSequence.fromList(SNodeOperations.getNodeDescendants(SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.Function$K8, false, false), CONCEPTS.SendEvent$u, false, new SAbstractConcept[]{})).indexOf(ctx.getPrimaryInput());
-      String eventName = "e" + numEvents + "_" + SPropertyOperations.getString(SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.EventHandler$Ov, false, false), PROPS.eventName$AHdn).toLowerCase();
-      String dataName = "data" + numEvents + "_" + SPropertyOperations.getString(SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.EventHandler$Ov, false, false), PROPS.eventName$AHdn).toLowerCase();
+      String eventName = "e" + numEvents + "_" + SPropertyOperations.getString(SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.EventHandler$Ov, false, false), PROPS.eventName$cuOv).toLowerCase();
+      String dataName = "data" + numEvents + "_" + SPropertyOperations.getString(SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.EventHandler$Ov, false, false), PROPS.eventName$cuOv).toLowerCase();
 
 
       tgs.append("tw_event *");
@@ -153,7 +153,7 @@ public class SendEvent_TextGen extends TextGenDescriptorBase {
 
   private static final class PROPS {
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
-    /*package*/ static final SProperty eventName$AHdn = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x3aa70864b453eff1L, "eventName");
+    /*package*/ static final SProperty eventName$cuOv = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x549487e5d9aa9e02L, "eventName");
   }
 
   private static final class CONCEPTS {

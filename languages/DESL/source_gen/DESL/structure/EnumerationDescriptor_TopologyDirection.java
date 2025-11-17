@@ -26,7 +26,7 @@ public class EnumerationDescriptor_TopologyDirection extends EnumerationDescript
   private final EnumerationDescriptor.MemberDescriptor myMember_DIRECTION_RANDOM_0 = new EnumerationDescriptor.MemberDescriptor("DIRECTION_RANDOM", "DIRECTION_RANDOM", 0x1a6332bc268bb118L, "r:79077d65-28d5-4f56-905b-4bcf5185c60e(DESL.structure)/1901419251362410776");
 
   private final EnumerationLiteralsIndex myIndex = EnumerationLiteralsIndex.build(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2476b4949a37aba0L, 0x2476b4949a37aba1L, 0x2476b4949a37aba3L, 0x2476b4949a37aba4L, 0x2476b4949a37aba5L, 0x1a6332bc268badbdL, 0x1a6332bc268badbeL, 0x1a6332bc268badbfL, 0x1a6332bc268badc0L, 0x1a6332bc268bb118L);
-  private final List<EnumerationDescriptor.MemberDescriptor> myMembers = new EnumerationDescriptorBase.MembersList(myIndex, myMember_DIRECTION_E_0, myMember_DIRECTION_W_0, myMember_DIRECTION_N_0, myMember_DIRECTION_S_0, myMember_DIRECTION_NE_0, myMember_DIRECTION_SW_0, myMember_DIRECTION_NW_0, myMember_DIRECTION_SE_0, myMember_DIRECTION_RANDOM_0);
+  private final List<EnumerationDescriptor.MemberDescriptor> myMembers = new EnumerationDescriptorBase.MembersList0(myIndex, myMember_DIRECTION_E_0, myMember_DIRECTION_W_0, myMember_DIRECTION_N_0, myMember_DIRECTION_S_0, myMember_DIRECTION_NE_0, myMember_DIRECTION_SW_0, myMember_DIRECTION_NW_0, myMember_DIRECTION_SE_0, myMember_DIRECTION_RANDOM_0);
 
   @Nullable
   @Override

@@ -8,10 +8,11 @@
     <import index="clbe" ref="r:61d840b4-12c1-49ea-b142-b2a1550a9b15(com.mbeddr.core.udt.structure)" />
     <import index="x27k" ref="r:75ecab8a-8931-4140-afc6-4b46398710fc(com.mbeddr.core.modules.structure)" />
     <import index="zqge" ref="r:59e90602-6655-4552-86eb-441a42a9a0e4(jetbrains.mps.lang.text.structure)" />
+    <import index="mj1l" ref="r:c371cf98-dcc8-4a43-8eb8-8a8096de18b2(com.mbeddr.core.expressions.structure)" />
     <import index="87nw" ref="r:ca2ab6bb-f6e7-4c0f-a88c-b78b9b31fff3(de.slisson.mps.richtext.structure)" implicit="true" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
     <import index="c4fa" ref="r:9f0e84b6-2ec7-4f9e-83e0-feedc77b63a3(com.mbeddr.core.statements.structure)" implicit="true" />
-    <import index="mj1l" ref="r:c371cf98-dcc8-4a43-8eb8-8a8096de18b2(com.mbeddr.core.expressions.structure)" implicit="true" />
+    <import index="w8o" ref="r:e84d12fa-9ad2-42d4-95e8-d9ef0c30fdf9(ReversibleFunctions.structure)" implicit="true" />
     <import index="tpee" ref="r:00000000-0000-4000-0000-011c895902ca(jetbrains.mps.baseLanguage.structure)" implicit="true" />
   </imports>
   <registry>
@@ -153,10 +154,21 @@
       <property role="20lbJX" value="fLJekj5/_0__n" />
       <ref role="20lvS9" node="7h503jg3A_4" resolve="IMacro" />
     </node>
+    <node concept="1TJgyj" id="5WFqJEva8$9" role="1TKVEi">
+      <property role="IQ2ns" value="6857692482246314249" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="testFunction" />
+      <ref role="20lvS9" to="x27k:5_l8w1EmTvx" resolve="Function" />
+    </node>
     <node concept="1TJgyi" id="3k7QKnRLm2P" role="1TKVEl">
       <property role="IQ2nx" value="3821263627525382325" />
       <property role="TrG5h" value="description" />
       <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
+    </node>
+    <node concept="1TJgyi" id="5ikxYnpTHZB" role="1TKVEl">
+      <property role="IQ2nx" value="6094645617012170727" />
+      <property role="TrG5h" value="requiresReversibleHandlers" />
+      <ref role="AX2Wp" to="tpck:fKAQMTB" resolve="boolean" />
     </node>
   </node>
   <node concept="1TIwiD" id="7KGmnvzSgRT">
@@ -173,10 +185,16 @@
     <property role="TrG5h" value="EventHandler" />
     <property role="3GE5qa" value="handler" />
     <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
-    <node concept="1TJgyi" id="3EB26iOkYZL" role="1TKVEl">
-      <property role="IQ2nx" value="4226356003925651441" />
+    <node concept="1TJgyi" id="5ikxYnpEDS2" role="1TKVEl">
+      <property role="IQ2nx" value="6094645617008221698" />
       <property role="TrG5h" value="eventName" />
       <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
+    </node>
+    <node concept="1TJgyj" id="5ikxYnpEDS1" role="1TKVEi">
+      <property role="IQ2ns" value="6094645617008221697" />
+      <property role="20kJfa" value="event" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" node="7KGmnvzSgRT" resolve="EventType" />
     </node>
     <node concept="1TJgyj" id="6x5yTHtG3Mw" role="1TKVEi">
       <property role="IQ2ns" value="7513565052745563296" />
@@ -188,17 +206,18 @@
     <node concept="1TJgyj" id="7jow01keyEv" role="1TKVEi">
       <property role="IQ2ns" value="8419620242270595743" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
-      <property role="20kJfa" value="function" />
+      <property role="20kJfa" value="forwardFunction" />
       <property role="20lbJX" value="fLJekj4/_1" />
-      <ref role="20lvS9" to="x27k:5_l8w1EmTvx" resolve="Function" />
+      <ref role="20lvS9" to="w8o:5U1XgQxbKlv" resolve="ReversibleFunction" />
     </node>
-    <node concept="1TJgyj" id="7jow01keyEy" role="1TKVEi">
-      <property role="IQ2ns" value="8419620242270595746" />
-      <property role="20kJfa" value="event" />
-      <ref role="20lvS9" node="7KGmnvzSgRT" resolve="EventType" />
+    <node concept="1TJgyj" id="5U1XgQxe26q" role="1TKVEi">
+      <property role="IQ2ns" value="6809993550449090970" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="reverseFunction" />
+      <ref role="20lvS9" to="w8o:5U1XgQxbKlv" resolve="ReversibleFunction" />
     </node>
-    <node concept="PrWs8" id="6UO3mnNcNhs" role="PzmwI">
-      <ref role="PrY4T" node="6UO3mnNcNhr" resolve="IHandler" />
+    <node concept="PrWs8" id="5ikxYnpEDS8" role="PzmwI">
+      <ref role="PrY4T" node="5ikxYnoy$ah" resolve="IHandler" />
     </node>
   </node>
   <node concept="1TIwiD" id="6x5yTHtDeLR">
@@ -429,11 +448,6 @@
       <ref role="PrY4T" node="4IxwvG7_K62" resolve="IFiller" />
     </node>
   </node>
-  <node concept="PlHQZ" id="6UO3mnNcNhr">
-    <property role="EcuMT" value="7977015571503068251" />
-    <property role="3GE5qa" value="handler" />
-    <property role="TrG5h" value="IHandler" />
-  </node>
   <node concept="1TIwiD" id="2TAYqojdfdy">
     <property role="EcuMT" value="3343634265051296610" />
     <property role="TrG5h" value="DocsM2M" />
@@ -547,7 +561,7 @@
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <property role="20kJfa" value="handlers" />
       <property role="20lbJX" value="fLJekj5/_0__n" />
-      <ref role="20lvS9" node="6UO3mnNcNhr" resolve="IHandler" />
+      <ref role="20lvS9" node="2R3DD23rX3g" resolve="EventHandler" />
     </node>
     <node concept="1TJgyj" id="6UxgX891svH" role="1TKVEi">
       <property role="IQ2ns" value="7971727384796055533" />
@@ -735,7 +749,7 @@
       <ref role="PrY4T" node="5w8gNN4_WlS" resolve="IStructDefinition" />
     </node>
     <node concept="PrWs8" id="4IxwvG7_K65" role="PrDN$">
-      <ref role="PrY4T" node="6UO3mnNcNhr" resolve="IHandler" />
+      <ref role="PrY4T" node="5ikxYnoy$ah" resolve="IHandler" />
     </node>
     <node concept="PrWs8" id="4IxwvG7_K66" role="PrDN$">
       <ref role="PrY4T" node="7h503jg3A_4" resolve="IMacro" />
@@ -1128,6 +1142,11 @@
     <property role="19KtqR" value="true" />
     <property role="3GE5qa" value="M2M" />
     <ref role="1TJDcQ" node="1FqAw$nj9oK" resolve="DESLModel" />
+  </node>
+  <node concept="PlHQZ" id="5ikxYnoy$ah">
+    <property role="EcuMT" value="6094645616989323921" />
+    <property role="3GE5qa" value="handler" />
+    <property role="TrG5h" value="IHandler" />
   </node>
 </model>
 

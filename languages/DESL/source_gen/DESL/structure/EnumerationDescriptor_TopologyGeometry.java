@@ -25,7 +25,7 @@ public class EnumerationDescriptor_TopologyGeometry extends EnumerationDescripto
   private final EnumerationDescriptor.MemberDescriptor myMember_TOPOLOGY_GRAPH_0 = new EnumerationDescriptor.MemberDescriptor("TOPOLOGY_GRAPH", "TOPOLOGY_GRAPH", 0x2476b4949a0e59cfL, "r:79077d65-28d5-4f56-905b-4bcf5185c60e(DESL.structure)/2627485982950054351");
 
   private final EnumerationLiteralsIndex myIndex = EnumerationLiteralsIndex.build(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2476b4949a0e59c4L, 0x2476b4949a0e59c5L, 0x2476b4949a0e59c8L, 0x2476b4949a0e59caL, 0x2476b4949a0e59cbL, 0x2476b4949a0e59ccL, 0x2476b4949a0e59cdL, 0x2476b4949a0e59ceL, 0x2476b4949a0e59cfL);
-  private final List<EnumerationDescriptor.MemberDescriptor> myMembers = new EnumerationDescriptorBase.MembersList(myIndex, myMember_TOPOLOGY_HEXAGON_0, myMember_TOPOLOGY_SQUARE_0, myMember_TOPOLOGY_TORUS_0, myMember_TOPOLOGY_RING_0, myMember_TOPOLOGY_BIDRING_0, myMember_TOPOLOGY_STAR_0, myMember_TOPOLOGY_FCMESH_0, myMember_TOPOLOGY_GRAPH_0);
+  private final List<EnumerationDescriptor.MemberDescriptor> myMembers = new EnumerationDescriptorBase.MembersList0(myIndex, myMember_TOPOLOGY_HEXAGON_0, myMember_TOPOLOGY_SQUARE_0, myMember_TOPOLOGY_TORUS_0, myMember_TOPOLOGY_RING_0, myMember_TOPOLOGY_BIDRING_0, myMember_TOPOLOGY_STAR_0, myMember_TOPOLOGY_FCMESH_0, myMember_TOPOLOGY_GRAPH_0);
 
   @Nullable
   @Override

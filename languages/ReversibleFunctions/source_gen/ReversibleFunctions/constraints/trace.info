@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<debug-info version="2">
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123140:jetbrains.mps.baseLanguage.structure.ConstructorDeclaration" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123155:jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123165:jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1070462154015:jetbrains.mps.baseLanguage.structure.StaticFieldDeclaration" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1081236700938:jetbrains.mps.baseLanguage.structure.StaticMethodDeclaration" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1070475587102:jetbrains.mps.baseLanguage.structure.SuperConstructorInvocation" />
+  <root>
+    <file name="ConstraintsAspectDescriptor.java">
+      <unit at="15,0,32,0" name="ReversibleFunctions.constraints.ConstraintsAspectDescriptor" />
+    </file>
+  </root>
+  <root nodeRef="r:40f75622-00ec-4519-9838-c864fada376e(ReversibleFunctions.constraints)/6263969635223889027">
+    <file name="ReversibleFunction_Constraints.java">
+      <node id="6263969635223889027" at="18,92,19,55" concept="5" />
+      <node id="6263969635223889028" at="19,55,20,47" concept="1" />
+      <node id="6263969635223889028" at="24,70,25,77" concept="5" />
+      <node id="6263969635223889028" at="28,68,29,83" concept="1" />
+      <node id="6263969635223889292" at="31,83,32,88" concept="1" />
+      <node id="6263969635223911400" at="32,88,33,135" concept="1" />
+      <node id="6263969635223889027" at="38,0,39,0" concept="3" trace="ReversibleFunction$IL" />
+      <node id="6263969635223889027" at="42,0,43,0" concept="3" trace="reversibilityRequired$B65C" />
+      <node id="6263969635223889027" at="43,0,44,0" concept="3" trace="reversibilityRequired$OpEG" />
+      <node id="6263969635223889027" at="47,0,48,0" concept="3" trace="revBody$QkEt" />
+      <node id="6263969635223889028" at="24,0,27,0" concept="0" trace="ReversibilityRequired_PD#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptor;)V" />
+      <node id="6263969635223889027" at="18,0,22,0" concept="0" trace="ReversibleFunction_Constraints#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptorInitContext;)V" />
+      <node id="6263969635223889028" at="27,0,31,0" concept="2" trace="setPropertyValue#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/Object;)V" />
+      <node id="6263969635223889028" at="31,0,35,0" concept="4" trace="staticSetPropertyValue#(Lorg/jetbrains/mps/openapi/model/SNode;Z)V" />
+      <scope id="6263969635223889028" at="24,70,25,77" />
+      <scope id="6263969635223889028" at="28,68,29,83" />
+      <scope id="6263969635223889027" at="18,92,20,47" />
+      <scope id="6263969635223889030" at="31,83,33,135" />
+      <scope id="6263969635223889028" at="24,0,27,0">
+        <var name="container" id="6263969635223889028" />
+      </scope>
+      <scope id="6263969635223889027" at="18,0,22,0">
+        <var name="initContext" id="6263969635223889027" />
+      </scope>
+      <scope id="6263969635223889028" at="27,0,31,0">
+        <var name="node" id="6263969635223889028" />
+        <var name="propertyValue" id="6263969635223889028" />
+      </scope>
+      <scope id="6263969635223889028" at="31,0,35,0">
+        <var name="node" id="6263969635223889028" />
+        <var name="propertyValue" id="6263969635223889028" />
+      </scope>
+      <unit id="6263969635223889027" at="37,0,40,0" name="ReversibleFunctions.constraints.ReversibleFunction_Constraints$CONCEPTS" />
+      <unit id="6263969635223889027" at="46,0,49,0" name="ReversibleFunctions.constraints.ReversibleFunction_Constraints$LINKS" />
+      <unit id="6263969635223889027" at="41,0,45,0" name="ReversibleFunctions.constraints.ReversibleFunction_Constraints$PROPS" />
+      <unit id="6263969635223889028" at="23,0,36,0" name="ReversibleFunctions.constraints.ReversibleFunction_Constraints$ReversibilityRequired_PD" />
+      <unit id="6263969635223889027" at="17,0,50,0" name="ReversibleFunctions.constraints.ReversibleFunction_Constraints" />
+    </file>
+  </root>
+</debug-info>
+

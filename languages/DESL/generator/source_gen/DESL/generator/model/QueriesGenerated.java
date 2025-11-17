@@ -4,6 +4,7 @@ package DESL.generator.model;
 
 import jetbrains.mps.generator.runtime.Generated;
 import jetbrains.mps.generator.impl.query.QueryProviderBase;
+import jetbrains.mps.generator.template.BaseMappingRuleContext;
 import jetbrains.mps.generator.template.PropertyMacroContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -14,12 +15,15 @@ import jetbrains.mps.generator.template.MappingScriptContext;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import ReversibleFunctions.behavior.ReversibleFunction__BehaviorDescriptor;
 import java.util.Map;
-import jetbrains.mps.generator.impl.query.ScriptCodeBlock;
+import jetbrains.mps.generator.impl.query.MapRootRuleCondition;
 import java.util.HashMap;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.generator.impl.query.QueryKey;
+import jetbrains.mps.generator.template.MapRootRuleContext;
 import jetbrains.mps.generator.impl.GenerationFailureException;
+import jetbrains.mps.generator.impl.query.ScriptCodeBlock;
 import jetbrains.mps.generator.impl.query.SourceNodeQuery;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.generator.impl.query.SourceNodesQuery;
@@ -35,6 +39,21 @@ import org.jetbrains.mps.openapi.language.SConcept;
 public class QueriesGenerated extends QueryProviderBase {
   public QueriesGenerated() {
     super(1);
+  }
+  public static boolean rule_Condition_0_0(final BaseMappingRuleContext _context) {
+    return true;
+  }
+  public static boolean rule_Condition_0_1(final BaseMappingRuleContext _context) {
+    return false;
+  }
+  public static boolean rule_Condition_0_2(final BaseMappingRuleContext _context) {
+    return true;
+  }
+  public static boolean rule_Condition_0_3(final BaseMappingRuleContext _context) {
+    return false;
+  }
+  public static boolean rule_Condition_0_4(final BaseMappingRuleContext _context) {
+    return false;
   }
   public static Object propertyMacro_GetValue_1_0(final PropertyMacroContext _context) {
     return SPropertyOperations.getString(_context.getNode(), PROPS.name$MnvL) + "_rootsim";
@@ -222,7 +241,52 @@ public class QueriesGenerated extends QueryProviderBase {
     }
     for (SNode variable : ListSequence.fromList(SModelOperations.nodes(_context.getModel(), CONCEPTS.LocalVariableDeclaration$ft))) {
       if ((SNodeOperations.getNodeAncestor(variable, CONCEPTS.EventHandler$Ov, false, false) != null)) {
-        SPropertyOperations.assign(variable, PROPS.name$MnvL, SPropertyOperations.getString(variable, PROPS.name$MnvL) + "_" + SPropertyOperations.getString(SNodeOperations.getNodeAncestor(variable, CONCEPTS.EventHandler$Ov, false, false), PROPS.eventName$AHdn));
+        SPropertyOperations.assign(variable, PROPS.name$MnvL, SPropertyOperations.getString(variable, PROPS.name$MnvL) + "_" + SPropertyOperations.getString(SNodeOperations.getNodeAncestor(variable, CONCEPTS.EventHandler$Ov, false, false), PROPS.eventName$cuOv));
+      }
+    }
+    for (SNode handler : ListSequence.fromList(SModelOperations.nodes(_context.getModel(), CONCEPTS.EventHandler$Ov))) {
+      ReversibleFunction__BehaviorDescriptor.propagateReversibility_id5U1XgQ$bWsf.invoke(SLinkOperations.getTarget(handler, LINKS.forwardFunction$5bPH));
+
+      SLinkOperations.setTarget(handler, LINKS.reverseFunction$yyGT, SNodeOperations.copyNode(SLinkOperations.getTarget(handler, LINKS.forwardFunction$5bPH)));
+      SPropertyOperations.assign(SLinkOperations.getTarget(handler, LINKS.reverseFunction$yyGT), PROPS.isForward$3_sP, false);
+      ReversibleFunction__BehaviorDescriptor.propagateReversibility_id5U1XgQ$bWsf.invoke(SLinkOperations.getTarget(handler, LINKS.reverseFunction$yyGT));
+    }
+  }
+  private final Map<String, MapRootRuleCondition> mrrcMethods = new HashMap<String, MapRootRuleCondition>();
+  {
+    int i = 0;
+    mrrcMethods.put("2659902553932080074", new MRRC(i++));
+    mrrcMethods.put("744988696349104575", new MRRC(i++));
+    mrrcMethods.put("2659902553932080082", new MRRC(i++));
+    mrrcMethods.put("2659902553932080090", new MRRC(i++));
+    mrrcMethods.put("2659902553936055310", new MRRC(i++));
+  }
+  @Override
+  @NotNull
+  public MapRootRuleCondition getMapRootRuleCondition(@NotNull QueryKey identity) {
+    MapRootRuleCondition query = identity.forTemplateNode(mrrcMethods);
+    return (query != null ? query : super.getMapRootRuleCondition(identity));
+  }
+  private static class MRRC implements MapRootRuleCondition {
+    private final int methodKey;
+    public MRRC(int methodKey) {
+      this.methodKey = methodKey;
+    }
+    @Override
+    public boolean check(@NotNull MapRootRuleContext ctx) throws GenerationFailureException {
+      switch (methodKey) {
+        case 0:
+          return QueriesGenerated.rule_Condition_0_0(ctx);
+        case 1:
+          return QueriesGenerated.rule_Condition_0_1(ctx);
+        case 2:
+          return QueriesGenerated.rule_Condition_0_2(ctx);
+        case 3:
+          return QueriesGenerated.rule_Condition_0_3(ctx);
+        case 4:
+          return QueriesGenerated.rule_Condition_0_4(ctx);
+        default:
+          throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no condition method for rule %s (key: #%d)", ctx.getTemplateReference(), methodKey));
       }
     }
   }
@@ -492,7 +556,8 @@ public class QueriesGenerated extends QueryProviderBase {
   private static final class PROPS {
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
     /*package*/ static final SProperty preventNameMangling$DOH5 = MetaAdapterFactory.getProperty(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x595522006a5b934fL, 0x5d18402e8bd65342L, "preventNameMangling");
-    /*package*/ static final SProperty eventName$AHdn = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x3aa70864b453eff1L, "eventName");
+    /*package*/ static final SProperty eventName$cuOv = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x549487e5d9aa9e02L, "eventName");
+    /*package*/ static final SProperty isForward$3_sP = MetaAdapterFactory.getProperty(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, 0x5e81f50da1382199L, "isForward");
   }
 
   private static final class LINKS {
@@ -508,6 +573,8 @@ public class QueriesGenerated extends QueryProviderBase {
     /*package*/ static final SContainmentLink classes$SNAM = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x4117a694e5ba8536L, "classes");
     /*package*/ static final SContainmentLink prototype$lY0a = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228cL, 0x6f36cc77d0d15795L, "prototype");
     /*package*/ static final SContainmentLink function$cpRu = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x148075313bb5466dL, 0x148075313bb5466eL, "function");
+    /*package*/ static final SContainmentLink forwardFunction$5bPH = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x74d88000543a2a9fL, "forwardFunction");
+    /*package*/ static final SContainmentLink reverseFunction$yyGT = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x5e81f50da138219aL, "reverseFunction");
   }
 
   private static final class CONCEPTS {

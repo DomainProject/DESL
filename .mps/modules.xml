@@ -6,8 +6,13 @@
       <modulePath path="$PROJECT_DIR$/_spreferences/TypeSizeConfiguration/module.msd" folder="_spreferences" />
       <modulePath path="$PROJECT_DIR$/languages/Collections/Collections.mpl" folder="" />
       <modulePath path="$PROJECT_DIR$/languages/DESL/DESL.mpl" folder="" />
-      <modulePath path="$PROJECT_DIR$/solutions/DESL.build/DESL.build.msd" folder="" />
+      <modulePath path="$PROJECT_DIR$/languages/ReversibleExpressions/ReversibleExpressions.mpl" folder="" />
+      <modulePath path="$PROJECT_DIR$/languages/ReversibleFunctions/ReversibleFunctions.mpl" folder="" />
+      <modulePath path="$PROJECT_DIR$/languages/ReversibleStatements/ReversibleStatements.mpl" folder="" />
+      <modulePath path="$PROJECT_DIR$/solutions/DESL.build0/DESL.build.msd" folder="" />
       <modulePath path="$PROJECT_DIR$/solutions/DESLSolution/DESLSolution.msd" folder="" />
+      <modulePath path="$PROJECT_DIR$/solutions/RCSolution/RCSolution.msd" folder="" />
+      <modulePath path="$PROJECT_DIR$/solutions/ReversibleFunctionsSolution/ReversibleFunctionsSolution.msd" folder="" />
     </projectModules>
   </component>
 </project>

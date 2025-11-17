@@ -102,6 +102,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     deps.aggregatedLanguage(0x61c69711ed614850L, 0x81d97714ff227fb0L, "com.mbeddr.core.expressions");
     deps.aggregatedLanguage(0x92d2ea165a424fdfL, 0xa676c7604efe3504L, "de.slisson.mps.richtext");
     deps.aggregatedLanguage(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, "com.mbeddr.core.modules");
+    deps.aggregatedLanguage(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, "ReversibleFunctions");
     deps.aggregatedLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage");
     deps.aggregatedLanguage(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, "jetbrains.mps.lang.text");
   }
@@ -267,7 +268,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(DESL.structure)/4690400695369122208");
     b.version(3);
     b.aggregate("stateStruct", 0x4117a694e5b8c1a2L).target(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x58bef62304fc0a2fL).optional(false).ordered(true).multiple(false).origin("4690400695369122210").done();
-    b.aggregate("handlers", 0x4117a694e5b8c1a3L).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6eb40d65f333345bL).optional(true).ordered(true).multiple(true).origin("4690400695369122211").done();
+    b.aggregate("handlers", 0x4117a694e5b8c1a3L).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L).optional(true).ordered(true).multiple(true).origin("4690400695369122211").done();
     b.aggregate("startup", 0x6ea143d20905c7edL).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0a48d39L).optional(true).ordered(true).multiple(false).origin("7971727384796055533").done();
     b.aggregate("commonVariables", 0x323127c5741c9443L).target(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad96e6L).optional(true).ordered(true).multiple(true).origin("3616715704765289539").done();
     b.aggregate("termination", 0x148075313bb9b63dL).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x148075313bb5466dL).optional(true).ordered(true).multiple(false).origin("1477309532093396541").done();
@@ -292,6 +293,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(DESL.structure)/1935028353745327664");
     b.version(3);
     b.property("description", 0x3507db05f7c560b5L).type(PrimitiveTypeId.STRING).origin("3821263627525382325").done();
+    b.property("requiresReversibleHandlers", 0x549487e5d9e6dfe7L).type(PrimitiveTypeId.BOOLEAN).origin("6094645617012170727").done();
     b.aggregate("opaqueTypes", 0x6f36cc77d0d825c5L).target(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x2fdc4aa2eaa02L).optional(true).ordered(true).multiple(true).origin("8013817401929377221").done();
     b.aggregate("structs", 0x6e7ca07799a0fb0fL).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x5808433cc497c578L).optional(true).ordered(true).multiple(true).origin("7961414676823210767").done();
     b.aggregate("messageStruct", 0x6de6339fa564bed8L).target(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x58bef62304fc0a2fL).optional(false).ordered(true).multiple(false).origin("7919073755545255640").done();
@@ -304,6 +306,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.aggregate("classes", 0x4117a694e5ba8536L).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x55132e9dcba02ae0L).optional(false).ordered(true).multiple(true).origin("4690400695369237814").done();
     b.aggregate("processAllocations", 0x4117a694e6409a0eL).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x55132e9dcbcc539bL).optional(true).ordered(true).multiple(true).origin("4690400695378024974").done();
     b.aggregate("macros", 0x74450034d00e6949L).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x74450034d00e6944L).optional(true).ordered(true).multiple(true).origin("8378102908621580617").done();
+    b.aggregate("testFunction", 0x5f2b6afa9f288909L).target(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x595522006a5b97e1L).optional(true).ordered(true).multiple(false).origin("6857692482246314249").done();
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForDocsEntry() {
@@ -354,13 +357,14 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   private static ConceptDescriptor createDescriptorForEventHandler() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("DESL", "EventHandler", 0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L);
     b.class_(false, false, false);
-    b.parent(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6eb40d65f333345bL);
+    b.parent(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x549487e5d88a4291L);
     b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(DESL.structure)/3297662491775979728");
     b.version(3);
-    b.property("eventName", 0x3aa70864b453eff1L).type(PrimitiveTypeId.STRING).origin("4226356003925651441").done();
-    b.associate("event", 0x74d88000543a2aa2L).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x7c2c5977e3e10df9L).optional(true).origin("8419620242270595746").done();
+    b.property("eventName", 0x549487e5d9aa9e02L).type(PrimitiveTypeId.STRING).origin("6094645617008221698").done();
+    b.associate("event", 0x549487e5d9aa9e01L).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x7c2c5977e3e10df9L).optional(false).origin("6094645617008221697").done();
     b.aggregate("variables", 0x68458b9b5db03ca0L).target(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad96e6L).optional(true).ordered(true).multiple(true).origin("7513565052745563296").done();
-    b.aggregate("function", 0x74d88000543a2a9fL).target(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x595522006a5b97e1L).optional(false).ordered(true).multiple(false).origin("8419620242270595743").done();
+    b.aggregate("forwardFunction", 0x74d88000543a2a9fL).target(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL).optional(false).ordered(true).multiple(false).origin("8419620242270595743").done();
+    b.aggregate("reverseFunction", 0x5e81f50da138219aL).target(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL).optional(true).ordered(true).multiple(false).origin("6809993550449090970").done();
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForEventHandlerDocs() {
@@ -527,7 +531,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.interface_();
     b.parent(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c630e1L);
     b.parent(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x5808433cc497c578L);
-    b.parent(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6eb40d65f333345bL);
+    b.parent(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x549487e5d88a4291L);
     b.parent(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x74450034d00e6944L);
     b.parent(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4ba181fb08668351L);
     b.parent(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4ba181fb0873ae25L);
@@ -548,9 +552,9 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForIHandler() {
-    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("DESL", "IHandler", 0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6eb40d65f333345bL);
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("DESL", "IHandler", 0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x549487e5d88a4291L);
     b.interface_();
-    b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(DESL.structure)/7977015571503068251");
+    b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(DESL.structure)/6094645616989323921");
     b.version(3);
     return b.create();
   }

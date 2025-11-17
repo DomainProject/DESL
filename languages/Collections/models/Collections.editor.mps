@@ -2,7 +2,7 @@
 <model ref="r:d8906e04-ffcc-4d3e-a2b2-6a4a550ba7ca(Collections.editor)">
   <persistence version="9" />
   <languages>
-    <use id="18bc6592-03a6-4e29-a83a-7ff23bde13ba" name="jetbrains.mps.lang.editor" version="14" />
+    <use id="18bc6592-03a6-4e29-a83a-7ff23bde13ba" name="jetbrains.mps.lang.editor" version="15" />
     <use id="aee9cad2-acd4-4608-aef2-0004f6a1cdbd" name="jetbrains.mps.lang.actions" version="4" />
     <devkit ref="fbc25dd2-5da4-483a-8b19-70928e1b62d7(jetbrains.mps.devkit.general-purpose)" />
   </languages>
@@ -82,7 +82,7 @@
         <ref role="1k5W1q" to="r4ju:2R3DD23tMJM" resolve="BraceStyle" />
       </node>
       <node concept="1iCGBv" id="6lwIvDvqLG7" role="3EZMnx">
-        <ref role="1NtTu8" to="mj1t:1Yx5zgmXJIa" />
+        <ref role="1NtTu8" to="mj1t:1Yx5zgmXJIa" resolve="variable" />
         <node concept="1sVBvm" id="6lwIvDvqLG8" role="1sWHZn">
           <node concept="3F0A7n" id="6lwIvDvqLG9" role="2wV5jI">
             <property role="1Intyy" value="true" />

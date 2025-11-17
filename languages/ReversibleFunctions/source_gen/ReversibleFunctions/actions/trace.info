@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<debug-info version="2">
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123155:jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123165:jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1070462154015:jetbrains.mps.baseLanguage.structure.StaticFieldDeclaration" />
+  <root>
+    <file name="ActionAspectDescriptorImpl.java">
+      <unit at="12,0,28,0" name="ReversibleFunctions.actions.ActionAspectDescriptorImpl" />
+    </file>
+  </root>
+  <root nodeRef="r:46921d6a-e1d8-4198-9ce6-387d603965a0(ReversibleFunctions.actions)/6809993550497453474">
+    <file name="ReversibleFunctionFactory.java">
+      <node id="6809993550497453495" at="14,102,15,70" concept="0" />
+      <node id="6263969635224828035" at="15,70,16,82" concept="0" />
+      <node id="6809993550497453474" at="21,0,22,0" concept="2" trace="isForward$3_sP" />
+      <node id="6809993550497453474" at="22,0,23,0" concept="2" trace="reversibilityRequired$B65C" />
+      <node id="6809993550497453475" at="14,0,18,0" concept="1" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;ILorg/jetbrains/mps/openapi/model/SModel;)V" />
+      <scope id="6809993550497453475" at="14,102,16,82" />
+      <scope id="6809993550497453475" at="14,0,18,0">
+        <var name="enclosingNode" id="6809993550497453475" />
+        <var name="index" id="6809993550497453475" />
+        <var name="model" id="6809993550497453475" />
+        <var name="newNode" id="6809993550497453475" />
+        <var name="sampleNode" id="6809993550497453475" />
+      </scope>
+      <unit id="6809993550497453474" at="20,0,24,0" name="ReversibleFunctions.actions.ReversibleFunctionFactory$PROPS" />
+      <unit id="6809993550497453475" at="13,0,19,0" name="ReversibleFunctions.actions.ReversibleFunctionFactory$NodeFactory_6809993550497453475" />
+      <unit id="6809993550497453474" at="12,0,25,0" name="ReversibleFunctions.actions.ReversibleFunctionFactory" />
+    </file>
+  </root>
+</debug-info>
+
