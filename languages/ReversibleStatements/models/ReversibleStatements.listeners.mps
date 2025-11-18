@@ -86,16 +86,6 @@
         <child id="1199569916463" name="body" index="1bW5cS" />
       </concept>
     </language>
-    <language id="760a0a8c-eabb-4521-8bfd-65db761a9ba3" name="jetbrains.mps.baseLanguage.logging">
-      <concept id="6332851714983831325" name="jetbrains.mps.baseLanguage.logging.structure.MsgStatement" flags="ng" index="2xdQw9">
-        <property id="6332851714983843871" name="severity" index="2xdLsb" />
-        <child id="5721587534047265374" name="message" index="9lYJi" />
-      </concept>
-      <concept id="2034914114981261497" name="jetbrains.mps.baseLanguage.logging.structure.LogLowLevelStatement" flags="ng" index="RRSsy">
-        <property id="2034914114981261751" name="severity" index="RRSoG" />
-        <child id="2034914114981261753" name="message" index="RRSoy" />
-      </concept>
-    </language>
     <language id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel">
       <concept id="1177026924588" name="jetbrains.mps.lang.smodel.structure.RefConcept_Reference" flags="nn" index="chp4Y">
         <reference id="1177026940964" name="conceptDeclaration" index="cht4Q" />
@@ -884,20 +874,6 @@
               <ref role="JncvD" to="ib4b:5xEIMPngWHC" resolve="INeedSupportVariable" />
               <node concept="j_sak" id="37agc6dHdg$" role="JncvB" />
               <node concept="3clFbS" id="37agc6dHd7L" role="Jncv$">
-                <node concept="3clFbH" id="37agc6dTsrb" role="3cqZAp" />
-                <node concept="RRSsy" id="37agc6dTtbV" role="3cqZAp">
-                  <property role="RRSoG" value="h1akgim/info" />
-                  <node concept="Xl_RD" id="37agc6dTtbX" role="RRSoy">
-                    <property role="Xl_RC" value="Removing additional variable" />
-                  </node>
-                </node>
-                <node concept="2xdQw9" id="37agc6dTtt$" role="3cqZAp">
-                  <property role="2xdLsb" value="h1akgim/info" />
-                  <node concept="Xl_RD" id="37agc6dTttA" role="9lYJi">
-                    <property role="Xl_RC" value="Removing additional variable" />
-                  </node>
-                </node>
-                <node concept="3clFbH" id="37agc6dTtlz" role="3cqZAp" />
                 <node concept="3clFbF" id="37agc6dGBVJ" role="3cqZAp">
                   <node concept="2OqwBi" id="37agc6dGL$C" role="3clFbG">
                     <node concept="2OqwBi" id="37agc6dGC5F" role="2Oq$k0">

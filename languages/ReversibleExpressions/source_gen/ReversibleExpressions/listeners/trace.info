@@ -8,9 +8,43 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123157:jetbrains.mps.baseLanguage.structure.Statement" />
   <root>
     <file name="ModelListenersDescriptor.java">
-      <unit at="52,0,57,0" name="ReversibleExpressions.listeners.ModelListenersDescriptor$CONCEPTS" />
-      <unit at="58,0,66,0" name="ReversibleExpressions.listeners.ModelListenersDescriptor$LINKS" />
-      <unit at="20,0,67,0" name="ReversibleExpressions.listeners.ModelListenersDescriptor" />
+      <unit at="73,0,79,0" name="ReversibleExpressions.listeners.ModelListenersDescriptor$CONCEPTS" />
+      <unit at="80,0,88,0" name="ReversibleExpressions.listeners.ModelListenersDescriptor$LINKS" />
+      <unit at="20,0,89,0" name="ReversibleExpressions.listeners.ModelListenersDescriptor" />
+    </file>
+  </root>
+  <root nodeRef="r:d2918703-6888-4637-9773-3d18eb39ae47(ReversibleExpressions.listeners)/2869013858270660169">
+    <file name="ModelListenersDescriptor.java">
+      <node id="2869013858270660206" at="50,71,51,194" concept="4" />
+      <node id="2869013858270660212" at="52,9,53,34" concept="4" />
+      <node id="2869013858270660215" at="54,75,55,136" concept="1" />
+      <node id="2869013858270660227" at="58,9,59,33" concept="4" />
+      <node id="2869013858270660230" at="60,74,61,135" concept="1" />
+      <node id="2869013858270660242" at="63,9,64,0" concept="5" />
+      <node id="2869013858270660262" at="64,0,65,115" concept="1" />
+      <node id="2869013858270660270" at="65,115,66,142" concept="1" />
+      <node id="2869013858270660212" at="53,34,56,11" concept="2" />
+      <node id="2869013858270660227" at="59,33,62,11" concept="2" />
+      <node id="2869013858270660212" at="51,194,57,9" concept="0" />
+      <node id="2869013858270660227" at="57,9,63,9" concept="0" />
+      <node id="2869013858270660204" at="49,0,68,0" concept="3" trace="childAdded#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)V" />
+      <node id="2869013858270660204" at="47,7,68,7" concept="1" />
+      <scope id="2869013858270660214" at="54,75,55,136" />
+      <scope id="2869013858270660229" at="60,74,61,135" />
+      <scope id="2869013858270660212" at="52,9,56,11">
+        <var name="lvr" id="2869013858270660212" />
+      </scope>
+      <scope id="2869013858270660227" at="58,9,62,11">
+        <var name="ar" id="2869013858270660227" />
+      </scope>
+      <scope id="2869013858270660204" at="50,71,66,142">
+        <var name="type" id="2869013858270660207" />
+      </scope>
+      <scope id="2869013858270660204" at="49,0,68,0">
+        <var name="child" id="2869013858270660204" />
+        <var name="instance" id="2869013858270660204" />
+      </scope>
+      <unit id="2869013858270660204" at="48,52,68,5" name="ReversibleExpressions.listeners.ModelListenersDescriptor$2" />
     </file>
   </root>
   <root nodeRef="r:d2918703-6888-4637-9773-3d18eb39ae47(ReversibleExpressions.listeners)/3527110518592023472">

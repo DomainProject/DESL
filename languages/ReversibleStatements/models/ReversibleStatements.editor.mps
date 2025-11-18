@@ -315,7 +315,6 @@
       <concept id="1068580320020" name="jetbrains.mps.baseLanguage.structure.IntegerConstant" flags="nn" index="3cmrfG">
         <property id="1068580320021" name="value" index="3cmrfH" />
       </concept>
-      <concept id="1068581242875" name="jetbrains.mps.baseLanguage.structure.PlusExpression" flags="nn" index="3cpWs3" />
       <concept id="1068581242878" name="jetbrains.mps.baseLanguage.structure.ReturnStatement" flags="nn" index="3cpWs6">
         <child id="1068581517676" name="expression" index="3cqZAk" />
       </concept>
@@ -403,12 +402,6 @@
     <language id="f89904fb-9486-43a1-865e-5ad0375a8a88" name="de.itemis.mps.editor.bool">
       <concept id="4900677560559655527" name="de.itemis.mps.editor.bool.structure.CellModel_Checkbox" flags="sg" stub="416014060004381438" index="27S6Sx" />
     </language>
-    <language id="760a0a8c-eabb-4521-8bfd-65db761a9ba3" name="jetbrains.mps.baseLanguage.logging">
-      <concept id="2034914114981261497" name="jetbrains.mps.baseLanguage.logging.structure.LogLowLevelStatement" flags="ng" index="RRSsy">
-        <property id="2034914114981261751" name="severity" index="RRSoG" />
-        <child id="2034914114981261753" name="message" index="RRSoy" />
-      </concept>
-    </language>
     <language id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel">
       <concept id="1204851882688" name="jetbrains.mps.lang.smodel.structure.LinkRefQualifier" flags="ng" index="26LbJo">
         <reference id="1204851882689" name="link" index="26LbJp" />
@@ -429,13 +422,6 @@
       <concept id="1145383075378" name="jetbrains.mps.lang.smodel.structure.SNodeListType" flags="in" index="2I9FWS">
         <reference id="1145383142433" name="elementConcept" index="2I9WkF" />
       </concept>
-      <concept id="1883223317721008708" name="jetbrains.mps.lang.smodel.structure.IfInstanceOfStatement" flags="nn" index="Jncv_">
-        <reference id="1883223317721008712" name="nodeConcept" index="JncvD" />
-        <child id="1883223317721008709" name="body" index="Jncv$" />
-        <child id="1883223317721008711" name="variable" index="JncvA" />
-        <child id="1883223317721008710" name="nodeExpression" index="JncvB" />
-      </concept>
-      <concept id="1883223317721008713" name="jetbrains.mps.lang.smodel.structure.IfInstanceOfVariable" flags="ng" index="JncvC" />
       <concept id="1181949435690" name="jetbrains.mps.lang.smodel.structure.Concept_NewInstance" flags="nn" index="LFhST" />
       <concept id="1139184414036" name="jetbrains.mps.lang.smodel.structure.LinkList_AddNewChildOperation" flags="nn" index="WFELt">
         <reference id="1139877738879" name="concept" index="1A0vxQ" />
@@ -4296,48 +4282,6 @@
         <node concept="3F0A7n" id="5xEIMPmjCcc" role="2wV5jI">
           <property role="1Intyy" value="true" />
           <ref role="1NtTu8" to="tpck:h0TrG11" resolve="name" />
-        </node>
-      </node>
-    </node>
-  </node>
-  <node concept="1h_SRR" id="6cRD4MA3OA7">
-    <property role="3GE5qa" value="if" />
-    <property role="TrG5h" value="deleteLoopSupportVariable" />
-    <ref role="1h_SK9" to="kmi:5so5TTr6Vvn" resolve="IfStatement" />
-    <node concept="1hA7zw" id="6cRD4MA3OA8" role="1h_SK8">
-      <property role="1hAc7j" value="g_hAxAO/delete_action_id" />
-      <node concept="1hAIg9" id="6cRD4MA3OA9" role="1hA7z_">
-        <node concept="3clFbS" id="6cRD4MA3OAa" role="2VODD2">
-          <node concept="RRSsy" id="6cRD4MA3OCN" role="3cqZAp">
-            <property role="RRSoG" value="h1akgim/info" />
-            <node concept="3cpWs3" id="6cRD4MA3PMS" role="RRSoy">
-              <node concept="2OqwBi" id="6cRD4MA3Qhj" role="3uHU7w">
-                <node concept="0IXxy" id="6cRD4MA3PT6" role="2Oq$k0" />
-                <node concept="3TrcHB" id="6cRD4MA3RAo" role="2OqNvi">
-                  <ref role="3TsBF5" to="ib4b:6cRD4M$XMQZ" resolve="loopArrayName" />
-                </node>
-              </node>
-              <node concept="Xl_RD" id="6cRD4MA3OCP" role="3uHU7B">
-                <property role="Xl_RC" value="Deleting variable with name " />
-              </node>
-            </node>
-          </node>
-          <node concept="3clFbH" id="6cRD4MA99IW" role="3cqZAp" />
-          <node concept="Jncv_" id="6cRD4MA9a87" role="3cqZAp">
-            <ref role="JncvD" to="kmi:6cRD4M$orRO" resolve="IReversibleLoop" />
-            <node concept="2OqwBi" id="6cRD4MA9bl$" role="JncvB">
-              <node concept="2OqwBi" id="6cRD4MA9arw" role="2Oq$k0">
-                <node concept="0IXxy" id="6cRD4MA9a8X" role="2Oq$k0" />
-                <node concept="1mfA1w" id="6cRD4MA9b5M" role="2OqNvi" />
-              </node>
-              <node concept="1mfA1w" id="6cRD4MA9bPj" role="2OqNvi" />
-            </node>
-            <node concept="3clFbS" id="6cRD4MA9a8b" role="Jncv$" />
-            <node concept="JncvC" id="6cRD4MA9a8d" role="JncvA">
-              <property role="TrG5h" value="loop" />
-              <node concept="2jxLKc" id="6cRD4MA9a8e" role="1tU5fm" />
-            </node>
-          </node>
         </node>
       </node>
     </node>

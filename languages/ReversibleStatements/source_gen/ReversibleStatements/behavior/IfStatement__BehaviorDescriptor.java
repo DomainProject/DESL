@@ -41,8 +41,7 @@ public final class IfStatement__BehaviorDescriptor extends BaseBHDescriptor {
   private static void ___init___(@NotNull SNode __thisNode__) {
     SLinkOperations.setNewChild(__thisNode__, LINKS.thenPart$JklD, null);
     SLinkOperations.setNewChild(__thisNode__, LINKS.condition$Jk6C, null);
-    String name = "selected_branch_";
-    INeedSupportVariable__BehaviorDescriptor.createVariable_id5xEIMPngWHX.invoke(__thisNode__, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x75739ed9f39e38a2L, "com.mbeddr.core.expressions.structure.UnsignedInt16tType")), name, null);
+    INeedSupportVariable__BehaviorDescriptor.createVariable_id5xEIMPngWHX.invoke(__thisNode__, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x75739ed9f39e38a2L, "com.mbeddr.core.expressions.structure.UnsignedInt16tType")), "selected_branch_", null);
   }
 
   /*package*/ static String getEndLabel_id5Xsg2EBpPwD(@NotNull SNode __thisNode__, SNode statementList) {

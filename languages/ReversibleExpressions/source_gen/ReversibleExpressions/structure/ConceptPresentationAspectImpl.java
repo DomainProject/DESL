@@ -53,6 +53,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_IAssignmentLike;
   private ConceptPresentation props_IAssignmentSide;
   private ConceptPresentation props_IBinaryLike;
+  private ConceptPresentation props_IDestructiveOperation;
   private ConceptPresentation props_IExpressionWrapper;
   private ConceptPresentation props_IGenericDotTarget;
   private ConceptPresentation props_IIncompleteParenthesis;
@@ -440,6 +441,12 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_IBinaryLike = cpb.create();
         }
         return props_IBinaryLike;
+      case LanguageConceptSwitch.IDestructiveOperation:
+        if (props_IDestructiveOperation == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          props_IDestructiveOperation = cpb.create();
+        }
+        return props_IDestructiveOperation;
       case LanguageConceptSwitch.IExpressionWrapper:
         if (props_IExpressionWrapper == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

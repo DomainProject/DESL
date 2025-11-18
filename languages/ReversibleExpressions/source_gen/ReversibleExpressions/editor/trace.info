@@ -17,7 +17,7 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/5351203823916750322:jetbrains.mps.baseLanguage.structure.TryUniversalStatement" />
   <root>
     <file name="EditorAspectDescriptorImpl.java">
-      <unit at="19,0,316,0" name="ReversibleExpressions.editor.EditorAspectDescriptorImpl" />
+      <unit at="19,0,318,0" name="ReversibleExpressions.editor.EditorAspectDescriptorImpl" />
     </file>
     <file name="GrammarActionsDescriptor.java">
       <unit at="2700,0,2703,0" name="ReversibleExpressions.editor.GrammarActionsDescriptor$PROPS" />
@@ -287,6 +287,11 @@
       <unit at="44,0,47,0" name="ReversibleExpressions.editor.GrammarCellsSubstituteMenu_IBinaryLike$CONCEPTS" />
       <unit at="33,0,43,0" name="ReversibleExpressions.editor.GrammarCellsSubstituteMenu_IBinaryLike$GrammarCellsSubstituteMenuPart_5pjf8y_a" />
       <unit at="21,0,48,0" name="ReversibleExpressions.editor.GrammarCellsSubstituteMenu_IBinaryLike" />
+    </file>
+    <file name="GrammarCellsSubstituteMenu_IDestructiveOperation.java">
+      <unit at="44,0,47,0" name="ReversibleExpressions.editor.GrammarCellsSubstituteMenu_IDestructiveOperation$CONCEPTS" />
+      <unit at="33,0,43,0" name="ReversibleExpressions.editor.GrammarCellsSubstituteMenu_IDestructiveOperation$GrammarCellsSubstituteMenuPart_6vjygp_a" />
+      <unit at="21,0,48,0" name="ReversibleExpressions.editor.GrammarCellsSubstituteMenu_IDestructiveOperation" />
     </file>
     <file name="GrammarCellsSubstituteMenu_IExpressionWrapper.java">
       <unit at="44,0,47,0" name="ReversibleExpressions.editor.GrammarCellsSubstituteMenu_IExpressionWrapper$CONCEPTS" />

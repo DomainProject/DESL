@@ -31,6 +31,8 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new CastExpression_TextGen();
       case LanguageConceptSwitch.CharLiteral:
         return new CharLiteral_TextGen();
+      case LanguageConceptSwitch.DirectModuloAssignmentExpression:
+        return new DirectModuloAssignmentExpression_TextGen();
       case LanguageConceptSwitch.ExpressionList:
         return new ExpressionList_TextGen();
       case LanguageConceptSwitch.FalseLiteral:

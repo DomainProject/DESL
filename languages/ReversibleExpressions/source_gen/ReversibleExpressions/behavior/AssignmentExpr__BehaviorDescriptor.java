@@ -13,17 +13,14 @@ import org.jetbrains.mps.openapi.model.SNode;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
-import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class AssignmentExpr__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4e85add925440dL, "ReversibleExpressions.structure.AssignmentExpr");
@@ -36,11 +33,11 @@ public final class AssignmentExpr__BehaviorDescriptor extends BaseBHDescriptor {
   public static final SMethod<Void> setSyntacticallyLeftSideExpression_id4e6KBjFhtFd = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("setSyntacticallyLeftSideExpression").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(4865790254839618253L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<Void> setSyntacticallyRightSideExpression_id4e6KBjFhve$ = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("setSyntacticallyRightSideExpression").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(4865790254839624612L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<Void> handleCopyPaste_id33MO5h9wdZT = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("handleCopyPaste").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(3527110518613532665L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
+  public static final SMethod<String> getBaseName_id2vgMet5LndN = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getBaseName").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2869013858268574579L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isSideeffectFree_id6SENleF$SRD, getPriolevel_id5HxjapwgqKu, getLValue_id4e6KBjFhjRD, getRValue_id4e6KBjFhm$F, canPropagateUnmatchedParenthesisUp_id6mzZsELnszz, setSyntacticallyLeftSideExpression_id4e6KBjFhtFd, setSyntacticallyRightSideExpression_id4e6KBjFhve$, handleCopyPaste_id33MO5h9wdZT);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isSideeffectFree_id6SENleF$SRD, getPriolevel_id5HxjapwgqKu, getLValue_id4e6KBjFhjRD, getRValue_id4e6KBjFhm$F, canPropagateUnmatchedParenthesisUp_id6mzZsELnszz, setSyntacticallyLeftSideExpression_id4e6KBjFhtFd, setSyntacticallyRightSideExpression_id4e6KBjFhve$, handleCopyPaste_id33MO5h9wdZT, getBaseName_id2vgMet5LndN);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
-    INeedSupportVariable__BehaviorDescriptor.createVariable_id5xEIMPngWHX.invoke(__thisNode__, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba6cL, "com.mbeddr.core.expressions.structure.IntType")), "assignment_var_", null);
   }
 
   /*package*/ static boolean isSideeffectFree_id6SENleF$SRD(@NotNull SNode __thisNode__) {
@@ -65,7 +62,9 @@ public final class AssignmentExpr__BehaviorDescriptor extends BaseBHDescriptor {
     throw new UnsupportedOperationException("Right child cannot be set for this expression: " + SNodeOperations.getConcept(__thisNode__));
   }
   /*package*/ static void handleCopyPaste_id33MO5h9wdZT(@NotNull SNode __thisNode__) {
-    SPropertyOperations.assign(SLinkOperations.getTarget(__thisNode__, LINKS.variable$WrxR), PROPS.name$MnvL, "assignment_var_" + ListSequence.fromList(SNodeOperations.getNodeDescendants(SNodeOperations.getNodeAncestor(__thisNode__, CONCEPTS.ReversibleFunction$IL, false, false), CONCEPTS.AssignmentExpr$aj, false, new SAbstractConcept[]{})).count());
+  }
+  /*package*/ static String getBaseName_id2vgMet5LndN(@NotNull SNode __thisNode__) {
+    return "assignment_var";
   }
 
   /*package*/ AssignmentExpr__BehaviorDescriptor() {
@@ -100,6 +99,8 @@ public final class AssignmentExpr__BehaviorDescriptor extends BaseBHDescriptor {
       case 7:
         handleCopyPaste_id33MO5h9wdZT(node);
         return null;
+      case 8:
+        return (T) ((String) getBaseName_id2vgMet5LndN(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -134,16 +135,9 @@ public final class AssignmentExpr__BehaviorDescriptor extends BaseBHDescriptor {
   private static final class LINKS {
     /*package*/ static final SContainmentLink left$KPKR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba34L, 0x7af69e2e83a1ba40L, "left");
     /*package*/ static final SContainmentLink right$KPZS = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba34L, 0x7af69e2e83a1ba41L, "right");
-    /*package*/ static final SContainmentLink variable$WrxR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x586abb2d5743cb69L, "variable");
   }
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept BinaryExpression$b = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba34L, "ReversibleExpressions.structure.BinaryExpression");
-    /*package*/ static final SConcept ReversibleFunction$IL = MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, "ReversibleFunctions.structure.ReversibleFunction");
-    /*package*/ static final SConcept AssignmentExpr$aj = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4e85add925440dL, "ReversibleExpressions.structure.AssignmentExpr");
-  }
-
-  private static final class PROPS {
-    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

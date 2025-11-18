@@ -22,14 +22,21 @@ public final class DirectModuloAssignmentExpression__BehaviorDescriptor extends 
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x63d2f6d2334415d3L, "ReversibleExpressions.structure.DirectModuloAssignmentExpression");
 
   public static final SMethod<SNode> correspondingNonDirectExpression_id7FQUQ5yTHlG = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("correspondingNonDirectExpression").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8860528120401679724L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
+  public static final SMethod<String> getBaseName_id2vgMet5LndN = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getBaseName").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2869013858268574579L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
+  public static final SMethod<Void> handleCopyPaste_id33MO5h9wdZT = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("handleCopyPaste").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(3527110518613532665L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(correspondingNonDirectExpression_id7FQUQ5yTHlG);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(correspondingNonDirectExpression_id7FQUQ5yTHlG, getBaseName_id2vgMet5LndN, handleCopyPaste_id33MO5h9wdZT);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
   /*package*/ static SNode correspondingNonDirectExpression_id7FQUQ5yTHlG(@NotNull SNode __thisNode__) {
     return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x26d9c9de7721b2b0L, "ReversibleExpressions.structure.ModuloExpression"));
+  }
+  /*package*/ static String getBaseName_id2vgMet5LndN(@NotNull SNode __thisNode__) {
+    return "modulo_assignment_var";
+  }
+  /*package*/ static void handleCopyPaste_id33MO5h9wdZT(@NotNull SNode __thisNode__) {
   }
 
   /*package*/ DirectModuloAssignmentExpression__BehaviorDescriptor() {
@@ -49,6 +56,11 @@ public final class DirectModuloAssignmentExpression__BehaviorDescriptor extends 
     switch (methodIndex) {
       case 0:
         return (T) ((SNode) correspondingNonDirectExpression_id7FQUQ5yTHlG(node));
+      case 1:
+        return (T) ((String) getBaseName_id2vgMet5LndN(node));
+      case 2:
+        handleCopyPaste_id33MO5h9wdZT(node);
+        return null;
       default:
         throw new BHMethodNotFoundException(this, method);
     }

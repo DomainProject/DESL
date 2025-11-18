@@ -1457,10 +1457,6 @@
     <property role="3GE5qa" value="expr.arith.unary" />
     <ref role="1M2myG" to="ib4b:3MUk0N5szEI" resolve="PostIncrementExpression" />
   </node>
-  <node concept="1M2fIO" id="5xEIMPp1Cvc">
-    <property role="3GE5qa" value="expr" />
-    <ref role="1M2myG" to="ib4b:1exqRp9kgd" resolve="AssignmentExpr" />
-  </node>
   <node concept="1M2fIO" id="37agc69YlPY">
     <property role="3GE5qa" value="literals" />
     <ref role="1M2myG" to="ib4b:1UQ4qqfUXf_" resolve="NumericLiteral" />

@@ -45,6 +45,27 @@ public class ModelListenersDescriptor implements IModelListenersDescriptor {
         SLinkOperations.setTarget(SLinkOperations.getTarget(instance, LINKS.variable$WrxR), LINKS.init$41s$, SNodeOperations.copyNode(child));
       }
     });
+    ListSequence.fromList(listeners).addElement(new ChildListener(CONCEPTS.DirectModuloAssignmentExpression$5b, LINKS.left$KPKR) {
+      @Override
+      public void childAdded(final SNode instance, final SNode child) {
+        SNode type = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba36L, "com.mbeddr.core.expressions.structure.Type"));
+        {
+          final SNode lvr = child;
+          if (SNodeOperations.isInstanceOf(lvr, CONCEPTS.LocalVarRef$O3)) {
+            type = SNodeOperations.copyNode(SLinkOperations.getTarget(SLinkOperations.getTarget(lvr, LINKS.var$uDqP), LINKS.type$sXU3));
+          }
+        }
+        {
+          final SNode ar = child;
+          if (SNodeOperations.isInstanceOf(ar, CONCEPTS.ArgumentRef$Ar)) {
+            type = SNodeOperations.copyNode(SLinkOperations.getTarget(SLinkOperations.getTarget(ar, LINKS.arg$bO7D), LINKS.type$sXU3));
+          }
+        }
+
+        SLinkOperations.setTarget(SLinkOperations.getTarget(instance, LINKS.variable$WrxR), LINKS.type$sXU3, type);
+        SLinkOperations.setTarget(SLinkOperations.getTarget(instance, LINKS.variable$WrxR), LINKS.init$41s$, SNodeOperations.copyNode(child));
+      }
+    });
 
     return listeners;
   }
@@ -53,6 +74,7 @@ public class ModelListenersDescriptor implements IModelListenersDescriptor {
     /*package*/ static final SConcept AssignmentExpr$aj = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4e85add925440dL, "ReversibleExpressions.structure.AssignmentExpr");
     /*package*/ static final SConcept LocalVarRef$O3 = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x1d0c3765e2e1d67aL, "ReversibleStatements.structure.LocalVarRef");
     /*package*/ static final SConcept ArgumentRef$Ar = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x586abb2d564e82ffL, "ReversibleStatements.structure.ArgumentRef");
+    /*package*/ static final SConcept DirectModuloAssignmentExpression$5b = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x63d2f6d2334415d3L, "ReversibleExpressions.structure.DirectModuloAssignmentExpression");
   }
 
   private static final class LINKS {

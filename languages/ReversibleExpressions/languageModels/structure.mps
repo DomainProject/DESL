@@ -486,6 +486,9 @@
     <property role="R4oN_" value="modulo assign" />
     <property role="EcuMT" value="7193082937527768531" />
     <ref role="1TJDcQ" node="3k6lE4cOoJa" resolve="DirectAssignmentExpression" />
+    <node concept="PrWs8" id="2vgMet5TjZY" role="PzmwI">
+      <ref role="PrY4T" node="2vgMet5CGud" resolve="IDestructiveOperation" />
+    </node>
   </node>
   <node concept="1TIwiD" id="3MUk0N5szEI">
     <property role="3GE5qa" value="expr.arith.unary" />
@@ -621,7 +624,7 @@
       <ref role="PrY4T" node="7C830Ec4S3e" resolve="IStopReshuffling" />
     </node>
     <node concept="PrWs8" id="5xEIMPngWZk" role="PzmwI">
-      <ref role="PrY4T" node="5xEIMPngWHC" resolve="INeedSupportVariable" />
+      <ref role="PrY4T" node="2vgMet5CGud" resolve="IDestructiveOperation" />
     </node>
   </node>
   <node concept="PlHQZ" id="4usdeMNUjj3">
@@ -1033,6 +1036,13 @@
       <property role="IQ2nx" value="7149363582577448444" />
       <property role="TrG5h" value="baseName" />
       <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
+    </node>
+  </node>
+  <node concept="PlHQZ" id="2vgMet5CGud">
+    <property role="EcuMT" value="2869013858266302349" />
+    <property role="TrG5h" value="IDestructiveOperation" />
+    <node concept="PrWs8" id="2vgMet5CGue" role="PrDN$">
+      <ref role="PrY4T" node="5xEIMPngWHC" resolve="INeedSupportVariable" />
     </node>
   </node>
 </model>
