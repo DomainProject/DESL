@@ -23,14 +23,14 @@ public class ReversibleStatementList_TextGen extends TextGenDescriptorBase {
   public void generateText(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     tgs.createPositionInfo();
-    if (!(SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isInvisible$cRUg))) {
+    if (!(SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isInvisible$wTPL))) {
       tgs.append("{");
       tgs.newLine();
     }
 
     _FunctionTypes._void_P0_E0 func = () -> {
-      for (SNode statement : ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.statements$IdM8))) {
-        boolean notInvisibleStatementList = !(SNodeOperations.isInstanceOf(statement, CONCEPTS.ReversibleStatementList$qe) && SPropertyOperations.getBoolean(SNodeOperations.cast(statement, CONCEPTS.ReversibleStatementList$qe), PROPS.isInvisible$cRUg));
+      for (SNode statement : ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.revStatements$IdM8))) {
+        boolean notInvisibleStatementList = !(SNodeOperations.isInstanceOf(statement, CONCEPTS.ReversibleStatementList$qe) && SPropertyOperations.getBoolean(SNodeOperations.cast(statement, CONCEPTS.ReversibleStatementList$qe), PROPS.isInvisible$wTPL));
         if (notInvisibleStatementList) {
           tgs.indent();
         }
@@ -42,7 +42,7 @@ public class ReversibleStatementList_TextGen extends TextGenDescriptorBase {
       }
     };
 
-    if (!(SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isInvisible$cRUg))) {
+    if (!(SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isInvisible$wTPL))) {
       // use indent if the statement list is visible
       ctx.getBuffer().area().increaseIndent();
       func.invoke();
@@ -51,7 +51,7 @@ public class ReversibleStatementList_TextGen extends TextGenDescriptorBase {
       func.invoke();
     }
 
-    if (!(SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isInvisible$cRUg))) {
+    if (!(SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isInvisible$wTPL))) {
       tgs.indent();
       tgs.append("}");
       tgs.newLine();
@@ -62,7 +62,7 @@ public class ReversibleStatementList_TextGen extends TextGenDescriptorBase {
   }
 
   private static final class PROPS {
-    /*package*/ static final SProperty isInvisible$cRUg = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, 0x4070c9f3cc412fc1L, "isInvisible");
+    /*package*/ static final SProperty isInvisible$wTPL = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, 0x4b1eecbba63cdb33L, "isInvisible");
   }
 
   private static final class CONCEPTS {
@@ -73,6 +73,6 @@ public class ReversibleStatementList_TextGen extends TextGenDescriptorBase {
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink statements$IdM8 = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, 0x3a16e3a9c7ad9956L, "statements");
+    /*package*/ static final SContainmentLink revStatements$IdM8 = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, 0x3a16e3a9c7ad9956L, "revStatements");
   }
 }

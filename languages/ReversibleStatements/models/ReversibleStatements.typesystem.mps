@@ -22,6 +22,7 @@
     <import index="yq40" ref="r:152b3fc0-83a1-4bab-a8cd-565eb8483785(com.mbeddr.core.pointers.structure)" implicit="true" />
     <import index="tpee" ref="r:00000000-0000-4000-0000-011c895902ca(jetbrains.mps.baseLanguage.structure)" implicit="true" />
     <import index="kmi" ref="r:afa7ae5b-c41f-45e8-9678-2beae3621a33(ReversibleStatements.structure)" implicit="true" />
+    <import index="qyxp" ref="r:173369a3-8060-4aa4-8d21-7c6337526a39(ReversibleStatements.behavior)" implicit="true" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -287,9 +288,17 @@
     <language id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core">
       <concept id="1133920641626" name="jetbrains.mps.lang.core.structure.BaseConcept" flags="ng" index="2VYdi">
         <property id="1193676396447" name="virtualPackage" index="3GE5qa" />
+        <child id="5169995583184591170" name="smodelAttribute" index="lGtFl" />
       </concept>
       <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ngI" index="TrEIO">
         <property id="1169194664001" name="name" index="TrG5h" />
+      </concept>
+      <concept id="709746936026466394" name="jetbrains.mps.lang.core.structure.ChildAttribute" flags="ng" index="3VBwX9">
+        <property id="709746936026609031" name="linkId" index="3V$3ak" />
+        <property id="709746936026609029" name="role_DebugInfo" index="3V$3am" />
+      </concept>
+      <concept id="4452961908202556907" name="jetbrains.mps.lang.core.structure.BaseCommentAttribute" flags="ng" index="1X3_iC">
+        <child id="3078666699043039389" name="commentedNode" index="8Wnug" />
       </concept>
     </language>
     <language id="c7fb639f-be78-4307-89b0-b5959c3fa8c8" name="jetbrains.mps.lang.text">
@@ -2300,6 +2309,52 @@
     <node concept="1YaCAy" id="5xEIMPmjFTC" role="1YuTPh">
       <property role="TrG5h" value="argumentRef" />
       <ref role="1YaFvo" to="kmi:5xEIMPmjCbZ" resolve="ArgumentRef" />
+    </node>
+  </node>
+  <node concept="18kY7G" id="4GuVbI_0$Kh">
+    <property role="TrG5h" value="check_ReturnStatement" />
+    <node concept="3clFbS" id="4GuVbI_0$Ki" role="18ibNy">
+      <node concept="1X3_iC" id="4GuVbIAr78w" role="lGtFl">
+        <property role="3V$3am" value="statement" />
+        <property role="3V$3ak" value="f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123136/1068581517665" />
+        <node concept="3clFbJ" id="5ak6HMA0ogd" role="8Wnug">
+          <node concept="1Wc70l" id="5ak6HMA0ogs" role="3clFbw">
+            <node concept="3clFbC" id="5ak6HMA0ogC" role="3uHU7w">
+              <node concept="10Nm6u" id="5ak6HMA0ogF" role="3uHU7w" />
+              <node concept="2OqwBi" id="5ak6HMA0ogw" role="3uHU7B">
+                <node concept="1YBJjd" id="5ak6HMA0ogv" role="2Oq$k0">
+                  <ref role="1YBMHb" node="4GuVbI_0$Kk" resolve="rs" />
+                </node>
+                <node concept="3TrEf2" id="5ak6HMA0og$" role="2OqNvi">
+                  <ref role="3Tt5mk" to="kmi:4GuVbI_0lYI" resolve="expression" />
+                </node>
+              </node>
+            </node>
+            <node concept="2OqwBi" id="5ak6HMA0ogh" role="3uHU7B">
+              <node concept="1YBJjd" id="5ak6HMA0ogg" role="2Oq$k0">
+                <ref role="1YBMHb" node="4GuVbI_0$Kk" resolve="rs" />
+              </node>
+              <node concept="2qgKlT" id="5ak6HMA0ogl" role="2OqNvi">
+                <ref role="37wK5l" to="qyxp:5ak6HMA0oem" resolve="needsReturnValue" />
+              </node>
+            </node>
+          </node>
+          <node concept="3clFbS" id="5ak6HMA0ogf" role="3clFbx">
+            <node concept="2MkqsV" id="5ak6HMA0ogG" role="3cqZAp">
+              <node concept="Xl_RD" id="5ak6HMA0ogJ" role="2MkJ7o">
+                <property role="Xl_RC" value="return value required" />
+              </node>
+              <node concept="1YBJjd" id="5ak6HMA0qOE" role="1urrMF">
+                <ref role="1YBMHb" node="4GuVbI_0$Kk" resolve="rs" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1YaCAy" id="4GuVbI_0$Kk" role="1YuTPh">
+      <property role="TrG5h" value="rs" />
+      <ref role="1YaFvo" to="kmi:4GuVbI_0lYF" resolve="ReturnStatement" />
     </node>
   </node>
 </model>

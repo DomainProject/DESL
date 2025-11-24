@@ -25,6 +25,12 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
     switch (myIndex.index(concept)) {
       case LanguageConceptSwitch.ReversibleFunction:
         return new ReversibleFunction_TextGen();
+      case LanguageConceptSwitch.ReversibleMacro:
+        return new ReversibleMacro_TextGen();
+      case LanguageConceptSwitch.ReversibleMacroArgument:
+        return new ReversibleMacroArgument_TextGen();
+      case LanguageConceptSwitch.ReversibleMacroArgumentRef:
+        return new ReversibleMacroArgumentRef_TextGen();
       case LanguageConceptSwitch.ReversibleScriptExp:
         return new ReversibleScriptExp_TextGen();
     }

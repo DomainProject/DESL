@@ -15,6 +15,8 @@ import jetbrains.mps.smodel.runtime.ConstraintsAspectDescriptor;
 import jetbrains.mps.openapi.editor.descriptor.EditorAspectDescriptor;
 import ReversibleFunctions.editor.EditorAspectDescriptorImpl;
 import jetbrains.mps.text.rt.TextGenAspectDescriptor;
+import jetbrains.mps.lang.typesystem.runtime.IHelginsDescriptor;
+import ReversibleFunctions.typesystem.TypesystemDescriptor;
 import jetbrains.mps.smodel.runtime.StructureAspectDescriptor;
 import jetbrains.mps.smodel.runtime.ConceptPresentationAspect;
 import ReversibleFunctions.structure.ConceptPresentationAspectImpl;
@@ -45,6 +47,7 @@ public class Language extends LanguageRuntime {
   @Override
   protected void fillExtendedLanguages(Collection<SLanguage> extendedLanguages) {
     extendedLanguages.add(MetaAdapterFactory.getLanguage(SLanguageId.deserialize("6d11763d-483d-4b2b-8efc-09336c1b0001"), "com.mbeddr.core.modules"));
+    extendedLanguages.add(MetaAdapterFactory.getLanguage(SLanguageId.deserialize("9abffa92-4875-42bf-9379-c4f95eb496d4"), "ReversibleExpressions"));
   }
 
   @Override
@@ -63,6 +66,9 @@ public class Language extends LanguageRuntime {
     }
     if (aspectClass == TextGenAspectDescriptor.class) {
       return aspectClass.cast(new ReversibleFunctions.textGen.TextGenAspectDescriptor());
+    }
+    if (aspectClass == IHelginsDescriptor.class) {
+      return aspectClass.cast(new TypesystemDescriptor());
     }
     if (aspectClass == StructureAspectDescriptor.class) {
       return aspectClass.cast(new ReversibleFunctions.structure.StructureAspectDescriptor());

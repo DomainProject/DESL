@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<product version="3" modelHash="41llzg54bbfe15t00w994k2mnn7lhb">
-  <files names="TypesystemDescriptor.java" />
+<product version="3" modelHash="8hnk5pwexqwpkmyvwuvv4mn0qhnsbu8">
+  <files names="TypesystemDescriptor.java:typeof_ReversibleMacroArgumentRef_InferenceRule.java:typeof_ReversibleMacro_InferenceRule.java" />
 </product>
 

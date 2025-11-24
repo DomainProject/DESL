@@ -18,7 +18,7 @@ public class SwitchDefault_TextGen extends TextGenDescriptorBase {
     tgs.append("default: {");
     tgs.newLine();
     ctx.getBuffer().area().increaseIndent();
-    for (SNode s : ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$mL$9), LINKS.statements$IdM8))) {
+    for (SNode s : ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$mL$9), LINKS.revStatements$IdM8))) {
       tgs.indent();
       tgs.appendNode(s);
       tgs.newLine();
@@ -31,6 +31,6 @@ public class SwitchDefault_TextGen extends TextGenDescriptorBase {
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink body$mL$9 = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x2b8026b23bc2da02L, 0x2b8026b23bc2da04L, "body");
-    /*package*/ static final SContainmentLink statements$IdM8 = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, 0x3a16e3a9c7ad9956L, "statements");
+    /*package*/ static final SContainmentLink revStatements$IdM8 = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, 0x3a16e3a9c7ad9956L, "revStatements");
   }
 }

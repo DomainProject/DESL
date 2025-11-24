@@ -5,8 +5,8 @@ package Collections.textGen;
 import jetbrains.mps.text.rt.TextGenDescriptorBase;
 import jetbrains.mps.text.rt.TextGenContext;
 import jetbrains.mps.text.impl.TextGenSupport;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.traceable.behavior.TraceableConcept__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
@@ -19,12 +19,21 @@ public class RemoveFromCollection_TextGen extends TextGenDescriptorBase {
   public void generateText(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     tgs.createPositionInfo();
-    tgs.append("list_detach_by_content(");
-    tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.collection$QseB));
-    tgs.append(", ");
-    tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableName$FJHk));
-    tgs.append(");");
-    tgs.newLine();
+    if (SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5)) {
+      tgs.append("list_detach_by_content(");
+      tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.collection$QseB));
+      tgs.append(", ");
+      tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableName$FJHk));
+      tgs.append(");");
+      tgs.newLine();
+    } else {
+      tgs.append("list_insert_tail(");
+      tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.collection$QseB));
+      tgs.append(", ");
+      tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableName$FJHk));
+      tgs.append(");");
+      tgs.newLine();
+    }
     if (tgs.needPositions()) {
       tgs.fillPositionInfo(TraceableConcept__BehaviorDescriptor.getTraceableProperty_id4pl5GY7LKmH.invoke(SNodeOperations.cast(ctx.getPrimaryInput(), CONCEPTS.TraceableConcept$L)));
     }
@@ -36,6 +45,7 @@ public class RemoveFromCollection_TextGen extends TextGenDescriptorBase {
 
   private static final class PROPS {
     /*package*/ static final SProperty variableName$FJHk = MetaAdapterFactory.getProperty(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x74450034d00494f4L, 0x323127c573d9e3b3L, "variableName");
+    /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
   }
 
   private static final class CONCEPTS {

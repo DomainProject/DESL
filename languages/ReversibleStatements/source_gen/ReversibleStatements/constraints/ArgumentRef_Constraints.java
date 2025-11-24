@@ -61,7 +61,7 @@ public class ArgumentRef_Constraints extends BaseConstraintsDescriptor {
         }
         @Override
         public Scope createScope(final ReferenceConstraintsContext _context) {
-          return new NamedElementsScope(ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.ReversibleFunction$IL, true, false), LINKS.arguments$6da0)).where((it) -> (boolean) IArgumentLike__BehaviorDescriptor.participatesInScope_idUslQeyoOp4.invoke(it)));
+          return new NamedElementsScope(ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.ReversibleFunction$IL, true, false), LINKS.arguments$gPkY)).where((it) -> (boolean) IArgumentLike__BehaviorDescriptor.participatesInScope_idUslQeyoOp4.invoke(it)));
         }
       };
     }
@@ -79,6 +79,6 @@ public class ArgumentRef_Constraints extends BaseConstraintsDescriptor {
 
   private static final class LINKS {
     /*package*/ static final SReferenceLink arg$bO7D = MetaAdapterFactory.getReferenceLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x586abb2d564e82ffL, 0x586abb2d564e8301L, "arg");
-    /*package*/ static final SContainmentLink arguments$6da0 = MetaAdapterFactory.getContainmentLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x707ac195dd5d51f2L, 0x4f39f90935e92f45L, "arguments");
+    /*package*/ static final SContainmentLink arguments$gPkY = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, 0x4f39f90935e92f45L, "arguments");
   }
 }

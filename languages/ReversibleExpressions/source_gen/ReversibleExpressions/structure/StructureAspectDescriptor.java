@@ -61,6 +61,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptIAssignmentSide = createDescriptorForIAssignmentSide();
   /*package*/ final ConceptDescriptor myConceptIBinaryLike = createDescriptorForIBinaryLike();
   /*package*/ final ConceptDescriptor myConceptIDestructiveOperation = createDescriptorForIDestructiveOperation();
+  /*package*/ final ConceptDescriptor myConceptIDuplicateConceptInCondition = createDescriptorForIDuplicateConceptInCondition();
   /*package*/ final ConceptDescriptor myConceptIExpressionWrapper = createDescriptorForIExpressionWrapper();
   /*package*/ final ConceptDescriptor myConceptIGenericDotTarget = createDescriptorForIGenericDotTarget();
   /*package*/ final ConceptDescriptor myConceptIIncompleteParenthesis = createDescriptorForIIncompleteParenthesis();
@@ -102,6 +103,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptPreDecrementExpression = createDescriptorForPreDecrementExpression();
   /*package*/ final ConceptDescriptor myConceptPreIncrementExpression = createDescriptorForPreIncrementExpression();
   /*package*/ final ConceptDescriptor myConceptReversibleExpression = createDescriptorForReversibleExpression();
+  /*package*/ final ConceptDescriptor myConceptReversibleFunctionCall = createDescriptorForReversibleFunctionCall();
   /*package*/ final ConceptDescriptor myConceptScientificNumber = createDescriptorForScientificNumber();
   /*package*/ final ConceptDescriptor myConceptStaticValueExpression = createDescriptorForStaticValueExpression();
   /*package*/ final ConceptDescriptor myConceptTernaryExpression = createDescriptorForTernaryExpression();
@@ -114,6 +116,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptUnsignedIntegerLiteral = createDescriptorForUnsignedIntegerLiteral();
   /*package*/ final ConceptDescriptor myConceptVaArgExpression = createDescriptorForVaArgExpression();
   /*package*/ final ConceptDescriptor myConceptVaList = createDescriptorForVaList();
+  /*package*/ final ConceptDescriptor myConceptVoidType = createDescriptorForVoidType();
   /*package*/ final EnumerationDescriptor myEnumerationStaticValueMathOperation = new EnumerationDescriptor_StaticValueMathOperation();
   private final LanguageConceptSwitch myIndexSwitch;
 
@@ -136,7 +139,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptAndExpression, myConceptAssignmentExpr, myConceptBinaryArithmeticExpression, myConceptBinaryComparisonExpression, myConceptBinaryEqualityComparisonExpression, myConceptBinaryExpression, myConceptBinaryLogicalExpression, myConceptBinaryNumberLiteral, myConceptBinaryOrderedComparisonExpression, myConceptBitwiseAndExpression, myConceptBitwiseBinaryArithmaticsExpression, myConceptBitwiseDirectAssignmentExpression, myConceptBitwiseLeftShiftExpression, myConceptBitwiseNotExpression, myConceptBitwiseORExpression, myConceptBitwiseRightShiftExpression, myConceptBitwiseXORExpression, myConceptBooleanLiteral, myConceptCastExpression, myConceptCharLiteral, myConceptCommentedContent, myConceptDirectAssignmentExpression, myConceptDirectBitwiseANDAssignmentExpression, myConceptDirectBitwiseLeftShiftAssignmentExpression, myConceptDirectBitwiseORAssignmentExpression, myConceptDirectBitwiseRightShiftExpression, myConceptDirectBitwiseXORAssignmentExpression, myConceptDirectDivAssignmentExpression, myConceptDirectMinusAssignmentExpression, myConceptDirectModuloAssignmentExpression, myConceptDirectMultiAssignmentExpression, myConceptDirectPlusAssignmentExpression, myConceptDivExpression, myConceptEqualsExpression, myConceptExpressionList, myConceptFalseLiteral, myConceptGenericDotExpression, myConceptGreaterEqualsExpression, myConceptGreaterExpression, myConceptHexNumberLiteral, myConceptIAncestorRelevantNode, myConceptIAssignmentLike, myConceptIAssignmentSide, myConceptIBinaryLike, myConceptIDestructiveOperation, myConceptIExpressionWrapper, myConceptIGenericDotTarget, myConceptIIncompleteParenthesis, myConceptIInitializationContext, myConceptILiteralDecorator, myConceptILiteralLike, myConceptIMemberReference, myConceptINeedSupportVariable, myConceptINumberOperation, myConceptINumericLiteral, myConceptIOnlyInInitialization, myConceptIPrintable, myConceptIRequireStdArgHeader, myConceptIRequiresTypeToBeInferred, myConceptIRestrictConstAndVolatile, myConceptISelfTypingInBinaryExpression, myConceptIStopReshuffling, myConceptITypeDecorator, myConceptITyped, myConceptIVariableDeclaration, myConceptIVariableReference, myConceptLessEqualsExpression, myConceptLessExpression, myConceptLiteral, myConceptMinusExpression, myConceptModuloExpression, myConceptMultiExpression, myConceptNotEqualsExpression, myConceptNotExpression, myConceptNotParsedExpression, myConceptNumberLiteral, myConceptNumericLiteral, myConceptOctalNumberLiteral, myConceptOrExpression, myConceptParensExpression, myConceptPlusExpression, myConceptPostDecrementExpression, myConceptPostIncrementExpression, myConceptPreDecrementExpression, myConceptPreIncrementExpression, myConceptReversibleExpression, myConceptScientificNumber, myConceptStaticValueExpression, myConceptTernaryExpression, myConceptTrueLiteral, myConceptUnaryArithmeticExpression, myConceptUnaryExpression, myConceptUnaryLogicalExpression, myConceptUnaryMinusExpression, myConceptUnaryPrePosModificationExpression, myConceptUnsignedIntegerLiteral, myConceptVaArgExpression, myConceptVaList);
+    return Arrays.asList(myConceptAndExpression, myConceptAssignmentExpr, myConceptBinaryArithmeticExpression, myConceptBinaryComparisonExpression, myConceptBinaryEqualityComparisonExpression, myConceptBinaryExpression, myConceptBinaryLogicalExpression, myConceptBinaryNumberLiteral, myConceptBinaryOrderedComparisonExpression, myConceptBitwiseAndExpression, myConceptBitwiseBinaryArithmaticsExpression, myConceptBitwiseDirectAssignmentExpression, myConceptBitwiseLeftShiftExpression, myConceptBitwiseNotExpression, myConceptBitwiseORExpression, myConceptBitwiseRightShiftExpression, myConceptBitwiseXORExpression, myConceptBooleanLiteral, myConceptCastExpression, myConceptCharLiteral, myConceptCommentedContent, myConceptDirectAssignmentExpression, myConceptDirectBitwiseANDAssignmentExpression, myConceptDirectBitwiseLeftShiftAssignmentExpression, myConceptDirectBitwiseORAssignmentExpression, myConceptDirectBitwiseRightShiftExpression, myConceptDirectBitwiseXORAssignmentExpression, myConceptDirectDivAssignmentExpression, myConceptDirectMinusAssignmentExpression, myConceptDirectModuloAssignmentExpression, myConceptDirectMultiAssignmentExpression, myConceptDirectPlusAssignmentExpression, myConceptDivExpression, myConceptEqualsExpression, myConceptExpressionList, myConceptFalseLiteral, myConceptGenericDotExpression, myConceptGreaterEqualsExpression, myConceptGreaterExpression, myConceptHexNumberLiteral, myConceptIAncestorRelevantNode, myConceptIAssignmentLike, myConceptIAssignmentSide, myConceptIBinaryLike, myConceptIDestructiveOperation, myConceptIDuplicateConceptInCondition, myConceptIExpressionWrapper, myConceptIGenericDotTarget, myConceptIIncompleteParenthesis, myConceptIInitializationContext, myConceptILiteralDecorator, myConceptILiteralLike, myConceptIMemberReference, myConceptINeedSupportVariable, myConceptINumberOperation, myConceptINumericLiteral, myConceptIOnlyInInitialization, myConceptIPrintable, myConceptIRequireStdArgHeader, myConceptIRequiresTypeToBeInferred, myConceptIRestrictConstAndVolatile, myConceptISelfTypingInBinaryExpression, myConceptIStopReshuffling, myConceptITypeDecorator, myConceptITyped, myConceptIVariableDeclaration, myConceptIVariableReference, myConceptLessEqualsExpression, myConceptLessExpression, myConceptLiteral, myConceptMinusExpression, myConceptModuloExpression, myConceptMultiExpression, myConceptNotEqualsExpression, myConceptNotExpression, myConceptNotParsedExpression, myConceptNumberLiteral, myConceptNumericLiteral, myConceptOctalNumberLiteral, myConceptOrExpression, myConceptParensExpression, myConceptPlusExpression, myConceptPostDecrementExpression, myConceptPostIncrementExpression, myConceptPreDecrementExpression, myConceptPreIncrementExpression, myConceptReversibleExpression, myConceptReversibleFunctionCall, myConceptScientificNumber, myConceptStaticValueExpression, myConceptTernaryExpression, myConceptTrueLiteral, myConceptUnaryArithmeticExpression, myConceptUnaryExpression, myConceptUnaryLogicalExpression, myConceptUnaryMinusExpression, myConceptUnaryPrePosModificationExpression, myConceptUnsignedIntegerLiteral, myConceptVaArgExpression, myConceptVaList, myConceptVoidType);
   }
 
   @Override
@@ -233,6 +236,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptIBinaryLike;
       case LanguageConceptSwitch.IDestructiveOperation:
         return myConceptIDestructiveOperation;
+      case LanguageConceptSwitch.IDuplicateConceptInCondition:
+        return myConceptIDuplicateConceptInCondition;
       case LanguageConceptSwitch.IExpressionWrapper:
         return myConceptIExpressionWrapper;
       case LanguageConceptSwitch.IGenericDotTarget:
@@ -315,6 +320,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptPreIncrementExpression;
       case LanguageConceptSwitch.ReversibleExpression:
         return myConceptReversibleExpression;
+      case LanguageConceptSwitch.ReversibleFunctionCall:
+        return myConceptReversibleFunctionCall;
       case LanguageConceptSwitch.ScientificNumber:
         return myConceptScientificNumber;
       case LanguageConceptSwitch.StaticValueExpression:
@@ -339,6 +346,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptVaArgExpression;
       case LanguageConceptSwitch.VaList:
         return myConceptVaList;
+      case LanguageConceptSwitch.VoidType:
+        return myConceptVoidType;
       default:
         return null;
     }
@@ -409,6 +418,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     // extends: ReversibleExpressions.structure.ReversibleExpression
     b.super_(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L);
     b.parent(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x65a3fdcab15dc528L);
+    b.parent(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4b1eecbba76803eeL);
     b.origin("r:539823a2-87c6-4a7e-abc8-d6fc586848eb(ReversibleExpressions.structure)/8860443239512128052");
     b.version(3);
     b.aggregate("left", 0x7af69e2e83a1ba40L).target(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L).optional(false).ordered(true).multiple(false).origin("8860443239512128064").done();
@@ -800,6 +810,13 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.version(3);
     return b.create();
   }
+  private static ConceptDescriptor createDescriptorForIDuplicateConceptInCondition() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("ReversibleExpressions", "IDuplicateConceptInCondition", 0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4b1eecbba76803eeL);
+    b.interface_();
+    b.origin("r:539823a2-87c6-4a7e-abc8-d6fc586848eb(ReversibleExpressions.structure)/5413024092857566190");
+    b.version(3);
+    return b.create();
+  }
   private static ConceptDescriptor createDescriptorForIExpressionWrapper() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("ReversibleExpressions", "IExpressionWrapper", 0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x32cfa60b4ba95397L);
     b.interface_();
@@ -983,6 +1000,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     // extends: ReversibleExpressions.structure.ReversibleExpression
     b.super_(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L);
     b.parent(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0xc746215ed99b4aeL);
+    b.parent(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4b1eecbba76803eeL);
     b.origin("r:539823a2-87c6-4a7e-abc8-d6fc586848eb(ReversibleExpressions.structure)/8860443239512128090");
     b.version(3);
     return b.create();
@@ -1003,6 +1021,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     // extends: ReversibleExpressions.structure.BinaryArithmeticExpression
     b.super_(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4ffba68fe82b6205L);
     b.parent(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x2e62522723b8d1fdL);
+    b.parent(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x27d0c8e745a2c78dL);
     b.origin("r:539823a2-87c6-4a7e-abc8-d6fc586848eb(ReversibleExpressions.structure)/2799490600706093744");
     b.version(3);
     b.alias("%");
@@ -1161,6 +1180,17 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.version(3);
     return b.create();
   }
+  private static ConceptDescriptor createDescriptorForReversibleFunctionCall() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("ReversibleExpressions", "ReversibleFunctionCall", 0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x2e6ecb766f1587b4L);
+    b.class_(false, false, false);
+    // extends: ReversibleExpressions.structure.ReversibleExpression
+    b.super_(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L);
+    b.origin("r:539823a2-87c6-4a7e-abc8-d6fc586848eb(ReversibleExpressions.structure)/3345835282713118644");
+    b.version(3);
+    b.associate("function", 0x2e6ecb766f15bfbaL).target(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL).optional(false).origin("3345835282713132986").done();
+    b.aggregate("actuals", 0x2e6ecb766f15bfb8L).target(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L).optional(true).ordered(true).multiple(true).origin("3345835282713132984").done();
+    return b.create();
+  }
   private static ConceptDescriptor createDescriptorForScientificNumber() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("ReversibleExpressions", "ScientificNumber", 0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x172ddc48ec9eb7ceL);
     b.class_(false, false, false);
@@ -1222,6 +1252,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.class_(false, true, false);
     // extends: ReversibleExpressions.structure.ReversibleExpression
     b.super_(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L);
+    b.parent(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4b1eecbba76803eeL);
     b.origin("r:539823a2-87c6-4a7e-abc8-d6fc586848eb(ReversibleExpressions.structure)/3005510381523579442");
     b.version(3);
     b.aggregate("expression", 0x64ae61a4018a9c50L).target(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L).optional(false).ordered(true).multiple(false).origin("7254843406768839760").done();
@@ -1289,6 +1320,16 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.origin("r:539823a2-87c6-4a7e-abc8-d6fc586848eb(ReversibleExpressions.structure)/5598157691785092834");
     b.version(3);
     b.alias("va_list");
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForVoidType() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("ReversibleExpressions", "VoidType", 0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x2e6ecb766f87badbL);
+    b.class_(false, false, false);
+    // extends: com.mbeddr.core.expressions.structure.PrimitiveType
+    b.super_(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba38L);
+    b.origin("r:539823a2-87c6-4a7e-abc8-d6fc586848eb(ReversibleExpressions.structure)/3345835282720602843");
+    b.version(3);
+    b.alias("void");
     return b.create();
   }
 }

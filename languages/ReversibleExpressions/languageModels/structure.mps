@@ -13,6 +13,7 @@
     <import index="mj1l" ref="r:c371cf98-dcc8-4a43-8eb8-8a8096de18b2(com.mbeddr.core.expressions.structure)" implicit="true" />
     <import index="kmi" ref="r:afa7ae5b-c41f-45e8-9678-2beae3621a33(ReversibleStatements.structure)" implicit="true" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
+    <import index="w8o" ref="r:e84d12fa-9ad2-42d4-95e8-d9ef0c30fdf9(ReversibleFunctions.structure)" implicit="true" />
   </imports>
   <registry>
     <language id="c72da2b9-7cce-4447-8389-f407dc1158b7" name="jetbrains.mps.lang.structure">
@@ -117,6 +118,9 @@
     <node concept="PrWs8" id="6mzZsELp2aG" role="PzmwI">
       <ref role="PrY4T" node="6mzZsELnskC" resolve="IBinaryLike" />
     </node>
+    <node concept="PrWs8" id="4GuVbIBq1gf" role="PzmwI">
+      <ref role="PrY4T" node="4GuVbIBq0fI" resolve="IDuplicateConceptInCondition" />
+    </node>
   </node>
   <node concept="1TIwiD" id="7FQByU3CrCZ">
     <property role="TrG5h" value="BinaryComparisonExpression" />
@@ -135,6 +139,9 @@
     <ref role="1TJDcQ" node="7FQByU3CrCM" resolve="ReversibleExpression" />
     <node concept="PrWs8" id="LOoxnHAriJ" role="PzmwI">
       <ref role="PrY4T" node="LOoxnHAriI" resolve="ILiteralLike" />
+    </node>
+    <node concept="PrWs8" id="4GuVbIBxLqO" role="PzmwI">
+      <ref role="PrY4T" node="4GuVbIBq0fI" resolve="IDuplicateConceptInCondition" />
     </node>
   </node>
   <node concept="1TIwiD" id="7FQByU3CrDs">
@@ -316,6 +323,9 @@
       <property role="IQ2ns" value="7254843406768839760" />
       <ref role="20lvS9" node="7FQByU3CrCM" resolve="ReversibleExpression" />
     </node>
+    <node concept="PrWs8" id="4GuVbIBxLqN" role="PzmwI">
+      <ref role="PrY4T" node="4GuVbIBq0fI" resolve="IDuplicateConceptInCondition" />
+    </node>
   </node>
   <node concept="1TIwiD" id="1spqZOskLyG">
     <property role="3GE5qa" value="literals" />
@@ -369,6 +379,9 @@
     <ref role="1TJDcQ" node="4ZVDCZCaQ85" resolve="BinaryArithmeticExpression" />
     <node concept="PrWs8" id="2TykyszIzYX" role="PzmwI">
       <ref role="PrY4T" node="2TykyszId7X" resolve="INumberOperation" />
+    </node>
+    <node concept="PrWs8" id="4GuVbI_bno5" role="PzmwI">
+      <ref role="PrY4T" node="2vgMet5CGud" resolve="IDestructiveOperation" />
     </node>
   </node>
   <node concept="1TIwiD" id="3k6lE4cOoJc">
@@ -1044,6 +1057,35 @@
     <node concept="PrWs8" id="2vgMet5CGue" role="PrDN$">
       <ref role="PrY4T" node="5xEIMPngWHC" resolve="INeedSupportVariable" />
     </node>
+  </node>
+  <node concept="PlHQZ" id="4GuVbIBq0fI">
+    <property role="EcuMT" value="5413024092857566190" />
+    <property role="TrG5h" value="IDuplicateConceptInCondition" />
+  </node>
+  <node concept="1TIwiD" id="2TIMRpJ5ouO">
+    <property role="EcuMT" value="3345835282713118644" />
+    <property role="TrG5h" value="ReversibleFunctionCall" />
+    <property role="R4oN_" value="--" />
+    <ref role="1TJDcQ" node="7FQByU3CrCM" resolve="ReversibleExpression" />
+    <node concept="1TJgyj" id="2TIMRpJ5rYU" role="1TKVEi">
+      <property role="IQ2ns" value="3345835282713132986" />
+      <property role="20kJfa" value="function" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" to="w8o:5U1XgQxbKlv" resolve="ReversibleFunction" />
+    </node>
+    <node concept="1TJgyj" id="2TIMRpJ5rYS" role="1TKVEi">
+      <property role="IQ2ns" value="3345835282713132984" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="actuals" />
+      <property role="20lbJX" value="fLJekj5/_0__n" />
+      <ref role="20lvS9" node="7FQByU3CrCM" resolve="ReversibleExpression" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="2TIMRpJxVFr">
+    <property role="EcuMT" value="3345835282720602843" />
+    <property role="TrG5h" value="VoidType" />
+    <property role="34LRSv" value="void" />
+    <ref role="1TJDcQ" to="mj1l:7FQByU3CrCS" resolve="PrimitiveType" />
   </node>
 </model>
 

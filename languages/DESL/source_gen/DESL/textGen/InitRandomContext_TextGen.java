@@ -19,7 +19,6 @@ public class InitRandomContext_TextGen extends TextGenDescriptorBase {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     tgs.createPositionInfo();
     if ((SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.RootSimM2M$x5, false, false) != null)) {
-
       tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.stateContext$AbdP));
       tgs.append(" = (struct rng_t *)malloc(sizeof(struct rng_t));");
       tgs.newLine();
@@ -50,13 +49,10 @@ public class InitRandomContext_TextGen extends TextGenDescriptorBase {
       tgs.newLine();
 
     } else if ((SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.RootSimGPUM2M$GC, false, false) != null)) {
-
       tgs.append("curand_init(nid, 0, 0, ");
       tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.stateContext$AbdP));
       tgs.append(");");
       tgs.newLine();
-
-
     }
     if (tgs.needPositions()) {
       tgs.fillPositionInfo(TraceableConcept__BehaviorDescriptor.getTraceableProperty_id4pl5GY7LKmH.invoke(SNodeOperations.cast(ctx.getPrimaryInput(), CONCEPTS.TraceableConcept$L)));

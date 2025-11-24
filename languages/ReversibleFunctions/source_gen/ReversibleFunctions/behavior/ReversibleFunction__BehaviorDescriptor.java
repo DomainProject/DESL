@@ -36,7 +36,7 @@ public final class ReversibleFunction__BehaviorDescriptor extends BaseBHDescript
   /*package*/ static void propagateReversibility_id5U1XgQ$bWsf(@NotNull SNode __thisNode__) {
     for (SNode rev : ListSequence.fromList(SNodeOperations.getNodeDescendants(__thisNode__, CONCEPTS.IReversible$$B, false, new SAbstractConcept[]{}))) {
       if (!(SNodeOperations.isInstanceOf(SNodeOperations.getParent(rev), CONCEPTS.ForStatement$Bb))) {
-        SPropertyOperations.assign(rev, PROPS.isForward$pAg5, SPropertyOperations.getBoolean(__thisNode__, PROPS.isForward$3_sP));
+        SPropertyOperations.assign(rev, PROPS.isForward$pAg5, SPropertyOperations.getBoolean(__thisNode__, PROPS.isForward$rJ$J));
       } else {
         SPropertyOperations.assign(rev, PROPS.isForward$pAg5, true);
       }
@@ -92,7 +92,7 @@ public final class ReversibleFunction__BehaviorDescriptor extends BaseBHDescript
 
   private static final class PROPS {
     /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
-    /*package*/ static final SProperty isForward$3_sP = MetaAdapterFactory.getProperty(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, 0x5e81f50da1382199L, "isForward");
+    /*package*/ static final SProperty isForward$rJ$J = MetaAdapterFactory.getProperty(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111cL, 0x5e81f50da1382199L, "isForward");
   }
 
   private static final class CONCEPTS {

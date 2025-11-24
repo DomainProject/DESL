@@ -23,9 +23,13 @@ public class ConstraintsAspectDescriptor extends BaseConstraintsAspectDescriptor
     switch (conceptIndex.index(cncpt)) {
       case 0:
         return new ReversibleFunction_Constraints(context);
+      case 1:
+        return new ReversibleMacroArgument_Constraints(context);
+      case 2:
+        return new ReversibleMacroArgumentRef_Constraints(context);
       default:
     }
     return null;
   }
-  private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL)).seal();
+  private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL), MetaIdFactory.conceptId(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761177adb6L), MetaIdFactory.conceptId(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c176117d6e39L)).seal();
 }

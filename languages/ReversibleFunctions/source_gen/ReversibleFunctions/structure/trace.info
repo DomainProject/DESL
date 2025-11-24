@@ -10,123 +10,310 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1081236700938:jetbrains.mps.baseLanguage.structure.StaticMethodDeclaration" />
   <root>
     <file name="ConceptPresentationAspectImpl.java">
-      <unit at="11,0,46,0" name="ReversibleFunctions.structure.ConceptPresentationAspectImpl" />
+      <unit at="11,0,86,0" name="ReversibleFunctions.structure.ConceptPresentationAspectImpl" />
     </file>
     <file name="LanguageConceptSwitch.java">
-      <unit at="10,0,32,0" name="ReversibleFunctions.structure.LanguageConceptSwitch" />
+      <unit at="10,0,42,0" name="ReversibleFunctions.structure.LanguageConceptSwitch" />
     </file>
     <file name="StructureAspectDescriptor.java">
-      <unit at="15,0,92,0" name="ReversibleFunctions.structure.StructureAspectDescriptor" />
+      <unit at="15,0,170,0" name="ReversibleFunctions.structure.StructureAspectDescriptor" />
+    </file>
+  </root>
+  <root nodeRef="r:e84d12fa-9ad2-42d4-95e8-d9ef0c30fdf9(ReversibleFunctions.structure)/3415911555223847055">
+    <file name="ConceptPresentationAspectImpl.java">
+      <node id="3415911555223847055" at="15,0,16,0" concept="1" trace="props_ReversibleMacro" />
+      <node id="3415911555223847055" at="47,44,48,76" concept="3" />
+      <node id="3415911555223847055" at="48,76,49,64" concept="0" />
+      <node id="3415911555223847055" at="49,64,50,35" concept="0" />
+      <node id="3415911555223847055" at="50,35,51,47" concept="0" />
+      <node id="3415911555223847055" at="52,9,53,37" concept="4" />
+      <node id="3415911555223847055" at="46,49,52,9" concept="2" />
+      <scope id="3415911555223847055" at="47,44,51,47">
+        <var name="cpb" id="3415911555223847055" />
+      </scope>
+      <scope id="3415911555223847055" at="46,49,53,37" />
+    </file>
+    <file name="LanguageConceptSwitch.java">
+      <node id="3415911555223847055" at="15,0,16,0" concept="6" trace="ReversibleMacro" />
+      <node id="3415911555223847055" at="25,57,26,54" concept="0" />
+    </file>
+    <file name="StructureAspectDescriptor.java">
+      <node id="3415911555223847055" at="19,0,20,0" concept="1" trace="myConceptReversibleMacro" />
+      <node id="3415911555223847055" at="60,49,61,40" concept="4" />
+      <node id="3415911555223847055" at="114,73,115,169" concept="3" />
+      <node id="3415911555223847055" at="115,169,116,34" concept="0" />
+      <node id="3415911555223847055" at="116,34,117,76" concept="0" />
+      <node id="3415911555223847055" at="118,76,119,76" concept="0" />
+      <node id="3415911555223847055" at="119,76,120,76" concept="0" />
+      <node id="3415911555223847055" at="120,76,121,76" concept="0" />
+      <node id="3415911555223847055" at="121,76,122,106" concept="0" />
+      <node id="3415911555223847055" at="122,106,123,17" concept="0" />
+      <node id="1990329643454481074" at="123,17,124,118" concept="0" />
+      <node id="4811553567285628565" at="124,118,125,121" concept="0" />
+      <node id="6021475212425916983" at="125,121,126,201" concept="0" />
+      <node id="8655966904682451042" at="126,201,127,200" concept="0" />
+      <node id="3415911555223847055" at="127,200,128,22" concept="0" />
+      <node id="3415911555223847055" at="128,22,129,22" concept="4" />
+      <node id="3415911555223847055" at="114,0,131,0" concept="7" trace="createDescriptorForReversibleMacro#()Ljetbrains/mps/smodel/runtime/ConceptDescriptor;" />
+      <scope id="3415911555223847055" at="60,49,61,40" />
+      <scope id="3415911555223847055" at="114,73,129,22">
+        <var name="b" id="3415911555223847055" />
+      </scope>
+      <scope id="3415911555223847055" at="114,0,131,0" />
+    </file>
+  </root>
+  <root nodeRef="r:e84d12fa-9ad2-42d4-95e8-d9ef0c30fdf9(ReversibleFunctions.structure)/3415911555223851291">
+    <file name="ConceptPresentationAspectImpl.java">
+      <node id="3415911555223851291" at="12,0,13,0" concept="1" trace="props_EmptyLine" />
+      <node id="3415911555223851291" at="27,38,28,76" concept="3" />
+      <node id="3415911555223851291" at="28,76,29,43" concept="0" />
+      <node id="3415911555223851291" at="29,43,30,41" concept="0" />
+      <node id="3415911555223851291" at="31,9,32,31" concept="4" />
+      <node id="3415911555223851291" at="26,43,31,9" concept="2" />
+      <scope id="3415911555223851291" at="27,38,30,41">
+        <var name="cpb" id="3415911555223851291" />
+      </scope>
+      <scope id="3415911555223851291" at="26,43,32,31" />
+    </file>
+    <file name="LanguageConceptSwitch.java">
+      <node id="3415911555223851291" at="12,0,13,0" concept="6" trace="EmptyLine" />
+      <node id="3415911555223851291" at="22,116,23,48" concept="0" />
+    </file>
+    <file name="StructureAspectDescriptor.java">
+      <node id="3415911555223851291" at="16,0,17,0" concept="1" trace="myConceptEmptyLine" />
+      <node id="3415911555223851291" at="54,43,55,34" concept="4" />
+      <node id="3415911555223851291" at="80,67,81,163" concept="3" />
+      <node id="3415911555223851291" at="81,163,82,34" concept="0" />
+      <node id="3415911555223851291" at="83,76,84,106" concept="0" />
+      <node id="3415911555223851291" at="84,106,85,17" concept="0" />
+      <node id="3415911555223851291" at="85,17,86,22" concept="4" />
+      <node id="3415911555223851291" at="80,0,88,0" concept="7" trace="createDescriptorForEmptyLine#()Ljetbrains/mps/smodel/runtime/ConceptDescriptor;" />
+      <scope id="3415911555223851291" at="54,43,55,34" />
+      <scope id="3415911555223851291" at="80,67,86,22">
+        <var name="b" id="3415911555223851291" />
+      </scope>
+      <scope id="3415911555223851291" at="80,0,88,0" />
+    </file>
+  </root>
+  <root nodeRef="r:e84d12fa-9ad2-42d4-95e8-d9ef0c30fdf9(ReversibleFunctions.structure)/3415911555223851292">
+    <file name="ConceptPresentationAspectImpl.java">
+      <node id="3415911555223851292" at="13,0,14,0" concept="1" trace="props_IReversibleItem" />
+      <node id="3415911555223851292" at="34,44,35,76" concept="3" />
+      <node id="3415911555223851292" at="35,76,36,47" concept="0" />
+      <node id="3415911555223851292" at="37,9,38,37" concept="4" />
+      <node id="3415911555223851292" at="33,49,37,9" concept="2" />
+      <scope id="3415911555223851292" at="34,44,36,47">
+        <var name="cpb" id="3415911555223851292" />
+      </scope>
+      <scope id="3415911555223851292" at="33,49,38,37" />
+    </file>
+    <file name="LanguageConceptSwitch.java">
+      <node id="3415911555223851292" at="13,0,14,0" concept="6" trace="IReversibleItem" />
+      <node id="3415911555223851292" at="23,48,24,54" concept="0" />
+    </file>
+    <file name="StructureAspectDescriptor.java">
+      <node id="3415911555223851292" at="17,0,18,0" concept="1" trace="myConceptIReversibleItem" />
+      <node id="3415911555223851292" at="56,49,57,40" concept="4" />
+      <node id="3415911555223851292" at="82,34,83,76" concept="0" />
+      <node id="3415911555223851292" at="88,73,89,169" concept="3" />
+      <node id="3415911555223851292" at="89,169,90,19" concept="0" />
+      <node id="3415911555223851292" at="90,19,91,106" concept="0" />
+      <node id="3415911555223851292" at="91,106,92,17" concept="0" />
+      <node id="6809993550449090969" at="92,17,93,116" concept="0" />
+      <node id="6263969635223889026" at="93,116,94,128" concept="0" />
+      <node id="3415911555224125754" at="94,128,95,113" concept="0" />
+      <node id="3415911555223851292" at="95,113,96,22" concept="4" />
+      <node id="3415911555223851292" at="101,71,102,76" concept="0" />
+      <node id="3415911555223851292" at="117,76,118,76" concept="0" />
+      <node id="3415911555223851292" at="88,0,98,0" concept="7" trace="createDescriptorForIReversibleItem#()Ljetbrains/mps/smodel/runtime/ConceptDescriptor;" />
+      <scope id="3415911555223851292" at="56,49,57,40" />
+      <scope id="3415911555223851292" at="88,73,96,22">
+        <var name="b" id="3415911555223851292" />
+      </scope>
+      <scope id="3415911555223851292" at="88,0,98,0" />
+    </file>
+  </root>
+  <root nodeRef="r:e84d12fa-9ad2-42d4-95e8-d9ef0c30fdf9(ReversibleFunctions.structure)/3415911555227168182">
+    <file name="ConceptPresentationAspectImpl.java">
+      <node id="3415911555227168182" at="16,0,17,0" concept="1" trace="props_ReversibleMacroArgument" />
+      <node id="3415911555227168182" at="55,52,56,76" concept="3" />
+      <node id="3415911555227168182" at="56,76,57,35" concept="0" />
+      <node id="3415911555227168182" at="57,35,58,55" concept="0" />
+      <node id="3415911555227168182" at="59,9,60,45" concept="4" />
+      <node id="3415911555227168182" at="54,57,59,9" concept="2" />
+      <scope id="3415911555227168182" at="55,52,58,55">
+        <var name="cpb" id="3415911555227168182" />
+      </scope>
+      <scope id="3415911555227168182" at="54,57,60,45" />
+    </file>
+    <file name="LanguageConceptSwitch.java">
+      <node id="3415911555227168182" at="16,0,17,0" concept="6" trace="ReversibleMacroArgument" />
+      <node id="3415911555227168182" at="26,54,27,62" concept="0" />
+    </file>
+    <file name="StructureAspectDescriptor.java">
+      <node id="3415911555227168182" at="20,0,21,0" concept="1" trace="myConceptReversibleMacroArgument" />
+      <node id="3415911555227168182" at="62,57,63,48" concept="4" />
+      <node id="3415911555227168182" at="131,81,132,177" concept="3" />
+      <node id="3415911555227168182" at="132,177,133,34" concept="0" />
+      <node id="3415911555227168182" at="133,34,134,76" concept="0" />
+      <node id="3415911555227168182" at="134,76,135,75" concept="0" />
+      <node id="3415911555227168182" at="135,75,136,106" concept="0" />
+      <node id="3415911555227168182" at="136,106,137,17" concept="0" />
+      <node id="3415911555227168182" at="137,17,138,22" concept="4" />
+      <node id="3415911555227168182" at="131,0,140,0" concept="7" trace="createDescriptorForReversibleMacroArgument#()Ljetbrains/mps/smodel/runtime/ConceptDescriptor;" />
+      <scope id="3415911555227168182" at="62,57,63,48" />
+      <scope id="3415911555227168182" at="131,81,138,22">
+        <var name="b" id="3415911555227168182" />
+      </scope>
+      <scope id="3415911555227168182" at="131,0,140,0" />
+    </file>
+  </root>
+  <root nodeRef="r:e84d12fa-9ad2-42d4-95e8-d9ef0c30fdf9(ReversibleFunctions.structure)/3415911555227545145">
+    <file name="ConceptPresentationAspectImpl.java">
+      <node id="3415911555227545145" at="17,0,18,0" concept="1" trace="props_ReversibleMacroArgumentRef" />
+      <node id="3415911555227545145" at="62,55,63,76" concept="3" />
+      <node id="3415911555227545145" at="63,76,64,137" concept="0" />
+      <node id="3415911555227545145" at="64,137,65,58" concept="0" />
+      <node id="3415911555227545145" at="66,9,67,48" concept="4" />
+      <node id="3415911555227545145" at="61,60,66,9" concept="2" />
+      <scope id="3415911555227545145" at="62,55,65,58">
+        <var name="cpb" id="3415911555227545145" />
+      </scope>
+      <scope id="3415911555227545145" at="61,60,67,48" />
+    </file>
+    <file name="LanguageConceptSwitch.java">
+      <node id="3415911555227545145" at="17,0,18,0" concept="6" trace="ReversibleMacroArgumentRef" />
+      <node id="3415911555227545145" at="27,62,28,65" concept="0" />
+    </file>
+    <file name="StructureAspectDescriptor.java">
+      <node id="3415911555227545145" at="21,0,22,0" concept="1" trace="myConceptReversibleMacroArgumentRef" />
+      <node id="3415911555227545145" at="64,60,65,51" concept="4" />
+      <node id="3415911555227545145" at="140,84,141,180" concept="3" />
+      <node id="3415911555227545145" at="141,180,142,34" concept="0" />
+      <node id="3415911555227545145" at="142,34,143,68" concept="5" />
+      <node id="3415911555227545145" at="143,68,144,76" concept="0" />
+      <node id="3415911555227545145" at="144,76,145,76" concept="0" />
+      <node id="3415911555227545145" at="145,76,146,106" concept="0" />
+      <node id="3415911555227545145" at="146,106,147,17" concept="0" />
+      <node id="3415911555227557292" at="147,17,148,167" concept="0" />
+      <node id="3415911555227545145" at="148,167,149,22" concept="4" />
+      <node id="3415911555227545145" at="140,0,151,0" concept="7" trace="createDescriptorForReversibleMacroArgumentRef#()Ljetbrains/mps/smodel/runtime/ConceptDescriptor;" />
+      <scope id="3415911555227545145" at="64,60,65,51" />
+      <scope id="3415911555227545145" at="140,84,149,22">
+        <var name="b" id="3415911555227545145" />
+      </scope>
+      <scope id="3415911555227545145" at="140,0,151,0" />
     </file>
   </root>
   <root nodeRef="r:e84d12fa-9ad2-42d4-95e8-d9ef0c30fdf9(ReversibleFunctions.structure)/6263969635216976613">
     <file name="ConceptPresentationAspectImpl.java">
-      <node id="6263969635216976613" at="13,0,14,0" concept="1" trace="props_ReversibleScript" />
-      <node id="6263969635216976613" at="29,45,30,76" concept="3" />
-      <node id="6263969635216976613" at="30,76,31,50" concept="0" />
-      <node id="6263969635216976613" at="31,50,32,48" concept="0" />
-      <node id="6263969635216976613" at="33,9,34,38" concept="4" />
-      <node id="6263969635216976613" at="28,50,33,9" concept="2" />
-      <scope id="6263969635216976613" at="29,45,32,48">
+      <node id="6263969635216976613" at="18,0,19,0" concept="1" trace="props_ReversibleScript" />
+      <node id="6263969635216976613" at="69,45,70,76" concept="3" />
+      <node id="6263969635216976613" at="70,76,71,50" concept="0" />
+      <node id="6263969635216976613" at="71,50,72,48" concept="0" />
+      <node id="6263969635216976613" at="73,9,74,38" concept="4" />
+      <node id="6263969635216976613" at="68,50,73,9" concept="2" />
+      <scope id="6263969635216976613" at="69,45,72,48">
         <var name="cpb" id="6263969635216976613" />
       </scope>
-      <scope id="6263969635216976613" at="28,50,34,38" />
+      <scope id="6263969635216976613" at="68,50,74,38" />
     </file>
     <file name="LanguageConceptSwitch.java">
-      <node id="6263969635216976613" at="13,0,14,0" concept="6" trace="ReversibleScript" />
-      <node id="6263969635216976613" at="18,57,19,55" concept="0" />
+      <node id="6263969635216976613" at="18,0,19,0" concept="6" trace="ReversibleScript" />
+      <node id="6263969635216976613" at="28,65,29,55" concept="0" />
     </file>
     <file name="StructureAspectDescriptor.java">
-      <node id="6263969635216976613" at="17,0,18,0" concept="1" trace="myConceptReversibleScript" />
-      <node id="6263969635216976613" at="45,50,46,41" concept="4" />
-      <node id="6263969635216976613" at="73,74,74,170" concept="3" />
-      <node id="6263969635216976613" at="74,170,75,33" concept="0" />
-      <node id="6263969635216976613" at="75,33,76,106" concept="0" />
-      <node id="6263969635216976613" at="76,106,77,17" concept="0" />
-      <node id="6263969635216976614" at="77,17,78,211" concept="0" />
-      <node id="9176837022557531188" at="78,211,79,201" concept="0" />
-      <node id="6263969635216976613" at="79,201,80,22" concept="4" />
-      <node id="6263969635216976613" at="73,0,82,0" concept="7" trace="createDescriptorForReversibleScript#()Ljetbrains/mps/smodel/runtime/ConceptDescriptor;" />
-      <scope id="6263969635216976613" at="45,50,46,41" />
-      <scope id="6263969635216976613" at="73,74,80,22">
+      <node id="6263969635216976613" at="22,0,23,0" concept="1" trace="myConceptReversibleScript" />
+      <node id="6263969635216976613" at="66,50,67,41" concept="4" />
+      <node id="6263969635216976613" at="151,74,152,170" concept="3" />
+      <node id="6263969635216976613" at="152,170,153,33" concept="0" />
+      <node id="6263969635216976613" at="153,33,154,106" concept="0" />
+      <node id="6263969635216976613" at="154,106,155,17" concept="0" />
+      <node id="6263969635216976614" at="155,17,156,207" concept="0" />
+      <node id="9176837022557531188" at="156,207,157,201" concept="0" />
+      <node id="6263969635216976613" at="157,201,158,22" concept="4" />
+      <node id="6263969635216976613" at="151,0,160,0" concept="7" trace="createDescriptorForReversibleScript#()Ljetbrains/mps/smodel/runtime/ConceptDescriptor;" />
+      <scope id="6263969635216976613" at="66,50,67,41" />
+      <scope id="6263969635216976613" at="151,74,158,22">
         <var name="b" id="6263969635216976613" />
       </scope>
-      <scope id="6263969635216976613" at="73,0,82,0" />
+      <scope id="6263969635216976613" at="151,0,160,0" />
     </file>
   </root>
   <root nodeRef="r:e84d12fa-9ad2-42d4-95e8-d9ef0c30fdf9(ReversibleFunctions.structure)/6263969635226626941">
     <file name="ConceptPresentationAspectImpl.java">
-      <node id="6263969635226626941" at="14,0,15,0" concept="1" trace="props_ReversibleScriptExp" />
-      <node id="6263969635226626941" at="36,48,37,76" concept="3" />
-      <node id="6263969635226626941" at="37,76,38,53" concept="0" />
-      <node id="6263969635226626941" at="38,53,39,51" concept="0" />
-      <node id="6263969635226626941" at="40,9,41,41" concept="4" />
-      <node id="6263969635226626941" at="35,53,40,9" concept="2" />
-      <scope id="6263969635226626941" at="36,48,39,51">
+      <node id="6263969635226626941" at="19,0,20,0" concept="1" trace="props_ReversibleScriptExp" />
+      <node id="6263969635226626941" at="76,48,77,76" concept="3" />
+      <node id="6263969635226626941" at="77,76,78,53" concept="0" />
+      <node id="6263969635226626941" at="78,53,79,51" concept="0" />
+      <node id="6263969635226626941" at="80,9,81,41" concept="4" />
+      <node id="6263969635226626941" at="75,53,80,9" concept="2" />
+      <scope id="6263969635226626941" at="76,48,79,51">
         <var name="cpb" id="6263969635226626941" />
       </scope>
-      <scope id="6263969635226626941" at="35,53,41,41" />
+      <scope id="6263969635226626941" at="75,53,81,41" />
     </file>
     <file name="LanguageConceptSwitch.java">
-      <node id="6263969635226626941" at="14,0,15,0" concept="6" trace="ReversibleScriptExp" />
-      <node id="6263969635226626941" at="19,55,20,58" concept="0" />
+      <node id="6263969635226626941" at="19,0,20,0" concept="6" trace="ReversibleScriptExp" />
+      <node id="6263969635226626941" at="29,55,30,58" concept="0" />
     </file>
     <file name="StructureAspectDescriptor.java">
-      <node id="6263969635226626941" at="18,0,19,0" concept="1" trace="myConceptReversibleScriptExp" />
-      <node id="6263969635226626941" at="47,53,48,44" concept="4" />
-      <node id="6263969635226626941" at="82,77,83,173" concept="3" />
-      <node id="6263969635226626941" at="83,173,84,33" concept="0" />
-      <node id="6263969635226626941" at="84,33,85,62" concept="5" />
-      <node id="6263969635226626941" at="85,62,86,76" concept="0" />
-      <node id="6263969635226626941" at="86,76,87,106" concept="0" />
-      <node id="6263969635226626941" at="87,106,88,17" concept="0" />
-      <node id="6263969635226626941" at="88,17,89,22" concept="4" />
-      <node id="6263969635226626941" at="82,0,91,0" concept="7" trace="createDescriptorForReversibleScriptExp#()Ljetbrains/mps/smodel/runtime/ConceptDescriptor;" />
-      <scope id="6263969635226626941" at="47,53,48,44" />
-      <scope id="6263969635226626941" at="82,77,89,22">
+      <node id="6263969635226626941" at="23,0,24,0" concept="1" trace="myConceptReversibleScriptExp" />
+      <node id="6263969635226626941" at="68,53,69,44" concept="4" />
+      <node id="6263969635226626941" at="160,77,161,173" concept="3" />
+      <node id="6263969635226626941" at="161,173,162,33" concept="0" />
+      <node id="6263969635226626941" at="162,33,163,62" concept="5" />
+      <node id="6263969635226626941" at="163,62,164,76" concept="0" />
+      <node id="6263969635226626941" at="164,76,165,106" concept="0" />
+      <node id="6263969635226626941" at="165,106,166,17" concept="0" />
+      <node id="6263969635226626941" at="166,17,167,22" concept="4" />
+      <node id="6263969635226626941" at="160,0,169,0" concept="7" trace="createDescriptorForReversibleScriptExp#()Ljetbrains/mps/smodel/runtime/ConceptDescriptor;" />
+      <scope id="6263969635226626941" at="68,53,69,44" />
+      <scope id="6263969635226626941" at="160,77,167,22">
         <var name="b" id="6263969635226626941" />
       </scope>
-      <scope id="6263969635226626941" at="82,0,91,0" />
+      <scope id="6263969635226626941" at="160,0,169,0" />
     </file>
   </root>
   <root nodeRef="r:e84d12fa-9ad2-42d4-95e8-d9ef0c30fdf9(ReversibleFunctions.structure)/6809993550448493919">
     <file name="ConceptPresentationAspectImpl.java">
-      <node id="6809993550448493919" at="12,0,13,0" concept="1" trace="props_ReversibleFunction" />
-      <node id="6809993550448493919" at="22,47,23,76" concept="3" />
-      <node id="6809993550448493919" at="23,76,24,35" concept="0" />
-      <node id="6809993550448493919" at="24,35,25,50" concept="0" />
-      <node id="6809993550448493919" at="26,9,27,40" concept="4" />
-      <node id="6809993550448493919" at="21,52,26,9" concept="2" />
-      <scope id="6809993550448493919" at="22,47,25,50">
+      <node id="6809993550448493919" at="14,0,15,0" concept="1" trace="props_ReversibleFunction" />
+      <node id="6809993550448493919" at="40,47,41,76" concept="3" />
+      <node id="6809993550448493919" at="41,76,42,35" concept="0" />
+      <node id="6809993550448493919" at="42,35,43,50" concept="0" />
+      <node id="6809993550448493919" at="44,9,45,40" concept="4" />
+      <node id="6809993550448493919" at="39,52,44,9" concept="2" />
+      <scope id="6809993550448493919" at="40,47,43,50">
         <var name="cpb" id="6809993550448493919" />
       </scope>
-      <scope id="6809993550448493919" at="21,52,27,40" />
+      <scope id="6809993550448493919" at="39,52,45,40" />
     </file>
     <file name="LanguageConceptSwitch.java">
-      <node id="6809993550448493919" at="12,0,13,0" concept="6" trace="ReversibleFunction" />
-      <node id="6809993550448493919" at="17,116,18,57" concept="0" />
+      <node id="6809993550448493919" at="14,0,15,0" concept="6" trace="ReversibleFunction" />
+      <node id="6809993550448493919" at="24,54,25,57" concept="0" />
     </file>
     <file name="StructureAspectDescriptor.java">
-      <node id="6809993550448493919" at="16,0,17,0" concept="1" trace="myConceptReversibleFunction" />
-      <node id="6809993550448493919" at="43,52,44,43" concept="4" />
-      <node id="6809993550448493919" at="59,76,60,172" concept="3" />
-      <node id="6809993550448493919" at="60,172,61,34" concept="0" />
-      <node id="6809993550448493919" at="61,34,62,58" concept="5" />
-      <node id="6809993550448493919" at="62,58,63,76" concept="0" />
-      <node id="6809993550448493919" at="63,76,64,106" concept="0" />
-      <node id="6809993550448493919" at="64,106,65,17" concept="0" />
-      <node id="6809993550449090969" at="65,17,66,116" concept="0" />
-      <node id="6263969635223889026" at="66,116,67,128" concept="0" />
-      <node id="6809993550448523686" at="67,128,68,201" concept="0" />
-      <node id="5708867820623310661" at="68,201,69,201" concept="0" />
-      <node id="6277637377123569834" at="69,201,70,214" concept="0" />
-      <node id="6809993550448493919" at="70,214,71,22" concept="4" />
-      <node id="6809993550448493919" at="59,0,73,0" concept="7" trace="createDescriptorForReversibleFunction#()Ljetbrains/mps/smodel/runtime/ConceptDescriptor;" />
-      <scope id="6809993550448493919" at="43,52,44,43" />
-      <scope id="6809993550448493919" at="59,76,71,22">
+      <node id="6809993550448493919" at="18,0,19,0" concept="1" trace="myConceptReversibleFunction" />
+      <node id="6809993550448493919" at="58,52,59,43" concept="4" />
+      <node id="6809993550448493919" at="98,76,99,172" concept="3" />
+      <node id="6809993550448493919" at="99,172,100,34" concept="0" />
+      <node id="6809993550448493919" at="100,34,101,71" concept="0" />
+      <node id="6809993550448493919" at="102,76,103,106" concept="0" />
+      <node id="6809993550448493919" at="103,106,104,17" concept="0" />
+      <node id="5413024092842976559" at="104,17,105,118" concept="0" />
+      <node id="5413024092842976560" at="105,118,106,113" concept="0" />
+      <node id="6809993550448523686" at="106,113,107,201" concept="0" />
+      <node id="5708867820623310661" at="107,201,108,201" concept="0" />
+      <node id="6277637377123569834" at="108,201,109,214" concept="0" />
+      <node id="5413024092842969764" at="109,214,110,198" concept="0" />
+      <node id="5413024092842976561" at="110,198,111,204" concept="0" />
+      <node id="6809993550448493919" at="111,204,112,22" concept="4" />
+      <node id="6809993550448493919" at="98,0,114,0" concept="7" trace="createDescriptorForReversibleFunction#()Ljetbrains/mps/smodel/runtime/ConceptDescriptor;" />
+      <scope id="6809993550448493919" at="58,52,59,43" />
+      <scope id="6809993550448493919" at="98,76,112,22">
         <var name="b" id="6809993550448493919" />
       </scope>
-      <scope id="6809993550448493919" at="59,0,73,0" />
+      <scope id="6809993550448493919" at="98,0,114,0" />
     </file>
   </root>
 </debug-info>

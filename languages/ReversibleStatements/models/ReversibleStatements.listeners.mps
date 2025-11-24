@@ -184,7 +184,7 @@
   <node concept="jA7cl" id="2yF$W_nDvLV">
     <ref role="1M2myG" to="kmi:3CmSUB7Fp_l" resolve="ReversibleStatementList" />
     <node concept="j_Nyg" id="2yF$W_nDvLW" role="j$A37">
-      <ref role="j_u2Y" to="kmi:3CmSUB7Fp_m" resolve="statements" />
+      <ref role="j_u2Y" to="kmi:3CmSUB7Fp_m" resolve="revStatements" />
       <node concept="3clFbS" id="2yF$W_nDvLX" role="2VODD2">
         <node concept="3clFbH" id="33MO5h7O1Ej" role="3cqZAp" />
         <node concept="3cpWs8" id="2yF$W_nDyR$" role="3cqZAp">
@@ -861,7 +861,7 @@
       </node>
     </node>
     <node concept="j_NIE" id="37agc6dG_3G" role="j$A37">
-      <ref role="j_u2Y" to="kmi:3CmSUB7Fp_m" resolve="statements" />
+      <ref role="j_u2Y" to="kmi:3CmSUB7Fp_m" resolve="revStatements" />
       <node concept="3clFbS" id="37agc6dG_3I" role="2VODD2">
         <node concept="Jncv_" id="37agc6dGBSc" role="3cqZAp">
           <ref role="JncvD" to="kmi:6cRD4M$orRO" resolve="IReversibleLoop" />

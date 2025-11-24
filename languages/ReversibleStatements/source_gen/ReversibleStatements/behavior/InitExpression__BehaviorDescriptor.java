@@ -49,7 +49,7 @@ public final class InitExpression__BehaviorDescriptor extends BaseBHDescriptor {
         IStructuredInitExpression__BehaviorDescriptor.appendAssignments_id1blaTcuBMLx.invoke(sie, container, expr, SNodeOperations.cast(TypecheckingFacade.getFromContext().getTypeOf(__thisNode__), CONCEPTS.IType$a9));
       } else {
         SNode assign = IStructuredInitExpression__BehaviorDescriptor.createAssignment_id1blaTcuBMQE.invoke(__thisNode__, expr, IInitAwareType__BehaviorDescriptor.createAssignmentRightHand_id6IWRcVON9Ja.invoke(SNodeOperations.cast(TypecheckingFacade.getFromContext().getTypeOf(__thisNode__), CONCEPTS.IInitAwareType$d), context, e));
-        ListSequence.fromList(SLinkOperations.getChildren(container, LINKS.statements$IdM8)).addElement(assign);
+        ListSequence.fromList(SLinkOperations.getChildren(container, LINKS.revStatements$IdM8)).addElement(assign);
       }
     }
   }
@@ -127,7 +127,7 @@ public final class InitExpression__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink statements$IdM8 = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, 0x3a16e3a9c7ad9956L, "statements");
+    /*package*/ static final SContainmentLink revStatements$IdM8 = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, 0x3a16e3a9c7ad9956L, "revStatements");
     /*package*/ static final SContainmentLink elements$m038 = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x7ad4c4c8a2db08a1L, 0x7ad4c4c8a2db08a2L, "elements");
   }
 }

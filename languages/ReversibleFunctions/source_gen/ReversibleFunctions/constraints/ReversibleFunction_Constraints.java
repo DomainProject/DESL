@@ -22,14 +22,14 @@ public class ReversibleFunction_Constraints extends BaseConstraintsDescriptor {
 
   /*package*/ static final class ReversibilityRequired_PD extends BasePropertyConstraintsDescriptor {
     public ReversibilityRequired_PD(ConstraintsDescriptor container) {
-      super(PROPS.reversibilityRequired$B65C, container, false, true, false);
+      super(PROPS.reversibilityRequired$Zgdy, container, false, true, false);
     }
     @Override
     public void setPropertyValue(SNode node, Object propertyValue) {
       staticSetPropertyValue(node, SPropertyOperations.castBoolean(propertyValue));
     }
     private static void staticSetPropertyValue(SNode node, boolean propertyValue) {
-      SPropertyOperations.assign(node, PROPS.reversibilityRequired$B65C, propertyValue);
+      SPropertyOperations.assign(node, PROPS.reversibilityRequired$Zgdy, propertyValue);
       SPropertyOperations.assign(SLinkOperations.getTarget(node, LINKS.revBody$QkEt), PROPS.reversibilityRequired$OpEG, propertyValue);
     }
   }
@@ -39,7 +39,7 @@ public class ReversibleFunction_Constraints extends BaseConstraintsDescriptor {
   }
 
   private static final class PROPS {
-    /*package*/ static final SProperty reversibilityRequired$B65C = MetaAdapterFactory.getProperty(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, 0x56ee1731ff5a6482L, "reversibilityRequired");
+    /*package*/ static final SProperty reversibilityRequired$Zgdy = MetaAdapterFactory.getProperty(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111cL, 0x56ee1731ff5a6482L, "reversibilityRequired");
     /*package*/ static final SProperty reversibilityRequired$OpEG = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, 0x56ee1731ff5a46d8L, "reversibilityRequired");
   }
 

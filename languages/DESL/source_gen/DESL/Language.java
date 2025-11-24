@@ -50,6 +50,8 @@ public class Language extends LanguageRuntime {
   protected void fillExtendedLanguages(Collection<SLanguage> extendedLanguages) {
     extendedLanguages.add(MetaAdapterFactory.getLanguage(SLanguageId.deserialize("6d11763d-483d-4b2b-8efc-09336c1b0001"), "com.mbeddr.core.modules"));
     extendedLanguages.add(MetaAdapterFactory.getLanguage(SLanguageId.deserialize("efda956e-491e-4f00-ba14-36af2f213ecf"), "com.mbeddr.core.udt"));
+    extendedLanguages.add(MetaAdapterFactory.getLanguage(SLanguageId.deserialize("9abffa92-4875-42bf-9379-c4f95eb496d4"), "ReversibleExpressions"));
+    extendedLanguages.add(MetaAdapterFactory.getLanguage(SLanguageId.deserialize("f75f9e3f-b00b-4997-8af2-0a8ce6b25221"), "ReversibleStatements"));
   }
 
   @Override

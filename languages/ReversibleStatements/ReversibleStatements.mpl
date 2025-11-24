@@ -127,6 +127,7 @@
   <extendedLanguages>
     <extendedLanguage>9abffa92-4875-42bf-9379-c4f95eb496d4(ReversibleExpressions)</extendedLanguage>
     <extendedLanguage>a9d69647-0840-491e-bf39-2eb0805d2011(com.mbeddr.core.statements)</extendedLanguage>
+    <extendedLanguage>6d11763d-483d-4b2b-8efc-09336c1b0001(com.mbeddr.core.modules)</extendedLanguage>
   </extendedLanguages>
 </language>
 

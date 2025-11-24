@@ -18,14 +18,14 @@ public class EventHandler_TextGen extends TextGenDescriptorBase {
     tgs.append("forward handler ");
     tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.eventName$cuOv));
     tgs.newLine();
-    tgs.appendNode(SLinkOperations.getTarget(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.forwardFunction$5bPH), LINKS.body$1GE0));
+    tgs.appendNode(SLinkOperations.getTarget(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.forwardFunction$5bPH), LINKS.revBody$QkEt));
 
     tgs.newLine();
 
     tgs.append("reverse handler ");
     tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.eventName$cuOv));
     tgs.newLine();
-    tgs.appendNode(SLinkOperations.getTarget(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.reverseFunction$yyGT), LINKS.body$1GE0));
+    tgs.appendNode(SLinkOperations.getTarget(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.reverseFunction$yyGT), LINKS.revBody$QkEt));
 
   }
 
@@ -35,7 +35,7 @@ public class EventHandler_TextGen extends TextGenDescriptorBase {
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink forwardFunction$5bPH = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x74d88000543a2a9fL, "forwardFunction");
-    /*package*/ static final SContainmentLink body$1GE0 = MetaAdapterFactory.getContainmentLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x595522006a5b97e1L, 0x3a16e3a9c7ad9954L, "body");
+    /*package*/ static final SContainmentLink revBody$QkEt = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, 0x5e81f50da12f79a6L, "revBody");
     /*package*/ static final SContainmentLink reverseFunction$yyGT = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x5e81f50da138219aL, "reverseFunction");
   }
 }

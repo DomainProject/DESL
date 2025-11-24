@@ -58,15 +58,16 @@ public final class LanguageConceptSwitch {
   public static final int NotParsedStatement = 46;
   public static final int PragmaStatement = 47;
   public static final int Prefix = 48;
-  public static final int ReversibleStatement = 49;
-  public static final int ReversibleStatementList = 50;
-  public static final int SimpleAttributePrefix = 51;
-  public static final int SwitchCase = 52;
-  public static final int SwitchDefault = 53;
-  public static final int SwitchMember = 54;
-  public static final int SwitchStatement = 55;
-  public static final int WaitBusy = 56;
-  public static final int WhileStatement = 57;
+  public static final int ReturnStatement = 49;
+  public static final int ReversibleStatement = 50;
+  public static final int ReversibleStatementList = 51;
+  public static final int SimpleAttributePrefix = 52;
+  public static final int SwitchCase = 53;
+  public static final int SwitchDefault = 54;
+  public static final int SwitchMember = 55;
+  public static final int SwitchStatement = 56;
+  public static final int WaitBusy = 57;
+  public static final int WhileStatement = 58;
 
   public LanguageConceptSwitch() {
     LanguageConceptIndexBuilder builder = new LanguageConceptIndexBuilder(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L);
@@ -119,6 +120,7 @@ public final class LanguageConceptSwitch {
     builder.put(0x242458b0b38bd8cfL, NotParsedStatement);
     builder.put(0xb9b8155bc8b14deL, PragmaStatement);
     builder.put(0x866dc95fc7a033fL, Prefix);
+    builder.put(0x4b1eecbba5015fabL, ReturnStatement);
     builder.put(0x3a16e3a9c7ad6d03L, ReversibleStatement);
     builder.put(0x3a16e3a9c7ad9955L, ReversibleStatementList);
     builder.put(0x7853fc2bcf81183dL, SimpleAttributePrefix);

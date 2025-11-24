@@ -61,12 +61,12 @@ import org.jetbrains.mps.openapi.language.SProperty;
     return editorCell;
   }
   private boolean nodeCondition_gabe21_a0a() {
-    return SLinkOperations.getTarget(myNode, LINKS.ellipsisKind$Gwkk) != null;
+    return SLinkOperations.getTarget(myNode, LINKS.ellipsisKind$Tg5) != null;
   }
   private EditorCell createReadOnlyModelAccessor_0() {
     EditorCell_Property editorCell = EditorCell_Property.create(getEditorContext(), new ModelAccessor.ReadOnly() {
       public String getText() {
-        if (SEnumOperations.isMember(SPropertyOperations.getEnum(SLinkOperations.getTarget(myNode, LINKS.ellipsisKind$Gwkk), PROPS.value$1$x_), 0x3968d4c5c324d822L)) {
+        if (SEnumOperations.isMember(SPropertyOperations.getEnum(SLinkOperations.getTarget(myNode, LINKS.ellipsisKind$Tg5), PROPS.value$1$x_), 0x3968d4c5c324d822L)) {
           return ArgumentKind_Constants.IN_SEMANTICS;
         } else {
           return ArgumentKind_Constants.OUT_SEMANTICS;
@@ -83,7 +83,7 @@ import org.jetbrains.mps.openapi.language.SProperty;
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink ellipsisKind$Gwkk = MetaAdapterFactory.getContainmentLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x595522006a5b97ddL, 0x13f1f37a1579e269L, "ellipsisKind");
+    /*package*/ static final SContainmentLink ellipsisKind$Tg5 = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, 0x4b1eecbba6896531L, "ellipsisKind");
   }
 
   private static final class PROPS {

@@ -13,7 +13,12 @@ import jetbrains.mps.smodel.runtime.impl.ConceptDescriptorBuilder2;
 import jetbrains.mps.smodel.adapter.ids.PrimitiveTypeId;
 
 public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
+  /*package*/ final ConceptDescriptor myConceptEmptyLine = createDescriptorForEmptyLine();
+  /*package*/ final ConceptDescriptor myConceptIReversibleItem = createDescriptorForIReversibleItem();
   /*package*/ final ConceptDescriptor myConceptReversibleFunction = createDescriptorForReversibleFunction();
+  /*package*/ final ConceptDescriptor myConceptReversibleMacro = createDescriptorForReversibleMacro();
+  /*package*/ final ConceptDescriptor myConceptReversibleMacroArgument = createDescriptorForReversibleMacroArgument();
+  /*package*/ final ConceptDescriptor myConceptReversibleMacroArgumentRef = createDescriptorForReversibleMacroArgumentRef();
   /*package*/ final ConceptDescriptor myConceptReversibleScript = createDescriptorForReversibleScript();
   /*package*/ final ConceptDescriptor myConceptReversibleScriptExp = createDescriptorForReversibleScriptExp();
   private final LanguageConceptSwitch myIndexSwitch;
@@ -25,23 +30,39 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
 
   @Override
   public void reportDependencies(jetbrains.mps.smodel.runtime.StructureAspectDescriptor.Dependencies deps) {
-    deps.extendedLanguage(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, "com.mbeddr.core.modules");
     deps.extendedLanguage(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, "jetbrains.mps.lang.core");
+    deps.extendedLanguage(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, "ReversibleExpressions");
+    deps.extendedLanguage(0xc4765525912b41b9L, 0xace4ce3b88117666L, "DESL");
+    deps.extendedLanguage(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, "com.mbeddr.core.modules");
+    deps.extendedLanguage(0xd4280a54f6df4383L, 0xaa41d1b2bffa7eb1L, "com.mbeddr.core.base");
+    deps.extendedLanguage(0x61c69711ed614850L, 0x81d97714ff227fb0L, "com.mbeddr.core.expressions");
     deps.aggregatedLanguage(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, "ReversibleStatements");
     deps.aggregatedLanguage(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, "com.mbeddr.core.modules");
+    deps.aggregatedLanguage(0x61c69711ed614850L, 0x81d97714ff227fb0L, "com.mbeddr.core.expressions");
+    deps.aggregatedLanguage(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, "ReversibleExpressions");
   }
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptReversibleFunction, myConceptReversibleScript, myConceptReversibleScriptExp);
+    return Arrays.asList(myConceptEmptyLine, myConceptIReversibleItem, myConceptReversibleFunction, myConceptReversibleMacro, myConceptReversibleMacroArgument, myConceptReversibleMacroArgumentRef, myConceptReversibleScript, myConceptReversibleScriptExp);
   }
 
   @Override
   @Nullable
   public ConceptDescriptor getDescriptor(SConceptId id) {
     switch (myIndexSwitch.index(id)) {
+      case LanguageConceptSwitch.EmptyLine:
+        return myConceptEmptyLine;
+      case LanguageConceptSwitch.IReversibleItem:
+        return myConceptIReversibleItem;
       case LanguageConceptSwitch.ReversibleFunction:
         return myConceptReversibleFunction;
+      case LanguageConceptSwitch.ReversibleMacro:
+        return myConceptReversibleMacro;
+      case LanguageConceptSwitch.ReversibleMacroArgument:
+        return myConceptReversibleMacroArgument;
+      case LanguageConceptSwitch.ReversibleMacroArgumentRef:
+        return myConceptReversibleMacroArgumentRef;
       case LanguageConceptSwitch.ReversibleScript:
         return myConceptReversibleScript;
       case LanguageConceptSwitch.ReversibleScriptExp:
@@ -56,18 +77,75 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     return myIndexSwitch.index(c);
   }
 
-  private static ConceptDescriptor createDescriptorForReversibleFunction() {
-    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("ReversibleFunctions", "ReversibleFunction", 0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL);
+  private static ConceptDescriptor createDescriptorForEmptyLine() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("ReversibleFunctions", "EmptyLine", 0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111bL);
     b.class_(false, false, false);
-    // extends: com.mbeddr.core.modules.structure.Function
-    b.super_(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x595522006a5b97e1L);
-    b.origin("r:e84d12fa-9ad2-42d4-95e8-d9ef0c30fdf9(ReversibleFunctions.structure)/6809993550448493919");
+    b.parent(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111cL);
+    b.origin("r:e84d12fa-9ad2-42d4-95e8-d9ef0c30fdf9(ReversibleFunctions.structure)/3415911555223851291");
+    b.version(3);
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForIReversibleItem() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("ReversibleFunctions", "IReversibleItem", 0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111cL);
+    b.interface_();
+    b.origin("r:e84d12fa-9ad2-42d4-95e8-d9ef0c30fdf9(ReversibleFunctions.structure)/3415911555223851292");
     b.version(3);
     b.property("isForward", 0x5e81f50da1382199L).type(PrimitiveTypeId.BOOLEAN).origin("6809993550449090969").done();
     b.property("reversibilityRequired", 0x56ee1731ff5a6482L).type(PrimitiveTypeId.BOOLEAN).origin("6263969635223889026").done();
+    b.property("expand", 0x2f67c1761149413aL).type(PrimitiveTypeId.BOOLEAN).origin("3415911555224125754").done();
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForReversibleFunction() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("ReversibleFunctions", "ReversibleFunction", 0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL);
+    b.class_(false, false, false);
+    b.parent(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L);
+    b.parent(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111cL);
+    b.origin("r:e84d12fa-9ad2-42d4-95e8-d9ef0c30fdf9(ReversibleFunctions.structure)/6809993550448493919");
+    b.version(3);
+    b.property("hasEllipsis", 0x4b1eecbba689652fL).type(PrimitiveTypeId.BOOLEAN).origin("5413024092842976559").done();
+    b.property("inline", 0x4b1eecbba6896530L).type(PrimitiveTypeId.BOOLEAN).origin("5413024092842976560").done();
     b.aggregate("revBody", 0x5e81f50da12f79a6L).target(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L).optional(false).ordered(true).multiple(false).origin("6809993550448523686").done();
     b.aggregate("arguments", 0x4f39f90935e92f45L).target(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x75302b1261129ff9L).optional(true).ordered(true).multiple(true).origin("5708867820623310661").done();
     b.aggregate("checkpointingVariables", 0x571ea5ef242a50aaL).target(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x571ea5ef247e3b6dL).optional(true).ordered(true).multiple(true).origin("6277637377123569834").done();
+    b.aggregate("type", 0x4b1eecbba6894aa4L).target(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba36L).optional(false).ordered(true).multiple(false).origin("5413024092842969764").done();
+    b.aggregate("ellipsisKind", 0x4b1eecbba6896531L).target(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0xc42f172f6d01a6eL).optional(true).ordered(true).multiple(false).origin("5413024092842976561").done();
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForReversibleMacro() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("ReversibleFunctions", "ReversibleMacro", 0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145008fL);
+    b.class_(false, false, false);
+    b.parent(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x74450034d00e6944L);
+    b.parent(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111cL);
+    b.parent(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x595522006a5b934fL);
+    b.parent(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x260f4bd3a5779b7dL);
+    b.parent(0xd4280a54f6df4383L, 0xaa41d1b2bffa7eb1L, 0x62db9f238fdcfcfcL);
+    b.origin("r:e84d12fa-9ad2-42d4-95e8-d9ef0c30fdf9(ReversibleFunctions.structure)/3415911555223847055");
+    b.version(3);
+    b.property("hasEllipsis", 0x1b9f1243f808c2b2L).type(PrimitiveTypeId.BOOLEAN).origin("1990329643454481074").done();
+    b.property("resultIsLValue", 0x42c6127a0bd2ce95L).type(PrimitiveTypeId.BOOLEAN).origin("4811553567285628565").done();
+    b.aggregate("arguments", 0x539093cd74777237L).target(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761177adb6L).optional(true).ordered(true).multiple(true).origin("6021475212425916983").done();
+    b.aggregate("content", 0x78202c09dd229062L).target(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L).optional(true).ordered(true).multiple(false).origin("8655966904682451042").done();
+    b.alias("#macro");
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForReversibleMacroArgument() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("ReversibleFunctions", "ReversibleMacroArgument", 0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761177adb6L);
+    b.class_(false, false, false);
+    b.parent(0xd4280a54f6df4383L, 0xaa41d1b2bffa7eb1L, 0x617d88a37ec2f433L);
+    b.parent(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L);
+    b.origin("r:e84d12fa-9ad2-42d4-95e8-d9ef0c30fdf9(ReversibleFunctions.structure)/3415911555227168182");
+    b.version(3);
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForReversibleMacroArgumentRef() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("ReversibleFunctions", "ReversibleMacroArgumentRef", 0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c176117d6e39L);
+    b.class_(false, false, false);
+    // extends: ReversibleExpressions.structure.ReversibleExpression
+    b.super_(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L);
+    b.parent(0xd4280a54f6df4383L, 0xaa41d1b2bffa7eb1L, 0x7014f71ec4c718e0L);
+    b.origin("r:e84d12fa-9ad2-42d4-95e8-d9ef0c30fdf9(ReversibleFunctions.structure)/3415911555227545145");
+    b.version(3);
+    b.associate("arg", 0x2f67c176117d9dacL).target(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761177adb6L).optional(false).origin("3415911555227557292").done();
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForReversibleScript() {
@@ -75,7 +153,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.class_(false, false, true);
     b.origin("r:e84d12fa-9ad2-42d4-95e8-d9ef0c30fdf9(ReversibleFunctions.structure)/6263969635216976613");
     b.version(3);
-    b.aggregate("reversibleFunctions", 0x56ee1731fef0eae6L).target(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL).optional(true).ordered(true).multiple(true).origin("6263969635216976614").done();
+    b.aggregate("reversibleItems", 0x56ee1731fef0eae6L).target(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111cL).optional(true).ordered(true).multiple(true).origin("6263969635216976614").done();
     b.aggregate("functions", 0x7f5aaca6ab31ec34L).target(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x595522006a5b97e1L).optional(true).ordered(true).multiple(true).origin("9176837022557531188").done();
     return b.create();
   }

@@ -9,6 +9,9 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Collection;
 import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Vertical;
+import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Horizontal;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.nodeEditor.cells.EditorCell_Constant;
 import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Indent;
 import jetbrains.mps.openapi.editor.style.Style;
 import jetbrains.mps.editor.runtime.style.StyleImpl;
@@ -22,6 +25,7 @@ import jetbrains.mps.nodeEditor.cellMenu.SEmptyContainmentSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfo;
 import com.mbeddr.core.modules.editor.deleteFunction;
 import jetbrains.mps.openapi.editor.menus.transformation.SNodeLocation;
+import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 /*package*/ class ReversibleFunction_EditorBuilder_a extends AbstractEditorBuilder {
@@ -49,11 +53,53 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
     editorCell.setBig(true);
     setCellContext(editorCell);
     editorCell.addEditorCell(createCollection_1());
+    editorCell.addEditorCell(createCollection_2());
     return editorCell;
   }
   private EditorCell createCollection_1() {
-    EditorCell_Collection editorCell = new EditorCell_Collection(getEditorContext(), myNode, new CellLayout_Indent());
+    EditorCell_Collection editorCell = new EditorCell_Collection(getEditorContext(), myNode, new CellLayout_Horizontal());
     editorCell.setCellId("Collection_a8zlsv_a0");
+    Checkbox_ActionMap_a8zlsv_a0.setCellActions(editorCell, myNode, getEditorContext());
+    editorCell.addKeyMap(new Checkbox_KeyMap_a8zlsv_a0());
+    editorCell.addEditorCell(createAlternation_0());
+    editorCell.addEditorCell(createConstant_2());
+    return editorCell;
+  }
+  private EditorCell createAlternation_0() {
+    boolean alternationCondition = true;
+    alternationCondition = nodeCondition_a8zlsv_a0a0();
+    EditorCell editorCell = null;
+    if (alternationCondition) {
+      editorCell = createConstant_0();
+    } else {
+      editorCell = createConstant_1();
+    }
+    return editorCell;
+  }
+  private boolean nodeCondition_a8zlsv_a0a0() {
+    return SPropertyOperations.getBoolean(myNode, PROPS.expand$b0u);
+  }
+  private EditorCell createConstant_0() {
+    EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "[x]");
+    editorCell.setCellId("Constant_a8zlsv_a0a0");
+    editorCell.setDefaultText("");
+    return editorCell;
+  }
+  private EditorCell createConstant_1() {
+    EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "[ ]");
+    editorCell.setCellId("Constant_a8zlsv_a0a0_0");
+    editorCell.setDefaultText("");
+    return editorCell;
+  }
+  private EditorCell createConstant_2() {
+    EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "expand");
+    editorCell.setCellId("Constant_a8zlsv_b0a");
+    editorCell.setDefaultText("");
+    return editorCell;
+  }
+  private EditorCell createCollection_2() {
+    EditorCell_Collection editorCell = new EditorCell_Collection(getEditorContext(), myNode, new CellLayout_Indent());
+    editorCell.setCellId("Collection_a8zlsv_b0");
     Style style = new StyleImpl();
     style.set(StyleAttributes.SELECTABLE, false);
     editorCell.getStyle().putAll(style);
@@ -66,14 +112,14 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
     return editorCell;
   }
   private EditorCell createRefNode_0() {
-    SingleRoleCellProvider provider = new revBodySingleRoleHandler_a8zlsv_b0a(myNode, LINKS.revBody$QkEt, getEditorContext());
+    SingleRoleCellProvider provider = new revBodySingleRoleHandler_a8zlsv_b1a(myNode, LINKS.revBody$QkEt, getEditorContext());
     return provider.createCell();
   }
-  private static class revBodySingleRoleHandler_a8zlsv_b0a extends SingleRoleCellProvider {
+  private static class revBodySingleRoleHandler_a8zlsv_b1a extends SingleRoleCellProvider {
     @NotNull
     private SNode myNode;
 
-    public revBodySingleRoleHandler_a8zlsv_b0a(SNode ownerNode, SContainmentLink containmentLink, EditorContext context) {
+    public revBodySingleRoleHandler_a8zlsv_b1a(SNode ownerNode, SContainmentLink containmentLink, EditorContext context) {
       super(containmentLink, context);
       myNode = ownerNode;
     }
@@ -124,6 +170,10 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
     protected String getNoTargetText() {
       return "<no revBody>";
     }
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty expand$b0u = MetaAdapterFactory.getProperty(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111cL, 0x2f67c1761149413aL, "expand");
   }
 
   private static final class LINKS {

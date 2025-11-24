@@ -26,8 +26,10 @@ public final class ModuloExpression__BehaviorDescriptor extends BaseBHDescriptor
   public static final SMethod<Boolean> isStaticallyEvaluatable_id3ilck8Kr3zN = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isStaticallyEvaluatable").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(3788988821852141811L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
   public static final SMethod<Object> evaluateStatically_id6OxpEKG0KPv = new SMethodBuilder<Object>(new SJavaCompoundTypeImpl(Object.class)).name("evaluateStatically").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7863679314024402271L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
   public static final SMethod<Integer> getPriolevel_id5HxjapwgqKu = new SMethodBuilder<Integer>(new SJavaCompoundTypeImpl(Integer.TYPE)).name("getPriolevel").modifiers(9, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6584628407655574558L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
+  public static final SMethod<String> getBaseName_id2vgMet5LndN = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getBaseName").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2869013858268574579L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
+  public static final SMethod<Void> handleCopyPaste_id33MO5h9wdZT = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("handleCopyPaste").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(3527110518613532665L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isStaticallyEvaluatable_id3ilck8Kr3zN, evaluateStatically_id6OxpEKG0KPv, getPriolevel_id5HxjapwgqKu);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isStaticallyEvaluatable_id3ilck8Kr3zN, evaluateStatically_id6OxpEKG0KPv, getPriolevel_id5HxjapwgqKu, getBaseName_id2vgMet5LndN, handleCopyPaste_id33MO5h9wdZT);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -56,6 +58,11 @@ public final class ModuloExpression__BehaviorDescriptor extends BaseBHDescriptor
   /*package*/ static int getPriolevel_id5HxjapwgqKu(@NotNull SAbstractConcept __thisConcept__) {
     return 2000;
   }
+  /*package*/ static String getBaseName_id2vgMet5LndN(@NotNull SNode __thisNode__) {
+    return "modulo_var";
+  }
+  /*package*/ static void handleCopyPaste_id33MO5h9wdZT(@NotNull SNode __thisNode__) {
+  }
 
   /*package*/ ModuloExpression__BehaviorDescriptor() {
   }
@@ -76,6 +83,11 @@ public final class ModuloExpression__BehaviorDescriptor extends BaseBHDescriptor
         return (T) ((Boolean) isStaticallyEvaluatable_id3ilck8Kr3zN(node));
       case 1:
         return (T) ((Object) evaluateStatically_id6OxpEKG0KPv(node));
+      case 3:
+        return (T) ((String) getBaseName_id2vgMet5LndN(node));
+      case 4:
+        handleCopyPaste_id33MO5h9wdZT(node);
+        return null;
       default:
         throw new BHMethodNotFoundException(this, method);
     }

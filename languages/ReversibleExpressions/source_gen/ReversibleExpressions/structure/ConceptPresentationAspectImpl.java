@@ -54,6 +54,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_IAssignmentSide;
   private ConceptPresentation props_IBinaryLike;
   private ConceptPresentation props_IDestructiveOperation;
+  private ConceptPresentation props_IDuplicateConceptInCondition;
   private ConceptPresentation props_IExpressionWrapper;
   private ConceptPresentation props_IGenericDotTarget;
   private ConceptPresentation props_IIncompleteParenthesis;
@@ -95,6 +96,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_PreDecrementExpression;
   private ConceptPresentation props_PreIncrementExpression;
   private ConceptPresentation props_ReversibleExpression;
+  private ConceptPresentation props_ReversibleFunctionCall;
   private ConceptPresentation props_ScientificNumber;
   private ConceptPresentation props_StaticValueExpression;
   private ConceptPresentation props_TernaryExpression;
@@ -107,6 +109,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_UnsignedIntegerLiteral;
   private ConceptPresentation props_VaArgExpression;
   private ConceptPresentation props_VaList;
+  private ConceptPresentation props_VoidType;
 
   @Override
   @Nullable
@@ -447,6 +450,12 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_IDestructiveOperation = cpb.create();
         }
         return props_IDestructiveOperation;
+      case LanguageConceptSwitch.IDuplicateConceptInCondition:
+        if (props_IDuplicateConceptInCondition == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          props_IDuplicateConceptInCondition = cpb.create();
+        }
+        return props_IDuplicateConceptInCondition;
       case LanguageConceptSwitch.IExpressionWrapper:
         if (props_IExpressionWrapper == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -728,6 +737,14 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_ReversibleExpression = cpb.create();
         }
         return props_ReversibleExpression;
+      case LanguageConceptSwitch.ReversibleFunctionCall:
+        if (props_ReversibleFunctionCall == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.shortDesc("--");
+          cpb.presentationByReference(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x2e6ecb766f1587b4L, 0x2e6ecb766f15bfbaL, "function", "", "");
+          props_ReversibleFunctionCall = cpb.create();
+        }
+        return props_ReversibleFunctionCall;
       case LanguageConceptSwitch.ScientificNumber:
         if (props_ScientificNumber == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -815,6 +832,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_VaList = cpb.create();
         }
         return props_VaList;
+      case LanguageConceptSwitch.VoidType:
+        if (props_VoidType == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("void");
+          props_VoidType = cpb.create();
+        }
+        return props_VoidType;
     }
     return null;
   }

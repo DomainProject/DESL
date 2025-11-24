@@ -95,6 +95,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     deps.extendedLanguage(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, "jetbrains.mps.lang.core");
     deps.extendedLanguage(0x61c69711ed614850L, 0x81d97714ff227fb0L, "com.mbeddr.core.expressions");
     deps.extendedLanguage(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, "com.mbeddr.core.modules");
+    deps.extendedLanguage(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, "ReversibleExpressions");
+    deps.extendedLanguage(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, "ReversibleStatements");
     deps.extendedLanguage(0xa9d696470840491eL, 0xbf392eb0805d2011L, "com.mbeddr.core.statements");
     deps.extendedLanguage(0xefda956e491e4f00L, 0xba1436af2f213ecfL, "com.mbeddr.core.udt");
     deps.aggregatedLanguage(0xefda956e491e4f00L, 0xba1436af2f213ecfL, "com.mbeddr.core.udt");
@@ -387,8 +389,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   private static ConceptDescriptor createDescriptorForExpent() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("DESL", "Expent", 0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2476b4949807b947L);
     b.class_(false, false, false);
-    // extends: com.mbeddr.core.expressions.structure.Expression
-    b.super_(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba32L);
+    // extends: ReversibleExpressions.structure.ReversibleExpression
+    b.super_(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L);
     b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(DESL.structure)/2627485982916065607");
     b.version(3);
     b.aggregate("mean", 0x2476b49498469e72L).target(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba32L).optional(false).ordered(true).multiple(false).origin("2627485982920187506").done();
@@ -453,8 +455,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   private static ConceptDescriptor createDescriptorForGetRandContext() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("DESL", "GetRandContext", 0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x23bd070ad1586743L);
     b.class_(false, false, false);
-    // extends: com.mbeddr.core.expressions.structure.Expression
-    b.super_(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba32L);
+    // extends: ReversibleExpressions.structure.ReversibleExpression
+    b.super_(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L);
     b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(DESL.structure)/2575222304969090883");
     b.version(3);
     return b.create();
@@ -617,8 +619,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   private static ConceptDescriptor createDescriptorForInitRandomContext() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("DESL", "InitRandomContext", 0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2476b494986e149bL);
     b.class_(false, false, false);
-    // extends: com.mbeddr.core.statements.structure.Statement
-    b.super_(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad6d03L);
+    // extends: ReversibleStatements.structure.ReversibleStatement
+    b.super_(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad6d03L);
     b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(DESL.structure)/2627485982922773659");
     b.version(3);
     b.aggregate("stateContext", 0x2476b494986e171cL).target(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba32L).optional(false).ordered(true).multiple(false).origin("2627485982922774300").done();
@@ -748,8 +750,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   private static ConceptDescriptor createDescriptorForRandom() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("DESL", "Random", 0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2476b4949807b946L);
     b.class_(false, false, false);
-    // extends: com.mbeddr.core.expressions.structure.Expression
-    b.super_(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba32L);
+    // extends: ReversibleExpressions.structure.ReversibleExpression
+    b.super_(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L);
     b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(DESL.structure)/2627485982916065606");
     b.version(3);
     b.aggregate("ctx", 0x2476b49498823101L).target(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba32L).optional(false).ordered(true).multiple(false).origin("2627485982924091649").done();

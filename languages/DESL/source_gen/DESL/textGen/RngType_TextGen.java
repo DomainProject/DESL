@@ -14,13 +14,12 @@ public class RngType_TextGen extends TextGenDescriptorBase {
   public void generateText(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     if ((SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.RootSimM2M$x5, false, false) != null) || (SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.UseM2M$UU, false, false) != null)) {
-
       tgs.append("struct rng_t *");
-
     } else if ((SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.RossM2M$aQ, false, false) != null)) {
-
       tgs.append("tw_rng_stream *");
-
+    } else {
+      // todo uncomment
+      tgs.append("tw_rng_stream *");
     }
   }
 

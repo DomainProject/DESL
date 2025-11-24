@@ -48,38 +48,38 @@ public final class ReversibleStatementList__BehaviorDescriptor extends BaseBHDes
 
   /*package*/ static Iterable<SNode> getContributedLocalVariables_id3LB9aGm4C$b(@NotNull SNode __thisNode__, final SNode node) {
     List<SNode> declarations = new ArrayList<SNode>();
-    ListSequence.fromList(declarations).addSequence(Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, LINKS.statements$IdM8), CONCEPTS.LocalVariableDeclaration$7E)));
-    ListSequence.fromList(declarations).addSequence(Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, LINKS.statements$IdM8), CONCEPTS.ReversibleStatementList$qe)).where((it) -> SPropertyOperations.getBoolean(it, PROPS.isInvisible$cRUg)).translate((it) -> (Iterable<SNode>) ILocalVarScopeProvider__BehaviorDescriptor.getContributedLocalVariables_id3LB9aGm4C$b.invoke(it, node)));
+    ListSequence.fromList(declarations).addSequence(Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, LINKS.revStatements$IdM8), CONCEPTS.LocalVariableDeclaration$7E)));
+    ListSequence.fromList(declarations).addSequence(Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, LINKS.revStatements$IdM8), CONCEPTS.ReversibleStatementList$qe)).where((it) -> SPropertyOperations.getBoolean(it, PROPS.isInvisible$wTPL)).translate((it) -> (Iterable<SNode>) ILocalVarScopeProvider__BehaviorDescriptor.getContributedLocalVariables_id3LB9aGm4C$b.invoke(it, node)));
     return declarations;
   }
   /*package*/ static boolean requiresMultiLines_id1z9MsBsVy8R(@NotNull SNode __thisNode__) {
     if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(__thisNode__), CONCEPTS.IStatmentListContainer$NA) && (boolean) IStatmentListContainer__BehaviorDescriptor.forceMultiLines_id5oX1Q_zkX36.invoke(SNodeOperations.cast(SNodeOperations.getParent(__thisNode__), CONCEPTS.IStatmentListContainer$NA))) {
       return true;
     }
-    int c = ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.statements$IdM8)).count();
+    int c = ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.revStatements$IdM8)).count();
     switch (c) {
       case 0:
         return false;
       case 1:
-        return !((boolean) ReversibleStatement__BehaviorDescriptor.simpleOneLiner_id1z9MsBsVy8o.invoke(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.statements$IdM8)).getElement(0)));
+        return !((boolean) ReversibleStatement__BehaviorDescriptor.simpleOneLiner_id1z9MsBsVy8o.invoke(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.revStatements$IdM8)).getElement(0)));
       default:
         return true;
     }
   }
   /*package*/ static boolean containsRealStatements_id3MW0c4RnFdW(@NotNull SNode __thisNode__) {
-    return !(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.statements$IdM8)).all((it) -> SConceptOperations.isExactly(SNodeOperations.asSConcept(SNodeOperations.getConcept(it)), CONCEPTS.ReversibleStatement$s8)));
+    return !(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.revStatements$IdM8)).all((it) -> SConceptOperations.isExactly(SNodeOperations.asSConcept(SNodeOperations.getConcept(it)), CONCEPTS.ReversibleStatement$s8)));
   }
   /*package*/ static boolean isEmpty_id6viY8n0RBRR(@NotNull SNode __thisNode__) {
-    return ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.statements$IdM8)).isEmpty();
+    return ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.revStatements$IdM8)).isEmpty();
   }
   /*package*/ static boolean hasOnlyOne_id6viY8n0SlLR(@NotNull SNode __thisNode__) {
-    return ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.statements$IdM8)).count() == 1;
+    return ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.revStatements$IdM8)).count() == 1;
   }
   /*package*/ static boolean hasMoreThanOne_id6viY8n0SYZg(@NotNull SNode __thisNode__) {
-    return ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.statements$IdM8)).count() > 1;
+    return ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.revStatements$IdM8)).count() > 1;
   }
   /*package*/ static Iterable<SNode> nonEmptyStatements_id3uNea_OzjeN(@NotNull SNode __thisNode__) {
-    return ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.statements$IdM8)).where((it) -> !(SConceptOperations.isExactly(SNodeOperations.asSConcept(SNodeOperations.getConcept(it)), CONCEPTS.ReversibleStatement$s8)));
+    return ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.revStatements$IdM8)).where((it) -> !(SConceptOperations.isExactly(SNodeOperations.asSConcept(SNodeOperations.getConcept(it)), CONCEPTS.ReversibleStatement$s8)));
   }
   /*package*/ static boolean isCommentable_id3RtPbXKOu_B(@NotNull SNode __thisNode__, SNode trigger) {
     return ((boolean) ICommentable__BehaviorDescriptor.isCommentable_id3RtPbXKOu_B.invokeSuper(__thisNode__, CONCEPTS.ReversibleStatementList$qe, trigger)) && SConceptOperations.isExactly(SNodeOperations.asSConcept(SNodeOperations.getConcept(SNodeOperations.getParent(__thisNode__))), CONCEPTS.ReversibleStatementList$qe);
@@ -146,7 +146,7 @@ public final class ReversibleStatementList__BehaviorDescriptor extends BaseBHDes
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink statements$IdM8 = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, 0x3a16e3a9c7ad9956L, "statements");
+    /*package*/ static final SContainmentLink revStatements$IdM8 = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, 0x3a16e3a9c7ad9956L, "revStatements");
   }
 
   private static final class CONCEPTS {
@@ -157,6 +157,6 @@ public final class ReversibleStatementList__BehaviorDescriptor extends BaseBHDes
   }
 
   private static final class PROPS {
-    /*package*/ static final SProperty isInvisible$cRUg = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, 0x4070c9f3cc412fc1L, "isInvisible");
+    /*package*/ static final SProperty isInvisible$wTPL = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, 0x4b1eecbba63cdb33L, "isInvisible");
   }
 }

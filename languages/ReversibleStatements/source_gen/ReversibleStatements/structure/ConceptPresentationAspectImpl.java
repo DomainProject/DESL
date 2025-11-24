@@ -58,6 +58,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_NotParsedStatement;
   private ConceptPresentation props_PragmaStatement;
   private ConceptPresentation props_Prefix;
+  private ConceptPresentation props_ReturnStatement;
   private ConceptPresentation props_ReversibleStatement;
   private ConceptPresentation props_ReversibleStatementList;
   private ConceptPresentation props_SimpleAttributePrefix;
@@ -417,6 +418,14 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_Prefix = cpb.create();
         }
         return props_Prefix;
+      case LanguageConceptSwitch.ReturnStatement:
+        if (props_ReturnStatement == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.shortDesc("return statement");
+          cpb.rawPresentation("return");
+          props_ReturnStatement = cpb.create();
+        }
+        return props_ReturnStatement;
       case LanguageConceptSwitch.ReversibleStatement:
         if (props_ReversibleStatement == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

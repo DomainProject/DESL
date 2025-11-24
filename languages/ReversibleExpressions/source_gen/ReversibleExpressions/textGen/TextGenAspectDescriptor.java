@@ -39,6 +39,8 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new FalseLiteral_TextGen();
       case LanguageConceptSwitch.HexNumberLiteral:
         return new HexNumberLiteral_TextGen();
+      case LanguageConceptSwitch.ModuloExpression:
+        return new ModuloExpression_TextGen();
       case LanguageConceptSwitch.NotExpression:
         return new NotExpression_TextGen();
       case LanguageConceptSwitch.NumberLiteral:
@@ -55,6 +57,8 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new PreDecrementExpression_TextGen();
       case LanguageConceptSwitch.PreIncrementExpression:
         return new PreIncrementExpression_TextGen();
+      case LanguageConceptSwitch.ReversibleFunctionCall:
+        return new ReversibleFunctionCall_TextGen();
       case LanguageConceptSwitch.ScientificNumber:
         return new ScientificNumber_TextGen();
       case LanguageConceptSwitch.TrueLiteral:

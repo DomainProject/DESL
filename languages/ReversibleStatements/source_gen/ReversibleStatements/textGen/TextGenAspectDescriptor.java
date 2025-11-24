@@ -65,6 +65,8 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new PragmaStatement_TextGen();
       case LanguageConceptSwitch.Prefix:
         return new Prefix_TextGen();
+      case LanguageConceptSwitch.ReturnStatement:
+        return new ReturnStatement_TextGen();
       case LanguageConceptSwitch.ReversibleStatement:
         return new ReversibleStatement_TextGen();
       case LanguageConceptSwitch.ReversibleStatementList:

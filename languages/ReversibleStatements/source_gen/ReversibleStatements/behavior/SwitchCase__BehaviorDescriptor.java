@@ -29,8 +29,8 @@ public final class SwitchCase__BehaviorDescriptor extends BaseBHDescriptor {
 
   private static void ___init___(@NotNull SNode __thisNode__) {
     SLinkOperations.setNewChild(__thisNode__, LINKS.body$mL9Z, null);
-    SLinkOperations.addNewChild(SLinkOperations.getTarget(__thisNode__, LINKS.body$mL9Z), LINKS.statements$IdM8, null);
-    SLinkOperations.addNewChild(SLinkOperations.getTarget(__thisNode__, LINKS.body$mL9Z), LINKS.statements$IdM8, CONCEPTS.BreakStatement$8H);
+    SLinkOperations.addNewChild(SLinkOperations.getTarget(__thisNode__, LINKS.body$mL9Z), LINKS.revStatements$IdM8, null);
+    SLinkOperations.addNewChild(SLinkOperations.getTarget(__thisNode__, LINKS.body$mL9Z), LINKS.revStatements$IdM8, CONCEPTS.BreakStatement$8H);
   }
 
   /*package*/ static boolean forceMultiLines_id5oX1Q_zkX36(@NotNull SNode __thisNode__) {
@@ -85,7 +85,7 @@ public final class SwitchCase__BehaviorDescriptor extends BaseBHDescriptor {
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink body$mL9Z = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x2b8026b23bc2da00L, 0x2b8026b23bc2da03L, "body");
-    /*package*/ static final SContainmentLink statements$IdM8 = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, 0x3a16e3a9c7ad9956L, "statements");
+    /*package*/ static final SContainmentLink revStatements$IdM8 = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, 0x3a16e3a9c7ad9956L, "revStatements");
   }
 
   private static final class CONCEPTS {

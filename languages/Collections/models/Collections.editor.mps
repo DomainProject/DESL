@@ -19,6 +19,7 @@
       <concept id="1140524381322" name="jetbrains.mps.lang.editor.structure.CellModel_ListWithRole" flags="ng" index="2czfm3">
         <child id="1140524464360" name="cellLayout" index="2czzBx" />
       </concept>
+      <concept id="1106270549637" name="jetbrains.mps.lang.editor.structure.CellLayout_Horizontal" flags="nn" index="2iRfu4" />
       <concept id="1237303669825" name="jetbrains.mps.lang.editor.structure.CellLayout_Indent" flags="nn" index="l2Vlx" />
       <concept id="1237307900041" name="jetbrains.mps.lang.editor.structure.IndentLayoutIndentStyleClassItem" flags="ln" index="lj46D" />
       <concept id="1237375020029" name="jetbrains.mps.lang.editor.structure.IndentLayoutNewLineChildrenStyleClassItem" flags="ln" index="pj6Ft" />
@@ -33,6 +34,7 @@
       <concept id="1186414536763" name="jetbrains.mps.lang.editor.structure.BooleanStyleSheetItem" flags="ln" index="VOi$J">
         <property id="1186414551515" name="flag" index="VOm3f" />
       </concept>
+      <concept id="1186414928363" name="jetbrains.mps.lang.editor.structure.SelectableStyleSheetItem" flags="ln" index="VPM3Z" />
       <concept id="1233758997495" name="jetbrains.mps.lang.editor.structure.PunctuationLeftStyleClassItem" flags="ln" index="11L4FC" />
       <concept id="1233759184865" name="jetbrains.mps.lang.editor.structure.PunctuationRightStyleClassItem" flags="ln" index="11LMrY" />
       <concept id="1088013125922" name="jetbrains.mps.lang.editor.structure.CellModel_RefCell" flags="sg" stub="730538219795941030" index="1iCGBv">
@@ -98,7 +100,9 @@
       </node>
       <node concept="3F0ifn" id="N2AYHgpGf2" role="3EZMnx">
         <property role="3F0ifm" value=")" />
-        <ref role="1k5W1q" to="r4ju:2R3DD23tMJM" resolve="BraceStyle" />
+        <node concept="11L4FC" id="2XBKnohC2Wf" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
       </node>
       <node concept="l2Vlx" id="N2AYHgpGeV" role="2iSdaV" />
     </node>
@@ -217,7 +221,8 @@
   </node>
   <node concept="24kQdi" id="3UB6E8dnpvd">
     <ref role="1XX52x" to="mj1t:3UB6E8djoy2" resolve="FindFirst" />
-    <node concept="3EZMnI" id="3UB6E8dnpvk" role="2wV5jI">
+    <node concept="3EZMnI" id="2XBKnohB2bE" role="2wV5jI">
+      <node concept="VPM3Z" id="2XBKnohB2bG" role="3F10Kt" />
       <node concept="3F0ifn" id="3UB6E8dnpvq" role="3EZMnx">
         <property role="3F0ifm" value="findFirst" />
       </node>
@@ -264,9 +269,11 @@
       </node>
       <node concept="3F0ifn" id="3UB6E8dnpvw" role="3EZMnx">
         <property role="3F0ifm" value=")" />
-        <ref role="1k5W1q" to="r4ju:2R3DD23tMJM" resolve="BraceStyle" />
+        <node concept="11L4FC" id="2XBKnohByEz" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
       </node>
-      <node concept="l2Vlx" id="3UB6E8dnpvn" role="2iSdaV" />
+      <node concept="2iRfu4" id="2XBKnohB2bJ" role="2iSdaV" />
     </node>
   </node>
   <node concept="24kQdi" id="7h503jfTxvU">
@@ -304,7 +311,9 @@
       </node>
       <node concept="3F0ifn" id="7h503jfTxw9" role="3EZMnx">
         <property role="3F0ifm" value=")" />
-        <ref role="1k5W1q" to="r4ju:2R3DD23tMJM" resolve="BraceStyle" />
+        <node concept="11L4FC" id="2XBKnohC2Wd" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
       </node>
       <node concept="l2Vlx" id="7h503jfTxwa" role="2iSdaV" />
     </node>
@@ -336,7 +345,9 @@
       </node>
       <node concept="3F0ifn" id="7h503jg19k0" role="3EZMnx">
         <property role="3F0ifm" value=")" />
-        <ref role="1k5W1q" to="r4ju:2R3DD23tMJM" resolve="BraceStyle" />
+        <node concept="11L4FC" id="2XBKnohC2We" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
       </node>
       <node concept="l2Vlx" id="7h503jg19k1" role="2iSdaV" />
     </node>

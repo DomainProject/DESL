@@ -13,6 +13,8 @@ import jetbrains.mps.openapi.editor.descriptor.ConceptEditor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import java.util.Collections;
 import jetbrains.mps.openapi.editor.descriptor.ConceptEditorComponent;
+import jetbrains.mps.openapi.editor.descriptor.SubstituteMenu;
+import jetbrains.mps.openapi.editor.cells.KeyMap;
 import jetbrains.mps.lang.smodel.ConceptSwitchIndex;
 import jetbrains.mps.lang.smodel.ConceptSwitchIndexBuilder;
 import jetbrains.mps.smodel.adapter.ids.MetaIdFactory;
@@ -24,8 +26,16 @@ public class EditorAspectDescriptorImpl extends EditorAspectDescriptorBase imple
     SAbstractConcept cncpt = ((SAbstractConcept) concept);
     switch (conceptIndex.index(cncpt)) {
       case 0:
-        return Arrays.asList(new ConceptEditor[]{new ReversibleFunction_Editor(), new ReversibleFunction_tooltipHint_gxqege_b4a_Editor()});
+        return Collections.<ConceptEditor>singletonList(new EmptyLine_Editor());
       case 1:
+        return Arrays.asList(new ConceptEditor[]{new ReversibleFunction_Editor(), new ReversibleFunction_tooltipHint_gxqege_b4a_Editor()});
+      case 2:
+        return Collections.<ConceptEditor>singletonList(new ReversibleMacro_Editor());
+      case 3:
+        return Collections.<ConceptEditor>singletonList(new ReversibleMacroArgument_Editor());
+      case 4:
+        return Collections.<ConceptEditor>singletonList(new ReversibleMacroArgumentRef_Editor());
+      case 5:
         return Collections.<ConceptEditor>singletonList(new ReversibleScript_Editor());
       default:
     }
@@ -60,7 +70,26 @@ public class EditorAspectDescriptorImpl extends EditorAspectDescriptorBase imple
     return myHints;
   }
 
+  @NotNull
+  @Override
+  public Collection<SubstituteMenu> getDeclaredDefaultSubstituteMenus(SAbstractConcept concept) {
+    SAbstractConcept cncpt = concept;
+    switch (conceptIndex2.index(cncpt)) {
+      case 0:
+        return Collections.<SubstituteMenu>singletonList(new EmptyLine_SubstituteMenu());
+      case 1:
+        return Collections.<SubstituteMenu>singletonList(new ReversibleMacroArgumentRef_SubstituteMenu());
+      default:
+    }
+    return Collections.<SubstituteMenu>emptyList();
+  }
+  @NotNull
+  @Override
+  public Collection<KeyMap> getDeclaredKeyMaps() {
+    return Arrays.<KeyMap>asList(new Checkbox_KeyMap_a8zlsv_a0(), new Checkbox_KeyMap_f3jl9m_a0());
+  }
 
-  private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL), MetaIdFactory.conceptId(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x56ee1731fef0eae5L)).seal();
+  private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111bL), MetaIdFactory.conceptId(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL), MetaIdFactory.conceptId(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145008fL), MetaIdFactory.conceptId(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761177adb6L), MetaIdFactory.conceptId(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c176117d6e39L), MetaIdFactory.conceptId(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x56ee1731fef0eae5L)).seal();
   private static final ConceptSwitchIndex conceptIndex1 = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL), MetaIdFactory.conceptId(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL)).seal();
+  private static final ConceptSwitchIndex conceptIndex2 = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111bL), MetaIdFactory.conceptId(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c176117d6e39L)).seal();
 }

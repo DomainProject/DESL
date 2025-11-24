@@ -14,6 +14,8 @@
     <import index="c4fa" ref="r:9f0e84b6-2ec7-4f9e-83e0-feedc77b63a3(com.mbeddr.core.statements.structure)" implicit="true" />
     <import index="w8o" ref="r:e84d12fa-9ad2-42d4-95e8-d9ef0c30fdf9(ReversibleFunctions.structure)" implicit="true" />
     <import index="tpee" ref="r:00000000-0000-4000-0000-011c895902ca(jetbrains.mps.baseLanguage.structure)" implicit="true" />
+    <import index="ib4b" ref="r:539823a2-87c6-4a7e-abc8-d6fc586848eb(ReversibleExpressions.structure)" implicit="true" />
+    <import index="kmi" ref="r:afa7ae5b-c41f-45e8-9678-2beae3621a33(ReversibleStatements.structure)" implicit="true" />
   </imports>
   <registry>
     <language id="c72da2b9-7cce-4447-8389-f407dc1158b7" name="jetbrains.mps.lang.structure">
@@ -985,7 +987,7 @@
     <property role="34LRSv" value="Random" />
     <property role="R4oN_" value="get a random number" />
     <property role="3GE5qa" value="random" />
-    <ref role="1TJDcQ" to="mj1l:7FQByU3CrCM" resolve="Expression" />
+    <ref role="1TJDcQ" to="ib4b:7FQByU3CrCM" resolve="ReversibleExpression" />
     <node concept="1TJgyj" id="2hQH9iowz41" role="1TKVEi">
       <property role="IQ2ns" value="2627485982924091649" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
@@ -999,7 +1001,7 @@
     <property role="TrG5h" value="Expent" />
     <property role="R4oN_" value="get an exponentially distributed random value" />
     <property role="3GE5qa" value="random" />
-    <ref role="1TJDcQ" to="mj1l:7FQByU3CrCM" resolve="Expression" />
+    <ref role="1TJDcQ" to="ib4b:7FQByU3CrCM" resolve="ReversibleExpression" />
     <node concept="1TJgyj" id="2hQH9iohDTM" role="1TKVEi">
       <property role="IQ2ns" value="2627485982920187506" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
@@ -1021,7 +1023,7 @@
     <property role="TrG5h" value="InitRandomContext" />
     <property role="34LRSv" value="InitRandomContext" />
     <property role="R4oN_" value="initialize the rand context field in state" />
-    <ref role="1TJDcQ" to="c4fa:3CmSUB7FmO3" resolve="Statement" />
+    <ref role="1TJDcQ" to="kmi:3CmSUB7FmO3" resolve="ReversibleStatement" />
     <node concept="1TJgyj" id="2hQH9iorxss" role="1TKVEi">
       <property role="IQ2ns" value="2627485982922774300" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
@@ -1134,7 +1136,7 @@
     <property role="EcuMT" value="2575222304969090883" />
     <property role="3GE5qa" value="random" />
     <property role="TrG5h" value="GetRandContext" />
-    <ref role="1TJDcQ" to="mj1l:7FQByU3CrCM" resolve="Expression" />
+    <ref role="1TJDcQ" to="ib4b:7FQByU3CrCM" resolve="ReversibleExpression" />
   </node>
   <node concept="1TIwiD" id="DmIOmJqe2y">
     <property role="EcuMT" value="744988696346419362" />

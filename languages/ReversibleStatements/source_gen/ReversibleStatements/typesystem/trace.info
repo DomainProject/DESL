@@ -15,7 +15,7 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1070475587102:jetbrains.mps.baseLanguage.structure.SuperConstructorInvocation" />
   <root>
     <file name="TypesystemDescriptor.java">
-      <unit at="9,0,113,0" name="ReversibleStatements.typesystem.TypesystemDescriptor" />
+      <unit at="9,0,117,0" name="ReversibleStatements.typesystem.TypesystemDescriptor" />
     </file>
   </root>
   <root nodeRef="r:07afe000-9188-4b34-9180-ab5e86e4d5d2(ReversibleStatements.typesystem)/1732804289250676748">
@@ -446,10 +446,10 @@
   </root>
   <root nodeRef="r:07afe000-9188-4b34-9180-ab5e86e4d5d2(ReversibleStatements.typesystem)/3134547887598550420">
     <file name="TypesystemDescriptor.java">
-      <node id="3134547887598550420" at="103,5,104,98" concept="6" />
-      <node id="3134547887598550420" at="104,98,105,55" concept="2" />
-      <node id="3134547887598550420" at="102,5,106,5" concept="0" />
-      <scope id="3134547887598550420" at="103,5,105,55">
+      <node id="3134547887598550420" at="107,5,108,98" concept="6" />
+      <node id="3134547887598550420" at="108,98,109,55" concept="2" />
+      <node id="3134547887598550420" at="106,5,110,5" concept="0" />
+      <scope id="3134547887598550420" at="107,5,109,55">
         <var name="nonTypesystemRule" id="3134547887598550420" />
       </scope>
     </file>
@@ -679,10 +679,10 @@
   </root>
   <root nodeRef="r:07afe000-9188-4b34-9180-ab5e86e4d5d2(ReversibleStatements.typesystem)/5028988880060007411">
     <file name="TypesystemDescriptor.java">
-      <node id="5028988880060007411" at="107,5,108,108" concept="6" />
-      <node id="5028988880060007411" at="108,108,109,55" concept="2" />
-      <node id="5028988880060007411" at="106,5,110,5" concept="0" />
-      <scope id="5028988880060007411" at="107,5,109,55">
+      <node id="5028988880060007411" at="111,5,112,108" concept="6" />
+      <node id="5028988880060007411" at="112,108,113,55" concept="2" />
+      <node id="5028988880060007411" at="110,5,114,5" concept="0" />
+      <scope id="5028988880060007411" at="111,5,113,55">
         <var name="nonTypesystemRule" id="5028988880060007411" />
       </scope>
     </file>
@@ -777,6 +777,45 @@
       <unit id="5028988880060007509" at="36,0,39,0" name="ReversibleStatements.typesystem.deleteEmptyExpressionStatement_QuickFix$CONCEPTS" />
       <unit id="5028988880060007509" at="40,0,43,0" name="ReversibleStatements.typesystem.deleteEmptyExpressionStatement_QuickFix$LINKS" />
       <unit id="5028988880060007509" at="17,0,44,0" name="ReversibleStatements.typesystem.deleteEmptyExpressionStatement_QuickFix" />
+    </file>
+  </root>
+  <root nodeRef="r:07afe000-9188-4b34-9180-ab5e86e4d5d2(ReversibleStatements.typesystem)/5413024092817345553">
+    <file name="TypesystemDescriptor.java">
+      <node id="5413024092817345553" at="99,5,100,98" concept="6" />
+      <node id="5413024092817345553" at="100,98,101,55" concept="2" />
+      <node id="5413024092817345553" at="98,5,102,5" concept="0" />
+      <scope id="5413024092817345553" at="99,5,101,55">
+        <var name="nonTypesystemRule" id="5413024092817345553" />
+      </scope>
+    </file>
+    <file name="check_ReturnStatement_NonTypesystemRule.java">
+      <node id="5413024092817345553" at="19,50,20,39" concept="7" />
+      <node id="5413024092817345553" at="22,68,23,102" concept="7" />
+      <node id="5413024092817345553" at="25,30,26,17" concept="7" />
+      <node id="5413024092817345553" at="30,0,31,0" concept="10" trace="ReturnStatement$ow" />
+      <node id="5413024092817345553" at="15,0,17,0" concept="1" trace="check_ReturnStatement_NonTypesystemRule#()V" />
+      <node id="5413024092817345553" at="17,0,19,0" concept="5" trace="applyRule#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/typesystem/inference/TypeCheckingContext;Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;)V" />
+      <node id="5413024092817345553" at="19,0,22,0" concept="5" trace="getApplicableConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
+      <node id="5413024092817345553" at="22,0,25,0" concept="5" trace="isApplicableAndPattern#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;" />
+      <node id="5413024092817345553" at="25,0,28,0" concept="5" trace="overrides#()Z" />
+      <scope id="5413024092817345553" at="15,52,15,52" />
+      <scope id="5413024092817345554" at="17,115,17,115" />
+      <scope id="5413024092817345553" at="19,50,20,39" />
+      <scope id="5413024092817345553" at="22,68,23,102" />
+      <scope id="5413024092817345553" at="25,30,26,17" />
+      <scope id="5413024092817345553" at="15,0,17,0" />
+      <scope id="5413024092817345553" at="17,0,19,0">
+        <var name="rs" id="5413024092817345553" />
+        <var name="status" id="5413024092817345553" />
+        <var name="typeCheckingContext" id="5413024092817345553" />
+      </scope>
+      <scope id="5413024092817345553" at="19,0,22,0" />
+      <scope id="5413024092817345553" at="22,0,25,0">
+        <var name="argument" id="5413024092817345553" />
+      </scope>
+      <scope id="5413024092817345553" at="25,0,28,0" />
+      <unit id="5413024092817345553" at="29,0,32,0" name="ReversibleStatements.typesystem.check_ReturnStatement_NonTypesystemRule$CONCEPTS" />
+      <unit id="5413024092817345553" at="14,0,33,0" name="ReversibleStatements.typesystem.check_ReturnStatement_NonTypesystemRule" />
     </file>
   </root>
   <root nodeRef="r:07afe000-9188-4b34-9180-ab5e86e4d5d2(ReversibleStatements.typesystem)/5924821888884652052">
@@ -1222,10 +1261,10 @@
   </root>
   <root nodeRef="r:07afe000-9188-4b34-9180-ab5e86e4d5d2(ReversibleStatements.typesystem)/7945330339437119370">
     <file name="TypesystemDescriptor.java">
-      <node id="7945330339437119370" at="99,5,100,96" concept="6" />
-      <node id="7945330339437119370" at="100,96,101,55" concept="2" />
-      <node id="7945330339437119370" at="98,5,102,5" concept="0" />
-      <scope id="7945330339437119370" at="99,5,101,55">
+      <node id="7945330339437119370" at="103,5,104,96" concept="6" />
+      <node id="7945330339437119370" at="104,96,105,55" concept="2" />
+      <node id="7945330339437119370" at="102,5,106,5" concept="0" />
+      <scope id="7945330339437119370" at="103,5,105,55">
         <var name="nonTypesystemRule" id="7945330339437119370" />
       </scope>
     </file>

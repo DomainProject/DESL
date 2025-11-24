@@ -9,7 +9,12 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.runtime.ConceptPresentationBuilder;
 
 public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase {
+  private ConceptPresentation props_EmptyLine;
+  private ConceptPresentation props_IReversibleItem;
   private ConceptPresentation props_ReversibleFunction;
+  private ConceptPresentation props_ReversibleMacro;
+  private ConceptPresentation props_ReversibleMacroArgument;
+  private ConceptPresentation props_ReversibleMacroArgumentRef;
   private ConceptPresentation props_ReversibleScript;
   private ConceptPresentation props_ReversibleScriptExp;
 
@@ -18,6 +23,19 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   public ConceptPresentation getDescriptor(SAbstractConcept c) {
     StructureAspectDescriptor structureDescriptor = (StructureAspectDescriptor) myLanguageRuntime.getAspect(jetbrains.mps.smodel.runtime.StructureAspectDescriptor.class);
     switch (structureDescriptor.internalIndex(c)) {
+      case LanguageConceptSwitch.EmptyLine:
+        if (props_EmptyLine == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("EmptyLine");
+          props_EmptyLine = cpb.create();
+        }
+        return props_EmptyLine;
+      case LanguageConceptSwitch.IReversibleItem:
+        if (props_IReversibleItem == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          props_IReversibleItem = cpb.create();
+        }
+        return props_IReversibleItem;
       case LanguageConceptSwitch.ReversibleFunction:
         if (props_ReversibleFunction == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -25,6 +43,28 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_ReversibleFunction = cpb.create();
         }
         return props_ReversibleFunction;
+      case LanguageConceptSwitch.ReversibleMacro:
+        if (props_ReversibleMacro == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.shortDesc("a global reversible macro definition");
+          cpb.presentationByName();
+          props_ReversibleMacro = cpb.create();
+        }
+        return props_ReversibleMacro;
+      case LanguageConceptSwitch.ReversibleMacroArgument:
+        if (props_ReversibleMacroArgument == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.presentationByName();
+          props_ReversibleMacroArgument = cpb.create();
+        }
+        return props_ReversibleMacroArgument;
+      case LanguageConceptSwitch.ReversibleMacroArgumentRef:
+        if (props_ReversibleMacroArgumentRef == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.presentationByReference(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c176117d6e39L, 0x2f67c176117d9dacL, "arg", "", "");
+          props_ReversibleMacroArgumentRef = cpb.create();
+        }
+        return props_ReversibleMacroArgumentRef;
       case LanguageConceptSwitch.ReversibleScript:
         if (props_ReversibleScript == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

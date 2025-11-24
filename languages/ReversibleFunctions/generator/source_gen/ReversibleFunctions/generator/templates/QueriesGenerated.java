@@ -7,14 +7,18 @@ import jetbrains.mps.generator.impl.query.QueryProviderBase;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodesContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.generator.template.MappingScriptContext;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.generator.template.MappingScriptContext;
+import jetbrains.mps.baseLanguage.logging.rt.LogContext;
+import java.util.List;
+import java.util.ArrayList;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
+import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import ReversibleFunctions.behavior.ReversibleFunction__BehaviorDescriptor;
 import java.util.Map;
 import jetbrains.mps.generator.impl.query.ScriptCodeBlock;
@@ -27,9 +31,9 @@ import java.util.Collection;
 import jetbrains.mps.util.IterableUtil;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
-import org.jetbrains.mps.openapi.language.SProperty;
 
 @Generated
 public class QueriesGenerated extends QueryProviderBase {
@@ -37,20 +41,30 @@ public class QueriesGenerated extends QueryProviderBase {
     super(1);
   }
   public static Iterable<SNode> sourceNodesQuery_1_0(final SourceSubstituteMacroNodesContext _context) {
-    return SLinkOperations.getChildren(_context.getNode(), LINKS.reversibleFunctions$5wYj);
+    return SLinkOperations.getChildren(_context.getNode(), LINKS.functions$VlQq);
   }
   public static Iterable<SNode> sourceNodesQuery_1_1(final SourceSubstituteMacroNodesContext _context) {
-    return SLinkOperations.getChildren(_context.getNode(), LINKS.functions$VlQq);
+    return ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.reversibleItems$5wYj)).where((it) -> SPropertyOperations.getBoolean(it, PROPS.expand$b0u));
   }
   public static void mappingScript_CodeBlock_2(final MappingScriptContext _context) {
 
+    LogContext.with(QueriesGenerated.class, null, null, null).info("Starting preprocessing");
+
+    List<SNode> reversedFunctions = new ArrayList<SNode>();
 
     for (SNode root : ListSequence.fromList(SModelOperations.roots(_context.getModel(), CONCEPTS.ReversibleScript$ki))) {
-      for (SNode function : ListSequence.fromList(SLinkOperations.getChildren(root, LINKS.reversibleFunctions$5wYj))) {
+      for (SNode function : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(root, LINKS.reversibleItems$5wYj), CONCEPTS.ReversibleFunction$IL))) {
+
+        LogContext.with(QueriesGenerated.class, null, null, null).info("Function " + SPropertyOperations.getString(function, PROPS.name$MnvL));
 
         for (SNode stmtWithSupportVariable : ListSequence.fromList(SNodeOperations.getNodeDescendants(function, CONCEPTS.INeedSupportVariable$qI, false, new SAbstractConcept[]{}))) {
+
+
           // check if the stmt is contained in a loop
           if (!(SNodeOperations.isInstanceOf(SNodeOperations.getParent(SNodeOperations.getParent(stmtWithSupportVariable)), CONCEPTS.IReversibleLoop$k1))) {
+
+            LogContext.with(QueriesGenerated.class, null, null, null).info("Creating support variable in loop");
+
             SNode lvr = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x571ea5ef247e3b6dL, "ReversibleStatements.structure.CheckpointLocalVarRef"));
             SLinkOperations.setTarget(lvr, LINKS.var$iAI8, SLinkOperations.getTarget(stmtWithSupportVariable, LINKS.variable$WrxR));
             ListSequence.fromList(SLinkOperations.getChildren(function, LINKS.checkpointingVariables$5GhH)).addElement(lvr);
@@ -59,22 +73,31 @@ public class QueriesGenerated extends QueryProviderBase {
 
         for (SNode loop : ListSequence.fromList(SNodeOperations.getNodeDescendants(function, CONCEPTS.IReversibleLoop$k1, false, new SAbstractConcept[]{}))) {
           for (SNode var : ListSequence.fromList(SLinkOperations.getChildren(loop, LINKS.additionalVariables$en7t))) {
+
+            LogContext.with(QueriesGenerated.class, null, null, null).info("Creating checkpointing variable");
+
             SNode lvr = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x571ea5ef247e3b6dL, "ReversibleStatements.structure.CheckpointLocalVarRef"));
             SLinkOperations.setTarget(lvr, LINKS.var$iAI8, var);
             ListSequence.fromList(SLinkOperations.getChildren(function, LINKS.checkpointingVariables$5GhH)).addElement(lvr);
           }
         }
 
-        SPropertyOperations.assign(function, PROPS.reversibilityRequired$B65C, true);
-        SPropertyOperations.assign(function, PROPS.isForward$3_sP, true);
+        SPropertyOperations.assign(function, PROPS.reversibilityRequired$Zgdy, true);
+        SPropertyOperations.assign(function, PROPS.isForward$rJ$J, true);
         ReversibleFunction__BehaviorDescriptor.propagateReversibility_id5U1XgQ$bWsf.invoke(function);
         SNode newFunction = SNodeOperations.copyNode(function);
         SPropertyOperations.assign(newFunction, PROPS.name$MnvL, SPropertyOperations.getString(newFunction, PROPS.name$MnvL) + "_reverse");
-        SPropertyOperations.assign(newFunction, PROPS.isForward$3_sP, false);
+        SPropertyOperations.assign(newFunction, PROPS.isForward$rJ$J, false);
         ReversibleFunction__BehaviorDescriptor.propagateReversibility_id5U1XgQ$bWsf.invoke(newFunction);
-        ListSequence.fromList(SLinkOperations.getChildren(root, LINKS.reversibleFunctions$5wYj)).addElement(newFunction);
+        ListSequence.fromList(reversedFunctions).addElement(newFunction);
+
       }
+
+      ListSequence.fromList(SLinkOperations.getChildren(root, LINKS.reversibleItems$5wYj)).addSequence(ListSequence.fromList(reversedFunctions));
     }
+
+
+    LogContext.with(QueriesGenerated.class, null, null, null).info("Preprocessing completed");
   }
   private final Map<String, ScriptCodeBlock> mscbMethods = new HashMap<String, ScriptCodeBlock>();
   {
@@ -106,8 +129,8 @@ public class QueriesGenerated extends QueryProviderBase {
   private final Map<String, SourceNodesQuery> snsqMethods = new HashMap<String, SourceNodesQuery>();
   {
     int i = 0;
-    snsqMethods.put("6263969635233439338", new SNsQ(i++));
-    snsqMethods.put("4865790254796716079", new SNsQ(i++));
+    snsqMethods.put("5413024092855471889", new SNsQ(i++));
+    snsqMethods.put("3415911555225080814", new SNsQ(i++));
   }
   @NotNull
   @Override
@@ -134,23 +157,25 @@ public class QueriesGenerated extends QueryProviderBase {
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink reversibleFunctions$5wYj = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x56ee1731fef0eae5L, 0x56ee1731fef0eae6L, "reversibleFunctions");
     /*package*/ static final SContainmentLink functions$VlQq = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x56ee1731fef0eae5L, 0x7f5aaca6ab31ec34L, "functions");
+    /*package*/ static final SContainmentLink reversibleItems$5wYj = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x56ee1731fef0eae5L, 0x56ee1731fef0eae6L, "reversibleItems");
     /*package*/ static final SReferenceLink var$iAI8 = MetaAdapterFactory.getReferenceLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x571ea5ef247e3b6dL, 0x571ea5ef247e3b6eL, "var");
     /*package*/ static final SContainmentLink variable$WrxR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x586abb2d5743cb69L, "variable");
     /*package*/ static final SContainmentLink checkpointingVariables$5GhH = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, 0x571ea5ef242a50aaL, "checkpointingVariables");
     /*package*/ static final SContainmentLink additionalVariables$en7t = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x6337a44ca461bdf4L, 0x6337a44ca461be00L, "additionalVariables");
   }
 
+  private static final class PROPS {
+    /*package*/ static final SProperty expand$b0u = MetaAdapterFactory.getProperty(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111cL, 0x2f67c1761149413aL, "expand");
+    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty reversibilityRequired$Zgdy = MetaAdapterFactory.getProperty(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111cL, 0x56ee1731ff5a6482L, "reversibilityRequired");
+    /*package*/ static final SProperty isForward$rJ$J = MetaAdapterFactory.getProperty(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111cL, 0x5e81f50da1382199L, "isForward");
+  }
+
   private static final class CONCEPTS {
     /*package*/ static final SInterfaceConcept IReversibleLoop$k1 = MetaAdapterFactory.getInterfaceConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x6337a44ca461bdf4L, "ReversibleStatements.structure.IReversibleLoop");
     /*package*/ static final SInterfaceConcept INeedSupportVariable$qI = MetaAdapterFactory.getInterfaceConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, "ReversibleExpressions.structure.INeedSupportVariable");
+    /*package*/ static final SConcept ReversibleFunction$IL = MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, "ReversibleFunctions.structure.ReversibleFunction");
     /*package*/ static final SConcept ReversibleScript$ki = MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x56ee1731fef0eae5L, "ReversibleFunctions.structure.ReversibleScript");
-  }
-
-  private static final class PROPS {
-    /*package*/ static final SProperty reversibilityRequired$B65C = MetaAdapterFactory.getProperty(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, 0x56ee1731ff5a6482L, "reversibilityRequired");
-    /*package*/ static final SProperty isForward$3_sP = MetaAdapterFactory.getProperty(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, 0x5e81f50da1382199L, "isForward");
-    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

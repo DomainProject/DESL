@@ -15,7 +15,7 @@ public class ReversibleScriptExp_TextGen extends TextGenDescriptorBase {
   @Override
   public void generateText(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
-    for (SNode function : ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.reversibleFunctions$5wYj))) {
+    for (SNode function : ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.reversibleItems$5wYj))) {
       tgs.appendNode(function);
       tgs.newLine();
     }
@@ -27,7 +27,7 @@ public class ReversibleScriptExp_TextGen extends TextGenDescriptorBase {
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink reversibleFunctions$5wYj = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x56ee1731fef0eae5L, 0x56ee1731fef0eae6L, "reversibleFunctions");
+    /*package*/ static final SContainmentLink reversibleItems$5wYj = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x56ee1731fef0eae5L, 0x56ee1731fef0eae6L, "reversibleItems");
     /*package*/ static final SContainmentLink functions$VlQq = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x56ee1731fef0eae5L, 0x7f5aaca6ab31ec34L, "functions");
   }
 }

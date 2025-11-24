@@ -55,7 +55,7 @@ public final class ReversibleStatement__BehaviorDescriptor extends BaseBHDescrip
   }
   /*package*/ static SNode wrapInStatementList_id66UaKxBBAli(@NotNull SNode __thisNode__) {
     SNode sl = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, "ReversibleStatements.structure.ReversibleStatementList"));
-    ListSequence.fromList(SLinkOperations.getChildren(sl, LINKS.statements$IdM8)).addElement(SNodeOperations.copyNode(__thisNode__));
+    ListSequence.fromList(SLinkOperations.getChildren(sl, LINKS.revStatements$IdM8)).addElement(SNodeOperations.copyNode(__thisNode__));
     return sl;
   }
 
@@ -120,6 +120,6 @@ public final class ReversibleStatement__BehaviorDescriptor extends BaseBHDescrip
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink statements$IdM8 = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, 0x3a16e3a9c7ad9956L, "statements");
+    /*package*/ static final SContainmentLink revStatements$IdM8 = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, 0x3a16e3a9c7ad9956L, "revStatements");
   }
 }

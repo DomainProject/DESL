@@ -79,7 +79,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     return editorCell;
   }
   private boolean nodeCondition_nph7my_a1a() {
-    return SPropertyOperations.getBoolean(myNode, PROPS.isInvisible$cRUg);
+    return SPropertyOperations.getBoolean(myNode, PROPS.isInvisible$wTPL);
   }
   private boolean nodeCondition_nph7my_a4a() {
     return SNodeOperations.isInstanceOf(SNodeOperations.getParent(myNode), CONCEPTS.IStatmentListContainer$NA) && IStatmentListContainer__BehaviorDescriptor.getEndLabel_id5Xsg2EBpPwD.invoke(SNodeOperations.cast(SNodeOperations.getParent(myNode), CONCEPTS.IStatmentListContainer$NA), myNode) != null;
@@ -100,9 +100,9 @@ import org.jetbrains.mps.openapi.language.SConcept;
     return editorCell;
   }
   private EditorCell createRefNodeList_0() {
-    AbstractCellListHandler handler = new statementsListHandler_nph7my_c0(myNode, getEditorContext());
+    AbstractCellListHandler handler = new revStatementsListHandler_nph7my_c0(myNode, getEditorContext());
     EditorCell_Collection editorCell = handler.createCells(new CellLayout_Indent(), false);
-    editorCell.setCellId("refNodeList_statements");
+    editorCell.setCellId("refNodeList_revStatements");
     Style style = new StyleImpl();
     style.set(StyleAttributes.INDENT_LAYOUT_ON_NEW_LINE, _StyleParameter_QueryFunction_nph7my_a0c0());
     style.set(StyleAttributes.INDENT_LAYOUT_INDENT, true);
@@ -112,11 +112,11 @@ import org.jetbrains.mps.openapi.language.SConcept;
     editorCell.setSRole(handler.getElementSRole());
     return editorCell;
   }
-  private static class statementsListHandler_nph7my_c0 extends RefNodeListHandler {
+  private static class revStatementsListHandler_nph7my_c0 extends RefNodeListHandler {
     @NotNull
     private SNode myNode;
 
-    public statementsListHandler_nph7my_c0(SNode ownerNode, EditorContext context) {
+    public revStatementsListHandler_nph7my_c0(SNode ownerNode, EditorContext context) {
       super(context, false);
       myNode = ownerNode;
     }
@@ -126,7 +126,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return myNode;
     }
     public SContainmentLink getSLink() {
-      return LINKS.statements$IdM8;
+      return LINKS.revStatements$IdM8;
     }
     public SAbstractConcept getChildSConcept() {
       return CONCEPTS.ReversibleStatement$s8;
@@ -139,7 +139,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
     public EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(statementsListHandler_nph7my_c0.this.getNode(), LINKS.statements$IdM8));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(revStatementsListHandler_nph7my_c0.this.getNode(), LINKS.revStatements$IdM8));
       try {
         EditorCell emptyCell = null;
         emptyCell = createReadOnlyModelAccessor_0();
@@ -195,7 +195,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
   }
   private boolean _StyleParameter_QueryFunction_nph7my_a0c0() {
-    return ListSequence.fromList(SLinkOperations.getChildren(getNode(), LINKS.statements$IdM8)).isNotEmpty() && (boolean) ReversibleStatementList__BehaviorDescriptor.requiresMultiLines_id1z9MsBsVy8R.invoke(SNodeOperations.getNodeAncestor(getNode(), CONCEPTS.ReversibleStatementList$qe, true, false));
+    return ListSequence.fromList(SLinkOperations.getChildren(getNode(), LINKS.revStatements$IdM8)).isNotEmpty() && (boolean) ReversibleStatementList__BehaviorDescriptor.requiresMultiLines_id1z9MsBsVy8R.invoke(SNodeOperations.getNodeAncestor(getNode(), CONCEPTS.ReversibleStatementList$qe, true, false));
   }
   private boolean _StyleParameter_QueryFunction_nph7my_a2c0() {
     return (boolean) ReversibleStatementList__BehaviorDescriptor.requiresMultiLines_id1z9MsBsVy8R.invoke(SNodeOperations.getNodeAncestor(getNode(), CONCEPTS.ReversibleStatementList$qe, true, false));
@@ -240,7 +240,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
   }
 
   private static final class PROPS {
-    /*package*/ static final SProperty isInvisible$cRUg = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, 0x4070c9f3cc412fc1L, "isInvisible");
+    /*package*/ static final SProperty isInvisible$wTPL = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, 0x4b1eecbba63cdb33L, "isInvisible");
   }
 
   private static final class CONCEPTS {
@@ -250,6 +250,6 @@ import org.jetbrains.mps.openapi.language.SConcept;
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink statements$IdM8 = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, 0x3a16e3a9c7ad9956L, "statements");
+    /*package*/ static final SContainmentLink revStatements$IdM8 = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, 0x3a16e3a9c7ad9956L, "revStatements");
   }
 }

@@ -5,9 +5,11 @@
     <devkit ref="78434eb8-b0e5-444b-850d-e7c4ad2da9ab(jetbrains.mps.devkit.aspect.structure)" />
   </languages>
   <imports>
-    <import index="c4fa" ref="r:9f0e84b6-2ec7-4f9e-83e0-feedc77b63a3(com.mbeddr.core.statements.structure)" implicit="true" />
+    <import index="kmi" ref="r:afa7ae5b-c41f-45e8-9678-2beae3621a33(ReversibleStatements.structure)" implicit="true" />
     <import index="mj1l" ref="r:c371cf98-dcc8-4a43-8eb8-8a8096de18b2(com.mbeddr.core.expressions.structure)" implicit="true" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
+    <import index="c4fa" ref="r:9f0e84b6-2ec7-4f9e-83e0-feedc77b63a3(com.mbeddr.core.statements.structure)" implicit="true" />
+    <import index="ib4b" ref="r:539823a2-87c6-4a7e-abc8-d6fc586848eb(ReversibleExpressions.structure)" implicit="true" />
   </imports>
   <registry>
     <language id="c72da2b9-7cce-4447-8389-f407dc1158b7" name="jetbrains.mps.lang.structure">
@@ -54,7 +56,7 @@
     <property role="TrG5h" value="AddToCollection" />
     <property role="34LRSv" value="add" />
     <property role="R4oN_" value="add element to collection" />
-    <ref role="1TJDcQ" to="c4fa:3CmSUB7FmO3" resolve="Statement" />
+    <ref role="1TJDcQ" to="kmi:3CmSUB7FmO3" resolve="ReversibleStatement" />
     <node concept="1TJgyj" id="2PnOsd7F_93" role="1TKVEi">
       <property role="IQ2ns" value="3267310691332018755" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
@@ -131,14 +133,14 @@
     <property role="EcuMT" value="919468708904480930" />
     <property role="TrG5h" value="NewCollection" />
     <property role="34LRSv" value="new collection" />
-    <ref role="1TJDcQ" to="mj1l:7FQByU3CrCM" resolve="Expression" />
+    <ref role="1TJDcQ" to="ib4b:7FQByU3CrCM" resolve="ReversibleExpression" />
   </node>
   <node concept="1TIwiD" id="3UB6E8djoy2">
     <property role="EcuMT" value="4514606434772420738" />
     <property role="TrG5h" value="FindFirst" />
     <property role="34LRSv" value="findFirst" />
     <property role="R4oN_" value="find the first element in a collection that satisfies a condition" />
-    <ref role="1TJDcQ" to="c4fa:3CmSUB7FmO3" resolve="Statement" />
+    <ref role="1TJDcQ" to="kmi:3CmSUB7FmO3" resolve="ReversibleStatement" />
     <node concept="1TJgyj" id="3Pw7xgHHxY_" role="1TKVEi">
       <property role="IQ2ns" value="4422567906092916645" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
@@ -154,7 +156,7 @@
     <property role="TrG5h" value="RemoveFirst" />
     <property role="34LRSv" value="removeFirst" />
     <property role="R4oN_" value="remove the first element in a collection that satifies a condition" />
-    <ref role="1TJDcQ" to="c4fa:3CmSUB7FmO3" resolve="Statement" />
+    <ref role="1TJDcQ" to="kmi:3CmSUB7FmO3" resolve="ReversibleStatement" />
     <node concept="PrWs8" id="7h503jfTBwh" role="PzmwI">
       <ref role="PrY4T" node="7h503jfTyeG" resolve="IGetFirstElementInCollection" />
     </node>
@@ -194,7 +196,7 @@
     <property role="TrG5h" value="RemoveFromCollection" />
     <property role="34LRSv" value="remove" />
     <property role="R4oN_" value="remove element from collection" />
-    <ref role="1TJDcQ" to="c4fa:3CmSUB7FmO3" resolve="Statement" />
+    <ref role="1TJDcQ" to="kmi:3CmSUB7FmO3" resolve="ReversibleStatement" />
     <node concept="1TJgyj" id="7h503jg19jR" role="1TKVEi">
       <property role="IQ2ns" value="8378102908620936439" />
       <property role="20kJfa" value="variable" />

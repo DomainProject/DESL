@@ -277,7 +277,7 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
         return myNode;
       }
       public SContainmentLink getSLink() {
-        return LINKS.arguments$6da0;
+        return LINKS.arguments$gPkY;
       }
       public SAbstractConcept getChildSConcept() {
         return CONCEPTS.IArgumentLike$DP;
@@ -293,7 +293,7 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
       }
       public EditorCell createEmptyCell() {
         getCellFactory().pushCellContext();
-        getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(argumentsListHandler_sbef1a_a0a3a0.this.getNode(), LINKS.arguments$6da0));
+        getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(argumentsListHandler_sbef1a_a0a3a0.this.getNode(), LINKS.arguments$gPkY));
         try {
           EditorCell emptyCell = null;
           emptyCell = super.createEmptyCell();
@@ -476,7 +476,7 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
   private static final class LINKS {
     /*package*/ static final SReferenceLink event$cu_u = MetaAdapterFactory.getReferenceLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x549487e5d9aa9e01L, "event");
     /*package*/ static final SContainmentLink forwardFunction$5bPH = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x74d88000543a2a9fL, "forwardFunction");
-    /*package*/ static final SContainmentLink arguments$6da0 = MetaAdapterFactory.getContainmentLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x707ac195dd5d51f2L, 0x4f39f90935e92f45L, "arguments");
+    /*package*/ static final SContainmentLink arguments$gPkY = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, 0x4f39f90935e92f45L, "arguments");
     /*package*/ static final SContainmentLink revBody$QkEt = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, 0x5e81f50da12f79a6L, "revBody");
   }
 

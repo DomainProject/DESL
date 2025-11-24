@@ -31,8 +31,10 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
 
   @Override
   public void reportDependencies(jetbrains.mps.smodel.runtime.StructureAspectDescriptor.Dependencies deps) {
-    deps.extendedLanguage(0xa9d696470840491eL, 0xbf392eb0805d2011L, "com.mbeddr.core.statements");
+    deps.extendedLanguage(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, "ReversibleStatements");
     deps.extendedLanguage(0x61c69711ed614850L, 0x81d97714ff227fb0L, "com.mbeddr.core.expressions");
+    deps.extendedLanguage(0xa9d696470840491eL, 0xbf392eb0805d2011L, "com.mbeddr.core.statements");
+    deps.extendedLanguage(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, "ReversibleExpressions");
     deps.aggregatedLanguage(0x61c69711ed614850L, 0x81d97714ff227fb0L, "com.mbeddr.core.expressions");
     deps.aggregatedLanguage(0xa9d696470840491eL, 0xbf392eb0805d2011L, "com.mbeddr.core.statements");
   }
@@ -77,8 +79,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   private static ConceptDescriptor createDescriptorForAddToCollection() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("Collections", "AddToCollection", 0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0xcc29beb50645d41L);
     b.class_(false, false, false);
-    // extends: com.mbeddr.core.statements.structure.Statement
-    b.super_(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad6d03L);
+    // extends: ReversibleStatements.structure.ReversibleStatement
+    b.super_(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad6d03L);
     b.origin("r:7c7377c1-dded-46c2-9c44-39493c999dbb(Collections.structure)/919468708905377089");
     b.version(3);
     b.property("variableName", 0x323127c573e235ebL).type(PrimitiveTypeId.STRING).origin("3616715704761464299").done();
@@ -101,8 +103,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   private static ConceptDescriptor createDescriptorForFindFirst() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("Collections", "FindFirst", 0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x3ea71aa20d4d8882L);
     b.class_(false, false, false);
-    // extends: com.mbeddr.core.statements.structure.Statement
-    b.super_(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad6d03L);
+    // extends: ReversibleStatements.structure.ReversibleStatement
+    b.super_(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad6d03L);
     b.parent(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x74450034cfe623acL);
     b.origin("r:7c7377c1-dded-46c2-9c44-39493c999dbb(Collections.structure)/4514606434772420738");
     b.version(3);
@@ -148,8 +150,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   private static ConceptDescriptor createDescriptorForNewCollection() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("Collections", "NewCollection", 0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0xcc29beb5056b0a2L);
     b.class_(false, false, false);
-    // extends: com.mbeddr.core.expressions.structure.Expression
-    b.super_(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba32L);
+    // extends: ReversibleExpressions.structure.ReversibleExpression
+    b.super_(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L);
     b.origin("r:7c7377c1-dded-46c2-9c44-39493c999dbb(Collections.structure)/919468708904480930");
     b.version(3);
     b.alias("new collection");
@@ -158,8 +160,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   private static ConceptDescriptor createDescriptorForRemoveFirst() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("Collections", "RemoveFirst", 0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x74450034cfe617f4L);
     b.class_(false, false, false);
-    // extends: com.mbeddr.core.statements.structure.Statement
-    b.super_(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad6d03L);
+    // extends: ReversibleStatements.structure.ReversibleStatement
+    b.super_(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad6d03L);
     b.parent(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x74450034cfe623acL);
     b.origin("r:7c7377c1-dded-46c2-9c44-39493c999dbb(Collections.structure)/8378102908618938356");
     b.version(3);
@@ -169,8 +171,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   private static ConceptDescriptor createDescriptorForRemoveFromCollection() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("Collections", "RemoveFromCollection", 0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x74450034d00494f4L);
     b.class_(false, false, false);
-    // extends: com.mbeddr.core.statements.structure.Statement
-    b.super_(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad6d03L);
+    // extends: ReversibleStatements.structure.ReversibleStatement
+    b.super_(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad6d03L);
     b.origin("r:7c7377c1-dded-46c2-9c44-39493c999dbb(Collections.structure)/8378102908620936436");
     b.version(3);
     b.property("variableName", 0x323127c573d9e3b3L).type(PrimitiveTypeId.STRING).origin("3616715704760918963").done();

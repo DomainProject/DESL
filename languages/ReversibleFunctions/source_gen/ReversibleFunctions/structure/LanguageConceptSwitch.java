@@ -9,13 +9,23 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 
 public final class LanguageConceptSwitch {
   private final LanguageConceptIndex myIndex;
-  public static final int ReversibleFunction = 0;
-  public static final int ReversibleScript = 1;
-  public static final int ReversibleScriptExp = 2;
+  public static final int EmptyLine = 0;
+  public static final int IReversibleItem = 1;
+  public static final int ReversibleFunction = 2;
+  public static final int ReversibleMacro = 3;
+  public static final int ReversibleMacroArgument = 4;
+  public static final int ReversibleMacroArgumentRef = 5;
+  public static final int ReversibleScript = 6;
+  public static final int ReversibleScriptExp = 7;
 
   public LanguageConceptSwitch() {
     LanguageConceptIndexBuilder builder = new LanguageConceptIndexBuilder(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L);
+    builder.put(0x2f67c1761145111bL, EmptyLine);
+    builder.put(0x2f67c1761145111cL, IReversibleItem);
     builder.put(0x5e81f50da12f055fL, ReversibleFunction);
+    builder.put(0x2f67c1761145008fL, ReversibleMacro);
+    builder.put(0x2f67c1761177adb6L, ReversibleMacroArgument);
+    builder.put(0x2f67c176117d6e39L, ReversibleMacroArgumentRef);
     builder.put(0x56ee1731fef0eae5L, ReversibleScript);
     builder.put(0x56ee1731ff842b7dL, ReversibleScriptExp);
     myIndex = builder.seal();

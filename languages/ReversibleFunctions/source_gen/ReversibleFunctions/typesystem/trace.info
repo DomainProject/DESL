@@ -1,8 +1,113 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <debug-info version="2">
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1082485599095:jetbrains.mps.baseLanguage.structure.BlockStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123140:jetbrains.mps.baseLanguage.structure.ConstructorDeclaration" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123155:jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123165:jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068581242864:jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068581242878:jetbrains.mps.baseLanguage.structure.ReturnStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1070462154015:jetbrains.mps.baseLanguage.structure.StaticFieldDeclaration" />
   <root>
     <file name="TypesystemDescriptor.java">
-      <unit at="7,0,11,0" name="ReversibleFunctions.typesystem.TypesystemDescriptor" />
+      <unit at="8,0,20,0" name="ReversibleFunctions.typesystem.TypesystemDescriptor" />
+    </file>
+  </root>
+  <root nodeRef="r:471e6a3d-0c69-4d5c-92d6-e861451557a9(ReversibleFunctions.typesystem)/3415911555226146625">
+    <file name="TypesystemDescriptor.java">
+      <node id="3415911555226146625" at="10,5,11,87" concept="4" />
+      <node id="3415911555226146625" at="11,87,12,47" concept="2" />
+      <node id="3415911555226146625" at="9,33,13,5" concept="0" />
+      <scope id="3415911555226146625" at="10,5,12,47">
+        <var name="inferenceRule" id="3415911555226146625" />
+      </scope>
+    </file>
+    <file name="typeof_ReversibleMacro_InferenceRule.java">
+      <node id="1485122135950145215" at="21,5,22,46" concept="4" />
+      <node id="1485122135950145215" at="22,46,23,196" concept="4" />
+      <node id="1485122135950145215" at="23,196,24,419" concept="2" />
+      <node id="3415911555226146625" at="27,50,28,39" concept="5" />
+      <node id="3415911555226146625" at="30,68,31,102" concept="5" />
+      <node id="3415911555226146625" at="33,30,34,17" concept="5" />
+      <node id="3415911555226146625" at="38,0,39,0" concept="6" trace="content$L7Vn" />
+      <node id="3415911555226146625" at="42,0,43,0" concept="6" trace="ReversibleMacro$EH" />
+      <node id="3415911555226146625" at="18,0,20,0" concept="1" trace="typeof_ReversibleMacro_InferenceRule#()V" />
+      <node id="3415911555226146625" at="27,0,30,0" concept="3" trace="getApplicableConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
+      <node id="3415911555226146625" at="30,0,33,0" concept="3" trace="isApplicableAndPattern#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;" />
+      <node id="3415911555226146625" at="33,0,36,0" concept="3" trace="overrides#()Z" />
+      <node id="1485122135950145215" at="20,117,25,5" concept="0" />
+      <node id="3415911555226146625" at="20,0,27,0" concept="3" trace="applyRule#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/typesystem/inference/TypeCheckingContext;Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;)V" />
+      <scope id="3415911555226146625" at="18,49,18,49" />
+      <scope id="3415911555226146625" at="27,50,28,39" />
+      <scope id="3415911555226146625" at="30,68,31,102" />
+      <scope id="3415911555226146625" at="33,30,34,17" />
+      <scope id="3415911555226146625" at="18,0,20,0" />
+      <scope id="1485122135950145215" at="21,5,24,419">
+        <var name="_info_12389875345" id="1485122135950145215" />
+        <var name="_nodeToCheck_1029348928467" id="1485122135950145215" />
+      </scope>
+      <scope id="3415911555226146625" at="27,0,30,0" />
+      <scope id="3415911555226146625" at="30,0,33,0">
+        <var name="argument" id="3415911555226146625" />
+      </scope>
+      <scope id="3415911555226146625" at="33,0,36,0" />
+      <scope id="3415911555226146626" at="20,117,25,5" />
+      <scope id="3415911555226146625" at="20,0,27,0">
+        <var name="gcfd" id="3415911555226146625" />
+        <var name="status" id="3415911555226146625" />
+        <var name="typeCheckingContext" id="3415911555226146625" />
+      </scope>
+      <unit id="3415911555226146625" at="37,0,40,0" name="ReversibleFunctions.typesystem.typeof_ReversibleMacro_InferenceRule$LINKS" />
+      <unit id="3415911555226146625" at="41,0,44,0" name="ReversibleFunctions.typesystem.typeof_ReversibleMacro_InferenceRule$CONCEPTS" />
+      <unit id="3415911555226146625" at="17,0,45,0" name="ReversibleFunctions.typesystem.typeof_ReversibleMacro_InferenceRule" />
+    </file>
+  </root>
+  <root nodeRef="r:471e6a3d-0c69-4d5c-92d6-e861451557a9(ReversibleFunctions.typesystem)/3415911555227584520">
+    <file name="TypesystemDescriptor.java">
+      <node id="3415911555227584520" at="14,5,15,98" concept="4" />
+      <node id="3415911555227584520" at="15,98,16,47" concept="2" />
+      <node id="3415911555227584520" at="13,5,17,5" concept="0" />
+      <scope id="3415911555227584520" at="14,5,16,47">
+        <var name="inferenceRule" id="3415911555227584520" />
+      </scope>
+    </file>
+    <file name="typeof_ReversibleMacroArgumentRef_InferenceRule.java">
+      <node id="7308356872494661016" at="21,5,22,45" concept="4" />
+      <node id="7308356872494661016" at="22,45,23,196" concept="4" />
+      <node id="7308356872494661016" at="23,196,24,414" concept="2" />
+      <node id="3415911555227584520" at="27,50,28,50" concept="5" />
+      <node id="3415911555227584520" at="30,68,31,102" concept="5" />
+      <node id="3415911555227584520" at="33,30,34,17" concept="5" />
+      <node id="3415911555227584520" at="38,0,39,0" concept="6" trace="arg$vQxE" />
+      <node id="3415911555227584520" at="42,0,43,0" concept="6" trace="ReversibleMacroArgumentRef$S2" />
+      <node id="3415911555227584520" at="18,0,20,0" concept="1" trace="typeof_ReversibleMacroArgumentRef_InferenceRule#()V" />
+      <node id="3415911555227584520" at="27,0,30,0" concept="3" trace="getApplicableConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
+      <node id="3415911555227584520" at="30,0,33,0" concept="3" trace="isApplicableAndPattern#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;" />
+      <node id="3415911555227584520" at="33,0,36,0" concept="3" trace="overrides#()Z" />
+      <node id="7308356872494661016" at="20,116,25,5" concept="0" />
+      <node id="3415911555227584520" at="20,0,27,0" concept="3" trace="applyRule#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/typesystem/inference/TypeCheckingContext;Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;)V" />
+      <scope id="3415911555227584520" at="18,60,18,60" />
+      <scope id="3415911555227584520" at="27,50,28,50" />
+      <scope id="3415911555227584520" at="30,68,31,102" />
+      <scope id="3415911555227584520" at="33,30,34,17" />
+      <scope id="3415911555227584520" at="18,0,20,0" />
+      <scope id="7308356872494661016" at="21,5,24,414">
+        <var name="_info_12389875345" id="7308356872494661016" />
+        <var name="_nodeToCheck_1029348928467" id="7308356872494661016" />
+      </scope>
+      <scope id="3415911555227584520" at="27,0,30,0" />
+      <scope id="3415911555227584520" at="30,0,33,0">
+        <var name="argument" id="3415911555227584520" />
+      </scope>
+      <scope id="3415911555227584520" at="33,0,36,0" />
+      <scope id="3415911555227584521" at="20,116,25,5" />
+      <scope id="3415911555227584520" at="20,0,27,0">
+        <var name="ref" id="3415911555227584520" />
+        <var name="status" id="3415911555227584520" />
+        <var name="typeCheckingContext" id="3415911555227584520" />
+      </scope>
+      <unit id="3415911555227584520" at="37,0,40,0" name="ReversibleFunctions.typesystem.typeof_ReversibleMacroArgumentRef_InferenceRule$LINKS" />
+      <unit id="3415911555227584520" at="41,0,44,0" name="ReversibleFunctions.typesystem.typeof_ReversibleMacroArgumentRef_InferenceRule$CONCEPTS" />
+      <unit id="3415911555227584520" at="17,0,45,0" name="ReversibleFunctions.typesystem.typeof_ReversibleMacroArgumentRef_InferenceRule" />
     </file>
   </root>
 </debug-info>

@@ -27,7 +27,7 @@ public class ModelListenersDescriptor implements IModelListenersDescriptor {
   public Iterable<IModelListener> getListeners() {
     List<IModelListener> listeners = ListSequence.fromList(new ArrayList<IModelListener>());
 
-    ListSequence.fromList(listeners).addElement(new ChildListener(CONCEPTS.ReversibleStatementList$qe, LINKS.statements$IdM8) {
+    ListSequence.fromList(listeners).addElement(new ChildListener(CONCEPTS.ReversibleStatementList$qe, LINKS.revStatements$IdM8) {
       @Override
       public void childAdded(final SNode instance, final SNode child) {
 
@@ -61,7 +61,7 @@ public class ModelListenersDescriptor implements IModelListenersDescriptor {
 
       }
     });
-    ListSequence.fromList(listeners).addElement(new ChildListener(CONCEPTS.ReversibleStatementList$qe, LINKS.statements$IdM8) {
+    ListSequence.fromList(listeners).addElement(new ChildListener(CONCEPTS.ReversibleStatementList$qe, LINKS.revStatements$IdM8) {
       @Override
       public void childRemoved(final SNode instance, final SNode child) {
         {
@@ -89,7 +89,7 @@ public class ModelListenersDescriptor implements IModelListenersDescriptor {
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink statements$IdM8 = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, 0x3a16e3a9c7ad9956L, "statements");
+    /*package*/ static final SContainmentLink revStatements$IdM8 = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, 0x3a16e3a9c7ad9956L, "revStatements");
     /*package*/ static final SContainmentLink baseType$zMGV = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x6bbcdccef5e46755L, 0x6bbcdccef5e46756L, "baseType");
     /*package*/ static final SContainmentLink variable$WrxR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x586abb2d5743cb69L, "variable");
     /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");

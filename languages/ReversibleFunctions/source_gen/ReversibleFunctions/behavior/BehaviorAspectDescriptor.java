@@ -12,6 +12,9 @@ import jetbrains.mps.lang.smodel.ConceptSwitchIndexBuilder;
 import jetbrains.mps.smodel.adapter.ids.MetaIdFactory;
 
 public final class BehaviorAspectDescriptor extends BaseBehaviorAspectDescriptor {
+  private final BHDescriptor myReversibleMacro__BehaviorDescriptor = new ReversibleMacro__BehaviorDescriptor();
+  private final BHDescriptor myReversibleMacroArgument__BehaviorDescriptor = new ReversibleMacroArgument__BehaviorDescriptor();
+  private final BHDescriptor myReversibleMacroArgumentRef__BehaviorDescriptor = new ReversibleMacroArgumentRef__BehaviorDescriptor();
   private final BHDescriptor myReversibleFunction__BehaviorDescriptor = new ReversibleFunction__BehaviorDescriptor();
 
   public BehaviorAspectDescriptor() {
@@ -23,9 +26,15 @@ public final class BehaviorAspectDescriptor extends BaseBehaviorAspectDescriptor
     switch (conceptIndex.index(cncpt)) {
       case 0:
         return myReversibleFunction__BehaviorDescriptor;
+      case 1:
+        return myReversibleMacro__BehaviorDescriptor;
+      case 2:
+        return myReversibleMacroArgument__BehaviorDescriptor;
+      case 3:
+        return myReversibleMacroArgumentRef__BehaviorDescriptor;
       default:
     }
     return null;
   }
-  private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL)).seal();
+  private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL), MetaIdFactory.conceptId(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145008fL), MetaIdFactory.conceptId(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761177adb6L), MetaIdFactory.conceptId(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c176117d6e39L)).seal();
 }
