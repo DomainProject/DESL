@@ -13,7 +13,7 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1070475587102:jetbrains.mps.baseLanguage.structure.SuperConstructorInvocation" />
   <root>
     <file name="ConstraintsAspectDescriptor.java">
-      <unit at="15,0,58,0" name="ReversibleExpressions.constraints.ConstraintsAspectDescriptor" />
+      <unit at="15,0,60,0" name="ReversibleExpressions.constraints.ConstraintsAspectDescriptor" />
     </file>
   </root>
   <root nodeRef="r:e81df3c1-b167-4843-95a2-4c0dd8e517e2(ReversibleExpressions.constraints)/1054289341113450471">
@@ -193,6 +193,70 @@
       <unit id="1670233242589916457" at="18,0,74,0" name="ReversibleExpressions.constraints.ScientificNumber_Constraints" />
     </file>
   </root>
+  <root nodeRef="r:e81df3c1-b167-4843-95a2-4c0dd8e517e2(ReversibleExpressions.constraints)/1964272224270682954">
+    <file name="ReversibleMacroCall_Constraints.java">
+      <node id="1964272224270682954" at="28,93,29,56" concept="10" />
+      <node id="1964272224270682955" at="29,56,30,26" concept="1" />
+      <node id="1964272224270682955" at="34,54,35,53" concept="10" />
+      <node id="1964272224270682955" at="38,114,39,18" concept="5" />
+      <node id="2333498690161852042" at="42,117,43,82" concept="1" />
+      <node id="2333498690161870112" at="45,145,46,103" concept="1" />
+      <node id="1964272224270682955" at="55,61,56,134" concept="5" />
+      <node id="1964272224270683532" at="59,78,60,251" concept="5" />
+      <node id="1964272224270682954" at="67,0,68,0" concept="8" trace="ReversibleMacroCall$40" />
+      <node id="1964272224270682954" at="68,0,69,0" concept="8" trace="IDestructiveOperation$SP" />
+      <node id="1964272224270682954" at="69,0,70,0" concept="8" trace="IVisibleElementProvider$$O" />
+      <node id="1964272224270682954" at="70,0,71,0" concept="8" trace="ReversibleMacro$EH" />
+      <node id="1964272224270682954" at="74,0,75,0" concept="8" trace="macro$QKaR" />
+      <node id="1964272224270682954" at="75,0,76,0" concept="8" trace="content$L7Vn" />
+      <node id="1964272224270682954" at="76,0,77,0" concept="8" trace="reversedMacro$ecXU" />
+      <node id="1964272224270682955" at="34,0,37,0" concept="0" trace="RD1#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptor;)V" />
+      <node id="2333498690165358645" at="44,91,47,9" concept="2" />
+      <node id="1964272224270682954" at="28,0,32,0" concept="0" trace="ReversibleMacroCall_Constraints#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptorInitContext;)V" />
+      <node id="1964272224270682955" at="37,0,41,0" concept="3" trace="validate#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
+      <node id="1964272224270682955" at="54,0,58,0" concept="3" trace="getSearchScopeValidatorNode#()Lorg/jetbrains/mps/openapi/model/SNodeReference;" />
+      <node id="1964272224270682955" at="58,0,62,0" concept="3" trace="createScope#(Ljetbrains/mps/smodel/runtime/ReferenceConstraintsContext;)Ljetbrains/mps/scope/Scope;" />
+      <node id="2333498690161864327" at="43,82,48,7" concept="2" />
+      <node id="1964272224270682955" at="41,0,50,0" concept="3" trace="onReferenceSet#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)V" />
+      <node id="1964272224270682955" at="52,54,62,8" concept="5" />
+      <node id="1964272224270682955" at="50,0,64,0" concept="3" trace="getScopeProvider#()Ljetbrains/mps/smodel/runtime/ReferenceScopeProvider;" />
+      <scope id="1964272224270682955" at="34,54,35,53" />
+      <scope id="1964272224270682955" at="38,114,39,18" />
+      <scope id="2333498690165358647" at="45,145,46,103" />
+      <scope id="1964272224270682955" at="55,61,56,134" />
+      <scope id="1964272224270682955" at="59,78,60,251" />
+      <scope id="1964272224270682954" at="28,93,30,26" />
+      <scope id="1964272224270682955" at="34,0,37,0">
+        <var name="container" id="1964272224270682955" />
+      </scope>
+      <scope id="2333498690161864329" at="44,91,47,9" />
+      <scope id="1964272224270682954" at="28,0,32,0">
+        <var name="initContext" id="1964272224270682954" />
+      </scope>
+      <scope id="1964272224270682955" at="37,0,41,0">
+        <var name="newReferentNode" id="1964272224270682955" />
+        <var name="oldReferentNode" id="1964272224270682955" />
+        <var name="referenceNode" id="1964272224270682955" />
+      </scope>
+      <scope id="1964272224270682955" at="54,0,58,0" />
+      <scope id="1964272224270682955" at="58,0,62,0">
+        <var name="_context" id="1964272224270682955" />
+      </scope>
+      <scope id="2333498690161851672" at="42,117,48,7" />
+      <scope id="1964272224270682955" at="41,0,50,0">
+        <var name="newReferentNode" id="1964272224270682955" />
+        <var name="oldReferentNode" id="1964272224270682955" />
+        <var name="referenceNode" id="1964272224270682955" />
+      </scope>
+      <scope id="1964272224270682955" at="52,54,62,8" />
+      <scope id="1964272224270682955" at="50,0,64,0" />
+      <unit id="1964272224270682954" at="73,0,78,0" name="ReversibleExpressions.constraints.ReversibleMacroCall_Constraints$LINKS" />
+      <unit id="1964272224270682954" at="66,0,72,0" name="ReversibleExpressions.constraints.ReversibleMacroCall_Constraints$CONCEPTS" />
+      <unit id="1964272224270682955" at="53,17,62,7" name="ReversibleExpressions.constraints.ReversibleMacroCall_Constraints$RD1$1" />
+      <unit id="1964272224270682955" at="33,0,65,0" name="ReversibleExpressions.constraints.ReversibleMacroCall_Constraints$RD1" />
+      <unit id="1964272224270682954" at="27,0,79,0" name="ReversibleExpressions.constraints.ReversibleMacroCall_Constraints" />
+    </file>
+  </root>
   <root nodeRef="r:e81df3c1-b167-4843-95a2-4c0dd8e517e2(ReversibleExpressions.constraints)/2029493130780830546">
     <file name="PostIncrementExpression_Constraints.java">
       <node id="2029493130780830546" at="11,97,12,60" concept="10" />
@@ -225,10 +289,10 @@
       <node id="3345835282713148055" at="25,59,26,26" concept="1" />
       <node id="3345835282713148055" at="30,54,31,57" concept="10" />
       <node id="3345835282713148055" at="38,61,39,134" concept="5" />
-      <node id="3345835282713148459" at="42,78,43,244" concept="5" />
+      <node id="3345835282713148459" at="42,78,43,254" concept="5" />
       <node id="3345835282713148054" at="50,0,51,0" concept="8" trace="ReversibleFunctionCall$TO" />
       <node id="3345835282713148054" at="51,0,52,0" concept="8" trace="IVisibleElementProvider$$O" />
-      <node id="3345835282713148054" at="52,0,53,0" concept="8" trace="Function$K8" />
+      <node id="3345835282713148054" at="52,0,53,0" concept="8" trace="ReversibleFunction$IL" />
       <node id="3345835282713148054" at="56,0,57,0" concept="8" trace="function$EyYZ" />
       <node id="3345835282713148055" at="30,0,33,0" concept="0" trace="RD1#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptor;)V" />
       <node id="3345835282713148054" at="24,0,28,0" concept="0" trace="ReversibleFunctionCall_Constraints#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptorInitContext;)V" />
@@ -238,7 +302,7 @@
       <node id="3345835282713148055" at="33,0,47,0" concept="3" trace="getScopeProvider#()Ljetbrains/mps/smodel/runtime/ReferenceScopeProvider;" />
       <scope id="3345835282713148055" at="30,54,31,57" />
       <scope id="3345835282713148055" at="38,61,39,134" />
-      <scope id="3345835282713148055" at="42,78,43,244" />
+      <scope id="3345835282713148055" at="42,78,43,254" />
       <scope id="3345835282713148054" at="24,96,26,26" />
       <scope id="3345835282713148055" at="30,0,33,0">
         <var name="container" id="3345835282713148055" />

@@ -34,7 +34,7 @@ public class DeleteStatementWithSupportVariable {
         LogContext.with(DeleteStatementWithSupportVariable.class, null, editorContext.getOperationContext().getProject(), null).trace("executing delete action");
         LogContext.with(DeleteStatementWithSupportVariable.class, null, editorContext.getOperationContext().getProject(), null).warning("executing delete action");
 
-        SNodeOperations.deleteNode(SLinkOperations.getTarget(node, LINKS.variable$WrxR));
+        SNodeOperations.deleteNode(SLinkOperations.getTarget(node, LINKS.supportVariable$WrxR));
 
         if ((SNodeOperations.getNodeAncestor(node, CONCEPTS.IReversibleLoop$k1, false, false) != null)) {
           ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.getNodeAncestor(node, CONCEPTS.IReversibleLoop$k1, false, false), LINKS.additionalVariables$en7t)).clear();
@@ -86,7 +86,7 @@ public class DeleteStatementWithSupportVariable {
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink variable$WrxR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x586abb2d5743cb69L, "variable");
+    /*package*/ static final SContainmentLink supportVariable$WrxR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x586abb2d5743cb69L, "supportVariable");
     /*package*/ static final SContainmentLink additionalVariables$en7t = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x6337a44ca461bdf4L, 0x6337a44ca461be00L, "additionalVariables");
   }
 

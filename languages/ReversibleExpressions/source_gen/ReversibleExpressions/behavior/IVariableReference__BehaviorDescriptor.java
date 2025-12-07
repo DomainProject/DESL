@@ -21,9 +21,10 @@ public final class IVariableReference__BehaviorDescriptor extends BaseBHDescript
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1c69b376a2dab98aL, "ReversibleExpressions.structure.IVariableReference");
 
   public static final SMethod<SNode> getVariable_id1LDGRqyQFAf = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getVariable").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2047364827736357263L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
+  public static final SMethod<String> getVariableName_id79Sp4cYA0X2 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getVariableName").modifiers(12, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8248452957504802626L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
   public static final SMethod<SNode> target_id70kXLV4LLzy = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("target").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8076351743304603874L).languageId(0xaa41d1b2bffa7eb1L, 0xd4280a54f6df4383L).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getVariable_id1LDGRqyQFAf, target_id70kXLV4LLzy);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getVariable_id1LDGRqyQFAf, getVariableName_id79Sp4cYA0X2, target_id70kXLV4LLzy);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -52,7 +53,7 @@ public final class IVariableReference__BehaviorDescriptor extends BaseBHDescript
     switch (methodIndex) {
       case 0:
         return (T) ((SNode) getVariable_id1LDGRqyQFAf(node));
-      case 1:
+      case 2:
         return (T) ((SNode) target_id70kXLV4LLzy(node));
       default:
         throw new BHMethodNotFoundException(this, method);

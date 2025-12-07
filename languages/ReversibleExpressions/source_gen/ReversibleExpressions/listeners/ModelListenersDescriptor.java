@@ -13,9 +13,15 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import ReversibleExpressions.behavior.IVariableReference__BehaviorDescriptor;
+import ReversibleExpressions.behavior.IVariableDeclaration__BehaviorDescriptor;
+import jetbrains.mps.baseLanguage.logging.rt.LogContext;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class ModelListenersDescriptor implements IModelListenersDescriptor {
   public ModelListenersDescriptor() {
@@ -41,8 +47,6 @@ public class ModelListenersDescriptor implements IModelListenersDescriptor {
           }
         }
 
-        SLinkOperations.setTarget(SLinkOperations.getTarget(instance, LINKS.variable$WrxR), LINKS.type$sXU3, type);
-        SLinkOperations.setTarget(SLinkOperations.getTarget(instance, LINKS.variable$WrxR), LINKS.init$41s$, SNodeOperations.copyNode(child));
       }
     });
     ListSequence.fromList(listeners).addElement(new ChildListener(CONCEPTS.DirectModuloAssignmentExpression$5b, LINKS.left$KPKR) {
@@ -62,8 +66,41 @@ public class ModelListenersDescriptor implements IModelListenersDescriptor {
           }
         }
 
-        SLinkOperations.setTarget(SLinkOperations.getTarget(instance, LINKS.variable$WrxR), LINKS.type$sXU3, type);
-        SLinkOperations.setTarget(SLinkOperations.getTarget(instance, LINKS.variable$WrxR), LINKS.init$41s$, SNodeOperations.copyNode(child));
+        SLinkOperations.setTarget(SLinkOperations.getTarget(instance, LINKS.supportVariable$WrxR), LINKS.type$sXU3, type);
+        SLinkOperations.setTarget(SLinkOperations.getTarget(instance, LINKS.supportVariable$WrxR), LINKS.init$$i$n, SNodeOperations.copyNode(child));
+      }
+    });
+    ListSequence.fromList(listeners).addElement(new ChildListener(CONCEPTS.BinaryExpression$b, LINKS.left$KPKR) {
+      @Override
+      public void childAdded(final SNode instance, final SNode child) {
+
+        {
+          final SNode destructiveOperation = instance;
+          if (SNodeOperations.isInstanceOf(destructiveOperation, CONCEPTS.IDestructiveOperation$SP)) {
+            {
+              final SNode varRef = child;
+              if (SNodeOperations.isInstanceOf(varRef, CONCEPTS.IVariableReference$Kb)) {
+                SPropertyOperations.assign(destructiveOperation, PROPS.variableToSaveName$udlR, IVariableReference__BehaviorDescriptor.getVariableName_id79Sp4cYA0X2.invoke(varRef));
+                SLinkOperations.setTarget(SLinkOperations.getTarget(destructiveOperation, LINKS.supportVariable$WrxR), LINKS.type$sXU3, SNodeOperations.copyNode(SNodeOperations.cast(IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(varRef)), CONCEPTS.Type$dP)));
+                SLinkOperations.setTarget(SLinkOperations.getTarget(destructiveOperation, LINKS.supportVariable$WrxR), LINKS.init$$i$n, SNodeOperations.copyNode(child));
+
+
+                LogContext.with(ModelListenersDescriptor.class, null, null, null).info("Saving variable " + IVariableReference__BehaviorDescriptor.getVariableName_id79Sp4cYA0X2.invoke(varRef) + " with type " + SNodeOperations.cast(IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(varRef)), CONCEPTS.Type$dP));
+              }
+            }
+          }
+        }
+      }
+    });
+    ListSequence.fromList(listeners).addElement(new ChildListener(CONCEPTS.ReversibleMacroArg$Ip, LINKS.actual$n_Ao) {
+      @Override
+      public void childAdded(final SNode instance, final SNode child) {
+        {
+          final SNode varRef = child;
+          if (SNodeOperations.isInstanceOf(varRef, CONCEPTS.IVariableReference$Kb)) {
+            SLinkOperations.setTarget(SLinkOperations.getTarget(instance, LINKS.supportVariable$WrxR), LINKS.type$sXU3, SNodeOperations.cast(IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(varRef)), CONCEPTS.Type$dP));
+          }
+        }
       }
     });
 
@@ -75,6 +112,11 @@ public class ModelListenersDescriptor implements IModelListenersDescriptor {
     /*package*/ static final SConcept LocalVarRef$O3 = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x1d0c3765e2e1d67aL, "ReversibleStatements.structure.LocalVarRef");
     /*package*/ static final SConcept ArgumentRef$Ar = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x586abb2d564e82ffL, "ReversibleStatements.structure.ArgumentRef");
     /*package*/ static final SConcept DirectModuloAssignmentExpression$5b = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x63d2f6d2334415d3L, "ReversibleExpressions.structure.DirectModuloAssignmentExpression");
+    /*package*/ static final SConcept BinaryExpression$b = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba34L, "ReversibleExpressions.structure.BinaryExpression");
+    /*package*/ static final SInterfaceConcept IDestructiveOperation$SP = MetaAdapterFactory.getInterfaceConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x27d0c8e745a2c78dL, "ReversibleExpressions.structure.IDestructiveOperation");
+    /*package*/ static final SInterfaceConcept IVariableReference$Kb = MetaAdapterFactory.getInterfaceConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1c69b376a2dab98aL, "ReversibleExpressions.structure.IVariableReference");
+    /*package*/ static final SConcept Type$dP = MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba36L, "com.mbeddr.core.expressions.structure.Type");
+    /*package*/ static final SConcept ReversibleMacroArg$Ip = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x68ce0d48c3998717L, "ReversibleExpressions.structure.ReversibleMacroArg");
   }
 
   private static final class LINKS {
@@ -82,7 +124,12 @@ public class ModelListenersDescriptor implements IModelListenersDescriptor {
     /*package*/ static final SReferenceLink var$uDqP = MetaAdapterFactory.getReferenceLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x1d0c3765e2e1d67aL, 0x1d0c3765e2e1fe27L, "var");
     /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
     /*package*/ static final SReferenceLink arg$bO7D = MetaAdapterFactory.getReferenceLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x586abb2d564e82ffL, 0x586abb2d564e8301L, "arg");
-    /*package*/ static final SContainmentLink variable$WrxR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x586abb2d5743cb69L, "variable");
-    /*package*/ static final SContainmentLink init$41s$ = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad96e6L, 0x3a16e3a9c7ae01f7L, "init");
+    /*package*/ static final SContainmentLink supportVariable$WrxR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x586abb2d5743cb69L, "supportVariable");
+    /*package*/ static final SContainmentLink init$$i$n = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad96e6L, 0x3a16e3a9c7ae01f7L, "init");
+    /*package*/ static final SContainmentLink actual$n_Ao = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x68ce0d48c3998717L, 0x68ce0d48c3998719L, "actual");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty variableToSaveName$udlR = MetaAdapterFactory.getProperty(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x27d0c8e745a2c78dL, 0x1b427f2e4b08b057L, "variableToSaveName");
   }
 }

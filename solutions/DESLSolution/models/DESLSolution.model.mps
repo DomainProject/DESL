@@ -63,6 +63,19 @@
         <reference id="2093108837558124071" name="var" index="3ZVs_2" />
       </concept>
     </language>
+    <language id="9abffa92-4875-42bf-9379-c4f95eb496d4" name="ReversibleExpressions">
+      <concept id="6371110426280971112" name="ReversibleExpressions.structure.INeedSupportVariable" flags="ngI" index="fan15">
+        <property id="7149363582577448444" name="baseName" index="36$N6K" />
+        <child id="6371110426280971113" name="supportVariable" index="fan14" />
+      </concept>
+      <concept id="1964272224270679684" name="ReversibleExpressions.structure.ReversibleMacroCall" flags="ng" index="1i$S6E">
+        <reference id="1964272224270679685" name="macro" index="1i$S6F" />
+        <child id="1964272224270679686" name="actuals" index="1i$S6C" />
+      </concept>
+      <concept id="2869013858266302349" name="ReversibleExpressions.structure.IDestructiveOperation" flags="ngI" index="1yswXE">
+        <property id="1964272224291041367" name="variableToSaveName" index="1giGXT" />
+      </concept>
+    </language>
     <language id="92d2ea16-5a42-4fdf-a676-c7604efe3504" name="de.slisson.mps.richtext">
       <concept id="2557074442922380897" name="de.slisson.mps.richtext.structure.Text" flags="ng" index="19SGf9">
         <child id="2557074442922392302" name="words" index="19SJt6" />
@@ -82,6 +95,17 @@
       </concept>
       <concept id="279446265608459824" name="com.mbeddr.core.pointers.structure.PointerType" flags="ng" index="3wxxNl" />
     </language>
+    <language id="f75f9e3f-b00b-4997-8af2-0a8ce6b25221" name="ReversibleStatements">
+      <concept id="6371110426264896255" name="ReversibleStatements.structure.ArgumentRef" flags="ng" index="e93Bi">
+        <reference id="6371110426264896257" name="arg" index="e93wG" />
+      </concept>
+      <concept id="7254843406768833938" name="ReversibleStatements.structure.ExpressionStatement" flags="ng" index="1_9egR">
+        <child id="7254843406768833939" name="expr" index="1_9egS" />
+      </concept>
+      <concept id="4185783222026475861" name="ReversibleStatements.structure.ReversibleStatementList" flags="ng" index="3XIRFX">
+        <child id="4185783222026475862" name="revStatements" index="3XIRG0" />
+      </concept>
+    </language>
     <language id="2693fc71-9b0e-4b05-ab13-f57227d675f2" name="com.mbeddr.core.util">
       <concept id="1927508255684840839" name="com.mbeddr.core.util.structure.LogExpressionWord" flags="ng" index="3b1qWc">
         <child id="1927508255684840840" name="expr" index="3b1qW3" />
@@ -91,17 +115,12 @@
       </concept>
     </language>
     <language id="99e1808b-e2d7-4c11-a40f-23376c03dda3" name="Collections">
-      <concept id="8378102908620936436" name="Collections.structure.RemoveFromCollection" flags="ng" index="2$gpj0">
-        <property id="3616715704760918963" name="variableName" index="11UchQ" />
-        <reference id="8378102908620936439" name="variable" index="2$gpj3" />
-        <child id="3267310691332018795" name="collection" index="1EYoeC" />
-      </concept>
+      <concept id="8378102908620936436" name="Collections.structure.RemoveFromCollection" flags="ng" index="2$gpj0" />
       <concept id="4514606434772420738" name="Collections.structure.FindFirst" flags="ng" index="NUD8w">
         <child id="4422567906092916645" name="destVariable" index="gPw6L" />
       </concept>
       <concept id="8378102908618941356" name="Collections.structure.IGetFirstElementInCollection" flags="ngI" index="2VCMeo">
         <property id="8378102908618941357" name="elemName" index="2VCMep" />
-        <child id="8378102908618941358" name="condition" index="2VCMeq" />
         <child id="8378102908618941359" name="elem" index="2VCMer" />
         <child id="3267310691332018773" name="collection" index="1EYoem" />
       </concept>
@@ -114,6 +133,11 @@
         <child id="2709841761192516948" name="body" index="1gZlvH" />
         <child id="3267310691328000004" name="variable" index="1E9H77" />
         <child id="3267310691331862431" name="collection" index="1EZ3Ts" />
+      </concept>
+      <concept id="1964272224272680178" name="Collections.structure.IUpdateCollection" flags="ngI" index="1iGJJs">
+        <property id="1964272224275886139" name="variableName" index="1hoKWl" />
+        <reference id="1964272224272680179" name="item" index="1iGJJt" />
+        <child id="1964272224275889288" name="collection" index="1hoKeA" />
       </concept>
       <concept id="919468708904480930" name="Collections.structure.NewCollection" flags="ng" index="1s_2H9" />
       <concept id="919468708905377089" name="Collections.structure.AddToCollection" flags="ng" index="1sDGqE">
@@ -372,6 +396,21 @@
       <concept id="1670233242589902798" name="com.mbeddr.core.expressions.structure.ScientificNumber" flags="ng" index="3VGQI6">
         <property id="1670233242589904217" name="prefix" index="3VGQ4h" />
         <property id="1670233242589904219" name="postfix" index="3VGQ4j" />
+      </concept>
+    </language>
+    <language id="5eb14d5a-b5f7-4626-a63b-80c6b9db7397" name="ReversibleFunctions">
+      <concept id="3415911555227168182" name="ReversibleFunctions.structure.ReversibleMacroArgument" flags="ng" index="Y46N0" />
+      <concept id="3415911555223847055" name="ReversibleFunctions.structure.ReversibleMacro" flags="ng" index="Y8G7T">
+        <child id="6021475212425916983" name="arguments" index="BTY7V" />
+      </concept>
+      <concept id="3415911555223851292" name="ReversibleFunctions.structure.IReversibleItem" flags="ngI" index="Y8H1E">
+        <property id="6263969635223889026" name="reversibilityRequired" index="2DH7eN" />
+        <property id="6809993550449090969" name="isForward" index="3ZItik" />
+      </concept>
+      <concept id="6809993550448493919" name="ReversibleFunctions.structure.ReversibleFunction" flags="ng" index="3ZFJ1i">
+        <child id="5413024092842969764" name="type" index="3H_Uov" />
+        <child id="5708867820623310661" name="arguments" index="1UOdpd" />
+        <child id="6809993550448523686" name="revBody" index="3ZFCMF" />
       </concept>
     </language>
   </registry>
@@ -1032,6 +1071,18 @@
       </node>
     </node>
     <node concept="2tIAlt" id="2y$uZ59HZWs" role="2$iQ_X" />
+    <node concept="Y8G7T" id="4W5bsS_rZrH" role="2$iQ_X">
+      <property role="TrG5h" value="RESET_CHANNEL" />
+      <node concept="Y46N0" id="4W5bsS_s24i" role="BTY7V">
+        <property role="TrG5h" value="P" />
+        <node concept="26Vqpk" id="4W5bsS_s24j" role="2C2TGm" />
+      </node>
+      <node concept="Y46N0" id="4W5bsS_s24v" role="BTY7V">
+        <property role="TrG5h" value="I" />
+        <node concept="26Vqpk" id="4W5bsS_s24w" role="2C2TGm" />
+      </node>
+    </node>
+    <node concept="2tIAlt" id="4W5bsS_rWJj" role="2$iQ_X" />
     <node concept="2$iQ_L" id="2y$uZ59I2EW" role="2$iQ_X">
       <property role="TrG5h" value="CROSS_PATH_GAIN" />
       <node concept="3TlMh9" id="2y$uZ59I2EX" role="2DQcEM">
@@ -3385,99 +3436,100 @@
         <node concept="3MZ7mC" id="2eX1KFhlDJS" role="2C2TGm" />
       </node>
     </node>
-    <node concept="2tIAlt" id="2y$uZ59IwdQ" role="2Z_0yT" />
-    <node concept="2ZWeVW" id="2y$uZ59Iyny" role="2Z_0yT">
+    <node concept="2tIAlt" id="4W5bsS_qbcD" role="2Z_0yT" />
+    <node concept="2tIAlt" id="4W5bsS_rSyL" role="2Z_0yT" />
+    <node concept="3ZFJ1i" id="4W5bsS_rSAt" role="2Z_0yT">
+      <property role="3ZItik" value="true" />
+      <property role="2DH7eN" value="true" />
       <property role="TrG5h" value="deallocation" />
-      <node concept="19Rifw" id="2y$uZ59Iynz" role="2C2TGm" />
-      <node concept="3XIRFW" id="2y$uZ59Iyn$" role="3XIRFX">
-        <node concept="NUD8w" id="3Pw7xgHT9Q6" role="3XIRFZ">
+      <node concept="3XIRFX" id="4W5bsS_rSAv" role="3ZFCMF">
+        <node concept="NUD8w" id="4W5bsS_rTmz" role="3XIRG0">
           <property role="2VCMep" value="elem" />
-          <node concept="2qmXGp" id="3Pw7xgHT9Qv" role="1EYoem">
-            <node concept="1E4Tgc" id="3Pw7xgHT9QX" role="1ESnxz">
+          <node concept="2qmXGp" id="4W5bsS_rTnc" role="1EYoem">
+            <node concept="1E4Tgc" id="4W5bsS_rTnD" role="1ESnxz">
               <ref role="1E4Tge" node="4OHhT54iJUg" resolve="channels" />
             </node>
-            <node concept="3ZUYvv" id="3Pw7xgHT9Qn" role="1_9fRO">
-              <ref role="3ZUYvu" node="2y$uZ59Iyo1" resolve="pointer" />
+            <node concept="e93Bi" id="4W5bsS_rTn3" role="1_9fRO">
+              <ref role="e93wG" node="4W5bsS_rSRC" resolve="pointer" />
             </node>
           </node>
-          <node concept="3XIRlf" id="3Pw7xgHT9So" role="2VCMer">
+          <node concept="3XIRlf" id="4W5bsS_rWnl" role="2VCMer">
             <property role="TrG5h" value="elem" />
-            <node concept="3wxxNl" id="38L9WlNOlC$" role="2C2TGm">
-              <node concept="1sgJKr" id="3Pw7xgHT9Sn" role="2umbIo">
+            <node concept="3wxxNl" id="4W5bsS_rWny" role="2C2TGm">
+              <node concept="1sgJKr" id="4W5bsS_rWnk" role="2umbIo">
                 <ref role="1sgJKq" node="2y$uZ59IoPS" resolve="channel" />
               </node>
             </node>
           </node>
-          <node concept="3TlM44" id="3Pw7xgHT9SC" role="2VCMeq">
-            <node concept="2qmXGp" id="38L9WlNOlIO" role="3TlMhI">
-              <node concept="1E4Tgc" id="38L9WlNOlNe" role="1ESnxz">
-                <ref role="1E4Tge" node="2y$uZ59Ipw9" resolve="channel_id" />
-              </node>
-              <node concept="3ZVu4v" id="3Pw7xgHT9SU" role="1_9fRO">
-                <ref role="3ZVs_2" node="3Pw7xgHT9So" resolve="elem" />
-              </node>
-            </node>
-            <node concept="3ZUYvv" id="3Pw7xgHT9XX" role="3TlMhJ">
-              <ref role="3ZUYvu" node="2y$uZ59Iyo4" resolve="ch" />
-            </node>
-          </node>
-          <node concept="3XIRlf" id="3Pw7xgHTa28" role="gPw6L">
+          <node concept="3XIRlf" id="4W5bsS_rWwj" role="gPw6L">
             <property role="TrG5h" value="c" />
-            <node concept="3wxxNl" id="38L9WlNP9uA" role="2C2TGm">
-              <node concept="1sgJKr" id="3Pw7xgHTa2g" role="2umbIo">
+            <node concept="3wxxNl" id="4W5bsS_rWww" role="2C2TGm">
+              <node concept="1sgJKr" id="4W5bsS_rWwi" role="2umbIo">
                 <ref role="1sgJKq" node="2y$uZ59IoPS" resolve="channel" />
               </node>
             </node>
           </node>
         </node>
-        <node concept="1_9egQ" id="2y$uZ59IynO" role="3XIRFZ">
-          <node concept="BUAnR" id="2y$uZ59IynP" role="1_9egR">
-            <ref role="BUAnL" node="2y$uZ59I1OH" resolve="RESET_CHANNEL" />
-            <node concept="3ZUYvv" id="2y$uZ59IynQ" role="BULBh">
-              <ref role="3ZUYvu" node="2y$uZ59Iyo1" resolve="pointer" />
+        <node concept="1_9egR" id="4W5bsS_xEok" role="3XIRG0">
+          <node concept="1i$S6E" id="4W5bsS_xEoi" role="1_9egS">
+            <ref role="1i$S6F" node="4W5bsS_rZrH" resolve="RESET_CHANNEL" />
+            <node concept="e93Bi" id="4W5bsS_xEo$" role="1i$S6C">
+              <ref role="e93wG" node="4W5bsS_rSRC" resolve="pointer" />
             </node>
-            <node concept="3ZUYvv" id="2y$uZ59IynR" role="BULBh">
-              <ref role="3ZUYvu" node="2y$uZ59Iyo4" resolve="ch" />
+            <node concept="e93Bi" id="4W5bsS_xEoL" role="1i$S6C">
+              <ref role="e93wG" node="4W5bsS_rT4K" resolve="ch" />
             </node>
           </node>
         </node>
-        <node concept="2$gpj0" id="6lwIvDvs$5R" role="3XIRFZ">
-          <property role="11UchQ" value="c" />
-          <ref role="2$gpj3" node="3Pw7xgHTa28" resolve="c" />
-          <node concept="2qmXGp" id="6lwIvDvs$68" role="1EYoeC">
-            <node concept="1E4Tgc" id="6lwIvDvs$6_" role="1ESnxz">
+        <node concept="2$gpj0" id="4W5bsS_xEBp" role="3XIRG0">
+          <property role="36$N6K" value="remove_" />
+          <property role="1giGXT" value="c" />
+          <property role="1hoKWl" value="c" />
+          <ref role="1iGJJt" node="4W5bsS_rWwj" resolve="c" />
+          <node concept="3XIRlf" id="4W5bsS_xEBr" role="fan14">
+            <property role="TrG5h" value="remove_1e5cb06e" />
+            <node concept="3wxxNl" id="4W5bsS_xHw9" role="2C2TGm">
+              <node concept="1sgJKr" id="4W5bsS_xHwa" role="2umbIo">
+                <ref role="1sgJKq" node="2y$uZ59IoPS" resolve="channel" />
+              </node>
+            </node>
+          </node>
+          <node concept="2qmXGp" id="4W5bsS_xHxa" role="1hoKeA">
+            <node concept="1E4Tgc" id="4W5bsS_xJu$" role="1ESnxz">
               <ref role="1E4Tge" node="4OHhT54iJUg" resolve="channels" />
             </node>
-            <node concept="3ZUYvv" id="6lwIvDvs$5Z" role="1_9fRO">
-              <ref role="3ZUYvu" node="2y$uZ59Iyo1" resolve="pointer" />
+            <node concept="e93Bi" id="4W5bsS_xHx0" role="1_9fRO">
+              <ref role="e93wG" node="4W5bsS_rSRC" resolve="pointer" />
             </node>
           </node>
         </node>
-        <node concept="3RxC3g" id="BBY2rYD9VS" role="3XIRFZ">
-          <ref role="3RxC3t" node="3Pw7xgHTa28" resolve="c" />
+        <node concept="3RxC3g" id="4W5bsS_Ax4n" role="3XIRG0">
+          <ref role="3RxC3t" node="4W5bsS_rWwj" resolve="c" />
         </node>
       </node>
-      <node concept="19RgSI" id="2y$uZ59IynZ" role="1UOdpc">
+      <node concept="19Rifw" id="4W5bsS_rSEg" role="3H_Uov" />
+      <node concept="19RgSI" id="4W5bsS_rSNQ" role="1UOdpd">
         <property role="TrG5h" value="me" />
-        <node concept="26Vqp1" id="6UxgX89EZw0" role="2C2TGm" />
+        <node concept="26Vqp1" id="4W5bsS_rSNP" role="2C2TGm" />
       </node>
-      <node concept="19RgSI" id="2y$uZ59Iyo1" role="1UOdpc">
+      <node concept="19RgSI" id="4W5bsS_rSRC" role="1UOdpd">
         <property role="TrG5h" value="pointer" />
-        <node concept="3wxxNl" id="2y$uZ59Iyo2" role="2C2TGm">
-          <node concept="1sgJKr" id="4OHhT54lsUW" role="2umbIo">
+        <node concept="3wxxNl" id="4W5bsS_rSVs" role="2C2TGm">
+          <node concept="1sgJKr" id="4W5bsS_rSRB" role="2umbIo">
             <ref role="1sgJKq" node="4OHhT54iJwV" resolve="lp_state_type" />
           </node>
         </node>
       </node>
-      <node concept="19RgSI" id="2y$uZ59Iyo4" role="1UOdpc">
+      <node concept="19RgSI" id="4W5bsS_rT4K" role="1UOdpd">
         <property role="TrG5h" value="ch" />
-        <node concept="26Vqph" id="2y$uZ59Iyo5" role="2C2TGm" />
+        <node concept="26Vqph" id="4W5bsS_rT4I" role="2C2TGm" />
       </node>
-      <node concept="19RgSI" id="2y$uZ59Iyo6" role="1UOdpc">
+      <node concept="19RgSI" id="4W5bsS_rTc8" role="1UOdpd">
         <property role="TrG5h" value="lvt" />
-        <node concept="2fgwQN" id="4OHhT558YPl" role="2C2TGm" />
+        <node concept="2fgwQN" id="4W5bsS_rTc6" role="2C2TGm" />
       </node>
     </node>
+    <node concept="2tIAlt" id="2y$uZ59IwdQ" role="2Z_0yT" />
     <node concept="2tIAlt" id="2y$uZ59JHhv" role="2Z_0yT" />
     <node concept="2ZWeVW" id="2y$uZ59JIia" role="2Z_0yT">
       <property role="TrG5h" value="fading_recheck" />

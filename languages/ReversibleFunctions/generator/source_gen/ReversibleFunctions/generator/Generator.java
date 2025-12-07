@@ -34,12 +34,13 @@ public class Generator extends TemplateModuleInterpreted2 {
 
   @Override
   public Collection<SLanguage> getTargetLanguages() {
-    SLanguage[] rv = new SLanguage[5];
+    SLanguage[] rv = new SLanguage[6];
     rv[0] = MetaAdapterFactory.getLanguage(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, "ReversibleFunctions");
     rv[1] = MetaAdapterFactory.getLanguage(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, "ReversibleStatements");
     rv[2] = MetaAdapterFactory.getLanguage(0x61c69711ed614850L, 0x81d97714ff227fb0L, "com.mbeddr.core.expressions");
     rv[3] = MetaAdapterFactory.getLanguage(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, "com.mbeddr.core.modules");
     rv[4] = MetaAdapterFactory.getLanguage(0xa9d696470840491eL, 0xbf392eb0805d2011L, "com.mbeddr.core.statements");
+    rv[5] = MetaAdapterFactory.getLanguage(0xefda956e491e4f00L, 0xba1436af2f213ecfL, "com.mbeddr.core.udt");
     return Arrays.asList(rv);
   }
 

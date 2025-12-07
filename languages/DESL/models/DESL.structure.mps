@@ -301,13 +301,6 @@
     <property role="TrG5h" value="IExternalFunction" />
     <property role="3GE5qa" value="externalFunction" />
   </node>
-  <node concept="1TIwiD" id="2SCEiO7nznl">
-    <property role="EcuMT" value="3326094335675348437" />
-    <property role="TrG5h" value="NewStruct" />
-    <property role="34LRSv" value="new struct" />
-    <property role="3GE5qa" value="structManagement" />
-    <ref role="1TJDcQ" to="mj1l:7FQByU3CrCM" resolve="Expression" />
-  </node>
   <node concept="1TIwiD" id="6lTY9B_PW1o">
     <property role="EcuMT" value="7312148809882517592" />
     <property role="TrG5h" value="FunctionDocs" />
@@ -967,19 +960,6 @@
     <property role="TrG5h" value="RossM2M" />
     <property role="19KtqR" value="true" />
     <ref role="1TJDcQ" node="1FqAw$nj9oK" resolve="DESLModel" />
-  </node>
-  <node concept="1TIwiD" id="BBY2rYonzQ">
-    <property role="EcuMT" value="713811912321759478" />
-    <property role="TrG5h" value="ReleaseStruct" />
-    <property role="3GE5qa" value="structManagement" />
-    <property role="34LRSv" value="ReleaseStruct" />
-    <ref role="1TJDcQ" to="c4fa:3CmSUB7FmO3" resolve="Statement" />
-    <node concept="1TJgyj" id="BBY2rYonzV" role="1TKVEi">
-      <property role="IQ2ns" value="713811912321759483" />
-      <property role="20kJfa" value="struct" />
-      <property role="20lbJX" value="fLJekj4/_1" />
-      <ref role="20lvS9" to="mj1l:1LDGRqyYkTP" resolve="IVariableDeclaration" />
-    </node>
   </node>
   <node concept="1TIwiD" id="2hQH9io1V_6">
     <property role="EcuMT" value="2627485982916065606" />

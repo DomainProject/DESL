@@ -10,6 +10,7 @@ import jetbrains.mps.smodel.runtime.ConceptPresentationBuilder;
 
 public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase {
   private ConceptPresentation props_AbstractItem;
+  private ConceptPresentation props_AllocateStruct;
   private ConceptPresentation props_AnyNodeItem;
   private ConceptPresentation props_ArbitraryFunctionCall;
   private ConceptPresentation props_ArbitraryTextAttributePrefix;
@@ -33,6 +34,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_ForStatement;
   private ConceptPresentation props_ForVarDecl;
   private ConceptPresentation props_ForVarRef;
+  private ConceptPresentation props_IAllocationVariable;
   private ConceptPresentation props_IAllowsIncompleteTypes;
   private ConceptPresentation props_IBreakContainer;
   private ConceptPresentation props_ICFGNode;
@@ -55,9 +57,11 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_Iterator;
   private ConceptPresentation props_LocalVarRef;
   private ConceptPresentation props_LocalVariableDeclaration;
+  private ConceptPresentation props_NewStruct;
   private ConceptPresentation props_NotParsedStatement;
   private ConceptPresentation props_PragmaStatement;
   private ConceptPresentation props_Prefix;
+  private ConceptPresentation props_ReleaseStruct;
   private ConceptPresentation props_ReturnStatement;
   private ConceptPresentation props_ReversibleStatement;
   private ConceptPresentation props_ReversibleStatementList;
@@ -81,6 +85,14 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_AbstractItem = cpb.create();
         }
         return props_AbstractItem;
+      case LanguageConceptSwitch.AllocateStruct:
+        if (props_AllocateStruct == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.shortDesc("allocate memory for a new struct");
+          cpb.rawPresentation("allocate");
+          props_AllocateStruct = cpb.create();
+        }
+        return props_AllocateStruct;
       case LanguageConceptSwitch.AnyNodeItem:
         if (props_AnyNodeItem == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -257,6 +269,12 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_ForVarRef = cpb.create();
         }
         return props_ForVarRef;
+      case LanguageConceptSwitch.IAllocationVariable:
+        if (props_IAllocationVariable == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          props_IAllocationVariable = cpb.create();
+        }
+        return props_IAllocationVariable;
       case LanguageConceptSwitch.IAllowsIncompleteTypes:
         if (props_IAllowsIncompleteTypes == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -397,6 +415,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_LocalVariableDeclaration = cpb.create();
         }
         return props_LocalVariableDeclaration;
+      case LanguageConceptSwitch.NewStruct:
+        if (props_NewStruct == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("new struct");
+          props_NewStruct = cpb.create();
+        }
+        return props_NewStruct;
       case LanguageConceptSwitch.NotParsedStatement:
         if (props_NotParsedStatement == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -418,6 +443,14 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_Prefix = cpb.create();
         }
         return props_Prefix;
+      case LanguageConceptSwitch.ReleaseStruct:
+        if (props_ReleaseStruct == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.shortDesc("release struct memory");
+          cpb.rawPresentation("release");
+          props_ReleaseStruct = cpb.create();
+        }
+        return props_ReleaseStruct;
       case LanguageConceptSwitch.ReturnStatement:
         if (props_ReturnStatement == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

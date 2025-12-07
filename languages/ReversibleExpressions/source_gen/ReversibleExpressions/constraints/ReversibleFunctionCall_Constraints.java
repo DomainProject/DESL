@@ -40,7 +40,7 @@ public class ReversibleFunctionCall_Constraints extends BaseConstraintsDescripto
         }
         @Override
         public Scope createScope(final ReferenceConstraintsContext _context) {
-          return (Scope) IVisibleElementProvider__BehaviorDescriptor.visibleContentsOfType_id79$zShlSHxZ.invoke(SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.IVisibleElementProvider$$O, true, false), CONCEPTS.Function$K8);
+          return (Scope) IVisibleElementProvider__BehaviorDescriptor.visibleContentsOfType_id79$zShlSHxZ.invoke(SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.IVisibleElementProvider$$O, true, false), CONCEPTS.ReversibleFunction$IL);
         }
       };
     }
@@ -49,7 +49,7 @@ public class ReversibleFunctionCall_Constraints extends BaseConstraintsDescripto
   private static final class CONCEPTS {
     /*package*/ static final SConcept ReversibleFunctionCall$TO = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x2e6ecb766f1587b4L, "ReversibleExpressions.structure.ReversibleFunctionCall");
     /*package*/ static final SInterfaceConcept IVisibleElementProvider$$O = MetaAdapterFactory.getInterfaceConcept(0xd4280a54f6df4383L, 0xaa41d1b2bffa7eb1L, 0x6315bcc6eff580a3L, "com.mbeddr.core.base.structure.IVisibleElementProvider");
-    /*package*/ static final SConcept Function$K8 = MetaAdapterFactory.getConcept(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x595522006a5b97e1L, "com.mbeddr.core.modules.structure.Function");
+    /*package*/ static final SConcept ReversibleFunction$IL = MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, "ReversibleFunctions.structure.ReversibleFunction");
   }
 
   private static final class LINKS {

@@ -26,7 +26,7 @@ public final class IDestructiveOperation__BehaviorDescriptor extends BaseBHDescr
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getBaseName_id2vgMet5LndN);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
-    INeedSupportVariable__BehaviorDescriptor.createVariable_id5xEIMPngWHX.invoke(__thisNode__, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba6cL, "com.mbeddr.core.expressions.structure.IntType")), IDestructiveOperation__BehaviorDescriptor.getBaseName_id2vgMet5LndN.invoke(__thisNode__), null);
+    INeedSupportVariable__BehaviorDescriptor.createVariable_id5xEIMPngWHX.invoke(__thisNode__, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x75739ed9f39e3888L, "com.mbeddr.core.expressions.structure.Int32tType")), IDestructiveOperation__BehaviorDescriptor.getBaseName_id2vgMet5LndN.invoke(__thisNode__), null);
   }
 
 

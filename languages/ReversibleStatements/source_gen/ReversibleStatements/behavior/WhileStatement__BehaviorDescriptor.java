@@ -42,7 +42,7 @@ public final class WhileStatement__BehaviorDescriptor extends BaseBHDescriptor {
   /*package*/ static void handleCopyPaste_id33MO5h9wdZT(@NotNull SNode __thisNode__) {
   }
   /*package*/ static String getIterationVariableName_id6cRD4M$XPR9(@NotNull SNode __thisNode__) {
-    return SPropertyOperations.getString(SLinkOperations.getTarget(__thisNode__, LINKS.variable$WrxR), PROPS.name$MnvL);
+    return SPropertyOperations.getString(SLinkOperations.getTarget(__thisNode__, LINKS.supportVariable$WrxR), PROPS.name$MnvL);
   }
 
   /*package*/ WhileStatement__BehaviorDescriptor() {
@@ -97,7 +97,7 @@ public final class WhileStatement__BehaviorDescriptor extends BaseBHDescriptor {
   private static final class LINKS {
     /*package*/ static final SContainmentLink body$7sGD = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x7525a1fdf25beef2L, 0x7525a1fdf25beef4L, "body");
     /*package*/ static final SContainmentLink condition$7stC = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x7525a1fdf25beef2L, 0x7525a1fdf25beef3L, "condition");
-    /*package*/ static final SContainmentLink variable$WrxR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x586abb2d5743cb69L, "variable");
+    /*package*/ static final SContainmentLink supportVariable$WrxR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x586abb2d5743cb69L, "supportVariable");
   }
 
   private static final class PROPS {

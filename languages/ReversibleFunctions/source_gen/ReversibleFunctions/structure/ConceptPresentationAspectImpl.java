@@ -26,7 +26,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
       case LanguageConceptSwitch.EmptyLine:
         if (props_EmptyLine == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.rawPresentation("EmptyLine");
+          cpb.presentationByName();
           props_EmptyLine = cpb.create();
         }
         return props_EmptyLine;
@@ -68,14 +68,14 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
       case LanguageConceptSwitch.ReversibleScript:
         if (props_ReversibleScript == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.rawPresentation("ReversibleScript");
+          cpb.presentationByName();
           props_ReversibleScript = cpb.create();
         }
         return props_ReversibleScript;
       case LanguageConceptSwitch.ReversibleScriptExp:
         if (props_ReversibleScriptExp == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.rawPresentation("ReversibleScriptExp");
+          cpb.presentationByName();
           props_ReversibleScriptExp = cpb.create();
         }
         return props_ReversibleScriptExp;

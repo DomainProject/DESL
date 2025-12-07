@@ -1,28 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <debug-info version="2">
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1082485599095:jetbrains.mps.baseLanguage.structure.BlockStatement" />
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123155:jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123159:jetbrains.mps.baseLanguage.structure.IfStatement" />
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123165:jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" />
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068581242864:jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068581242878:jetbrains.mps.baseLanguage.structure.ReturnStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123157:jetbrains.mps.baseLanguage.structure.Statement" />
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1070462154015:jetbrains.mps.baseLanguage.structure.StaticFieldDeclaration" />
   <root>
     <file name="ActionAspectDescriptorImpl.java">
-      <unit at="15,0,37,0" name="ReversibleStatements.actions.ActionAspectDescriptorImpl" />
+      <unit at="15,0,39,0" name="ReversibleStatements.actions.ActionAspectDescriptorImpl" />
     </file>
   </root>
   <root nodeRef="r:eca9e710-a911-4469-9ae8-50a3e6905a23(ReversibleStatements.actions)/2319970887606865415">
     <file name="pasteExpressionIntoStatement_PasteWrapper_0.java">
-      <node id="2319970887606865416" at="16,46,17,44" concept="3" />
-      <node id="2319970887606865416" at="20,46,21,43" concept="3" />
-      <node id="2319970887606865419" at="24,39,25,197" concept="2" />
-      <node id="2319970887606865427" at="25,197,26,64" concept="0" />
-      <node id="2319970887606865439" at="26,64,27,15" concept="3" />
-      <node id="2319970887606865416" at="31,0,32,0" concept="4" trace="ReversibleExpression$Zd" />
-      <node id="2319970887606865416" at="32,0,33,0" concept="4" trace="ReversibleStatement$s8" />
-      <node id="2319970887606865416" at="36,0,37,0" concept="4" trace="expr$YTeC" />
-      <node id="2319970887606865416" at="15,0,19,0" concept="1" trace="getSourceConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
-      <node id="2319970887606865416" at="19,0,23,0" concept="1" trace="getTargetConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
-      <node id="2319970887606865416" at="23,0,29,0" concept="1" trace="wrap#(Lorg/jetbrains/mps/openapi/model/SNode;)Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="2319970887606865416" at="16,46,17,44" concept="5" />
+      <node id="2319970887606865416" at="20,46,21,43" concept="5" />
+      <node id="2319970887606865419" at="24,39,25,197" concept="4" />
+      <node id="2319970887606865427" at="25,197,26,64" concept="1" />
+      <node id="2319970887606865439" at="26,64,27,15" concept="5" />
+      <node id="2319970887606865416" at="31,0,32,0" concept="7" trace="ReversibleExpression$Zd" />
+      <node id="2319970887606865416" at="32,0,33,0" concept="7" trace="ReversibleStatement$s8" />
+      <node id="2319970887606865416" at="36,0,37,0" concept="7" trace="expr$YTeC" />
+      <node id="2319970887606865416" at="15,0,19,0" concept="3" trace="getSourceConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
+      <node id="2319970887606865416" at="19,0,23,0" concept="3" trace="getTargetConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
+      <node id="2319970887606865416" at="23,0,29,0" concept="3" trace="wrap#(Lorg/jetbrains/mps/openapi/model/SNode;)Lorg/jetbrains/mps/openapi/model/SNode;" />
       <scope id="2319970887606865416" at="16,46,17,44" />
       <scope id="2319970887606865416" at="20,46,21,43" />
       <scope id="2319970887606865418" at="24,39,27,15">
@@ -38,15 +41,15 @@
       <unit id="2319970887606865416" at="14,0,39,0" name="ReversibleStatements.actions.pasteExpressionIntoStatement_PasteWrapper_0" />
     </file>
     <file name="pasteExpressionIntoStatement_PasteWrapper_1.java">
-      <node id="5235595745885085875" at="15,46,16,43" concept="3" />
-      <node id="5235595745885085875" at="19,46,20,44" concept="3" />
-      <node id="5235595745885085878" at="23,39,24,66" concept="3" />
-      <node id="5235595745885085875" at="28,0,29,0" concept="4" trace="ExpressionStatement$L7" />
-      <node id="5235595745885085875" at="29,0,30,0" concept="4" trace="ReversibleExpression$Zd" />
-      <node id="5235595745885085875" at="33,0,34,0" concept="4" trace="expr$YTeC" />
-      <node id="5235595745885085875" at="14,0,18,0" concept="1" trace="getSourceConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
-      <node id="5235595745885085875" at="18,0,22,0" concept="1" trace="getTargetConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
-      <node id="5235595745885085875" at="22,0,26,0" concept="1" trace="wrap#(Lorg/jetbrains/mps/openapi/model/SNode;)Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="5235595745885085875" at="15,46,16,43" concept="5" />
+      <node id="5235595745885085875" at="19,46,20,44" concept="5" />
+      <node id="5235595745885085878" at="23,39,24,66" concept="5" />
+      <node id="5235595745885085875" at="28,0,29,0" concept="7" trace="ExpressionStatement$L7" />
+      <node id="5235595745885085875" at="29,0,30,0" concept="7" trace="ReversibleExpression$Zd" />
+      <node id="5235595745885085875" at="33,0,34,0" concept="7" trace="expr$YTeC" />
+      <node id="5235595745885085875" at="14,0,18,0" concept="3" trace="getSourceConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
+      <node id="5235595745885085875" at="18,0,22,0" concept="3" trace="getTargetConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
+      <node id="5235595745885085875" at="22,0,26,0" concept="3" trace="wrap#(Lorg/jetbrains/mps/openapi/model/SNode;)Lorg/jetbrains/mps/openapi/model/SNode;" />
       <scope id="5235595745885085875" at="15,46,16,43" />
       <scope id="5235595745885085875" at="19,46,20,44" />
       <scope id="5235595745885085877" at="23,39,24,66" />
@@ -62,11 +65,11 @@
   </root>
   <root nodeRef="r:eca9e710-a911-4469-9ae8-50a3e6905a23(ReversibleStatements.actions)/3527110518606455385">
     <file name="ReversibleStatements_CopyPasteHandlers_PastePostProcessor_0.java">
-      <node id="3527110518606455386" at="14,50,15,44" concept="3" />
-      <node id="3527110518613535822" at="18,49,19,94" concept="0" />
-      <node id="3527110518606455386" at="23,0,24,0" concept="4" trace="INeedSupportVariable$qI" />
-      <node id="3527110518606455386" at="13,0,17,0" concept="1" trace="getApplicableConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
-      <node id="3527110518606455386" at="17,0,21,0" concept="1" trace="postProcessNode#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
+      <node id="3527110518606455386" at="14,50,15,44" concept="5" />
+      <node id="3527110518613535822" at="18,49,19,94" concept="1" />
+      <node id="3527110518606455386" at="23,0,24,0" concept="7" trace="INeedSupportVariable$qI" />
+      <node id="3527110518606455386" at="13,0,17,0" concept="3" trace="getApplicableConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
+      <node id="3527110518606455386" at="17,0,21,0" concept="3" trace="postProcessNode#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
       <scope id="3527110518606455386" at="14,50,15,44" />
       <scope id="3527110518606455390" at="18,49,19,94" />
       <scope id="3527110518606455386" at="13,0,17,0" />
@@ -80,6 +83,71 @@
   <root nodeRef="r:eca9e710-a911-4469-9ae8-50a3e6905a23(ReversibleStatements.actions)/3587751253184387818">
     <file name="IfStatementFactory.java">
       <unit id="3587751253184387818" at="6,0,8,0" name="ReversibleStatements.actions.IfStatementFactory" />
+    </file>
+  </root>
+  <root nodeRef="r:eca9e710-a911-4469-9ae8-50a3e6905a23(ReversibleStatements.actions)/5694007667318229371">
+    <file name="NewStructFactory.java">
+      <node id="3326094335675351237" at="23,7,24,61" concept="4" />
+      <node id="5694007667318241643" at="26,389,27,153" concept="1" />
+      <node id="5694007667312479610" at="30,7,31,0" concept="6" />
+      <node id="4422567906097429130" at="32,7,33,51" concept="4" />
+      <node id="4422567906097451179" at="35,11,36,106" concept="4" />
+      <node id="4422567906098945039" at="38,15,39,251" concept="4" />
+      <node id="5694007667318267171" at="40,89,41,320" concept="1" />
+      <node id="5694007667318229371" at="52,0,53,0" concept="7" trace="LocalVariableDeclaration$7E" />
+      <node id="5694007667318229371" at="53,0,54,0" concept="7" trace="PointerType$HX" />
+      <node id="5694007667318229371" at="54,0,55,0" concept="7" trace="StructType$B3" />
+      <node id="5694007667318229371" at="55,0,56,0" concept="7" trace="AssignmentExpr$aj" />
+      <node id="5694007667318229371" at="56,0,57,0" concept="7" trace="GenericDotExpression$ia" />
+      <node id="5694007667318229371" at="57,0,58,0" concept="7" trace="GenericMemberRef$bk" />
+      <node id="5694007667318229371" at="58,0,59,0" concept="7" trace="IVariableReference$Kb" />
+      <node id="5694007667318229371" at="62,0,63,0" concept="7" trace="variableToSaveName$udlR" />
+      <node id="5694007667318229371" at="63,0,64,0" concept="7" trace="name$MnvL" />
+      <node id="5694007667318229371" at="67,0,68,0" concept="7" trace="type$sXU3" />
+      <node id="5694007667318229371" at="68,0,69,0" concept="7" trace="baseType$zMGV" />
+      <node id="5694007667318229371" at="69,0,70,0" concept="7" trace="left$KPKR" />
+      <node id="5694007667318229371" at="70,0,71,0" concept="7" trace="target$xbCZ" />
+      <node id="5694007667318229371" at="71,0,72,0" concept="7" trace="member$wUNL" />
+      <node id="706497091510283452" at="25,107,28,11" concept="2" />
+      <node id="4422567906098945039" at="39,251,42,17" concept="2" />
+      <node id="3326094335675351237" at="24,61,29,9" concept="2" />
+      <node id="4422567906098945039" at="37,103,43,15" concept="0" />
+      <node id="3326094335675351237" at="22,102,30,7" concept="0" />
+      <node id="4422567906097451179" at="36,106,44,13" concept="2" />
+      <node id="4422567906097451179" at="34,87,45,11" concept="0" />
+      <node id="4422567906097429130" at="33,51,46,9" concept="2" />
+      <node id="4422567906097429130" at="31,0,47,7" concept="0" />
+      <node id="5694007667318229372" at="22,0,49,0" concept="3" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;ILorg/jetbrains/mps/openapi/model/SModel;)V" />
+      <scope id="706497091510283454" at="26,389,27,153" />
+      <scope id="4422567906098945043" at="40,89,41,320" />
+      <scope id="3326094335675351239" at="25,107,28,11" />
+      <scope id="4422567906098945039" at="38,15,42,17">
+        <var name="pointerType" id="4422567906098945039" />
+      </scope>
+      <scope id="3326094335675351237" at="23,7,29,9">
+        <var name="localVariableDeclaration" id="3326094335675351237" />
+      </scope>
+      <scope id="4422567906097451181" at="37,103,43,15" />
+      <scope id="4422567906097451179" at="35,11,44,13">
+        <var name="genericDotExpression" id="4422567906097451179" />
+      </scope>
+      <scope id="4422567906097429134" at="34,87,45,11" />
+      <scope id="4422567906097429130" at="32,7,46,9">
+        <var name="assignmentExpr" id="4422567906097429130" />
+      </scope>
+      <scope id="5694007667318229372" at="22,102,47,7" />
+      <scope id="5694007667318229372" at="22,0,49,0">
+        <var name="enclosingNode" id="5694007667318229372" />
+        <var name="index" id="5694007667318229372" />
+        <var name="model" id="5694007667318229372" />
+        <var name="newNode" id="5694007667318229372" />
+        <var name="sampleNode" id="5694007667318229372" />
+      </scope>
+      <unit id="5694007667318229371" at="61,0,65,0" name="ReversibleStatements.actions.NewStructFactory$PROPS" />
+      <unit id="5694007667318229371" at="66,0,73,0" name="ReversibleStatements.actions.NewStructFactory$LINKS" />
+      <unit id="5694007667318229371" at="51,0,60,0" name="ReversibleStatements.actions.NewStructFactory$CONCEPTS" />
+      <unit id="5694007667318229372" at="21,0,50,0" name="ReversibleStatements.actions.NewStructFactory$NodeFactory_5694007667318229372" />
+      <unit id="5694007667318229371" at="20,0,74,0" name="ReversibleStatements.actions.NewStructFactory" />
     </file>
   </root>
 </debug-info>

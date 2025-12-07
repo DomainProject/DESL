@@ -19,8 +19,6 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
   @Override
   public TextGenDescriptor getDescriptor(@NotNull SAbstractConcept concept) {
     switch (myIndex.index(concept)) {
-      case LanguageConceptSwitch.AssignmentExpr:
-        return new AssignmentExpr_TextGen();
       case LanguageConceptSwitch.BinaryExpression:
         return new BinaryExpression_TextGen();
       case LanguageConceptSwitch.BinaryNumberLiteral:
@@ -31,16 +29,12 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new CastExpression_TextGen();
       case LanguageConceptSwitch.CharLiteral:
         return new CharLiteral_TextGen();
-      case LanguageConceptSwitch.DirectModuloAssignmentExpression:
-        return new DirectModuloAssignmentExpression_TextGen();
       case LanguageConceptSwitch.ExpressionList:
         return new ExpressionList_TextGen();
       case LanguageConceptSwitch.FalseLiteral:
         return new FalseLiteral_TextGen();
       case LanguageConceptSwitch.HexNumberLiteral:
         return new HexNumberLiteral_TextGen();
-      case LanguageConceptSwitch.ModuloExpression:
-        return new ModuloExpression_TextGen();
       case LanguageConceptSwitch.NotExpression:
         return new NotExpression_TextGen();
       case LanguageConceptSwitch.NumberLiteral:
@@ -59,6 +53,10 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new PreIncrementExpression_TextGen();
       case LanguageConceptSwitch.ReversibleFunctionCall:
         return new ReversibleFunctionCall_TextGen();
+      case LanguageConceptSwitch.ReversibleMacroArg:
+        return new ReversibleMacroArg_TextGen();
+      case LanguageConceptSwitch.ReversibleMacroCall:
+        return new ReversibleMacroCall_TextGen();
       case LanguageConceptSwitch.ScientificNumber:
         return new ScientificNumber_TextGen();
       case LanguageConceptSwitch.TrueLiteral:

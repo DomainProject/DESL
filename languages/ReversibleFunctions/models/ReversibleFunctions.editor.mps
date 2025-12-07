@@ -188,6 +188,7 @@
         <reference id="4705942098322467736" name="decl" index="21nZrZ" />
       </concept>
       <concept id="1179409122411" name="jetbrains.mps.lang.smodel.structure.Node_ConceptMethodCall" flags="nn" index="2qgKlT" />
+      <concept id="1172008320231" name="jetbrains.mps.lang.smodel.structure.Node_IsNotNullOperation" flags="nn" index="3x8VRR" />
       <concept id="1180636770613" name="jetbrains.mps.lang.smodel.structure.SNodeCreator" flags="nn" index="3zrR0B">
         <child id="1180636770616" name="createdType" index="3zrR0E" />
       </concept>
@@ -517,6 +518,26 @@
   <node concept="24kQdi" id="5rI5N7YWeFB">
     <ref role="1XX52x" to="w8o:5rI5N7YWeF_" resolve="ReversibleScript" />
     <node concept="3EZMnI" id="5rI5N7YWeFF" role="2wV5jI">
+      <node concept="3F0A7n" id="1H2vMT9uUag" role="3EZMnx">
+        <ref role="1NtTu8" to="tpck:h0TrG11" resolve="name" />
+      </node>
+      <node concept="3F0ifn" id="1H2vMT9uUak" role="3EZMnx">
+        <node concept="pVoyu" id="1H2vMT9uUam" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+      </node>
+      <node concept="3F2HdR" id="1H2vMT9p2GJ" role="3EZMnx">
+        <ref role="1NtTu8" to="w8o:4wy1r9O8wbd" resolve="structs" />
+        <node concept="l2Vlx" id="1H2vMT9p2GL" role="2czzBx" />
+        <node concept="pVoyu" id="1H2vMT9uUai" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+      </node>
+      <node concept="3F0ifn" id="1H2vMT9p2GP" role="3EZMnx">
+        <node concept="pVoyu" id="1H2vMT9p2GR" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+      </node>
       <node concept="3F2HdR" id="5rI5N7YWeFJ" role="3EZMnx">
         <ref role="1NtTu8" to="w8o:5rI5N7YWeFA" resolve="reversibleItems" />
         <node concept="l2Vlx" id="5rI5N7YWeFL" role="2czzBx" />
@@ -536,6 +557,9 @@
             </node>
           </node>
         </node>
+        <node concept="pVoyu" id="1H2vMT9p2GN" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
       </node>
       <node concept="3F0ifn" id="7XqFaqFcuKQ" role="3EZMnx" />
       <node concept="3F2HdR" id="7XqFaqFcuKT" role="3EZMnx">
@@ -554,16 +578,6 @@
   <node concept="24kQdi" id="2XBKnohhgcu">
     <ref role="1XX52x" to="w8o:2XBKnohhg2f" resolve="ReversibleMacro" />
     <node concept="3EZMnI" id="5eg$WPOu6xs" role="2wV5jI">
-      <node concept="2yq9I_" id="2XBKnohoH1v" role="3EZMnx">
-        <ref role="225u1j" to="w8o:2XBKnohik4U" resolve="expand" />
-        <node concept="1563Vb" id="2XBKnohoH1w" role="1563LE">
-          <property role="1563UK" value="[ ]" />
-          <property role="1563Ve" value="[x]" />
-        </node>
-        <node concept="3F0ifn" id="2XBKnohoH1x" role="2fqkNU">
-          <property role="3F0ifm" value="expand" />
-        </node>
-      </node>
       <node concept="3F0ifn" id="7h503jgg$7G" role="3EZMnx">
         <property role="3F0ifm" value="#define" />
         <node concept="pVoyu" id="2XBKnohoH2e" role="3F10Kt">
@@ -633,6 +647,27 @@
         <property role="3F0ifm" value=";" />
         <node concept="11L4FC" id="5eg$WPOu6x$" role="3F10Kt">
           <property role="VOm3f" value="true" />
+        </node>
+      </node>
+      <node concept="3F1sOY" id="21ygb7Z5KLh" role="3EZMnx">
+        <ref role="1NtTu8" to="w8o:21ygb7Z5Kiq" resolve="reversedMacro" />
+        <node concept="pVoyu" id="21ygb7Z5KLY" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+        <node concept="pkWqt" id="21ygb7Z7_zF" role="pqm2j">
+          <node concept="3clFbS" id="21ygb7Z7_zG" role="2VODD2">
+            <node concept="3clFbF" id="21ygb7Z7_Bc" role="3cqZAp">
+              <node concept="2OqwBi" id="21ygb7Z7BRS" role="3clFbG">
+                <node concept="2OqwBi" id="21ygb7Z7A5Q" role="2Oq$k0">
+                  <node concept="pncrf" id="21ygb7Z7_Bb" role="2Oq$k0" />
+                  <node concept="3TrEf2" id="21ygb7Z7AId" role="2OqNvi">
+                    <ref role="3Tt5mk" to="w8o:21ygb7Z5Kiq" resolve="reversedMacro" />
+                  </node>
+                </node>
+                <node concept="3x8VRR" id="21ygb7Z7CR9" role="2OqNvi" />
+              </node>
+            </node>
+          </node>
         </node>
       </node>
     </node>

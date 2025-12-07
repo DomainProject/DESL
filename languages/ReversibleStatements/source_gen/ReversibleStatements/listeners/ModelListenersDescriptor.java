@@ -43,7 +43,7 @@ public class ModelListenersDescriptor implements IModelListenersDescriptor {
             if (SNodeOperations.isInstanceOf(stmt, CONCEPTS.INeedSupportVariable$qI)) {
 
               SNode type = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x3bf5377ae9044dedL, 0x97545a516023bfaaL, 0x4ed16d83a1d30c81L, "com.mbeddr.core.pointers.structure.ArrayType"));
-              SLinkOperations.setTarget(type, LINKS.baseType$zMGV, SNodeOperations.copyNode(SLinkOperations.getTarget(SLinkOperations.getTarget(stmt, LINKS.variable$WrxR), LINKS.type$sXU3)));
+              SLinkOperations.setTarget(type, LINKS.baseType$zMGV, SNodeOperations.copyNode(SLinkOperations.getTarget(SLinkOperations.getTarget(stmt, LINKS.supportVariable$WrxR), LINKS.type$sXU3)));
 
               // todo handle array size
               SLinkOperations.setTarget(type, LINKS.sizeExpr$S0Eu, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba67L, "com.mbeddr.core.expressions.structure.NumberLiteral")));
@@ -91,7 +91,7 @@ public class ModelListenersDescriptor implements IModelListenersDescriptor {
   private static final class LINKS {
     /*package*/ static final SContainmentLink revStatements$IdM8 = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, 0x3a16e3a9c7ad9956L, "revStatements");
     /*package*/ static final SContainmentLink baseType$zMGV = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x6bbcdccef5e46755L, 0x6bbcdccef5e46756L, "baseType");
-    /*package*/ static final SContainmentLink variable$WrxR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x586abb2d5743cb69L, "variable");
+    /*package*/ static final SContainmentLink supportVariable$WrxR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x586abb2d5743cb69L, "supportVariable");
     /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
     /*package*/ static final SContainmentLink sizeExpr$S0Eu = MetaAdapterFactory.getContainmentLink(0x3bf5377ae9044dedL, 0x97545a516023bfaaL, 0x4ed16d83a1d30c81L, 0x1429cfd56a064333L, "sizeExpr");
     /*package*/ static final SContainmentLink additionalVariables$en7t = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x6337a44ca461bdf4L, 0x6337a44ca461be00L, "additionalVariables");

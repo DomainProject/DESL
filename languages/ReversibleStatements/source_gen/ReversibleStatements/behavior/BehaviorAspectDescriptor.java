@@ -15,6 +15,7 @@ public final class BehaviorAspectDescriptor extends BaseBehaviorAspectDescriptor
   private final BHDescriptor myCommentedElseIfPart__BehaviorDescriptor = new CommentedElseIfPart__BehaviorDescriptor();
   private final BHDescriptor myIHasPrefixes__BehaviorDescriptor = new IHasPrefixes__BehaviorDescriptor();
   private final BHDescriptor myPrefix__BehaviorDescriptor = new Prefix__BehaviorDescriptor();
+  private final BHDescriptor myReleaseStruct__BehaviorDescriptor = new ReleaseStruct__BehaviorDescriptor();
   private final BHDescriptor myAbstractItem__BehaviorDescriptor = new AbstractItem__BehaviorDescriptor();
   private final BHDescriptor myAnyNodeItem__BehaviorDescriptor = new AnyNodeItem__BehaviorDescriptor();
   private final BHDescriptor myElsePart__BehaviorDescriptor = new ElsePart__BehaviorDescriptor();
@@ -29,6 +30,7 @@ public final class BehaviorAspectDescriptor extends BaseBehaviorAspectDescriptor
   private final BHDescriptor mySwitchMember__BehaviorDescriptor = new SwitchMember__BehaviorDescriptor();
   private final BHDescriptor mySwitchCase__BehaviorDescriptor = new SwitchCase__BehaviorDescriptor();
   private final BHDescriptor mySwitchDefault__BehaviorDescriptor = new SwitchDefault__BehaviorDescriptor();
+  private final BHDescriptor myNewStruct__BehaviorDescriptor = new NewStruct__BehaviorDescriptor();
   private final BHDescriptor myArbitraryTextType__BehaviorDescriptor = new ArbitraryTextType__BehaviorDescriptor();
   private final BHDescriptor myForVarRef__BehaviorDescriptor = new ForVarRef__BehaviorDescriptor();
   private final BHDescriptor myArbitraryTextExpression__BehaviorDescriptor = new ArbitraryTextExpression__BehaviorDescriptor();
@@ -40,6 +42,7 @@ public final class BehaviorAspectDescriptor extends BaseBehaviorAspectDescriptor
   private final BHDescriptor myReturnStatement__BehaviorDescriptor = new ReturnStatement__BehaviorDescriptor();
   private final BHDescriptor myIValueLike__BehaviorDescriptor = new IValueLike__BehaviorDescriptor();
   private final BHDescriptor myArbitraryTextAttributePrefix__BehaviorDescriptor = new ArbitraryTextAttributePrefix__BehaviorDescriptor();
+  private final BHDescriptor myAllocateStruct__BehaviorDescriptor = new AllocateStruct__BehaviorDescriptor();
   private final BHDescriptor myICanBeStoredInRegister__BehaviorDescriptor = new ICanBeStoredInRegister__BehaviorDescriptor();
   private final BHDescriptor myIfStatement__BehaviorDescriptor = new IfStatement__BehaviorDescriptor();
   private final BHDescriptor myArgumentRef__BehaviorDescriptor = new ArgumentRef__BehaviorDescriptor();
@@ -71,102 +74,108 @@ public final class BehaviorAspectDescriptor extends BaseBehaviorAspectDescriptor
       case 0:
         return myAbstractItem__BehaviorDescriptor;
       case 1:
-        return myAnyNodeItem__BehaviorDescriptor;
+        return myAllocateStruct__BehaviorDescriptor;
       case 2:
-        return myArbitraryFunctionCall__BehaviorDescriptor;
+        return myAnyNodeItem__BehaviorDescriptor;
       case 3:
-        return myArbitraryTextAttributePrefix__BehaviorDescriptor;
+        return myArbitraryFunctionCall__BehaviorDescriptor;
       case 4:
-        return myArbitraryTextExpression__BehaviorDescriptor;
+        return myArbitraryTextAttributePrefix__BehaviorDescriptor;
       case 5:
-        return myArbitraryTextItem__BehaviorDescriptor;
+        return myArbitraryTextExpression__BehaviorDescriptor;
       case 6:
-        return myArbitraryTextType__BehaviorDescriptor;
+        return myArbitraryTextItem__BehaviorDescriptor;
       case 7:
-        return myArgumentRef__BehaviorDescriptor;
+        return myArbitraryTextType__BehaviorDescriptor;
       case 8:
-        return myBreakStatement__BehaviorDescriptor;
+        return myArgumentRef__BehaviorDescriptor;
       case 9:
-        return myCommentStatement__BehaviorDescriptor;
+        return myBreakStatement__BehaviorDescriptor;
       case 10:
-        return myCommentedElseIfPart__BehaviorDescriptor;
+        return myCommentStatement__BehaviorDescriptor;
       case 11:
-        return myCommentedStatement__BehaviorDescriptor;
+        return myCommentedElseIfPart__BehaviorDescriptor;
       case 12:
-        return myCommentedSwitchMember__BehaviorDescriptor;
+        return myCommentedStatement__BehaviorDescriptor;
       case 13:
-        return myContinueStatement__BehaviorDescriptor;
+        return myCommentedSwitchMember__BehaviorDescriptor;
       case 14:
-        return myDesignatedInitializer__BehaviorDescriptor;
+        return myContinueStatement__BehaviorDescriptor;
       case 15:
-        return myDoWhileStatement__BehaviorDescriptor;
+        return myDesignatedInitializer__BehaviorDescriptor;
       case 16:
-        return myElseIfPart__BehaviorDescriptor;
+        return myDoWhileStatement__BehaviorDescriptor;
       case 17:
-        return myElsePart__BehaviorDescriptor;
+        return myElseIfPart__BehaviorDescriptor;
       case 18:
-        return myExpressionStatement__BehaviorDescriptor;
+        return myElsePart__BehaviorDescriptor;
       case 19:
-        return myForStatement__BehaviorDescriptor;
+        return myExpressionStatement__BehaviorDescriptor;
       case 20:
-        return myForVarDecl__BehaviorDescriptor;
+        return myForStatement__BehaviorDescriptor;
       case 21:
-        return myForVarRef__BehaviorDescriptor;
+        return myForVarDecl__BehaviorDescriptor;
       case 22:
-        return myIAllowsIncompleteTypes__BehaviorDescriptor;
+        return myForVarRef__BehaviorDescriptor;
       case 23:
-        return myIBreakContainer__BehaviorDescriptor;
+        return myIAllowsIncompleteTypes__BehaviorDescriptor;
       case 24:
-        return myICanBeStoredInRegister__BehaviorDescriptor;
+        return myIBreakContainer__BehaviorDescriptor;
       case 25:
-        return myIHasPrefixes__BehaviorDescriptor;
+        return myICanBeStoredInRegister__BehaviorDescriptor;
       case 26:
-        return myIInitAwareType__BehaviorDescriptor;
+        return myIHasPrefixes__BehaviorDescriptor;
       case 27:
-        return myILocalVarScopeProvider__BehaviorDescriptor;
+        return myIInitAwareType__BehaviorDescriptor;
       case 28:
-        return myIReversibleLoop__BehaviorDescriptor;
+        return myILocalVarScopeProvider__BehaviorDescriptor;
       case 29:
-        return myIStatmentListContainer__BehaviorDescriptor;
+        return myIReversibleLoop__BehaviorDescriptor;
       case 30:
-        return myIStructuredInitExpression__BehaviorDescriptor;
+        return myIStatmentListContainer__BehaviorDescriptor;
       case 31:
-        return myITypeContainingType__BehaviorDescriptor;
+        return myIStructuredInitExpression__BehaviorDescriptor;
       case 32:
-        return myIValueLike__BehaviorDescriptor;
+        return myITypeContainingType__BehaviorDescriptor;
       case 33:
-        return myIfStatement__BehaviorDescriptor;
+        return myIValueLike__BehaviorDescriptor;
       case 34:
-        return myInitExpression__BehaviorDescriptor;
+        return myIfStatement__BehaviorDescriptor;
       case 35:
-        return myLocalVarRef__BehaviorDescriptor;
+        return myInitExpression__BehaviorDescriptor;
       case 36:
-        return myLocalVariableDeclaration__BehaviorDescriptor;
+        return myLocalVarRef__BehaviorDescriptor;
       case 37:
-        return myPrefix__BehaviorDescriptor;
+        return myLocalVariableDeclaration__BehaviorDescriptor;
       case 38:
-        return myReturnStatement__BehaviorDescriptor;
+        return myNewStruct__BehaviorDescriptor;
       case 39:
-        return myReversibleStatement__BehaviorDescriptor;
+        return myPrefix__BehaviorDescriptor;
       case 40:
-        return myReversibleStatementList__BehaviorDescriptor;
+        return myReleaseStruct__BehaviorDescriptor;
       case 41:
-        return mySimpleAttributePrefix__BehaviorDescriptor;
+        return myReturnStatement__BehaviorDescriptor;
       case 42:
-        return mySwitchCase__BehaviorDescriptor;
+        return myReversibleStatement__BehaviorDescriptor;
       case 43:
-        return mySwitchDefault__BehaviorDescriptor;
+        return myReversibleStatementList__BehaviorDescriptor;
       case 44:
-        return mySwitchMember__BehaviorDescriptor;
+        return mySimpleAttributePrefix__BehaviorDescriptor;
       case 45:
-        return mySwitchStatement__BehaviorDescriptor;
+        return mySwitchCase__BehaviorDescriptor;
       case 46:
-        return myWaitBusy__BehaviorDescriptor;
+        return mySwitchDefault__BehaviorDescriptor;
       case 47:
+        return mySwitchMember__BehaviorDescriptor;
+      case 48:
+        return mySwitchStatement__BehaviorDescriptor;
+      case 49:
+        return myWaitBusy__BehaviorDescriptor;
+      case 50:
         return myWhileStatement__BehaviorDescriptor;
       default:
     }
     return null;
   }
-  private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0xa59139396a1f537L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0xa59139396a1f538L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x2b2330fc37afffadL), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x4c1f010ea29d7fb6L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x352a4cc97cbc26a6L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x352a4cc97cbc4609L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x30fcd439b3a3318cL), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x586abb2d564e82ffL), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x7525a1fdf25d5076L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x174e9d736105b2d8L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x320e0fd638813d3L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x617d88a37ecb3342L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x16fdbcc716a17bbeL), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x70db34ef88f3c10bL), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x180c2851fde77716L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x7525a1fdf25de2ccL), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x2b8026b23bc272a6L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x14bcec604136b8e6L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a4018a8592L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a40186e676L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a401870e23L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x347479252a95b28aL), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x6602642fc0a74a1dL), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x7525a1fdf25d507dL), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x509503be9ecc5d25L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x866dc95fc7a033eL), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x7ad4c4c8a2db08a4L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x1d0c3765e2e2fcf8L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x6337a44ca461bdf4L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x5f5c402aa7667ef3L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x391df9e40e14d64cL), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x6bbcdccef5e46755L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x4ba188b8c52b0074L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x5718179e5b1bb7d7L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x7ad4c4c8a2db08a1L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x1d0c3765e2e1d67aL), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad96e6L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x866dc95fc7a033fL), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x4b1eecbba5015fabL), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad6d03L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x7853fc2bcf81183dL), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x2b8026b23bc2da00L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x2b8026b23bc2da02L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x2b8026b23bc2d9feL), MetaIdFactory.conceptId(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x2b8026b23bc2d9fcL), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x73802639eda97c80L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x7525a1fdf25beef2L)).seal();
+  private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0xa59139396a1f537L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x4f052dce270158d9L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0xa59139396a1f538L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x2b2330fc37afffadL), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x4c1f010ea29d7fb6L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x352a4cc97cbc26a6L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x352a4cc97cbc4609L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x30fcd439b3a3318cL), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x586abb2d564e82ffL), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x7525a1fdf25d5076L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x174e9d736105b2d8L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x320e0fd638813d3L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x617d88a37ecb3342L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x16fdbcc716a17bbeL), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x70db34ef88f3c10bL), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x180c2851fde77716L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x7525a1fdf25de2ccL), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x2b8026b23bc272a6L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x14bcec604136b8e6L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a4018a8592L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a40186e676L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a401870e23L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x347479252a95b28aL), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x6602642fc0a74a1dL), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x7525a1fdf25d507dL), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x509503be9ecc5d25L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x866dc95fc7a033eL), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x7ad4c4c8a2db08a4L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x1d0c3765e2e2fcf8L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x6337a44ca461bdf4L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x5f5c402aa7667ef3L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x391df9e40e14d64cL), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x6bbcdccef5e46755L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x4ba188b8c52b0074L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x5718179e5b1bb7d7L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x7ad4c4c8a2db08a1L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x1d0c3765e2e1d67aL), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad96e6L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x2e28a92d075e35d5L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x866dc95fc7a033fL), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x9e7f826fe6178f6L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x4b1eecbba5015fabL), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad6d03L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x7853fc2bcf81183dL), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x2b8026b23bc2da00L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x2b8026b23bc2da02L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x2b8026b23bc2d9feL), MetaIdFactory.conceptId(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x2b8026b23bc2d9fcL), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x73802639eda97c80L), MetaIdFactory.conceptId(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x7525a1fdf25beef2L)).seal();
 }

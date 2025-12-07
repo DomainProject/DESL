@@ -35,14 +35,14 @@ public final class INeedSupportVariable__BehaviorDescriptor extends BaseBHDescri
   }
 
   /*package*/ static void createVariable_id5xEIMPngWHX(@NotNull SNode __thisNode__, SNode type, String name, SNode init) {
-    SNode var = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad96e6L, "ReversibleStatements.structure.LocalVariableDeclaration"));
+    SNode var = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad96e6L, "com.mbeddr.core.statements.structure.LocalVariableDeclaration"));
 
     // todo create unique suffix (collision probability with UUID and 1000 values generated: ~0.000012 %)
     SPropertyOperations.assign(__thisNode__, PROPS.baseName$24BZ, name);
     SPropertyOperations.assign(var, PROPS.name$MnvL, name + UUID.randomUUID().toString().substring(0, 8));
     SLinkOperations.setTarget(var, LINKS.type$sXU3, type);
-    SLinkOperations.setTarget(var, LINKS.init$41s$, init);
-    SLinkOperations.setTarget(__thisNode__, LINKS.variable$WrxR, var);
+    SLinkOperations.setTarget(var, LINKS.init$$i$n, init);
+    SLinkOperations.setTarget(__thisNode__, LINKS.supportVariable$WrxR, var);
   }
 
   /*package*/ INeedSupportVariable__BehaviorDescriptor() {
@@ -99,7 +99,7 @@ public final class INeedSupportVariable__BehaviorDescriptor extends BaseBHDescri
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
-    /*package*/ static final SContainmentLink init$41s$ = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad96e6L, 0x3a16e3a9c7ae01f7L, "init");
-    /*package*/ static final SContainmentLink variable$WrxR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x586abb2d5743cb69L, "variable");
+    /*package*/ static final SContainmentLink init$$i$n = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad96e6L, 0x3a16e3a9c7ae01f7L, "init");
+    /*package*/ static final SContainmentLink supportVariable$WrxR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x586abb2d5743cb69L, "supportVariable");
   }
 }

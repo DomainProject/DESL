@@ -97,6 +97,8 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_PreIncrementExpression;
   private ConceptPresentation props_ReversibleExpression;
   private ConceptPresentation props_ReversibleFunctionCall;
+  private ConceptPresentation props_ReversibleMacroArg;
+  private ConceptPresentation props_ReversibleMacroCall;
   private ConceptPresentation props_ScientificNumber;
   private ConceptPresentation props_StaticValueExpression;
   private ConceptPresentation props_TernaryExpression;
@@ -745,6 +747,21 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_ReversibleFunctionCall = cpb.create();
         }
         return props_ReversibleFunctionCall;
+      case LanguageConceptSwitch.ReversibleMacroArg:
+        if (props_ReversibleMacroArg == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("ReversibleMacroArg");
+          props_ReversibleMacroArg = cpb.create();
+        }
+        return props_ReversibleMacroArg;
+      case LanguageConceptSwitch.ReversibleMacroCall:
+        if (props_ReversibleMacroCall == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.shortDesc("--");
+          cpb.presentationByReference(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1b427f2e49d1fe84L, 0x1b427f2e49d1fe85L, "macro", "", "");
+          props_ReversibleMacroCall = cpb.create();
+        }
+        return props_ReversibleMacroCall;
       case LanguageConceptSwitch.ScientificNumber:
         if (props_ScientificNumber == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

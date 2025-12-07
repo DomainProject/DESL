@@ -23,6 +23,7 @@
     <import index="x27k" ref="r:75ecab8a-8931-4140-afc6-4b46398710fc(com.mbeddr.core.modules.structure)" implicit="true" />
     <import index="qyxp" ref="r:173369a3-8060-4aa4-8d21-7c6337526a39(ReversibleStatements.behavior)" implicit="true" />
     <import index="vs0r" ref="r:f7764ca4-8c75-4049-922b-08516400a727(com.mbeddr.core.base.structure)" implicit="true" />
+    <import index="tpch" ref="r:00000000-0000-4000-0000-011c8959028d(jetbrains.mps.lang.structure.editor)" implicit="true" />
   </imports>
   <registry>
     <language id="18bc6592-03a6-4e29-a83a-7ff23bde13ba" name="jetbrains.mps.lang.editor">
@@ -4421,6 +4422,104 @@
         <ref role="1ERwB7" node="7apEgWbJM1a" resolve="deleteStatement" />
         <ref role="1k5W1q" to="r4b4:2CEi94dhkRt" resolve="Semi" />
       </node>
+    </node>
+  </node>
+  <node concept="24kQdi" id="4W5bsSB0n5H">
+    <property role="3GE5qa" value="structManagement" />
+    <ref role="1XX52x" to="kmi:4W5bsSB0lzp" resolve="AllocateStruct" />
+    <node concept="3EZMnI" id="4W5bsSB0n5J" role="2wV5jI">
+      <node concept="3F0ifn" id="4W5bsSB0n5P" role="3EZMnx">
+        <property role="3F0ifm" value="allocate" />
+        <ref role="1k5W1q" to="tpch:24YP6ZDyde4" resolve="Keyword" />
+      </node>
+      <node concept="3F0ifn" id="4W5bsSB0n5S" role="3EZMnx">
+        <property role="3F0ifm" value="(" />
+        <ref role="1k5W1q" to="r4b4:2CEi94dgZq3" resolve="Braces" />
+        <node concept="11L4FC" id="21ygb7Vi7jk" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+        <node concept="11LMrY" id="21ygb7Vi7jm" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+      </node>
+      <node concept="3F1sOY" id="21ygb7Ut1I3" role="3EZMnx">
+        <ref role="1NtTu8" to="kmi:21ygb7Us$dI" resolve="newStructVariable" />
+      </node>
+      <node concept="3F0ifn" id="4W5bsSB0n5V" role="3EZMnx">
+        <property role="3F0ifm" value=")" />
+        <ref role="1k5W1q" to="r4b4:2CEi94dgZq3" resolve="Braces" />
+        <node concept="11L4FC" id="21ygb7VobsC" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+        <node concept="11LMrY" id="21ygb7VobsD" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+      </node>
+      <node concept="3F0ifn" id="4W5bsSB0n5Z" role="3EZMnx">
+        <property role="3F0ifm" value=";" />
+        <ref role="1k5W1q" to="r4b4:2CEi94dhkRt" resolve="Semi" />
+      </node>
+      <node concept="l2Vlx" id="4W5bsSB0n5M" role="2iSdaV" />
+    </node>
+  </node>
+  <node concept="24kQdi" id="2SCEiO7nznm">
+    <property role="3GE5qa" value="structManagement" />
+    <ref role="1XX52x" to="kmi:2SCEiO7nznl" resolve="NewStruct" />
+    <node concept="3EZMnI" id="2SCEiO7nzno" role="2wV5jI">
+      <node concept="3F0ifn" id="2SCEiO7nznu" role="3EZMnx">
+        <property role="3F0ifm" value="new" />
+      </node>
+      <node concept="3F0ifn" id="2SCEiO7nznx" role="3EZMnx">
+        <property role="3F0ifm" value="struct" />
+        <node concept="VechU" id="2SCEiO7nznz" role="3F10Kt">
+          <property role="Vb096" value="g1_qVrt/darkMagenta" />
+        </node>
+      </node>
+      <node concept="l2Vlx" id="2SCEiO7nznr" role="2iSdaV" />
+    </node>
+  </node>
+  <node concept="24kQdi" id="BBY2rYonzW">
+    <property role="3GE5qa" value="structManagement" />
+    <ref role="1XX52x" to="kmi:BBY2rYonzQ" resolve="ReleaseStruct" />
+    <node concept="3EZMnI" id="BBY2rYonzY" role="2wV5jI">
+      <node concept="3F0ifn" id="BBY2rYon$4" role="3EZMnx">
+        <property role="3F0ifm" value="release" />
+        <ref role="1k5W1q" to="tpch:24YP6ZDyde4" resolve="Keyword" />
+      </node>
+      <node concept="3F0ifn" id="BBY2rYon$7" role="3EZMnx">
+        <property role="3F0ifm" value="(" />
+        <ref role="1k5W1q" to="r4b4:2CEi94dgZq3" resolve="Braces" />
+        <node concept="11L4FC" id="21ygb7Vi8lZ" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+        <node concept="11LMrY" id="21ygb7Vi8m0" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+      </node>
+      <node concept="1iCGBv" id="BBY2rYon$d" role="3EZMnx">
+        <ref role="1NtTu8" to="kmi:BBY2rYonzV" resolve="struct" />
+        <node concept="1sVBvm" id="BBY2rYon$f" role="1sWHZn">
+          <node concept="3F0A7n" id="BBY2rYon$l" role="2wV5jI">
+            <property role="1Intyy" value="true" />
+            <ref role="1NtTu8" to="tpck:h0TrG11" resolve="name" />
+          </node>
+        </node>
+      </node>
+      <node concept="3F0ifn" id="BBY2rYon$a" role="3EZMnx">
+        <property role="3F0ifm" value=")" />
+        <ref role="1k5W1q" to="r4b4:2CEi94dgZq3" resolve="Braces" />
+        <node concept="11L4FC" id="21ygb7Vi8m1" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+        <node concept="11LMrY" id="21ygb7Vi8m2" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+      </node>
+      <node concept="3F0ifn" id="4W5bsS_Fk0M" role="3EZMnx">
+        <property role="3F0ifm" value=";" />
+        <ref role="1k5W1q" to="r4b4:2CEi94dhkRt" resolve="Semi" />
+      </node>
+      <node concept="l2Vlx" id="BBY2rYon$1" role="2iSdaV" />
     </node>
   </node>
 </model>

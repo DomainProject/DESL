@@ -86,7 +86,7 @@ public class EditorAspectDescriptorImpl extends EditorAspectDescriptorBase imple
   @NotNull
   @Override
   public Collection<KeyMap> getDeclaredKeyMaps() {
-    return Arrays.<KeyMap>asList(new Checkbox_KeyMap_a8zlsv_a0(), new Checkbox_KeyMap_f3jl9m_a0());
+    return Arrays.<KeyMap>asList(new Checkbox_KeyMap_a8zlsv_a0());
   }
 
   private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111bL), MetaIdFactory.conceptId(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL), MetaIdFactory.conceptId(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145008fL), MetaIdFactory.conceptId(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761177adb6L), MetaIdFactory.conceptId(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c176117d6e39L), MetaIdFactory.conceptId(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x56ee1731fef0eae5L)).seal();

@@ -19,9 +19,10 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptForEachItemInCollection = createDescriptorForForEachItemInCollection();
   /*package*/ final ConceptDescriptor myConceptForeachBody = createDescriptorForForeachBody();
   /*package*/ final ConceptDescriptor myConceptIGetFirstElementInCollection = createDescriptorForIGetFirstElementInCollection();
+  /*package*/ final ConceptDescriptor myConceptIUpdateCollection = createDescriptorForIUpdateCollection();
   /*package*/ final ConceptDescriptor myConceptNewCollection = createDescriptorForNewCollection();
-  /*package*/ final ConceptDescriptor myConceptRemoveFirst = createDescriptorForRemoveFirst();
   /*package*/ final ConceptDescriptor myConceptRemoveFromCollection = createDescriptorForRemoveFromCollection();
+  /*package*/ final ConceptDescriptor myConceptRemoveWhere = createDescriptorForRemoveWhere();
   private final LanguageConceptSwitch myIndexSwitch;
 
   public StructureAspectDescriptor() {
@@ -41,7 +42,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptAddToCollection, myConceptCollection, myConceptFindFirst, myConceptForEachItemInCollection, myConceptForeachBody, myConceptIGetFirstElementInCollection, myConceptNewCollection, myConceptRemoveFirst, myConceptRemoveFromCollection);
+    return Arrays.asList(myConceptAddToCollection, myConceptCollection, myConceptFindFirst, myConceptForEachItemInCollection, myConceptForeachBody, myConceptIGetFirstElementInCollection, myConceptIUpdateCollection, myConceptNewCollection, myConceptRemoveFromCollection, myConceptRemoveWhere);
   }
 
   @Override
@@ -60,12 +61,14 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptForeachBody;
       case LanguageConceptSwitch.IGetFirstElementInCollection:
         return myConceptIGetFirstElementInCollection;
+      case LanguageConceptSwitch.IUpdateCollection:
+        return myConceptIUpdateCollection;
       case LanguageConceptSwitch.NewCollection:
         return myConceptNewCollection;
-      case LanguageConceptSwitch.RemoveFirst:
-        return myConceptRemoveFirst;
       case LanguageConceptSwitch.RemoveFromCollection:
         return myConceptRemoveFromCollection;
+      case LanguageConceptSwitch.RemoveWhere:
+        return myConceptRemoveWhere;
       default:
         return null;
     }
@@ -81,11 +84,9 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.class_(false, false, false);
     // extends: ReversibleStatements.structure.ReversibleStatement
     b.super_(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad6d03L);
+    b.parent(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x1b427f2e49f084f2L);
     b.origin("r:7c7377c1-dded-46c2-9c44-39493c999dbb(Collections.structure)/919468708905377089");
     b.version(3);
-    b.property("variableName", 0x323127c573e235ebL).type(PrimitiveTypeId.STRING).origin("3616715704761464299").done();
-    b.associate("variable", 0x1fa1163416f6fb8aL).target(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x1c69b376a2f94e75L).optional(false).origin("2279127299405577098").done();
-    b.aggregate("collection", 0x2d57d1c347ae5243L).target(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba32L).optional(false).ordered(true).multiple(false).origin("3267310691332018755").done();
     b.alias("add");
     return b.create();
   }
@@ -147,6 +148,17 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.aggregate("collection", 0x2d57d1c347ae5255L).target(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba32L).optional(true).ordered(true).multiple(false).origin("3267310691332018773").done();
     return b.create();
   }
+  private static ConceptDescriptor createDescriptorForIUpdateCollection() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("Collections", "IUpdateCollection", 0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x1b427f2e49f084f2L);
+    b.interface_();
+    b.parent(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x27d0c8e745a2c78dL);
+    b.origin("r:7c7377c1-dded-46c2-9c44-39493c999dbb(Collections.structure)/1964272224272680178");
+    b.version(3);
+    b.property("variableName", 0x1b427f2e4a21703bL).type(PrimitiveTypeId.STRING).origin("1964272224275886139").done();
+    b.associate("item", 0x1b427f2e49f084f3L).target(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x1c69b376a2f94e75L).optional(false).origin("1964272224272680179").done();
+    b.aggregate("collection", 0x1b427f2e4a217c88L).target(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba32L).optional(false).ordered(true).multiple(false).origin("1964272224275889288").done();
+    return b.create();
+  }
   private static ConceptDescriptor createDescriptorForNewCollection() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("Collections", "NewCollection", 0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0xcc29beb5056b0a2L);
     b.class_(false, false, false);
@@ -157,28 +169,26 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.alias("new collection");
     return b.create();
   }
-  private static ConceptDescriptor createDescriptorForRemoveFirst() {
-    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("Collections", "RemoveFirst", 0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x74450034cfe617f4L);
+  private static ConceptDescriptor createDescriptorForRemoveFromCollection() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("Collections", "RemoveFromCollection", 0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x74450034d00494f4L);
+    b.class_(false, false, false);
+    // extends: ReversibleStatements.structure.ReversibleStatement
+    b.super_(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad6d03L);
+    b.parent(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x1b427f2e49f084f2L);
+    b.origin("r:7c7377c1-dded-46c2-9c44-39493c999dbb(Collections.structure)/8378102908620936436");
+    b.version(3);
+    b.alias("remove");
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForRemoveWhere() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("Collections", "RemoveWhere", 0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x74450034cfe617f4L);
     b.class_(false, false, false);
     // extends: ReversibleStatements.structure.ReversibleStatement
     b.super_(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad6d03L);
     b.parent(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x74450034cfe623acL);
     b.origin("r:7c7377c1-dded-46c2-9c44-39493c999dbb(Collections.structure)/8378102908618938356");
     b.version(3);
-    b.alias("removeFirst");
-    return b.create();
-  }
-  private static ConceptDescriptor createDescriptorForRemoveFromCollection() {
-    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("Collections", "RemoveFromCollection", 0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x74450034d00494f4L);
-    b.class_(false, false, false);
-    // extends: ReversibleStatements.structure.ReversibleStatement
-    b.super_(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad6d03L);
-    b.origin("r:7c7377c1-dded-46c2-9c44-39493c999dbb(Collections.structure)/8378102908620936436");
-    b.version(3);
-    b.property("variableName", 0x323127c573d9e3b3L).type(PrimitiveTypeId.STRING).origin("3616715704760918963").done();
-    b.associate("variable", 0x74450034d00494f7L).target(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x1c69b376a2f94e75L).optional(true).origin("8378102908620936439").done();
-    b.aggregate("collection", 0x2d57d1c347ae526bL).target(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba32L).optional(false).ordered(true).multiple(false).origin("3267310691332018795").done();
-    b.alias("remove");
+    b.alias("removeWhere");
     return b.create();
   }
 }

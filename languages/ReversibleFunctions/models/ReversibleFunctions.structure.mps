@@ -10,8 +10,9 @@
     <import index="mj1l" ref="r:c371cf98-dcc8-4a43-8eb8-8a8096de18b2(com.mbeddr.core.expressions.structure)" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
     <import index="kmi" ref="r:afa7ae5b-c41f-45e8-9678-2beae3621a33(ReversibleStatements.structure)" implicit="true" />
-    <import index="ib4b" ref="r:539823a2-87c6-4a7e-abc8-d6fc586848eb(ReversibleExpressions.structure)" implicit="true" />
     <import index="rdv6" ref="r:79077d65-28d5-4f56-905b-4bcf5185c60e(DESL.structure)" implicit="true" />
+    <import index="clbe" ref="r:61d840b4-12c1-49ea-b142-b2a1550a9b15(com.mbeddr.core.udt.structure)" implicit="true" />
+    <import index="ib4b" ref="r:539823a2-87c6-4a7e-abc8-d6fc586848eb(ReversibleExpressions.structure)" implicit="true" />
     <import index="vs0r" ref="r:f7764ca4-8c75-4049-922b-08516400a727(com.mbeddr.core.base.structure)" implicit="true" />
   </imports>
   <registry>
@@ -23,7 +24,9 @@
         <child id="1071489727083" name="linkDeclaration" index="1TKVEi" />
         <child id="1071489727084" name="propertyDeclaration" index="1TKVEl" />
       </concept>
-      <concept id="1169125989551" name="jetbrains.mps.lang.structure.structure.InterfaceConceptDeclaration" flags="ig" index="PlHQZ" />
+      <concept id="1169125989551" name="jetbrains.mps.lang.structure.structure.InterfaceConceptDeclaration" flags="ig" index="PlHQZ">
+        <child id="1169127546356" name="extends" index="PrDN$" />
+      </concept>
       <concept id="1169127622168" name="jetbrains.mps.lang.structure.structure.InterfaceConceptReference" flags="ig" index="PrWs8">
         <reference id="1169127628841" name="intfc" index="PrY4T" />
       </concept>
@@ -104,12 +107,15 @@
     <node concept="PrWs8" id="2XBKnohhh4u" role="PzmwI">
       <ref role="PrY4T" node="2XBKnohhh4s" resolve="IReversibleItem" />
     </node>
+    <node concept="PrWs8" id="4W5bsS_qiD$" role="PzmwI">
+      <ref role="PrY4T" to="rdv6:6WQN7vgLz3x" resolve="IExternalFunction" />
+    </node>
   </node>
   <node concept="1TIwiD" id="5rI5N7YWeF_">
     <property role="EcuMT" value="6263969635216976613" />
     <property role="TrG5h" value="ReversibleScript" />
     <property role="19KtqR" value="true" />
-    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
+    <ref role="1TJDcQ" to="x27k:5_l8w1EmTde" resolve="ImplementationModule" />
     <node concept="1TJgyj" id="5rI5N7YWeFA" role="1TKVEi">
       <property role="IQ2ns" value="6263969635216976614" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
@@ -123,6 +129,13 @@
       <property role="20kJfa" value="functions" />
       <property role="20lbJX" value="fLJekj5/_0__n" />
       <ref role="20lvS9" to="x27k:5_l8w1EmTvx" resolve="Function" />
+    </node>
+    <node concept="1TJgyj" id="4wy1r9O8wbd" role="1TKVEi">
+      <property role="IQ2ns" value="5197723183949677261" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="structs" />
+      <property role="20lbJX" value="fLJekj5/_0__n" />
+      <ref role="20lvS9" to="clbe:5yYXyc4Z0CJ" resolve="StructDeclaration" />
     </node>
   </node>
   <node concept="1TIwiD" id="5rI5N7Zx2HX">
@@ -149,6 +162,12 @@
       <property role="20kJfa" value="content" />
       <property role="IQ2ns" value="8655966904682451042" />
       <ref role="20lvS9" to="ib4b:7FQByU3CrCM" resolve="ReversibleExpression" />
+    </node>
+    <node concept="1TJgyj" id="21ygb7Z5Kiq" role="1TKVEi">
+      <property role="IQ2ns" value="2333498690164425882" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="reversedMacro" />
+      <ref role="20lvS9" node="2XBKnohhg2f" resolve="ReversibleMacro" />
     </node>
     <node concept="1TJgyi" id="1Iv4$fS2caM" role="1TKVEl">
       <property role="TrG5h" value="hasEllipsis" />
@@ -201,6 +220,9 @@
       <property role="IQ2nx" value="3415911555224125754" />
       <property role="TrG5h" value="expand" />
       <ref role="AX2Wp" to="tpck:fKAQMTB" resolve="boolean" />
+    </node>
+    <node concept="PrWs8" id="1H2vMT9C0Nd" role="PrDN$">
+      <ref role="PrY4T" to="x27k:5_l8w1EmTdf" resolve="IModuleContent" />
     </node>
   </node>
   <node concept="1TIwiD" id="2XBKnohtUQQ">

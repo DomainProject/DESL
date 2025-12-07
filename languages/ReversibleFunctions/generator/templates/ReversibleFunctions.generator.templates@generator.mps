@@ -105,6 +105,9 @@
       <concept id="1167169308231" name="jetbrains.mps.lang.generator.structure.BaseMappingRule" flags="ng" index="30H$t8">
         <reference id="1167169349424" name="applicableConcept" index="30HIoZ" />
       </concept>
+      <concept id="1087833241328" name="jetbrains.mps.lang.generator.structure.PropertyMacro" flags="ln" index="17Uvod">
+        <child id="1167756362303" name="propertyValueFunction" index="3zH0cK" />
+      </concept>
       <concept id="1167514355419" name="jetbrains.mps.lang.generator.structure.Root_MappingRule" flags="lg" index="3lhOvk">
         <property id="1177959072138" name="keepSourceRoot" index="13Pg2o" />
         <reference id="1167514355421" name="template" index="3lhOvi" />
@@ -118,6 +121,7 @@
       <concept id="1195502151594" name="jetbrains.mps.lang.generator.structure.MappingScriptReference" flags="lg" index="1puMqW">
         <reference id="1195502167610" name="mappingScript" index="1puQsG" />
       </concept>
+      <concept id="1167756080639" name="jetbrains.mps.lang.generator.structure.PropertyMacro_GetPropertyValue" flags="in" index="3zFVjK" />
       <concept id="1167951910403" name="jetbrains.mps.lang.generator.structure.SourceSubstituteMacro_SourceNodesQuery" flags="in" index="3JmXsc" />
     </language>
     <language id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures">
@@ -129,6 +133,9 @@
     </language>
     <language id="f75f9e3f-b00b-4997-8af2-0a8ce6b25221" name="ReversibleStatements">
       <concept id="4185783222026475861" name="ReversibleStatements.structure.ReversibleStatementList" flags="ng" index="3XIRFX" />
+    </language>
+    <language id="efda956e-491e-4f00-ba14-36af2f213ecf" name="com.mbeddr.core.udt">
+      <concept id="6394819151180597807" name="com.mbeddr.core.udt.structure.StructDeclaration" flags="ng" index="1sgJKc" />
     </language>
     <language id="6d11763d-483d-4b2b-8efc-09336c1b0001" name="com.mbeddr.core.modules">
       <concept id="6437088627575724001" name="com.mbeddr.core.modules.structure.Function" flags="ng" index="N3Fnx">
@@ -190,6 +197,10 @@
       <concept id="1133920641626" name="jetbrains.mps.lang.core.structure.BaseConcept" flags="ng" index="2VYdi">
         <child id="5169995583184591170" name="smodelAttribute" index="lGtFl" />
       </concept>
+      <concept id="3364660638048049750" name="jetbrains.mps.lang.core.structure.PropertyAttribute" flags="ng" index="A9Btg">
+        <property id="1757699476691236117" name="name_DebugInfo" index="2qtEX9" />
+        <property id="1341860900487648621" name="propertyId" index="P4ACc" />
+      </concept>
       <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ngI" index="TrEIO">
         <property id="1169194664001" name="name" index="TrG5h" />
       </concept>
@@ -212,6 +223,7 @@
     <language id="5eb14d5a-b5f7-4626-a63b-80c6b9db7397" name="ReversibleFunctions">
       <concept id="6263969635216976613" name="ReversibleFunctions.structure.ReversibleScript" flags="ng" index="2C7JRk">
         <child id="6263969635216976614" name="reversibleItems" index="2C7JRn" />
+        <child id="5197723183949677261" name="structs" index="W00tZ" />
         <child id="9176837022557531188" name="functions" index="3kqO2i" />
       </concept>
       <concept id="6263969635226626941" name="ReversibleFunctions.structure.ReversibleScriptExp" flags="ng" index="2DqzLc" />
@@ -252,10 +264,27 @@
     <node concept="3lhOvk" id="5rI5N7ZzJ4V" role="3lj3bC">
       <property role="13Pg2o" value="h94ayQF/true_" />
       <ref role="30HIoZ" to="w8o:5rI5N7YWeF_" resolve="ReversibleScript" />
-      <ref role="3lhOvi" node="5rI5N7ZzJ4W" />
+      <ref role="3lhOvi" node="5rI5N7ZzJ4W" resolve="script" />
     </node>
   </node>
   <node concept="2DqzLc" id="5rI5N7ZzJ4W">
+    <property role="TrG5h" value="script" />
+    <node concept="1sgJKc" id="1H2vMT9qXV0" role="W00tZ">
+      <node concept="2b32R4" id="1H2vMT9qYdw" role="lGtFl">
+        <node concept="3JmXsc" id="1H2vMT9qYdz" role="2P8S$">
+          <node concept="3clFbS" id="1H2vMT9qYd$" role="2VODD2">
+            <node concept="3clFbF" id="1H2vMT9qYdE" role="3cqZAp">
+              <node concept="2OqwBi" id="1H2vMT9qYd_" role="3clFbG">
+                <node concept="3Tsc0h" id="1H2vMT9qYdC" role="2OqNvi">
+                  <ref role="3TtcxE" to="w8o:4wy1r9O8wbd" resolve="structs" />
+                </node>
+                <node concept="30H73N" id="1H2vMT9qYdD" role="2Oq$k0" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
     <node concept="n94m4" id="5rI5N7ZzJ4X" role="lGtFl">
       <ref role="n9lRv" to="w8o:5rI5N7YWeF_" resolve="ReversibleScript" />
     </node>
@@ -315,6 +344,22 @@
                     </node>
                   </node>
                 </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="17Uvod" id="1H2vMT9yHkd" role="lGtFl">
+      <property role="2qtEX9" value="name" />
+      <property role="P4ACc" value="ceab5195-25ea-4f22-9b92-103b95ca8c0c/1169194658468/1169194664001" />
+      <node concept="3zFVjK" id="1H2vMT9yHke" role="3zH0cK">
+        <node concept="3clFbS" id="1H2vMT9yHkf" role="2VODD2">
+          <node concept="3clFbF" id="1H2vMT9yHBW" role="3cqZAp">
+            <node concept="2OqwBi" id="1H2vMT9yIiD" role="3clFbG">
+              <node concept="30H73N" id="1H2vMT9yHBV" role="2Oq$k0" />
+              <node concept="3TrcHB" id="1H2vMT9yK$L" role="2OqNvi">
+                <ref role="3TsBF5" to="tpck:h0TrG11" resolve="name" />
               </node>
             </node>
           </node>
@@ -485,7 +530,7 @@
                                 <ref role="2Gs0qQ" node="5suDuW_mj6R" resolve="stmtWithSupportVariable" />
                               </node>
                               <node concept="3TrEf2" id="5suDuW_mtla" role="2OqNvi">
-                                <ref role="3Tt5mk" to="ib4b:5xEIMPngWHD" resolve="variable" />
+                                <ref role="3Tt5mk" to="ib4b:5xEIMPngWHD" resolve="supportVariable" />
                               </node>
                             </node>
                             <node concept="2OqwBi" id="5suDuW_mpr8" role="37vLTJ">

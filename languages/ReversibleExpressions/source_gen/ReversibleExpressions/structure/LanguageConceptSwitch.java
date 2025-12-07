@@ -97,19 +97,21 @@ public final class LanguageConceptSwitch {
   public static final int PreIncrementExpression = 85;
   public static final int ReversibleExpression = 86;
   public static final int ReversibleFunctionCall = 87;
-  public static final int ScientificNumber = 88;
-  public static final int StaticValueExpression = 89;
-  public static final int TernaryExpression = 90;
-  public static final int TrueLiteral = 91;
-  public static final int UnaryArithmeticExpression = 92;
-  public static final int UnaryExpression = 93;
-  public static final int UnaryLogicalExpression = 94;
-  public static final int UnaryMinusExpression = 95;
-  public static final int UnaryPrePosModificationExpression = 96;
-  public static final int UnsignedIntegerLiteral = 97;
-  public static final int VaArgExpression = 98;
-  public static final int VaList = 99;
-  public static final int VoidType = 100;
+  public static final int ReversibleMacroArg = 88;
+  public static final int ReversibleMacroCall = 89;
+  public static final int ScientificNumber = 90;
+  public static final int StaticValueExpression = 91;
+  public static final int TernaryExpression = 92;
+  public static final int TrueLiteral = 93;
+  public static final int UnaryArithmeticExpression = 94;
+  public static final int UnaryExpression = 95;
+  public static final int UnaryLogicalExpression = 96;
+  public static final int UnaryMinusExpression = 97;
+  public static final int UnaryPrePosModificationExpression = 98;
+  public static final int UnsignedIntegerLiteral = 99;
+  public static final int VaArgExpression = 100;
+  public static final int VaList = 101;
+  public static final int VoidType = 102;
 
   public LanguageConceptSwitch() {
     LanguageConceptIndexBuilder builder = new LanguageConceptIndexBuilder(0x9abffa92487542bfL, 0x9379c4f95eb496d4L);
@@ -201,6 +203,8 @@ public final class LanguageConceptSwitch {
     builder.put(0x3cba500cc5723aafL, PreIncrementExpression);
     builder.put(0x7af69e2e83a1ba32L, ReversibleExpression);
     builder.put(0x2e6ecb766f1587b4L, ReversibleFunctionCall);
+    builder.put(0x68ce0d48c3998717L, ReversibleMacroArg);
+    builder.put(0x1b427f2e49d1fe84L, ReversibleMacroCall);
     builder.put(0x172ddc48ec9eb7ceL, ScientificNumber);
     builder.put(0x688d46628178f19aL, StaticValueExpression);
     builder.put(0x79253aa36e3393aeL, TernaryExpression);

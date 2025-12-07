@@ -17,7 +17,7 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/5351203823916750322:jetbrains.mps.baseLanguage.structure.TryUniversalStatement" />
   <root>
     <file name="EditorAspectDescriptorImpl.java">
-      <unit at="19,0,326,0" name="ReversibleExpressions.editor.EditorAspectDescriptorImpl" />
+      <unit at="19,0,334,0" name="ReversibleExpressions.editor.EditorAspectDescriptorImpl" />
     </file>
     <file name="GrammarActionsDescriptor.java">
       <unit at="2700,0,2703,0" name="ReversibleExpressions.editor.GrammarActionsDescriptor$PROPS" />
@@ -508,6 +508,16 @@
       <unit at="34,0,44,0" name="ReversibleExpressions.editor.GrammarCellsSubstituteMenu_ReversibleFunctionCall$GrammarCellsSubstituteMenuPart_s767s3_a" />
       <unit at="22,0,49,0" name="ReversibleExpressions.editor.GrammarCellsSubstituteMenu_ReversibleFunctionCall" />
     </file>
+    <file name="GrammarCellsSubstituteMenu_ReversibleMacroArg.java">
+      <unit at="44,0,47,0" name="ReversibleExpressions.editor.GrammarCellsSubstituteMenu_ReversibleMacroArg$CONCEPTS" />
+      <unit at="33,0,43,0" name="ReversibleExpressions.editor.GrammarCellsSubstituteMenu_ReversibleMacroArg$GrammarCellsSubstituteMenuPart_se2359_a" />
+      <unit at="21,0,48,0" name="ReversibleExpressions.editor.GrammarCellsSubstituteMenu_ReversibleMacroArg" />
+    </file>
+    <file name="GrammarCellsSubstituteMenu_ReversibleMacroCall.java">
+      <unit at="45,0,48,0" name="ReversibleExpressions.editor.GrammarCellsSubstituteMenu_ReversibleMacroCall$CONCEPTS" />
+      <unit at="34,0,44,0" name="ReversibleExpressions.editor.GrammarCellsSubstituteMenu_ReversibleMacroCall$GrammarCellsSubstituteMenuPart_rqgim4_a" />
+      <unit at="22,0,49,0" name="ReversibleExpressions.editor.GrammarCellsSubstituteMenu_ReversibleMacroCall" />
+    </file>
     <file name="GrammarCellsSubstituteMenu_ScientificNumber.java">
       <unit at="44,0,47,0" name="ReversibleExpressions.editor.GrammarCellsSubstituteMenu_ScientificNumber$CONCEPTS" />
       <unit at="33,0,43,0" name="ReversibleExpressions.editor.GrammarCellsSubstituteMenu_ScientificNumber$GrammarCellsSubstituteMenuPart_oogjjr_a" />
@@ -579,8 +589,8 @@
       <unit at="17,0,52,0" name="ReversibleExpressions.editor.IncludeBeforeAfterTransformations" />
     </file>
     <file name="PresentationProviders.java">
-      <unit at="13,0,16,0" name="ReversibleExpressions.editor.PresentationProviders$PROPS" />
-      <unit at="10,0,17,0" name="ReversibleExpressions.editor.PresentationProviders" />
+      <unit at="14,0,17,0" name="ReversibleExpressions.editor.PresentationProviders$PROPS" />
+      <unit at="10,0,18,0" name="ReversibleExpressions.editor.PresentationProviders" />
     </file>
     <file name="ReversibleFunctionCall_SubstituteMenu.java">
       <unit at="61,0,64,0" name="ReversibleExpressions.editor.ReversibleFunctionCall_SubstituteMenu$CONCEPTS" />
@@ -588,6 +598,13 @@
       <unit at="38,0,45,0" name="ReversibleExpressions.editor.ReversibleFunctionCall_SubstituteMenu$SMP_ReferenceScope_6sfeae_a" />
       <unit at="45,0,60,0" name="ReversibleExpressions.editor.ReversibleFunctionCall_SubstituteMenu$SMP_Subconcepts_6sfeae_b" />
       <unit at="25,0,69,0" name="ReversibleExpressions.editor.ReversibleFunctionCall_SubstituteMenu" />
+    </file>
+    <file name="ReversibleMacroCall_SubstituteMenu.java">
+      <unit at="61,0,64,0" name="ReversibleExpressions.editor.ReversibleMacroCall_SubstituteMenu$CONCEPTS" />
+      <unit at="65,0,68,0" name="ReversibleExpressions.editor.ReversibleMacroCall_SubstituteMenu$LINKS" />
+      <unit at="38,0,45,0" name="ReversibleExpressions.editor.ReversibleMacroCall_SubstituteMenu$SMP_ReferenceScope_6yoxk1_a" />
+      <unit at="45,0,60,0" name="ReversibleExpressions.editor.ReversibleMacroCall_SubstituteMenu$SMP_Subconcepts_6yoxk1_b" />
+      <unit at="25,0,69,0" name="ReversibleExpressions.editor.ReversibleMacroCall_SubstituteMenu" />
     </file>
     <file name="template_GrammarCellsSideTransformationsMenu.java">
       <unit at="35,0,41,0" name="ReversibleExpressions.editor.template_GrammarCellsSideTransformationsMenu$GrammarCellsTransformationMenuPart_ebe1tt_a0" />
@@ -1160,6 +1177,339 @@
       </scope>
       <scope id="6496796267915601337" at="31,0,40,0" />
       <unit id="1670233242589904245" at="12,0,41,0" name="ReversibleExpressions.editor.ScientificNumber_InspectorBuilder_a" />
+    </file>
+  </root>
+  <root nodeRef="r:e9706a5f-6192-4ab2-9fe9-9e1d284b7670(ReversibleExpressions.editor)/1964272224270680366">
+    <file name="PresentationProviders.java">
+      <node id="1964272224270680374" at="12,0,13,0" concept="11" trace="PRESENTATION_18rw23_a0a0a" />
+    </file>
+    <file name="ReversibleMacroCall_Editor.java">
+      <node id="1964272224270680366" at="11,79,12,85" concept="8" />
+      <node id="1964272224270680366" at="11,0,14,0" concept="6" trace="createEditorCell#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <scope id="1964272224270680366" at="11,79,12,85" />
+      <scope id="1964272224270680366" at="11,0,14,0">
+        <var name="editorContext" id="1964272224270680366" />
+        <var name="node" id="1964272224270680366" />
+      </scope>
+      <unit id="1964272224270680366" at="10,0,15,0" name="ReversibleExpressions.editor.ReversibleMacroCall_Editor" />
+    </file>
+    <file name="ReversibleMacroCall_EditorBuilder_a.java">
+      <node id="1964272224270680366" at="61,99,62,19" concept="13" />
+      <node id="1964272224270680366" at="62,19,63,18" concept="2" />
+      <node id="1964272224270680366" at="68,26,69,18" concept="8" />
+      <node id="1964272224270680366" at="72,39,73,32" concept="8" />
+      <node id="1964272224270680366" at="76,43,77,118" concept="7" />
+      <node id="1964272224270680366" at="77,118,78,48" concept="2" />
+      <node id="1964272224270680366" at="78,48,79,28" concept="2" />
+      <node id="1964272224270680366" at="79,28,80,31" concept="2" />
+      <node id="1964272224270680369" at="80,31,81,48" concept="2" />
+      <node id="1964272224270680380" at="81,48,82,49" concept="2" />
+      <node id="1964272224270680383" at="82,49,83,52" concept="2" />
+      <node id="1964272224270680392" at="83,52,84,49" concept="2" />
+      <node id="1964272224270680366" at="84,49,85,22" concept="8" />
+      <node id="1964272224270680366" at="87,40,88,58" concept="7" />
+      <node id="1964272224270680366" at="90,72,91,183" concept="7" />
+      <node id="1964272224270680366" at="91,183,92,60" concept="2" />
+      <node id="1964272224270680366" at="92,60,93,48" concept="2" />
+      <node id="1964272224270680366" at="93,48,94,58" concept="2" />
+      <node id="1964272224270680366" at="94,58,95,20" concept="8" />
+      <node id="1964272224270680366" at="98,58,99,97" concept="7" />
+      <node id="1964272224270680366" at="99,97,100,131" concept="2" />
+      <node id="1964272224270680366" at="100,131,101,135" concept="2" />
+      <node id="1964272224270680366" at="101,135,102,20" concept="8" />
+      <node id="1964272224270680366" at="104,6,105,0" concept="10" />
+      <node id="1964272224270680366" at="105,0,106,43" concept="2" />
+      <node id="1964272224270680366" at="106,43,107,50" concept="7" />
+      <node id="1964272224270680366" at="107,50,108,0" concept="10" />
+      <node id="1964272224270680366" at="109,40,110,40" concept="2" />
+      <node id="1964272224270680366" at="110,40,111,44" concept="2" />
+      <node id="1964272224270680366" at="112,5,113,272" concept="2" />
+      <node id="1964272224270680366" at="113,272,114,150" concept="7" />
+      <node id="1964272224270680366" at="114,150,115,205" concept="7" />
+      <node id="1964272224270680366" at="116,73,117,87" concept="7" />
+      <node id="1964272224270680366" at="117,87,118,145" concept="8" />
+      <node id="1964272224270680366" at="119,10,120,22" concept="8" />
+      <node id="1964272224270680370" at="125,0,126,0" concept="3" trace="myReferencingNode" />
+      <node id="1964272224270680370" at="127,109,128,21" concept="13" />
+      <node id="1964272224270680370" at="128,21,129,42" concept="2" />
+      <node id="1964272224270680370" at="129,42,130,20" concept="2" />
+      <node id="1964272224270680370" at="133,41,134,32" concept="8" />
+      <node id="1964272224270680370" at="139,28,140,20" concept="8" />
+      <node id="1964272224270680371" at="143,43,144,41" concept="2" />
+      <node id="1964272224270680371" at="145,11,146,51" concept="7" />
+      <node id="1964272224270680371" at="146,51,147,78" concept="2" />
+      <node id="1964272224270680371" at="147,78,148,150" concept="7" />
+      <node id="1964272224270680371" at="148,150,149,47" concept="2" />
+      <node id="1964272224270680371" at="149,47,150,46" concept="2" />
+      <node id="1964272224270680371" at="150,46,151,88" concept="2" />
+      <node id="1964272224270680371" at="151,88,152,35" concept="2" />
+      <node id="1964272224270680371" at="152,35,153,157" concept="7" />
+      <node id="1964272224270680371" at="153,157,154,210" concept="7" />
+      <node id="1964272224270680371" at="155,76,156,91" concept="7" />
+      <node id="1964272224270680371" at="156,91,157,147" concept="8" />
+      <node id="1964272224270680371" at="158,14,159,26" concept="8" />
+      <node id="1964272224270680371" at="160,17,161,42" concept="2" />
+      <node id="1964272224270680373" at="170,71,171,61" concept="8" />
+      <node id="1964272224270680373" at="175,78,176,61" concept="8" />
+      <node id="1964272224270680380" at="179,41,180,94" concept="7" />
+      <node id="1964272224270680380" at="180,94,181,47" concept="2" />
+      <node id="1964272224270680380" at="181,47,182,34" concept="7" />
+      <node id="1964272224270680380" at="182,34,183,68" concept="2" />
+      <node id="1964272224270680381" at="183,68,184,54" concept="2" />
+      <node id="1964272224270680382" at="184,54,185,55" concept="2" />
+      <node id="1964272224270680380" at="185,55,186,40" concept="2" />
+      <node id="1964272224270680380" at="186,40,187,34" concept="2" />
+      <node id="1964272224270680380" at="187,34,188,22" concept="8" />
+      <node id="1964272224270680366" at="190,44,191,99" concept="7" />
+      <node id="1964272224270680366" at="191,99,192,91" concept="7" />
+      <node id="1964272224270680366" at="192,91,193,48" concept="2" />
+      <node id="1964272224270680366" at="194,15,195,95" concept="2" />
+      <node id="1964272224270680366" at="196,5,197,51" concept="2" />
+      <node id="1964272224270680366" at="197,51,198,22" concept="8" />
+      <node id="1964272224270680366" at="204,81,205,28" concept="13" />
+      <node id="1964272224270680366" at="205,28,206,25" concept="2" />
+      <node id="1964272224270680366" at="210,28,211,20" concept="8" />
+      <node id="1964272224270680366" at="213,40,214,32" concept="8" />
+      <node id="1964272224270680366" at="216,48,217,44" concept="8" />
+      <node id="1964272224270680366" at="220,57,221,83" concept="7" />
+      <node id="1964272224270680366" at="221,83,222,65" concept="2" />
+      <node id="1964272224270680366" at="222,65,223,25" concept="8" />
+      <node id="1964272224270680366" at="225,41,226,41" concept="2" />
+      <node id="1964272224270680366" at="226,41,227,141" concept="2" />
+      <node id="1964272224270680366" at="228,11,229,36" concept="7" />
+      <node id="1964272224270680366" at="229,36,230,52" concept="2" />
+      <node id="1964272224270680366" at="230,52,231,57" concept="2" />
+      <node id="1964272224270680366" at="231,57,232,34" concept="2" />
+      <node id="1964272224270680366" at="232,34,233,25" concept="8" />
+      <node id="1964272224270680366" at="234,17,235,42" concept="2" />
+      <node id="1964272224270680366" at="239,0,240,0" concept="11" trace="OBJ" />
+      <node id="1964272224270680366" at="243,122,244,92" concept="2" />
+      <node id="1964272224270680366" at="244,92,245,146" concept="2" />
+      <node id="1964272224270680366" at="249,34,250,90" concept="2" />
+      <node id="1964272224270680366" at="250,90,251,142" concept="2" />
+      <node id="1964272224270680366" at="255,34,256,69" concept="2" />
+      <node id="1964272224270680366" at="256,69,257,146" concept="2" />
+      <node id="1964272224270680366" at="261,34,262,91" concept="2" />
+      <node id="1964272224270680366" at="262,91,263,80" concept="2" />
+      <node id="1964272224270680366" at="268,75,269,99" concept="7" />
+      <node id="1964272224270680366" at="269,99,270,38" concept="2" />
+      <node id="1964272224270680366" at="270,38,271,36" concept="7" />
+      <node id="1964272224270680366" at="271,36,272,55" concept="2" />
+      <node id="1964272224270680366" at="272,55,273,56" concept="2" />
+      <node id="1964272224270680366" at="273,56,274,42" concept="2" />
+      <node id="1964272224270680366" at="274,42,275,134" concept="2" />
+      <node id="1964272224270680366" at="275,134,276,138" concept="2" />
+      <node id="1964272224270680366" at="276,138,277,24" concept="8" />
+      <node id="1964272224270680389" at="281,33,282,20" concept="8" />
+      <node id="1964272224270680385" at="284,17,285,81" concept="2" />
+      <node id="1964272224270680385" at="285,81,286,84" concept="2" />
+      <node id="1964272224270680385" at="286,84,287,63" concept="2" />
+      <node id="1964272224270680385" at="287,63,288,36" concept="7" />
+      <node id="1964272224270680391" at="288,36,289,48" concept="2" />
+      <node id="1964272224270680385" at="289,48,290,42" concept="2" />
+      <node id="1964272224270680385" at="290,42,291,24" concept="8" />
+      <node id="1964272224270680392" at="294,41,295,94" concept="7" />
+      <node id="1964272224270680392" at="295,94,296,47" concept="2" />
+      <node id="1964272224270680392" at="296,47,297,34" concept="7" />
+      <node id="1964272224270680392" at="297,34,298,68" concept="2" />
+      <node id="1964272224270680393" at="298,68,299,54" concept="2" />
+      <node id="1964272224270680392" at="299,54,300,40" concept="2" />
+      <node id="1964272224270680392" at="300,40,301,34" concept="2" />
+      <node id="1964272224270680392" at="301,34,302,22" concept="8" />
+      <node id="1964272224270680366" at="306,0,307,0" concept="11" trace="macro$QKaR" />
+      <node id="1964272224270680366" at="307,0,308,0" concept="11" trace="actuals$QKpS" />
+      <node id="1964272224270680366" at="311,0,312,0" concept="11" trace="LinkAttribute$v_" />
+      <node id="1964272224270680366" at="312,0,313,0" concept="11" trace="PropertyAttribute$Gb" />
+      <node id="1964272224270680366" at="313,0,314,0" concept="11" trace="ReversibleMacroArg$Ip" />
+      <node id="1964272224270680366" at="317,0,318,0" concept="11" trace="name$MnvL" />
+      <node id="1964272224270680366" at="58,0,60,0" concept="3" trace="myNode" />
+      <node id="1964272224270680370" at="123,0,125,0" concept="3" trace="myNode" />
+      <node id="1964272224270680373" at="166,0,168,0" concept="1" trace="ReversibleMacroCall_macro_cellMenu_18rw23_a0a0#()V" />
+      <node id="1964272224270680366" at="201,0,203,0" concept="3" trace="myNode" />
+      <node id="1964272224270680366" at="72,0,75,0" concept="6" trace="createCell#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="1964272224270680370" at="133,0,136,0" concept="6" trace="createCell#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="1964272224270680366" at="193,48,196,5" concept="5" />
+      <node id="1964272224270680366" at="213,0,216,0" concept="6" trace="getSLink#()Lorg/jetbrains/mps/openapi/language/SContainmentLink;" />
+      <node id="1964272224270680366" at="216,0,219,0" concept="6" trace="getChildSConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
+      <node id="1964272224270680385" at="281,0,284,0" concept="6" trace="getText#()Ljava/lang/String;" />
+      <node id="1964272224270680366" at="61,0,65,0" concept="1" trace="ReversibleMacroCall_EditorBuilder_a#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)V" />
+      <node id="1964272224270680366" at="108,0,112,5" concept="5" />
+      <node id="1964272224270680366" at="204,0,208,0" concept="1" trace="actualsListHandler_18rw23_c0#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/openapi/editor/EditorContext;)V" />
+      <node id="1964272224270680366" at="209,0,213,0" concept="6" trace="getNode#()Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="1964272224270680366" at="242,97,246,9" concept="5" />
+      <node id="1964272224270680366" at="248,95,252,9" concept="5" />
+      <node id="1964272224270680366" at="254,74,258,9" concept="5" />
+      <node id="1964272224270680366" at="260,96,264,9" concept="5" />
+      <node id="1964272224270680366" at="66,0,71,0" concept="6" trace="getNode#()Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="1964272224270680366" at="115,205,120,22" concept="5" />
+      <node id="1964272224270680370" at="127,0,132,0" concept="1" trace="Inline_Builder0#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)V" />
+      <node id="1964272224270680370" at="137,0,142,0" concept="6" trace="getNode#()Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="1964272224270680371" at="154,210,159,26" concept="5" />
+      <node id="1964272224270680373" at="168,0,173,0" concept="6" trace="getMatchingTextProvider#()Ljetbrains/mps/smodel/action/IReferentPresentationProvider;" />
+      <node id="1964272224270680373" at="173,0,178,0" concept="6" trace="getVisibleMatchingTextProvider#()Ljetbrains/mps/smodel/action/IReferentPresentationProvider;" />
+      <node id="1964272224270680366" at="220,0,225,0" concept="6" trace="createNodeCell#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="1964272224270680385" at="279,56,284,17" concept="7" />
+      <node id="1964272224270680366" at="241,107,247,7" concept="5" />
+      <node id="1964272224270680366" at="247,7,253,7" concept="5" />
+      <node id="1964272224270680366" at="253,7,259,7" concept="5" />
+      <node id="1964272224270680366" at="259,7,265,7" concept="5" />
+      <node id="1964272224270680366" at="90,0,97,0" concept="6" trace="createReferenceCell#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="1964272224270680366" at="97,0,104,0" concept="6" trace="createErrorCell#(Ljava/lang/String;)Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="1964272224270680366" at="227,141,236,7" concept="14" />
+      <node id="1964272224270680366" at="190,0,200,0" concept="6" trace="createRefNodeList_0#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="1964272224270680392" at="294,0,304,0" concept="6" trace="createConstant_1#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="1964272224270680366" at="76,0,87,0" concept="6" trace="createCollection_0#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="1964272224270680380" at="179,0,190,0" concept="6" trace="createConstant_0#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="1964272224270680366" at="267,0,279,0" concept="6" trace="createSeparatorCell#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="1964272224270680366" at="225,0,238,0" concept="6" trace="createEmptyCell#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="1964272224270680385" at="279,0,293,0" concept="6" trace="createReadOnlyModelAccessor_0#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="1964272224270680366" at="88,58,104,6" concept="7" />
+      <node id="1964272224270680371" at="144,41,162,7" concept="14" />
+      <node id="1964272224270680371" at="143,0,164,0" concept="6" trace="createProperty_0#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="1964272224270680366" at="241,0,267,0" concept="6" trace="installElementCellActions#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/openapi/editor/cells/EditorCell;Z)V" />
+      <node id="1964272224270680366" at="87,0,122,0" concept="6" trace="createRefCell_0#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <scope id="1964272224270680373" at="166,61,166,61" />
+      <scope id="1964272224270680366" at="68,26,69,18" />
+      <scope id="1964272224270680366" at="72,39,73,32" />
+      <scope id="1964272224270680370" at="133,41,134,32" />
+      <scope id="1964272224270680370" at="139,28,140,20" />
+      <scope id="1964272224270680371" at="160,17,161,42" />
+      <scope id="1964272224270680373" at="170,71,171,61" />
+      <scope id="1964272224270680373" at="175,78,176,61" />
+      <scope id="1964272224270680366" at="194,15,195,95" />
+      <scope id="1964272224270680366" at="210,28,211,20" />
+      <scope id="1964272224270680366" at="213,40,214,32" />
+      <scope id="1964272224270680366" at="216,48,217,44" />
+      <scope id="1964272224270680366" at="234,17,235,42" />
+      <scope id="1964272224270680388" at="281,33,282,20" />
+      <scope id="1964272224270680366" at="61,99,63,18" />
+      <scope id="1964272224270680366" at="109,40,111,44" />
+      <scope id="1964272224270680366" at="116,73,118,145">
+        <var name="manager" id="1964272224270680366" />
+      </scope>
+      <scope id="1964272224270680371" at="155,76,157,147">
+        <var name="manager" id="1964272224270680371" />
+      </scope>
+      <scope id="1964272224270680373" at="166,0,168,0" />
+      <scope id="1964272224270680366" at="204,81,206,25" />
+      <scope id="1964272224270680366" at="243,122,245,146" />
+      <scope id="1964272224270680366" at="249,34,251,142" />
+      <scope id="1964272224270680366" at="255,34,257,146" />
+      <scope id="1964272224270680366" at="261,34,263,80" />
+      <scope id="1964272224270680366" at="72,0,75,0" />
+      <scope id="1964272224270680370" at="127,109,130,20" />
+      <scope id="1964272224270680370" at="133,0,136,0" />
+      <scope id="1964272224270680366" at="213,0,216,0" />
+      <scope id="1964272224270680366" at="216,0,219,0" />
+      <scope id="1964272224270680366" at="220,57,223,25">
+        <var name="elementCell" id="1964272224270680366" />
+      </scope>
+      <scope id="1964272224270680385" at="281,0,284,0" />
+      <scope id="1964272224270680366" at="61,0,65,0">
+        <var name="context" id="1964272224270680366" />
+        <var name="node" id="1964272224270680366" />
+      </scope>
+      <scope id="1964272224270680366" at="98,58,102,20">
+        <var name="cell" id="1964272224270680366" />
+      </scope>
+      <scope id="1964272224270680366" at="204,0,208,0">
+        <var name="context" id="1964272224270680366" />
+        <var name="ownerNode" id="1964272224270680366" />
+      </scope>
+      <scope id="1964272224270680366" at="209,0,213,0" />
+      <scope id="1964272224270680366" at="242,97,246,9" />
+      <scope id="1964272224270680366" at="248,95,252,9" />
+      <scope id="1964272224270680366" at="254,74,258,9" />
+      <scope id="1964272224270680366" at="260,96,264,9" />
+      <scope id="1964272224270680366" at="66,0,71,0" />
+      <scope id="1964272224270680366" at="90,72,95,20">
+        <var name="cell" id="1964272224270680366" />
+      </scope>
+      <scope id="1964272224270680370" at="127,0,132,0">
+        <var name="context" id="1964272224270680370" />
+        <var name="node" id="1964272224270680370" />
+        <var name="referencingNode" id="1964272224270680370" />
+      </scope>
+      <scope id="1964272224270680370" at="137,0,142,0" />
+      <scope id="1964272224270680373" at="168,0,173,0" />
+      <scope id="1964272224270680373" at="173,0,178,0" />
+      <scope id="1964272224270680366" at="220,0,225,0">
+        <var name="elementNode" id="1964272224270680366" />
+      </scope>
+      <scope id="1964272224270680366" at="228,11,233,25">
+        <var name="emptyCell" id="1964272224270680366" />
+      </scope>
+      <scope id="1964272224270680366" at="90,0,97,0">
+        <var name="targetNode" id="1964272224270680366" />
+      </scope>
+      <scope id="1964272224270680366" at="97,0,104,0">
+        <var name="error" id="1964272224270680366" />
+      </scope>
+      <scope id="1964272224270680366" at="190,44,198,22">
+        <var name="editorCell" id="1964272224270680366" />
+        <var name="handler" id="1964272224270680366" />
+      </scope>
+      <scope id="1964272224270680392" at="294,41,302,22">
+        <var name="editorCell" id="1964272224270680392" />
+        <var name="style" id="1964272224270680392" />
+      </scope>
+      <scope id="1964272224270680366" at="76,43,85,22">
+        <var name="editorCell" id="1964272224270680366" />
+      </scope>
+      <scope id="1964272224270680380" at="179,41,188,22">
+        <var name="editorCell" id="1964272224270680380" />
+        <var name="style" id="1964272224270680380" />
+      </scope>
+      <scope id="1964272224270680366" at="268,75,277,24">
+        <var name="editorCell" id="1964272224270680366" />
+        <var name="style" id="1964272224270680366" />
+      </scope>
+      <scope id="1964272224270680366" at="190,0,200,0" />
+      <scope id="1964272224270680392" at="294,0,304,0" />
+      <scope id="1964272224270680366" at="76,0,87,0" />
+      <scope id="1964272224270680380" at="179,0,190,0" />
+      <scope id="1964272224270680366" at="225,41,236,7" />
+      <scope id="1964272224270680366" at="267,0,279,0">
+        <var name="nextNode" id="1964272224270680366" />
+        <var name="prevNode" id="1964272224270680366" />
+      </scope>
+      <scope id="1964272224270680385" at="279,56,291,24">
+        <var name="editorCell" id="1964272224270680385" />
+        <var name="style" id="1964272224270680385" />
+      </scope>
+      <scope id="1964272224270680366" at="225,0,238,0" />
+      <scope id="1964272224270680371" at="145,11,159,26">
+        <var name="currentPropertyAttributes" id="1964272224270680371" />
+        <var name="editorCell" id="1964272224270680371" />
+        <var name="property" id="1964272224270680371" />
+        <var name="propertyAttributes" id="1964272224270680371" />
+      </scope>
+      <scope id="1964272224270680385" at="279,0,293,0" />
+      <scope id="1964272224270680371" at="143,43,162,7" />
+      <scope id="1964272224270680371" at="143,0,164,0" />
+      <scope id="1964272224270680366" at="241,107,265,7" />
+      <scope id="1964272224270680366" at="241,0,267,0">
+        <var name="elementCell" id="1964272224270680366" />
+        <var name="elementNode" id="1964272224270680366" />
+        <var name="isEmptyCell" id="1964272224270680366" />
+      </scope>
+      <scope id="1964272224270680366" at="87,40,120,22">
+        <var name="currentReferenceAttributes" id="1964272224270680366" />
+        <var name="editorCell" id="1964272224270680366" />
+        <var name="provider" id="1964272224270680366" />
+        <var name="referenceAttributes" id="1964272224270680366" />
+        <var name="referenceLink" id="1964272224270680366" />
+      </scope>
+      <scope id="1964272224270680366" at="87,0,122,0" />
+      <unit id="1964272224270680366" at="316,0,319,0" name="ReversibleExpressions.editor.ReversibleMacroCall_EditorBuilder_a$PROPS" />
+      <unit id="1964272224270680385" at="280,90,284,7" name="ReversibleExpressions.editor.ReversibleMacroCall_EditorBuilder_a$actualsListHandler_18rw23_c0$1" />
+      <unit id="1964272224270680366" at="305,0,309,0" name="ReversibleExpressions.editor.ReversibleMacroCall_EditorBuilder_a$LINKS" />
+      <unit id="1964272224270680366" at="310,0,315,0" name="ReversibleExpressions.editor.ReversibleMacroCall_EditorBuilder_a$CONCEPTS" />
+      <unit id="1964272224270680373" at="165,0,179,0" name="ReversibleExpressions.editor.ReversibleMacroCall_EditorBuilder_a$ReversibleMacroCall_macro_cellMenu_18rw23_a0a0" />
+      <unit id="1964272224270680366" at="89,42,104,5" name="ReversibleExpressions.editor.ReversibleMacroCall_EditorBuilder_a$1" />
+      <unit id="1964272224270680370" at="122,0,165,0" name="ReversibleExpressions.editor.ReversibleMacroCall_EditorBuilder_a$Inline_Builder0" />
+      <unit id="1964272224270680366" at="200,0,294,0" name="ReversibleExpressions.editor.ReversibleMacroCall_EditorBuilder_a$actualsListHandler_18rw23_c0" />
+      <unit id="1964272224270680366" at="57,0,320,0" name="ReversibleExpressions.editor.ReversibleMacroCall_EditorBuilder_a" />
     </file>
   </root>
   <root nodeRef="r:e9706a5f-6192-4ab2-9fe9-9e1d284b7670(ReversibleExpressions.editor)/2254577831298739611">
@@ -2650,8 +3000,8 @@
       <node id="3587751253199024961" at="33,161,34,161" concept="2" />
       <node id="3587751253199024968" at="34,161,35,163" concept="2" />
       <node id="3587751253197078843" at="35,163,36,0" concept="10" />
-      <node id="3587751253137130922" at="36,0,37,89" concept="2" />
-      <node id="3587751253191265460" at="37,89,38,0" concept="10" />
+      <node id="3587751253137130922" at="36,0,37,96" concept="2" />
+      <node id="3587751253191265460" at="37,96,38,0" concept="10" />
       <node id="3587751253194735109" at="39,105,40,183" concept="2" />
       <node id="3587751253137130755" at="47,95,48,76" concept="7" />
       <node id="3587751253137130755" at="48,76,49,82" concept="7" />
@@ -2676,7 +3026,7 @@
       <node id="3587751253137130755" at="80,69,81,0" concept="10" />
       <node id="3587751253137130755" at="81,0,82,76" concept="9" />
       <node id="3587751253137130756" at="83,60,84,66" concept="2" />
-      <node id="3587751253137130755" at="89,0,90,0" concept="11" trace="variable$WrxR" />
+      <node id="3587751253137130755" at="89,0,90,0" concept="11" trace="supportVariable$WrxR" />
       <node id="3587751253137130755" at="90,0,91,0" concept="11" trace="additionalVariables$en7t" />
       <node id="3587751253137130755" at="94,0,95,0" concept="11" trace="IReversibleLoop$k1" />
       <node id="3587751253137130756" at="25,0,28,0" concept="6" trace="execute#(Ljetbrains/mps/openapi/editor/EditorContext;)V" />
@@ -7629,6 +7979,118 @@
       <unit id="7533755140569634389" at="72,0,75,0" name="ReversibleExpressions.editor.deleteCastToInt$PROPS" />
       <unit id="7533755140569634390" at="20,15,28,5" name="ReversibleExpressions.editor.deleteCastToInt$1" />
       <unit id="7533755140569634389" at="17,0,76,0" name="ReversibleExpressions.editor.deleteCastToInt" />
+    </file>
+  </root>
+  <root nodeRef="r:e9706a5f-6192-4ab2-9fe9-9e1d284b7670(ReversibleExpressions.editor)/7551988231317327094">
+    <file name="ReversibleMacroArg_Editor.java">
+      <node id="7551988231317327094" at="11,79,12,84" concept="8" />
+      <node id="7551988231317327094" at="11,0,14,0" concept="6" trace="createEditorCell#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <scope id="7551988231317327094" at="11,79,12,84" />
+      <scope id="7551988231317327094" at="11,0,14,0">
+        <var name="editorContext" id="7551988231317327094" />
+        <var name="node" id="7551988231317327094" />
+      </scope>
+      <unit id="7551988231317327094" at="10,0,15,0" name="ReversibleExpressions.editor.ReversibleMacroArg_Editor" />
+    </file>
+    <file name="ReversibleMacroArg_EditorBuilder_a.java">
+      <node id="7551988231317327094" at="26,98,27,19" concept="13" />
+      <node id="7551988231317327094" at="27,19,28,18" concept="2" />
+      <node id="7551988231317327094" at="33,26,34,18" concept="8" />
+      <node id="7551988231317327094" at="37,39,38,32" concept="8" />
+      <node id="7551988231317327094" at="41,43,42,118" concept="7" />
+      <node id="7551988231317327094" at="42,118,43,48" concept="2" />
+      <node id="7551988231317327094" at="43,48,44,28" concept="2" />
+      <node id="7551988231317327094" at="44,28,45,31" concept="2" />
+      <node id="7551988231317327096" at="45,31,46,48" concept="2" />
+      <node id="7551988231317327094" at="46,48,47,22" concept="8" />
+      <node id="7551988231317327094" at="49,40,50,123" concept="7" />
+      <node id="7551988231317327094" at="50,123,51,33" concept="8" />
+      <node id="7551988231317327094" at="57,120,58,38" concept="13" />
+      <node id="7551988231317327094" at="58,38,59,25" concept="2" />
+      <node id="7551988231317327094" at="64,28,65,20" concept="8" />
+      <node id="7551988231317327094" at="68,55,69,76" concept="7" />
+      <node id="7551988231317327094" at="69,76,70,115" concept="2" />
+      <node id="7551988231317327094" at="70,115,71,118" concept="2" />
+      <node id="7551988231317327094" at="71,118,72,48" concept="2" />
+      <node id="7551988231317327094" at="72,48,73,24" concept="8" />
+      <node id="7551988231317327094" at="79,118,80,137" concept="2" />
+      <node id="7551988231317327094" at="82,42,83,47" concept="2" />
+      <node id="7551988231317327094" at="87,44,88,41" concept="2" />
+      <node id="7551988231317327094" at="88,41,89,106" concept="2" />
+      <node id="7551988231317327094" at="90,11,91,56" concept="7" />
+      <node id="7551988231317327094" at="91,56,92,45" concept="2" />
+      <node id="7551988231317327094" at="92,45,93,48" concept="2" />
+      <node id="7551988231317327094" at="93,48,94,35" concept="2" />
+      <node id="7551988231317327094" at="94,35,95,26" concept="8" />
+      <node id="7551988231317327094" at="96,17,97,42" concept="2" />
+      <node id="7551988231317327094" at="100,40,101,27" concept="8" />
+      <node id="7551988231317327094" at="106,0,107,0" concept="11" trace="actual$n_Ao" />
+      <node id="7551988231317327094" at="23,0,25,0" concept="3" trace="myNode" />
+      <node id="7551988231317327094" at="54,0,56,0" concept="3" trace="myNode" />
+      <node id="7551988231317327094" at="37,0,40,0" concept="6" trace="createCell#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="7551988231317327094" at="78,87,81,7" concept="5" />
+      <node id="7551988231317327094" at="81,7,84,7" concept="5" />
+      <node id="7551988231317327094" at="100,0,103,0" concept="6" trace="getNoTargetText#()Ljava/lang/String;" />
+      <node id="7551988231317327094" at="26,0,30,0" concept="1" trace="ReversibleMacroArg_EditorBuilder_a#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)V" />
+      <node id="7551988231317327094" at="49,0,53,0" concept="6" trace="createRefNode_0#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="7551988231317327094" at="57,0,61,0" concept="1" trace="actualSingleRoleHandler_4b022e_a0#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/language/SContainmentLink;Ljetbrains/mps/openapi/editor/EditorContext;)V" />
+      <node id="7551988231317327094" at="31,0,36,0" concept="6" trace="getNode#()Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="7551988231317327094" at="62,0,67,0" concept="6" trace="getNode#()Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="7551988231317327094" at="68,0,75,0" concept="6" trace="createChildCell#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="7551988231317327094" at="41,0,49,0" concept="6" trace="createCollection_0#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="7551988231317327094" at="78,0,86,0" concept="6" trace="installCellInfo#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/openapi/editor/cells/EditorCell;Z)V" />
+      <node id="7551988231317327094" at="89,106,98,7" concept="14" />
+      <node id="7551988231317327094" at="86,0,100,0" concept="6" trace="createEmptyCell#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <scope id="7551988231317327094" at="33,26,34,18" />
+      <scope id="7551988231317327094" at="37,39,38,32" />
+      <scope id="7551988231317327094" at="64,28,65,20" />
+      <scope id="7551988231317327094" at="79,118,80,137" />
+      <scope id="7551988231317327094" at="82,42,83,47" />
+      <scope id="7551988231317327094" at="96,17,97,42" />
+      <scope id="7551988231317327094" at="100,40,101,27" />
+      <scope id="7551988231317327094" at="26,98,28,18" />
+      <scope id="7551988231317327094" at="49,40,51,33">
+        <var name="provider" id="7551988231317327094" />
+      </scope>
+      <scope id="7551988231317327094" at="57,120,59,25" />
+      <scope id="7551988231317327094" at="37,0,40,0" />
+      <scope id="7551988231317327094" at="100,0,103,0" />
+      <scope id="7551988231317327094" at="26,0,30,0">
+        <var name="context" id="7551988231317327094" />
+        <var name="node" id="7551988231317327094" />
+      </scope>
+      <scope id="7551988231317327094" at="49,0,53,0" />
+      <scope id="7551988231317327094" at="57,0,61,0">
+        <var name="containmentLink" id="7551988231317327094" />
+        <var name="context" id="7551988231317327094" />
+        <var name="ownerNode" id="7551988231317327094" />
+      </scope>
+      <scope id="7551988231317327094" at="31,0,36,0" />
+      <scope id="7551988231317327094" at="62,0,67,0" />
+      <scope id="7551988231317327094" at="68,55,73,24">
+        <var name="editorCell" id="7551988231317327094" />
+      </scope>
+      <scope id="7551988231317327094" at="90,11,95,26">
+        <var name="editorCell" id="7551988231317327094" />
+      </scope>
+      <scope id="7551988231317327094" at="41,43,47,22">
+        <var name="editorCell" id="7551988231317327094" />
+      </scope>
+      <scope id="7551988231317327094" at="78,87,84,7" />
+      <scope id="7551988231317327094" at="68,0,75,0">
+        <var name="child" id="7551988231317327094" />
+      </scope>
+      <scope id="7551988231317327094" at="41,0,49,0" />
+      <scope id="7551988231317327094" at="78,0,86,0">
+        <var name="child" id="7551988231317327094" />
+        <var name="editorCell" id="7551988231317327094" />
+        <var name="isEmpty" id="7551988231317327094" />
+      </scope>
+      <scope id="7551988231317327094" at="87,44,98,7" />
+      <scope id="7551988231317327094" at="86,0,100,0" />
+      <unit id="7551988231317327094" at="105,0,108,0" name="ReversibleExpressions.editor.ReversibleMacroArg_EditorBuilder_a$LINKS" />
+      <unit id="7551988231317327094" at="53,0,104,0" name="ReversibleExpressions.editor.ReversibleMacroArg_EditorBuilder_a$actualSingleRoleHandler_4b022e_a0" />
+      <unit id="7551988231317327094" at="22,0,109,0" name="ReversibleExpressions.editor.ReversibleMacroArg_EditorBuilder_a" />
     </file>
   </root>
   <root nodeRef="r:e9706a5f-6192-4ab2-9fe9-9e1d284b7670(ReversibleExpressions.editor)/8118534740657810994">

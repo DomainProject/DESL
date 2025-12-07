@@ -9,6 +9,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class PresentationProviders {
   public static final IReferentPresentationProvider PRESENTATION_5jceo0_a0a0a = ((IReferentPresentationProvider) (sourceNode, targetNode) -> SPropertyOperations.getString(targetNode, PROPS.name$MnvL));
+  public static final IReferentPresentationProvider PRESENTATION_18rw23_a0a0a = ((IReferentPresentationProvider) (sourceNode, targetNode) -> SPropertyOperations.getString(targetNode, PROPS.name$MnvL));
 
   private static final class PROPS {
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");

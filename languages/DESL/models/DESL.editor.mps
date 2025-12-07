@@ -493,22 +493,6 @@
       <node concept="l2Vlx" id="5w8gNN4$3D5" role="2iSdaV" />
     </node>
   </node>
-  <node concept="24kQdi" id="2SCEiO7nznm">
-    <property role="3GE5qa" value="structManagement" />
-    <ref role="1XX52x" to="rdv6:2SCEiO7nznl" resolve="NewStruct" />
-    <node concept="3EZMnI" id="2SCEiO7nzno" role="2wV5jI">
-      <node concept="3F0ifn" id="2SCEiO7nznu" role="3EZMnx">
-        <property role="3F0ifm" value="new" />
-      </node>
-      <node concept="3F0ifn" id="2SCEiO7nznx" role="3EZMnx">
-        <property role="3F0ifm" value="struct" />
-        <node concept="VechU" id="2SCEiO7nznz" role="3F10Kt">
-          <property role="Vb096" value="g1_qVrt/darkMagenta" />
-        </node>
-      </node>
-      <node concept="l2Vlx" id="2SCEiO7nznr" role="2iSdaV" />
-    </node>
-  </node>
   <node concept="24kQdi" id="6lTY9B_PW1q">
     <property role="3GE5qa" value="docs" />
     <ref role="1XX52x" to="rdv6:6lTY9B_PW1o" resolve="FunctionDocs" />
@@ -4827,33 +4811,6 @@
     <ref role="1XX52x" to="rdv6:1i0tj4VHkpH" resolve="TerminationFunction" />
     <node concept="3F1sOY" id="1i0tj4VHkpL" role="2wV5jI">
       <ref role="1NtTu8" to="rdv6:1i0tj4VHkpI" resolve="function" />
-    </node>
-  </node>
-  <node concept="24kQdi" id="BBY2rYonzW">
-    <property role="3GE5qa" value="structManagement" />
-    <ref role="1XX52x" to="rdv6:BBY2rYonzQ" resolve="ReleaseStruct" />
-    <node concept="3EZMnI" id="BBY2rYonzY" role="2wV5jI">
-      <node concept="3F0ifn" id="BBY2rYon$4" role="3EZMnx">
-        <property role="3F0ifm" value="release" />
-      </node>
-      <node concept="3F0ifn" id="BBY2rYon$7" role="3EZMnx">
-        <property role="3F0ifm" value="(" />
-        <ref role="1k5W1q" node="2R3DD23tMJM" resolve="BraceStyle" />
-      </node>
-      <node concept="1iCGBv" id="BBY2rYon$d" role="3EZMnx">
-        <ref role="1NtTu8" to="rdv6:BBY2rYonzV" resolve="struct" />
-        <node concept="1sVBvm" id="BBY2rYon$f" role="1sWHZn">
-          <node concept="3F0A7n" id="BBY2rYon$l" role="2wV5jI">
-            <property role="1Intyy" value="true" />
-            <ref role="1NtTu8" to="tpck:h0TrG11" resolve="name" />
-          </node>
-        </node>
-      </node>
-      <node concept="3F0ifn" id="BBY2rYon$a" role="3EZMnx">
-        <property role="3F0ifm" value=")" />
-        <ref role="1k5W1q" node="2R3DD23tMJM" resolve="BraceStyle" />
-      </node>
-      <node concept="l2Vlx" id="BBY2rYon$1" role="2iSdaV" />
     </node>
   </node>
   <node concept="24kQdi" id="2hQH9io1V_b">

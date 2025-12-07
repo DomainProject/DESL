@@ -19,6 +19,8 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
   @Override
   public TextGenDescriptor getDescriptor(@NotNull SAbstractConcept concept) {
     switch (myIndex.index(concept)) {
+      case LanguageConceptSwitch.AllocateStruct:
+        return new AllocateStruct_TextGen();
       case LanguageConceptSwitch.AnyNodeItem:
         return new AnyNodeItem_TextGen();
       case LanguageConceptSwitch.ArbitraryFunctionCall:
@@ -61,10 +63,14 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new LocalVarRef_TextGen();
       case LanguageConceptSwitch.LocalVariableDeclaration:
         return new LocalVariableDeclaration_TextGen();
+      case LanguageConceptSwitch.NewStruct:
+        return new NewStruct_TextGen();
       case LanguageConceptSwitch.PragmaStatement:
         return new PragmaStatement_TextGen();
       case LanguageConceptSwitch.Prefix:
         return new Prefix_TextGen();
+      case LanguageConceptSwitch.ReleaseStruct:
+        return new ReleaseStruct_TextGen();
       case LanguageConceptSwitch.ReturnStatement:
         return new ReturnStatement_TextGen();
       case LanguageConceptSwitch.ReversibleStatement:

@@ -364,7 +364,7 @@
                             <ref role="1M0zk5" node="6cRD4M$z72N" resolve="stmt" />
                           </node>
                           <node concept="3TrEf2" id="6cRD4M$zhxX" role="2OqNvi">
-                            <ref role="3Tt5mk" to="ib4b:5xEIMPngWHD" resolve="variable" />
+                            <ref role="3Tt5mk" to="ib4b:5xEIMPngWHD" resolve="supportVariable" />
                           </node>
                         </node>
                         <node concept="3TrEf2" id="6cRD4M$ziYt" role="2OqNvi">

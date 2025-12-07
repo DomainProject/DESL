@@ -48,6 +48,7 @@
     <import index="p15z" ref="63e0e566-5131-447e-90e3-12ea330e1a00/r:ac36bf27-36e9-407d-ba8e-953c68088e41(com.mbeddr.mpsutil.blutil/com.mbeddr.mpsutil.blutil.behavior)" implicit="true" />
     <import index="guwi" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.io(JDK/)" implicit="true" />
     <import index="tpcn" ref="r:00000000-0000-4000-0000-011c8959028b(jetbrains.mps.lang.structure.behavior)" implicit="true" />
+    <import index="c4fa" ref="r:9f0e84b6-2ec7-4f9e-83e0-feedc77b63a3(com.mbeddr.core.statements.structure)" implicit="true" />
   </imports>
   <registry>
     <language id="af65afd8-f0dd-4942-87d9-63a55f2a9db1" name="jetbrains.mps.lang.behavior">
@@ -4431,6 +4432,26 @@
         <ref role="ehGHo" to="ib4b:7FQByU3CrCM" resolve="ReversibleExpression" />
       </node>
     </node>
+    <node concept="13i0hz" id="6ze3kz2wlgj" role="13h7CS">
+      <property role="TrG5h" value="getBaseName" />
+      <ref role="13i0hy" node="2vgMet5LndN" resolve="getBaseName" />
+      <node concept="3Tm1VV" id="6ze3kz2wlgk" role="1B3o_S" />
+      <node concept="3clFbS" id="6ze3kz2wlgn" role="3clF47">
+        <node concept="3clFbF" id="6ze3kz2wlgq" role="3cqZAp">
+          <node concept="Xl_RD" id="6ze3kz2wlgp" role="3clFbG">
+            <property role="Xl_RC" value="bitwise_and_assignment_" />
+          </node>
+        </node>
+      </node>
+      <node concept="17QB3L" id="6ze3kz2wlgo" role="3clF45" />
+    </node>
+    <node concept="13i0hz" id="6ze3kz2wlgr" role="13h7CS">
+      <property role="TrG5h" value="handleCopyPaste" />
+      <ref role="13i0hy" node="33MO5h9wdZT" resolve="handleCopyPaste" />
+      <node concept="3Tm1VV" id="6ze3kz2wlgs" role="1B3o_S" />
+      <node concept="3clFbS" id="6ze3kz2wlgv" role="3clF47" />
+      <node concept="3cqZAl" id="6ze3kz2wlgw" role="3clF45" />
+    </node>
   </node>
   <node concept="13h7C7" id="7FQUQ5yTHlX">
     <property role="3GE5qa" value="expr.arith.directassignment.bitwise" />
@@ -8014,6 +8035,26 @@
         <ref role="ehGHo" to="ib4b:7FQByU3CrCM" resolve="ReversibleExpression" />
       </node>
     </node>
+    <node concept="13i0hz" id="21ygb7Xss8e" role="13h7CS">
+      <property role="TrG5h" value="getBaseName" />
+      <ref role="13i0hy" node="2vgMet5LndN" resolve="getBaseName" />
+      <node concept="3Tm1VV" id="21ygb7Xss8f" role="1B3o_S" />
+      <node concept="3clFbS" id="21ygb7Xss8i" role="3clF47">
+        <node concept="3clFbF" id="21ygb7Xss8l" role="3cqZAp">
+          <node concept="Xl_RD" id="21ygb7Xss8k" role="3clFbG">
+            <property role="Xl_RC" value="bitwise_or_assignment_" />
+          </node>
+        </node>
+      </node>
+      <node concept="17QB3L" id="21ygb7Xss8j" role="3clF45" />
+    </node>
+    <node concept="13i0hz" id="21ygb7Xss8m" role="13h7CS">
+      <property role="TrG5h" value="handleCopyPaste" />
+      <ref role="13i0hy" node="33MO5h9wdZT" resolve="handleCopyPaste" />
+      <node concept="3Tm1VV" id="21ygb7Xss8n" role="1B3o_S" />
+      <node concept="3clFbS" id="21ygb7Xss8q" role="3clF47" />
+      <node concept="3cqZAl" id="21ygb7Xss8r" role="3clF45" />
+    </node>
   </node>
   <node concept="13h7C7" id="7FQUQ5yTHnc">
     <property role="3GE5qa" value="expr.arith.directassignment" />
@@ -9408,6 +9449,26 @@
           </node>
         </node>
       </node>
+    </node>
+    <node concept="13i0hz" id="6ze3kz2woC6" role="13h7CS">
+      <property role="TrG5h" value="getBaseName" />
+      <ref role="13i0hy" node="2vgMet5LndN" resolve="getBaseName" />
+      <node concept="3Tm1VV" id="6ze3kz2woC7" role="1B3o_S" />
+      <node concept="3clFbS" id="6ze3kz2woCa" role="3clF47">
+        <node concept="3clFbF" id="6ze3kz2woCd" role="3cqZAp">
+          <node concept="Xl_RD" id="6ze3kz2woCc" role="3clFbG">
+            <property role="Xl_RC" value="bitwise_and_" />
+          </node>
+        </node>
+      </node>
+      <node concept="17QB3L" id="6ze3kz2woCb" role="3clF45" />
+    </node>
+    <node concept="13i0hz" id="6ze3kz2woCe" role="13h7CS">
+      <property role="TrG5h" value="handleCopyPaste" />
+      <ref role="13i0hy" node="33MO5h9wdZT" resolve="handleCopyPaste" />
+      <node concept="3Tm1VV" id="6ze3kz2woCf" role="1B3o_S" />
+      <node concept="3clFbS" id="6ze3kz2woCi" role="3clF47" />
+      <node concept="3cqZAl" id="6ze3kz2woCj" role="3clF45" />
     </node>
   </node>
   <node concept="13h7C7" id="65ioG0BclbW">
@@ -12217,13 +12278,21 @@
       <property role="TrG5h" value="getVariable" />
       <node concept="3Tm1VV" id="1LDGRqyQFAg" role="1B3o_S" />
       <node concept="3Tqbb2" id="1LDGRqyQFAh" role="3clF45">
-        <ref role="ehGHo" to="mj1l:1LDGRqyYkTP" resolve="IVariableDeclaration" />
+        <ref role="ehGHo" to="ib4b:1LDGRqyYkTP" resolve="IVariableDeclaration" />
       </node>
       <node concept="3clFbS" id="1LDGRqyQFAi" role="3clF47">
         <node concept="3cpWs6" id="2XHdgpYG$GA" role="3cqZAp">
           <node concept="10Nm6u" id="2XHdgpYG$GQ" role="3cqZAk" />
         </node>
       </node>
+    </node>
+    <node concept="13i0hz" id="79Sp4cYA0X2" role="13h7CS">
+      <property role="13i0iv" value="true" />
+      <property role="13i0it" value="true" />
+      <property role="TrG5h" value="getVariableName" />
+      <node concept="3Tm1VV" id="79Sp4cYA0X3" role="1B3o_S" />
+      <node concept="17QB3L" id="79Sp4cYA11c" role="3clF45" />
+      <node concept="3clFbS" id="79Sp4cYA0X5" role="3clF47" />
     </node>
     <node concept="13i0hz" id="1LDGRqyQFAj" role="13h7CS">
       <property role="13i0iv" value="false" />
@@ -14992,12 +15061,12 @@
           <node concept="3cpWsn" id="5xEIMPngZwe" role="3cpWs9">
             <property role="TrG5h" value="var" />
             <node concept="3Tqbb2" id="5xEIMPngZwa" role="1tU5fm">
-              <ref role="ehGHo" to="kmi:3CmSUB7FprA" resolve="LocalVariableDeclaration" />
+              <ref role="ehGHo" to="c4fa:3CmSUB7FprA" resolve="LocalVariableDeclaration" />
             </node>
             <node concept="2ShNRf" id="5xEIMPngZxC" role="33vP2m">
               <node concept="3zrR0B" id="5xEIMPngZxA" role="2ShVmc">
                 <node concept="3Tqbb2" id="5xEIMPngZxB" role="3zrR0E">
-                  <ref role="ehGHo" to="kmi:3CmSUB7FprA" resolve="LocalVariableDeclaration" />
+                  <ref role="ehGHo" to="c4fa:3CmSUB7FprA" resolve="LocalVariableDeclaration" />
                 </node>
               </node>
             </node>
@@ -15125,7 +15194,7 @@
                 <ref role="3cqZAo" node="5xEIMPngZwe" resolve="var" />
               </node>
               <node concept="3TrEf2" id="5xEIMPnh4r1" role="2OqNvi">
-                <ref role="3Tt5mk" to="kmi:3CmSUB7Fw7R" resolve="init" />
+                <ref role="3Tt5mk" to="c4fa:3CmSUB7Fw7R" resolve="init" />
               </node>
             </node>
           </node>
@@ -15135,7 +15204,7 @@
             <node concept="2OqwBi" id="5xEIMPnhaw0" role="2Oq$k0">
               <node concept="13iPFW" id="5xEIMPnhalV" role="2Oq$k0" />
               <node concept="3TrEf2" id="33MO5h9qx1q" role="2OqNvi">
-                <ref role="3Tt5mk" to="ib4b:5xEIMPngWHD" resolve="variable" />
+                <ref role="3Tt5mk" to="ib4b:5xEIMPngWHD" resolve="supportVariable" />
               </node>
             </node>
             <node concept="2oxUTD" id="33MO5h9q$tk" role="2OqNvi">
@@ -15184,7 +15253,7 @@
               <node concept="2ShNRf" id="2vgMet5Lvmj" role="37wK5m">
                 <node concept="3zrR0B" id="2vgMet5LE1Z" role="2ShVmc">
                   <node concept="3Tqbb2" id="2vgMet5LE21" role="3zrR0E">
-                    <ref role="ehGHo" to="mj1l:7FQByU3CrDG" resolve="IntType" />
+                    <ref role="ehGHo" to="mj1l:7lNBHBNBzy8" resolve="Int32tType" />
                   </node>
                 </node>
               </node>
@@ -15309,6 +15378,45 @@
     </node>
     <node concept="13hLZK" id="2TIMRpJnTR7" role="13h7CW">
       <node concept="3clFbS" id="2TIMRpJnTR8" role="2VODD2" />
+    </node>
+  </node>
+  <node concept="13h7C7" id="6ze3kz3_Yn9">
+    <ref role="13h7C2" to="ib4b:1H2vMT9OvU4" resolve="ReversibleMacroCall" />
+    <node concept="13hLZK" id="6ze3kz3_Yna" role="13h7CW">
+      <node concept="3clFbS" id="6ze3kz3_Ynb" role="2VODD2" />
+    </node>
+  </node>
+  <node concept="13h7C7" id="6ze3kz3Ar6H">
+    <ref role="13h7C2" to="ib4b:6ze3kz3Aosn" resolve="ReversibleMacroArg" />
+    <node concept="13hLZK" id="6ze3kz3Ar6I" role="13h7CW">
+      <node concept="3clFbS" id="6ze3kz3Ar6J" role="2VODD2">
+        <node concept="3clFbF" id="37agc6cxc4u" role="3cqZAp">
+          <node concept="2OqwBi" id="37agc6cxctG" role="3clFbG">
+            <node concept="13iPFW" id="37agc6cOvbU" role="2Oq$k0" />
+            <node concept="2qgKlT" id="37agc6cxdJE" role="2OqNvi">
+              <ref role="37wK5l" node="5xEIMPngWHX" resolve="createVariable" />
+              <node concept="2ShNRf" id="37agc6cxdWB" role="37wK5m">
+                <node concept="3zrR0B" id="37agc6cxdWC" role="2ShVmc">
+                  <node concept="3Tqbb2" id="37agc6cxdWD" role="3zrR0E">
+                    <ref role="ehGHo" to="mj1l:7lNBHBNBzyy" resolve="UnsignedInt16tType" />
+                  </node>
+                </node>
+              </node>
+              <node concept="Xl_RD" id="2vgMet60QCV" role="37wK5m">
+                <property role="Xl_RC" value="macro_arg_" />
+              </node>
+              <node concept="10Nm6u" id="37agc6cxerz" role="37wK5m" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="13i0hz" id="6ze3kz4khWb" role="13h7CS">
+      <property role="TrG5h" value="handleCopyPaste" />
+      <ref role="13i0hy" node="33MO5h9wdZT" resolve="handleCopyPaste" />
+      <node concept="3Tm1VV" id="6ze3kz4khWc" role="1B3o_S" />
+      <node concept="3clFbS" id="6ze3kz4khWf" role="3clF47" />
+      <node concept="3cqZAl" id="6ze3kz4khWg" role="3clF45" />
     </node>
   </node>
 </model>

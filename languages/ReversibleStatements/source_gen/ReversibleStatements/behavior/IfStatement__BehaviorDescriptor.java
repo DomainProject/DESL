@@ -60,7 +60,7 @@ public final class IfStatement__BehaviorDescriptor extends BaseBHDescriptor {
     return ((List<SAbstractConcept>) ICommentable__BehaviorDescriptor.getCommentConcept_id5HxjapwgqLb.invokeSuper(__thisConcept__, CONCEPTS.IfStatement$AR));
   }
   /*package*/ static void handleCopyPaste_id33MO5h9wdZT(@NotNull SNode __thisNode__) {
-    SPropertyOperations.assign(SLinkOperations.getTarget(__thisNode__, LINKS.variable$WrxR), PROPS.name$MnvL, "selected_branch" + ListSequence.fromList(SNodeOperations.getNodeDescendants(SNodeOperations.getNodeAncestor(__thisNode__, CONCEPTS.ReversibleFunction$IL, false, false), CONCEPTS.IfStatement$AR, false, new SAbstractConcept[]{})).count());
+    SPropertyOperations.assign(SLinkOperations.getTarget(__thisNode__, LINKS.supportVariable$WrxR), PROPS.name$MnvL, "selected_branch" + ListSequence.fromList(SNodeOperations.getNodeDescendants(SNodeOperations.getNodeAncestor(__thisNode__, CONCEPTS.ReversibleFunction$IL, false, false), CONCEPTS.IfStatement$AR, false, new SAbstractConcept[]{})).count());
   }
 
   /*package*/ IfStatement__BehaviorDescriptor() {
@@ -123,7 +123,7 @@ public final class IfStatement__BehaviorDescriptor extends BaseBHDescriptor {
     /*package*/ static final SContainmentLink condition$Jk6C = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x5718179e5b1bb7d7L, 0x5718179e5b1bb7d8L, "condition");
     /*package*/ static final SContainmentLink elseIfs$3PWK = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x5718179e5b1bb7d7L, 0x2b8026b23bc273a3L, "elseIfs");
     /*package*/ static final SContainmentLink elsePart$Do88 = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x5718179e5b1bb7d7L, 0x2b8026b23bc2442bL, "elsePart");
-    /*package*/ static final SContainmentLink variable$WrxR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x586abb2d5743cb69L, "variable");
+    /*package*/ static final SContainmentLink supportVariable$WrxR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x586abb2d5743cb69L, "supportVariable");
   }
 
   private static final class CONCEPTS {

@@ -23,6 +23,9 @@
     <import index="tpee" ref="r:00000000-0000-4000-0000-011c895902ca(jetbrains.mps.baseLanguage.structure)" implicit="true" />
     <import index="kmi" ref="r:afa7ae5b-c41f-45e8-9678-2beae3621a33(ReversibleStatements.structure)" implicit="true" />
     <import index="qyxp" ref="r:173369a3-8060-4aa4-8d21-7c6337526a39(ReversibleStatements.behavior)" implicit="true" />
+    <import index="ib4b" ref="r:539823a2-87c6-4a7e-abc8-d6fc586848eb(ReversibleExpressions.structure)" implicit="true" />
+    <import index="e32u" ref="r:457bcadc-5da5-4b82-8524-230e48ca7946(ReversibleExpressions.behavior)" implicit="true" />
+    <import index="clbe" ref="r:61d840b4-12c1-49ea-b142-b2a1550a9b15(com.mbeddr.core.udt.structure)" implicit="true" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -119,6 +122,9 @@
       </concept>
       <concept id="1214918800624" name="jetbrains.mps.baseLanguage.structure.PostfixIncrementExpression" flags="nn" index="3uNrnE" />
       <concept id="1073239437375" name="jetbrains.mps.baseLanguage.structure.NotEqualsExpression" flags="nn" index="3y3z36" />
+      <concept id="5497648299878491908" name="jetbrains.mps.baseLanguage.structure.BaseVariableReference" flags="nn" index="1M0zk4">
+        <reference id="5497648299878491909" name="baseVariableDeclaration" index="1M0zk5" />
+      </concept>
       <concept id="6329021646629104954" name="jetbrains.mps.baseLanguage.structure.SingleLineComment" flags="nn" index="3SKdUt">
         <child id="8356039341262087992" name="line" index="1aUNEU" />
       </concept>
@@ -221,6 +227,11 @@
       <concept id="1174663118805" name="jetbrains.mps.lang.typesystem.structure.CreateLessThanInequationStatement" flags="nn" index="1ZobV4" />
       <concept id="1174663239020" name="jetbrains.mps.lang.typesystem.structure.CreateGreaterThanInequationStatement" flags="nn" index="1ZoDhX" />
     </language>
+    <language id="760a0a8c-eabb-4521-8bfd-65db761a9ba3" name="jetbrains.mps.baseLanguage.logging">
+      <concept id="6332851714983831325" name="jetbrains.mps.baseLanguage.logging.structure.MsgStatement" flags="ng" index="2xdQw9">
+        <child id="5721587534047265374" name="message" index="9lYJi" />
+      </concept>
+    </language>
     <language id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel">
       <concept id="2788452359612124332" name="jetbrains.mps.lang.smodel.structure.LinkQualifier" flags="ng" index="29tlS9">
         <reference id="2788452359612124336" name="link" index="29tlSl" />
@@ -239,6 +250,14 @@
       </concept>
       <concept id="1143234257716" name="jetbrains.mps.lang.smodel.structure.Node_GetModelOperation" flags="nn" index="I4A8Y" />
       <concept id="8329979535468945057" name="jetbrains.mps.lang.smodel.structure.Node_PresentationOperation" flags="ng" index="2Iv5rx" />
+      <concept id="1883223317721008708" name="jetbrains.mps.lang.smodel.structure.IfInstanceOfStatement" flags="nn" index="Jncv_">
+        <reference id="1883223317721008712" name="nodeConcept" index="JncvD" />
+        <child id="1883223317721008709" name="body" index="Jncv$" />
+        <child id="1883223317721008711" name="variable" index="JncvA" />
+        <child id="1883223317721008710" name="nodeExpression" index="JncvB" />
+      </concept>
+      <concept id="1883223317721008713" name="jetbrains.mps.lang.smodel.structure.IfInstanceOfVariable" flags="ng" index="JncvC" />
+      <concept id="1883223317721107059" name="jetbrains.mps.lang.smodel.structure.IfInstanceOfVarReference" flags="nn" index="Jnkvi" />
       <concept id="1145404486709" name="jetbrains.mps.lang.smodel.structure.SemanticDowncastExpression" flags="nn" index="2JrnkZ">
         <child id="1145404616321" name="leftExpression" index="2JrQYb" />
       </concept>
@@ -2355,6 +2374,114 @@
     <node concept="1YaCAy" id="4GuVbI_0$Kk" role="1YuTPh">
       <property role="TrG5h" value="rs" />
       <ref role="1YaFvo" to="kmi:4GuVbI_0lYF" resolve="ReturnStatement" />
+    </node>
+  </node>
+  <node concept="18kY7G" id="21ygb7V$l31">
+    <property role="TrG5h" value="check_AllocateStruct" />
+    <property role="3GE5qa" value="structManagement" />
+    <node concept="3clFbS" id="21ygb7V$l32" role="18ibNy">
+      <node concept="Jncv_" id="21ygb7W8SOg" role="3cqZAp">
+        <ref role="JncvD" to="ib4b:1LDGRqyQFAa" resolve="IVariableReference" />
+        <node concept="2OqwBi" id="21ygb7W8T65" role="JncvB">
+          <node concept="1YBJjd" id="21ygb7W8SO$" role="2Oq$k0">
+            <ref role="1YBMHb" node="21ygb7V$l34" resolve="as" />
+          </node>
+          <node concept="3TrEf2" id="21ygb7W8Uom" role="2OqNvi">
+            <ref role="3Tt5mk" to="kmi:21ygb7Us$dI" resolve="newStructVariable" />
+          </node>
+        </node>
+        <node concept="3clFbS" id="21ygb7W8SOk" role="Jncv$">
+          <node concept="3clFbJ" id="21ygb7V$u4J" role="3cqZAp">
+            <node concept="3clFbS" id="21ygb7V$u4L" role="3clFbx">
+              <node concept="2xdQw9" id="21ygb7VE_5B" role="3cqZAp">
+                <node concept="2OqwBi" id="21ygb7W2Mmm" role="9lYJi">
+                  <node concept="2OqwBi" id="21ygb7VE_om" role="2Oq$k0">
+                    <node concept="1YBJjd" id="21ygb7VE_6z" role="2Oq$k0">
+                      <ref role="1YBMHb" node="21ygb7V$l34" resolve="as" />
+                    </node>
+                    <node concept="3TrEf2" id="21ygb7W2LCP" role="2OqNvi">
+                      <ref role="3Tt5mk" to="kmi:21ygb7Us$dI" resolve="newStructVariable" />
+                    </node>
+                  </node>
+                  <node concept="3JvlWi" id="21ygb7W2MMl" role="2OqNvi" />
+                </node>
+              </node>
+              <node concept="2MkqsV" id="21ygb7V$tBr" role="3cqZAp">
+                <node concept="1YBJjd" id="21ygb7V$tLM" role="1urrMF">
+                  <ref role="1YBMHb" node="21ygb7V$l34" resolve="as" />
+                </node>
+                <node concept="Xl_RD" id="21ygb7V$tGo" role="2MkJ7o">
+                  <property role="Xl_RC" value="Allocation variable must be a pointer to a struct" />
+                </node>
+              </node>
+            </node>
+            <node concept="22lmx$" id="21ygb7V$wEO" role="3clFbw">
+              <node concept="3fqX7Q" id="21ygb7V$zTl" role="3uHU7w">
+                <node concept="2OqwBi" id="21ygb7V$zTn" role="3fr31v">
+                  <node concept="2OqwBi" id="21ygb7V$zTo" role="2Oq$k0">
+                    <node concept="1PxgMI" id="21ygb7V$zTp" role="2Oq$k0">
+                      <node concept="chp4Y" id="21ygb7V$zTq" role="3oSUPX">
+                        <ref role="cht4Q" to="yq40:fwMInzpHoK" resolve="PointerType" />
+                      </node>
+                      <node concept="2OqwBi" id="21ygb7W8Xry" role="1m5AlR">
+                        <node concept="2OqwBi" id="21ygb7W8WAH" role="2Oq$k0">
+                          <node concept="Jnkvi" id="21ygb7W8W7w" role="2Oq$k0">
+                            <ref role="1M0zk5" node="21ygb7W8SOm" resolve="varRef" />
+                          </node>
+                          <node concept="2qgKlT" id="21ygb7W8XeS" role="2OqNvi">
+                            <ref role="37wK5l" to="e32u:1LDGRqyQFAf" resolve="getVariable" />
+                          </node>
+                        </node>
+                        <node concept="2qgKlT" id="21ygb7W8Y1F" role="2OqNvi">
+                          <ref role="37wK5l" to="e32u:1LDGRqyYkTX" resolve="getDeclaredType" />
+                        </node>
+                      </node>
+                    </node>
+                    <node concept="3TrEf2" id="21ygb7V$zTu" role="2OqNvi">
+                      <ref role="3Tt5mk" to="c4fa:6IWRcVPT6tm" resolve="baseType" />
+                    </node>
+                  </node>
+                  <node concept="1mIQ4w" id="21ygb7V$zTv" role="2OqNvi">
+                    <node concept="chp4Y" id="21ygb7V$zTw" role="cj9EA">
+                      <ref role="cht4Q" to="clbe:5yYXyc4Z0CS" resolve="StructType" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+              <node concept="3fqX7Q" id="21ygb7V$u4U" role="3uHU7B">
+                <node concept="2OqwBi" id="21ygb7V$vPP" role="3fr31v">
+                  <node concept="2OqwBi" id="21ygb7W8VaN" role="2Oq$k0">
+                    <node concept="2OqwBi" id="21ygb7W8V$U" role="2Oq$k0">
+                      <node concept="Jnkvi" id="21ygb7W8UVV" role="2Oq$k0">
+                        <ref role="1M0zk5" node="21ygb7W8SOm" resolve="varRef" />
+                      </node>
+                      <node concept="2qgKlT" id="21ygb7W8VZi" role="2OqNvi">
+                        <ref role="37wK5l" to="e32u:1LDGRqyQFAf" resolve="getVariable" />
+                      </node>
+                    </node>
+                    <node concept="2qgKlT" id="21ygb7W8YkU" role="2OqNvi">
+                      <ref role="37wK5l" to="e32u:1LDGRqyYkTX" resolve="getDeclaredType" />
+                    </node>
+                  </node>
+                  <node concept="1mIQ4w" id="21ygb7V$wcL" role="2OqNvi">
+                    <node concept="chp4Y" id="21ygb7V$wg4" role="cj9EA">
+                      <ref role="cht4Q" to="yq40:fwMInzpHoK" resolve="PointerType" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="JncvC" id="21ygb7W8SOm" role="JncvA">
+          <property role="TrG5h" value="varRef" />
+          <node concept="2jxLKc" id="21ygb7W8SOn" role="1tU5fm" />
+        </node>
+      </node>
+    </node>
+    <node concept="1YaCAy" id="21ygb7V$l34" role="1YuTPh">
+      <property role="TrG5h" value="as" />
+      <ref role="1YaFvo" to="kmi:4W5bsSB0lzp" resolve="AllocateStruct" />
     </node>
   </node>
 </model>

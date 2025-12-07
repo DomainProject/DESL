@@ -5,22 +5,31 @@ package ReversibleExpressions.textGen;
 import jetbrains.mps.text.rt.TextGenDescriptorBase;
 import jetbrains.mps.text.rt.TextGenContext;
 import jetbrains.mps.text.impl.TextGenSupport;
-import ReversibleExpressions.behavior.BinaryExpression__BehaviorDescriptor;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import ReversibleExpressions.behavior.BinaryExpression__BehaviorDescriptor;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.lang.traceable.behavior.TraceableConcept__BehaviorDescriptor;
-import org.jetbrains.mps.openapi.language.SContainmentLink;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class BinaryExpression_TextGen extends TextGenDescriptorBase {
   @Override
   public void generateText(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     tgs.createPositionInfo();
+
+    boolean isDestructive = SNodeOperations.isInstanceOf(ctx.getPrimaryInput(), CONCEPTS.IDestructiveOperation$SP);
+
+    if (isDestructive && SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5)) {
+      tgs.appendNode(SLinkOperations.getTarget(SNodeOperations.cast(ctx.getPrimaryInput(), CONCEPTS.IDestructiveOperation$SP), LINKS.supportVariable$WrxR));
+      tgs.newLine();
+      tgs.indent();
+    }
+
     if ((boolean) BinaryExpression__BehaviorDescriptor.requiresParensAroundArgument_id3_qrK00j4rM.invoke(ctx.getPrimaryInput(), SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.left$KPKR))) {
       tgs.append("(");
       tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.left$KPKR));
@@ -33,34 +42,45 @@ public class BinaryExpression_TextGen extends TextGenDescriptorBase {
       tgs.append(" ");
       tgs.append(SConceptOperations.conceptAlias(SNodeOperations.getConcept(ctx.getPrimaryInput())));
       tgs.append(" ");
-    } else {
+    } else if (!(isDestructive)) {
       tgs.append(" ");
       tgs.append(BinaryExpression__BehaviorDescriptor.getReversedOperator_id4e6KBjCJeOF.invoke(ctx.getPrimaryInput()));
       tgs.append(" ");
+    } else {
+      tgs.append(" = ");
     }
 
-    if ((boolean) BinaryExpression__BehaviorDescriptor.requiresParensAroundArgument_id3_qrK00j4rM.invoke(ctx.getPrimaryInput(), SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.right$KPZS))) {
-      tgs.append("(");
-      tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.right$KPZS));
-      tgs.append(")");
-    } else {
-      tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.right$KPZS));
+
+    if (SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5) || !(isDestructive)) {
+      if ((boolean) BinaryExpression__BehaviorDescriptor.requiresParensAroundArgument_id3_qrK00j4rM.invoke(ctx.getPrimaryInput(), SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.right$KPZS))) {
+        tgs.append("(");
+        tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.right$KPZS));
+        tgs.append(")");
+      } else {
+        tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.right$KPZS));
+      }
+    } else if (isDestructive) {
+      tgs.append("checkpoint.");
+      tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(SNodeOperations.cast(ctx.getPrimaryInput(), CONCEPTS.IDestructiveOperation$SP), LINKS.supportVariable$WrxR), PROPS.name$MnvL));
     }
     if (tgs.needPositions()) {
       tgs.fillPositionInfo(TraceableConcept__BehaviorDescriptor.getTraceableProperty_id4pl5GY7LKmH.invoke(SNodeOperations.cast(ctx.getPrimaryInput(), CONCEPTS.TraceableConcept$L)));
     }
   }
 
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IDestructiveOperation$SP = MetaAdapterFactory.getInterfaceConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x27d0c8e745a2c78dL, "ReversibleExpressions.structure.IDestructiveOperation");
+    /*package*/ static final SInterfaceConcept TraceableConcept$L = MetaAdapterFactory.getInterfaceConcept(0x9ded098bad6a4657L, 0xbfd948636cfe8bc3L, 0x465516cf87c705a3L, "jetbrains.mps.lang.traceable.structure.TraceableConcept");
+  }
+
   private static final class LINKS {
+    /*package*/ static final SContainmentLink supportVariable$WrxR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x586abb2d5743cb69L, "supportVariable");
     /*package*/ static final SContainmentLink left$KPKR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba34L, 0x7af69e2e83a1ba40L, "left");
     /*package*/ static final SContainmentLink right$KPZS = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba34L, 0x7af69e2e83a1ba41L, "right");
   }
 
   private static final class PROPS {
     /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
-  }
-
-  private static final class CONCEPTS {
-    /*package*/ static final SInterfaceConcept TraceableConcept$L = MetaAdapterFactory.getInterfaceConcept(0x9ded098bad6a4657L, 0xbfd948636cfe8bc3L, 0x465516cf87c705a3L, "jetbrains.mps.lang.traceable.structure.TraceableConcept");
+    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

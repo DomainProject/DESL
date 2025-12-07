@@ -15,9 +15,10 @@ public final class LanguageConceptSwitch {
   public static final int ForEachItemInCollection = 3;
   public static final int ForeachBody = 4;
   public static final int IGetFirstElementInCollection = 5;
-  public static final int NewCollection = 6;
-  public static final int RemoveFirst = 7;
+  public static final int IUpdateCollection = 6;
+  public static final int NewCollection = 7;
   public static final int RemoveFromCollection = 8;
+  public static final int RemoveWhere = 9;
 
   public LanguageConceptSwitch() {
     LanguageConceptIndexBuilder builder = new LanguageConceptIndexBuilder(0x99e1808be2d74c11L, 0xa40f23376c03dda3L);
@@ -27,9 +28,10 @@ public final class LanguageConceptSwitch {
     builder.put(0x259b4ab97565ea5eL, ForEachItemInCollection);
     builder.put(0x259b4ab975eac219L, ForeachBody);
     builder.put(0x74450034cfe623acL, IGetFirstElementInCollection);
+    builder.put(0x1b427f2e49f084f2L, IUpdateCollection);
     builder.put(0xcc29beb5056b0a2L, NewCollection);
-    builder.put(0x74450034cfe617f4L, RemoveFirst);
     builder.put(0x74450034d00494f4L, RemoveFromCollection);
+    builder.put(0x74450034cfe617f4L, RemoveWhere);
     myIndex = builder.seal();
   }
 

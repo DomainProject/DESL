@@ -13,7 +13,63 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1070475587102:jetbrains.mps.baseLanguage.structure.SuperConstructorInvocation" />
   <root>
     <file name="ConstraintsAspectDescriptor.java">
-      <unit at="15,0,46,0" name="Collections.constraints.ConstraintsAspectDescriptor" />
+      <unit at="15,0,44,0" name="Collections.constraints.ConstraintsAspectDescriptor" />
+    </file>
+  </root>
+  <root nodeRef="r:33432198-75fb-48be-9abc-ea237b630e0d(Collections.constraints)/1964272224272680185">
+    <file name="IUpdateCollection_Constraints.java">
+      <node id="1964272224272680185" at="23,91,24,54" concept="10" />
+      <node id="1964272224272680186" at="24,54,25,26" concept="2" />
+      <node id="1964272224272680186" at="29,54,30,53" concept="10" />
+      <node id="1964272224272680186" at="33,114,34,18" concept="6" />
+      <node id="1964272224272796125" at="37,117,38,81" concept="2" />
+      <node id="1964272224275727542" at="38,81,39,0" concept="7" />
+      <node id="1964272224275105829" at="39,0,40,336" concept="2" />
+      <node id="1964272224276152863" at="40,336,41,0" concept="7" />
+      <node id="1964272224290586287" at="41,0,42,221" concept="2" />
+      <node id="1964272224290585180" at="42,221,43,0" concept="7" />
+      <node id="1964272224291044044" at="43,0,44,144" concept="2" />
+      <node id="1964272224275727897" at="44,144,45,192" concept="2" />
+      <node id="1964272224276157009" at="45,192,46,0" concept="7" />
+      <node id="3616715704761469200" at="46,0,47,138" concept="2" />
+      <node id="1964272224272680185" at="52,0,53,0" concept="8" trace="IUpdateCollection$Uo" />
+      <node id="1964272224272680185" at="53,0,54,0" concept="8" trace="IVariableDeclaration$O" />
+      <node id="1964272224272680185" at="54,0,55,0" concept="8" trace="Type$dP" />
+      <node id="1964272224272680185" at="58,0,59,0" concept="8" trace="item$jK4r" />
+      <node id="1964272224272680185" at="59,0,60,0" concept="8" trace="supportVariable$WrxR" />
+      <node id="1964272224272680185" at="60,0,61,0" concept="8" trace="type$sXU3" />
+      <node id="1964272224272680185" at="64,0,65,0" concept="8" trace="variableToSaveName$udlR" />
+      <node id="1964272224272680185" at="65,0,66,0" concept="8" trace="name$MnvL" />
+      <node id="1964272224272680185" at="66,0,67,0" concept="8" trace="variableName$6uCq" />
+      <node id="1964272224272680186" at="29,0,32,0" concept="1" trace="RD1#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptor;)V" />
+      <node id="1964272224272680185" at="23,0,27,0" concept="1" trace="IUpdateCollection_Constraints#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptorInitContext;)V" />
+      <node id="1964272224272680186" at="32,0,36,0" concept="4" trace="validate#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
+      <node id="1964272224272680186" at="36,0,49,0" concept="4" trace="onReferenceSet#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)V" />
+      <scope id="1964272224272680186" at="29,54,30,53" />
+      <scope id="1964272224272680186" at="33,114,34,18" />
+      <scope id="1964272224272680185" at="23,91,25,26" />
+      <scope id="1964272224272680186" at="29,0,32,0">
+        <var name="container" id="1964272224272680186" />
+      </scope>
+      <scope id="1964272224272680185" at="23,0,27,0">
+        <var name="initContext" id="1964272224272680185" />
+      </scope>
+      <scope id="1964272224272680186" at="32,0,36,0">
+        <var name="newReferentNode" id="1964272224272680186" />
+        <var name="oldReferentNode" id="1964272224272680186" />
+        <var name="referenceNode" id="1964272224272680186" />
+      </scope>
+      <scope id="1964272224272680188" at="37,117,47,138" />
+      <scope id="1964272224272680186" at="36,0,49,0">
+        <var name="newReferentNode" id="1964272224272680186" />
+        <var name="oldReferentNode" id="1964272224272680186" />
+        <var name="referenceNode" id="1964272224272680186" />
+      </scope>
+      <unit id="1964272224272680185" at="51,0,56,0" name="Collections.constraints.IUpdateCollection_Constraints$CONCEPTS" />
+      <unit id="1964272224272680185" at="57,0,62,0" name="Collections.constraints.IUpdateCollection_Constraints$LINKS" />
+      <unit id="1964272224272680185" at="63,0,68,0" name="Collections.constraints.IUpdateCollection_Constraints$PROPS" />
+      <unit id="1964272224272680186" at="28,0,50,0" name="Collections.constraints.IUpdateCollection_Constraints$RD1" />
+      <unit id="1964272224272680185" at="22,0,69,0" name="Collections.constraints.IUpdateCollection_Constraints" />
     </file>
   </root>
   <root nodeRef="r:33432198-75fb-48be-9abc-ea237b630e0d(Collections.constraints)/3267310691328002759">
@@ -60,90 +116,6 @@
       <unit id="3267310691328002759" at="45,0,49,0" name="Collections.constraints.ForEachItemInCollection_Constraints$PROPS" />
       <unit id="3267310691328002812" at="23,0,40,0" name="Collections.constraints.ForEachItemInCollection_Constraints$VariableName_PD" />
       <unit id="3267310691328002759" at="17,0,54,0" name="Collections.constraints.ForEachItemInCollection_Constraints" />
-    </file>
-  </root>
-  <root nodeRef="r:33432198-75fb-48be-9abc-ea237b630e0d(Collections.constraints)/3616715704760918964">
-    <file name="RemoveFromCollection_Constraints.java">
-      <node id="3616715704760918964" at="17,94,18,57" concept="10" />
-      <node id="3616715704760918965" at="18,57,19,26" concept="2" />
-      <node id="3616715704760918965" at="23,54,24,57" concept="10" />
-      <node id="3616715704760918965" at="27,114,28,18" concept="6" />
-      <node id="3616715704760925980" at="31,117,32,138" concept="2" />
-      <node id="3616715704760918964" at="37,0,38,0" concept="8" trace="RemoveFromCollection$gR" />
-      <node id="3616715704760918964" at="41,0,42,0" concept="8" trace="variable$mVLX" />
-      <node id="3616715704760918964" at="45,0,46,0" concept="8" trace="variableName$FJHk" />
-      <node id="3616715704760918964" at="46,0,47,0" concept="8" trace="name$MnvL" />
-      <node id="3616715704760918965" at="23,0,26,0" concept="1" trace="RD1#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptor;)V" />
-      <node id="3616715704760918964" at="17,0,21,0" concept="1" trace="RemoveFromCollection_Constraints#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptorInitContext;)V" />
-      <node id="3616715704760918965" at="26,0,30,0" concept="4" trace="validate#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
-      <node id="3616715704760918965" at="30,0,34,0" concept="4" trace="onReferenceSet#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)V" />
-      <scope id="3616715704760918965" at="23,54,24,57" />
-      <scope id="3616715704760918965" at="27,114,28,18" />
-      <scope id="3616715704760919023" at="31,117,32,138" />
-      <scope id="3616715704760918964" at="17,94,19,26" />
-      <scope id="3616715704760918965" at="23,0,26,0">
-        <var name="container" id="3616715704760918965" />
-      </scope>
-      <scope id="3616715704760918964" at="17,0,21,0">
-        <var name="initContext" id="3616715704760918964" />
-      </scope>
-      <scope id="3616715704760918965" at="26,0,30,0">
-        <var name="newReferentNode" id="3616715704760918965" />
-        <var name="oldReferentNode" id="3616715704760918965" />
-        <var name="referenceNode" id="3616715704760918965" />
-      </scope>
-      <scope id="3616715704760918965" at="30,0,34,0">
-        <var name="newReferentNode" id="3616715704760918965" />
-        <var name="oldReferentNode" id="3616715704760918965" />
-        <var name="referenceNode" id="3616715704760918965" />
-      </scope>
-      <unit id="3616715704760918964" at="36,0,39,0" name="Collections.constraints.RemoveFromCollection_Constraints$CONCEPTS" />
-      <unit id="3616715704760918964" at="40,0,43,0" name="Collections.constraints.RemoveFromCollection_Constraints$LINKS" />
-      <unit id="3616715704760918964" at="44,0,48,0" name="Collections.constraints.RemoveFromCollection_Constraints$PROPS" />
-      <unit id="3616715704760918965" at="22,0,35,0" name="Collections.constraints.RemoveFromCollection_Constraints$RD1" />
-      <unit id="3616715704760918964" at="16,0,49,0" name="Collections.constraints.RemoveFromCollection_Constraints" />
-    </file>
-  </root>
-  <root nodeRef="r:33432198-75fb-48be-9abc-ea237b630e0d(Collections.constraints)/3616715704761464300">
-    <file name="AddToCollection_Constraints.java">
-      <node id="3616715704761464300" at="17,89,18,52" concept="10" />
-      <node id="3616715704761464301" at="18,52,19,26" concept="2" />
-      <node id="3616715704761464301" at="23,54,24,57" concept="10" />
-      <node id="3616715704761464301" at="27,114,28,18" concept="6" />
-      <node id="3616715704761469200" at="31,117,32,138" concept="2" />
-      <node id="3616715704761464300" at="37,0,38,0" concept="8" trace="AddToCollection$NE" />
-      <node id="3616715704761464300" at="41,0,42,0" concept="8" trace="variable$Ze_t" />
-      <node id="3616715704761464300" at="45,0,46,0" concept="8" trace="variableName$U8ui" />
-      <node id="3616715704761464300" at="46,0,47,0" concept="8" trace="name$MnvL" />
-      <node id="3616715704761464301" at="23,0,26,0" concept="1" trace="RD1#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptor;)V" />
-      <node id="3616715704761464300" at="17,0,21,0" concept="1" trace="AddToCollection_Constraints#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptorInitContext;)V" />
-      <node id="3616715704761464301" at="26,0,30,0" concept="4" trace="validate#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
-      <node id="3616715704761464301" at="30,0,34,0" concept="4" trace="onReferenceSet#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)V" />
-      <scope id="3616715704761464301" at="23,54,24,57" />
-      <scope id="3616715704761464301" at="27,114,28,18" />
-      <scope id="3616715704761464358" at="31,117,32,138" />
-      <scope id="3616715704761464300" at="17,89,19,26" />
-      <scope id="3616715704761464301" at="23,0,26,0">
-        <var name="container" id="3616715704761464301" />
-      </scope>
-      <scope id="3616715704761464300" at="17,0,21,0">
-        <var name="initContext" id="3616715704761464300" />
-      </scope>
-      <scope id="3616715704761464301" at="26,0,30,0">
-        <var name="newReferentNode" id="3616715704761464301" />
-        <var name="oldReferentNode" id="3616715704761464301" />
-        <var name="referenceNode" id="3616715704761464301" />
-      </scope>
-      <scope id="3616715704761464301" at="30,0,34,0">
-        <var name="newReferentNode" id="3616715704761464301" />
-        <var name="oldReferentNode" id="3616715704761464301" />
-        <var name="referenceNode" id="3616715704761464301" />
-      </scope>
-      <unit id="3616715704761464300" at="36,0,39,0" name="Collections.constraints.AddToCollection_Constraints$CONCEPTS" />
-      <unit id="3616715704761464300" at="40,0,43,0" name="Collections.constraints.AddToCollection_Constraints$LINKS" />
-      <unit id="3616715704761464300" at="44,0,48,0" name="Collections.constraints.AddToCollection_Constraints$PROPS" />
-      <unit id="3616715704761464301" at="22,0,35,0" name="Collections.constraints.AddToCollection_Constraints$RD1" />
-      <unit id="3616715704761464300" at="16,0,49,0" name="Collections.constraints.AddToCollection_Constraints" />
     </file>
   </root>
   <root nodeRef="r:33432198-75fb-48be-9abc-ea237b630e0d(Collections.constraints)/4514606434772421108">
@@ -264,16 +236,16 @@
     </file>
   </root>
   <root nodeRef="r:33432198-75fb-48be-9abc-ea237b630e0d(Collections.constraints)/8378102908618938381">
-    <file name="RemoveFirst_Constraints.java">
+    <file name="RemoveWhere_Constraints.java">
       <node id="8378102908618938381" at="11,85,12,48" concept="10" />
-      <node id="8378102908618938381" at="16,0,17,0" concept="8" trace="RemoveFirst$Tj" />
-      <node id="8378102908618938381" at="11,0,14,0" concept="1" trace="RemoveFirst_Constraints#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptorInitContext;)V" />
+      <node id="8378102908618938381" at="16,0,17,0" concept="8" trace="RemoveWhere$Tj" />
+      <node id="8378102908618938381" at="11,0,14,0" concept="1" trace="RemoveWhere_Constraints#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptorInitContext;)V" />
       <scope id="8378102908618938381" at="11,85,12,48" />
       <scope id="8378102908618938381" at="11,0,14,0">
         <var name="initContext" id="8378102908618938381" />
       </scope>
-      <unit id="8378102908618938381" at="15,0,18,0" name="Collections.constraints.RemoveFirst_Constraints$CONCEPTS" />
-      <unit id="8378102908618938381" at="10,0,19,0" name="Collections.constraints.RemoveFirst_Constraints" />
+      <unit id="8378102908618938381" at="15,0,18,0" name="Collections.constraints.RemoveWhere_Constraints$CONCEPTS" />
+      <unit id="8378102908618938381" at="10,0,19,0" name="Collections.constraints.RemoveWhere_Constraints" />
     </file>
   </root>
   <root nodeRef="r:33432198-75fb-48be-9abc-ea237b630e0d(Collections.constraints)/8378102908618941360">

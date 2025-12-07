@@ -67,8 +67,6 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new Item_TextGen();
       case LanguageConceptSwitch.ItemList:
         return new ItemList_TextGen();
-      case LanguageConceptSwitch.NewStruct:
-        return new NewStruct_TextGen();
       case LanguageConceptSwitch.ParameterDocs:
         return new ParameterDocs_TextGen();
       case LanguageConceptSwitch.PlainText:
@@ -79,8 +77,6 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new ProcessArray_TextGen();
       case LanguageConceptSwitch.Random:
         return new Random_TextGen();
-      case LanguageConceptSwitch.ReleaseStruct:
-        return new ReleaseStruct_TextGen();
       case LanguageConceptSwitch.RngType:
         return new RngType_TextGen();
       case LanguageConceptSwitch.RootSimGPUM2M:

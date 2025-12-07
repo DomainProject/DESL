@@ -393,6 +393,9 @@
     <node concept="PrWs8" id="5cz2Y91jmyR" role="PzmwI">
       <ref role="PrY4T" to="mj1l:5cz2Y91jmyg" resolve="IAssignmentSide" />
     </node>
+    <node concept="PrWs8" id="21ygb7Ut1I1" role="PzmwI">
+      <ref role="PrY4T" node="21ygb7Us$bV" resolve="IAllocationVariable" />
+    </node>
     <node concept="1QGGSu" id="1N5Tah$AJkG" role="rwd14">
       <property role="1iqoE4" value="${module}/icons/localvar.png" />
     </node>
@@ -1004,7 +1007,7 @@
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <property role="20kJfa" value="additionalVariables" />
       <property role="20lbJX" value="fLJekj5/_0__n" />
-      <ref role="20lvS9" node="3CmSUB7FprA" resolve="LocalVariableDeclaration" />
+      <ref role="20lvS9" to="c4fa:3CmSUB7FprA" resolve="LocalVariableDeclaration" />
     </node>
   </node>
   <node concept="1TIwiD" id="5suDuW$vzHH">
@@ -1016,7 +1019,7 @@
       <property role="IQ2ns" value="6277637377129069422" />
       <property role="20kJfa" value="var" />
       <property role="20lbJX" value="fLJekj4/_1" />
-      <ref role="20lvS9" node="3CmSUB7FprA" resolve="LocalVariableDeclaration" />
+      <ref role="20lvS9" to="c4fa:3CmSUB7FprA" resolve="LocalVariableDeclaration" />
     </node>
   </node>
   <node concept="1TIwiD" id="4GuVbI_0lYF">
@@ -1030,6 +1033,56 @@
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <property role="20kJfa" value="expression" />
       <ref role="20lvS9" to="ib4b:7FQByU3CrCM" resolve="ReversibleExpression" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="4W5bsSB0lzp">
+    <property role="EcuMT" value="5694007667320772825" />
+    <property role="3GE5qa" value="structManagement" />
+    <property role="TrG5h" value="AllocateStruct" />
+    <property role="34LRSv" value="allocate" />
+    <property role="R4oN_" value="allocate memory for a new struct" />
+    <ref role="1TJDcQ" node="3CmSUB7FmO3" resolve="ReversibleStatement" />
+    <node concept="PrWs8" id="21ygb7Usgah" role="PzmwI">
+      <ref role="PrY4T" to="ib4b:2vgMet5CGud" resolve="IDestructiveOperation" />
+    </node>
+    <node concept="1TJgyj" id="21ygb7Us$dI" role="1TKVEi">
+      <property role="IQ2ns" value="2333498690086519662" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="newStructVariable" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" node="21ygb7Us$bV" resolve="IAllocationVariable" />
+    </node>
+  </node>
+  <node concept="PlHQZ" id="21ygb7Us$bV">
+    <property role="EcuMT" value="2333498690086519547" />
+    <property role="3GE5qa" value="structManagement" />
+    <property role="TrG5h" value="IAllocationVariable" />
+  </node>
+  <node concept="1TIwiD" id="2SCEiO7nznl">
+    <property role="EcuMT" value="3326094335675348437" />
+    <property role="TrG5h" value="NewStruct" />
+    <property role="34LRSv" value="new struct" />
+    <property role="3GE5qa" value="structManagement" />
+    <ref role="1TJDcQ" to="ib4b:7FQByU3CrCM" resolve="ReversibleExpression" />
+    <node concept="PrWs8" id="4W5bsSAQAtZ" role="PzmwI">
+      <ref role="PrY4T" to="ib4b:2vgMet5CGud" resolve="IDestructiveOperation" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="BBY2rYonzQ">
+    <property role="EcuMT" value="713811912321759478" />
+    <property role="TrG5h" value="ReleaseStruct" />
+    <property role="3GE5qa" value="structManagement" />
+    <property role="34LRSv" value="release" />
+    <property role="R4oN_" value="release struct memory" />
+    <ref role="1TJDcQ" node="3CmSUB7FmO3" resolve="ReversibleStatement" />
+    <node concept="1TJgyj" id="BBY2rYonzV" role="1TKVEi">
+      <property role="IQ2ns" value="713811912321759483" />
+      <property role="20kJfa" value="struct" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" to="mj1l:1LDGRqyYkTP" resolve="IVariableDeclaration" />
+    </node>
+    <node concept="PrWs8" id="4W5bsS_Qt78" role="PzmwI">
+      <ref role="PrY4T" to="ib4b:2vgMet5CGud" resolve="IDestructiveOperation" />
     </node>
   </node>
 </model>

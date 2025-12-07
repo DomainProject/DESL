@@ -21,16 +21,16 @@ public class AddToCollection_TextGen extends TextGenDescriptorBase {
     tgs.createPositionInfo();
     if (SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5)) {
       tgs.append("list_insert_tail(");
-      tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.collection$U5Fu));
+      tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.collection$icQi));
       tgs.append(", ");
-      tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableName$U8ui));
+      tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableName$6uCq));
       tgs.append(");");
       tgs.newLine();
     } else {
       tgs.append("list_detach_by_content(");
-      tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.collection$U5Fu));
+      tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.collection$icQi));
       tgs.append(", ");
-      tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableName$U8ui));
+      tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableName$6uCq));
       tgs.append(");");
       tgs.newLine();
     }
@@ -40,11 +40,11 @@ public class AddToCollection_TextGen extends TextGenDescriptorBase {
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink collection$U5Fu = MetaAdapterFactory.getContainmentLink(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0xcc29beb50645d41L, 0x2d57d1c347ae5243L, "collection");
+    /*package*/ static final SContainmentLink collection$icQi = MetaAdapterFactory.getContainmentLink(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x1b427f2e49f084f2L, 0x1b427f2e4a217c88L, "collection");
   }
 
   private static final class PROPS {
-    /*package*/ static final SProperty variableName$U8ui = MetaAdapterFactory.getProperty(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0xcc29beb50645d41L, 0x323127c573e235ebL, "variableName");
+    /*package*/ static final SProperty variableName$6uCq = MetaAdapterFactory.getProperty(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x1b427f2e49f084f2L, 0x1b427f2e4a21703bL, "variableName");
     /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
   }
 

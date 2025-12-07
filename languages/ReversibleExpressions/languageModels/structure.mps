@@ -10,9 +10,11 @@
     <import index="356a" ref="r:3b7ed80f-6cfd-45bc-b051-2f66c620dd27(jetbrains.mps.lang.traceable.structure)" />
     <import index="vs0r" ref="r:f7764ca4-8c75-4049-922b-08516400a727(com.mbeddr.core.base.structure)" />
     <import index="x27k" ref="r:75ecab8a-8931-4140-afc6-4b46398710fc(com.mbeddr.core.modules.structure)" />
+    <import index="rdv6" ref="r:79077d65-28d5-4f56-905b-4bcf5185c60e(DESL.structure)" />
     <import index="mj1l" ref="r:c371cf98-dcc8-4a43-8eb8-8a8096de18b2(com.mbeddr.core.expressions.structure)" implicit="true" />
     <import index="kmi" ref="r:afa7ae5b-c41f-45e8-9678-2beae3621a33(ReversibleStatements.structure)" implicit="true" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
+    <import index="c4fa" ref="r:9f0e84b6-2ec7-4f9e-83e0-feedc77b63a3(com.mbeddr.core.statements.structure)" implicit="true" />
     <import index="w8o" ref="r:e84d12fa-9ad2-42d4-95e8-d9ef0c30fdf9(ReversibleFunctions.structure)" implicit="true" />
   </imports>
   <registry>
@@ -443,6 +445,9 @@
     <property role="R4oN_" value="bitwise or assign" />
     <property role="EcuMT" value="7193082937527768541" />
     <ref role="1TJDcQ" node="1kFLyoDrnay" resolve="BitwiseDirectAssignmentExpression" />
+    <node concept="PrWs8" id="21ygb7Xss54" role="PzmwI">
+      <ref role="PrY4T" node="2vgMet5CGud" resolve="IDestructiveOperation" />
+    </node>
   </node>
   <node concept="1TIwiD" id="6fiXH8Nh1np">
     <property role="3GE5qa" value="expr.arith.directassignment.bitwise" />
@@ -451,6 +456,9 @@
     <property role="34LRSv" value="&amp;=" />
     <property role="EcuMT" value="7193082937527768537" />
     <ref role="1TJDcQ" node="1kFLyoDrnay" resolve="BitwiseDirectAssignmentExpression" />
+    <node concept="PrWs8" id="6ze3kz2wldk" role="PzmwI">
+      <ref role="PrY4T" node="2vgMet5CGud" resolve="IDestructiveOperation" />
+    </node>
   </node>
   <node concept="1TIwiD" id="6fiXH8Nh1nr">
     <property role="3GE5qa" value="expr.arith.directassignment.bitwise" />
@@ -532,6 +540,9 @@
     <property role="R4oN_" value="bitwise and" />
     <property role="EcuMT" value="5962749441518381743" />
     <ref role="1TJDcQ" node="1kFLyoDrd_s" resolve="BitwiseBinaryArithmaticsExpression" />
+    <node concept="PrWs8" id="6ze3kz2wokv" role="PzmwI">
+      <ref role="PrY4T" node="2vgMet5CGud" resolve="IDestructiveOperation" />
+    </node>
   </node>
   <node concept="1TIwiD" id="3HcQIfz5BdO">
     <property role="3GE5qa" value="expr.arith.directassignment" />
@@ -750,6 +761,9 @@
     <property role="EcuMT" value="2047364827736357258" />
     <node concept="PrWs8" id="1LDGRqyQFAd" role="PrDN$">
       <ref role="PrY4T" to="vs0r:70kXLV4LLzw" resolve="IReference" />
+    </node>
+    <node concept="PrWs8" id="21ygb7Us$fe" role="PrDN$">
+      <ref role="PrY4T" to="kmi:21ygb7Us$bV" resolve="IAllocationVariable" />
     </node>
   </node>
   <node concept="PlHQZ" id="1LDGRqyYkTP">
@@ -1037,8 +1051,8 @@
     <node concept="1TJgyj" id="5xEIMPngWHD" role="1TKVEi">
       <property role="IQ2ns" value="6371110426280971113" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
-      <property role="20kJfa" value="variable" />
-      <ref role="20lvS9" to="kmi:3CmSUB7FprA" resolve="LocalVariableDeclaration" />
+      <property role="20kJfa" value="supportVariable" />
+      <ref role="20lvS9" to="c4fa:3CmSUB7FprA" resolve="LocalVariableDeclaration" />
     </node>
     <node concept="1TJgyi" id="6cRD4M$XMQZ" role="1TKVEl">
       <property role="IQ2nx" value="7149363582566084031" />
@@ -1056,6 +1070,11 @@
     <property role="TrG5h" value="IDestructiveOperation" />
     <node concept="PrWs8" id="2vgMet5CGue" role="PrDN$">
       <ref role="PrY4T" node="5xEIMPngWHC" resolve="INeedSupportVariable" />
+    </node>
+    <node concept="1TJgyi" id="1H2vMTb2b1n" role="1TKVEl">
+      <property role="IQ2nx" value="1964272224291041367" />
+      <property role="TrG5h" value="variableToSaveName" />
+      <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
     </node>
   </node>
   <node concept="PlHQZ" id="4GuVbIBq0fI">
@@ -1086,6 +1105,45 @@
     <property role="TrG5h" value="VoidType" />
     <property role="34LRSv" value="void" />
     <ref role="1TJDcQ" to="mj1l:7FQByU3CrCS" resolve="PrimitiveType" />
+  </node>
+  <node concept="1TIwiD" id="1H2vMT9OvU4">
+    <property role="EcuMT" value="1964272224270679684" />
+    <property role="TrG5h" value="ReversibleMacroCall" />
+    <property role="R4oN_" value="--" />
+    <ref role="1TJDcQ" node="7FQByU3CrCM" resolve="ReversibleExpression" />
+    <node concept="1TJgyj" id="1H2vMT9OvU5" role="1TKVEi">
+      <property role="IQ2ns" value="1964272224270679685" />
+      <property role="20kJfa" value="macro" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" to="w8o:2XBKnohhg2f" resolve="ReversibleMacro" />
+    </node>
+    <node concept="1TJgyj" id="1H2vMT9OvU6" role="1TKVEi">
+      <property role="IQ2ns" value="1964272224270679686" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="actuals" />
+      <property role="20lbJX" value="fLJekj5/_0__n" />
+      <ref role="20lvS9" node="6ze3kz3Aosn" resolve="ReversibleMacroArg" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="6ze3kz3Aosn">
+    <property role="EcuMT" value="7551988231317325591" />
+    <property role="TrG5h" value="ReversibleMacroArg" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
+    <node concept="1TJgyi" id="6ze3kz3Aoso" role="1TKVEl">
+      <property role="IQ2nx" value="7551988231317325592" />
+      <property role="TrG5h" value="variableName" />
+      <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
+    </node>
+    <node concept="1TJgyj" id="6ze3kz3Aosp" role="1TKVEi">
+      <property role="IQ2ns" value="7551988231317325593" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="actual" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" node="7FQByU3CrCM" resolve="ReversibleExpression" />
+    </node>
+    <node concept="PrWs8" id="6ze3kz4khRL" role="PzmwI">
+      <ref role="PrY4T" node="5xEIMPngWHC" resolve="INeedSupportVariable" />
+    </node>
   </node>
 </model>
 

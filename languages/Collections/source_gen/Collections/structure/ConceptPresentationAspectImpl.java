@@ -15,9 +15,10 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_ForEachItemInCollection;
   private ConceptPresentation props_ForeachBody;
   private ConceptPresentation props_IGetFirstElementInCollection;
+  private ConceptPresentation props_IUpdateCollection;
   private ConceptPresentation props_NewCollection;
-  private ConceptPresentation props_RemoveFirst;
   private ConceptPresentation props_RemoveFromCollection;
+  private ConceptPresentation props_RemoveWhere;
 
   @Override
   @Nullable
@@ -68,6 +69,12 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_IGetFirstElementInCollection = cpb.create();
         }
         return props_IGetFirstElementInCollection;
+      case LanguageConceptSwitch.IUpdateCollection:
+        if (props_IUpdateCollection == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          props_IUpdateCollection = cpb.create();
+        }
+        return props_IUpdateCollection;
       case LanguageConceptSwitch.NewCollection:
         if (props_NewCollection == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -75,14 +82,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_NewCollection = cpb.create();
         }
         return props_NewCollection;
-      case LanguageConceptSwitch.RemoveFirst:
-        if (props_RemoveFirst == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.shortDesc("remove the first element in a collection that satifies a condition");
-          cpb.rawPresentation("removeFirst");
-          props_RemoveFirst = cpb.create();
-        }
-        return props_RemoveFirst;
       case LanguageConceptSwitch.RemoveFromCollection:
         if (props_RemoveFromCollection == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -91,6 +90,14 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_RemoveFromCollection = cpb.create();
         }
         return props_RemoveFromCollection;
+      case LanguageConceptSwitch.RemoveWhere:
+        if (props_RemoveWhere == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.shortDesc("remove the first element in a collection that satifies a condition");
+          cpb.rawPresentation("removeWhere");
+          props_RemoveWhere = cpb.create();
+        }
+        return props_RemoveWhere;
     }
     return null;
   }
