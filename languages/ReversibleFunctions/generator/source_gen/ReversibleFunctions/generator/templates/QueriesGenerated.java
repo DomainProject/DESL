@@ -4,22 +4,23 @@ package ReversibleFunctions.generator.templates;
 
 import jetbrains.mps.generator.runtime.Generated;
 import jetbrains.mps.generator.impl.query.QueryProviderBase;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.generator.template.PropertyMacroContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodesContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.generator.template.MappingScriptContext;
-import jetbrains.mps.baseLanguage.logging.rt.LogContext;
 import java.util.List;
 import java.util.ArrayList;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.internal.collections.runtime.Sequence;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import ReversibleExpressions.behavior.ReversibleMacroCall__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import ReversibleFunctions.behavior.ReversibleFunction__BehaviorDescriptor;
 import java.util.Map;
 import jetbrains.mps.generator.impl.query.ScriptCodeBlock;
@@ -35,11 +36,12 @@ import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
-import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 @Generated
 public class QueriesGenerated extends QueryProviderBase {
+  private static final Logger LOG = Logger.getLogger(QueriesGenerated.class);
   public QueriesGenerated() {
     super(1);
   }
@@ -53,18 +55,50 @@ public class QueriesGenerated extends QueryProviderBase {
     return SLinkOperations.getChildren(_context.getNode(), LINKS.functions$VlQq);
   }
   public static Iterable<SNode> sourceNodesQuery_1_2(final SourceSubstituteMacroNodesContext _context) {
-    return ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.reversibleItems$5wYj)).where((it) -> SPropertyOperations.getBoolean(it, PROPS.expand$b0u));
+    return ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.reversibleItems$5wYj)).where((it) -> SPropertyOperations.getBoolean(it, PROPS.expand$b0u) || SNodeOperations.isInstanceOf(it, CONCEPTS.ReversibleMacro$EH));
   }
   public static void mappingScript_CodeBlock_2(final MappingScriptContext _context) {
 
-    LogContext.with(QueriesGenerated.class, null, null, null).info("Starting preprocessing");
 
     List<SNode> reversedFunctions = new ArrayList<SNode>();
 
     for (SNode root : ListSequence.fromList(SModelOperations.roots(_context.getModel(), CONCEPTS.ReversibleScript$ki))) {
+
+
+      List<SNode> newMacros = new ArrayList<SNode>();
+
+      for (SNode macro : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(root, LINKS.reversibleItems$5wYj), CONCEPTS.ReversibleMacro$EH))) {
+
+        SPropertyOperations.assign(macro, PROPS.preventNameMangling$DOH5, true);
+
+        if (LOG.isInfoLevel()) {
+          LOG.info("Reversing macro " + SNodeOperations.getIndexInParent(macro));
+        }
+
+        if (!(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(macro, LINKS.content$L7Vn), CONCEPTS.IDestructiveOperation$SP))) {
+
+          {
+            final SNode rmc = SLinkOperations.getTarget(macro, LINKS.content$L7Vn);
+            if (SNodeOperations.isInstanceOf(rmc, CONCEPTS.ReversibleMacroCall$40)) {
+              if ((boolean) ReversibleMacroCall__BehaviorDescriptor.checkIfDestructiveMacroCalled_id2OeDS_5iwt8.invoke(rmc)) {
+                continue;
+              }
+            }
+          }
+
+          SNode newMacro = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145008fL, "ReversibleFunctions.structure.ReversibleMacro"));
+          SPropertyOperations.assign(newMacro, PROPS.name$MnvL, SPropertyOperations.getString(macro, PROPS.name$MnvL) + "_REVERSE");
+          SLinkOperations.setTarget(newMacro, LINKS.content$L7Vn, SNodeOperations.copyNode(SLinkOperations.getTarget(macro, LINKS.content$L7Vn)));
+          SPropertyOperations.assign(SLinkOperations.getTarget(newMacro, LINKS.content$L7Vn), PROPS.isForward$pAg5, false);
+          ListSequence.fromList(newMacros).addElement(newMacro);
+        }
+      }
+
+      ListSequence.fromList(SLinkOperations.getChildren(root, LINKS.reversibleItems$5wYj)).addSequence(ListSequence.fromList(newMacros));
+
       for (SNode function : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(root, LINKS.reversibleItems$5wYj), CONCEPTS.ReversibleFunction$IL))) {
 
-        LogContext.with(QueriesGenerated.class, null, null, null).info("Function " + SPropertyOperations.getString(function, PROPS.name$MnvL));
+        SPropertyOperations.assign(function, PROPS.preventNameMangling$DOH5, true);
 
         for (SNode stmtWithSupportVariable : ListSequence.fromList(SNodeOperations.getNodeDescendants(function, CONCEPTS.INeedSupportVariable$qI, false, new SAbstractConcept[]{}))) {
 
@@ -72,7 +106,6 @@ public class QueriesGenerated extends QueryProviderBase {
           // check if the stmt is contained in a loop
           if (!(SNodeOperations.isInstanceOf(SNodeOperations.getParent(SNodeOperations.getParent(stmtWithSupportVariable)), CONCEPTS.IReversibleLoop$k1))) {
 
-            LogContext.with(QueriesGenerated.class, null, null, null).info("Creating support variable in loop");
 
             SNode lvr = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x571ea5ef247e3b6dL, "ReversibleStatements.structure.CheckpointLocalVarRef"));
             SLinkOperations.setTarget(lvr, LINKS.var$iAI8, SLinkOperations.getTarget(stmtWithSupportVariable, LINKS.supportVariable$WrxR));
@@ -83,7 +116,6 @@ public class QueriesGenerated extends QueryProviderBase {
         for (SNode loop : ListSequence.fromList(SNodeOperations.getNodeDescendants(function, CONCEPTS.IReversibleLoop$k1, false, new SAbstractConcept[]{}))) {
           for (SNode var : ListSequence.fromList(SLinkOperations.getChildren(loop, LINKS.additionalVariables$en7t))) {
 
-            LogContext.with(QueriesGenerated.class, null, null, null).info("Creating checkpointing variable");
 
             SNode lvr = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x571ea5ef247e3b6dL, "ReversibleStatements.structure.CheckpointLocalVarRef"));
             SLinkOperations.setTarget(lvr, LINKS.var$iAI8, var);
@@ -106,7 +138,6 @@ public class QueriesGenerated extends QueryProviderBase {
     }
 
 
-    LogContext.with(QueriesGenerated.class, null, null, null).info("Preprocessing completed");
   }
   private final Map<String, ScriptCodeBlock> mscbMethods = new HashMap<String, ScriptCodeBlock>();
   {
@@ -170,7 +201,7 @@ public class QueriesGenerated extends QueryProviderBase {
   private final Map<String, PropertyValueQuery> pvqMethods = new HashMap<String, PropertyValueQuery>();
   {
     int i = 0;
-    pvqMethods.put("1964272224266016013", new PVQ(i++, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "script"));
+    pvqMethods.put("1964272224266016013", new PVQ(i++, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "ReversibleScript"));
   }
   @NotNull
   @Override
@@ -198,6 +229,8 @@ public class QueriesGenerated extends QueryProviderBase {
   private static final class PROPS {
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
     /*package*/ static final SProperty expand$b0u = MetaAdapterFactory.getProperty(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111cL, 0x2f67c1761149413aL, "expand");
+    /*package*/ static final SProperty preventNameMangling$DOH5 = MetaAdapterFactory.getProperty(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x595522006a5b934fL, 0x5d18402e8bd65342L, "preventNameMangling");
+    /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
     /*package*/ static final SProperty reversibilityRequired$Zgdy = MetaAdapterFactory.getProperty(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111cL, 0x56ee1731ff5a6482L, "reversibilityRequired");
     /*package*/ static final SProperty isForward$rJ$J = MetaAdapterFactory.getProperty(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111cL, 0x5e81f50da1382199L, "isForward");
   }
@@ -206,6 +239,7 @@ public class QueriesGenerated extends QueryProviderBase {
     /*package*/ static final SContainmentLink structs$ZHxn = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x56ee1731fef0eae5L, 0x482205b2742202cdL, "structs");
     /*package*/ static final SContainmentLink functions$VlQq = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x56ee1731fef0eae5L, 0x7f5aaca6ab31ec34L, "functions");
     /*package*/ static final SContainmentLink reversibleItems$5wYj = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x56ee1731fef0eae5L, 0x56ee1731fef0eae6L, "reversibleItems");
+    /*package*/ static final SContainmentLink content$L7Vn = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145008fL, 0x78202c09dd229062L, "content");
     /*package*/ static final SReferenceLink var$iAI8 = MetaAdapterFactory.getReferenceLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x571ea5ef247e3b6dL, 0x571ea5ef247e3b6eL, "var");
     /*package*/ static final SContainmentLink supportVariable$WrxR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x586abb2d5743cb69L, "supportVariable");
     /*package*/ static final SContainmentLink checkpointingVariables$5GhH = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, 0x571ea5ef242a50aaL, "checkpointingVariables");
@@ -213,6 +247,9 @@ public class QueriesGenerated extends QueryProviderBase {
   }
 
   private static final class CONCEPTS {
+    /*package*/ static final SConcept ReversibleMacro$EH = MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145008fL, "ReversibleFunctions.structure.ReversibleMacro");
+    /*package*/ static final SConcept ReversibleMacroCall$40 = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1b427f2e49d1fe84L, "ReversibleExpressions.structure.ReversibleMacroCall");
+    /*package*/ static final SInterfaceConcept IDestructiveOperation$SP = MetaAdapterFactory.getInterfaceConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x27d0c8e745a2c78dL, "ReversibleExpressions.structure.IDestructiveOperation");
     /*package*/ static final SInterfaceConcept IReversibleLoop$k1 = MetaAdapterFactory.getInterfaceConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x6337a44ca461bdf4L, "ReversibleStatements.structure.IReversibleLoop");
     /*package*/ static final SInterfaceConcept INeedSupportVariable$qI = MetaAdapterFactory.getInterfaceConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, "ReversibleExpressions.structure.INeedSupportVariable");
     /*package*/ static final SConcept ReversibleFunction$IL = MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, "ReversibleFunctions.structure.ReversibleFunction");

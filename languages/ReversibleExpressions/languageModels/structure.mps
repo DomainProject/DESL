@@ -16,6 +16,7 @@
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
     <import index="c4fa" ref="r:9f0e84b6-2ec7-4f9e-83e0-feedc77b63a3(com.mbeddr.core.statements.structure)" implicit="true" />
     <import index="w8o" ref="r:e84d12fa-9ad2-42d4-95e8-d9ef0c30fdf9(ReversibleFunctions.structure)" implicit="true" />
+    <import index="clbe" ref="r:61d840b4-12c1-49ea-b142-b2a1550a9b15(com.mbeddr.core.udt.structure)" implicit="true" />
   </imports>
   <registry>
     <language id="c72da2b9-7cce-4447-8389-f407dc1158b7" name="jetbrains.mps.lang.structure">
@@ -94,6 +95,11 @@
     </node>
     <node concept="PrWs8" id="7XqFaqForK0" role="PzmwI">
       <ref role="PrY4T" to="kmi:5rI5N7ZmrVr" resolve="IReversible" />
+    </node>
+    <node concept="1TJgyi" id="3J9m2yc05JB" role="1TKVEl">
+      <property role="IQ2nx" value="4308071449727359975" />
+      <property role="TrG5h" value="disableStateSaving" />
+      <ref role="AX2Wp" to="tpck:fKAQMTB" resolve="boolean" />
     </node>
   </node>
   <node concept="1TIwiD" id="7FQByU3CrCO">
@@ -1124,6 +1130,11 @@
       <property role="20lbJX" value="fLJekj5/_0__n" />
       <ref role="20lvS9" node="6ze3kz3Aosn" resolve="ReversibleMacroArg" />
     </node>
+    <node concept="1TJgyi" id="2OeDS_53qQJ" role="1TKVEl">
+      <property role="IQ2nx" value="3246716589391588783" />
+      <property role="TrG5h" value="callsDestructiveMacro" />
+      <ref role="AX2Wp" to="tpck:fKAQMTB" resolve="boolean" />
+    </node>
   </node>
   <node concept="1TIwiD" id="6ze3kz3Aosn">
     <property role="EcuMT" value="7551988231317325591" />
@@ -1139,10 +1150,45 @@
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <property role="20kJfa" value="actual" />
       <property role="20lbJX" value="fLJekj4/_1" />
-      <ref role="20lvS9" node="7FQByU3CrCM" resolve="ReversibleExpression" />
+      <ref role="20lvS9" to="mj1l:7FQByU3CrCM" resolve="Expression" />
     </node>
     <node concept="PrWs8" id="6ze3kz4khRL" role="PzmwI">
       <ref role="PrY4T" node="5xEIMPngWHC" resolve="INeedSupportVariable" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="4Xtub2u6TDv">
+    <property role="EcuMT" value="5718859801792584287" />
+    <property role="TrG5h" value="GenericMemberRef" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
+    <node concept="PrWs8" id="4Xtub2u6TDy" role="PzmwI">
+      <ref role="PrY4T" node="40tXLnqhXcx" resolve="IGenericDotTarget" />
+    </node>
+    <node concept="1TJgyj" id="4Xtub2v5oBD" role="1TKVEi">
+      <property role="IQ2ns" value="5718859801808964073" />
+      <property role="20kJfa" value="member" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" to="clbe:56ytRgsLg$o" resolve="Member" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="4Xtub2vTiRD">
+    <property role="EcuMT" value="5718859801822572009" />
+    <property role="TrG5h" value="ArrayAccessExpression" />
+    <ref role="1TJDcQ" node="2APHWiztz8M" resolve="UnaryExpression" />
+    <node concept="PrWs8" id="4Xtub2vTiRG" role="PzmwI">
+      <ref role="PrY4T" node="7C830Ec4S3e" resolve="IStopReshuffling" />
+    </node>
+    <node concept="PrWs8" id="4Xtub2vTiRH" role="PzmwI">
+      <ref role="PrY4T" node="6mzZsELnskC" resolve="IBinaryLike" />
+    </node>
+    <node concept="PrWs8" id="4Xtub2vTiRI" role="PzmwI">
+      <ref role="PrY4T" to="mj1l:6AaN29SvfIb" resolve="ITextGenContext" />
+    </node>
+    <node concept="1TJgyj" id="4Xtub2vTiRJ" role="1TKVEi">
+      <property role="IQ2ns" value="5718859801822572015" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="indexExpr" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" node="7FQByU3CrCM" resolve="ReversibleExpression" />
     </node>
   </node>
 </model>

@@ -5,24 +5,43 @@ package ReversibleExpressions.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import java.util.List;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
+import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
+import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
+import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
+import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public final class ReversibleMacroCall__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1b427f2e49d1fe84L, "ReversibleExpressions.structure.ReversibleMacroCall");
 
+  public static final SMethod<Boolean> checkIfDestructiveMacroCalled_id2OeDS_5iwt8 = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("checkIfDestructiveMacroCalled").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(3246716589395543880L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList();
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(checkIfDestructiveMacroCalled_id2OeDS_5iwt8);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
+  /*package*/ static boolean checkIfDestructiveMacroCalled_id2OeDS_5iwt8(@NotNull SNode __thisNode__) {
+    {
+      final SNode innerReversibleMacroCall = SLinkOperations.getTarget(SLinkOperations.getTarget(__thisNode__, LINKS.macro$QKaR), LINKS.content$L7Vn);
+      if (SNodeOperations.isInstanceOf(innerReversibleMacroCall, CONCEPTS.ReversibleMacroCall$40)) {
+        return (boolean) ReversibleMacroCall__BehaviorDescriptor.checkIfDestructiveMacroCalled_id2OeDS_5iwt8.invoke(innerReversibleMacroCall);
+      }
+    }
+    return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SLinkOperations.getTarget(__thisNode__, LINKS.macro$QKaR), LINKS.content$L7Vn), CONCEPTS.IDestructiveOperation$SP);
+  }
 
   /*package*/ ReversibleMacroCall__BehaviorDescriptor() {
   }
@@ -39,6 +58,8 @@ public final class ReversibleMacroCall__BehaviorDescriptor extends BaseBHDescrip
       throw new BHMethodNotFoundException(this, method);
     }
     switch (methodIndex) {
+      case 0:
+        return (T) ((Boolean) checkIfDestructiveMacroCalled_id2OeDS_5iwt8(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -66,5 +87,15 @@ public final class ReversibleMacroCall__BehaviorDescriptor extends BaseBHDescrip
   @Override
   public SAbstractConcept getConcept() {
     return CONCEPT;
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink macro$QKaR = MetaAdapterFactory.getReferenceLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1b427f2e49d1fe84L, 0x1b427f2e49d1fe85L, "macro");
+    /*package*/ static final SContainmentLink content$L7Vn = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145008fL, 0x78202c09dd229062L, "content");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ReversibleMacroCall$40 = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1b427f2e49d1fe84L, "ReversibleExpressions.structure.ReversibleMacroCall");
+    /*package*/ static final SInterfaceConcept IDestructiveOperation$SP = MetaAdapterFactory.getInterfaceConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x27d0c8e745a2c78dL, "ReversibleExpressions.structure.IDestructiveOperation");
   }
 }

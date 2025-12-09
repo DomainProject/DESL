@@ -166,12 +166,12 @@ import org.jetbrains.mps.openapi.language.SConcept;
     return editorCell;
   }
   private EditorCell createRefCell_0() {
-    CellProviderWithRole provider = new RefCellCellProvider(myNode, LINKS.elem$IobX, CONCEPTS.LocalVariableDeclaration$ft, "elem", getEditorContext()) {
+    CellProviderWithRole provider = new RefCellCellProvider(myNode, LINKS.elem$IobX, CONCEPTS.LocalVariableDeclaration$7E, "elem", getEditorContext()) {
 
       @Override
       protected EditorCell createRefCell(EditorContext context, SNode effectiveNode, SNode node) {
         EditorCell cell = new Inline_Builder0(getEditorContext(), myNode, effectiveNode).createCell();
-        installDeleteActions_nullable_aggregation(cell);
+        installDeleteActions_notnull(cell);
         return cell;
       }
     };
@@ -447,7 +447,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
   }
 
   private static final class CONCEPTS {
-    /*package*/ static final SConcept LocalVariableDeclaration$ft = MetaAdapterFactory.getConcept(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad96e6L, "com.mbeddr.core.statements.structure.LocalVariableDeclaration");
+    /*package*/ static final SConcept LocalVariableDeclaration$7E = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad96e6L, "ReversibleStatements.structure.LocalVariableDeclaration");
     /*package*/ static final SConcept PropertyAttribute$Gb = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2eb1ad060897da56L, "jetbrains.mps.lang.core.structure.PropertyAttribute");
   }
 

@@ -10,6 +10,7 @@ import jetbrains.mps.smodel.runtime.ConceptPresentationBuilder;
 
 public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase {
   private ConceptPresentation props_AndExpression;
+  private ConceptPresentation props_ArrayAccessExpression;
   private ConceptPresentation props_AssignmentExpr;
   private ConceptPresentation props_BinaryArithmeticExpression;
   private ConceptPresentation props_BinaryComparisonExpression;
@@ -46,6 +47,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_ExpressionList;
   private ConceptPresentation props_FalseLiteral;
   private ConceptPresentation props_GenericDotExpression;
+  private ConceptPresentation props_GenericMemberRef;
   private ConceptPresentation props_GreaterEqualsExpression;
   private ConceptPresentation props_GreaterExpression;
   private ConceptPresentation props_HexNumberLiteral;
@@ -126,6 +128,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_AndExpression = cpb.create();
         }
         return props_AndExpression;
+      case LanguageConceptSwitch.ArrayAccessExpression:
+        if (props_ArrayAccessExpression == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("ArrayAccessExpression");
+          props_ArrayAccessExpression = cpb.create();
+        }
+        return props_ArrayAccessExpression;
       case LanguageConceptSwitch.AssignmentExpr:
         if (props_AssignmentExpr == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -398,6 +407,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_GenericDotExpression = cpb.create();
         }
         return props_GenericDotExpression;
+      case LanguageConceptSwitch.GenericMemberRef:
+        if (props_GenericMemberRef == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.presentationByReference(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4f5d78b09e1b9a5fL, 0x4f5d78b09f1589e9L, "member", "", "");
+          props_GenericMemberRef = cpb.create();
+        }
+        return props_GenericMemberRef;
       case LanguageConceptSwitch.GreaterEqualsExpression:
         if (props_GreaterEqualsExpression == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

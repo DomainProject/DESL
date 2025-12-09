@@ -4,15 +4,48 @@ package ReversibleExpressions.constraints;
 
 import jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptorInitContext;
+import jetbrains.mps.smodel.runtime.ConstraintFunction;
+import jetbrains.mps.smodel.runtime.ConstraintContext_CanBeChild;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+import jetbrains.mps.smodel.runtime.CheckingNodeContext;
+import org.jetbrains.mps.openapi.model.SNode;
+import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public class ReversibleExpression_Constraints extends BaseConstraintsDescriptor {
   /*package*/ ReversibleExpression_Constraints(ConstraintsDescriptorInitContext initContext) {
     super(CONCEPTS.ReversibleExpression$Zd, initContext);
+    setCanBeChildConstraint(new ConstraintFunction<ConstraintContext_CanBeChild, Boolean>() {
+      @NotNull
+      public Boolean invoke(@NotNull ConstraintContext_CanBeChild context, @Nullable CheckingNodeContext checkingNodeContext) {
+        boolean result = staticCanBeAChild(context.getNode(), context.getParentNode(), context.getConcept(), context.getLink());
+
+        if (!(result) && checkingNodeContext != null) {
+          checkingNodeContext.setBreakingNode(canBeChildBreakingPoint);
+        }
+
+        return result;
+      }
+    });
   }
+
+  private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
+    if (SNodeOperations.isInstanceOf(node, CONCEPTS.IDestructiveOperation$SP)) {
+      return !(SNodeOperations.isInstanceOf(parentNode, CONCEPTS.ReversibleMacroArg$Ip)) && (SNodeOperations.getNodeAncestor(node, CONCEPTS.ReversibleMacroArg$Ip, false, false) == null);
+    }
+    return true;
+  }
+  private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:e81df3c1-b167-4843-95a2-4c0dd8e517e2(ReversibleExpressions.constraints)", "5718859801827924867");
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept ReversibleExpression$Zd = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L, "ReversibleExpressions.structure.ReversibleExpression");
+    /*package*/ static final SConcept ReversibleMacroArg$Ip = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x68ce0d48c3998717L, "ReversibleExpressions.structure.ReversibleMacroArg");
+    /*package*/ static final SInterfaceConcept IDestructiveOperation$SP = MetaAdapterFactory.getInterfaceConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x27d0c8e745a2c78dL, "ReversibleExpressions.structure.IDestructiveOperation");
   }
 }

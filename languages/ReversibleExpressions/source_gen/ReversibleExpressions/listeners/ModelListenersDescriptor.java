@@ -30,25 +30,6 @@ public class ModelListenersDescriptor implements IModelListenersDescriptor {
   public Iterable<IModelListener> getListeners() {
     List<IModelListener> listeners = ListSequence.fromList(new ArrayList<IModelListener>());
 
-    ListSequence.fromList(listeners).addElement(new ChildListener(CONCEPTS.AssignmentExpr$aj, LINKS.left$KPKR) {
-      @Override
-      public void childAdded(final SNode instance, final SNode child) {
-        SNode type = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba36L, "com.mbeddr.core.expressions.structure.Type"));
-        {
-          final SNode lvr = child;
-          if (SNodeOperations.isInstanceOf(lvr, CONCEPTS.LocalVarRef$O3)) {
-            type = SNodeOperations.copyNode(SLinkOperations.getTarget(SLinkOperations.getTarget(lvr, LINKS.var$uDqP), LINKS.type$sXU3));
-          }
-        }
-        {
-          final SNode ar = child;
-          if (SNodeOperations.isInstanceOf(ar, CONCEPTS.ArgumentRef$Ar)) {
-            type = SNodeOperations.copyNode(SLinkOperations.getTarget(SLinkOperations.getTarget(ar, LINKS.arg$bO7D), LINKS.type$sXU3));
-          }
-        }
-
-      }
-    });
     ListSequence.fromList(listeners).addElement(new ChildListener(CONCEPTS.DirectModuloAssignmentExpression$5b, LINKS.left$KPKR) {
       @Override
       public void childAdded(final SNode instance, final SNode child) {
@@ -108,10 +89,9 @@ public class ModelListenersDescriptor implements IModelListenersDescriptor {
   }
 
   private static final class CONCEPTS {
-    /*package*/ static final SConcept AssignmentExpr$aj = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4e85add925440dL, "ReversibleExpressions.structure.AssignmentExpr");
+    /*package*/ static final SConcept DirectModuloAssignmentExpression$5b = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x63d2f6d2334415d3L, "ReversibleExpressions.structure.DirectModuloAssignmentExpression");
     /*package*/ static final SConcept LocalVarRef$O3 = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x1d0c3765e2e1d67aL, "ReversibleStatements.structure.LocalVarRef");
     /*package*/ static final SConcept ArgumentRef$Ar = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x586abb2d564e82ffL, "ReversibleStatements.structure.ArgumentRef");
-    /*package*/ static final SConcept DirectModuloAssignmentExpression$5b = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x63d2f6d2334415d3L, "ReversibleExpressions.structure.DirectModuloAssignmentExpression");
     /*package*/ static final SConcept BinaryExpression$b = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba34L, "ReversibleExpressions.structure.BinaryExpression");
     /*package*/ static final SInterfaceConcept IDestructiveOperation$SP = MetaAdapterFactory.getInterfaceConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x27d0c8e745a2c78dL, "ReversibleExpressions.structure.IDestructiveOperation");
     /*package*/ static final SInterfaceConcept IVariableReference$Kb = MetaAdapterFactory.getInterfaceConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1c69b376a2dab98aL, "ReversibleExpressions.structure.IVariableReference");

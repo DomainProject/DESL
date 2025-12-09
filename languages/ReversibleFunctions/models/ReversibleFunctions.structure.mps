@@ -163,12 +163,6 @@
       <property role="IQ2ns" value="8655966904682451042" />
       <ref role="20lvS9" to="ib4b:7FQByU3CrCM" resolve="ReversibleExpression" />
     </node>
-    <node concept="1TJgyj" id="21ygb7Z5Kiq" role="1TKVEi">
-      <property role="IQ2ns" value="2333498690164425882" />
-      <property role="20lmBu" value="fLJjDmT/aggregation" />
-      <property role="20kJfa" value="reversedMacro" />
-      <ref role="20lvS9" node="2XBKnohhg2f" resolve="ReversibleMacro" />
-    </node>
     <node concept="1TJgyi" id="1Iv4$fS2caM" role="1TKVEl">
       <property role="TrG5h" value="hasEllipsis" />
       <property role="IQ2nx" value="1990329643454481074" />

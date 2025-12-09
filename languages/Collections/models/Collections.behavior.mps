@@ -10,6 +10,8 @@
     <import index="c4fa" ref="r:9f0e84b6-2ec7-4f9e-83e0-feedc77b63a3(com.mbeddr.core.statements.structure)" />
     <import index="rj8d" ref="r:da9fd96f-5c71-45ab-b2da-1aa6232ec67f(com.mbeddr.core.statements.behavior)" />
     <import index="mj1t" ref="r:7c7377c1-dded-46c2-9c44-39493c999dbb(Collections.structure)" />
+    <import index="qyxp" ref="r:173369a3-8060-4aa4-8d21-7c6337526a39(ReversibleStatements.behavior)" implicit="true" />
+    <import index="kmi" ref="r:afa7ae5b-c41f-45e8-9678-2beae3621a33(ReversibleStatements.structure)" implicit="true" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
     <import index="mj1l" ref="r:c371cf98-dcc8-4a43-8eb8-8a8096de18b2(com.mbeddr.core.expressions.structure)" implicit="true" />
     <import index="clbe" ref="r:61d840b4-12c1-49ea-b142-b2a1550a9b15(com.mbeddr.core.udt.structure)" implicit="true" />
@@ -377,18 +379,18 @@
     <ref role="13h7C2" to="mj1t:7h503jfTyeG" resolve="IGetFirstElementInCollection" />
     <node concept="13i0hz" id="7h503jfTAFH" role="13h7CS">
       <property role="TrG5h" value="getContributedLocalVariables" />
-      <ref role="13i0hy" to="rj8d:3LB9aGm4C$b" resolve="getContributedLocalVariables" />
+      <ref role="13i0hy" to="qyxp:3LB9aGm4C$b" resolve="getContributedLocalVariables" />
       <node concept="3clFbS" id="7h503jfTAFI" role="3clF47">
         <node concept="3cpWs8" id="7h503jfTAFJ" role="3cqZAp">
           <node concept="3cpWsn" id="7h503jfTAFK" role="3cpWs9">
             <property role="TrG5h" value="declarations" />
             <node concept="2I9FWS" id="7h503jfTAFL" role="1tU5fm">
-              <ref role="2I9WkF" to="c4fa:3CmSUB7FprA" resolve="LocalVariableDeclaration" />
+              <ref role="2I9WkF" to="kmi:3CmSUB7FprA" resolve="LocalVariableDeclaration" />
             </node>
             <node concept="2ShNRf" id="7h503jfTAFM" role="33vP2m">
               <node concept="2T8Vx0" id="7h503jfTAFN" role="2ShVmc">
                 <node concept="2I9FWS" id="7h503jfTAFO" role="2T96Bj">
-                  <ref role="2I9WkF" to="c4fa:3CmSUB7FprA" resolve="LocalVariableDeclaration" />
+                  <ref role="2I9WkF" to="kmi:3CmSUB7FprA" resolve="LocalVariableDeclaration" />
                 </node>
               </node>
             </node>
@@ -415,20 +417,20 @@
           </node>
         </node>
       </node>
-      <node concept="37vLTG" id="7h503jfTAFY" role="3clF46">
+      <node concept="37vLTG" id="4Xtub2xbGC3" role="3clF46">
         <property role="TrG5h" value="node" />
-        <node concept="3Tqbb2" id="7h503jfTAFZ" role="1tU5fm" />
+        <node concept="3Tqbb2" id="4Xtub2xbGC4" role="1tU5fm" />
       </node>
-      <node concept="A3Dl8" id="7h503jfTAG0" role="3clF45">
-        <node concept="3Tqbb2" id="7h503jfTAG1" role="A3Ik2">
-          <ref role="ehGHo" to="c4fa:3CmSUB7FprA" resolve="LocalVariableDeclaration" />
+      <node concept="A3Dl8" id="4Xtub2xbGC5" role="3clF45">
+        <node concept="3Tqbb2" id="4Xtub2xbGC6" role="A3Ik2">
+          <ref role="ehGHo" to="kmi:3CmSUB7FprA" resolve="LocalVariableDeclaration" />
         </node>
       </node>
-      <node concept="3Tm1VV" id="7h503jfTAG2" role="1B3o_S" />
+      <node concept="3Tm1VV" id="4Xtub2xbGC7" role="1B3o_S" />
     </node>
     <node concept="13i0hz" id="7h503jfTBhu" role="13h7CS">
       <property role="TrG5h" value="isInclusionIndexDependent" />
-      <ref role="13i0hy" to="rj8d:2tBHhziHcNe" resolve="isInclusionIndexDependent" />
+      <ref role="13i0hy" to="qyxp:2tBHhziHcNe" resolve="isInclusionIndexDependent" />
       <node concept="3clFbS" id="7h503jfTBhv" role="3clF47">
         <node concept="3clFbF" id="7h503jfTBhw" role="3cqZAp">
           <node concept="3clFbT" id="7h503jfTBhx" role="3clFbG" />

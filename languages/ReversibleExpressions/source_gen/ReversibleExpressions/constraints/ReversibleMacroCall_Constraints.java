@@ -9,7 +9,8 @@ import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import ReversibleFunctions.behavior.ReversibleMacro__BehaviorDescriptor;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import ReversibleExpressions.behavior.ReversibleMacroCall__BehaviorDescriptor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -23,6 +24,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class ReversibleMacroCall_Constraints extends BaseConstraintsDescriptor {
   /*package*/ ReversibleMacroCall_Constraints(ConstraintsDescriptorInitContext initContext) {
@@ -41,10 +43,8 @@ public class ReversibleMacroCall_Constraints extends BaseConstraintsDescriptor {
     @Override
     public void onReferenceSet(final SNode referenceNode, final SNode oldReferentNode, final SNode newReferentNode) {
       SLinkOperations.setTarget(referenceNode, LINKS.macro$QKaR, newReferentNode);
-      if ((SLinkOperations.getTarget(newReferentNode, LINKS.reversedMacro$ecXU) == null)) {
-        if (!(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(newReferentNode, LINKS.content$L7Vn), CONCEPTS.IDestructiveOperation$SP))) {
-          ReversibleMacro__BehaviorDescriptor.createReverseMacro_id21ygb7YBdGf.invoke(newReferentNode);
-        }
+      if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(newReferentNode, LINKS.content$L7Vn), CONCEPTS.ReversibleMacroCall$40) && !(SNodeOperations.isInstanceOf(SNodeOperations.getParent(referenceNode), CONCEPTS.ReversibleMacro$EH))) {
+        SPropertyOperations.assign(referenceNode, PROPS.callsDestructiveMacro$eoF, (boolean) ReversibleMacroCall__BehaviorDescriptor.checkIfDestructiveMacroCalled_id2OeDS_5iwt8.invoke(SNodeOperations.cast(SLinkOperations.getTarget(newReferentNode, LINKS.content$L7Vn), CONCEPTS.ReversibleMacroCall$40)));
       }
     }
     @Nullable
@@ -65,14 +65,16 @@ public class ReversibleMacroCall_Constraints extends BaseConstraintsDescriptor {
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept ReversibleMacroCall$40 = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1b427f2e49d1fe84L, "ReversibleExpressions.structure.ReversibleMacroCall");
-    /*package*/ static final SInterfaceConcept IDestructiveOperation$SP = MetaAdapterFactory.getInterfaceConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x27d0c8e745a2c78dL, "ReversibleExpressions.structure.IDestructiveOperation");
-    /*package*/ static final SInterfaceConcept IVisibleElementProvider$$O = MetaAdapterFactory.getInterfaceConcept(0xd4280a54f6df4383L, 0xaa41d1b2bffa7eb1L, 0x6315bcc6eff580a3L, "com.mbeddr.core.base.structure.IVisibleElementProvider");
     /*package*/ static final SConcept ReversibleMacro$EH = MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145008fL, "ReversibleFunctions.structure.ReversibleMacro");
+    /*package*/ static final SInterfaceConcept IVisibleElementProvider$$O = MetaAdapterFactory.getInterfaceConcept(0xd4280a54f6df4383L, 0xaa41d1b2bffa7eb1L, 0x6315bcc6eff580a3L, "com.mbeddr.core.base.structure.IVisibleElementProvider");
   }
 
   private static final class LINKS {
     /*package*/ static final SReferenceLink macro$QKaR = MetaAdapterFactory.getReferenceLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1b427f2e49d1fe84L, 0x1b427f2e49d1fe85L, "macro");
     /*package*/ static final SContainmentLink content$L7Vn = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145008fL, 0x78202c09dd229062L, "content");
-    /*package*/ static final SContainmentLink reversedMacro$ecXU = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145008fL, 0x206240b1ff17049aL, "reversedMacro");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty callsDestructiveMacro$eoF = MetaAdapterFactory.getProperty(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1b427f2e49d1fe84L, 0x2d0ea789450dadafL, "callsDestructiveMacro");
   }
 }

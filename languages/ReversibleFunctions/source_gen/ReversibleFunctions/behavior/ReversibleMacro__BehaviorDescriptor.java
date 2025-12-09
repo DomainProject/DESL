@@ -18,7 +18,6 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import com.mbeddr.core.expressions.behavior.Expression__BehaviorDescriptor;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -38,11 +37,11 @@ public final class ReversibleMacro__BehaviorDescriptor extends BaseBHDescriptor 
   public static final SMethod<Boolean> resultIsLValue_id4b64BCc3TpW = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("resultIsLValue").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(4811553567289611900L).languageId(0xa63b80c6b9db7397L, 0x5eb14d5ab5f74626L).build2();
   public static final SMethod<Boolean> isSourceFileContent_id6rD2$2sc6_0 = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isSourceFileContent").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7415469534056835392L).languageId(0x8efc09336c1b0001L, 0x6d11763d483d4b2bL).build2();
   public static final SMethod<Boolean> isHeaderFileContent_id6rD2$2sc8kI = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isHeaderFileContent").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7415469534056842542L).languageId(0x8efc09336c1b0001L, 0x6d11763d483d4b2bL).build2();
-  public static final SMethod<Void> createReverseMacro_id21ygb7YBdGf = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("createReverseMacro").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2333498690156419855L).languageId(0xa63b80c6b9db7397L, 0x5eb14d5ab5f74626L).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getPresentation_idhEwIMiw, sortWeight_id6W5EUuUE5hm, exportable_id5HxjapwgqKI, isStaticallyEvaluatable_id6ydhAa2hH2s, evaluateStatically_id6ydhAa2hHmU, resultIsLValue_id4b64BCc3TpW, isSourceFileContent_id6rD2$2sc6_0, isHeaderFileContent_id6rD2$2sc8kI, createReverseMacro_id21ygb7YBdGf);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getPresentation_idhEwIMiw, sortWeight_id6W5EUuUE5hm, exportable_id5HxjapwgqKI, isStaticallyEvaluatable_id6ydhAa2hH2s, evaluateStatically_id6ydhAa2hHmU, resultIsLValue_id4b64BCc3TpW, isSourceFileContent_id6rD2$2sc6_0, isHeaderFileContent_id6rD2$2sc8kI);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
+    SPropertyOperations.assign(__thisNode__, PROPS.isForward$rJ$J, true);
   }
 
   /*package*/ static String getPresentation_idhEwIMiw(@NotNull SNode __thisNode__) {
@@ -77,13 +76,6 @@ public final class ReversibleMacro__BehaviorDescriptor extends BaseBHDescriptor 
   /*package*/ static boolean isHeaderFileContent_id6rD2$2sc8kI(@NotNull SNode __thisNode__) {
     return true;
   }
-  /*package*/ static void createReverseMacro_id21ygb7YBdGf(@NotNull SNode __thisNode__) {
-
-
-    SLinkOperations.setTarget(__thisNode__, LINKS.reversedMacro$ecXU, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145008fL, "ReversibleFunctions.structure.ReversibleMacro")));
-    SPropertyOperations.assign(SLinkOperations.getTarget(__thisNode__, LINKS.reversedMacro$ecXU), PROPS.name$MnvL, SPropertyOperations.getString(__thisNode__, PROPS.name$MnvL) + "_REVERSE");
-
-  }
 
   /*package*/ ReversibleMacro__BehaviorDescriptor() {
   }
@@ -114,9 +106,6 @@ public final class ReversibleMacro__BehaviorDescriptor extends BaseBHDescriptor 
         return (T) ((Boolean) isSourceFileContent_id6rD2$2sc6_0(node));
       case 7:
         return (T) ((Boolean) isHeaderFileContent_id6rD2$2sc8kI(node));
-      case 8:
-        createReverseMacro_id21ygb7YBdGf(node);
-        return null;
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -149,6 +138,7 @@ public final class ReversibleMacro__BehaviorDescriptor extends BaseBHDescriptor 
   }
 
   private static final class PROPS {
+    /*package*/ static final SProperty isForward$rJ$J = MetaAdapterFactory.getProperty(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111cL, 0x5e81f50da1382199L, "isForward");
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
     /*package*/ static final SProperty value$qZmE = MetaAdapterFactory.getProperty(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x1eb611a68febd3e5L, 0x1eb611a68fec38b0L, "value");
     /*package*/ static final SProperty resultIsLValue$6M7F = MetaAdapterFactory.getProperty(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145008fL, 0x42c6127a0bd2ce95L, "resultIsLValue");
@@ -157,7 +147,6 @@ public final class ReversibleMacro__BehaviorDescriptor extends BaseBHDescriptor 
   private static final class LINKS {
     /*package*/ static final SContainmentLink content$L7Vn = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145008fL, 0x78202c09dd229062L, "content");
     /*package*/ static final SReferenceLink arg$jQg5 = MetaAdapterFactory.getReferenceLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x656c7fdaacd43d75L, 0x656c7fdaacd43d76L, "arg");
-    /*package*/ static final SContainmentLink reversedMacro$ecXU = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145008fL, 0x206240b1ff17049aL, "reversedMacro");
   }
 
   private static final class CONCEPTS {

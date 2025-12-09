@@ -72,6 +72,14 @@ public class TypesystemDescriptor extends BaseHelginsDescriptor {
       this.myInferenceRules.add(inferenceRule);
     }
     {
+      InferenceRule_Runtime inferenceRule = new typeof_GenericDotExpression_InferenceRule();
+      this.myInferenceRules.add(inferenceRule);
+    }
+    {
+      InferenceRule_Runtime inferenceRule = new typeof_GenericMemberRef_InferenceRule();
+      this.myInferenceRules.add(inferenceRule);
+    }
+    {
       InferenceRule_Runtime inferenceRule = new typeof_HexNumberLiteral_InferenceRule();
       this.myInferenceRules.add(inferenceRule);
     }
@@ -118,6 +126,10 @@ public class TypesystemDescriptor extends BaseHelginsDescriptor {
     {
       InferenceRule_Runtime inferenceRule = new typeof_VaList_InferenceRule();
       this.myInferenceRules.add(inferenceRule);
+    }
+    {
+      NonTypesystemRule_Runtime nonTypesystemRule = new check_ArrayAccessExpression_NonTypesystemRule();
+      this.myNonTypesystemRules.add(nonTypesystemRule);
     }
     {
       NonTypesystemRule_Runtime nonTypesystemRule = new check_AssignmentExpr_NonTypesystemRule();

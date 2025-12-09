@@ -20,22 +20,26 @@ public class DataFlowAspectDescriptorImpl extends DataFlowAspectDescriptorBase {
     SAbstractConcept cncpt = ((SAbstractConcept) concept);
     switch (conceptIndex.index(cncpt)) {
       case 0:
-        return Collections.<IDataFlowBuilder>singletonList(new AssignmentExpr_DataFlow());
+        return Collections.<IDataFlowBuilder>singletonList(new ArrayAccessExpression_DataFlow());
       case 1:
-        return Collections.<IDataFlowBuilder>singletonList(new BinaryExpression_DataFlow());
+        return Collections.<IDataFlowBuilder>singletonList(new AssignmentExpr_DataFlow());
       case 2:
-        return Collections.<IDataFlowBuilder>singletonList(new CastExpression_DataFlow());
+        return Collections.<IDataFlowBuilder>singletonList(new BinaryExpression_DataFlow());
       case 3:
-        return Collections.<IDataFlowBuilder>singletonList(new DirectAssignmentExpression_DataFlow());
+        return Collections.<IDataFlowBuilder>singletonList(new CastExpression_DataFlow());
       case 4:
-        return Collections.<IDataFlowBuilder>singletonList(new ReversibleExpression_DataFlow());
+        return Collections.<IDataFlowBuilder>singletonList(new DirectAssignmentExpression_DataFlow());
       case 5:
-        return Collections.<IDataFlowBuilder>singletonList(new UnaryExpression_DataFlow());
+        return Collections.<IDataFlowBuilder>singletonList(new GenericDotExpression_DataFlow());
       case 6:
+        return Collections.<IDataFlowBuilder>singletonList(new ReversibleExpression_DataFlow());
+      case 7:
+        return Collections.<IDataFlowBuilder>singletonList(new UnaryExpression_DataFlow());
+      case 8:
         return Collections.<IDataFlowBuilder>singletonList(new UnaryPrePosModificationExpression_DataFlow());
       default:
     }
     return Collections.<IDataFlowBuilder>emptyList();
   }
-  private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4e85add925440dL), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba34L), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x5bbe8a6d239d0b54L), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x350656a10cd18bcaL), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x29b5b7c4a3763232L), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x632cdd5acfb8529eL)).seal();
+  private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4f5d78b09fe52de9L), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4e85add925440dL), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba34L), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x5bbe8a6d239d0b54L), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x350656a10cd18bcaL), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x401df715da462c0cL), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x29b5b7c4a3763232L), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x632cdd5acfb8529eL)).seal();
 }

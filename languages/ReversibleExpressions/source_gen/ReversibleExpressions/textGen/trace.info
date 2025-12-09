@@ -13,13 +13,13 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1081236700938:jetbrains.mps.baseLanguage.structure.StaticMethodDeclaration" />
   <root>
     <file name="TextGenAspectDescriptor.java">
-      <unit at="12,0,73,0" name="ReversibleExpressions.textGen.TextGenAspectDescriptor" />
+      <unit at="12,0,79,0" name="ReversibleExpressions.textGen.TextGenAspectDescriptor" />
     </file>
   </root>
   <root nodeRef="r:1728a413-dfd1-4055-875b-8ce79b2ab312(ReversibleExpressions.textGen)/1052812498356315738">
     <file name="TextGenAspectDescriptor.java">
-      <node id="1052812498356315738" at="66,49,67,45" concept="6" />
-      <scope id="1052812498356315738" at="66,49,67,45" />
+      <node id="1052812498356315738" at="72,49,73,45" concept="6" />
+      <scope id="1052812498356315738" at="72,49,73,45" />
     </file>
     <file name="VaArgExpression_TextGen.java">
       <node id="1052812498356315738" at="17,54,18,55" concept="5" />
@@ -71,8 +71,8 @@
       <unit id="1054289341113476318" at="15,0,36,0" name="ReversibleExpressions.textGen.HexNumberLiteral_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="1054289341113476318" at="36,50,37,46" concept="6" />
-      <scope id="1054289341113476318" at="36,50,37,46" />
+      <node id="1054289341113476318" at="42,50,43,46" concept="6" />
+      <scope id="1054289341113476318" at="42,50,43,46" />
     </file>
   </root>
   <root nodeRef="r:1728a413-dfd1-4055-875b-8ce79b2ab312(ReversibleExpressions.textGen)/1054289341113496616">
@@ -102,8 +102,8 @@
       <unit id="1054289341113496616" at="15,0,38,0" name="ReversibleExpressions.textGen.BinaryNumberLiteral_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="1054289341113496616" at="24,53,25,49" concept="6" />
-      <scope id="1054289341113496616" at="24,53,25,49" />
+      <node id="1054289341113496616" at="26,53,27,49" concept="6" />
+      <scope id="1054289341113496616" at="26,53,27,49" />
     </file>
   </root>
   <root nodeRef="r:1728a413-dfd1-4055-875b-8ce79b2ab312(ReversibleExpressions.textGen)/1670233242591046348">
@@ -126,138 +126,141 @@
       <unit id="1670233242591046348" at="14,0,29,0" name="ReversibleExpressions.textGen.ScientificNumber_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="1670233242591046348" at="60,50,61,46" concept="6" />
-      <scope id="1670233242591046348" at="60,50,61,46" />
+      <node id="1670233242591046348" at="66,50,67,46" concept="6" />
+      <scope id="1670233242591046348" at="66,50,67,46" />
     </file>
   </root>
   <root nodeRef="r:1728a413-dfd1-4055-875b-8ce79b2ab312(ReversibleExpressions.textGen)/1964272224270702791">
     <file name="ReversibleMacroCall_TextGen.java">
-      <node id="1964272224270702791" at="26,54,27,55" concept="5" />
-      <node id="1964272224270702791" at="27,55,28,29" concept="1" />
-      <node id="2333498690167865691" at="28,29,29,0" concept="8" />
-      <node id="2333498690167889021" at="31,191,32,45" concept="7" />
-      <node id="2333498690167930462" at="32,45,33,50" concept="5" />
-      <node id="7551988231317312518" at="33,50,34,0" concept="8" />
-      <node id="7551988231317314080" at="34,0,35,66" concept="7" />
-      <node id="7551988231317249513" at="37,11,38,85" concept="5" />
-      <node id="7551988231317225605" at="39,87,40,135" concept="1" />
-      <node id="7551988231317283229" at="40,135,41,30" concept="1" />
-      <node id="7551988231317283325" at="41,30,42,135" concept="1" />
-      <node id="7551988231317298455" at="42,135,43,32" concept="1" />
-      <node id="7551988231317299314" at="43,32,44,110" concept="1" />
-      <node id="7551988231317299516" at="44,110,45,30" concept="1" />
-      <node id="7551988231317299693" at="45,30,46,28" concept="1" />
-      <node id="2333498690175497296" at="46,28,47,27" concept="1" />
-      <node id="2333498690167890029" at="51,7,52,133" concept="1" />
-      <node id="2333498690167890035" at="52,133,53,22" concept="1" />
-      <node id="2333498690167890037" at="54,7,55,108" concept="5" />
-      <node id="2333498690167890037" at="55,108,56,72" concept="5" />
-      <node id="2333498690167890037" at="57,39,58,31" concept="1" />
-      <node id="2333498690167890037" at="59,33,60,28" concept="1" />
-      <node id="2333498690167890042" at="63,7,64,22" concept="1" />
-      <node id="2333498690167891837" at="66,191,67,24" concept="7" />
-      <node id="7551988231317379029" at="69,11,70,85" concept="5" />
-      <node id="7551988231317379032" at="71,87,72,110" concept="1" />
-      <node id="7551988231317379036" at="72,110,73,43" concept="1" />
-      <node id="7551988231317379037" at="73,43,74,135" concept="1" />
-      <node id="7551988231317379046" at="74,135,75,30" concept="1" />
-      <node id="7551988231317379047" at="75,30,76,28" concept="1" />
-      <node id="7551988231317379048" at="76,28,77,27" concept="1" />
-      <node id="2333498690167891852" at="81,14,82,23" concept="7" />
-      <node id="2333498690167891857" at="82,23,83,135" concept="1" />
-      <node id="2333498690167891863" at="83,135,84,32" concept="1" />
-      <node id="2333498690167891865" at="85,9,86,110" concept="5" />
-      <node id="2333498690167891865" at="86,110,87,74" concept="5" />
-      <node id="2333498690167891865" at="88,41,89,33" concept="1" />
-      <node id="2333498690167891865" at="90,35,91,30" concept="1" />
-      <node id="2333498690167891870" at="94,9,95,24" concept="1" />
-      <node id="1964272224270702791" at="98,30,99,181" concept="1" />
-      <node id="1964272224270702791" at="104,0,105,0" concept="9" trace="actual$n_Ao" />
-      <node id="1964272224270702791" at="105,0,106,0" concept="9" trace="supportVariable$WrxR" />
-      <node id="1964272224270702791" at="106,0,107,0" concept="9" trace="type$sXU3" />
-      <node id="1964272224270702791" at="107,0,108,0" concept="9" trace="actuals$QKpS" />
-      <node id="1964272224270702791" at="108,0,109,0" concept="9" trace="macro$QKaR" />
-      <node id="1964272224270702791" at="109,0,110,0" concept="9" trace="content$L7Vn" />
-      <node id="1964272224270702791" at="113,0,114,0" concept="9" trace="IVariableReference$Kb" />
-      <node id="1964272224270702791" at="114,0,115,0" concept="9" trace="IDestructiveOperation$SP" />
-      <node id="1964272224270702791" at="115,0,116,0" concept="9" trace="TraceableConcept$L" />
-      <node id="1964272224270702791" at="119,0,120,0" concept="9" trace="name$MnvL" />
-      <node id="1964272224270702791" at="120,0,121,0" concept="9" trace="isForward$pAg5" />
-      <node id="2333498690167890037" at="58,31,61,11" concept="3" />
-      <node id="2333498690167891865" at="89,33,92,13" concept="3" />
-      <node id="1964272224270702791" at="97,5,100,5" concept="3" />
-      <node id="2333498690167890037" at="56,72,62,9" concept="2" />
-      <node id="2333498690167891865" at="87,74,93,11" concept="2" />
-      <node id="7551988231317379029" at="70,85,78,13" concept="3" />
-      <node id="7551988231317249513" at="38,85,48,13" concept="3" />
-      <node id="2333498690167890037" at="53,22,63,7" concept="0" />
-      <node id="2333498690167891865" at="84,32,94,9" concept="0" />
-      <node id="7551988231317379029" at="68,123,79,11" concept="0" />
-      <node id="7551988231317249513" at="36,123,49,11" concept="0" />
-      <node id="7551988231317379023" at="67,24,80,9" concept="2" />
-      <node id="2333498690167892989" at="35,66,50,9" concept="2" />
-      <node id="2333498690167891850" at="81,12,96,7" concept="0" />
-      <node id="2333498690167871163" at="30,86,51,7" concept="3" />
-      <node id="2333498690167891835" at="65,12,96,7" concept="3" />
-      <node id="2333498690167871078" at="65,10,97,5" concept="0" />
-      <node id="2333498690167866226" at="29,0,97,5" concept="3" />
-      <node id="1964272224270702791" at="25,0,102,0" concept="4" trace="generateText#(Ljetbrains/mps/text/rt/TextGenContext;)V" />
-      <scope id="2333498690167890037" at="59,33,60,28" />
-      <scope id="2333498690167891865" at="90,35,91,30" />
-      <scope id="1964272224270702791" at="98,30,99,181" />
-      <scope id="2333498690167890037" at="57,39,61,11" />
-      <scope id="2333498690167891865" at="88,41,92,13" />
-      <scope id="2333498690167890037" at="56,72,62,9">
+      <node id="1964272224270702791" at="27,54,28,55" concept="5" />
+      <node id="1964272224270702791" at="28,55,29,29" concept="1" />
+      <node id="2333498690167865691" at="29,29,30,0" concept="8" />
+      <node id="2333498690167889021" at="32,397,33,45" concept="7" />
+      <node id="2333498690167930462" at="33,45,34,50" concept="5" />
+      <node id="7551988231317312518" at="34,50,35,0" concept="8" />
+      <node id="7551988231317314080" at="35,0,36,66" concept="7" />
+      <node id="7551988231317249513" at="38,11,39,85" concept="5" />
+      <node id="7551988231317225605" at="40,87,41,135" concept="1" />
+      <node id="7551988231317283229" at="41,135,42,30" concept="1" />
+      <node id="7551988231317283325" at="42,30,43,135" concept="1" />
+      <node id="7551988231317298455" at="43,135,44,32" concept="1" />
+      <node id="7551988231317299314" at="44,32,45,110" concept="1" />
+      <node id="7551988231317299516" at="45,110,46,30" concept="1" />
+      <node id="7551988231317299693" at="46,30,47,28" concept="1" />
+      <node id="2333498690175497296" at="47,28,48,27" concept="1" />
+      <node id="2333498690167890029" at="52,7,53,133" concept="1" />
+      <node id="2333498690167890035" at="53,133,54,22" concept="1" />
+      <node id="2333498690167890037" at="55,7,56,108" concept="5" />
+      <node id="2333498690167890037" at="56,108,57,72" concept="5" />
+      <node id="2333498690167890037" at="58,39,59,31" concept="1" />
+      <node id="2333498690167890037" at="60,33,61,28" concept="1" />
+      <node id="2333498690167890042" at="64,7,65,22" concept="1" />
+      <node id="2333498690167891837" at="67,397,68,24" concept="7" />
+      <node id="7551988231317379029" at="70,11,71,85" concept="5" />
+      <node id="7551988231317379032" at="72,87,73,110" concept="1" />
+      <node id="7551988231317379036" at="73,110,74,43" concept="1" />
+      <node id="7551988231317379037" at="74,43,75,135" concept="1" />
+      <node id="3246716589381249181" at="78,164,79,30" concept="1" />
+      <node id="3246716589381249303" at="79,30,80,25" concept="1" />
+      <node id="2333498690167891852" at="83,14,84,23" concept="7" />
+      <node id="2333498690167891857" at="84,23,85,135" concept="1" />
+      <node id="2333498690167891863" at="85,135,86,32" concept="1" />
+      <node id="2333498690167891865" at="87,9,88,110" concept="5" />
+      <node id="2333498690167891865" at="88,110,89,74" concept="5" />
+      <node id="2333498690167891865" at="90,41,91,33" concept="1" />
+      <node id="2333498690167891865" at="92,35,93,30" concept="1" />
+      <node id="2333498690167891870" at="96,9,97,24" concept="1" />
+      <node id="1964272224270702791" at="100,30,101,181" concept="1" />
+      <node id="1964272224270702791" at="106,0,107,0" concept="9" trace="actual$n_Ao" />
+      <node id="1964272224270702791" at="107,0,108,0" concept="9" trace="supportVariable$WrxR" />
+      <node id="1964272224270702791" at="108,0,109,0" concept="9" trace="type$sXU3" />
+      <node id="1964272224270702791" at="109,0,110,0" concept="9" trace="actuals$QKpS" />
+      <node id="1964272224270702791" at="110,0,111,0" concept="9" trace="macro$QKaR" />
+      <node id="1964272224270702791" at="111,0,112,0" concept="9" trace="content$L7Vn" />
+      <node id="1964272224270702791" at="115,0,116,0" concept="9" trace="IVariableReference$Kb" />
+      <node id="1964272224270702791" at="116,0,117,0" concept="9" trace="ReversibleMacro$EH" />
+      <node id="1964272224270702791" at="117,0,118,0" concept="9" trace="IDestructiveOperation$SP" />
+      <node id="1964272224270702791" at="118,0,119,0" concept="9" trace="TraceableConcept$L" />
+      <node id="1964272224270702791" at="122,0,123,0" concept="9" trace="name$MnvL" />
+      <node id="1964272224270702791" at="123,0,124,0" concept="9" trace="callsDestructiveMacro$eoF" />
+      <node id="1964272224270702791" at="124,0,125,0" concept="9" trace="isForward$pAg5" />
+      <node id="2333498690167890037" at="59,31,62,11" concept="3" />
+      <node id="2333498690167891865" at="91,33,94,13" concept="3" />
+      <node id="1964272224270702791" at="99,5,102,5" concept="3" />
+      <node id="3246716589381147664" at="77,11,81,11" concept="3" />
+      <node id="7551988231317379029" at="71,85,76,13" concept="3" />
+      <node id="2333498690167890037" at="57,72,63,9" concept="2" />
+      <node id="2333498690167891865" at="89,74,95,11" concept="2" />
+      <node id="7551988231317379029" at="69,123,77,11" concept="0" />
+      <node id="7551988231317249513" at="39,85,49,13" concept="3" />
+      <node id="2333498690167890037" at="54,22,64,7" concept="0" />
+      <node id="2333498690167891865" at="86,32,96,9" concept="0" />
+      <node id="7551988231317249513" at="37,123,50,11" concept="0" />
+      <node id="7551988231317379023" at="68,24,82,9" concept="2" />
+      <node id="2333498690167892989" at="36,66,51,9" concept="2" />
+      <node id="2333498690167891850" at="83,12,98,7" concept="0" />
+      <node id="2333498690167871163" at="31,86,52,7" concept="3" />
+      <node id="2333498690167891835" at="66,12,98,7" concept="3" />
+      <node id="2333498690167871078" at="66,10,99,5" concept="0" />
+      <node id="2333498690167866226" at="30,0,99,5" concept="3" />
+      <node id="1964272224270702791" at="26,0,104,0" concept="4" trace="generateText#(Ljetbrains/mps/text/rt/TextGenContext;)V" />
+      <scope id="2333498690167890037" at="60,33,61,28" />
+      <scope id="2333498690167891865" at="92,35,93,30" />
+      <scope id="1964272224270702791" at="100,30,101,181" />
+      <scope id="3246716589381147666" at="78,164,80,25" />
+      <scope id="7551988231317379030" at="72,87,75,135" />
+      <scope id="2333498690167890037" at="58,39,62,11" />
+      <scope id="2333498690167891865" at="90,41,94,13" />
+      <scope id="2333498690167890037" at="57,72,63,9">
         <var name="item" id="2333498690167890037" />
       </scope>
-      <scope id="7551988231317379030" at="71,87,77,27" />
-      <scope id="2333498690167891865" at="87,74,93,11">
+      <scope id="7551988231317379029" at="70,11,76,13">
+        <var name="varRef" id="7551988231317379029" />
+      </scope>
+      <scope id="2333498690167891865" at="89,74,95,11">
         <var name="item" id="2333498690167891865" />
       </scope>
-      <scope id="7551988231317249517" at="39,87,47,27" />
-      <scope id="2333498690167890037" at="54,7,62,9">
+      <scope id="7551988231317249517" at="40,87,48,27" />
+      <scope id="2333498690167890037" at="55,7,63,9">
         <var name="collection" id="2333498690167890037" />
         <var name="lastItem" id="2333498690167890037" />
       </scope>
-      <scope id="2333498690167891865" at="85,9,93,11">
+      <scope id="2333498690167891865" at="87,9,95,11">
         <var name="collection" id="2333498690167891865" />
         <var name="lastItem" id="2333498690167891865" />
       </scope>
-      <scope id="7551988231317379029" at="69,11,78,13">
-        <var name="varRef" id="7551988231317379029" />
-      </scope>
-      <scope id="7551988231317249513" at="37,11,48,13">
+      <scope id="7551988231317249513" at="38,11,49,13">
         <var name="varRef" id="7551988231317249513" />
       </scope>
-      <scope id="7551988231317379028" at="68,123,79,11" />
-      <scope id="2333498690167892995" at="36,123,49,11" />
-      <scope id="7551988231317379023" at="67,24,80,9">
+      <scope id="7551988231317379028" at="69,123,81,11" />
+      <scope id="2333498690167892995" at="37,123,50,11" />
+      <scope id="7551988231317379023" at="68,24,82,9">
         <var name="param" id="7551988231317379024" />
       </scope>
-      <scope id="2333498690167891836" at="66,191,80,9" />
-      <scope id="2333498690167891851" at="81,14,95,24" />
-      <scope id="2333498690167892989" at="35,66,50,9">
+      <scope id="2333498690167891851" at="83,14,97,24" />
+      <scope id="2333498690167892989" at="36,66,51,9">
         <var name="param" id="2333498690167892991" />
       </scope>
-      <scope id="2333498690167871165" at="31,191,50,9">
+      <scope id="2333498690167891836" at="67,397,82,9" />
+      <scope id="2333498690167871165" at="32,397,51,9">
         <var name="lvds" id="2333498690167930465" />
       </scope>
-      <scope id="2333498690167871079" at="65,12,96,7" />
-      <scope id="2333498690167866228" at="30,86,64,22" />
-      <scope id="1964272224270702791" at="26,54,100,5">
+      <scope id="2333498690167871079" at="66,12,98,7" />
+      <scope id="2333498690167866228" at="31,86,65,22" />
+      <scope id="1964272224270702791" at="27,54,102,5">
         <var name="tgs" id="1964272224270702791" />
       </scope>
-      <scope id="1964272224270702791" at="25,0,102,0">
+      <scope id="1964272224270702791" at="26,0,104,0">
         <var name="ctx" id="1964272224270702791" />
       </scope>
-      <unit id="1964272224270702791" at="118,0,122,0" name="ReversibleExpressions.textGen.ReversibleMacroCall_TextGen$PROPS" />
-      <unit id="1964272224270702791" at="112,0,117,0" name="ReversibleExpressions.textGen.ReversibleMacroCall_TextGen$CONCEPTS" />
-      <unit id="1964272224270702791" at="103,0,111,0" name="ReversibleExpressions.textGen.ReversibleMacroCall_TextGen$LINKS" />
-      <unit id="1964272224270702791" at="24,0,123,0" name="ReversibleExpressions.textGen.ReversibleMacroCall_TextGen" />
+      <unit id="1964272224270702791" at="121,0,126,0" name="ReversibleExpressions.textGen.ReversibleMacroCall_TextGen$PROPS" />
+      <unit id="1964272224270702791" at="114,0,120,0" name="ReversibleExpressions.textGen.ReversibleMacroCall_TextGen$CONCEPTS" />
+      <unit id="1964272224270702791" at="105,0,113,0" name="ReversibleExpressions.textGen.ReversibleMacroCall_TextGen$LINKS" />
+      <unit id="1964272224270702791" at="25,0,127,0" name="ReversibleExpressions.textGen.ReversibleMacroCall_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="1964272224270702791" at="58,53,59,49" concept="6" />
-      <scope id="1964272224270702791" at="58,53,59,49" />
+      <node id="1964272224270702791" at="64,53,65,49" concept="6" />
+      <scope id="1964272224270702791" at="64,53,65,49" />
     </file>
   </root>
   <root nodeRef="r:1728a413-dfd1-4055-875b-8ce79b2ab312(ReversibleExpressions.textGen)/2479209227960236252">
@@ -373,8 +376,8 @@
       <unit id="3345835282713166804" at="20,0,56,0" name="ReversibleExpressions.textGen.ReversibleFunctionCall_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="3345835282713166804" at="54,56,55,52" concept="6" />
-      <scope id="3345835282713166804" at="54,56,55,52" />
+      <node id="3345835282713166804" at="60,56,61,52" concept="6" />
+      <scope id="3345835282713166804" at="60,56,61,52" />
     </file>
   </root>
   <root nodeRef="r:1728a413-dfd1-4055-875b-8ce79b2ab312(ReversibleExpressions.textGen)/3619430544831791358">
@@ -414,8 +417,8 @@
       <unit id="3619430544831791358" at="17,0,45,0" name="ReversibleExpressions.textGen.ExpressionList_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="3619430544831791358" at="32,48,33,44" concept="6" />
-      <scope id="3619430544831791358" at="32,48,33,44" />
+      <node id="3619430544831791358" at="34,48,35,44" concept="6" />
+      <scope id="3619430544831791358" at="34,48,35,44" />
     </file>
   </root>
   <root nodeRef="r:1728a413-dfd1-4055-875b-8ce79b2ab312(ReversibleExpressions.textGen)/3830958861296867466">
@@ -441,8 +444,8 @@
       <unit id="3830958861296867466" at="15,0,35,0" name="ReversibleExpressions.textGen.NotExpression_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="3830958861296867466" at="38,47,39,43" concept="6" />
-      <scope id="3830958861296867466" at="38,47,39,43" />
+      <node id="3830958861296867466" at="44,47,45,43" concept="6" />
+      <scope id="3830958861296867466" at="44,47,45,43" />
     </file>
   </root>
   <root nodeRef="r:1728a413-dfd1-4055-875b-8ce79b2ab312(ReversibleExpressions.textGen)/3976803464656225007">
@@ -476,8 +479,8 @@
       <unit id="3976803464656225007" at="17,0,46,0" name="ReversibleExpressions.textGen.PostIncrementExpression_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="3976803464656225007" at="48,57,49,53" concept="6" />
-      <scope id="3976803464656225007" at="48,57,49,53" />
+      <node id="3976803464656225007" at="54,57,55,53" concept="6" />
+      <scope id="3976803464656225007" at="54,57,55,53" />
     </file>
   </root>
   <root nodeRef="r:1728a413-dfd1-4055-875b-8ce79b2ab312(ReversibleExpressions.textGen)/3976803464656225016">
@@ -511,8 +514,8 @@
       <unit id="3976803464656225016" at="17,0,46,0" name="ReversibleExpressions.textGen.PreIncrementExpression_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="3976803464656225016" at="52,56,53,52" concept="6" />
-      <scope id="3976803464656225016" at="52,56,53,52" />
+      <node id="3976803464656225016" at="58,56,59,52" concept="6" />
+      <scope id="3976803464656225016" at="58,56,59,52" />
     </file>
   </root>
   <root nodeRef="r:1728a413-dfd1-4055-875b-8ce79b2ab312(ReversibleExpressions.textGen)/3976803464656498445">
@@ -546,8 +549,8 @@
       <unit id="3976803464656498445" at="17,0,46,0" name="ReversibleExpressions.textGen.PreDecrementExpression_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="3976803464656498445" at="50,56,51,52" concept="6" />
-      <scope id="3976803464656498445" at="50,56,51,52" />
+      <node id="3976803464656498445" at="56,56,57,52" concept="6" />
+      <scope id="3976803464656498445" at="56,56,57,52" />
     </file>
   </root>
   <root nodeRef="r:1728a413-dfd1-4055-875b-8ce79b2ab312(ReversibleExpressions.textGen)/3976803464656498468">
@@ -581,14 +584,14 @@
       <unit id="3976803464656498468" at="17,0,46,0" name="ReversibleExpressions.textGen.PostDecrementExpression_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="3976803464656498468" at="46,57,47,53" concept="6" />
-      <scope id="3976803464656498468" at="46,57,47,53" />
+      <node id="3976803464656498468" at="52,57,53,53" concept="6" />
+      <scope id="3976803464656498468" at="52,57,53,53" />
     </file>
   </root>
   <root nodeRef="r:1728a413-dfd1-4055-875b-8ce79b2ab312(ReversibleExpressions.textGen)/3976803464656531180">
     <file name="TextGenAspectDescriptor.java">
-      <node id="3976803464656531180" at="64,54,65,50" concept="6" />
-      <scope id="3976803464656531180" at="64,54,65,50" />
+      <node id="3976803464656531180" at="70,54,71,50" concept="6" />
+      <scope id="3976803464656531180" at="70,54,71,50" />
     </file>
     <file name="UnaryMinusExpression_TextGen.java">
       <node id="3976803464656531180" at="17,54,18,55" concept="5" />
@@ -635,8 +638,8 @@
       <unit id="3976803464656556888" at="15,0,35,0" name="ReversibleExpressions.textGen.BitwiseNotExpression_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="3976803464656556888" at="26,54,27,50" concept="6" />
-      <scope id="3976803464656556888" at="26,54,27,50" />
+      <node id="3976803464656556888" at="28,54,29,50" concept="6" />
+      <scope id="3976803464656556888" at="28,54,29,50" />
     </file>
   </root>
   <root nodeRef="r:1728a413-dfd1-4055-875b-8ce79b2ab312(ReversibleExpressions.textGen)/4296381507831566166">
@@ -663,8 +666,89 @@
       <unit id="4296381507831566166" at="15,0,36,0" name="ReversibleExpressions.textGen.CharLiteral_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="4296381507831566166" at="30,45,31,41" concept="6" />
-      <scope id="4296381507831566166" at="30,45,31,41" />
+      <node id="4296381507831566166" at="32,45,33,41" concept="6" />
+      <scope id="4296381507831566166" at="32,45,33,41" />
+    </file>
+  </root>
+  <root nodeRef="r:1728a413-dfd1-4055-875b-8ce79b2ab312(ReversibleExpressions.textGen)/5718859801792571762">
+    <file name="GenericDotExpression_TextGen.java">
+      <node id="5718859801792571762" at="18,54,19,55" concept="5" />
+      <node id="5718859801792571762" at="19,55,20,29" concept="1" />
+      <node id="2790345531545650778" at="20,29,21,92" concept="1" />
+      <node id="2790345531545662677" at="21,92,22,119" concept="1" />
+      <node id="2790345531545688416" at="22,119,23,88" concept="1" />
+      <node id="5718859801792571762" at="24,30,25,181" concept="1" />
+      <node id="5718859801792571762" at="30,0,31,0" concept="9" trace="expression$HKAI" />
+      <node id="5718859801792571762" at="31,0,32,0" concept="9" trace="target$xbCZ" />
+      <node id="5718859801792571762" at="35,0,36,0" concept="9" trace="TraceableConcept$L" />
+      <node id="5718859801792571762" at="23,88,26,5" concept="3" />
+      <node id="5718859801792571762" at="17,0,28,0" concept="4" trace="generateText#(Ljetbrains/mps/text/rt/TextGenContext;)V" />
+      <scope id="5718859801792571762" at="24,30,25,181" />
+      <scope id="5718859801792571762" at="18,54,26,5">
+        <var name="tgs" id="5718859801792571762" />
+      </scope>
+      <scope id="5718859801792571762" at="17,0,28,0">
+        <var name="ctx" id="5718859801792571762" />
+      </scope>
+      <unit id="5718859801792571762" at="34,0,37,0" name="ReversibleExpressions.textGen.GenericDotExpression_TextGen$CONCEPTS" />
+      <unit id="5718859801792571762" at="29,0,33,0" name="ReversibleExpressions.textGen.GenericDotExpression_TextGen$LINKS" />
+      <unit id="5718859801792571762" at="16,0,38,0" name="ReversibleExpressions.textGen.GenericDotExpression_TextGen" />
+    </file>
+    <file name="TextGenAspectDescriptor.java">
+      <node id="5718859801792571762" at="38,54,39,50" concept="6" />
+      <scope id="5718859801792571762" at="38,54,39,50" />
+    </file>
+  </root>
+  <root nodeRef="r:1728a413-dfd1-4055-875b-8ce79b2ab312(ReversibleExpressions.textGen)/5718859801808988721">
+    <file name="GenericMemberRef_TextGen.java">
+      <node id="5718859801808988721" at="16,54,17,55" concept="5" />
+      <node id="7137207111825025770" at="17,55,18,132" concept="1" />
+      <node id="5718859801808988721" at="22,0,23,0" concept="9" trace="member$gCRV" />
+      <node id="5718859801808988721" at="26,0,27,0" concept="9" trace="name$MnvL" />
+      <node id="5718859801808988721" at="15,0,20,0" concept="4" trace="generateText#(Ljetbrains/mps/text/rt/TextGenContext;)V" />
+      <scope id="5718859801808988721" at="16,54,18,132">
+        <var name="tgs" id="5718859801808988721" />
+      </scope>
+      <scope id="5718859801808988721" at="15,0,20,0">
+        <var name="ctx" id="5718859801808988721" />
+      </scope>
+      <unit id="5718859801808988721" at="21,0,24,0" name="ReversibleExpressions.textGen.GenericMemberRef_TextGen$LINKS" />
+      <unit id="5718859801808988721" at="25,0,28,0" name="ReversibleExpressions.textGen.GenericMemberRef_TextGen$PROPS" />
+      <unit id="5718859801808988721" at="14,0,29,0" name="ReversibleExpressions.textGen.GenericMemberRef_TextGen" />
+    </file>
+    <file name="TextGenAspectDescriptor.java">
+      <node id="5718859801808988721" at="40,50,41,46" concept="6" />
+      <scope id="5718859801808988721" at="40,50,41,46" />
+    </file>
+  </root>
+  <root nodeRef="r:1728a413-dfd1-4055-875b-8ce79b2ab312(ReversibleExpressions.textGen)/5718859801822717240">
+    <file name="ArrayAccessExpression_TextGen.java">
+      <node id="5718859801822717240" at="17,54,18,55" concept="5" />
+      <node id="5718859801822717240" at="18,55,19,29" concept="1" />
+      <node id="5728674636024853428" at="19,29,20,92" concept="1" />
+      <node id="5728674636024913635" at="20,92,21,20" concept="1" />
+      <node id="5728674636024913637" at="21,20,22,91" concept="1" />
+      <node id="5728674636024913646" at="22,91,23,20" concept="1" />
+      <node id="5718859801822717240" at="24,30,25,181" concept="1" />
+      <node id="5718859801822717240" at="30,0,31,0" concept="9" trace="expression$HKAI" />
+      <node id="5718859801822717240" at="31,0,32,0" concept="9" trace="indexExpr$M5fL" />
+      <node id="5718859801822717240" at="35,0,36,0" concept="9" trace="TraceableConcept$L" />
+      <node id="5718859801822717240" at="23,20,26,5" concept="3" />
+      <node id="5718859801822717240" at="16,0,28,0" concept="4" trace="generateText#(Ljetbrains/mps/text/rt/TextGenContext;)V" />
+      <scope id="5718859801822717240" at="24,30,25,181" />
+      <scope id="5718859801822717240" at="17,54,26,5">
+        <var name="tgs" id="5718859801822717240" />
+      </scope>
+      <scope id="5718859801822717240" at="16,0,28,0">
+        <var name="ctx" id="5718859801822717240" />
+      </scope>
+      <unit id="5718859801822717240" at="34,0,37,0" name="ReversibleExpressions.textGen.ArrayAccessExpression_TextGen$CONCEPTS" />
+      <unit id="5718859801822717240" at="29,0,33,0" name="ReversibleExpressions.textGen.ArrayAccessExpression_TextGen$LINKS" />
+      <unit id="5718859801822717240" at="15,0,38,0" name="ReversibleExpressions.textGen.ArrayAccessExpression_TextGen" />
+    </file>
+    <file name="TextGenAspectDescriptor.java">
+      <node id="5718859801822717240" at="22,55,23,51" concept="6" />
+      <scope id="5718859801822717240" at="22,55,23,51" />
     </file>
   </root>
   <root nodeRef="r:1728a413-dfd1-4055-875b-8ce79b2ab312(ReversibleExpressions.textGen)/6610873504380058565">
@@ -703,8 +787,8 @@
       <unit id="6610873504380058565" at="16,0,48,0" name="ReversibleExpressions.textGen.CastExpression_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="6610873504380058565" at="28,48,29,44" concept="6" />
-      <scope id="6610873504380058565" at="28,48,29,44" />
+      <node id="6610873504380058565" at="30,48,31,44" concept="6" />
+      <scope id="6610873504380058565" at="30,48,31,44" />
     </file>
   </root>
   <root nodeRef="r:1728a413-dfd1-4055-875b-8ce79b2ab312(ReversibleExpressions.textGen)/7551988231319802324">
@@ -723,14 +807,14 @@
       <unit id="7551988231319802324" at="12,0,23,0" name="ReversibleExpressions.textGen.ReversibleMacroArg_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="7551988231319802324" at="56,52,57,48" concept="6" />
-      <scope id="7551988231319802324" at="56,52,57,48" />
+      <node id="7551988231319802324" at="62,52,63,48" concept="6" />
+      <scope id="7551988231319802324" at="62,52,63,48" />
     </file>
   </root>
   <root nodeRef="r:1728a413-dfd1-4055-875b-8ce79b2ab312(ReversibleExpressions.textGen)/8118534740657855678">
     <file name="TextGenAspectDescriptor.java">
-      <node id="8118534740657855678" at="62,45,63,41" concept="6" />
-      <scope id="8118534740657855678" at="62,45,63,41" />
+      <node id="8118534740657855678" at="68,45,69,41" concept="6" />
+      <scope id="8118534740657855678" at="68,45,69,41" />
     </file>
     <file name="TrueLiteral_TextGen.java">
       <node id="8118534740657855678" at="15,54,16,55" concept="5" />
@@ -773,8 +857,8 @@
       <unit id="8118534740657855703" at="15,0,34,0" name="ReversibleExpressions.textGen.NumberLiteral_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="8118534740657855703" at="40,47,41,43" concept="6" />
-      <scope id="8118534740657855703" at="40,47,41,43" />
+      <node id="8118534740657855703" at="46,47,47,43" concept="6" />
+      <scope id="8118534740657855703" at="46,47,47,43" />
     </file>
   </root>
   <root nodeRef="r:1728a413-dfd1-4055-875b-8ce79b2ab312(ReversibleExpressions.textGen)/8118534740657855716">
@@ -797,8 +881,8 @@
       <unit id="8118534740657855716" at="13,0,28,0" name="ReversibleExpressions.textGen.FalseLiteral_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="8118534740657855716" at="34,46,35,42" concept="6" />
-      <scope id="8118534740657855716" at="34,46,35,42" />
+      <node id="8118534740657855716" at="36,46,37,42" concept="6" />
+      <scope id="8118534740657855716" at="36,46,37,42" />
     </file>
   </root>
   <root nodeRef="r:1728a413-dfd1-4055-875b-8ce79b2ab312(ReversibleExpressions.textGen)/8118534740657855722">
@@ -825,8 +909,8 @@
       <unit id="8118534740657855722" at="15,0,36,0" name="ReversibleExpressions.textGen.ParensExpression_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="8118534740657855722" at="44,50,45,46" concept="6" />
-      <scope id="8118534740657855722" at="44,50,45,46" />
+      <node id="8118534740657855722" at="50,50,51,46" concept="6" />
+      <scope id="8118534740657855722" at="50,50,51,46" />
     </file>
   </root>
   <root nodeRef="r:1728a413-dfd1-4055-875b-8ce79b2ab312(ReversibleExpressions.textGen)/8118534740657855740">
@@ -834,8 +918,8 @@
       <node id="8118534740657855740" at="21,54,22,55" concept="5" />
       <node id="8118534740657855740" at="22,55,23,29" concept="1" />
       <node id="7551988231298980489" at="23,29,24,0" concept="8" />
-      <node id="7551988231298990428" at="24,0,25,115" concept="5" />
-      <node id="7551988231298989160" at="25,115,26,0" concept="8" />
+      <node id="7551988231298990428" at="24,0,25,206" concept="5" />
+      <node id="7551988231298989160" at="25,206,26,0" concept="8" />
       <node id="7551988231298987220" at="27,103,28,156" concept="1" />
       <node id="7551988231298987224" at="28,156,29,20" concept="1" />
       <node id="7551988231298987225" at="29,20,30,19" concept="1" />
@@ -861,13 +945,14 @@
       <node id="7551988231299047170" at="62,31,63,32" concept="1" />
       <node id="7551988231299047171" at="63,32,64,200" concept="1" />
       <node id="8118534740657855740" at="66,30,67,181" concept="1" />
-      <node id="8118534740657855740" at="72,0,73,0" concept="9" trace="IDestructiveOperation$SP" />
-      <node id="8118534740657855740" at="73,0,74,0" concept="9" trace="TraceableConcept$L" />
-      <node id="8118534740657855740" at="77,0,78,0" concept="9" trace="supportVariable$WrxR" />
-      <node id="8118534740657855740" at="78,0,79,0" concept="9" trace="left$KPKR" />
-      <node id="8118534740657855740" at="79,0,80,0" concept="9" trace="right$KPZS" />
-      <node id="8118534740657855740" at="83,0,84,0" concept="9" trace="isForward$pAg5" />
-      <node id="8118534740657855740" at="84,0,85,0" concept="9" trace="name$MnvL" />
+      <node id="8118534740657855740" at="72,0,73,0" concept="9" trace="disableStateSaving$rNjh" />
+      <node id="8118534740657855740" at="73,0,74,0" concept="9" trace="isForward$pAg5" />
+      <node id="8118534740657855740" at="74,0,75,0" concept="9" trace="name$MnvL" />
+      <node id="8118534740657855740" at="78,0,79,0" concept="9" trace="IDestructiveOperation$SP" />
+      <node id="8118534740657855740" at="79,0,80,0" concept="9" trace="TraceableConcept$L" />
+      <node id="8118534740657855740" at="83,0,84,0" concept="9" trace="supportVariable$WrxR" />
+      <node id="8118534740657855740" at="84,0,85,0" concept="9" trace="left$KPKR" />
+      <node id="8118534740657855740" at="85,0,86,0" concept="9" trace="right$KPZS" />
       <node id="4132737653861533501" at="37,10,39,5" concept="0" />
       <node id="7551988231309994519" at="49,10,51,5" concept="0" />
       <node id="4132737653861533526" at="59,12,61,7" concept="0" />
@@ -896,14 +981,14 @@
       <scope id="8118534740657855740" at="20,0,70,0">
         <var name="ctx" id="8118534740657855740" />
       </scope>
-      <unit id="8118534740657855740" at="71,0,75,0" name="ReversibleExpressions.textGen.BinaryExpression_TextGen$CONCEPTS" />
-      <unit id="8118534740657855740" at="82,0,86,0" name="ReversibleExpressions.textGen.BinaryExpression_TextGen$PROPS" />
-      <unit id="8118534740657855740" at="76,0,81,0" name="ReversibleExpressions.textGen.BinaryExpression_TextGen$LINKS" />
-      <unit id="8118534740657855740" at="19,0,87,0" name="ReversibleExpressions.textGen.BinaryExpression_TextGen" />
+      <unit id="8118534740657855740" at="77,0,81,0" name="ReversibleExpressions.textGen.BinaryExpression_TextGen$CONCEPTS" />
+      <unit id="8118534740657855740" at="71,0,76,0" name="ReversibleExpressions.textGen.BinaryExpression_TextGen$PROPS" />
+      <unit id="8118534740657855740" at="82,0,87,0" name="ReversibleExpressions.textGen.BinaryExpression_TextGen$LINKS" />
+      <unit id="8118534740657855740" at="19,0,88,0" name="ReversibleExpressions.textGen.BinaryExpression_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="8118534740657855740" at="22,50,23,46" concept="6" />
-      <scope id="8118534740657855740" at="22,50,23,46" />
+      <node id="8118534740657855740" at="24,50,25,46" concept="6" />
+      <scope id="8118534740657855740" at="24,50,25,46" />
     </file>
   </root>
   <root nodeRef="r:1728a413-dfd1-4055-875b-8ce79b2ab312(ReversibleExpressions.textGen)/8248452957509191685">
@@ -951,8 +1036,8 @@
       <unit id="938100142480316751" at="15,0,35,0" name="ReversibleExpressions.textGen.OctalNumberLiteral_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="938100142480316751" at="42,52,43,48" concept="6" />
-      <scope id="938100142480316751" at="42,52,43,48" />
+      <node id="938100142480316751" at="48,52,49,48" concept="6" />
+      <scope id="938100142480316751" at="48,52,49,48" />
     </file>
   </root>
 </debug-info>

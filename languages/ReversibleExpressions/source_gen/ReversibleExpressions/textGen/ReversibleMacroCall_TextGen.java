@@ -19,6 +19,7 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SProperty;
 
 public class ReversibleMacroCall_TextGen extends TextGenDescriptorBase {
@@ -28,7 +29,7 @@ public class ReversibleMacroCall_TextGen extends TextGenDescriptorBase {
     tgs.createPositionInfo();
 
     if (SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5)) {
-      if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.macro$QKaR), LINKS.content$L7Vn), CONCEPTS.IDestructiveOperation$SP)) {
+      if (!(SNodeOperations.isInstanceOf(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.ReversibleMacro$EH)) && (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.macro$QKaR), LINKS.content$L7Vn), CONCEPTS.IDestructiveOperation$SP) || SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.callsDestructiveMacro$eoF))) {
         // save state if macro is destructive
         List<SNode> lvds = new ArrayList<SNode>();
 
@@ -63,7 +64,7 @@ public class ReversibleMacroCall_TextGen extends TextGenDescriptorBase {
       }
       tgs.append(")");
     } else {
-      if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.macro$QKaR), LINKS.content$L7Vn), CONCEPTS.IDestructiveOperation$SP)) {
+      if (!(SNodeOperations.isInstanceOf(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.ReversibleMacro$EH)) && (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.macro$QKaR), LINKS.content$L7Vn), CONCEPTS.IDestructiveOperation$SP) || SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.callsDestructiveMacro$eoF))) {
         // restore state
         for (SNode param : ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.actuals$QKpS))) {
           {
@@ -72,10 +73,11 @@ public class ReversibleMacroCall_TextGen extends TextGenDescriptorBase {
               tgs.append(IVariableReference__BehaviorDescriptor.getVariableName_id79Sp4cYA0X2.invoke(varRef));
               tgs.append(" = checkpoint.");
               tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(param, LINKS.supportVariable$WrxR), PROPS.name$MnvL));
-              tgs.append(";");
-              tgs.newLine();
-              tgs.indent();
             }
+          }
+          if (SNodeOperations.getIndexInParent(param) < ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.actuals$QKpS)).count() - 1) {
+            tgs.append(";\n");
+            tgs.indent();
           }
         }
       } else {
@@ -111,12 +113,14 @@ public class ReversibleMacroCall_TextGen extends TextGenDescriptorBase {
 
   private static final class CONCEPTS {
     /*package*/ static final SInterfaceConcept IVariableReference$Kb = MetaAdapterFactory.getInterfaceConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1c69b376a2dab98aL, "ReversibleExpressions.structure.IVariableReference");
+    /*package*/ static final SConcept ReversibleMacro$EH = MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145008fL, "ReversibleFunctions.structure.ReversibleMacro");
     /*package*/ static final SInterfaceConcept IDestructiveOperation$SP = MetaAdapterFactory.getInterfaceConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x27d0c8e745a2c78dL, "ReversibleExpressions.structure.IDestructiveOperation");
     /*package*/ static final SInterfaceConcept TraceableConcept$L = MetaAdapterFactory.getInterfaceConcept(0x9ded098bad6a4657L, 0xbfd948636cfe8bc3L, 0x465516cf87c705a3L, "jetbrains.mps.lang.traceable.structure.TraceableConcept");
   }
 
   private static final class PROPS {
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty callsDestructiveMacro$eoF = MetaAdapterFactory.getProperty(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1b427f2e49d1fe84L, 0x2d0ea789450dadafL, "callsDestructiveMacro");
     /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
   }
 }

@@ -14,10 +14,10 @@ import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import java.math.BigInteger;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import com.mbeddr.core.expressions.behavior.Type__BehaviorDescriptor;
@@ -25,10 +25,10 @@ import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class ReversibleExpression__BehaviorDescriptor extends BaseBHDescriptor {
   private static final Logger LOG = Logger.getLogger(ReversibleExpression__BehaviorDescriptor.class);
@@ -53,6 +53,7 @@ public final class ReversibleExpression__BehaviorDescriptor extends BaseBHDescri
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getCodeForTarget_id1uoAWUPe22W, getWriteTarget_id1uoAWUPe2Ie, isLValue_id6iIoqg1yDKH, isStaticallyEvaluatable_id3ilck8Kr3zN, evaluateStatically_id6OxpEKG0KPv, renderReadable_id1VQvajLb13M, asList_id2JIP8c_ZWpI, asList_id2JIP8c_ZWqJ, isSideeffectFree_id6SENleF$SRD, requiresItsOwnLineInSomeContext_id5AweqC3NO9h, mayBePointerType_id3FUljR4fqsG, cleanup_id7rX8gRKIEsj, getPriolevel_id5HxjapwgqKu, isDotCapable_id66WTx3vdu2E, requiresParenthesisInCast_id4o$BgAQrCHG);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
+    SPropertyOperations.assign(__thisNode__, PROPS.isForward$pAg5, true);
   }
 
   /*package*/ static SNode getCodeForTarget_id1uoAWUPe22W(@NotNull SNode __thisNode__) {
@@ -231,6 +232,11 @@ public final class ReversibleExpression__BehaviorDescriptor extends BaseBHDescri
     return null;
   }
 
+  private static final class PROPS {
+    /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
+    /*package*/ static final SProperty const$VWr7 = MetaAdapterFactory.getProperty(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba36L, 0x28d183d9a4cc7da8L, "const");
+  }
+
   private static final class CONCEPTS {
     /*package*/ static final SConcept LocalVarRef$O3 = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x1d0c3765e2e1d67aL, "ReversibleStatements.structure.LocalVarRef");
     /*package*/ static final SConcept ArgumentRef$iE = MetaAdapterFactory.getConcept(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x1d0c3765e2e7d0baL, "com.mbeddr.core.modules.structure.ArgumentRef");
@@ -246,9 +252,5 @@ public final class ReversibleExpression__BehaviorDescriptor extends BaseBHDescri
     /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
     /*package*/ static final SReferenceLink arg$WIp5 = MetaAdapterFactory.getReferenceLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x1d0c3765e2e7d0baL, 0x1d0c3765e2e7d0bbL, "arg");
     /*package*/ static final SContainmentLink expression$HKAI = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x29b5b7c4a3763232L, 0x64ae61a4018a9c50L, "expression");
-  }
-
-  private static final class PROPS {
-    /*package*/ static final SProperty const$VWr7 = MetaAdapterFactory.getProperty(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba36L, 0x28d183d9a4cc7da8L, "const");
   }
 }

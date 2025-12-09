@@ -128,7 +128,6 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.property("resultIsLValue", 0x42c6127a0bd2ce95L).type(PrimitiveTypeId.BOOLEAN).origin("4811553567285628565").done();
     b.aggregate("arguments", 0x539093cd74777237L).target(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761177adb6L).optional(true).ordered(true).multiple(true).origin("6021475212425916983").done();
     b.aggregate("content", 0x78202c09dd229062L).target(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L).optional(true).ordered(true).multiple(false).origin("8655966904682451042").done();
-    b.aggregate("reversedMacro", 0x206240b1ff17049aL).target(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145008fL).optional(true).ordered(true).multiple(false).origin("2333498690164425882").done();
     b.alias("#macro");
     return b.create();
   }

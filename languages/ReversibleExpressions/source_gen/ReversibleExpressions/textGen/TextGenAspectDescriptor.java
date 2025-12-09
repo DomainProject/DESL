@@ -19,6 +19,8 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
   @Override
   public TextGenDescriptor getDescriptor(@NotNull SAbstractConcept concept) {
     switch (myIndex.index(concept)) {
+      case LanguageConceptSwitch.ArrayAccessExpression:
+        return new ArrayAccessExpression_TextGen();
       case LanguageConceptSwitch.BinaryExpression:
         return new BinaryExpression_TextGen();
       case LanguageConceptSwitch.BinaryNumberLiteral:
@@ -33,6 +35,10 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new ExpressionList_TextGen();
       case LanguageConceptSwitch.FalseLiteral:
         return new FalseLiteral_TextGen();
+      case LanguageConceptSwitch.GenericDotExpression:
+        return new GenericDotExpression_TextGen();
+      case LanguageConceptSwitch.GenericMemberRef:
+        return new GenericMemberRef_TextGen();
       case LanguageConceptSwitch.HexNumberLiteral:
         return new HexNumberLiteral_TextGen();
       case LanguageConceptSwitch.NotExpression:
