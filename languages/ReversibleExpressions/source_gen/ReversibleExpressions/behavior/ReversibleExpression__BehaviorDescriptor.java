@@ -17,9 +17,9 @@ import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import java.math.BigInteger;
 import jetbrains.mps.internal.collections.runtime.Sequence;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import com.mbeddr.core.expressions.behavior.Type__BehaviorDescriptor;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
@@ -27,7 +27,6 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
-import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class ReversibleExpression__BehaviorDescriptor extends BaseBHDescriptor {
@@ -65,24 +64,20 @@ public final class ReversibleExpression__BehaviorDescriptor extends BaseBHDescri
   /*package*/ static boolean isLValue_id6iIoqg1yDKH(@NotNull SNode __thisNode__) {
     SNode type = TypecheckingFacade.getFromContext().getTypeOf(__thisNode__);
 
-    System.err.println("  " + "THIS TYPE" + " = " + SNodeOperations.getConcept(__thisNode__) + "");
-
-    if (SNodeOperations.isInstanceOf(__thisNode__, CONCEPTS.IVariableReference$Kb)) {
-      {
-        final SNode localVarRef = __thisNode__;
-        if (SNodeOperations.isInstanceOf(localVarRef, CONCEPTS.LocalVarRef$O3)) {
-          type = SLinkOperations.getTarget(SLinkOperations.getTarget(localVarRef, LINKS.var$uDqP), LINKS.type$sXU3);
-        }
-      }
-      {
-        final SNode argumentRef = __thisNode__;
-        if (SNodeOperations.isInstanceOf(argumentRef, CONCEPTS.ArgumentRef$iE)) {
-          type = SLinkOperations.getTarget(SLinkOperations.getTarget(argumentRef, LINKS.arg$WIp5), LINKS.type$sXU3);
-        }
+    {
+      final SNode gde = __thisNode__;
+      if (SNodeOperations.isInstanceOf(gde, CONCEPTS.GenericDotExpression$ia)) {
+        return true;
       }
     }
 
-    System.err.println("  " + "TYPE" + " = " + SNodeOperations.getConcept(type) + "");
+    {
+      final SNode varRef = __thisNode__;
+      if (SNodeOperations.isInstanceOf(varRef, CONCEPTS.IVariableReference$Kb)) {
+        type = IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(varRef));
+      }
+    }
+
 
 
     if (SNodeOperations.isInstanceOf(type, CONCEPTS.ArrayType$WW)) {
@@ -238,8 +233,7 @@ public final class ReversibleExpression__BehaviorDescriptor extends BaseBHDescri
   }
 
   private static final class CONCEPTS {
-    /*package*/ static final SConcept LocalVarRef$O3 = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x1d0c3765e2e1d67aL, "ReversibleStatements.structure.LocalVarRef");
-    /*package*/ static final SConcept ArgumentRef$iE = MetaAdapterFactory.getConcept(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x1d0c3765e2e7d0baL, "com.mbeddr.core.modules.structure.ArgumentRef");
+    /*package*/ static final SConcept GenericDotExpression$ia = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x401df715da462c0cL, "ReversibleExpressions.structure.GenericDotExpression");
     /*package*/ static final SInterfaceConcept IVariableReference$Kb = MetaAdapterFactory.getInterfaceConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1c69b376a2dab98aL, "ReversibleExpressions.structure.IVariableReference");
     /*package*/ static final SConcept ArrayType$WW = MetaAdapterFactory.getConcept(0x3bf5377ae9044dedL, 0x97545a516023bfaaL, 0x4ed16d83a1d30c81L, "com.mbeddr.core.pointers.structure.ArrayType");
     /*package*/ static final SConcept MeetType$ZG = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x114b68ad132L, "jetbrains.mps.lang.typesystem.structure.MeetType");
@@ -248,9 +242,6 @@ public final class ReversibleExpression__BehaviorDescriptor extends BaseBHDescri
   }
 
   private static final class LINKS {
-    /*package*/ static final SReferenceLink var$uDqP = MetaAdapterFactory.getReferenceLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x1d0c3765e2e1d67aL, 0x1d0c3765e2e1fe27L, "var");
-    /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
-    /*package*/ static final SReferenceLink arg$WIp5 = MetaAdapterFactory.getReferenceLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x1d0c3765e2e7d0baL, 0x1d0c3765e2e7d0bbL, "arg");
     /*package*/ static final SContainmentLink expression$HKAI = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x29b5b7c4a3763232L, 0x64ae61a4018a9c50L, "expression");
   }
 }

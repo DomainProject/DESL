@@ -13,42 +13,43 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class ForStatement_DataFlow extends DataFlowBuilder {
   public void build(final DataFlowBuilderContext _context) {
-    if (SLinkOperations.getTarget(_context.getNode(), LINKS.iterator$JLmf) != null) {
-      _context.getBuilder().build((SNode) SLinkOperations.getTarget(_context.getNode(), LINKS.iterator$JLmf));
+    if (SLinkOperations.getTarget(_context.getNode(), LINKS.iterator$fwes) != null) {
+      _context.getBuilder().build((SNode) SLinkOperations.getTarget(_context.getNode(), LINKS.iterator$fwes));
     }
-    for (SNode additionalIterator : ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.additionalIterators$YBJx))) {
+    for (SNode additionalIterator : ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.additionalIterators$umBI))) {
       _context.getBuilder().build((SNode) additionalIterator);
     }
 
     _context.getBuilder().emitLabel("start");
 
-    if (SLinkOperations.getTarget(_context.getNode(), LINKS.condition$JM3i) != null && (boolean) Expression__BehaviorDescriptor.isStaticallyEvaluatable_id3ilck8Kr3zN.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.condition$JM3i)) && Expression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.condition$JM3i)) instanceof Boolean) {
-      Boolean value = (Boolean) Expression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.condition$JM3i));
+    if (SLinkOperations.getTarget(_context.getNode(), LINKS.condition$fwVv) != null && (boolean) Expression__BehaviorDescriptor.isStaticallyEvaluatable_id3ilck8Kr3zN.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.condition$fwVv)) && Expression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.condition$fwVv)) instanceof Boolean) {
+      Boolean value = (Boolean) Expression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.condition$fwVv));
       if (!(value)) {
-        _context.getBuilder().emitJump(_context.getBuilder().after(_context.getNode()), "r:c205ea72-20c5-48ea-9b1b-6756ae88d68b(ReversibleStatements.dataFlow)/5781444008244463012");
+        _context.getBuilder().emitJump(_context.getBuilder().after(_context.getNode()), "r:c205ea72-20c5-48ea-9b1b-6756ae88d68b(ReversibleStatements.dataFlow)/2873522757967662474");
       }
-    } else if (SLinkOperations.getTarget(_context.getNode(), LINKS.condition$JM3i) != null) {
-      _context.getBuilder().build((SNode) SLinkOperations.getTarget(_context.getNode(), LINKS.condition$JM3i));
-      _context.getBuilder().emitIfJump(_context.getBuilder().after(_context.getNode()), "r:c205ea72-20c5-48ea-9b1b-6756ae88d68b(ReversibleStatements.dataFlow)/5781444008244463029");
+    } else if (SLinkOperations.getTarget(_context.getNode(), LINKS.condition$fwVv) != null) {
+      _context.getBuilder().build((SNode) SLinkOperations.getTarget(_context.getNode(), LINKS.condition$fwVv));
+      _context.getBuilder().emitIfJump(_context.getBuilder().after(_context.getNode()), "r:c205ea72-20c5-48ea-9b1b-6756ae88d68b(ReversibleStatements.dataFlow)/2873522757967662504");
     }
 
-    if (SLinkOperations.getTarget(_context.getNode(), LINKS.body$JDnH) != null) {
-      _context.getBuilder().build((SNode) SLinkOperations.getTarget(_context.getNode(), LINKS.body$JDnH));
+    if (SLinkOperations.getTarget(_context.getNode(), LINKS.body$fofU) != null) {
+      _context.getBuilder().build((SNode) SLinkOperations.getTarget(_context.getNode(), LINKS.body$fofU));
     }
 
-    for (SNode incr : ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.incr$JRFE))) {
+    for (SNode incr : ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.incr$fAzR))) {
       final SNode finalIncr = incr;
       _context.getBuilder().emitMayBeUnreachable(() -> _context.getBuilder().build((SNode) finalIncr));
     }
 
-    _context.getBuilder().emitMayBeUnreachable(() -> _context.getBuilder().emitJump(_context.getBuilder().label(_context.getNode(), "start"), "r:c205ea72-20c5-48ea-9b1b-6756ae88d68b(ReversibleStatements.dataFlow)/2476922757080602643"));
+    _context.getBuilder().emitMayBeUnreachable(() -> _context.getBuilder().emitJump(_context.getBuilder().label(_context.getNode(), "start"), "r:c205ea72-20c5-48ea-9b1b-6756ae88d68b(ReversibleStatements.dataFlow)/2873522757967668658"));
+
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink iterator$JLmf = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x64ae61a40186e676L, 0x64ae61a401870e40L, "iterator");
-    /*package*/ static final SContainmentLink additionalIterators$YBJx = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x64ae61a40186e676L, 0x5239321dec4ec665L, "additionalIterators");
-    /*package*/ static final SContainmentLink condition$JM3i = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x64ae61a40186e676L, 0x64ae61a401870e43L, "condition");
-    /*package*/ static final SContainmentLink body$JDnH = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x64ae61a40186e676L, 0x64ae61a401870e33L, "body");
-    /*package*/ static final SContainmentLink incr$JRFE = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x64ae61a40186e676L, 0x64ae61a401870e46L, "incr");
+    /*package*/ static final SContainmentLink iterator$fwes = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a40186e676L, 0x64ae61a401870e40L, "iterator");
+    /*package*/ static final SContainmentLink additionalIterators$umBI = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a40186e676L, 0x5239321dec4ec665L, "additionalIterators");
+    /*package*/ static final SContainmentLink condition$fwVv = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a40186e676L, 0x64ae61a401870e43L, "condition");
+    /*package*/ static final SContainmentLink body$fofU = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a40186e676L, 0x64ae61a401870e33L, "body");
+    /*package*/ static final SContainmentLink incr$fAzR = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a40186e676L, 0x64ae61a401870e46L, "incr");
   }
 }

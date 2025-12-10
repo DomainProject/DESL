@@ -36,12 +36,12 @@ public class BreakStatement_Constraints extends BaseConstraintsDescriptor {
   }
 
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return (SNodeOperations.getNodeAncestor(parentNode, CONCEPTS.IBreakContainer$u4, true, false) != null);
+    return (SNodeOperations.getNodeAncestor(parentNode, CONCEPTS.IBreakContainer$mh, true, false) != null);
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:b1228d9b-8e2c-4c06-8c54-62acd072f382(ReversibleStatements.constraints)", "8237807170236183685");
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept BreakStatement$8H = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x7525a1fdf25d5076L, "ReversibleStatements.structure.BreakStatement");
-    /*package*/ static final SInterfaceConcept IBreakContainer$u4 = MetaAdapterFactory.getInterfaceConcept(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x7525a1fdf25d507dL, "com.mbeddr.core.statements.structure.IBreakContainer");
+    /*package*/ static final SInterfaceConcept IBreakContainer$mh = MetaAdapterFactory.getInterfaceConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x7525a1fdf25d507dL, "ReversibleStatements.structure.IBreakContainer");
   }
 }

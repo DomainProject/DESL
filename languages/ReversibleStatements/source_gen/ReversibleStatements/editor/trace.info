@@ -1742,15 +1742,6 @@
       <unit id="2531002643696481058" at="9,0,15,0" name="ReversibleStatements.editor.GeneratedNodeSubstituteActions_Contribution" />
     </file>
   </root>
-  <root nodeRef="r:ad0a2569-6d3a-499c-b8a8-ddd62346572e(ReversibleStatements.editor)/2531002643696481062">
-    <file name="ForVarRef_SubstituteMenu.java">
-      <node id="2531002643696481062" at="10,37,11,205" concept="16" />
-      <node id="2531002643696481062" at="10,0,13,0" concept="2" trace="ForVarRef_SubstituteMenu#()V" />
-      <scope id="2531002643696481062" at="10,37,11,205" />
-      <scope id="2531002643696481062" at="10,0,13,0" />
-      <unit id="2531002643696481062" at="9,0,15,0" name="ReversibleStatements.editor.ForVarRef_SubstituteMenu" />
-    </file>
-  </root>
   <root nodeRef="r:ad0a2569-6d3a-499c-b8a8-ddd62346572e(ReversibleStatements.editor)/2531002643696481121">
     <file name="CommentedElseIfPart_SubstituteMenu.java">
       <node id="2531002643696481121" at="10,47,11,215" concept="16" />
@@ -1927,6 +1918,87 @@
       <unit id="2604304000476772563" at="117,0,120,0" name="ReversibleStatements.editor.NotParsedStatement_EditorBuilder_a$PROPS" />
       <unit id="2604304000476772563" at="121,0,124,0" name="ReversibleStatements.editor.NotParsedStatement_EditorBuilder_a$CONCEPTS" />
       <unit id="2604304000476772563" at="33,0,125,0" name="ReversibleStatements.editor.NotParsedStatement_EditorBuilder_a" />
+    </file>
+  </root>
+  <root nodeRef="r:ad0a2569-6d3a-499c-b8a8-ddd62346572e(ReversibleStatements.editor)/2873522757967614717">
+    <file name="ForVarRef_SubstituteMenu.java">
+      <node id="2873522757967614717" at="34,37,35,205" concept="16" />
+      <node id="2873522757967614717" at="39,118,40,140" concept="10" />
+      <node id="2873522757967686820" at="40,140,41,116" concept="4" />
+      <node id="2873522757967614717" at="41,116,42,18" concept="11" />
+      <node id="2873522757967686820" at="46,33,47,212" concept="16" />
+      <node id="2873522757967686820" at="52,112,53,76" concept="10" />
+      <node id="2873522757967686820" at="55,0,56,0" concept="5" trace="myCreatedNode" />
+      <node id="2873522757967686820" at="59,52,60,39" concept="11" />
+      <node id="2873522757967686820" at="64,58,65,55" concept="10" />
+      <node id="2873522757967687239" at="65,55,66,193" concept="10" />
+      <node id="2873522757967689768" at="66,193,67,69" concept="4" />
+      <node id="2873522757967696616" at="67,69,68,21" concept="11" />
+      <node id="2873522757967697438" at="72,81,73,255" concept="4" />
+      <node id="2873522757967686820" at="79,78,80,70" concept="10" />
+      <node id="2873522757967686820" at="80,70,81,80" concept="10" />
+      <node id="2873522757967686820" at="81,80,82,128" concept="11" />
+      <node id="2873522757967686820" at="84,86,85,37" concept="11" />
+      <node id="2873522757967614717" at="90,0,91,0" concept="14" trace="ForVarRef$v6" />
+      <node id="2873522757967614717" at="91,0,92,0" concept="14" trace="LocalVarRef$O3" />
+      <node id="2873522757967614717" at="95,0,96,0" concept="14" trace="var$qtY4" />
+      <node id="2873522757967614717" at="34,0,37,0" concept="2" trace="ForVarRef_SubstituteMenu#()V" />
+      <node id="2873522757967686820" at="46,0,49,0" concept="2" trace="SMP_Wrap_6tdsv5_a#()V" />
+      <node id="2873522757967686820" at="84,0,87,0" concept="9" trace="getConceptToFindMenuFor#(Ljetbrains/mps/openapi/editor/menus/substitute/SubstituteMenuContext;)Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
+      <node id="2873522757967697087" at="71,0,75,0" concept="9" trace="select#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/String;)V" />
+      <node id="2873522757967686820" at="57,0,62,0" concept="9" trace="getOutputConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
+      <node id="2873522757967614717" at="37,0,44,0" concept="9" trace="getParts#(Ljetbrains/mps/openapi/editor/menus/substitute/SubstituteMenuContext;)Ljava/util/List;" />
+      <node id="2873522757967686820" at="77,0,84,0" concept="9" trace="getLookup#(Ljetbrains/mps/openapi/editor/menus/substitute/SubstituteMenuContext;)Ljetbrains/mps/openapi/editor/menus/substitute/SubstituteMenuLookup;" />
+      <node id="2873522757967686820" at="62,0,70,0" concept="9" trace="createNode#(Ljava/lang/String;)Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="2873522757967686820" at="53,76,75,8" concept="11" />
+      <node id="2873522757967686820" at="50,0,77,0" concept="9" trace="wrapItem#(Ljetbrains/mps/openapi/editor/menus/substitute/SubstituteMenuItem;Ljetbrains/mps/openapi/editor/menus/substitute/SubstituteMenuContext;)Ljetbrains/mps/openapi/editor/menus/substitute/SubstituteMenuItem;" />
+      <scope id="2873522757967614717" at="34,37,35,205" />
+      <scope id="2873522757967686820" at="46,33,47,212" />
+      <scope id="2873522757967686820" at="59,52,60,39" />
+      <scope id="2873522757967697089" at="72,81,73,255" />
+      <scope id="2873522757967686820" at="84,86,85,37" />
+      <scope id="2873522757967614717" at="34,0,37,0" />
+      <scope id="2873522757967614717" at="39,118,42,18">
+        <var name="result" id="2873522757967614717" />
+      </scope>
+      <scope id="2873522757967686820" at="46,0,49,0" />
+      <scope id="2873522757967686820" at="79,78,82,128">
+        <var name="conceptToFindMenuFor" id="2873522757967686820" />
+        <var name="editorContext" id="2873522757967686820" />
+      </scope>
+      <scope id="2873522757967686820" at="84,0,87,0">
+        <var name="_context" id="2873522757967686820" />
+      </scope>
+      <scope id="2873522757967686820" at="64,58,68,21">
+        <var name="fvr" id="2873522757967687242" />
+        <var name="nodeToWrap" id="2873522757967686820" />
+      </scope>
+      <scope id="2873522757967697087" at="71,0,75,0">
+        <var name="createdNode" id="2873522757967697087" />
+        <var name="pattern" id="2873522757967697087" />
+      </scope>
+      <scope id="2873522757967686820" at="57,0,62,0" />
+      <scope id="2873522757967614717" at="37,0,44,0">
+        <var name="_context" id="2873522757967614717" />
+      </scope>
+      <scope id="2873522757967686820" at="77,0,84,0">
+        <var name="_context" id="2873522757967686820" />
+      </scope>
+      <scope id="2873522757967686820" at="62,0,70,0">
+        <var name="pattern" id="2873522757967686820" />
+      </scope>
+      <scope id="2873522757967686820" at="52,112,75,8">
+        <var name="wrappedItem" id="2873522757967686820" />
+      </scope>
+      <scope id="2873522757967686820" at="50,0,77,0">
+        <var name="_context" id="2873522757967686820" />
+        <var name="item" id="2873522757967686820" />
+      </scope>
+      <unit id="2873522757967614717" at="94,0,97,0" name="ReversibleStatements.editor.ForVarRef_SubstituteMenu$LINKS" />
+      <unit id="2873522757967614717" at="89,0,93,0" name="ReversibleStatements.editor.ForVarRef_SubstituteMenu$CONCEPTS" />
+      <unit id="2873522757967686820" at="54,17,75,7" name="ReversibleStatements.editor.ForVarRef_SubstituteMenu$SMP_Wrap_6tdsv5_a$1" />
+      <unit id="2873522757967686820" at="45,0,88,0" name="ReversibleStatements.editor.ForVarRef_SubstituteMenu$SMP_Wrap_6tdsv5_a" />
+      <unit id="2873522757967614717" at="33,0,98,0" name="ReversibleStatements.editor.ForVarRef_SubstituteMenu" />
     </file>
   </root>
   <root nodeRef="r:ad0a2569-6d3a-499c-b8a8-ddd62346572e(ReversibleStatements.editor)/3108382027639948958">

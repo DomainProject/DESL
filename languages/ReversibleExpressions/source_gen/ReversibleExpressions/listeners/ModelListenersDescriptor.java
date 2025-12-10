@@ -79,7 +79,7 @@ public class ModelListenersDescriptor implements IModelListenersDescriptor {
         {
           final SNode varRef = child;
           if (SNodeOperations.isInstanceOf(varRef, CONCEPTS.IVariableReference$Kb)) {
-            SLinkOperations.setTarget(SLinkOperations.getTarget(instance, LINKS.supportVariable$WrxR), LINKS.type$sXU3, SNodeOperations.cast(IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(varRef)), CONCEPTS.Type$dP));
+            SLinkOperations.setTarget(SLinkOperations.getTarget(instance, LINKS.supportVariable$WrxR), LINKS.type$sXU3, SNodeOperations.copyNode(SNodeOperations.cast(IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(varRef)), CONCEPTS.Type$dP)));
           }
         }
       }

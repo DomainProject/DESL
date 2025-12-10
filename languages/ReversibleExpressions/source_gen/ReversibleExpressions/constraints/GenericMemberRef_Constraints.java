@@ -56,12 +56,14 @@ public class GenericMemberRef_Constraints extends BaseConstraintsDescriptor {
         public Scope createScope(final ReferenceConstraintsContext _context) {
           final SNode enclosingNode = (((_context.getReferenceNode() == null) ? _context.getContextNode() : SNodeOperations.getParent(_context.getReferenceNode())));
           List<SNode> res = new ArrayList<SNode>();
+
+          LogContext.with(GenericMemberRef_Constraints.class, null, null, null).info("enclosingNode = " + enclosingNode);
+
           if (SNodeOperations.isInstanceOf(enclosingNode, CONCEPTS.GenericDotExpression$ia)) {
-
-            LogContext.with(GenericMemberRef_Constraints.class, null, null, null).info("Enclosing node is a generic dot expression");
-
             SNode en = SNodeOperations.cast(enclosingNode, CONCEPTS.GenericDotExpression$ia);
             SNode ct = TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(en, LINKS.expression$HKAI));
+
+            LogContext.with(GenericMemberRef_Constraints.class, null, null, null).info("Expression is " + SLinkOperations.getTarget(en, LINKS.expression$HKAI));
 
             {
               final SNode varRef = SLinkOperations.getTarget(en, LINKS.expression$HKAI);
@@ -69,9 +71,17 @@ public class GenericMemberRef_Constraints extends BaseConstraintsDescriptor {
                 ct = IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(varRef));
               }
             }
-
-            LogContext.with(GenericMemberRef_Constraints.class, null, null, null).info("en.expression = " + SLinkOperations.getTarget(en, LINKS.expression$HKAI));
-            LogContext.with(GenericMemberRef_Constraints.class, null, null, null).info("ct is instance of " + SNodeOperations.getConcept(ct));
+            {
+              final SNode gde = SLinkOperations.getTarget(en, LINKS.expression$HKAI);
+              if (SNodeOperations.isInstanceOf(gde, CONCEPTS.GenericDotExpression$ia)) {
+                {
+                  final SNode gmr = SLinkOperations.getTarget(gde, LINKS.target$xbCZ);
+                  if (SNodeOperations.isInstanceOf(gmr, CONCEPTS.GenericMemberRef$Ue)) {
+                    ct = SLinkOperations.getTarget(SLinkOperations.getTarget(gmr, LINKS.member$gCRV), LINKS.type$sXU3);
+                  }
+                }
+              }
+            }
 
             if (SNodeOperations.isInstanceOf(ct, CONCEPTS.SUType$qX)) {
               ListSequence.fromList(res).addSequence(ListSequence.fromList(SUDeclaration__BehaviorDescriptor.membersIncludingTransparent_id7TdHRrCpjWZ.invoke(SUType__BehaviorDescriptor.getSUDeclaration_id3bHYGwztGSo.invoke(SNodeOperations.cast(ct, CONCEPTS.SUType$qX)))));
@@ -79,8 +89,6 @@ public class GenericMemberRef_Constraints extends BaseConstraintsDescriptor {
               ListSequence.fromList(res).addSequence(ListSequence.fromList(SUDeclaration__BehaviorDescriptor.membersIncludingTransparent_id7TdHRrCpjWZ.invoke(SUType__BehaviorDescriptor.getSUDeclaration_id3bHYGwztGSo.invoke(SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(ct, CONCEPTS.PointerType$HX), LINKS.baseType$zMGV), CONCEPTS.SUType$qX)))));
             }
           }
-
-          LogContext.with(GenericMemberRef_Constraints.class, null, null, null).info("Found elements " + ListSequence.fromList(res).count());
           return new NamedElementsScope(ListSequence.fromList(res).where((it) -> !(SPropertyOperations.getBoolean(it, PROPS.transparent$YPca))));
         }
       };
@@ -98,6 +106,8 @@ public class GenericMemberRef_Constraints extends BaseConstraintsDescriptor {
   private static final class LINKS {
     /*package*/ static final SReferenceLink member$gCRV = MetaAdapterFactory.getReferenceLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4f5d78b09e1b9a5fL, 0x4f5d78b09f1589e9L, "member");
     /*package*/ static final SContainmentLink expression$HKAI = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x29b5b7c4a3763232L, 0x64ae61a4018a9c50L, "expression");
+    /*package*/ static final SContainmentLink target$xbCZ = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x401df715da462c0cL, 0x619e8ce80b7ff48bL, "target");
+    /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
     /*package*/ static final SContainmentLink baseType$zMGV = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x6bbcdccef5e46755L, 0x6bbcdccef5e46756L, "baseType");
   }
 

@@ -2484,5 +2484,160 @@
       <ref role="1YaFvo" to="kmi:4W5bsSB0lzp" resolve="AllocateStruct" />
     </node>
   </node>
+  <node concept="1YbPZF" id="2vwNr_aEolD">
+    <property role="TrG5h" value="typeof_RevForStatement" />
+    <property role="3GE5qa" value="loopsNStuff" />
+    <node concept="3clFbS" id="2vwNr_aEolE" role="18ibNy">
+      <node concept="1ZobV4" id="2vwNr_aEr5W" role="3cqZAp">
+        <property role="3wDh2S" value="true" />
+        <node concept="mw_s8" id="2vwNr_aEr6e" role="1ZfhK$">
+          <node concept="1Z2H0r" id="2vwNr_aEr6a" role="mwGJk">
+            <node concept="2OqwBi" id="2vwNr_aErsr" role="1Z2MuG">
+              <node concept="1YBJjd" id="2vwNr_aEr6s" role="2Oq$k0">
+                <ref role="1YBMHb" node="2vwNr_aEolG" resolve="forStatement" />
+              </node>
+              <node concept="3TrEf2" id="2vwNr_aEsbV" role="2OqNvi">
+                <ref role="3Tt5mk" to="kmi:6iIoqg1xKT3" resolve="condition" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="mw_s8" id="2vwNr_aEsj3" role="1ZfhKB">
+          <node concept="2pJPEk" id="2vwNr_aEsj4" role="mwGJk">
+            <node concept="2pJPED" id="2vwNr_aEsj5" role="2pJPEn">
+              <ref role="2pJxaS" to="mj1l:7FQByU3CrCU" resolve="BooleanType" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1YaCAy" id="2vwNr_aEolG" role="1YuTPh">
+      <property role="TrG5h" value="forStatement" />
+      <ref role="1YaFvo" to="kmi:6iIoqg1xIpQ" resolve="ForStatement" />
+    </node>
+  </node>
+  <node concept="18kY7G" id="2vwNr_aEwbf">
+    <property role="TrG5h" value="check_ForVarDecl" />
+    <property role="3GE5qa" value="loopsNStuff" />
+    <node concept="3clFbS" id="2vwNr_aEwbg" role="18ibNy">
+      <node concept="3clFbJ" id="2vwNr_aEwbm" role="3cqZAp">
+        <node concept="3clFbC" id="2vwNr_aEwbn" role="3clFbw">
+          <node concept="2OqwBi" id="2vwNr_aEwbo" role="3uHU7B">
+            <node concept="1YBJjd" id="2vwNr_aEwbp" role="2Oq$k0">
+              <ref role="1YBMHb" node="2vwNr_aEwbi" resolve="forVarDecl" />
+            </node>
+            <node concept="3TrEf2" id="2vwNr_aEwbq" role="2OqNvi">
+              <ref role="3Tt5mk" to="kmi:3CmSUB7Fw7R" resolve="init" />
+            </node>
+          </node>
+          <node concept="10Nm6u" id="2vwNr_aEwbr" role="3uHU7w" />
+        </node>
+        <node concept="3clFbS" id="2vwNr_aEwbs" role="3clFbx">
+          <node concept="2MkqsV" id="2vwNr_aEwbt" role="3cqZAp">
+            <node concept="Xl_RD" id="2vwNr_aEwbu" role="2MkJ7o">
+              <property role="Xl_RC" value="must be initialized" />
+            </node>
+            <node concept="2OE7Q9" id="2vwNr_aEwbv" role="1urrC5">
+              <ref role="2OEe5H" to="kmi:3CmSUB7Fw7R" resolve="init" />
+            </node>
+            <node concept="1YBJjd" id="2vwNr_aEwbw" role="1urrMF">
+              <ref role="1YBMHb" node="2vwNr_aEwbi" resolve="forVarDecl" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1YaCAy" id="2vwNr_aEwbi" role="1YuTPh">
+      <property role="TrG5h" value="forVarDecl" />
+      <ref role="1YaFvo" to="kmi:6iIoqg1xKSz" resolve="ForVarDecl" />
+    </node>
+  </node>
+  <node concept="1YbPZF" id="2vwNr_aExKg">
+    <property role="TrG5h" value="typeof_RevForVarDecl" />
+    <property role="3GE5qa" value="loopsNStuff" />
+    <node concept="3clFbS" id="2vwNr_aExKh" role="18ibNy">
+      <node concept="3clFbJ" id="2vwNr_aExKn" role="3cqZAp">
+        <node concept="3clFbS" id="2vwNr_aExKo" role="3clFbx">
+          <node concept="1Z5TYs" id="2vwNr_aExKp" role="3cqZAp">
+            <node concept="mw_s8" id="2vwNr_aExKq" role="1ZfhKB">
+              <node concept="1Z2H0r" id="2vwNr_aExKr" role="mwGJk">
+                <node concept="2OqwBi" id="2vwNr_aExKs" role="1Z2MuG">
+                  <node concept="1YBJjd" id="2vwNr_aExKt" role="2Oq$k0">
+                    <ref role="1YBMHb" node="2vwNr_aExKj" resolve="forVarDecl" />
+                  </node>
+                  <node concept="3TrEf2" id="2vwNr_aExKu" role="2OqNvi">
+                    <ref role="3Tt5mk" to="mj1l:hEaDaGor64" resolve="type" />
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="mw_s8" id="2vwNr_aExKv" role="1ZfhK$">
+              <node concept="1Z2H0r" id="2vwNr_aExKw" role="mwGJk">
+                <node concept="1YBJjd" id="2vwNr_aExKx" role="1Z2MuG">
+                  <ref role="1YBMHb" node="2vwNr_aExKj" resolve="forVarDecl" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="2OqwBi" id="2vwNr_aExKy" role="3clFbw">
+          <node concept="1YBJjd" id="2vwNr_aExKz" role="2Oq$k0">
+            <ref role="1YBMHb" node="2vwNr_aExKj" resolve="forVarDecl" />
+          </node>
+          <node concept="1BlSNk" id="2vwNr_aExK$" role="2OqNvi">
+            <ref role="1BmUXE" to="kmi:6iIoqg1xIpQ" resolve="ForStatement" />
+            <ref role="1Bn3mz" to="kmi:6iIoqg1xKT0" resolve="iterator" />
+          </node>
+        </node>
+        <node concept="3eNFk2" id="2vwNr_aExK_" role="3eNLev">
+          <node concept="3clFbS" id="2vwNr_aExKA" role="3eOfB_">
+            <node concept="1Z5TYs" id="2vwNr_aExKB" role="3cqZAp">
+              <node concept="mw_s8" id="2vwNr_aExKC" role="1ZfhKB">
+                <node concept="1Z2H0r" id="2vwNr_aExKD" role="mwGJk">
+                  <node concept="2OqwBi" id="2vwNr_aExKE" role="1Z2MuG">
+                    <node concept="2OqwBi" id="2vwNr_aExKF" role="2Oq$k0">
+                      <node concept="1YBJjd" id="2vwNr_aExKG" role="2Oq$k0">
+                        <ref role="1YBMHb" node="2vwNr_aExKj" resolve="forVarDecl" />
+                      </node>
+                      <node concept="2Xjw5R" id="2vwNr_aExKH" role="2OqNvi">
+                        <node concept="1xMEDy" id="2vwNr_aExKI" role="1xVPHs">
+                          <node concept="chp4Y" id="2vwNr_aExKJ" role="ri$Ld">
+                            <ref role="cht4Q" to="kmi:6iIoqg1xIpQ" resolve="ForStatement" />
+                          </node>
+                        </node>
+                      </node>
+                    </node>
+                    <node concept="3TrEf2" id="2vwNr_aExKK" role="2OqNvi">
+                      <ref role="3Tt5mk" to="kmi:6iIoqg1xKT0" resolve="iterator" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+              <node concept="mw_s8" id="2vwNr_aExKL" role="1ZfhK$">
+                <node concept="1Z2H0r" id="2vwNr_aExKM" role="mwGJk">
+                  <node concept="1YBJjd" id="2vwNr_aExKN" role="1Z2MuG">
+                    <ref role="1YBMHb" node="2vwNr_aExKj" resolve="forVarDecl" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="2OqwBi" id="2vwNr_aExKO" role="3eO9$A">
+            <node concept="1YBJjd" id="2vwNr_aExKP" role="2Oq$k0">
+              <ref role="1YBMHb" node="2vwNr_aExKj" resolve="forVarDecl" />
+            </node>
+            <node concept="1BlSNk" id="2vwNr_aExKQ" role="2OqNvi">
+              <ref role="1BmUXE" to="kmi:6iIoqg1xIpQ" resolve="ForStatement" />
+              <ref role="1Bn3mz" to="kmi:58TcxRGjGp_" resolve="additionalIterators" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1YaCAy" id="2vwNr_aExKj" role="1YuTPh">
+      <property role="TrG5h" value="forVarDecl" />
+      <ref role="1YaFvo" to="kmi:6iIoqg1xKSz" resolve="ForVarDecl" />
+    </node>
+  </node>
 </model>
 

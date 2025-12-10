@@ -50,6 +50,7 @@ public final class ReversibleStatementList__BehaviorDescriptor extends BaseBHDes
     List<SNode> declarations = new ArrayList<SNode>();
     ListSequence.fromList(declarations).addSequence(Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, LINKS.revStatements$IdM8), CONCEPTS.LocalVariableDeclaration$7E)));
     ListSequence.fromList(declarations).addSequence(Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, LINKS.revStatements$IdM8), CONCEPTS.ReversibleStatementList$qe)).where((it) -> SPropertyOperations.getBoolean(it, PROPS.isInvisible$wTPL)).translate((it) -> (Iterable<SNode>) ILocalVarScopeProvider__BehaviorDescriptor.getContributedLocalVariables_id3LB9aGm4C$b.invoke(it, node)));
+    ListSequence.fromList(declarations).addSequence(Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.collect(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, LINKS.revStatements$IdM8), CONCEPTS.AllocateStruct$Pb), LINKS.newStructVariable$EkJL), CONCEPTS.LocalVariableDeclaration$7E)));
     return declarations;
   }
   /*package*/ static boolean requiresMultiLines_id1z9MsBsVy8R(@NotNull SNode __thisNode__) {
@@ -147,11 +148,13 @@ public final class ReversibleStatementList__BehaviorDescriptor extends BaseBHDes
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink revStatements$IdM8 = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, 0x3a16e3a9c7ad9956L, "revStatements");
+    /*package*/ static final SContainmentLink newStructVariable$EkJL = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x4f052dce270158d9L, 0x206240b1fa72436eL, "newStructVariable");
   }
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept LocalVariableDeclaration$7E = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad96e6L, "ReversibleStatements.structure.LocalVariableDeclaration");
     /*package*/ static final SConcept ReversibleStatementList$qe = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, "ReversibleStatements.structure.ReversibleStatementList");
+    /*package*/ static final SConcept AllocateStruct$Pb = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x4f052dce270158d9L, "ReversibleStatements.structure.AllocateStruct");
     /*package*/ static final SInterfaceConcept IStatmentListContainer$NA = MetaAdapterFactory.getInterfaceConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x5f5c402aa7667ef3L, "ReversibleStatements.structure.IStatmentListContainer");
     /*package*/ static final SConcept ReversibleStatement$s8 = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad6d03L, "ReversibleStatements.structure.ReversibleStatement");
   }

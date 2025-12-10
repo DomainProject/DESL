@@ -532,8 +532,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.parent(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x347479252a927246L);
     b.origin("r:afa7ae5b-c41f-45e8-9678-2beae3621a33(ReversibleStatements.structure)/3779779187805893258");
     b.version(3);
-    b.aggregate("var", 0x347479252a963603L).target(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x1d0c3765e2e1d67aL).optional(false).ordered(true).multiple(false).origin("3779779187805926915").done();
-    b.aggregate("init", 0x347479252a95b28dL).target(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba32L).optional(false).ordered(true).multiple(false).origin("3779779187805893261").done();
+    b.aggregate("var", 0x347479252a963603L).target(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x1d0c3765e2e1d67aL).optional(false).ordered(true).multiple(false).origin("3779779187805926915").done();
+    b.aggregate("init", 0x347479252a95b28dL).target(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L).optional(false).ordered(true).multiple(false).origin("3779779187805893261").done();
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForIAllocationVariable() {

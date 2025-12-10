@@ -4,43 +4,15 @@ package ReversibleStatements.constraints;
 
 import jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptorInitContext;
-import jetbrains.mps.smodel.runtime.ConstraintFunction;
-import jetbrains.mps.smodel.runtime.ConstraintContext_CanBeChild;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-import jetbrains.mps.smodel.runtime.CheckingNodeContext;
-import org.jetbrains.mps.openapi.model.SNode;
-import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import org.jetbrains.mps.openapi.language.SContainmentLink;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class ForVarRef_Constraints extends BaseConstraintsDescriptor {
   /*package*/ ForVarRef_Constraints(ConstraintsDescriptorInitContext initContext) {
     super(CONCEPTS.ForVarRef$v6, initContext);
-    setCanBeChildConstraint(new ConstraintFunction<ConstraintContext_CanBeChild, Boolean>() {
-      @NotNull
-      public Boolean invoke(@NotNull ConstraintContext_CanBeChild context, @Nullable CheckingNodeContext checkingNodeContext) {
-        boolean result = staticCanBeAChild(context.getNode(), context.getParentNode(), context.getConcept(), context.getLink());
-
-        if (!(result) && checkingNodeContext != null) {
-          checkingNodeContext.setBreakingNode(canBeChildBreakingPoint);
-        }
-
-        return result;
-      }
-    });
   }
-
-  private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return SNodeOperations.isInstanceOf(parentNode, CONCEPTS.ForStatement$Bb);
-  }
-  private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:b1228d9b-8e2c-4c06-8c54-62acd072f382(ReversibleStatements.constraints)", "8237807170236183629");
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept ForVarRef$v6 = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x347479252a95b28aL, "ReversibleStatements.structure.ForVarRef");
-    /*package*/ static final SConcept ForStatement$Bb = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a40186e676L, "ReversibleStatements.structure.ForStatement");
   }
 }

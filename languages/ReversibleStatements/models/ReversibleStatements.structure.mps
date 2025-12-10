@@ -10,8 +10,8 @@
     <import index="mj1l" ref="r:c371cf98-dcc8-4a43-8eb8-8a8096de18b2(com.mbeddr.core.expressions.structure)" implicit="true" />
     <import index="vs0r" ref="r:f7764ca4-8c75-4049-922b-08516400a727(com.mbeddr.core.base.structure)" implicit="true" />
     <import index="356a" ref="r:3b7ed80f-6cfd-45bc-b051-2f66c620dd27(jetbrains.mps.lang.traceable.structure)" implicit="true" />
-    <import index="c4fa" ref="r:9f0e84b6-2ec7-4f9e-83e0-feedc77b63a3(com.mbeddr.core.statements.structure)" implicit="true" />
     <import index="x27k" ref="r:75ecab8a-8931-4140-afc6-4b46398710fc(com.mbeddr.core.modules.structure)" implicit="true" />
+    <import index="c4fa" ref="r:9f0e84b6-2ec7-4f9e-83e0-feedc77b63a3(com.mbeddr.core.statements.structure)" implicit="true" />
   </imports>
   <registry>
     <language id="982eb8df-2c96-4bd7-9963-11712ea622e5" name="jetbrains.mps.lang.resources">
@@ -505,13 +505,13 @@
     <node concept="PrWs8" id="6iIoqg1xKT8" role="PzmwI">
       <ref role="PrY4T" node="1OcdQnySJNS" resolve="ILocalVarScopeProvider" />
     </node>
-    <node concept="PrWs8" id="7k_CvRMnl1Z" role="PzmwI">
+    <node concept="PrWs8" id="2vwNr_aEkOr" role="PzmwI">
       <ref role="PrY4T" node="7k_CvRMnl1X" resolve="IBreakContainer" />
     </node>
     <node concept="PrWs8" id="5Xsg2EBpGbM" role="PzmwI">
       <ref role="PrY4T" node="5Xsg2EBpBVN" resolve="IStatmentListContainer" />
     </node>
-    <node concept="PrWs8" id="7HkFchP0Cf5" role="PzmwI">
+    <node concept="PrWs8" id="2vwNr_aEkOs" role="PzmwI">
       <ref role="PrY4T" node="7HkFchP0Cf3" resolve="ILoopStatement" />
     </node>
     <node concept="PrWs8" id="6cRD4M$orRW" role="PzmwI">
@@ -541,14 +541,14 @@
       <property role="20kJfa" value="var" />
       <property role="20lbJX" value="fLJekj4/_1" />
       <property role="IQ2ns" value="3779779187805926915" />
-      <ref role="20lvS9" to="c4fa:1OcdQnyStpU" resolve="LocalVarRef" />
+      <ref role="20lvS9" node="1OcdQnyStpU" resolve="LocalVarRef" />
     </node>
     <node concept="1TJgyj" id="3hOuikE_rad" role="1TKVEi">
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <property role="20kJfa" value="init" />
       <property role="20lbJX" value="fLJekj4/_1" />
       <property role="IQ2ns" value="3779779187805893261" />
-      <ref role="20lvS9" to="mj1l:7FQByU3CrCM" resolve="Expression" />
+      <ref role="20lvS9" to="ib4b:7FQByU3CrCM" resolve="ReversibleExpression" />
     </node>
     <node concept="PrWs8" id="3hOuikE_rab" role="PzmwI">
       <ref role="PrY4T" node="3hOuikE$B96" resolve="Iterator" />

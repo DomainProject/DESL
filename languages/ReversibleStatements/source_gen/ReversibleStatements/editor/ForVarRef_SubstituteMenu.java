@@ -5,10 +5,93 @@ package ReversibleStatements.editor;
 import jetbrains.mps.nodeEditor.menus.substitute.SubstituteMenuBase;
 import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
+import org.jetbrains.annotations.NotNull;
+import java.util.List;
+import jetbrains.mps.lang.editor.menus.MenuPart;
+import jetbrains.mps.openapi.editor.menus.substitute.SubstituteMenuItem;
+import jetbrains.mps.openapi.editor.menus.substitute.SubstituteMenuContext;
+import java.util.ArrayList;
+import jetbrains.mps.lang.editor.menus.substitute.ConstraintsFilteringSubstituteMenuPartDecorator;
+import jetbrains.mps.lang.editor.menus.substitute.WrapperSubstituteMenuPart;
+import jetbrains.mps.editor.runtime.menus.SubstituteItemProxy;
+import jetbrains.mps.lang.editor.menus.substitute.SubstituteMenuItemWrapper;
+import org.jetbrains.mps.openapi.model.SNode;
+import org.jetbrains.annotations.Nullable;
+import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.editor.runtime.selection.SelectionUtil;
+import jetbrains.mps.openapi.editor.selection.SelectionManager;
+import jetbrains.mps.openapi.editor.menus.substitute.SubstituteMenuLookup;
+import jetbrains.mps.openapi.editor.EditorContext;
+import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
+import jetbrains.mps.smodel.language.LanguageRegistry;
+import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class ForVarRef_SubstituteMenu extends SubstituteMenuBase {
   public ForVarRef_SubstituteMenu() {
-    super(false, new EditorMenuDescriptorBase("default substitute menu for " + "ForVarRef", new SNodePointer("r:ad0a2569-6d3a-499c-b8a8-ddd62346572e(ReversibleStatements.editor)", "2531002643696481062")));
+    super(false, new EditorMenuDescriptorBase("default substitute menu for " + "ForVarRef", new SNodePointer("r:ad0a2569-6d3a-499c-b8a8-ddd62346572e(ReversibleStatements.editor)", "2873522757967614717")));
+  }
+  @NotNull
+  @Override
+  protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
+    List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Wrap_6tdsv5_a(), CONCEPTS.ForVarRef$v6));
+    return result;
   }
 
+  private class SMP_Wrap_6tdsv5_a extends WrapperSubstituteMenuPart {
+    private SMP_Wrap_6tdsv5_a() {
+      super(new EditorMenuDescriptorBase("wrap " + "default substitute menu for " + "LocalVarRef", new SNodePointer("r:ad0a2569-6d3a-499c-b8a8-ddd62346572e(ReversibleStatements.editor)", "2873522757967686820")));
+    }
+
+    @NotNull
+    @Override
+    protected SubstituteMenuItem wrapItem(final SubstituteMenuItem item, final SubstituteMenuContext _context) {
+      final SubstituteItemProxy wrappedItem = new SubstituteItemProxy(item);
+      return new SubstituteMenuItemWrapper(item, _context) {
+        private SNode myCreatedNode;
+
+        @Nullable
+        @Override
+        public SAbstractConcept getOutputConcept() {
+          return CONCEPTS.ForVarRef$v6;
+        }
+        @Nullable
+        @Override
+        public SNode createNode(@NotNull String pattern) {
+          SNode nodeToWrap = super.createNode(pattern);
+          SNode fvr = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x347479252a95b28aL, "ReversibleStatements.structure.ForVarRef"));
+          SLinkOperations.setTarget(fvr, LINKS.var$qtY4, nodeToWrap);
+          return fvr;
+        }
+
+        @Override
+        public void select(@NotNull SNode createdNode, @NotNull String pattern) {
+          SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), createdNode, SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
+        }
+      };
+    }
+    @Nullable
+    @Override
+    protected SubstituteMenuLookup getLookup(SubstituteMenuContext _context) {
+      final EditorContext editorContext = _context.getEditorContext();
+      SAbstractConcept conceptToFindMenuFor = getConceptToFindMenuFor(_context);
+      return new DefaultSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor);
+    }
+    private SAbstractConcept getConceptToFindMenuFor(SubstituteMenuContext _context) {
+      return CONCEPTS.LocalVarRef$O3;
+    }
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ForVarRef$v6 = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x347479252a95b28aL, "ReversibleStatements.structure.ForVarRef");
+    /*package*/ static final SConcept LocalVarRef$O3 = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x1d0c3765e2e1d67aL, "ReversibleStatements.structure.LocalVarRef");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink var$qtY4 = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x347479252a95b28aL, 0x347479252a963603L, "var");
+  }
 }

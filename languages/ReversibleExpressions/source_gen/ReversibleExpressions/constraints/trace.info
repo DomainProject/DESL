@@ -563,47 +563,54 @@
       <node id="5718859801798777963" at="52,61,53,134" concept="6" />
       <node id="6491070606984417848" at="56,78,57,165" concept="5" />
       <node id="6491070606984417704" at="57,165,58,51" concept="5" />
-      <node id="5718859801847166940" at="59,94,60,0" concept="8" />
-      <node id="5718859801847171778" at="60,0,61,133" concept="2" />
-      <node id="5718859801847166944" at="61,133,62,0" concept="8" />
-      <node id="6491070606984417712" at="62,0,63,93" concept="5" />
+      <node id="2873522758011382374" at="58,51,59,0" concept="8" />
+      <node id="2873522758011384117" at="59,0,60,121" concept="2" />
+      <node id="2873522758011382378" at="60,121,61,0" concept="8" />
+      <node id="6491070606984417712" at="62,94,63,93" concept="5" />
       <node id="6491070606984417718" at="63,93,64,123" concept="5" />
-      <node id="5718859801847248427" at="64,123,65,0" concept="8" />
-      <node id="5718859801852574054" at="66,13,67,88" concept="5" />
-      <node id="5718859801852649261" at="68,89,69,180" concept="2" />
-      <node id="5718859801852572799" at="71,13,72,0" concept="8" />
-      <node id="5718859801849869002" at="72,0,73,162" concept="2" />
-      <node id="5718859801847254876" at="73,162,74,142" concept="2" />
-      <node id="5718859801847248431" at="74,142,75,0" concept="8" />
-      <node id="6491070606984417728" at="76,71,77,272" concept="2" />
-      <node id="6491070606984417758" at="78,234,79,367" concept="2" />
-      <node id="5718859801844496608" at="81,11,82,0" concept="8" />
-      <node id="5718859801844498005" at="82,0,83,141" concept="2" />
-      <node id="6491070606984417777" at="83,141,84,145" concept="6" />
-      <node id="5718859801798772487" at="91,0,92,0" concept="9" trace="GenericMemberRef$Ue" />
-      <node id="5718859801798772487" at="92,0,93,0" concept="9" trace="GenericDotExpression$ia" />
-      <node id="5718859801798772487" at="93,0,94,0" concept="9" trace="IVariableReference$Kb" />
-      <node id="5718859801798772487" at="94,0,95,0" concept="9" trace="SUType$qX" />
-      <node id="5718859801798772487" at="95,0,96,0" concept="9" trace="PointerType$HX" />
-      <node id="5718859801798772487" at="99,0,100,0" concept="9" trace="member$gCRV" />
-      <node id="5718859801798772487" at="100,0,101,0" concept="9" trace="expression$HKAI" />
-      <node id="5718859801798772487" at="101,0,102,0" concept="9" trace="baseType$zMGV" />
-      <node id="5718859801798772487" at="105,0,106,0" concept="9" trace="transparent$YPca" />
+      <node id="2873522758014082407" at="64,123,65,0" concept="8" />
+      <node id="2873522758014083570" at="65,0,66,160" concept="2" />
+      <node id="5718859801847248427" at="66,160,67,0" concept="8" />
+      <node id="5718859801852574054" at="68,13,69,88" concept="5" />
+      <node id="5718859801852649261" at="70,89,71,180" concept="2" />
+      <node id="2873522758014121577" at="74,13,75,85" concept="5" />
+      <node id="2873522758014196776" at="77,17,78,86" concept="5" />
+      <node id="2873522758014225745" at="79,88,80,119" concept="2" />
+      <node id="5718859801847248431" at="84,13,85,0" concept="8" />
+      <node id="6491070606984417728" at="86,71,87,272" concept="2" />
+      <node id="6491070606984417758" at="88,234,89,367" concept="2" />
+      <node id="6491070606984417777" at="91,11,92,145" concept="6" />
+      <node id="5718859801798772487" at="99,0,100,0" concept="9" trace="GenericMemberRef$Ue" />
+      <node id="5718859801798772487" at="100,0,101,0" concept="9" trace="GenericDotExpression$ia" />
+      <node id="5718859801798772487" at="101,0,102,0" concept="9" trace="IVariableReference$Kb" />
+      <node id="5718859801798772487" at="102,0,103,0" concept="9" trace="SUType$qX" />
+      <node id="5718859801798772487" at="103,0,104,0" concept="9" trace="PointerType$HX" />
+      <node id="5718859801798772487" at="107,0,108,0" concept="9" trace="member$gCRV" />
+      <node id="5718859801798772487" at="108,0,109,0" concept="9" trace="expression$HKAI" />
+      <node id="5718859801798772487" at="109,0,110,0" concept="9" trace="target$xbCZ" />
+      <node id="5718859801798772487" at="110,0,111,0" concept="9" trace="type$sXU3" />
+      <node id="5718859801798772487" at="111,0,112,0" concept="9" trace="baseType$zMGV" />
+      <node id="5718859801798772487" at="115,0,116,0" concept="9" trace="transparent$YPca" />
       <node id="5718859801798777963" at="44,0,47,0" concept="1" trace="RD1#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptor;)V" />
-      <node id="5718859801852574054" at="67,88,70,15" concept="3" />
+      <node id="5718859801852574054" at="69,88,72,15" concept="3" />
+      <node id="2873522758014196776" at="78,86,81,19" concept="3" />
       <node id="5718859801798772487" at="38,0,42,0" concept="1" trace="GenericMemberRef_Constraints#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptorInitContext;)V" />
       <node id="5718859801798777963" at="51,0,55,0" concept="4" trace="getSearchScopeValidatorNode#()Lorg/jetbrains/mps/openapi/model/SNodeReference;" />
-      <node id="6491070606984417726" at="75,0,80,13" concept="3" />
-      <node id="5718859801852574054" at="65,0,71,13" concept="0" />
-      <node id="6491070606984417710" at="58,51,81,11" concept="3" />
-      <node id="5718859801798777963" at="55,0,86,0" concept="4" trace="createScope#(Ljetbrains/mps/smodel/runtime/ReferenceConstraintsContext;)Ljetbrains/mps/scope/Scope;" />
-      <node id="5718859801798777963" at="49,54,86,8" concept="6" />
-      <node id="5718859801798777963" at="47,0,88,0" concept="4" trace="getScopeProvider#()Ljetbrains/mps/smodel/runtime/ReferenceScopeProvider;" />
+      <node id="6491070606984417726" at="85,0,90,13" concept="3" />
+      <node id="5718859801852574054" at="67,0,73,13" concept="0" />
+      <node id="2873522758014196776" at="76,88,82,17" concept="0" />
+      <node id="2873522758014121577" at="75,85,83,15" concept="3" />
+      <node id="2873522758014121577" at="73,13,84,13" concept="0" />
+      <node id="6491070606984417710" at="61,0,91,11" concept="3" />
+      <node id="5718859801798777963" at="55,0,94,0" concept="4" trace="createScope#(Ljetbrains/mps/smodel/runtime/ReferenceConstraintsContext;)Ljetbrains/mps/scope/Scope;" />
+      <node id="5718859801798777963" at="49,54,94,8" concept="6" />
+      <node id="5718859801798777963" at="47,0,96,0" concept="4" trace="getScopeProvider#()Ljetbrains/mps/smodel/runtime/ReferenceScopeProvider;" />
       <scope id="5718859801798777963" at="44,54,45,55" />
       <scope id="5718859801798777963" at="52,61,53,134" />
-      <scope id="5718859801852574058" at="68,89,69,180" />
-      <scope id="6491070606984417727" at="76,71,77,272" />
-      <scope id="6491070606984417757" at="78,234,79,367" />
+      <scope id="5718859801852574058" at="70,89,71,180" />
+      <scope id="2873522758014196778" at="79,88,80,119" />
+      <scope id="6491070606984417727" at="86,71,87,272" />
+      <scope id="6491070606984417757" at="88,234,89,367" />
       <scope id="5718859801798772487" at="38,90,40,26" />
       <scope id="5718859801798777963" at="44,0,47,0">
         <var name="container" id="5718859801798777963" />
@@ -612,28 +619,35 @@
         <var name="initContext" id="5718859801798772487" />
       </scope>
       <scope id="5718859801798777963" at="51,0,55,0" />
-      <scope id="5718859801852574054" at="66,13,70,15">
+      <scope id="5718859801852574054" at="68,13,72,15">
         <var name="varRef" id="5718859801852574054" />
       </scope>
-      <scope id="6491070606984417711" at="59,94,80,13">
+      <scope id="2873522758014196776" at="77,17,81,19">
+        <var name="gmr" id="2873522758014196776" />
+      </scope>
+      <scope id="2873522758014121581" at="76,88,82,17" />
+      <scope id="2873522758014121577" at="74,13,83,15">
+        <var name="gde" id="2873522758014121577" />
+      </scope>
+      <scope id="6491070606984417711" at="62,94,90,13">
         <var name="ct" id="6491070606984417719" />
         <var name="en" id="6491070606984417713" />
       </scope>
-      <scope id="5718859801798777963" at="56,78,84,145">
+      <scope id="5718859801798777963" at="56,78,92,145">
         <var name="enclosingNode" id="6491070606984417849" />
         <var name="res" id="6491070606984417705" />
       </scope>
-      <scope id="5718859801798777963" at="55,0,86,0">
+      <scope id="5718859801798777963" at="55,0,94,0">
         <var name="_context" id="5718859801798777963" />
       </scope>
-      <scope id="5718859801798777963" at="49,54,86,8" />
-      <scope id="5718859801798777963" at="47,0,88,0" />
-      <unit id="5718859801798772487" at="104,0,107,0" name="ReversibleExpressions.constraints.GenericMemberRef_Constraints$PROPS" />
-      <unit id="5718859801798772487" at="98,0,103,0" name="ReversibleExpressions.constraints.GenericMemberRef_Constraints$LINKS" />
-      <unit id="5718859801798772487" at="90,0,97,0" name="ReversibleExpressions.constraints.GenericMemberRef_Constraints$CONCEPTS" />
-      <unit id="5718859801798777963" at="50,17,86,7" name="ReversibleExpressions.constraints.GenericMemberRef_Constraints$RD1$1" />
-      <unit id="5718859801798777963" at="43,0,89,0" name="ReversibleExpressions.constraints.GenericMemberRef_Constraints$RD1" />
-      <unit id="5718859801798772487" at="37,0,108,0" name="ReversibleExpressions.constraints.GenericMemberRef_Constraints" />
+      <scope id="5718859801798777963" at="49,54,94,8" />
+      <scope id="5718859801798777963" at="47,0,96,0" />
+      <unit id="5718859801798772487" at="114,0,117,0" name="ReversibleExpressions.constraints.GenericMemberRef_Constraints$PROPS" />
+      <unit id="5718859801798772487" at="98,0,105,0" name="ReversibleExpressions.constraints.GenericMemberRef_Constraints$CONCEPTS" />
+      <unit id="5718859801798772487" at="106,0,113,0" name="ReversibleExpressions.constraints.GenericMemberRef_Constraints$LINKS" />
+      <unit id="5718859801798777963" at="50,17,94,7" name="ReversibleExpressions.constraints.GenericMemberRef_Constraints$RD1$1" />
+      <unit id="5718859801798777963" at="43,0,97,0" name="ReversibleExpressions.constraints.GenericMemberRef_Constraints$RD1" />
+      <unit id="5718859801798772487" at="37,0,118,0" name="ReversibleExpressions.constraints.GenericMemberRef_Constraints" />
     </file>
   </root>
   <root nodeRef="r:e81df3c1-b167-4843-95a2-4c0dd8e517e2(ReversibleExpressions.constraints)/6485560170887684321">
