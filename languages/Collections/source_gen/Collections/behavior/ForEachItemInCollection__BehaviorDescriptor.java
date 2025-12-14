@@ -13,59 +13,40 @@ import org.jetbrains.mps.openapi.model.SNode;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import java.util.UUID;
+import java.util.ArrayList;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SContainmentLink;
-import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SProperty;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class ForEachItemInCollection__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x259b4ab97565ea5eL, "Collections.structure.ForEachItemInCollection");
 
-  public static final SMethod<Void> createIteratorVariable_id2PnOsd7xvJB = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("createIteratorVariable").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(3267310691329375207L).languageId(0xa40f23376c03dda3L, 0x99e1808be2d74c11L).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
+  public static final SMethod<String> getIterationVariableName_id6cRD4M$XPR9 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getIterationVariableName").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7149363582566096329L).languageId(0x8af20a8ce6b25221L, 0xf75f9e3fb00b4997L).build2();
+  public static final SMethod<Iterable<SNode>> getContributedLocalVariables_id3LB9aGm4C$b = new SMethodBuilder<Iterable<SNode>>(new SJavaCompoundTypeImpl((Class<Iterable<SNode>>) ((Class) Object.class))).name("getContributedLocalVariables").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(4352487882105194763L).languageId(0x8af20a8ce6b25221L, 0xf75f9e3fb00b4997L).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
+  public static final SMethod<Boolean> isInclusionIndexDependent_id2tBHhziHcNe = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isInclusionIndexDependent").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2839437208299293902L).languageId(0x8af20a8ce6b25221L, 0xf75f9e3fb00b4997L).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(createIteratorVariable_id2PnOsd7xvJB);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getIterationVariableName_id6cRD4M$XPR9, getContributedLocalVariables_id3LB9aGm4C$b, isInclusionIndexDependent_id2tBHhziHcNe);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
+    SPropertyOperations.assign(__thisNode__, PROPS.iteratorName$Z1d4, "iterator_" + UUID.randomUUID().toString().substring(0, 8));
   }
 
-  /*package*/ static void createIteratorVariable_id2PnOsd7xvJB(@NotNull SNode __thisNode__, SNode expression) {
-
-    if ((SLinkOperations.getTarget(__thisNode__, LINKS.variable$xerT) == null)) {
-      SLinkOperations.setTarget(__thisNode__, LINKS.variable$xerT, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad96e6L, "com.mbeddr.core.statements.structure.LocalVariableDeclaration")));
-      SPropertyOperations.assign(SLinkOperations.getTarget(__thisNode__, LINKS.variable$xerT), PROPS.name$MnvL, SPropertyOperations.getString(__thisNode__, PROPS.variableName$xecS));
-    }
-
-    {
-      final SNode localVarRef = expression;
-      if (SNodeOperations.isInstanceOf(localVarRef, CONCEPTS.LocalVarRef$VQ)) {
-        SLinkOperations.setTarget(SLinkOperations.getTarget(__thisNode__, LINKS.variable$xerT), LINKS.type$sXU3, SNodeOperations.copyNode(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(SLinkOperations.getTarget(localVarRef, LINKS.var$YUyC), LINKS.type$sXU3), CONCEPTS.Collection$YT), LINKS.type$eikV)));
-        return;
-      }
-    }
-    {
-      final SNode dotExpression = expression;
-      if (SNodeOperations.isInstanceOf(dotExpression, CONCEPTS.GenericDotExpression$uQ)) {
-        // in this case, we have a struct member (struct.member or struct->member)
-        SLinkOperations.setTarget(SLinkOperations.getTarget(__thisNode__, LINKS.variable$xerT), LINKS.type$sXU3, SNodeOperations.copyNode(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(dotExpression, LINKS.target$CEPF), CONCEPTS.GenericMemberRef$bk), LINKS.member$wUNL), LINKS.type$sXU3), CONCEPTS.Collection$YT), LINKS.type$eikV)));
-        return;
-      }
-    }
-    {
-      final SNode argument = expression;
-      if (SNodeOperations.isInstanceOf(argument, CONCEPTS.ArgumentRef$iE)) {
-        SLinkOperations.setTarget(SLinkOperations.getTarget(__thisNode__, LINKS.variable$xerT), LINKS.type$sXU3, SNodeOperations.copyNode(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(SLinkOperations.getTarget(argument, LINKS.arg$WIp5), LINKS.type$sXU3), CONCEPTS.Collection$YT), LINKS.type$eikV)));
-        return;
-      }
-    }
-
-    SLinkOperations.setTarget(SLinkOperations.getTarget(__thisNode__, LINKS.variable$xerT), LINKS.type$sXU3, null);
+  /*package*/ static String getIterationVariableName_id6cRD4M$XPR9(@NotNull SNode __thisNode__) {
+    return SPropertyOperations.getString(__thisNode__, PROPS.iteratorName$Z1d4);
+  }
+  /*package*/ static Iterable<SNode> getContributedLocalVariables_id3LB9aGm4C$b(@NotNull SNode __thisNode__, SNode node) {
+    List<SNode> declarations = new ArrayList<SNode>();
+    ListSequence.fromList(declarations).addElement(SLinkOperations.getTarget(__thisNode__, LINKS.variable$xerT));
+    return declarations;
+  }
+  /*package*/ static boolean isInclusionIndexDependent_id2tBHhziHcNe(@NotNull SNode __thisNode__) {
+    return false;
   }
 
   /*package*/ ForEachItemInCollection__BehaviorDescriptor() {
@@ -84,8 +65,11 @@ public final class ForEachItemInCollection__BehaviorDescriptor extends BaseBHDes
     }
     switch (methodIndex) {
       case 0:
-        createIteratorVariable_id2PnOsd7xvJB(node, (SNode) parameters[0]);
-        return null;
+        return (T) ((String) getIterationVariableName_id6cRD4M$XPR9(node));
+      case 1:
+        return (T) ((Iterable<SNode>) getContributedLocalVariables_id3LB9aGm4C$b(node, (SNode) parameters[0]));
+      case 2:
+        return (T) ((Boolean) isInclusionIndexDependent_id2tBHhziHcNe(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -115,26 +99,11 @@ public final class ForEachItemInCollection__BehaviorDescriptor extends BaseBHDes
     return CONCEPT;
   }
 
+  private static final class PROPS {
+    /*package*/ static final SProperty iteratorName$Z1d4 = MetaAdapterFactory.getProperty(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x259b4ab97565ea5eL, 0x72751670f419b537L, "iteratorName");
+  }
+
   private static final class LINKS {
     /*package*/ static final SContainmentLink variable$xerT = MetaAdapterFactory.getContainmentLink(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x259b4ab97565ea5eL, 0x2d57d1c347710004L, "variable");
-    /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
-    /*package*/ static final SReferenceLink var$YUyC = MetaAdapterFactory.getReferenceLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x1d0c3765e2e1d67aL, 0x1d0c3765e2e1fe27L, "var");
-    /*package*/ static final SContainmentLink type$eikV = MetaAdapterFactory.getContainmentLink(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x6f36cc77d0af8690L, 0x6f36cc77d0af8691L, "type");
-    /*package*/ static final SContainmentLink target$CEPF = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x401df715da462c0cL, 0x619e8ce80b7ff48bL, "target");
-    /*package*/ static final SReferenceLink member$wUNL = MetaAdapterFactory.getReferenceLink(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x619e8ce80b8d18e4L, 0x619e8ce80b8d18e6L, "member");
-    /*package*/ static final SReferenceLink arg$WIp5 = MetaAdapterFactory.getReferenceLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x1d0c3765e2e7d0baL, 0x1d0c3765e2e7d0bbL, "arg");
-  }
-
-  private static final class PROPS {
-    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
-    /*package*/ static final SProperty variableName$xecS = MetaAdapterFactory.getProperty(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x259b4ab97565ea5eL, 0x2d57d1c347710003L, "variableName");
-  }
-
-  private static final class CONCEPTS {
-    /*package*/ static final SConcept LocalVarRef$VQ = MetaAdapterFactory.getConcept(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x1d0c3765e2e1d67aL, "com.mbeddr.core.statements.structure.LocalVarRef");
-    /*package*/ static final SConcept Collection$YT = MetaAdapterFactory.getConcept(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x6f36cc77d0af8690L, "Collections.structure.Collection");
-    /*package*/ static final SConcept GenericDotExpression$uQ = MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x401df715da462c0cL, "com.mbeddr.core.expressions.structure.GenericDotExpression");
-    /*package*/ static final SConcept GenericMemberRef$bk = MetaAdapterFactory.getConcept(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x619e8ce80b8d18e4L, "com.mbeddr.core.udt.structure.GenericMemberRef");
-    /*package*/ static final SConcept ArgumentRef$iE = MetaAdapterFactory.getConcept(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x1d0c3765e2e7d0baL, "com.mbeddr.core.modules.structure.ArgumentRef");
   }
 }

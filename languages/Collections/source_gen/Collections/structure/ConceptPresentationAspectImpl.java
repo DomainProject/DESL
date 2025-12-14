@@ -13,7 +13,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_Collection;
   private ConceptPresentation props_FindFirst;
   private ConceptPresentation props_ForEachItemInCollection;
-  private ConceptPresentation props_ForeachBody;
   private ConceptPresentation props_IGetFirstElementInCollection;
   private ConceptPresentation props_IUpdateCollection;
   private ConceptPresentation props_NewCollection;
@@ -56,13 +55,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_ForEachItemInCollection = cpb.create();
         }
         return props_ForEachItemInCollection;
-      case LanguageConceptSwitch.ForeachBody:
-        if (props_ForeachBody == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.rawPresentation("ForeachBody");
-          props_ForeachBody = cpb.create();
-        }
-        return props_ForeachBody;
       case LanguageConceptSwitch.IGetFirstElementInCollection:
         if (props_IGetFirstElementInCollection == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

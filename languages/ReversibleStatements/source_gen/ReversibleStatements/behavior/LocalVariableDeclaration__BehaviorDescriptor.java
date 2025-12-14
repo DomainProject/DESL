@@ -25,24 +25,21 @@ import org.jetbrains.mps.openapi.language.SConcept;
 public final class LocalVariableDeclaration__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad96e6L, "ReversibleStatements.structure.LocalVariableDeclaration");
 
-  public static final SMethod<SNode> getInitExpression_id5O5ERJtHyWT = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getInitExpression").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6702952168899882809L).languageId(0x81d97714ff227fb0L, 0x61c69711ed614850L).build2();
   public static final SMethod<SNode> getType_id67hg1wL_GfW = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7048485364466893820L).languageId(0x81d97714ff227fb0L, 0x61c69711ed614850L).build2();
   public static final SMethod<Boolean> isCommentable_id3RtPbXKOu_B = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isCommentable").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(4457953124863306087L).languageId(0xaa41d1b2bffa7eb1L, 0xd4280a54f6df4383L).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<Boolean> isIncompleteTypeAllowed_id3_EX3WibiOp = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isIncompleteTypeAllowed").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(4137387759418289433L).languageId(0x8af20a8ce6b25221L, 0xf75f9e3fb00b4997L).build2();
   public static final SMethod<SNode> getTypeComputationNode_id7kDeEuVjSvB = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getTypeComputationNode").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8442343468559206375L).languageId(0x8af20a8ce6b25221L, 0xf75f9e3fb00b4997L).build2();
   public static final SMethod<SNode> getStaticallyEvaluatableNode_id3fs$L2LZpYI = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getStaticallyEvaluatableNode").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(3737023490725617582L).languageId(0x8af20a8ce6b25221L, 0xf75f9e3fb00b4997L).build2();
-  public static final SMethod<SNode> getDeclaredType_id1LDGRqyYkTX = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getDeclaredType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2047364827738361469L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
-  public static final SMethod<SNode> getInitExpression_id1LDGRqyYkU1 = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getInitExpression").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2047364827738361473L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
+  public static final SMethod<SNode> getInitExpression_id1LDGRqyYkU1 = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getInitExpression").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2047364827738361473L).languageId(0x81d97714ff227fb0L, 0x61c69711ed614850L).build2();
   public static final SMethod<Boolean> canBeStatic_id58TcxRGFbfJ = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("canBeStatic").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(5924821888888779759L).languageId(0x8af20a8ce6b25221L, 0xf75f9e3fb00b4997L).build2();
+  public static final SMethod<SNode> getDeclaredType_id1LDGRqyYkTX = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getDeclaredType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2047364827738361469L).languageId(0x81d97714ff227fb0L, 0x61c69711ed614850L).build2();
+  public static final SMethod<SNode> getInitExpression_id5O5ERJtHyWT = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getInitExpression").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6702952168899882809L).languageId(0x81d97714ff227fb0L, 0x61c69711ed614850L).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getInitExpression_id5O5ERJtHyWT, getType_id67hg1wL_GfW, isCommentable_id3RtPbXKOu_B, isIncompleteTypeAllowed_id3_EX3WibiOp, getTypeComputationNode_id7kDeEuVjSvB, getStaticallyEvaluatableNode_id3fs$L2LZpYI, getDeclaredType_id1LDGRqyYkTX, getInitExpression_id1LDGRqyYkU1, canBeStatic_id58TcxRGFbfJ);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getType_id67hg1wL_GfW, isCommentable_id3RtPbXKOu_B, isIncompleteTypeAllowed_id3_EX3WibiOp, getTypeComputationNode_id7kDeEuVjSvB, getStaticallyEvaluatableNode_id3fs$L2LZpYI, getInitExpression_id1LDGRqyYkU1, canBeStatic_id58TcxRGFbfJ, getDeclaredType_id1LDGRqyYkTX, getInitExpression_id5O5ERJtHyWT);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
-  /*package*/ static SNode getInitExpression_id5O5ERJtHyWT(@NotNull SNode __thisNode__) {
-    return SLinkOperations.getTarget(__thisNode__, LINKS.init$41s$);
-  }
   /*package*/ static SNode getType_id67hg1wL_GfW(@NotNull SNode __thisNode__) {
     return SLinkOperations.getTarget(__thisNode__, LINKS.type$sXU3);
   }
@@ -59,14 +56,17 @@ public final class LocalVariableDeclaration__BehaviorDescriptor extends BaseBHDe
   /*package*/ static SNode getStaticallyEvaluatableNode_id3fs$L2LZpYI(@NotNull SNode __thisNode__) {
     return SLinkOperations.getTarget(__thisNode__, LINKS.init$41s$);
   }
-  /*package*/ static SNode getDeclaredType_id1LDGRqyYkTX(@NotNull SNode __thisNode__) {
-    return SLinkOperations.getTarget(__thisNode__, LINKS.type$sXU3);
-  }
   /*package*/ static SNode getInitExpression_id1LDGRqyYkU1(@NotNull SNode __thisNode__) {
     return SLinkOperations.getTarget(__thisNode__, LINKS.init$41s$);
   }
   /*package*/ static boolean canBeStatic_id58TcxRGFbfJ(@NotNull SNode __thisNode__) {
     return true;
+  }
+  /*package*/ static SNode getDeclaredType_id1LDGRqyYkTX(@NotNull SNode __thisNode__) {
+    return SLinkOperations.getTarget(__thisNode__, LINKS.type$sXU3);
+  }
+  /*package*/ static SNode getInitExpression_id5O5ERJtHyWT(@NotNull SNode __thisNode__) {
+    return SLinkOperations.getTarget(__thisNode__, LINKS.init$41s$);
   }
 
   /*package*/ LocalVariableDeclaration__BehaviorDescriptor() {
@@ -85,23 +85,23 @@ public final class LocalVariableDeclaration__BehaviorDescriptor extends BaseBHDe
     }
     switch (methodIndex) {
       case 0:
-        return (T) ((SNode) getInitExpression_id5O5ERJtHyWT(node));
-      case 1:
         return (T) ((SNode) getType_id67hg1wL_GfW(node));
-      case 2:
+      case 1:
         return (T) ((Boolean) isCommentable_id3RtPbXKOu_B(node, (SNode) parameters[0]));
-      case 3:
+      case 2:
         return (T) ((Boolean) isIncompleteTypeAllowed_id3_EX3WibiOp(node));
-      case 4:
+      case 3:
         return (T) ((SNode) getTypeComputationNode_id7kDeEuVjSvB(node));
-      case 5:
+      case 4:
         return (T) ((SNode) getStaticallyEvaluatableNode_id3fs$L2LZpYI(node));
-      case 6:
-        return (T) ((SNode) getDeclaredType_id1LDGRqyYkTX(node));
-      case 7:
+      case 5:
         return (T) ((SNode) getInitExpression_id1LDGRqyYkU1(node));
-      case 8:
+      case 6:
         return (T) ((Boolean) canBeStatic_id58TcxRGFbfJ(node));
+      case 7:
+        return (T) ((SNode) getDeclaredType_id1LDGRqyYkTX(node));
+      case 8:
+        return (T) ((SNode) getInitExpression_id5O5ERJtHyWT(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -132,8 +132,8 @@ public final class LocalVariableDeclaration__BehaviorDescriptor extends BaseBHDe
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink init$41s$ = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad96e6L, 0x3a16e3a9c7ae01f7L, "init");
     /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
+    /*package*/ static final SContainmentLink init$41s$ = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad96e6L, 0x3a16e3a9c7ae01f7L, "init");
   }
 
   private static final class CONCEPTS {

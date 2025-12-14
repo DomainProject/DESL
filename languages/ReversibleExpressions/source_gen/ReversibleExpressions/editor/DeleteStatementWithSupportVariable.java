@@ -5,7 +5,6 @@ package ReversibleExpressions.editor;
 import jetbrains.mps.editor.runtime.cells.AbstractCellAction;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
-import jetbrains.mps.baseLanguage.logging.rt.LogContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
@@ -26,14 +25,6 @@ public class DeleteStatementWithSupportVariable {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-
-        LogContext.with(DeleteStatementWithSupportVariable.class, null, editorContext.getOperationContext().getProject(), null).info("executing delete action");
-        LogContext.with(DeleteStatementWithSupportVariable.class, null, editorContext.getOperationContext().getProject(), null).debug("executing delete action");
-        LogContext.with(DeleteStatementWithSupportVariable.class, null, editorContext.getOperationContext().getProject(), null).fatal("executing delete action");
-        LogContext.with(DeleteStatementWithSupportVariable.class, null, editorContext.getOperationContext().getProject(), null).error("executing delete action");
-        LogContext.with(DeleteStatementWithSupportVariable.class, null, editorContext.getOperationContext().getProject(), null).trace("executing delete action");
-        LogContext.with(DeleteStatementWithSupportVariable.class, null, editorContext.getOperationContext().getProject(), null).warning("executing delete action");
-
         SNodeOperations.deleteNode(SLinkOperations.getTarget(node, LINKS.supportVariable$WrxR));
 
         if ((SNodeOperations.getNodeAncestor(node, CONCEPTS.IReversibleLoop$k1, false, false) != null)) {

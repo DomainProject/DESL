@@ -720,7 +720,7 @@
       <property role="eg7rD" value="false" />
       <property role="34CwA1" value="false" />
       <property role="3TUv4t" value="false" />
-      <property role="TrG5h" value="props_RngType" />
+      <property role="TrG5h" value="props_RngContext" />
       <node concept="3uibUv" id="2C" role="1tU5fm">
         <ref role="3uigEE" to="ze1i:~ConceptPresentation" resolve="ConceptPresentation" />
       </node>
@@ -4090,7 +4090,7 @@
                         <ref role="37wK5l" to="ze1i:~ConceptPresentationBuilder.rawPresentation(java.lang.String)" resolve="rawPresentation" />
                         <uo k="s:originTrace" v="n:2575222304967586466" />
                         <node concept="Xl_RD" id="nr" role="37wK5m">
-                          <property role="Xl_RC" value="RngType" />
+                          <property role="Xl_RC" value="RngContext" />
                           <uo k="s:originTrace" v="n:2575222304967586466" />
                         </node>
                       </node>
@@ -4107,7 +4107,7 @@
                         </node>
                       </node>
                       <node concept="37vLTw" id="nu" role="37vLTJ">
-                        <ref role="3cqZAo" node="O" resolve="props_RngType" />
+                        <ref role="3cqZAo" node="O" resolve="props_RngContext" />
                       </node>
                     </node>
                   </node>
@@ -4115,19 +4115,19 @@
                 <node concept="3clFbC" id="ng" role="3clFbw">
                   <node concept="10Nm6u" id="nx" role="3uHU7w" />
                   <node concept="37vLTw" id="ny" role="3uHU7B">
-                    <ref role="3cqZAo" node="O" resolve="props_RngType" />
+                    <ref role="3cqZAo" node="O" resolve="props_RngContext" />
                   </node>
                 </node>
               </node>
               <node concept="3cpWs6" id="ne" role="3cqZAp">
                 <node concept="37vLTw" id="nz" role="3cqZAk">
-                  <ref role="3cqZAo" node="O" resolve="props_RngType" />
+                  <ref role="3cqZAo" node="O" resolve="props_RngContext" />
                 </node>
               </node>
             </node>
             <node concept="10M0yZ" id="nc" role="3Kbmr1">
               <ref role="1PxDUh" node="$P" resolve="LanguageConceptSwitch" />
-              <ref role="3cqZAo" node="_D" resolve="RngType" />
+              <ref role="3cqZAo" node="_D" resolve="RngContext" />
             </node>
           </node>
           <node concept="3KbdKl" id="48" role="3KbHQx">
@@ -7459,7 +7459,7 @@
       <property role="2dlcS1" value="false" />
       <property role="2dld4O" value="false" />
       <property role="3TUv4t" value="true" />
-      <property role="TrG5h" value="RngType" />
+      <property role="TrG5h" value="RngContext" />
       <node concept="3Tm1VV" id="Cl" role="1B3o_S" />
       <node concept="10Oyi0" id="Cm" role="1tU5fm" />
       <node concept="3cmrfG" id="Cn" role="33vP2m">
@@ -8433,7 +8433,7 @@
                 <property role="11gdj1" value="23bd070ad14172a2L" />
               </node>
               <node concept="37vLTw" id="I4" role="37wK5m">
-                <ref role="3cqZAo" node="_D" resolve="RngType" />
+                <ref role="3cqZAo" node="_D" resolve="RngContext" />
               </node>
             </node>
           </node>
@@ -9311,12 +9311,12 @@
       <property role="eg7rD" value="false" />
       <property role="34CwA1" value="false" />
       <property role="3TUv4t" value="true" />
-      <property role="TrG5h" value="myConceptRngType" />
+      <property role="TrG5h" value="myConceptRngContext" />
       <node concept="3uibUv" id="Nf" role="1tU5fm">
         <ref role="3uigEE" to="ze1i:~ConceptDescriptor" resolve="ConceptDescriptor" />
       </node>
       <node concept="1rXfSq" id="Ng" role="33vP2m">
-        <ref role="37wK5l" node="Lu" resolve="createDescriptorForRngType" />
+        <ref role="37wK5l" node="Lu" resolve="createDescriptorForRngContext" />
       </node>
     </node>
     <node concept="312cEg" id="Ke" role="jymVt">
@@ -9984,7 +9984,7 @@
               <ref role="3cqZAo" node="Kc" resolve="myConceptRandom" />
             </node>
             <node concept="37vLTw" id="Qw" role="37wK5m">
-              <ref role="3cqZAo" node="Kd" resolve="myConceptRngType" />
+              <ref role="3cqZAo" node="Kd" resolve="myConceptRngContext" />
             </node>
             <node concept="37vLTw" id="Qx" role="37wK5m">
               <ref role="3cqZAo" node="Ke" resolve="myConceptRootSimGPUM2M" />
@@ -10704,13 +10704,13 @@
             <node concept="3clFbS" id="UZ" role="3Kbo56">
               <node concept="3cpWs6" id="V1" role="3cqZAp">
                 <node concept="37vLTw" id="V2" role="3cqZAk">
-                  <ref role="3cqZAo" node="Kd" resolve="myConceptRngType" />
+                  <ref role="3cqZAo" node="Kd" resolve="myConceptRngContext" />
                 </node>
               </node>
             </node>
             <node concept="10M0yZ" id="V0" role="3Kbmr1">
               <ref role="1PxDUh" node="$P" resolve="LanguageConceptSwitch" />
-              <ref role="3cqZAo" node="_D" resolve="RngType" />
+              <ref role="3cqZAo" node="_D" resolve="RngContext" />
             </node>
           </node>
           <node concept="3KbdKl" id="RD" role="3KbHQx">
@@ -20192,7 +20192,7 @@
       <property role="od$2w" value="false" />
       <property role="DiZV1" value="false" />
       <property role="2aFKle" value="false" />
-      <property role="TrG5h" value="createDescriptorForRngType" />
+      <property role="TrG5h" value="createDescriptorForRngContext" />
       <node concept="3clFbS" id="1Mp" role="3clF47">
         <node concept="3cpWs8" id="1Ms" role="3cqZAp">
           <node concept="3cpWsn" id="1Mz" role="3cpWs9">
@@ -20207,7 +20207,7 @@
                   <property role="Xl_RC" value="DESL" />
                 </node>
                 <node concept="Xl_RD" id="1MC" role="37wK5m">
-                  <property role="Xl_RC" value="RngType" />
+                  <property role="Xl_RC" value="RngContext" />
                 </node>
                 <node concept="11gdke" id="1MD" role="37wK5m">
                   <property role="11gdj1" value="c4765525912b41b9L" />

@@ -64,7 +64,7 @@ public final class AssignmentExpr__BehaviorDescriptor extends BaseBHDescriptor {
   /*package*/ static void handleCopyPaste_id33MO5h9wdZT(@NotNull SNode __thisNode__) {
   }
   /*package*/ static String getBaseName_id2vgMet5LndN(@NotNull SNode __thisNode__) {
-    return "assignment_var";
+    return "assignment_var_";
   }
 
   /*package*/ AssignmentExpr__BehaviorDescriptor() {

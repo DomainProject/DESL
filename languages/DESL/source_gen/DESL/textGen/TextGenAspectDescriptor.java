@@ -77,8 +77,8 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new ProcessArray_TextGen();
       case LanguageConceptSwitch.Random:
         return new Random_TextGen();
-      case LanguageConceptSwitch.RngType:
-        return new RngType_TextGen();
+      case LanguageConceptSwitch.RngContext:
+        return new RngContext_TextGen();
       case LanguageConceptSwitch.RootSimGPUM2M:
         return new RootSimGPUM2M_TextGen();
       case LanguageConceptSwitch.RootSimM2M:

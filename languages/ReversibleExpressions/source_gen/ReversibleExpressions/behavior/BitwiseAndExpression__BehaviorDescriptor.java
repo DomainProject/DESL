@@ -24,10 +24,8 @@ public final class BitwiseAndExpression__BehaviorDescriptor extends BaseBHDescri
 
   public static final SMethod<Object> evaluateStatically_id6OxpEKG0KPv = new SMethodBuilder<Object>(new SJavaCompoundTypeImpl(Object.class)).name("evaluateStatically").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7863679314024402271L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
   public static final SMethod<Integer> getPriolevel_id5HxjapwgqKu = new SMethodBuilder<Integer>(new SJavaCompoundTypeImpl(Integer.TYPE)).name("getPriolevel").modifiers(9, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6584628407655574558L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
-  public static final SMethod<String> getBaseName_id2vgMet5LndN = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getBaseName").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2869013858268574579L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
-  public static final SMethod<Void> handleCopyPaste_id33MO5h9wdZT = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("handleCopyPaste").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(3527110518613532665L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(evaluateStatically_id6OxpEKG0KPv, getPriolevel_id5HxjapwgqKu, getBaseName_id2vgMet5LndN, handleCopyPaste_id33MO5h9wdZT);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(evaluateStatically_id6OxpEKG0KPv, getPriolevel_id5HxjapwgqKu);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -37,11 +35,6 @@ public final class BitwiseAndExpression__BehaviorDescriptor extends BaseBHDescri
   }
   /*package*/ static int getPriolevel_id5HxjapwgqKu(@NotNull SAbstractConcept __thisConcept__) {
     return 990;
-  }
-  /*package*/ static String getBaseName_id2vgMet5LndN(@NotNull SNode __thisNode__) {
-    return "bitwise_and_";
-  }
-  /*package*/ static void handleCopyPaste_id33MO5h9wdZT(@NotNull SNode __thisNode__) {
   }
 
   /*package*/ BitwiseAndExpression__BehaviorDescriptor() {
@@ -61,11 +54,6 @@ public final class BitwiseAndExpression__BehaviorDescriptor extends BaseBHDescri
     switch (methodIndex) {
       case 0:
         return (T) ((Object) evaluateStatically_id6OxpEKG0KPv(node));
-      case 2:
-        return (T) ((String) getBaseName_id2vgMet5LndN(node));
-      case 3:
-        handleCopyPaste_id33MO5h9wdZT(node);
-        return null;
       default:
         throw new BHMethodNotFoundException(this, method);
     }

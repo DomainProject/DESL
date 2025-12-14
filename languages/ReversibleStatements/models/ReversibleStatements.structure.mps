@@ -10,8 +10,9 @@
     <import index="mj1l" ref="r:c371cf98-dcc8-4a43-8eb8-8a8096de18b2(com.mbeddr.core.expressions.structure)" implicit="true" />
     <import index="vs0r" ref="r:f7764ca4-8c75-4049-922b-08516400a727(com.mbeddr.core.base.structure)" implicit="true" />
     <import index="356a" ref="r:3b7ed80f-6cfd-45bc-b051-2f66c620dd27(jetbrains.mps.lang.traceable.structure)" implicit="true" />
-    <import index="x27k" ref="r:75ecab8a-8931-4140-afc6-4b46398710fc(com.mbeddr.core.modules.structure)" implicit="true" />
     <import index="c4fa" ref="r:9f0e84b6-2ec7-4f9e-83e0-feedc77b63a3(com.mbeddr.core.statements.structure)" implicit="true" />
+    <import index="x27k" ref="r:75ecab8a-8931-4140-afc6-4b46398710fc(com.mbeddr.core.modules.structure)" implicit="true" />
+    <import index="k146" ref="r:5209fc71-bade-45c9-9079-f2d474f0d6ca(com.mbeddr.core.util.structure)" implicit="true" />
   </imports>
   <registry>
     <language id="982eb8df-2c96-4bd7-9963-11712ea622e5" name="jetbrains.mps.lang.resources">
@@ -258,7 +259,7 @@
       <property role="20kJfa" value="condition" />
       <property role="20lbJX" value="fLJekj4/_1" />
       <property role="IQ2ns" value="3134547887598498479" />
-      <ref role="20lvS9" to="mj1l:7FQByU3CrCM" resolve="Expression" />
+      <ref role="20lvS9" to="ib4b:7FQByU3CrCM" resolve="ReversibleExpression" />
     </node>
     <node concept="1TJgyj" id="2I09F8VKBaB" role="1TKVEi">
       <property role="20lmBu" value="fLJjDmT/aggregation" />
@@ -306,7 +307,7 @@
       <property role="20kJfa" value="condition" />
       <property role="20lbJX" value="fLJekj4/_1" />
       <property role="IQ2ns" value="6275792049641600984" />
-      <ref role="20lvS9" to="mj1l:7FQByU3CrCM" resolve="Expression" />
+      <ref role="20lvS9" to="ib4b:7FQByU3CrCM" resolve="ReversibleExpression" />
     </node>
     <node concept="1TJgyj" id="5so5TTr6Vvp" role="1TKVEi">
       <property role="20lmBu" value="fLJjDmT/aggregation" />
@@ -943,6 +944,9 @@
     <node concept="PrWs8" id="5rI5N7ZmrVt" role="PzmwI">
       <ref role="PrY4T" node="5rI5N7ZmrVr" resolve="IReversible" />
     </node>
+    <node concept="PrWs8" id="5w9EkGCEEdj" role="PzmwI">
+      <ref role="PrY4T" node="5w9EkGCEEdi" resolve="IReversibleStatement" />
+    </node>
   </node>
   <node concept="1TIwiD" id="3CmSUB7Fp_l">
     <property role="TrG5h" value="ReversibleStatementList" />
@@ -965,13 +969,23 @@
       <property role="20kJfa" value="revStatements" />
       <property role="20lbJX" value="fLJekj5/_0__n" />
       <property role="IQ2ns" value="4185783222026475862" />
-      <ref role="20lvS9" node="3CmSUB7FmO3" resolve="ReversibleStatement" />
+      <ref role="20lvS9" node="5w9EkGCEEdi" resolve="IReversibleStatement" />
+    </node>
+    <node concept="1TJgyj" id="5w9EkGDlb2R" role="1TKVEi">
+      <property role="IQ2ns" value="6343787690409111735" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="supportVariables" />
+      <property role="20lbJX" value="fLJekj5/_0__n" />
+      <ref role="20lvS9" to="c4fa:3CmSUB7FprA" resolve="LocalVariableDeclaration" />
     </node>
     <node concept="PrWs8" id="1OcdQnySJNT" role="PzmwI">
       <ref role="PrY4T" node="1OcdQnySJNS" resolve="ILocalVarScopeProvider" />
     </node>
     <node concept="PrWs8" id="5PRxzt63EYn" role="PzmwI">
       <ref role="PrY4T" node="2K9A72Iio1v" resolve="ICFGRelevantNode" />
+    </node>
+    <node concept="PrWs8" id="5w9EkGCEEds" role="PzmwI">
+      <ref role="PrY4T" node="5w9EkGCEEdi" resolve="IReversibleStatement" />
     </node>
   </node>
   <node concept="PlHQZ" id="5rI5N7ZmrVr">
@@ -1083,6 +1097,28 @@
     </node>
     <node concept="PrWs8" id="4W5bsS_Qt78" role="PzmwI">
       <ref role="PrY4T" to="ib4b:2vgMet5CGud" resolve="IDestructiveOperation" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="5w9EkGC$m2$">
+    <property role="EcuMT" value="6343787690396311716" />
+    <property role="TrG5h" value="LogStatement" />
+    <property role="34LRSv" value="log" />
+    <ref role="1TJDcQ" to="k146:1EZSCJhF1F6" resolve="LogStatement" />
+    <node concept="PrWs8" id="5w9EkGC$m2_" role="PzmwI">
+      <ref role="PrY4T" node="5w9EkGCEEdi" resolve="IReversibleStatement" />
+    </node>
+  </node>
+  <node concept="PlHQZ" id="5w9EkGCEEdi">
+    <property role="EcuMT" value="6343787690397967186" />
+    <property role="TrG5h" value="IReversibleStatement" />
+  </node>
+  <node concept="1TIwiD" id="7IOFtafNdkc">
+    <property role="EcuMT" value="8913940682340357388" />
+    <property role="TrG5h" value="EmptyStatement" />
+    <property role="34LRSv" value="an empty statement" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
+    <node concept="PrWs8" id="7IOFtafNdkd" role="PzmwI">
+      <ref role="PrY4T" node="5w9EkGCEEdi" resolve="IReversibleStatement" />
     </node>
   </node>
 </model>

@@ -47,6 +47,8 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new ElseIfPart_TextGen();
       case LanguageConceptSwitch.ElsePart:
         return new ElsePart_TextGen();
+      case LanguageConceptSwitch.EmptyStatement:
+        return new EmptyStatement_TextGen();
       case LanguageConceptSwitch.ExpressionStatement:
         return new ExpressionStatement_TextGen();
       case LanguageConceptSwitch.ForStatement:

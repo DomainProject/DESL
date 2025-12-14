@@ -437,9 +437,6 @@ public class TypesystemDescriptor extends BaseHelginsDescriptor {
       this.myRuleNodeId = "8864856114140206253";
     }
     public SNode getOperationType(SNode operation, SNode leftOperandType, SNode rightOperandType) {
-      if ((boolean) ReversibleExpression__BehaviorDescriptor.isStaticallyEvaluatable_id3ilck8Kr3zN.invoke(operation)) {
-        return NumberEvaluationHelper.staticType(leftOperandType, rightOperandType, operation);
-      }
 
       // Check if both operants have the same type
       if (Objects.equals(SNodeOperations.getConcept(leftOperandType), SNodeOperations.getConcept(rightOperandType))) {

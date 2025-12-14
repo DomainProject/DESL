@@ -28,8 +28,23 @@ public class ReversibleStatementList_TextGen extends TextGenDescriptorBase {
       tgs.newLine();
     }
 
+
+
     _FunctionTypes._void_P0_E0 func = () -> {
-      for (SNode statement : ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.revStatements$IdM8))) {
+
+      // append local variable declarations at the beginning
+      ReversibleStatementListUtils.variableDeclarations(ctx.getPrimaryInput(), ctx);
+
+      // append state savings/restores
+      ReversibleStatementListUtils.stateHandlingVariables(ctx.getPrimaryInput(), ctx);
+
+      // exclude local variable declarations as they've been inserted at the beginning of the reversible statement list
+      for (SNode statement : ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.revStatements$IdM8)).where((it) -> !(SNodeOperations.isInstanceOf(it, CONCEPTS.LocalVariableDeclaration$7E)))) {
+
+
+
+
+
         boolean notInvisibleStatementList = !(SNodeOperations.isInstanceOf(statement, CONCEPTS.ReversibleStatementList$qe) && SPropertyOperations.getBoolean(SNodeOperations.cast(statement, CONCEPTS.ReversibleStatementList$qe), PROPS.isInvisible$wTPL));
         if (notInvisibleStatementList) {
           tgs.indent();
@@ -69,6 +84,7 @@ public class ReversibleStatementList_TextGen extends TextGenDescriptorBase {
     /*package*/ static final SConcept ReversibleStatementList$qe = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, "ReversibleStatements.structure.ReversibleStatementList");
     /*package*/ static final SConcept SwitchStatement$kf = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x2b8026b23bc2d9fcL, "ReversibleStatements.structure.SwitchStatement");
     /*package*/ static final SInterfaceConcept IStatmentListContainer$Vp = MetaAdapterFactory.getInterfaceConcept(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x5f5c402aa7667ef3L, "com.mbeddr.core.statements.structure.IStatmentListContainer");
+    /*package*/ static final SConcept LocalVariableDeclaration$7E = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad96e6L, "ReversibleStatements.structure.LocalVariableDeclaration");
     /*package*/ static final SInterfaceConcept TraceableConcept$L = MetaAdapterFactory.getInterfaceConcept(0x9ded098bad6a4657L, 0xbfd948636cfe8bc3L, 0x465516cf87c705a3L, "jetbrains.mps.lang.traceable.structure.TraceableConcept");
   }
 

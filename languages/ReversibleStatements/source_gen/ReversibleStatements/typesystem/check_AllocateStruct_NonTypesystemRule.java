@@ -9,7 +9,7 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import ReversibleExpressions.behavior.IVariableDeclaration__BehaviorDescriptor;
+import com.mbeddr.core.expressions.behavior.IVariableDeclaration__BehaviorDescriptor;
 import ReversibleExpressions.behavior.IVariableReference__BehaviorDescriptor;
 import jetbrains.mps.baseLanguage.logging.rt.LogContext;
 import jetbrains.mps.typechecking.TypecheckingFacade;

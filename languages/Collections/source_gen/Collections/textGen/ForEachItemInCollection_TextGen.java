@@ -7,6 +7,9 @@ import jetbrains.mps.text.rt.TextGenContext;
 import jetbrains.mps.text.impl.TextGenSupport;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import ReversibleStatements.textGen.ReversibleStatementListUtils;
+import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.traceable.behavior.TraceableConcept__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
@@ -28,22 +31,40 @@ public class ForEachItemInCollection_TextGen extends TextGenDescriptorBase {
     tgs.append(");");
     tgs.newLine();
     tgs.indent();
+    tgs.append("int ");
+    tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.iteratorName$Z1d4));
+    tgs.append(" = 0;");
+    tgs.newLine();
+    tgs.indent();
     tgs.append("while(");
     tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableName$xecS));
     tgs.append(" != NULL) {");
     tgs.newLine();
+
     ctx.getBuffer().area().increaseIndent();
-    tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$6qqU));
+    // append local variable declarations at the beginning
+    ReversibleStatementListUtils.variableDeclarations(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$6qqU), ctx);
+    // append state savings/restores
+    ReversibleStatementListUtils.stateHandlingVariables(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$6qqU), ctx);
+
+    for (SNode stmt : ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$6qqU), LINKS.revStatements$IdM8))) {
+      tgs.indent();
+      tgs.appendNode(stmt);
+      tgs.newLine();
+    }
     tgs.indent();
     tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableName$xecS));
     tgs.append(" = list_next(");
     tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableName$xecS));
     tgs.append(");");
     tgs.newLine();
+    tgs.indent();
+    tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.iteratorName$Z1d4));
+    tgs.append("++;");
+    tgs.newLine();
     ctx.getBuffer().area().decreaseIndent();
     tgs.indent();
     tgs.append("}");
-    tgs.newLine();
     if (tgs.needPositions()) {
       tgs.fillPositionInfo(TraceableConcept__BehaviorDescriptor.getTraceableProperty_id4pl5GY7LKmH.invoke(SNodeOperations.cast(ctx.getPrimaryInput(), CONCEPTS.TraceableConcept$L)));
     }
@@ -52,10 +73,12 @@ public class ForEachItemInCollection_TextGen extends TextGenDescriptorBase {
   private static final class LINKS {
     /*package*/ static final SContainmentLink collection$nEF = MetaAdapterFactory.getContainmentLink(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x259b4ab97565ea5eL, 0x2d57d1c347abef9fL, "collection");
     /*package*/ static final SContainmentLink body$6qqU = MetaAdapterFactory.getContainmentLink(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x259b4ab97565ea5eL, 0x259b4ab975661d54L, "body");
+    /*package*/ static final SContainmentLink revStatements$IdM8 = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, 0x3a16e3a9c7ad9956L, "revStatements");
   }
 
   private static final class PROPS {
     /*package*/ static final SProperty variableName$xecS = MetaAdapterFactory.getProperty(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x259b4ab97565ea5eL, 0x2d57d1c347710003L, "variableName");
+    /*package*/ static final SProperty iteratorName$Z1d4 = MetaAdapterFactory.getProperty(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x259b4ab97565ea5eL, 0x72751670f419b537L, "iteratorName");
   }
 
   private static final class CONCEPTS {

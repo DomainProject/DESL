@@ -41,11 +41,8 @@ public class ElseIfPart_TextGen extends TextGenDescriptorBase {
       tgs.append("{");
       tgs.newLine();
       ctx.getBuffer().area().increaseIndent();
-      for (SNode stmt : ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$_xRC), LINKS.revStatements$IdM8))) {
-        tgs.indent();
-        tgs.appendNode(stmt);
-        tgs.newLine();
-      }
+      ReversibleStatementListUtils.stateHandlingVariables(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$_xRC), ctx);
+
       if (requiresReversibility) {
         if (isContainedInLoop) {
           tgs.indent();
@@ -65,6 +62,12 @@ public class ElseIfPart_TextGen extends TextGenDescriptorBase {
           tgs.append(");");
           tgs.newLine();
         }
+      }
+
+      for (SNode stmt : ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$_xRC), LINKS.revStatements$IdM8))) {
+        tgs.indent();
+        tgs.appendNode(stmt);
+        tgs.newLine();
       }
       ctx.getBuffer().area().decreaseIndent();
       tgs.indent();
@@ -88,18 +91,7 @@ public class ElseIfPart_TextGen extends TextGenDescriptorBase {
         tgs.append(String.valueOf(SNodeOperations.getIndexInParent(ctx.getPrimaryInput()) + 1));
         tgs.append(")) ");
       }
-      tgs.append("{");
-      tgs.newLine();
-      ctx.getBuffer().area().increaseIndent();
-      for (SNode stmt : ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$_xRC), LINKS.revStatements$IdM8))) {
-        tgs.indent();
-        tgs.appendNode(stmt);
-        tgs.newLine();
-      }
-      ctx.getBuffer().area().decreaseIndent();
-      tgs.indent();
-      tgs.append("}");
-      tgs.newLine();
+      tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$_xRC));
     }
   }
 
@@ -119,7 +111,7 @@ public class ElseIfPart_TextGen extends TextGenDescriptorBase {
   private static final class LINKS {
     /*package*/ static final SContainmentLink condition$_zJK = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x2b8026b23bc272a6L, 0x2b8026b23bc272afL, "condition");
     /*package*/ static final SContainmentLink body$_xRC = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x2b8026b23bc272a6L, 0x2b8026b23bc272a7L, "body");
-    /*package*/ static final SContainmentLink revStatements$IdM8 = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, 0x3a16e3a9c7ad9956L, "revStatements");
     /*package*/ static final SContainmentLink supportVariable$WrxR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x586abb2d5743cb69L, "supportVariable");
+    /*package*/ static final SContainmentLink revStatements$IdM8 = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, 0x3a16e3a9c7ad9956L, "revStatements");
   }
 }

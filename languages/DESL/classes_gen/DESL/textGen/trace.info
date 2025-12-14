@@ -454,15 +454,17 @@
       <node id="2627485982925455390" at="52,30,53,181" concept="2" />
       <node id="2627485982925455390" at="58,0,59,0" concept="11" trace="RootSimM2M$x5" />
       <node id="2627485982925455390" at="59,0,60,0" concept="11" trace="UseM2M$UU" />
-      <node id="2627485982925455390" at="60,0,61,0" concept="11" trace="RossM2M$aQ" />
-      <node id="2627485982925455390" at="61,0,62,0" concept="11" trace="RootSimGPUM2M$GC" />
-      <node id="2627485982925455390" at="62,0,63,0" concept="11" trace="TraceableConcept$L" />
-      <node id="2627485982925455390" at="66,0,67,0" concept="11" trace="ctx$bOzn" />
-      <node id="2627485982925455390" at="67,0,68,0" concept="11" trace="mean$hrJN" />
-      <node id="2627485982925455390" at="71,0,72,0" concept="11" trace="isForward$pAg5" />
+      <node id="2627485982925455390" at="60,0,61,0" concept="11" trace="ReversibleFunction$IL" />
+      <node id="2627485982925455390" at="61,0,62,0" concept="11" trace="RossM2M$aQ" />
+      <node id="2627485982925455390" at="62,0,63,0" concept="11" trace="RootSimGPUM2M$GC" />
+      <node id="2627485982925455390" at="63,0,64,0" concept="11" trace="TraceableConcept$L" />
+      <node id="2627485982925455390" at="67,0,68,0" concept="11" trace="ctx$bOzn" />
+      <node id="2627485982925455390" at="68,0,69,0" concept="11" trace="mean$hrJN" />
+      <node id="2627485982925455390" at="72,0,73,0" concept="11" trace="reversibilityRequired$Zgdy" />
+      <node id="2627485982925455390" at="73,0,74,0" concept="11" trace="isForward$pAg5" />
       <node id="2627485982925455390" at="51,5,54,5" concept="4" />
       <node id="3415911555218724838" at="40,12,44,7" concept="0" />
-      <node id="3415911555218719162" at="33,117,44,7" concept="4" />
+      <node id="3415911555218719162" at="33,287,44,7" concept="4" />
       <node id="2627485982925455475" at="22,29,51,5" concept="4" />
       <node id="2627485982925455390" at="19,0,56,0" concept="5" trace="generateText#(Ljetbrains/mps/text/rt/TextGenContext;)V" />
       <scope id="2627485982925455390" at="52,30,53,181" />
@@ -471,17 +473,17 @@
       <scope id="2627485982925455477" at="23,113,28,22" />
       <scope id="3415911555218719164" at="34,88,39,24" />
       <scope id="8375569163589899168" at="45,123,50,22" />
-      <scope id="2575222304957732670" at="33,117,44,7" />
+      <scope id="2575222304957732670" at="33,287,44,7" />
       <scope id="2627485982925455390" at="20,54,54,5">
         <var name="tgs" id="2627485982925455390" />
       </scope>
       <scope id="2627485982925455390" at="19,0,56,0">
         <var name="ctx" id="2627485982925455390" />
       </scope>
-      <unit id="2627485982925455390" at="70,0,73,0" name="DESL.textGen.Expent_TextGen$PROPS" />
-      <unit id="2627485982925455390" at="65,0,69,0" name="DESL.textGen.Expent_TextGen$LINKS" />
-      <unit id="2627485982925455390" at="57,0,64,0" name="DESL.textGen.Expent_TextGen$CONCEPTS" />
-      <unit id="2627485982925455390" at="18,0,74,0" name="DESL.textGen.Expent_TextGen" />
+      <unit id="2627485982925455390" at="66,0,70,0" name="DESL.textGen.Expent_TextGen$LINKS" />
+      <unit id="2627485982925455390" at="71,0,75,0" name="DESL.textGen.Expent_TextGen$PROPS" />
+      <unit id="2627485982925455390" at="57,0,65,0" name="DESL.textGen.Expent_TextGen$CONCEPTS" />
+      <unit id="2627485982925455390" at="18,0,76,0" name="DESL.textGen.Expent_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
       <node id="2627485982925455390" at="46,40,47,36" concept="8" />
@@ -1177,7 +1179,7 @@
     </file>
   </root>
   <root nodeRef="r:eb88f38c-5da2-4104-b158-3a01b585020f(DESL.textGen)/4480120030376904884">
-    <file name="RngType_TextGen.java">
+    <file name="RngContext_TextGen.java">
       <node id="4480120030376904884" at="14,54,15,55" concept="6" />
       <node id="4480120030376957221" at="16,215,17,35" concept="2" />
       <node id="4480120030376957460" at="18,117,19,36" concept="2" />
@@ -1198,12 +1200,12 @@
       <scope id="4480120030376904884" at="13,0,25,0">
         <var name="ctx" id="4480120030376904884" />
       </scope>
-      <unit id="4480120030376904884" at="26,0,31,0" name="DESL.textGen.RngType_TextGen$CONCEPTS" />
-      <unit id="4480120030376904884" at="12,0,32,0" name="DESL.textGen.RngType_TextGen" />
+      <unit id="4480120030376904884" at="26,0,31,0" name="DESL.textGen.RngContext_TextGen$CONCEPTS" />
+      <unit id="4480120030376904884" at="12,0,32,0" name="DESL.textGen.RngContext_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="4480120030376904884" at="80,41,81,37" concept="8" />
-      <scope id="4480120030376904884" at="80,41,81,37" />
+      <node id="4480120030376904884" at="80,44,81,40" concept="8" />
+      <scope id="4480120030376904884" at="80,44,81,40" />
     </file>
   </root>
   <root nodeRef="r:eb88f38c-5da2-4104-b158-3a01b585020f(DESL.textGen)/4688771844543501160">
@@ -2881,7 +2883,7 @@
       <node id="4480120030389389415" at="190,24,191,77" concept="2" />
       <node id="4480120030389437314" at="191,77,192,24" concept="2" />
       <node id="4480120030390062288" at="192,24,193,32" concept="2" />
-      <node id="4480120030389599504" at="195,115,196,35" concept="2" />
+      <node id="4480120030389599504" at="195,118,196,35" concept="2" />
       <node id="4480120030389608056" at="197,11,198,30" concept="2" />
       <node id="4480120030390093469" at="199,171,200,28" concept="2" />
       <node id="4480120030390093543" at="200,28,201,26" concept="2" />
@@ -3315,7 +3317,7 @@
       <node id="9066337358837503729" at="707,0,708,0" concept="11" trace="EventDefinition$wO" />
       <node id="9066337358837503729" at="708,0,709,0" concept="11" trace="ProcessArray$Ux" />
       <node id="9066337358837503729" at="709,0,710,0" concept="11" trace="ProcessAllocation$5Z" />
-      <node id="9066337358837503729" at="710,0,711,0" concept="11" trace="RngType$1E" />
+      <node id="9066337358837503729" at="710,0,711,0" concept="11" trace="RngContext$1E" />
       <node id="9066337358837503729" at="711,0,712,0" concept="11" trace="Random$XZ" />
       <node id="9066337358837503729" at="712,0,713,0" concept="11" trace="Expent$Yu" />
       <node id="9066337358837503729" at="713,0,714,0" concept="11" trace="ExternalFunction$U_" />
@@ -3374,7 +3376,7 @@
       <node id="9066337358838250107" at="245,0,459,5" concept="3" />
       <node id="9066337358837503729" at="28,0,673,0" concept="5" trace="generateText#(Ljetbrains/mps/text/rt/TextGenContext;)V" />
       <scope id="2575222304959634040" at="62,200,63,356" />
-      <scope id="4480120030389523234" at="195,115,196,35" />
+      <scope id="4480120030389523234" at="195,118,196,35" />
       <scope id="4480120030390132672" at="202,18,203,29" />
       <scope id="7919073755539267203" at="289,40,290,232" />
       <scope id="7919073755539653980" at="545,79,546,142" />

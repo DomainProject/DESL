@@ -19,9 +19,9 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1076505808687:jetbrains.mps.baseLanguage.structure.WhileStatement" />
   <root>
     <file name="TypesystemDescriptor.java">
-      <unit at="486,0,489,0" name="ReversibleExpressions.typesystem.TypesystemDescriptor$LINKS" />
-      <unit at="457,0,485,0" name="ReversibleExpressions.typesystem.TypesystemDescriptor$CONCEPTS" />
-      <unit at="28,0,490,0" name="ReversibleExpressions.typesystem.TypesystemDescriptor" />
+      <unit at="483,0,486,0" name="ReversibleExpressions.typesystem.TypesystemDescriptor$LINKS" />
+      <unit at="454,0,482,0" name="ReversibleExpressions.typesystem.TypesystemDescriptor$CONCEPTS" />
+      <unit at="28,0,487,0" name="ReversibleExpressions.typesystem.TypesystemDescriptor" />
     </file>
   </root>
   <root nodeRef="r:a08f1c59-09f4-4839-91dc-89de02b086a5(ReversibleExpressions.typesystem)/1052812498343324054">
@@ -3445,13 +3445,12 @@
       <node id="8864856114140206253" at="434,35,435,34" concept="3" />
       <node id="8864856114140206253" at="435,34,436,102" concept="3" />
       <node id="8864856114140206253" at="436,102,437,48" concept="3" />
-      <node id="7336544617005005517" at="440,119,441,95" concept="9" />
-      <node id="7336544617005005479" at="442,7,443,0" concept="11" />
-      <node id="8287348445848525129" at="443,0,444,50" concept="10" />
-      <node id="8287348445848326025" at="445,118,446,31" concept="9" />
-      <node id="468045725833381003" at="447,7,448,110" concept="8" />
-      <node id="1664480272136291018" at="448,110,449,29" concept="9" />
-      <node id="8864856114140206253" at="452,71,453,59" concept="3" />
+      <node id="7336544617005005479" at="439,99,440,0" concept="11" />
+      <node id="8287348445848525129" at="440,0,441,50" concept="10" />
+      <node id="8287348445848326025" at="442,118,443,31" concept="9" />
+      <node id="468045725833381003" at="444,7,445,110" concept="8" />
+      <node id="1664480272136291018" at="445,110,446,29" concept="9" />
+      <node id="8864856114140206253" at="449,71,450,59" concept="3" />
       <node id="1664480272136308574" at="225,0,228,0" concept="7" trace="getOperationType#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)Lorg/jetbrains/mps/openapi/model/SNode;" />
       <node id="4296381507831694054" at="228,132,231,7" concept="6" />
       <node id="7336544617005005588" at="251,99,254,7" concept="6" />
@@ -3471,13 +3470,12 @@
       <node id="8471538423048406336" at="372,299,375,9" concept="6" />
       <node id="8471538423048406368" at="377,79,380,9" concept="6" />
       <node id="8471538423048406400" at="382,299,385,9" concept="6" />
-      <node id="7336544617005005480" at="439,99,442,7" concept="6" />
-      <node id="8287348445848325997" at="444,50,447,7" concept="6" />
+      <node id="8287348445848325997" at="441,50,444,7" concept="6" />
       <node id="1664480272136308574" at="234,0,238,0" concept="7" trace="reportConflict#(Ljetbrains/mps/errors/IRuleConflictWarningProducer;)V" />
       <node id="3342324201519061667" at="289,0,293,0" concept="7" trace="reportConflict#(Ljetbrains/mps/errors/IRuleConflictWarningProducer;)V" />
       <node id="3820836583575319966" at="328,0,332,0" concept="7" trace="reportConflict#(Ljetbrains/mps/errors/IRuleConflictWarningProducer;)V" />
       <node id="7193082937527768554" at="390,0,394,0" concept="7" trace="reportConflict#(Ljetbrains/mps/errors/IRuleConflictWarningProducer;)V" />
-      <node id="8864856114140206253" at="451,0,455,0" concept="7" trace="reportConflict#(Ljetbrains/mps/errors/IRuleConflictWarningProducer;)V" />
+      <node id="8864856114140206253" at="448,0,452,0" concept="7" trace="reportConflict#(Ljetbrains/mps/errors/IRuleConflictWarningProducer;)V" />
       <node id="7058269619789104579" at="266,64,271,7" concept="6" />
       <node id="7058269619789104590" at="271,7,276,7" concept="6" />
       <node id="7058269619789104805" at="276,7,281,7" concept="6" />
@@ -3487,12 +3485,12 @@
       <node id="8471538423048406366" at="376,7,381,7" concept="6" />
       <node id="8471538423048406398" at="381,7,386,7" concept="6" />
       <node id="1664480272136308574" at="228,0,234,0" concept="7" trace="isApplicable#(Ljetbrains/mps/typesystem/inference/SubtypingManager;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
+      <node id="8864856114140206253" at="439,0,448,0" concept="7" trace="getOperationType#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)Lorg/jetbrains/mps/openapi/model/SNode;" />
       <node id="1664480272136308574" at="214,0,225,0" concept="2" trace="CustomOverloadedOperationsTypesProvider_e#(Lorg/jetbrains/mps/openapi/language/SAbstractConcept;)V" />
       <node id="3342324201519061667" at="240,0,251,0" concept="2" trace="CustomOverloadedOperationsTypesProvider_b#(Lorg/jetbrains/mps/openapi/language/SAbstractConcept;)V" />
       <node id="3820836583575319966" at="295,0,306,0" concept="2" trace="CustomOverloadedOperationsTypesProvider_c#(Lorg/jetbrains/mps/openapi/language/SAbstractConcept;)V" />
       <node id="7193082937527768554" at="334,0,345,0" concept="2" trace="CustomOverloadedOperationsTypesProvider_d#(Lorg/jetbrains/mps/openapi/language/SAbstractConcept;)V" />
       <node id="8864856114140206253" at="428,0,439,0" concept="2" trace="CustomOverloadedOperationsTypesProvider_a_0#(Lorg/jetbrains/mps/openapi/language/SAbstractConcept;)V" />
-      <node id="8864856114140206253" at="439,0,451,0" concept="7" trace="getOperationType#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)Lorg/jetbrains/mps/openapi/model/SNode;" />
       <node id="3342324201519061667" at="251,0,264,0" concept="7" trace="getOperationType#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)Lorg/jetbrains/mps/openapi/model/SNode;" />
       <node id="3820836583575319966" at="306,0,325,0" concept="7" trace="getOperationType#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)Lorg/jetbrains/mps/openapi/model/SNode;" />
       <node id="7193082937527768554" at="345,0,364,0" concept="7" trace="getOperationType#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)Lorg/jetbrains/mps/openapi/model/SNode;" />
@@ -3521,9 +3519,8 @@
       <scope id="8471538423048406369" at="378,303,379,22" />
       <scope id="8471538423048406401" at="383,303,384,22" />
       <scope id="7193082937527768554" at="391,71,392,59" />
-      <scope id="7336544617005005481" at="440,119,441,95" />
-      <scope id="8287348445848325998" at="445,118,446,31" />
-      <scope id="8864856114140206253" at="452,71,453,59" />
+      <scope id="8287348445848325998" at="442,118,443,31" />
+      <scope id="8864856114140206253" at="449,71,450,59" />
       <scope id="1664480272136308574" at="225,0,228,0">
         <var name="leftOperandType" id="1664480272136308574" />
         <var name="operation" id="1664480272136308574" />
@@ -3556,7 +3553,7 @@
       <scope id="7193082937527768554" at="390,0,394,0">
         <var name="producer" id="7193082937527768554" />
       </scope>
-      <scope id="8864856114140206253" at="451,0,455,0">
+      <scope id="8864856114140206253" at="448,0,452,0">
         <var name="producer" id="8864856114140206253" />
       </scope>
       <scope id="1664480272136308574" at="228,0,234,0">
@@ -3565,13 +3562,18 @@
         <var name="rightOperandType" id="1664480272136308574" />
         <var name="subtypingManager" id="1664480272136308574" />
       </scope>
+      <scope id="8287348445848298017" at="439,99,446,29">
+        <var name="commenSuperType" id="468045725833381004" />
+      </scope>
       <scope id="1664480272136308574" at="214,80,223,48" />
       <scope id="3342324201519061667" at="240,80,249,48" />
       <scope id="3820836583575319966" at="295,80,304,48" />
       <scope id="7193082937527768554" at="334,80,343,48" />
       <scope id="8864856114140206253" at="428,82,437,48" />
-      <scope id="8287348445848298017" at="439,99,449,29">
-        <var name="commenSuperType" id="468045725833381004" />
+      <scope id="8864856114140206253" at="439,0,448,0">
+        <var name="leftOperandType" id="8864856114140206253" />
+        <var name="operation" id="8864856114140206253" />
+        <var name="rightOperandType" id="8864856114140206253" />
       </scope>
       <scope id="1664480272136308574" at="214,0,225,0">
         <var name="concept" id="1664480272136308574" />
@@ -3590,11 +3592,6 @@
       </scope>
       <scope id="8864856114140206253" at="428,0,439,0">
         <var name="concept" id="8864856114140206253" />
-      </scope>
-      <scope id="8864856114140206253" at="439,0,451,0">
-        <var name="leftOperandType" id="8864856114140206253" />
-        <var name="operation" id="8864856114140206253" />
-        <var name="rightOperandType" id="8864856114140206253" />
       </scope>
       <scope id="3342324201519061667" at="251,0,264,0">
         <var name="leftOperandType" id="3342324201519061667" />
@@ -3632,7 +3629,7 @@
         <var name="subtypingManager" id="7193082937527768554" />
       </scope>
       <unit id="1664480272136308574" at="213,0,239,0" name="ReversibleExpressions.typesystem.TypesystemDescriptor$CustomOverloadedOperationsTypesProvider_e" />
-      <unit id="8864856114140206253" at="427,0,456,0" name="ReversibleExpressions.typesystem.TypesystemDescriptor$CustomOverloadedOperationsTypesProvider_a_0" />
+      <unit id="8864856114140206253" at="427,0,453,0" name="ReversibleExpressions.typesystem.TypesystemDescriptor$CustomOverloadedOperationsTypesProvider_a_0" />
       <unit id="3820836583575319966" at="294,0,333,0" name="ReversibleExpressions.typesystem.TypesystemDescriptor$CustomOverloadedOperationsTypesProvider_c" />
       <unit id="3342324201519061667" at="239,0,294,0" name="ReversibleExpressions.typesystem.TypesystemDescriptor$CustomOverloadedOperationsTypesProvider_b" />
       <unit id="7193082937527768554" at="333,0,395,0" name="ReversibleExpressions.typesystem.TypesystemDescriptor$CustomOverloadedOperationsTypesProvider_d" />

@@ -16,6 +16,7 @@ import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import com.mbeddr.core.expressions.behavior.IVariableDeclaration__BehaviorDescriptor;
 import com.mbeddr.core.expressions.behavior.Type__BehaviorDescriptor;
 import com.mbeddr.core.expressions.behavior.Expression__BehaviorDescriptor;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;

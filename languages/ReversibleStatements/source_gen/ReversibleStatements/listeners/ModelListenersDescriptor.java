@@ -32,9 +32,10 @@ public class ModelListenersDescriptor implements IModelListenersDescriptor {
       public void childAdded(final SNode instance, final SNode child) {
 
         SNode parent = SNodeOperations.getParent(instance);
+        SNode loopAncestor = (SNodeOperations.isInstanceOf(SNodeOperations.getParent(instance), CONCEPTS.IReversibleLoop$k1) ? SNodeOperations.cast(SNodeOperations.getParent(instance), CONCEPTS.IReversibleLoop$k1) : SNodeOperations.getNodeAncestor(instance, CONCEPTS.IReversibleLoop$k1, false, false));
 
         // statement list is the body of a for/while statement
-        if (SNodeOperations.isInstanceOf(parent, CONCEPTS.IReversibleLoop$k1)) {
+        if ((loopAncestor != null)) {
 
           // if a statement that needs a support variable is created within a loop, an array to store all the possible values must be created and associated to the reversible loop
 
@@ -52,8 +53,6 @@ public class ModelListenersDescriptor implements IModelListenersDescriptor {
               SPropertyOperations.assign(stmt, PROPS.loopArrayName$wAd5, IReversibleLoop__BehaviorDescriptor.createAdditionalVariable_id6cRD4M$XPZ_.invoke(SNodeOperations.cast(parent, CONCEPTS.IReversibleLoop$k1), type, SPropertyOperations.getString(stmt, PROPS.baseName$24BZ), null));
             }
           }
-
-
 
         }
 
@@ -77,15 +76,39 @@ public class ModelListenersDescriptor implements IModelListenersDescriptor {
         }
       }
     });
+    ListSequence.fromList(listeners).addElement(new ChildListener(CONCEPTS.ExpressionStatement$L7, LINKS.expr$YTeC) {
+      @Override
+      public void childAdded(final SNode instance, final SNode child) {
+        {
+          final SNode expr = child;
+          if (SNodeOperations.isInstanceOf(expr, CONCEPTS.INeedSupportVariable$qI)) {
+            if ((SNodeOperations.getNodeAncestor(instance, CONCEPTS.IReversibleLoop$k1, false, false) != null)) {
+
+              SNode type = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x3bf5377ae9044dedL, 0x97545a516023bfaaL, 0x4ed16d83a1d30c81L, "com.mbeddr.core.pointers.structure.ArrayType"));
+              SLinkOperations.setTarget(type, LINKS.baseType$zMGV, SNodeOperations.copyNode(SLinkOperations.getTarget(SLinkOperations.getTarget(expr, LINKS.supportVariable$WrxR), LINKS.type$sXU3)));
+
+              // todo handle array size
+              SLinkOperations.setTarget(type, LINKS.sizeExpr$S0Eu, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba67L, "com.mbeddr.core.expressions.structure.NumberLiteral")));
+              SPropertyOperations.assign(SNodeOperations.cast(SLinkOperations.getTarget(type, LINKS.sizeExpr$S0Eu), CONCEPTS.NumberLiteral$jK), PROPS.value$qZmE, "1000");
+
+              SPropertyOperations.assign(expr, PROPS.loopArrayName$wAd5, IReversibleLoop__BehaviorDescriptor.createAdditionalVariable_id6cRD4M$XPZ_.invoke(SNodeOperations.getNodeAncestor(instance, CONCEPTS.IReversibleLoop$k1, false, false), type, SPropertyOperations.getString(expr, PROPS.baseName$24BZ), null));
+
+
+            }
+          }
+        }
+      }
+    });
 
     return listeners;
   }
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept ReversibleStatementList$qe = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, "ReversibleStatements.structure.ReversibleStatementList");
+    /*package*/ static final SInterfaceConcept IReversibleLoop$k1 = MetaAdapterFactory.getInterfaceConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x6337a44ca461bdf4L, "ReversibleStatements.structure.IReversibleLoop");
     /*package*/ static final SInterfaceConcept INeedSupportVariable$qI = MetaAdapterFactory.getInterfaceConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, "ReversibleExpressions.structure.INeedSupportVariable");
     /*package*/ static final SConcept NumberLiteral$jK = MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba67L, "com.mbeddr.core.expressions.structure.NumberLiteral");
-    /*package*/ static final SInterfaceConcept IReversibleLoop$k1 = MetaAdapterFactory.getInterfaceConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x6337a44ca461bdf4L, "ReversibleStatements.structure.IReversibleLoop");
+    /*package*/ static final SConcept ExpressionStatement$L7 = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a4018a8592L, "ReversibleStatements.structure.ExpressionStatement");
   }
 
   private static final class LINKS {
@@ -95,6 +118,7 @@ public class ModelListenersDescriptor implements IModelListenersDescriptor {
     /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
     /*package*/ static final SContainmentLink sizeExpr$S0Eu = MetaAdapterFactory.getContainmentLink(0x3bf5377ae9044dedL, 0x97545a516023bfaaL, 0x4ed16d83a1d30c81L, 0x1429cfd56a064333L, "sizeExpr");
     /*package*/ static final SContainmentLink additionalVariables$en7t = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x6337a44ca461bdf4L, 0x6337a44ca461be00L, "additionalVariables");
+    /*package*/ static final SContainmentLink expr$YTeC = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a4018a8592L, 0x64ae61a4018a8593L, "expr");
   }
 
   private static final class PROPS {

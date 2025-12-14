@@ -18,6 +18,7 @@
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
+      <concept id="4836112446988635817" name="jetbrains.mps.baseLanguage.structure.UndefinedType" flags="in" index="2jxLKc" />
       <concept id="1154032098014" name="jetbrains.mps.baseLanguage.structure.AbstractLoopStatement" flags="nn" index="2LF5Ji">
         <child id="1154032183016" name="body" index="2LFqv$" />
       </concept>
@@ -30,6 +31,12 @@
       </concept>
       <concept id="1070475926800" name="jetbrains.mps.baseLanguage.structure.StringLiteral" flags="nn" index="Xl_RD">
         <property id="1070475926801" name="value" index="Xl_RC" />
+      </concept>
+      <concept id="1068498886296" name="jetbrains.mps.baseLanguage.structure.VariableReference" flags="nn" index="37vLTw">
+        <reference id="1068581517664" name="variableDeclaration" index="3cqZAo" />
+      </concept>
+      <concept id="4972933694980447171" name="jetbrains.mps.baseLanguage.structure.BaseVariableDeclaration" flags="ng" index="19Szcq">
+        <child id="5680397130376446158" name="type" index="1tU5fm" />
       </concept>
       <concept id="1068580123155" name="jetbrains.mps.baseLanguage.structure.ExpressionStatement" flags="nn" index="3clFbF">
         <child id="1068580123156" name="expression" index="3clFbG" />
@@ -45,6 +52,13 @@
       <concept id="1204053956946" name="jetbrains.mps.baseLanguage.structure.IMethodCall" flags="ngI" index="1ndlxa">
         <reference id="1068499141037" name="baseMethodDeclaration" index="37wK5l" />
         <child id="1068499141038" name="actualArgument" index="37wK5m" />
+      </concept>
+    </language>
+    <language id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures">
+      <concept id="2524418899405758586" name="jetbrains.mps.baseLanguage.closures.structure.InferredClosureParameterDeclaration" flags="ig" index="gl6BB" />
+      <concept id="1199569711397" name="jetbrains.mps.baseLanguage.closures.structure.ClosureLiteral" flags="nn" index="1bVj0M">
+        <child id="1199569906740" name="parameter" index="1bW2Oz" />
+        <child id="1199569916463" name="body" index="1bW5cS" />
       </concept>
     </language>
     <language id="b83431fe-5c8f-40bc-8a36-65e25f4dd253" name="jetbrains.mps.lang.textGen">
@@ -96,6 +110,9 @@
       </concept>
     </language>
     <language id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections">
+      <concept id="1204796164442" name="jetbrains.mps.baseLanguage.collections.structure.InternalSequenceOperation" flags="nn" index="23sCx2">
+        <child id="1204796294226" name="closure" index="23t8la" />
+      </concept>
       <concept id="1153943597977" name="jetbrains.mps.baseLanguage.collections.structure.ForEachStatement" flags="nn" index="2Gpval">
         <child id="1153944400369" name="variable" index="2Gsz3X" />
         <child id="1153944424730" name="inputSequence" index="2GsD0m" />
@@ -104,6 +121,7 @@
       <concept id="1153944233411" name="jetbrains.mps.baseLanguage.collections.structure.ForEachVariableReference" flags="nn" index="2GrUjf">
         <reference id="1153944258490" name="variable" index="2Gs0qQ" />
       </concept>
+      <concept id="1202120902084" name="jetbrains.mps.baseLanguage.collections.structure.WhereOperation" flags="nn" index="3zZkjj" />
     </language>
   </registry>
   <node concept="WtQ9Q" id="5U1XgQxei15">
@@ -123,10 +141,35 @@
               <node concept="2GrKxI" id="5suDuW$a_Bu" role="2Gsz3X">
                 <property role="TrG5h" value="var" />
               </node>
-              <node concept="2OqwBi" id="5suDuW$aAby" role="2GsD0m">
-                <node concept="117lpO" id="5suDuW$a_DL" role="2Oq$k0" />
-                <node concept="3Tsc0h" id="5suDuW$aE8W" role="2OqNvi">
-                  <ref role="3TtcxE" to="w8o:5suDuW$a_2E" resolve="checkpointingVariables" />
+              <node concept="2OqwBi" id="7IOFtahNWrv" role="2GsD0m">
+                <node concept="2OqwBi" id="5suDuW$aAby" role="2Oq$k0">
+                  <node concept="117lpO" id="5suDuW$a_DL" role="2Oq$k0" />
+                  <node concept="3Tsc0h" id="5suDuW$aE8W" role="2OqNvi">
+                    <ref role="3TtcxE" to="w8o:5suDuW$a_2E" resolve="checkpointingVariables" />
+                  </node>
+                </node>
+                <node concept="3zZkjj" id="7IOFtahNZCL" role="2OqNvi">
+                  <node concept="1bVj0M" id="7IOFtahNZCN" role="23t8la">
+                    <node concept="3clFbS" id="7IOFtahNZCO" role="1bW5cS">
+                      <node concept="3clFbF" id="7IOFtahNZKD" role="3cqZAp">
+                        <node concept="2OqwBi" id="7IOFtahNZYu" role="3clFbG">
+                          <node concept="2OqwBi" id="7IOFtahZ0_e" role="2Oq$k0">
+                            <node concept="37vLTw" id="7IOFtahNZKC" role="2Oq$k0">
+                              <ref role="3cqZAo" node="7IOFtahNZCP" resolve="it" />
+                            </node>
+                            <node concept="3TrEf2" id="7IOFtahZ1eI" role="2OqNvi">
+                              <ref role="3Tt5mk" to="kmi:5suDuW$vzHI" resolve="var" />
+                            </node>
+                          </node>
+                          <node concept="3x8VRR" id="7IOFtahO1_A" role="2OqNvi" />
+                        </node>
+                      </node>
+                    </node>
+                    <node concept="gl6BB" id="7IOFtahNZCP" role="1bW2Oz">
+                      <property role="TrG5h" value="it" />
+                      <node concept="2jxLKc" id="7IOFtahNZCQ" role="1tU5fm" />
+                    </node>
+                  </node>
                 </node>
               </node>
               <node concept="3clFbS" id="5suDuW$a_By" role="2LFqv$">

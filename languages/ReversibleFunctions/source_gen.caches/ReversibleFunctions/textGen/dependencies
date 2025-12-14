@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dependenciesRoot>
   <uses language="l:f3061a53-9226-4cc5-a443-f952ceaf5816:jetbrains.mps.baseLanguage" />
+  <uses language="l:fd392034-7849-419d-9071-12563d152375:jetbrains.mps.baseLanguage.closures" />
   <uses language="l:83888646-71ce-4f1c-9c53-c54016f6ad4f:jetbrains.mps.baseLanguage.collections" />
   <uses language="l:df345b11-b8c7-4213-ac66-48d2a9b75d88:jetbrains.mps.baseLanguageInternal" />
   <uses language="l:7866978e-a0f0-4cc7-81bc-4d213d9375e1:jetbrains.mps.lang.smodel" />
@@ -25,6 +26,7 @@
   <uses module="3bf5377a-e904-4ded-9754-5a516023bfaa(com.mbeddr.core.pointers)" kind="dp" />
   <uses module="a9d69647-0840-491e-bf39-2eb0805d2011(com.mbeddr.core.statements)" kind="dp" />
   <uses module="efda956e-491e-4f00-ba14-36af2f213ecf(com.mbeddr.core.udt)" kind="dp" />
+  <uses module="2693fc71-9b0e-4b05-ab13-f57227d675f2(com.mbeddr.core.util)" kind="dp" />
   <uses module="63e0e566-5131-447e-90e3-12ea330e1a00(com.mbeddr.mpsutil.blutil)" kind="dp" />
   <uses module="d3a0fd26-445a-466c-900e-10444ddfed52(com.mbeddr.mpsutil.filepicker)" kind="dp" />
   <uses module="d09a16fb-1d68-4a92-a5a4-20b4b2f86a62(com.mbeddr.mpsutil.jung)" kind="dp" />

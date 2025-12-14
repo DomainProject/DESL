@@ -241,6 +241,9 @@
     <property role="R4oN_" value="plus" />
     <property role="EcuMT" value="5763383285156373013" />
     <ref role="1TJDcQ" node="4ZVDCZCaQ85" resolve="BinaryArithmeticExpression" />
+    <node concept="PrWs8" id="79P5B3NkaqO" role="PzmwI">
+      <ref role="PrY4T" node="79P5B3NkaqK" resolve="IBinArithmetic" />
+    </node>
   </node>
   <node concept="1TIwiD" id="4ZVDCZCaQ8q">
     <property role="TrG5h" value="MinusExpression" />
@@ -249,6 +252,9 @@
     <property role="R4oN_" value="subtract" />
     <property role="EcuMT" value="5763383285156373018" />
     <ref role="1TJDcQ" node="4ZVDCZCaQ85" resolve="BinaryArithmeticExpression" />
+    <node concept="PrWs8" id="79P5B3NkaqM" role="PzmwI">
+      <ref role="PrY4T" node="79P5B3NkaqK" resolve="IBinArithmetic" />
+    </node>
   </node>
   <node concept="1TIwiD" id="4ZVDCZCaQ8s">
     <property role="TrG5h" value="MultiExpression" />
@@ -257,6 +263,9 @@
     <property role="R4oN_" value="multiply" />
     <property role="EcuMT" value="5763383285156373020" />
     <ref role="1TJDcQ" node="4ZVDCZCaQ85" resolve="BinaryArithmeticExpression" />
+    <node concept="PrWs8" id="79P5B3NkaqN" role="PzmwI">
+      <ref role="PrY4T" node="79P5B3NkaqK" resolve="IBinArithmetic" />
+    </node>
   </node>
   <node concept="1TIwiD" id="4ZVDCZCaQ8u">
     <property role="TrG5h" value="DivExpression" />
@@ -265,6 +274,9 @@
     <property role="34LRSv" value="/" />
     <property role="EcuMT" value="5763383285156373022" />
     <ref role="1TJDcQ" node="4ZVDCZCaQ85" resolve="BinaryArithmeticExpression" />
+    <node concept="PrWs8" id="79P5B3NkaqL" role="PzmwI">
+      <ref role="PrY4T" node="79P5B3NkaqK" resolve="IBinArithmetic" />
+    </node>
   </node>
   <node concept="PlHQZ" id="4ZVDCZCbbK_">
     <property role="TrG5h" value="IMemberReference" />
@@ -546,9 +558,6 @@
     <property role="R4oN_" value="bitwise and" />
     <property role="EcuMT" value="5962749441518381743" />
     <ref role="1TJDcQ" node="1kFLyoDrd_s" resolve="BitwiseBinaryArithmaticsExpression" />
-    <node concept="PrWs8" id="6ze3kz2wokv" role="PzmwI">
-      <ref role="PrY4T" node="2vgMet5CGud" resolve="IDestructiveOperation" />
-    </node>
   </node>
   <node concept="1TIwiD" id="3HcQIfz5BdO">
     <property role="3GE5qa" value="expr.arith.directassignment" />
@@ -771,13 +780,16 @@
     <node concept="PrWs8" id="21ygb7Us$fe" role="PrDN$">
       <ref role="PrY4T" to="kmi:21ygb7Us$bV" resolve="IAllocationVariable" />
     </node>
+    <node concept="PrWs8" id="5lh8AoYgQDA" role="PrDN$">
+      <ref role="PrY4T" to="mj1l:1LDGRqyQFAa" resolve="IVariableReference" />
+    </node>
   </node>
   <node concept="PlHQZ" id="1LDGRqyYkTP">
     <property role="3GE5qa" value="localvar" />
     <property role="TrG5h" value="IVariableDeclaration" />
     <property role="EcuMT" value="2047364827738361461" />
     <node concept="PrWs8" id="1LDGRqyYkTR" role="PrDN$">
-      <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
+      <ref role="PrY4T" to="mj1l:1LDGRqyYkTP" resolve="IVariableDeclaration" />
     </node>
   </node>
   <node concept="1TIwiD" id="1X9RDux22HN">
@@ -1138,6 +1150,9 @@
       <property role="TrG5h" value="callsDestructiveMacro" />
       <ref role="AX2Wp" to="tpck:fKAQMTB" resolve="boolean" />
     </node>
+    <node concept="PrWs8" id="7IOFtagkKeM" role="PzmwI">
+      <ref role="PrY4T" node="2vgMet5CGud" resolve="IDestructiveOperation" />
+    </node>
   </node>
   <node concept="1TIwiD" id="6ze3kz3Aosn">
     <property role="EcuMT" value="7551988231317325591" />
@@ -1193,6 +1208,11 @@
       <property role="20lbJX" value="fLJekj4/_1" />
       <ref role="20lvS9" node="7FQByU3CrCM" resolve="ReversibleExpression" />
     </node>
+  </node>
+  <node concept="PlHQZ" id="79P5B3NkaqK">
+    <property role="EcuMT" value="8247522966973228720" />
+    <property role="3GE5qa" value="expr.arith.binary" />
+    <property role="TrG5h" value="IBinArithmetic" />
   </node>
 </model>
 

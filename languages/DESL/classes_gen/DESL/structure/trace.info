@@ -215,34 +215,34 @@
   </root>
   <root nodeRef="r:79077d65-28d5-4f56-905b-4bcf5185c60e(DESL.structure)/2575222304967586466">
     <file name="ConceptPresentationAspectImpl.java">
-      <node id="2575222304967586466" at="62,0,63,0" concept="2" trace="props_RngType" />
-      <node id="2575222304967586466" at="420,36,421,76" concept="5" />
-      <node id="2575222304967586466" at="421,76,422,41" concept="1" />
-      <node id="2575222304967586466" at="422,41,423,39" concept="1" />
-      <node id="2575222304967586466" at="424,9,425,29" concept="6" />
-      <node id="2575222304967586466" at="419,41,424,9" concept="3" />
-      <scope id="2575222304967586466" at="420,36,423,39">
+      <node id="2575222304967586466" at="62,0,63,0" concept="2" trace="props_RngContext" />
+      <node id="2575222304967586466" at="420,39,421,76" concept="5" />
+      <node id="2575222304967586466" at="421,76,422,44" concept="1" />
+      <node id="2575222304967586466" at="422,44,423,42" concept="1" />
+      <node id="2575222304967586466" at="424,9,425,32" concept="6" />
+      <node id="2575222304967586466" at="419,44,424,9" concept="3" />
+      <scope id="2575222304967586466" at="420,39,423,42">
         <var name="cpb" id="2575222304967586466" />
       </scope>
-      <scope id="2575222304967586466" at="419,41,425,29" />
+      <scope id="2575222304967586466" at="419,44,425,32" />
     </file>
     <file name="LanguageConceptSwitch.java">
-      <node id="2575222304967586466" at="62,0,63,0" concept="8" trace="RngType" />
-      <node id="2575222304967586466" at="127,45,128,46" concept="1" />
+      <node id="2575222304967586466" at="62,0,63,0" concept="8" trace="RngContext" />
+      <node id="2575222304967586466" at="127,45,128,49" concept="1" />
     </file>
     <file name="StructureAspectDescriptor.java">
-      <node id="2575222304967586466" at="69,0,70,0" concept="2" trace="myConceptRngType" />
-      <node id="2575222304967586466" at="219,41,220,32" concept="6" />
-      <node id="2575222304967586466" at="745,65,746,146" concept="5" />
-      <node id="2575222304967586466" at="746,146,747,34" concept="1" />
+      <node id="2575222304967586466" at="69,0,70,0" concept="2" trace="myConceptRngContext" />
+      <node id="2575222304967586466" at="219,44,220,35" concept="6" />
+      <node id="2575222304967586466" at="745,68,746,149" concept="5" />
+      <node id="2575222304967586466" at="746,149,747,34" concept="1" />
       <node id="2575222304967586466" at="747,34,748,58" concept="7" />
       <node id="2575222304967586466" at="748,58,749,76" concept="1" />
       <node id="2575222304967586466" at="749,76,750,91" concept="1" />
       <node id="2575222304967586466" at="750,91,751,17" concept="1" />
       <node id="2575222304967586466" at="751,17,752,22" concept="6" />
-      <node id="2575222304967586466" at="745,0,754,0" concept="9" trace="createDescriptorForRngType#()Ljetbrains/mps/smodel/runtime/ConceptDescriptor;" />
-      <scope id="2575222304967586466" at="219,41,220,32" />
-      <scope id="2575222304967586466" at="745,65,752,22">
+      <node id="2575222304967586466" at="745,0,754,0" concept="9" trace="createDescriptorForRngContext#()Ljetbrains/mps/smodel/runtime/ConceptDescriptor;" />
+      <scope id="2575222304967586466" at="219,44,220,35" />
+      <scope id="2575222304967586466" at="745,68,752,22">
         <var name="b" id="2575222304967586466" />
       </scope>
       <scope id="2575222304967586466" at="745,0,754,0" />
@@ -1850,7 +1850,7 @@
     </file>
     <file name="LanguageConceptSwitch.java">
       <node id="744988696346419362" at="63,0,64,0" concept="8" trace="RootSimGPUM2M" />
-      <node id="744988696346419362" at="128,46,129,51" concept="1" />
+      <node id="744988696346419362" at="128,49,129,51" concept="1" />
     </file>
     <file name="StructureAspectDescriptor.java">
       <node id="744988696346419362" at="70,0,71,0" concept="2" trace="myConceptRootSimGPUM2M" />

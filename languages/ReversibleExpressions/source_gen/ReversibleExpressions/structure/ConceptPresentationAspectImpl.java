@@ -54,6 +54,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_IAncestorRelevantNode;
   private ConceptPresentation props_IAssignmentLike;
   private ConceptPresentation props_IAssignmentSide;
+  private ConceptPresentation props_IBinArithmetic;
   private ConceptPresentation props_IBinaryLike;
   private ConceptPresentation props_IDestructiveOperation;
   private ConceptPresentation props_IDuplicateConceptInCondition;
@@ -456,6 +457,12 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_IAssignmentSide = cpb.create();
         }
         return props_IAssignmentSide;
+      case LanguageConceptSwitch.IBinArithmetic:
+        if (props_IBinArithmetic == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          props_IBinArithmetic = cpb.create();
+        }
+        return props_IBinArithmetic;
       case LanguageConceptSwitch.IBinaryLike:
         if (props_IBinaryLike == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

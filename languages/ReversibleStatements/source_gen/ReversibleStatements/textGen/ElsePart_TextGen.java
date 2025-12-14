@@ -9,9 +9,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.model.SNode;
 import ReversibleStatements.behavior.IReversibleLoop__BehaviorDescriptor;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
@@ -33,58 +31,21 @@ public class ElsePart_TextGen extends TextGenDescriptorBase {
       iteratorName += IReversibleLoop__BehaviorDescriptor.getIterationVariableName_id6cRD4M$XPR9.invoke(SNodeOperations.cast(loopAncestor, CONCEPTS.IReversibleLoop$k1));
     }
 
-    tgs.append("else {");
-    tgs.newLine();
-    ctx.getBuffer().area().increaseIndent();
-    for (SNode stmt : ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$EJ7t), LINKS.revStatements$IdM8))) {
-      tgs.indent();
-      tgs.appendNode(stmt);
-      tgs.newLine();
-    }
-    if (SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5) && requiresReversibility) {
-      SNode parent = SNodeOperations.cast(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.IfStatement$AR);
-      if (isContainedInLoop) {
-        tgs.indent();
-        tgs.append(SPropertyOperations.getString(parent, PROPS.loopArrayName$wAd5));
-        tgs.append("[");
-        tgs.append(iteratorName);
-        tgs.append("] |= (1 << ");
-        tgs.append(String.valueOf(ListSequence.fromList(SNodeOperations.getNodeDescendants(parent, CONCEPTS.ElseIfPart$2p, false, new SAbstractConcept[]{})).count() + 1));
-        tgs.append(");");
-        tgs.newLine();
-      } else {
-        tgs.indent();
-        tgs.append("checkpoint.");
-        tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(parent, LINKS.supportVariable$WrxR), PROPS.name$MnvL));
-        tgs.append(" |= (1 << ");
-        tgs.append(String.valueOf(ListSequence.fromList(SNodeOperations.getNodeDescendants(parent, CONCEPTS.ElseIfPart$2p, false, new SAbstractConcept[]{})).count() + 1));
-        tgs.append(");");
-        tgs.newLine();
-      }
-    }
-    ctx.getBuffer().area().decreaseIndent();
-    tgs.indent();
-    tgs.append("}");
-    tgs.newLine();
+
+    tgs.append("else ");
+    tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$EJ7t));
   }
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept ReversibleFunction$IL = MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, "ReversibleFunctions.structure.ReversibleFunction");
     /*package*/ static final SInterfaceConcept IReversibleLoop$k1 = MetaAdapterFactory.getInterfaceConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x6337a44ca461bdf4L, "ReversibleStatements.structure.IReversibleLoop");
-    /*package*/ static final SConcept IfStatement$AR = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x5718179e5b1bb7d7L, "ReversibleStatements.structure.IfStatement");
-    /*package*/ static final SConcept ElseIfPart$2p = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x2b8026b23bc272a6L, "ReversibleStatements.structure.ElseIfPart");
   }
 
   private static final class PROPS {
     /*package*/ static final SProperty reversibilityRequired$Zgdy = MetaAdapterFactory.getProperty(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111cL, 0x56ee1731ff5a6482L, "reversibilityRequired");
-    /*package*/ static final SProperty loopArrayName$wAd5 = MetaAdapterFactory.getProperty(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x6337a44ca4f72dbfL, "loopArrayName");
-    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
-    /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
   }
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink body$EJ7t = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x14bcec604136b8e6L, 0x14bcec604136ba31L, "body");
-    /*package*/ static final SContainmentLink revStatements$IdM8 = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, 0x3a16e3a9c7ad9956L, "revStatements");
-    /*package*/ static final SContainmentLink supportVariable$WrxR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x586abb2d5743cb69L, "supportVariable");
   }
 }

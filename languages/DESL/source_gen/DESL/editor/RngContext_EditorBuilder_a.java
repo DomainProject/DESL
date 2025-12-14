@@ -8,12 +8,16 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Constant;
+import jetbrains.mps.openapi.editor.style.Style;
+import jetbrains.mps.editor.runtime.style.StyleImpl;
+import jetbrains.mps.editor.runtime.style.StyleAttributes;
+import jetbrains.mps.nodeEditor.MPSColors;
 
-/*package*/ class RngType_EditorBuilder_a extends AbstractEditorBuilder {
+/*package*/ class RngContext_EditorBuilder_a extends AbstractEditorBuilder {
   @NotNull
   private SNode myNode;
 
-  public RngType_EditorBuilder_a(@NotNull EditorContext context, @NotNull SNode node) {
+  public RngContext_EditorBuilder_a(@NotNull EditorContext context, @NotNull SNode node) {
     super(context);
     myNode = node;
   }
@@ -29,10 +33,13 @@ import jetbrains.mps.nodeEditor.cells.EditorCell_Constant;
   }
 
   private EditorCell createConstant_0() {
-    EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "RngType");
-    editorCell.setCellId("Constant_7iu0gj_a");
+    EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "RngContext");
+    editorCell.setCellId("Constant_a0coqs_a");
     editorCell.setBig(true);
     setCellContext(editorCell);
+    Style style = new StyleImpl();
+    style.set(StyleAttributes.TEXT_COLOR, getStyleRegistry().getSimpleColor(MPSColors.DARK_MAGENTA));
+    editorCell.getStyle().putAll(style);
     editorCell.setDefaultText("");
     return editorCell;
   }

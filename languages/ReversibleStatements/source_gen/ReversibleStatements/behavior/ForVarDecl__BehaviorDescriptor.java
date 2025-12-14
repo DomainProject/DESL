@@ -9,15 +9,17 @@ import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
+import org.jetbrains.mps.openapi.model.SNode;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class ForVarDecl__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a401870e23L, "ReversibleStatements.structure.ForVarDecl");
@@ -25,8 +27,10 @@ public final class ForVarDecl__BehaviorDescriptor extends BaseBHDescriptor {
   public static final SMethod<String> getTraceableProperty_id4pl5GY7LKmH = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getTraceableProperty").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(5067982036267369901L).languageId(0xbfd948636cfe8bc3L, 0x9ded098bad6a4657L).build2();
   public static final SMethod<Boolean> canBeStatic_id58TcxRGFbfJ = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("canBeStatic").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(5924821888888779759L).languageId(0x8af20a8ce6b25221L, 0xf75f9e3fb00b4997L).build2();
   public static final SMethod<Boolean> canBeStoredInRegister_id58TcxRGHbLy = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("canBeStoredInRegister").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(5924821888889306210L).languageId(0x8af20a8ce6b25221L, 0xf75f9e3fb00b4997L).build2();
+  public static final SMethod<SNode> getDeclaredType_id1LDGRqyYkTX = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getDeclaredType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2047364827738361469L).languageId(0x81d97714ff227fb0L, 0x61c69711ed614850L).build2();
+  public static final SMethod<SNode> getInitExpression_id5O5ERJtHyWT = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getInitExpression").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6702952168899882809L).languageId(0x81d97714ff227fb0L, 0x61c69711ed614850L).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getTraceableProperty_id4pl5GY7LKmH, canBeStatic_id58TcxRGFbfJ, canBeStoredInRegister_id58TcxRGHbLy);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getTraceableProperty_id4pl5GY7LKmH, canBeStatic_id58TcxRGFbfJ, canBeStoredInRegister_id58TcxRGHbLy, getDeclaredType_id1LDGRqyYkTX, getInitExpression_id5O5ERJtHyWT);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -39,6 +43,12 @@ public final class ForVarDecl__BehaviorDescriptor extends BaseBHDescriptor {
   }
   /*package*/ static boolean canBeStoredInRegister_id58TcxRGHbLy(@NotNull SNode __thisNode__) {
     return false;
+  }
+  /*package*/ static SNode getDeclaredType_id1LDGRqyYkTX(@NotNull SNode __thisNode__) {
+    return SLinkOperations.getTarget(__thisNode__, LINKS.type$sXU3);
+  }
+  /*package*/ static SNode getInitExpression_id5O5ERJtHyWT(@NotNull SNode __thisNode__) {
+    return SLinkOperations.getTarget(__thisNode__, LINKS.init$41s$);
   }
 
   /*package*/ ForVarDecl__BehaviorDescriptor() {
@@ -62,6 +72,10 @@ public final class ForVarDecl__BehaviorDescriptor extends BaseBHDescriptor {
         return (T) ((Boolean) canBeStatic_id58TcxRGFbfJ(node));
       case 2:
         return (T) ((Boolean) canBeStoredInRegister_id58TcxRGHbLy(node));
+      case 3:
+        return (T) ((SNode) getDeclaredType_id1LDGRqyYkTX(node));
+      case 4:
+        return (T) ((SNode) getInitExpression_id5O5ERJtHyWT(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -93,5 +107,10 @@ public final class ForVarDecl__BehaviorDescriptor extends BaseBHDescriptor {
 
   private static final class PROPS {
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
+    /*package*/ static final SContainmentLink init$41s$ = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad96e6L, 0x3a16e3a9c7ae01f7L, "init");
   }
 }

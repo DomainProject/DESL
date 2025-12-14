@@ -7,8 +7,9 @@ import jetbrains.mps.text.rt.TextGenContext;
 import jetbrains.mps.text.impl.TextGenSupport;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import ReversibleExpressions.behavior.IBinArithmetic__BehaviorDescriptor;
 import ReversibleExpressions.behavior.BinaryExpression__BehaviorDescriptor;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.lang.traceable.behavior.TraceableConcept__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SProperty;
@@ -24,10 +25,12 @@ public class BinaryExpression_TextGen extends TextGenDescriptorBase {
 
     boolean isDestructive = SNodeOperations.isInstanceOf(ctx.getPrimaryInput(), CONCEPTS.IDestructiveOperation$SP) && !(SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.disableStateSaving$rNjh));
 
-    if (isDestructive && SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5)) {
-      tgs.appendNode(SLinkOperations.getTarget(SNodeOperations.cast(ctx.getPrimaryInput(), CONCEPTS.IDestructiveOperation$SP), LINKS.supportVariable$WrxR));
-      tgs.newLine();
-      tgs.indent();
+    // if the binary expression is a Div-, Minus-, Multi- or PlusExpression and it is the right side of a direct assignment expression, it must not be reversed
+    boolean reversibilityNotNeeded = (SNodeOperations.isInstanceOf(ctx.getPrimaryInput(), CONCEPTS.IBinArithmetic$8B) ? (boolean) IBinArithmetic__BehaviorDescriptor.checkIfRightSideOfDirectAssignment_id79P5B3Nkar8.invoke(SNodeOperations.cast(ctx.getPrimaryInput(), CONCEPTS.IBinArithmetic$8B)) : false);
+
+
+    if (isDestructive && !(SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5))) {
+      return;
     }
 
     if ((boolean) BinaryExpression__BehaviorDescriptor.requiresParensAroundArgument_id3_qrK00j4rM.invoke(ctx.getPrimaryInput(), SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.left$KPKR))) {
@@ -38,7 +41,7 @@ public class BinaryExpression_TextGen extends TextGenDescriptorBase {
       tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.left$KPKR));
     }
 
-    if (SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5)) {
+    if (SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5) || reversibilityNotNeeded) {
       tgs.append(" ");
       tgs.append(SConceptOperations.conceptAlias(SNodeOperations.getConcept(ctx.getPrimaryInput())));
       tgs.append(" ");
@@ -50,7 +53,6 @@ public class BinaryExpression_TextGen extends TextGenDescriptorBase {
       tgs.append(" = ");
     }
 
-
     if (SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5) || !(isDestructive)) {
       if ((boolean) BinaryExpression__BehaviorDescriptor.requiresParensAroundArgument_id3_qrK00j4rM.invoke(ctx.getPrimaryInput(), SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.right$KPZS))) {
         tgs.append("(");
@@ -59,9 +61,6 @@ public class BinaryExpression_TextGen extends TextGenDescriptorBase {
       } else {
         tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.right$KPZS));
       }
-    } else if (isDestructive) {
-      tgs.append("checkpoint.");
-      tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(SNodeOperations.cast(ctx.getPrimaryInput(), CONCEPTS.IDestructiveOperation$SP), LINKS.supportVariable$WrxR), PROPS.name$MnvL));
     }
     if (tgs.needPositions()) {
       tgs.fillPositionInfo(TraceableConcept__BehaviorDescriptor.getTraceableProperty_id4pl5GY7LKmH.invoke(SNodeOperations.cast(ctx.getPrimaryInput(), CONCEPTS.TraceableConcept$L)));
@@ -71,16 +70,15 @@ public class BinaryExpression_TextGen extends TextGenDescriptorBase {
   private static final class PROPS {
     /*package*/ static final SProperty disableStateSaving$rNjh = MetaAdapterFactory.getProperty(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L, 0x3bc958288c005be7L, "disableStateSaving");
     /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
-    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 
   private static final class CONCEPTS {
     /*package*/ static final SInterfaceConcept IDestructiveOperation$SP = MetaAdapterFactory.getInterfaceConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x27d0c8e745a2c78dL, "ReversibleExpressions.structure.IDestructiveOperation");
+    /*package*/ static final SInterfaceConcept IBinArithmetic$8B = MetaAdapterFactory.getInterfaceConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x72751670f350a6b0L, "ReversibleExpressions.structure.IBinArithmetic");
     /*package*/ static final SInterfaceConcept TraceableConcept$L = MetaAdapterFactory.getInterfaceConcept(0x9ded098bad6a4657L, 0xbfd948636cfe8bc3L, 0x465516cf87c705a3L, "jetbrains.mps.lang.traceable.structure.TraceableConcept");
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink supportVariable$WrxR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x586abb2d5743cb69L, "supportVariable");
     /*package*/ static final SContainmentLink left$KPKR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba34L, 0x7af69e2e83a1ba40L, "left");
     /*package*/ static final SContainmentLink right$KPZS = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba34L, 0x7af69e2e83a1ba41L, "right");
   }

@@ -21,6 +21,8 @@ import jetbrains.mps.editor.runtime.style.StyleAttributes;
 import jetbrains.mps.lang.editor.cellProviders.RefNodeListHandler;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.menus.transformation.SNodeLocation;
 import jetbrains.mps.openapi.editor.cells.DefaultSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SEmptyContainmentSubstituteInfo;
@@ -37,7 +39,6 @@ import ReversibleStatements.behavior.ReversibleStatementList__BehaviorDescriptor
 import com.mbeddr.core.base.editor.basicStyles_StyleSheet.nothingStyleClass;
 import com.mbeddr.core.base.editor.mbeddrBaseStyles_StyleSheet.PassiveTextStyleClass;
 import org.jetbrains.mps.openapi.language.SProperty;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
 
@@ -129,9 +130,15 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return LINKS.revStatements$IdM8;
     }
     public SAbstractConcept getChildSConcept() {
-      return CONCEPTS.ReversibleStatement$s8;
+      return CONCEPTS.IReversibleStatement$hm;
+    }
+    public SNode createNodeToInsert(EditorContext editorContext, SNode prevNode, SNode nextNode, int index) {
+      return nodeFactory(prevNode, nextNode, index);
     }
 
+    public SNode nodeFactory(SNode prevNode, SNode nextNode, int index) {
+      return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x7bb4add28fccd50cL, "ReversibleStatements.structure.EmptyStatement"));
+    }
     public EditorCell createNodeCell(SNode elementNode) {
       EditorCell elementCell = getUpdateSession().updateChildNodeCell(elementNode);
       installElementCellActions(elementNode, elementCell, false);
@@ -245,7 +252,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
 
   private static final class CONCEPTS {
     /*package*/ static final SInterfaceConcept IStatmentListContainer$NA = MetaAdapterFactory.getInterfaceConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x5f5c402aa7667ef3L, "ReversibleStatements.structure.IStatmentListContainer");
-    /*package*/ static final SConcept ReversibleStatement$s8 = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad6d03L, "ReversibleStatements.structure.ReversibleStatement");
+    /*package*/ static final SInterfaceConcept IReversibleStatement$hm = MetaAdapterFactory.getInterfaceConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x5809a94b28aaa352L, "ReversibleStatements.structure.IReversibleStatement");
     /*package*/ static final SConcept ReversibleStatementList$qe = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, "ReversibleStatements.structure.ReversibleStatementList");
   }
 

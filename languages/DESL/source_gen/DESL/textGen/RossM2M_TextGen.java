@@ -192,7 +192,7 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
         tgs.append("(");
         containsContext = false;
         for (SNode arg : ListSequence.fromList(SLinkOperations.getChildren(function, LINKS.arguments$6da0))) {
-          if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(arg, LINKS.type$sXU3), CONCEPTS.RngType$1E)) {
+          if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(arg, LINKS.type$sXU3), CONCEPTS.RngContext$1E)) {
             containsContext = true;
           }
           tgs.appendNode(arg);
@@ -707,7 +707,7 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     /*package*/ static final SConcept EventDefinition$wO = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2e66f9a613f69c80L, "DESL.structure.EventDefinition");
     /*package*/ static final SConcept ProcessArray$Ux = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6486788L, "DESL.structure.ProcessArray");
     /*package*/ static final SConcept ProcessAllocation$5Z = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6393783L, "DESL.structure.ProcessAllocation");
-    /*package*/ static final SConcept RngType$1E = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x23bd070ad14172a2L, "DESL.structure.RngType");
+    /*package*/ static final SConcept RngContext$1E = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x23bd070ad14172a2L, "DESL.structure.RngContext");
     /*package*/ static final SConcept Random$XZ = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2476b4949807b946L, "DESL.structure.Random");
     /*package*/ static final SConcept Expent$Yu = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2476b4949807b947L, "DESL.structure.Expent");
     /*package*/ static final SConcept ExternalFunction$U_ = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228bL, "DESL.structure.ExternalFunction");

@@ -432,7 +432,6 @@
     <language id="760a0a8c-eabb-4521-8bfd-65db761a9ba3" name="jetbrains.mps.baseLanguage.logging">
       <concept id="6332851714983831325" name="jetbrains.mps.baseLanguage.logging.structure.MsgStatement" flags="ng" index="2xdQw9">
         <property id="6332851714983843871" name="severity" index="2xdLsb" />
-        <child id="5721587534047265560" name="project" index="9lYEk" />
         <child id="5721587534047265374" name="message" index="9lYJi" />
         <child id="5721587534047265375" name="throwable" index="9lYJj" />
       </concept>
@@ -2777,109 +2776,6 @@
       <property role="1hAc7j" value="g_hAxAO/delete_action_id" />
       <node concept="1hAIg9" id="37agc69GSk5" role="1hA7z_">
         <node concept="3clFbS" id="37agc69GSk6" role="2VODD2">
-          <node concept="3clFbH" id="37agc6cVpJi" role="3cqZAp" />
-          <node concept="2xdQw9" id="37agc6dhBJR" role="3cqZAp">
-            <property role="2xdLsb" value="h1akgim/info" />
-            <node concept="Xl_RD" id="37agc6dhBJT" role="9lYJi">
-              <property role="Xl_RC" value="executing delete action" />
-            </node>
-            <node concept="2OqwBi" id="37agc6doXF6" role="9lYEk">
-              <node concept="2OqwBi" id="37agc6doWuy" role="2Oq$k0">
-                <node concept="1Q80Hx" id="37agc6doWns" role="2Oq$k0" />
-                <node concept="liA8E" id="37agc6doXf3" role="2OqNvi">
-                  <ref role="37wK5l" to="cj4x:~EditorContext.getOperationContext()" resolve="getOperationContext" />
-                </node>
-              </node>
-              <node concept="liA8E" id="37agc6doXYD" role="2OqNvi">
-                <ref role="37wK5l" to="w1kc:~IOperationContext.getProject()" resolve="getProject" />
-              </node>
-            </node>
-          </node>
-          <node concept="2xdQw9" id="37agc6doYC_" role="3cqZAp">
-            <node concept="Xl_RD" id="37agc6doYCA" role="9lYJi">
-              <property role="Xl_RC" value="executing delete action" />
-            </node>
-            <node concept="2OqwBi" id="37agc6doYCB" role="9lYEk">
-              <node concept="2OqwBi" id="37agc6doYCC" role="2Oq$k0">
-                <node concept="1Q80Hx" id="37agc6doYCD" role="2Oq$k0" />
-                <node concept="liA8E" id="37agc6doYCE" role="2OqNvi">
-                  <ref role="37wK5l" to="cj4x:~EditorContext.getOperationContext()" resolve="getOperationContext" />
-                </node>
-              </node>
-              <node concept="liA8E" id="37agc6doYCF" role="2OqNvi">
-                <ref role="37wK5l" to="w1kc:~IOperationContext.getProject()" resolve="getProject" />
-              </node>
-            </node>
-          </node>
-          <node concept="2xdQw9" id="37agc6doYCG" role="3cqZAp">
-            <property role="2xdLsb" value="gZ5eI4k/fatal" />
-            <node concept="Xl_RD" id="37agc6doYCH" role="9lYJi">
-              <property role="Xl_RC" value="executing delete action" />
-            </node>
-            <node concept="2OqwBi" id="37agc6doYCI" role="9lYEk">
-              <node concept="2OqwBi" id="37agc6doYCJ" role="2Oq$k0">
-                <node concept="1Q80Hx" id="37agc6doYCK" role="2Oq$k0" />
-                <node concept="liA8E" id="37agc6doYCL" role="2OqNvi">
-                  <ref role="37wK5l" to="cj4x:~EditorContext.getOperationContext()" resolve="getOperationContext" />
-                </node>
-              </node>
-              <node concept="liA8E" id="37agc6doYCM" role="2OqNvi">
-                <ref role="37wK5l" to="w1kc:~IOperationContext.getProject()" resolve="getProject" />
-              </node>
-            </node>
-          </node>
-          <node concept="2xdQw9" id="37agc6doZcU" role="3cqZAp">
-            <property role="2xdLsb" value="gZ5fh_4/error" />
-            <node concept="Xl_RD" id="37agc6doZcV" role="9lYJi">
-              <property role="Xl_RC" value="executing delete action" />
-            </node>
-            <node concept="2OqwBi" id="37agc6doZcW" role="9lYEk">
-              <node concept="2OqwBi" id="37agc6doZcX" role="2Oq$k0">
-                <node concept="1Q80Hx" id="37agc6doZcY" role="2Oq$k0" />
-                <node concept="liA8E" id="37agc6doZcZ" role="2OqNvi">
-                  <ref role="37wK5l" to="cj4x:~EditorContext.getOperationContext()" resolve="getOperationContext" />
-                </node>
-              </node>
-              <node concept="liA8E" id="37agc6doZd0" role="2OqNvi">
-                <ref role="37wK5l" to="w1kc:~IOperationContext.getProject()" resolve="getProject" />
-              </node>
-            </node>
-          </node>
-          <node concept="2xdQw9" id="37agc6doZd1" role="3cqZAp">
-            <property role="2xdLsb" value="gZ5frni/trace" />
-            <node concept="Xl_RD" id="37agc6doZd2" role="9lYJi">
-              <property role="Xl_RC" value="executing delete action" />
-            </node>
-            <node concept="2OqwBi" id="37agc6doZd3" role="9lYEk">
-              <node concept="2OqwBi" id="37agc6doZd4" role="2Oq$k0">
-                <node concept="1Q80Hx" id="37agc6doZd5" role="2Oq$k0" />
-                <node concept="liA8E" id="37agc6doZd6" role="2OqNvi">
-                  <ref role="37wK5l" to="cj4x:~EditorContext.getOperationContext()" resolve="getOperationContext" />
-                </node>
-              </node>
-              <node concept="liA8E" id="37agc6doZd7" role="2OqNvi">
-                <ref role="37wK5l" to="w1kc:~IOperationContext.getProject()" resolve="getProject" />
-              </node>
-            </node>
-          </node>
-          <node concept="2xdQw9" id="37agc6doZd8" role="3cqZAp">
-            <property role="2xdLsb" value="gZ5fksE/warn" />
-            <node concept="Xl_RD" id="37agc6doZd9" role="9lYJi">
-              <property role="Xl_RC" value="executing delete action" />
-            </node>
-            <node concept="2OqwBi" id="37agc6doZda" role="9lYEk">
-              <node concept="2OqwBi" id="37agc6doZdb" role="2Oq$k0">
-                <node concept="1Q80Hx" id="37agc6doZdc" role="2Oq$k0" />
-                <node concept="liA8E" id="37agc6doZdd" role="2OqNvi">
-                  <ref role="37wK5l" to="cj4x:~EditorContext.getOperationContext()" resolve="getOperationContext" />
-                </node>
-              </node>
-              <node concept="liA8E" id="37agc6doZde" role="2OqNvi">
-                <ref role="37wK5l" to="w1kc:~IOperationContext.getProject()" resolve="getProject" />
-              </node>
-            </node>
-          </node>
-          <node concept="3clFbH" id="37agc6dh$4V" role="3cqZAp" />
           <node concept="3clFbF" id="37agc69GSmE" role="3cqZAp">
             <node concept="2OqwBi" id="37agc69GUQs" role="3clFbG">
               <node concept="2OqwBi" id="37agc69GSwH" role="2Oq$k0">
@@ -3093,10 +2989,6 @@
       <node concept="L$LW2" id="4Xtub2u6sSP" role="1Qtc8A" />
     </node>
     <node concept="22hDWj" id="4Xtub2u6sSQ" role="22hAXT" />
-  </node>
-  <node concept="22mcaB" id="4Xtub2u6BH5">
-    <ref role="aqKnT" to="ib4b:40tXLnqhyKc" resolve="GenericDotExpression" />
-    <node concept="22hDWj" id="4Xtub2u6BH6" role="22hAXT" />
   </node>
   <node concept="24kQdi" id="4Xtub2u6Cj8">
     <ref role="1XX52x" to="ib4b:40tXLnqhyKc" resolve="GenericDotExpression" />

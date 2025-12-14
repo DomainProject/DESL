@@ -62,7 +62,12 @@ public final class ReversibleStatementList__BehaviorDescriptor extends BaseBHDes
       case 0:
         return false;
       case 1:
-        return !((boolean) ReversibleStatement__BehaviorDescriptor.simpleOneLiner_id1z9MsBsVy8o.invoke(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.revStatements$IdM8)).getElement(0)));
+        {
+          final SNode rs = ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.revStatements$IdM8)).getElement(0);
+          if (SNodeOperations.isInstanceOf(rs, CONCEPTS.ReversibleStatement$s8)) {
+            return !((boolean) ReversibleStatement__BehaviorDescriptor.simpleOneLiner_id1z9MsBsVy8o.invoke(rs));
+          }
+        }
       default:
         return true;
     }

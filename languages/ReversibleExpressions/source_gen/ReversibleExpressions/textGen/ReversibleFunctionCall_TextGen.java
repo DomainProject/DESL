@@ -22,8 +22,14 @@ public class ReversibleFunctionCall_TextGen extends TextGenDescriptorBase {
   public void generateText(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     tgs.createPositionInfo();
-    tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.function$EyYZ), PROPS.name$MnvL));
-    tgs.append("(");
+
+    if (SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5)) {
+      tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.function$EyYZ), PROPS.name$MnvL));
+      tgs.append("(");
+    } else {
+      tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.function$EyYZ), PROPS.name$MnvL));
+      tgs.append("_reverse(");
+    }
     {
       Iterable<SNode> collection = SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.actuals$EywX);
       final SNode lastItem = Sequence.fromIterable(collection).last();
@@ -35,6 +41,7 @@ public class ReversibleFunctionCall_TextGen extends TextGenDescriptorBase {
       }
     }
     tgs.append(")");
+
     if (tgs.needPositions()) {
       tgs.fillPositionInfo(TraceableConcept__BehaviorDescriptor.getTraceableProperty_id4pl5GY7LKmH.invoke(SNodeOperations.cast(ctx.getPrimaryInput(), CONCEPTS.TraceableConcept$L)));
     }
@@ -47,6 +54,7 @@ public class ReversibleFunctionCall_TextGen extends TextGenDescriptorBase {
 
   private static final class PROPS {
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
   }
 
   private static final class CONCEPTS {

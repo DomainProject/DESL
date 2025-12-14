@@ -2884,49 +2884,6 @@
       <unit id="1888908346002612808" at="36,0,175,0" name="DESL.editor.InitTopology_EditorBuilder_a" />
     </file>
   </root>
-  <root nodeRef="r:b9d4912c-8e8b-4f1b-b887-99265d0b4cdb(DESL.editor)/2575222304967586467">
-    <file name="RngType_Editor.java">
-      <node id="2575222304967586467" at="11,79,12,73" concept="8" />
-      <node id="2575222304967586467" at="11,0,14,0" concept="5" trace="createEditorCell#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
-      <scope id="2575222304967586467" at="11,79,12,73" />
-      <scope id="2575222304967586467" at="11,0,14,0">
-        <var name="editorContext" id="2575222304967586467" />
-        <var name="node" id="2575222304967586467" />
-      </scope>
-      <unit id="2575222304967586467" at="10,0,15,0" name="DESL.editor.RngType_Editor" />
-    </file>
-    <file name="RngType_EditorBuilder_a.java">
-      <node id="2575222304967586467" at="16,87,17,19" concept="13" />
-      <node id="2575222304967586467" at="17,19,18,18" concept="2" />
-      <node id="2575222304967586467" at="23,26,24,18" concept="8" />
-      <node id="2575222304967586467" at="27,39,28,30" concept="8" />
-      <node id="2575222304967586469" at="31,41,32,100" concept="6" />
-      <node id="2575222304967586469" at="32,100,33,46" concept="2" />
-      <node id="2575222304967586469" at="33,46,34,28" concept="2" />
-      <node id="2575222304967586469" at="34,28,35,31" concept="2" />
-      <node id="2575222304967586469" at="35,31,36,34" concept="2" />
-      <node id="2575222304967586469" at="36,34,37,22" concept="8" />
-      <node id="2575222304967586467" at="13,0,15,0" concept="3" trace="myNode" />
-      <node id="2575222304967586467" at="27,0,30,0" concept="5" trace="createCell#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
-      <node id="2575222304967586467" at="16,0,20,0" concept="1" trace="RngType_EditorBuilder_a#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)V" />
-      <node id="2575222304967586467" at="21,0,26,0" concept="5" trace="getNode#()Lorg/jetbrains/mps/openapi/model/SNode;" />
-      <node id="2575222304967586469" at="31,0,39,0" concept="5" trace="createConstant_0#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
-      <scope id="2575222304967586467" at="23,26,24,18" />
-      <scope id="2575222304967586467" at="27,39,28,30" />
-      <scope id="2575222304967586467" at="16,87,18,18" />
-      <scope id="2575222304967586467" at="27,0,30,0" />
-      <scope id="2575222304967586467" at="16,0,20,0">
-        <var name="context" id="2575222304967586467" />
-        <var name="node" id="2575222304967586467" />
-      </scope>
-      <scope id="2575222304967586467" at="21,0,26,0" />
-      <scope id="2575222304967586469" at="31,41,37,22">
-        <var name="editorCell" id="2575222304967586469" />
-      </scope>
-      <scope id="2575222304967586469" at="31,0,39,0" />
-      <unit id="2575222304967586467" at="12,0,40,0" name="DESL.editor.RngType_EditorBuilder_a" />
-    </file>
-  </root>
   <root nodeRef="r:b9d4912c-8e8b-4f1b-b887-99265d0b4cdb(DESL.editor)/2575222304969090884">
     <file name="GetRandContext_Editor.java">
       <node id="2575222304969090884" at="11,79,12,80" concept="8" />
@@ -10076,6 +10033,53 @@
       <unit id="8013817401928931222" at="171,0,174,0" name="DESL.editor.ExternalFunctionPrototype_EditorBuilder_a$CONCEPTS" />
       <unit id="8013817401928931222" at="74,0,125,0" name="DESL.editor.ExternalFunctionPrototype_EditorBuilder_a$prototypeSingleRoleHandler_vkfg2u_a0" />
       <unit id="8013817401928931222" at="40,0,175,0" name="DESL.editor.ExternalFunctionPrototype_EditorBuilder_a" />
+    </file>
+  </root>
+  <root nodeRef="r:b9d4912c-8e8b-4f1b-b887-99265d0b4cdb(DESL.editor)/8247522966995466318">
+    <file name="RngContext_Editor.java">
+      <node id="8247522966995466318" at="11,79,12,76" concept="8" />
+      <node id="8247522966995466318" at="11,0,14,0" concept="5" trace="createEditorCell#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <scope id="8247522966995466318" at="11,79,12,76" />
+      <scope id="8247522966995466318" at="11,0,14,0">
+        <var name="editorContext" id="8247522966995466318" />
+        <var name="node" id="8247522966995466318" />
+      </scope>
+      <unit id="8247522966995466318" at="10,0,15,0" name="DESL.editor.RngContext_Editor" />
+    </file>
+    <file name="RngContext_EditorBuilder_a.java">
+      <node id="8247522966995466318" at="20,90,21,19" concept="13" />
+      <node id="8247522966995466318" at="21,19,22,18" concept="2" />
+      <node id="8247522966995466318" at="27,26,28,18" concept="8" />
+      <node id="8247522966995466318" at="31,39,32,30" concept="8" />
+      <node id="8247522966995466320" at="35,41,36,103" concept="6" />
+      <node id="8247522966995466320" at="36,103,37,46" concept="2" />
+      <node id="8247522966995466320" at="37,46,38,28" concept="2" />
+      <node id="8247522966995466320" at="38,28,39,31" concept="2" />
+      <node id="8247522966995466320" at="39,31,40,34" concept="6" />
+      <node id="8247522966995466322" at="40,34,41,101" concept="2" />
+      <node id="8247522966995466320" at="41,101,42,40" concept="2" />
+      <node id="8247522966995466320" at="42,40,43,34" concept="2" />
+      <node id="8247522966995466320" at="43,34,44,22" concept="8" />
+      <node id="8247522966995466318" at="17,0,19,0" concept="3" trace="myNode" />
+      <node id="8247522966995466318" at="31,0,34,0" concept="5" trace="createCell#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="8247522966995466318" at="20,0,24,0" concept="1" trace="RngContext_EditorBuilder_a#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)V" />
+      <node id="8247522966995466318" at="25,0,30,0" concept="5" trace="getNode#()Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="8247522966995466320" at="35,0,46,0" concept="5" trace="createConstant_0#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <scope id="8247522966995466318" at="27,26,28,18" />
+      <scope id="8247522966995466318" at="31,39,32,30" />
+      <scope id="8247522966995466318" at="20,90,22,18" />
+      <scope id="8247522966995466318" at="31,0,34,0" />
+      <scope id="8247522966995466318" at="20,0,24,0">
+        <var name="context" id="8247522966995466318" />
+        <var name="node" id="8247522966995466318" />
+      </scope>
+      <scope id="8247522966995466318" at="25,0,30,0" />
+      <scope id="8247522966995466320" at="35,41,44,22">
+        <var name="editorCell" id="8247522966995466320" />
+        <var name="style" id="8247522966995466320" />
+      </scope>
+      <scope id="8247522966995466320" at="35,0,46,0" />
+      <unit id="8247522966995466318" at="16,0,47,0" name="DESL.editor.RngContext_EditorBuilder_a" />
     </file>
   </root>
   <root nodeRef="r:b9d4912c-8e8b-4f1b-b887-99265d0b4cdb(DESL.editor)/8378102908616816024">

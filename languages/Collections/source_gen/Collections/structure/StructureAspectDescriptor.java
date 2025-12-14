@@ -17,7 +17,6 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptCollection = createDescriptorForCollection();
   /*package*/ final ConceptDescriptor myConceptFindFirst = createDescriptorForFindFirst();
   /*package*/ final ConceptDescriptor myConceptForEachItemInCollection = createDescriptorForForEachItemInCollection();
-  /*package*/ final ConceptDescriptor myConceptForeachBody = createDescriptorForForeachBody();
   /*package*/ final ConceptDescriptor myConceptIGetFirstElementInCollection = createDescriptorForIGetFirstElementInCollection();
   /*package*/ final ConceptDescriptor myConceptIUpdateCollection = createDescriptorForIUpdateCollection();
   /*package*/ final ConceptDescriptor myConceptNewCollection = createDescriptorForNewCollection();
@@ -34,17 +33,16 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   public void reportDependencies(jetbrains.mps.smodel.runtime.StructureAspectDescriptor.Dependencies deps) {
     deps.extendedLanguage(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, "ReversibleStatements");
     deps.extendedLanguage(0x61c69711ed614850L, 0x81d97714ff227fb0L, "com.mbeddr.core.expressions");
-    deps.extendedLanguage(0xa9d696470840491eL, 0xbf392eb0805d2011L, "com.mbeddr.core.statements");
     deps.extendedLanguage(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, "ReversibleExpressions");
     deps.aggregatedLanguage(0x61c69711ed614850L, 0x81d97714ff227fb0L, "com.mbeddr.core.expressions");
     deps.aggregatedLanguage(0xa9d696470840491eL, 0xbf392eb0805d2011L, "com.mbeddr.core.statements");
-    deps.aggregatedLanguage(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, "ReversibleExpressions");
     deps.aggregatedLanguage(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, "ReversibleStatements");
+    deps.aggregatedLanguage(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, "ReversibleExpressions");
   }
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptAddToCollection, myConceptCollection, myConceptFindFirst, myConceptForEachItemInCollection, myConceptForeachBody, myConceptIGetFirstElementInCollection, myConceptIUpdateCollection, myConceptNewCollection, myConceptRemoveFromCollection, myConceptRemoveWhere);
+    return Arrays.asList(myConceptAddToCollection, myConceptCollection, myConceptFindFirst, myConceptForEachItemInCollection, myConceptIGetFirstElementInCollection, myConceptIUpdateCollection, myConceptNewCollection, myConceptRemoveFromCollection, myConceptRemoveWhere);
   }
 
   @Override
@@ -59,8 +57,6 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptFindFirst;
       case LanguageConceptSwitch.ForEachItemInCollection:
         return myConceptForEachItemInCollection;
-      case LanguageConceptSwitch.ForeachBody:
-        return myConceptForeachBody;
       case LanguageConceptSwitch.IGetFirstElementInCollection:
         return myConceptIGetFirstElementInCollection;
       case LanguageConceptSwitch.IUpdateCollection:
@@ -118,24 +114,21 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   private static ConceptDescriptor createDescriptorForForEachItemInCollection() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("Collections", "ForEachItemInCollection", 0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x259b4ab97565ea5eL);
     b.class_(false, false, false);
-    // extends: com.mbeddr.core.statements.structure.Statement
-    b.super_(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad6d03L);
+    // extends: ReversibleStatements.structure.ReversibleStatement
+    b.super_(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad6d03L);
+    b.parent(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x1d0c3765e2e2fcf8L);
+    b.parent(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x7525a1fdf25d507dL);
+    b.parent(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x5f5c402aa7667ef3L);
+    b.parent(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x7b54acc4750283c3L);
+    b.parent(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x6337a44ca461bdf4L);
     b.origin("r:7c7377c1-dded-46c2-9c44-39493c999dbb(Collections.structure)/2709841761192503902");
     b.version(3);
     b.property("variableName", 0x2d57d1c347710003L).type(PrimitiveTypeId.STRING).origin("3267310691328000003").done();
-    b.aggregate("body", 0x259b4ab975661d54L).target(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x259b4ab975eac219L).optional(false).ordered(true).multiple(false).origin("2709841761192516948").done();
-    b.aggregate("variable", 0x2d57d1c347710004L).target(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad96e6L).optional(false).ordered(true).multiple(false).origin("3267310691328000004").done();
-    b.aggregate("collection", 0x2d57d1c347abef9fL).target(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba32L).optional(false).ordered(true).multiple(false).origin("3267310691331862431").done();
+    b.property("iteratorName", 0x72751670f419b537L).type(PrimitiveTypeId.STRING).origin("8247522966986405175").done();
+    b.aggregate("body", 0x259b4ab975661d54L).target(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L).optional(false).ordered(true).multiple(false).origin("2709841761192516948").done();
+    b.aggregate("variable", 0x2d57d1c347710004L).target(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad96e6L).optional(false).ordered(true).multiple(false).origin("3267310691328000004").done();
+    b.aggregate("collection", 0x2d57d1c347abef9fL).target(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L).optional(false).ordered(true).multiple(false).origin("3267310691331862431").done();
     b.alias("foreach");
-    return b.create();
-  }
-  private static ConceptDescriptor createDescriptorForForeachBody() {
-    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("Collections", "ForeachBody", 0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x259b4ab975eac219L);
-    b.class_(false, false, false);
-    // extends: com.mbeddr.core.statements.structure.StatementList
-    b.super_(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad9955L);
-    b.origin("r:7c7377c1-dded-46c2-9c44-39493c999dbb(Collections.structure)/2709841761201209881");
-    b.version(3);
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForIGetFirstElementInCollection() {

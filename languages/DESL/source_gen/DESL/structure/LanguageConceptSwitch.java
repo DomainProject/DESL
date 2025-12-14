@@ -59,7 +59,7 @@ public final class LanguageConceptSwitch {
   public static final int ProcessArray = 47;
   public static final int ProcessSequence = 48;
   public static final int Random = 49;
-  public static final int RngType = 50;
+  public static final int RngContext = 50;
   public static final int RootSimGPUM2M = 51;
   public static final int RootSimM2M = 52;
   public static final int RossM2M = 53;
@@ -125,7 +125,7 @@ public final class LanguageConceptSwitch {
     builder.put(0x4117a694e6486788L, ProcessArray);
     builder.put(0x4117a694e64867a6L, ProcessSequence);
     builder.put(0x2476b4949807b946L, Random);
-    builder.put(0x23bd070ad14172a2L, RngType);
+    builder.put(0x23bd070ad14172a2L, RngContext);
     builder.put(0xa56bb45af68e0a2L, RootSimGPUM2M);
     builder.put(0x2e66f9a61334f363L, RootSimM2M);
     builder.put(0x7dd219cad75cd6eeL, RossM2M);

@@ -27,8 +27,6 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new FindFirst_TextGen();
       case LanguageConceptSwitch.ForEachItemInCollection:
         return new ForEachItemInCollection_TextGen();
-      case LanguageConceptSwitch.ForeachBody:
-        return new ForeachBody_TextGen();
       case LanguageConceptSwitch.NewCollection:
         return new NewCollection_TextGen();
       case LanguageConceptSwitch.RemoveFromCollection:

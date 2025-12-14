@@ -29,7 +29,7 @@ public class ReversibleFunction_TextGen extends TextGenDescriptorBase {
     if (SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$rJ$J)) {
       tgs.append("struct checkpoint {");
       tgs.newLine();
-      for (SNode var : ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.checkpointingVariables$5GhH))) {
+      for (SNode var : ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.checkpointingVariables$5GhH)).where((it) -> (SLinkOperations.getTarget(it, LINKS.var$iAI8) != null))) {
         tgs.indent();
         TokenTextGen.genTypeWithName(SLinkOperations.getTarget(SLinkOperations.getTarget(var, LINKS.var$iAI8), LINKS.type$sXU3), IIdentifierNamedConcept__BehaviorDescriptor.processedName_id3x8oZgL6CjW.invoke(SLinkOperations.getTarget(var, LINKS.var$iAI8), SPropertyOperations.getString(SLinkOperations.getTarget(var, LINKS.var$iAI8), PROPS.name$MnvL)), ctx);
         tgs.append(";");

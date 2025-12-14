@@ -66,7 +66,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptProcessArray = createDescriptorForProcessArray();
   /*package*/ final ConceptDescriptor myConceptProcessSequence = createDescriptorForProcessSequence();
   /*package*/ final ConceptDescriptor myConceptRandom = createDescriptorForRandom();
-  /*package*/ final ConceptDescriptor myConceptRngType = createDescriptorForRngType();
+  /*package*/ final ConceptDescriptor myConceptRngContext = createDescriptorForRngContext();
   /*package*/ final ConceptDescriptor myConceptRootSimGPUM2M = createDescriptorForRootSimGPUM2M();
   /*package*/ final ConceptDescriptor myConceptRootSimM2M = createDescriptorForRootSimM2M();
   /*package*/ final ConceptDescriptor myConceptRossM2M = createDescriptorForRossM2M();
@@ -109,7 +109,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptClassDefinition, myConceptCreateArray, myConceptDESLModel, myConceptDocsEntry, myConceptDocsM2M, myConceptEmptyLine, myConceptEventDefinition, myConceptEventDocs, myConceptEventHandler, myConceptEventHandlerDocs, myConceptEventType, myConceptExpent, myConceptExternalFunction, myConceptExternalFunctionPrototype, myConceptExternalMacro, myConceptExternalStructDefinition, myConceptFunctionDocs, myConceptGetRandContext, myConceptGetReceiver, myConceptGlobalVarDecl, myConceptHeader, myConceptIClassDefinition, myConceptIDocs, myConceptIDocsElement, myConceptIEventDefinition, myConceptIExternalFunction, myConceptIFiller, myConceptIGlobalVarDecl, myConceptIHandler, myConceptIMacro, myConceptIProcessAllocation, myConceptIProcessList, myConceptIStartupFunction, myConceptIStructDefinition, myConceptITerminationFunction, myConceptIText, myConceptITypeDefinition, myConceptInitRandomContext, myConceptInitTopology, myConceptInitializeState, myConceptItem, myConceptItemList, myConceptMacroFunction, myConceptMacroVariable, myConceptParameterDocs, myConceptPlainText, myConceptProcessAllocation, myConceptProcessArray, myConceptProcessSequence, myConceptRandom, myConceptRngType, myConceptRootSimGPUM2M, myConceptRootSimM2M, myConceptRossM2M, myConceptSendEvent, myConceptStartupFunction, myConceptStartupHandler, myConceptStructDefinition, myConceptStructDocs, myConceptStructMemberDocs, myConceptTerminationFunction, myConceptTypeDefinition, myConceptUseM2M);
+    return Arrays.asList(myConceptClassDefinition, myConceptCreateArray, myConceptDESLModel, myConceptDocsEntry, myConceptDocsM2M, myConceptEmptyLine, myConceptEventDefinition, myConceptEventDocs, myConceptEventHandler, myConceptEventHandlerDocs, myConceptEventType, myConceptExpent, myConceptExternalFunction, myConceptExternalFunctionPrototype, myConceptExternalMacro, myConceptExternalStructDefinition, myConceptFunctionDocs, myConceptGetRandContext, myConceptGetReceiver, myConceptGlobalVarDecl, myConceptHeader, myConceptIClassDefinition, myConceptIDocs, myConceptIDocsElement, myConceptIEventDefinition, myConceptIExternalFunction, myConceptIFiller, myConceptIGlobalVarDecl, myConceptIHandler, myConceptIMacro, myConceptIProcessAllocation, myConceptIProcessList, myConceptIStartupFunction, myConceptIStructDefinition, myConceptITerminationFunction, myConceptIText, myConceptITypeDefinition, myConceptInitRandomContext, myConceptInitTopology, myConceptInitializeState, myConceptItem, myConceptItemList, myConceptMacroFunction, myConceptMacroVariable, myConceptParameterDocs, myConceptPlainText, myConceptProcessAllocation, myConceptProcessArray, myConceptProcessSequence, myConceptRandom, myConceptRngContext, myConceptRootSimGPUM2M, myConceptRootSimM2M, myConceptRossM2M, myConceptSendEvent, myConceptStartupFunction, myConceptStartupHandler, myConceptStructDefinition, myConceptStructDocs, myConceptStructMemberDocs, myConceptTerminationFunction, myConceptTypeDefinition, myConceptUseM2M);
   }
 
   @Override
@@ -216,8 +216,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptProcessSequence;
       case LanguageConceptSwitch.Random:
         return myConceptRandom;
-      case LanguageConceptSwitch.RngType:
-        return myConceptRngType;
+      case LanguageConceptSwitch.RngContext:
+        return myConceptRngContext;
       case LanguageConceptSwitch.RootSimGPUM2M:
         return myConceptRootSimGPUM2M;
       case LanguageConceptSwitch.RootSimM2M:
@@ -742,8 +742,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.alias("Random");
     return b.create();
   }
-  private static ConceptDescriptor createDescriptorForRngType() {
-    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("DESL", "RngType", 0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x23bd070ad14172a2L);
+  private static ConceptDescriptor createDescriptorForRngContext() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("DESL", "RngContext", 0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x23bd070ad14172a2L);
     b.class_(false, false, false);
     // extends: com.mbeddr.core.expressions.structure.Type
     b.super_(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba36L);

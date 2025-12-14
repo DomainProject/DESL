@@ -7,9 +7,9 @@
   <imports>
     <import index="kmi" ref="r:afa7ae5b-c41f-45e8-9678-2beae3621a33(ReversibleStatements.structure)" implicit="true" />
     <import index="mj1l" ref="r:c371cf98-dcc8-4a43-8eb8-8a8096de18b2(com.mbeddr.core.expressions.structure)" implicit="true" />
-    <import index="c4fa" ref="r:9f0e84b6-2ec7-4f9e-83e0-feedc77b63a3(com.mbeddr.core.statements.structure)" implicit="true" />
-    <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
     <import index="ib4b" ref="r:539823a2-87c6-4a7e-abc8-d6fc586848eb(ReversibleExpressions.structure)" implicit="true" />
+    <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
+    <import index="c4fa" ref="r:9f0e84b6-2ec7-4f9e-83e0-feedc77b63a3(com.mbeddr.core.statements.structure)" implicit="true" />
   </imports>
   <registry>
     <language id="c72da2b9-7cce-4447-8389-f407dc1158b7" name="jetbrains.mps.lang.structure">
@@ -74,43 +74,57 @@
       <ref role="20lvS9" to="mj1l:7FQByU3CrCQ" resolve="Type" />
     </node>
   </node>
-  <node concept="1TIwiD" id="2mriF_PUG8p">
-    <property role="EcuMT" value="2709841761201209881" />
-    <property role="TrG5h" value="ForeachBody" />
-    <property role="3GE5qa" value="foreach" />
-    <ref role="1TJDcQ" to="c4fa:3CmSUB7Fp_l" resolve="StatementList" />
-  </node>
   <node concept="1TIwiD" id="2mriF_PpuDu">
     <property role="EcuMT" value="2709841761192503902" />
     <property role="TrG5h" value="ForEachItemInCollection" />
     <property role="34LRSv" value="foreach" />
     <property role="3GE5qa" value="foreach" />
     <property role="R4oN_" value="iterate on collection items" />
-    <ref role="1TJDcQ" to="c4fa:3CmSUB7FmO3" resolve="Statement" />
+    <ref role="1TJDcQ" to="kmi:3CmSUB7FmO3" resolve="ReversibleStatement" />
+    <node concept="PrWs8" id="6iIoqg1xKT8" role="PzmwI">
+      <ref role="PrY4T" to="kmi:1OcdQnySJNS" resolve="ILocalVarScopeProvider" />
+    </node>
+    <node concept="PrWs8" id="2vwNr_aEkOr" role="PzmwI">
+      <ref role="PrY4T" to="kmi:7k_CvRMnl1X" resolve="IBreakContainer" />
+    </node>
+    <node concept="PrWs8" id="5Xsg2EBpGbM" role="PzmwI">
+      <ref role="PrY4T" to="kmi:5Xsg2EBpBVN" resolve="IStatmentListContainer" />
+    </node>
+    <node concept="PrWs8" id="2vwNr_aEkOs" role="PzmwI">
+      <ref role="PrY4T" to="kmi:7HkFchP0Cf3" resolve="ILoopStatement" />
+    </node>
+    <node concept="PrWs8" id="6cRD4M$orRW" role="PzmwI">
+      <ref role="PrY4T" to="kmi:6cRD4M$orRO" resolve="IReversibleLoop" />
+    </node>
     <node concept="1TJgyj" id="2mriF_PpxPk" role="1TKVEi">
       <property role="IQ2ns" value="2709841761192516948" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <property role="20kJfa" value="body" />
       <property role="20lbJX" value="fLJekj4/_1" />
-      <ref role="20lvS9" node="2mriF_PUG8p" resolve="ForeachBody" />
+      <ref role="20lvS9" to="kmi:3CmSUB7Fp_l" resolve="ReversibleStatementList" />
     </node>
     <node concept="1TJgyj" id="2PnOsd7sg04" role="1TKVEi">
       <property role="IQ2ns" value="3267310691328000004" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <property role="20kJfa" value="variable" />
       <property role="20lbJX" value="fLJekj4/_1" />
-      <ref role="20lvS9" to="c4fa:3CmSUB7FprA" resolve="LocalVariableDeclaration" />
+      <ref role="20lvS9" to="kmi:3CmSUB7FprA" resolve="LocalVariableDeclaration" />
     </node>
     <node concept="1TJgyj" id="2PnOsd7EYYv" role="1TKVEi">
       <property role="IQ2ns" value="3267310691331862431" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <property role="20kJfa" value="collection" />
       <property role="20lbJX" value="fLJekj4/_1" />
-      <ref role="20lvS9" to="mj1l:7FQByU3CrCM" resolve="Expression" />
+      <ref role="20lvS9" to="ib4b:7FQByU3CrCM" resolve="ReversibleExpression" />
     </node>
     <node concept="1TJgyi" id="2PnOsd7sg03" role="1TKVEl">
       <property role="IQ2nx" value="3267310691328000003" />
       <property role="TrG5h" value="variableName" />
+      <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
+    </node>
+    <node concept="1TJgyi" id="79P5B3O6rkR" role="1TKVEl">
+      <property role="IQ2nx" value="8247522966986405175" />
+      <property role="TrG5h" value="iteratorName" />
       <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
     </node>
   </node>

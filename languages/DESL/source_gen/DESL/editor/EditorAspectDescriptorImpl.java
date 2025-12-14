@@ -86,7 +86,7 @@ public class EditorAspectDescriptorImpl extends EditorAspectDescriptorBase {
       case 31:
         return Collections.<ConceptEditor>singletonList(new Random_Editor());
       case 32:
-        return Collections.<ConceptEditor>singletonList(new RngType_Editor());
+        return Collections.<ConceptEditor>singletonList(new RngContext_Editor());
       case 33:
         return Collections.<ConceptEditor>singletonList(new SendEvent_Editor());
       case 34:

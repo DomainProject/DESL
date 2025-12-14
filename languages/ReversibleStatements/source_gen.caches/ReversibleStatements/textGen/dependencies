@@ -29,6 +29,7 @@
   <uses module="3bf5377a-e904-4ded-9754-5a516023bfaa(com.mbeddr.core.pointers)" kind="dp" />
   <uses module="a9d69647-0840-491e-bf39-2eb0805d2011(com.mbeddr.core.statements)" kind="dp" />
   <uses module="efda956e-491e-4f00-ba14-36af2f213ecf(com.mbeddr.core.udt)" kind="dp" />
+  <uses module="2693fc71-9b0e-4b05-ab13-f57227d675f2(com.mbeddr.core.util)" kind="dp" />
   <uses module="63e0e566-5131-447e-90e3-12ea330e1a00(com.mbeddr.mpsutil.blutil)" kind="dp" />
   <uses module="d3a0fd26-445a-466c-900e-10444ddfed52(com.mbeddr.mpsutil.filepicker)" kind="dp" />
   <uses module="d09a16fb-1d68-4a92-a5a4-20b4b2f86a62(com.mbeddr.mpsutil.jung)" kind="dp" />

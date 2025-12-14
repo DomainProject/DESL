@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<product version="3" modelHash="c50kyelpfub0hio5uev5tccfxkhtrxr">
-  <files names="AddToCollection_Editor.java:AddToCollection_EditorBuilder_a.java:Collection_Editor.java:Collection_EditorBuilder_a.java:EditorAspectDescriptorImpl.java:FindFirst_Editor.java:FindFirst_EditorBuilder_a.java:ForEachItemInCollection_Editor.java:ForEachItemInCollection_EditorBuilder_a.java:ForeachBody_Editor.java:ForeachBody_EditorBuilder_a.java:NewCollection_Editor.java:NewCollection_EditorBuilder_a.java:RemoveFromCollection_Editor.java:RemoveFromCollection_EditorBuilder_a.java:RemoveWhere_Editor.java:RemoveWhere_EditorBuilder_a.java" />
+<product version="3" modelHash="-9a7o1tb02c6t2g7190sbuxnly8zhxue">
+  <files names="AddToCollection_Editor.java:AddToCollection_EditorBuilder_a.java:Collection_Editor.java:Collection_EditorBuilder_a.java:EditorAspectDescriptorImpl.java:FindFirst_Editor.java:FindFirst_EditorBuilder_a.java:ForEachItemInCollection_Editor.java:ForEachItemInCollection_EditorBuilder_a.java:NewCollection_Editor.java:NewCollection_EditorBuilder_a.java:RemoveFromCollection_Editor.java:RemoveFromCollection_EditorBuilder_a.java:RemoveWhere_Editor.java:RemoveWhere_EditorBuilder_a.java" />
 </product>
 

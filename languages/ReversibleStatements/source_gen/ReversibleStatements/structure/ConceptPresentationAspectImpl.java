@@ -30,6 +30,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_DoWhileStatement;
   private ConceptPresentation props_ElseIfPart;
   private ConceptPresentation props_ElsePart;
+  private ConceptPresentation props_EmptyStatement;
   private ConceptPresentation props_ExpressionStatement;
   private ConceptPresentation props_ForStatement;
   private ConceptPresentation props_ForVarDecl;
@@ -48,6 +49,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_ILoopStatement;
   private ConceptPresentation props_IReversible;
   private ConceptPresentation props_IReversibleLoop;
+  private ConceptPresentation props_IReversibleStatement;
   private ConceptPresentation props_IStatmentListContainer;
   private ConceptPresentation props_IStructuredInitExpression;
   private ConceptPresentation props_ITypeContainingType;
@@ -57,6 +59,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_Iterator;
   private ConceptPresentation props_LocalVarRef;
   private ConceptPresentation props_LocalVariableDeclaration;
+  private ConceptPresentation props_LogStatement;
   private ConceptPresentation props_NewStruct;
   private ConceptPresentation props_NotParsedStatement;
   private ConceptPresentation props_PragmaStatement;
@@ -238,6 +241,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_ElsePart = cpb.create();
         }
         return props_ElsePart;
+      case LanguageConceptSwitch.EmptyStatement:
+        if (props_EmptyStatement == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("an empty statement");
+          props_EmptyStatement = cpb.create();
+        }
+        return props_EmptyStatement;
       case LanguageConceptSwitch.ExpressionStatement:
         if (props_ExpressionStatement == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -353,6 +363,12 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_IReversibleLoop = cpb.create();
         }
         return props_IReversibleLoop;
+      case LanguageConceptSwitch.IReversibleStatement:
+        if (props_IReversibleStatement == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          props_IReversibleStatement = cpb.create();
+        }
+        return props_IReversibleStatement;
       case LanguageConceptSwitch.IStatmentListContainer:
         if (props_IStatmentListContainer == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -415,6 +431,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_LocalVariableDeclaration = cpb.create();
         }
         return props_LocalVariableDeclaration;
+      case LanguageConceptSwitch.LogStatement:
+        if (props_LogStatement == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("log");
+          props_LogStatement = cpb.create();
+        }
+        return props_LogStatement;
       case LanguageConceptSwitch.NewStruct:
         if (props_NewStruct == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

@@ -19,6 +19,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import ReversibleExpressions.behavior.IVariableReference__BehaviorDescriptor;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -53,7 +54,19 @@ public final class ForStatement__BehaviorDescriptor extends BaseBHDescriptor {
     return false;
   }
   /*package*/ static String getIterationVariableName_id6cRD4M$XPR9(@NotNull SNode __thisNode__) {
-    return SPropertyOperations.getString(Sequence.fromIterable(ILocalVarScopeProvider__BehaviorDescriptor.getContributedLocalVariables_id3LB9aGm4C$b.invoke(__thisNode__, __thisNode__)).first(), PROPS.name$MnvL);
+    {
+      final SNode forVarDecl = SLinkOperations.getTarget(__thisNode__, LINKS.iterator$fwes);
+      if (SNodeOperations.isInstanceOf(forVarDecl, CONCEPTS.ForVarDecl$3i)) {
+        return SPropertyOperations.getString(forVarDecl, PROPS.name$MnvL);
+      }
+    }
+    {
+      final SNode forVarRef = SLinkOperations.getTarget(__thisNode__, LINKS.iterator$fwes);
+      if (SNodeOperations.isInstanceOf(forVarRef, CONCEPTS.ForVarRef$v6)) {
+        return IVariableReference__BehaviorDescriptor.getVariableName_id79Sp4cYA0X2.invoke(SLinkOperations.getTarget(forVarRef, LINKS.var$qtY4));
+      }
+    }
+    return "no-iterator";
   }
 
   /*package*/ ForStatement__BehaviorDescriptor() {
@@ -110,10 +123,12 @@ public final class ForStatement__BehaviorDescriptor extends BaseBHDescriptor {
     /*package*/ static final SContainmentLink body$fofU = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a40186e676L, 0x64ae61a401870e33L, "body");
     /*package*/ static final SContainmentLink iterator$fwes = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a40186e676L, 0x64ae61a401870e40L, "iterator");
     /*package*/ static final SContainmentLink additionalIterators$umBI = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a40186e676L, 0x5239321dec4ec665L, "additionalIterators");
+    /*package*/ static final SContainmentLink var$qtY4 = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x347479252a95b28aL, 0x347479252a963603L, "var");
   }
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept ForVarDecl$3i = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a401870e23L, "ReversibleStatements.structure.ForVarDecl");
+    /*package*/ static final SConcept ForVarRef$v6 = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x347479252a95b28aL, "ReversibleStatements.structure.ForVarRef");
   }
 
   private static final class PROPS {

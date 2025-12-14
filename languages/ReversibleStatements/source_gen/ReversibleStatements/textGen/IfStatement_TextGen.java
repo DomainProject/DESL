@@ -45,11 +45,9 @@ public class IfStatement_TextGen extends TextGenDescriptorBase {
       tgs.append(") {");
       tgs.newLine();
       ctx.getBuffer().area().increaseIndent();
-      for (SNode stmt : ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.thenPart$JklD), LINKS.revStatements$IdM8))) {
-        tgs.indent();
-        tgs.appendNode(stmt);
-        tgs.newLine();
-      }
+
+      ReversibleStatementListUtils.stateHandlingVariables(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.thenPart$JklD), ctx);
+
       if (requiresReversibility) {
         if (isContainedInLoop) {
           tgs.indent();
@@ -65,6 +63,12 @@ public class IfStatement_TextGen extends TextGenDescriptorBase {
           tgs.append(" |= (1 << 0);");
           tgs.newLine();
         }
+
+      }
+      for (SNode stmt : ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.thenPart$JklD), LINKS.revStatements$IdM8))) {
+        tgs.indent();
+        tgs.appendNode(stmt);
+        tgs.newLine();
       }
       ctx.getBuffer().area().decreaseIndent();
       tgs.indent();
@@ -78,25 +82,13 @@ public class IfStatement_TextGen extends TextGenDescriptorBase {
         tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.loopArrayName$wAd5));
         tgs.append("[");
         tgs.append(reverseIteratorName);
-        tgs.append("] & (1 << 0)) {");
-        tgs.newLine();
+        tgs.append("] & (1 << 0)) ");
       } else {
         tgs.append("if (checkpoint.");
         tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), PROPS.name$MnvL));
-        tgs.append(" & (1 << 0)) {");
-        tgs.newLine();
+        tgs.append(" & (1 << 0)) ");
       }
-
-      ctx.getBuffer().area().increaseIndent();
-      for (SNode stmt : ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.thenPart$JklD), LINKS.revStatements$IdM8))) {
-        tgs.indent();
-        tgs.appendNode(stmt);
-        tgs.newLine();
-      }
-      ctx.getBuffer().area().decreaseIndent();
-      tgs.indent();
-      tgs.append("}");
-      tgs.newLine();
+      tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.thenPart$JklD));
     }
 
     // append else ifs and else
@@ -129,8 +121,8 @@ public class IfStatement_TextGen extends TextGenDescriptorBase {
   private static final class LINKS {
     /*package*/ static final SContainmentLink condition$Jk6C = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x5718179e5b1bb7d7L, 0x5718179e5b1bb7d8L, "condition");
     /*package*/ static final SContainmentLink thenPart$JklD = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x5718179e5b1bb7d7L, 0x5718179e5b1bb7d9L, "thenPart");
-    /*package*/ static final SContainmentLink revStatements$IdM8 = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, 0x3a16e3a9c7ad9956L, "revStatements");
     /*package*/ static final SContainmentLink supportVariable$WrxR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x586abb2d5743cb69L, "supportVariable");
+    /*package*/ static final SContainmentLink revStatements$IdM8 = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, 0x3a16e3a9c7ad9956L, "revStatements");
     /*package*/ static final SContainmentLink elseIfs$3PWK = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x5718179e5b1bb7d7L, 0x2b8026b23bc273a3L, "elseIfs");
     /*package*/ static final SContainmentLink elsePart$Do88 = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x5718179e5b1bb7d7L, 0x2b8026b23bc2442bL, "elsePart");
   }

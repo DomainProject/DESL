@@ -17,10 +17,9 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.List;
 import java.util.ArrayList;
-import jetbrains.mps.baseLanguage.logging.rt.LogContext;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import ReversibleExpressions.behavior.IVariableDeclaration__BehaviorDescriptor;
+import com.mbeddr.core.expressions.behavior.IVariableDeclaration__BehaviorDescriptor;
 import ReversibleExpressions.behavior.IVariableReference__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import com.mbeddr.core.udt.behavior.SUDeclaration__BehaviorDescriptor;
@@ -57,13 +56,9 @@ public class GenericMemberRef_Constraints extends BaseConstraintsDescriptor {
           final SNode enclosingNode = (((_context.getReferenceNode() == null) ? _context.getContextNode() : SNodeOperations.getParent(_context.getReferenceNode())));
           List<SNode> res = new ArrayList<SNode>();
 
-          LogContext.with(GenericMemberRef_Constraints.class, null, null, null).info("enclosingNode = " + enclosingNode);
-
           if (SNodeOperations.isInstanceOf(enclosingNode, CONCEPTS.GenericDotExpression$ia)) {
             SNode en = SNodeOperations.cast(enclosingNode, CONCEPTS.GenericDotExpression$ia);
             SNode ct = TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(en, LINKS.expression$HKAI));
-
-            LogContext.with(GenericMemberRef_Constraints.class, null, null, null).info("Expression is " + SLinkOperations.getTarget(en, LINKS.expression$HKAI));
 
             {
               final SNode varRef = SLinkOperations.getTarget(en, LINKS.expression$HKAI);

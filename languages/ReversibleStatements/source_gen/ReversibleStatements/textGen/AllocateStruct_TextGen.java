@@ -11,7 +11,7 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import ReversibleExpressions.behavior.IVariableDeclaration__BehaviorDescriptor;
+import com.mbeddr.core.expressions.behavior.IVariableDeclaration__BehaviorDescriptor;
 import ReversibleExpressions.behavior.IVariableReference__BehaviorDescriptor;
 import ReversibleExpressions.textGen.StateSaving;
 import jetbrains.mps.lang.traceable.behavior.TraceableConcept__BehaviorDescriptor;

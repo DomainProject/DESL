@@ -12,6 +12,15 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import com.mbeddr.core.expressions.behavior.IVariableDeclaration__BehaviorDescriptor;
 import jetbrains.mps.baseLanguage.logging.rt.LogContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import org.jetbrains.annotations.Nullable;
+import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
+import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
+import org.jetbrains.mps.openapi.model.SNodeReference;
+import jetbrains.mps.smodel.SNodePointer;
+import jetbrains.mps.scope.Scope;
+import jetbrains.mps.smodel.runtime.ReferenceConstraintsContext;
+import jetbrains.mps.scope.ListScope;
+import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -27,7 +36,7 @@ public class IUpdateCollection_Constraints extends BaseConstraintsDescriptor {
 
   /*package*/ static final class RD1 extends BaseReferenceConstraintsDescriptor {
     /*package*/ RD1(ConstraintsDescriptor container) {
-      super(LINKS.item$jK4r, container, false, true);
+      super(LINKS.item$jK4r, container, true, true);
     }
     @Override
     public boolean validate(final SNode referenceNode, final SNode oldReferentNode, final SNode newReferentNode) {
@@ -46,12 +55,27 @@ public class IUpdateCollection_Constraints extends BaseConstraintsDescriptor {
 
       SPropertyOperations.assign(referenceNode, PROPS.variableName$6uCq, SPropertyOperations.getString(newReferentNode, PROPS.name$MnvL));
     }
+    @Nullable
+    @Override
+    public ReferenceScopeProvider getScopeProvider() {
+      return new BaseScopeProvider() {
+        @Override
+        public SNodeReference getSearchScopeValidatorNode() {
+          return new SNodePointer("r:33432198-75fb-48be-9abc-ea237b630e0d(Collections.constraints)", "6147732788891974714");
+        }
+        @Override
+        public Scope createScope(final ReferenceConstraintsContext _context) {
+          return ListScope.forNamedElements(SNodeOperations.getNodeDescendants(SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.ReversibleFunction$IL, false, false), CONCEPTS.IVariableDeclaration$O, false, new SAbstractConcept[]{}));
+        }
+      };
+    }
   }
 
   private static final class CONCEPTS {
     /*package*/ static final SInterfaceConcept IUpdateCollection$Uo = MetaAdapterFactory.getInterfaceConcept(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x1b427f2e49f084f2L, "Collections.structure.IUpdateCollection");
     /*package*/ static final SInterfaceConcept IVariableDeclaration$O = MetaAdapterFactory.getInterfaceConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x1c69b376a2f94e75L, "com.mbeddr.core.expressions.structure.IVariableDeclaration");
     /*package*/ static final SConcept Type$dP = MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba36L, "com.mbeddr.core.expressions.structure.Type");
+    /*package*/ static final SConcept ReversibleFunction$IL = MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, "ReversibleFunctions.structure.ReversibleFunction");
   }
 
   private static final class LINKS {
