@@ -19,7 +19,7 @@
     <import index="rdv6" ref="r:79077d65-28d5-4f56-905b-4bcf5185c60e(DESL.structure)" />
     <import index="clbe" ref="r:61d840b4-12c1-49ea-b142-b2a1550a9b15(com.mbeddr.core.udt.structure)" implicit="true" />
     <import index="mj1l" ref="r:c371cf98-dcc8-4a43-8eb8-8a8096de18b2(com.mbeddr.core.expressions.structure)" implicit="true" />
-    <import index="x27k" ref="r:75ecab8a-8931-4140-afc6-4b46398710fc(com.mbeddr.core.modules.structure)" implicit="true" />
+    <import index="w8o" ref="r:e84d12fa-9ad2-42d4-95e8-d9ef0c30fdf9(ReversibleFunctions.structure)" implicit="true" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -478,7 +478,7 @@
                   <node concept="2Xjw5R" id="730YTbVUNP4" role="2OqNvi">
                     <node concept="1xMEDy" id="730YTbVUNP6" role="1xVPHs">
                       <node concept="chp4Y" id="730YTbVUNTR" role="ri$Ld">
-                        <ref role="cht4Q" to="x27k:5_l8w1EmTvx" resolve="Function" />
+                        <ref role="cht4Q" to="w8o:5U1XgQxbKlv" resolve="ReversibleFunction" />
                       </node>
                     </node>
                   </node>

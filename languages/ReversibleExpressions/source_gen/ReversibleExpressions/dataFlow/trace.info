@@ -9,7 +9,7 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1070462154015:jetbrains.mps.baseLanguage.structure.StaticFieldDeclaration" />
   <root>
     <file name="DataFlowAspectDescriptorImpl.java">
-      <unit at="15,0,46,0" name="ReversibleExpressions.dataFlow.DataFlowAspectDescriptorImpl" />
+      <unit at="15,0,50,0" name="ReversibleExpressions.dataFlow.DataFlowAspectDescriptorImpl" />
     </file>
   </root>
   <root nodeRef="r:8775283b-358b-48f4-940b-ff7509a23a91(ReversibleExpressions.dataFlow)/2047364827736713476">
@@ -99,6 +99,32 @@
       </scope>
       <unit id="5046009066437089008" at="26,0,29,0" name="ReversibleExpressions.dataFlow.DirectAssignmentExpression_DataFlow$CONCEPTS" />
       <unit id="5046009066437089008" at="14,0,30,0" name="ReversibleExpressions.dataFlow.DirectAssignmentExpression_DataFlow" />
+    </file>
+  </root>
+  <root nodeRef="r:8775283b-358b-48f4-940b-ff7509a23a91(ReversibleExpressions.dataFlow)/5666369706459503411">
+    <file name="GlobalConstantRef_DataFlow.java">
+      <node id="5666369706459503438" at="12,60,13,197" concept="1" />
+      <node id="5666369706459503411" at="17,0,18,0" concept="6" trace="constant$ODeS" />
+      <node id="5666369706459503411" at="12,0,15,0" concept="3" trace="build#(Ljetbrains/mps/lang/dataFlow/DataFlowBuilderContext;)V" />
+      <scope id="5666369706459503413" at="12,60,13,197" />
+      <scope id="5666369706459503411" at="12,0,15,0">
+        <var name="_context" id="5666369706459503411" />
+      </scope>
+      <unit id="5666369706459503411" at="16,0,19,0" name="ReversibleExpressions.dataFlow.GlobalConstantRef_DataFlow$LINKS" />
+      <unit id="5666369706459503411" at="11,0,20,0" name="ReversibleExpressions.dataFlow.GlobalConstantRef_DataFlow" />
+    </file>
+  </root>
+  <root nodeRef="r:8775283b-358b-48f4-940b-ff7509a23a91(ReversibleExpressions.dataFlow)/5666369706471056396">
+    <file name="GlobalVarRef_DataFlow.java">
+      <node id="5666369706471056423" at="12,60,13,192" concept="1" />
+      <node id="5666369706471056396" at="17,0,18,0" concept="6" trace="var$Q_mg" />
+      <node id="5666369706471056396" at="12,0,15,0" concept="3" trace="build#(Ljetbrains/mps/lang/dataFlow/DataFlowBuilderContext;)V" />
+      <scope id="5666369706471056398" at="12,60,13,192" />
+      <scope id="5666369706471056396" at="12,0,15,0">
+        <var name="_context" id="5666369706471056396" />
+      </scope>
+      <unit id="5666369706471056396" at="16,0,19,0" name="ReversibleExpressions.dataFlow.GlobalVarRef_DataFlow$LINKS" />
+      <unit id="5666369706471056396" at="11,0,20,0" name="ReversibleExpressions.dataFlow.GlobalVarRef_DataFlow" />
     </file>
   </root>
   <root nodeRef="r:8775283b-358b-48f4-940b-ff7509a23a91(ReversibleExpressions.dataFlow)/5718859801792574802">

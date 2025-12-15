@@ -14,13 +14,11 @@ import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class ReversibleFunctionCall__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x2e6ecb766f1587b4L, "ReversibleExpressions.structure.ReversibleFunctionCall");
@@ -28,10 +26,9 @@ public final class ReversibleFunctionCall__BehaviorDescriptor extends BaseBHDesc
   public static final SMethod<SNode> getFunction_id2TIMRpJnWr_ = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getFunction").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(3345835282717984485L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
   public static final SMethod<List<SNode>> getFormals_id2TIMRpJob12 = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getFormals").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(3345835282718044226L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
   public static final SMethod<List<SNode>> getActuals_id2TIMRpJodKn = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getActuals").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(3345835282718055447L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
-  public static final SMethod<Boolean> hasEllipsis_id2TIMRpJok1r = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("hasEllipsis").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(3345835282718081115L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
   public static final SMethod<SNode> getReturnType_id2TIMRpJoBIg = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getReturnType").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(3345835282718161808L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getFunction_id2TIMRpJnWr_, getFormals_id2TIMRpJob12, getActuals_id2TIMRpJodKn, hasEllipsis_id2TIMRpJok1r, getReturnType_id2TIMRpJoBIg);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getFunction_id2TIMRpJnWr_, getFormals_id2TIMRpJob12, getActuals_id2TIMRpJodKn, getReturnType_id2TIMRpJoBIg);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -40,16 +37,13 @@ public final class ReversibleFunctionCall__BehaviorDescriptor extends BaseBHDesc
     return SLinkOperations.getTarget(__thisNode__, LINKS.function$EyYZ);
   }
   /*package*/ static List<SNode> getFormals_id2TIMRpJob12(@NotNull SNode __thisNode__) {
-    return SLinkOperations.getChildren(SLinkOperations.getTarget(__thisNode__, LINKS.function$EyYZ), LINKS.arguments$gPkY);
+    return SLinkOperations.getChildren(SLinkOperations.getTarget(__thisNode__, LINKS.function$EyYZ), LINKS.arguments$6da0);
   }
   /*package*/ static List<SNode> getActuals_id2TIMRpJodKn(@NotNull SNode __thisNode__) {
     return SLinkOperations.getChildren(__thisNode__, LINKS.actuals$EywX);
   }
-  /*package*/ static boolean hasEllipsis_id2TIMRpJok1r(@NotNull SNode __thisNode__) {
-    return SPropertyOperations.getBoolean(SLinkOperations.getTarget(__thisNode__, LINKS.function$EyYZ), PROPS.hasEllipsis$NQI);
-  }
   /*package*/ static SNode getReturnType_id2TIMRpJoBIg(@NotNull SNode __thisNode__) {
-    return SLinkOperations.getTarget(SLinkOperations.getTarget(__thisNode__, LINKS.function$EyYZ), LINKS.type$m1NA);
+    return SLinkOperations.getTarget(SLinkOperations.getTarget(__thisNode__, LINKS.function$EyYZ), LINKS.type$sXU3);
   }
 
   /*package*/ ReversibleFunctionCall__BehaviorDescriptor() {
@@ -74,8 +68,6 @@ public final class ReversibleFunctionCall__BehaviorDescriptor extends BaseBHDesc
       case 2:
         return (T) ((List<SNode>) getActuals_id2TIMRpJodKn(node));
       case 3:
-        return (T) ((Boolean) hasEllipsis_id2TIMRpJok1r(node));
-      case 4:
         return (T) ((SNode) getReturnType_id2TIMRpJoBIg(node));
       default:
         throw new BHMethodNotFoundException(this, method);
@@ -108,12 +100,8 @@ public final class ReversibleFunctionCall__BehaviorDescriptor extends BaseBHDesc
 
   private static final class LINKS {
     /*package*/ static final SReferenceLink function$EyYZ = MetaAdapterFactory.getReferenceLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x2e6ecb766f1587b4L, 0x2e6ecb766f15bfbaL, "function");
-    /*package*/ static final SContainmentLink arguments$gPkY = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, 0x4f39f90935e92f45L, "arguments");
+    /*package*/ static final SContainmentLink arguments$6da0 = MetaAdapterFactory.getContainmentLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x707ac195dd5d51f2L, 0x4f39f90935e92f45L, "arguments");
     /*package*/ static final SContainmentLink actuals$EywX = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x2e6ecb766f1587b4L, 0x2e6ecb766f15bfb8L, "actuals");
-    /*package*/ static final SContainmentLink type$m1NA = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, 0x4b1eecbba6894aa4L, "type");
-  }
-
-  private static final class PROPS {
-    /*package*/ static final SProperty hasEllipsis$NQI = MetaAdapterFactory.getProperty(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, 0x4b1eecbba689652fL, "hasEllipsis");
+    /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
   }
 }

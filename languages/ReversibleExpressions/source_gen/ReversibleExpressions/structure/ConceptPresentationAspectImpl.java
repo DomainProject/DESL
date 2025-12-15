@@ -48,6 +48,8 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_FalseLiteral;
   private ConceptPresentation props_GenericDotExpression;
   private ConceptPresentation props_GenericMemberRef;
+  private ConceptPresentation props_GlobalConstantRef;
+  private ConceptPresentation props_GlobalVarRef;
   private ConceptPresentation props_GreaterEqualsExpression;
   private ConceptPresentation props_GreaterExpression;
   private ConceptPresentation props_HexNumberLiteral;
@@ -88,6 +90,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_NotEqualsExpression;
   private ConceptPresentation props_NotExpression;
   private ConceptPresentation props_NotParsedExpression;
+  private ConceptPresentation props_NullExpression;
   private ConceptPresentation props_NumberLiteral;
   private ConceptPresentation props_NumericLiteral;
   private ConceptPresentation props_OctalNumberLiteral;
@@ -415,6 +418,21 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_GenericMemberRef = cpb.create();
         }
         return props_GenericMemberRef;
+      case LanguageConceptSwitch.GlobalConstantRef:
+        if (props_GlobalConstantRef == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.presentationByReference(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4ea2fd39ef8cd6f8L, 0x4ea2fd39ef8cd6faL, "constant", "", "");
+          props_GlobalConstantRef = cpb.create();
+        }
+        return props_GlobalConstantRef;
+      case LanguageConceptSwitch.GlobalVarRef:
+        if (props_GlobalVarRef == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.shortDesc("--");
+          cpb.presentationByReference(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4ea2fd39f03d3a05L, 0x4ea2fd39f03d3a0aL, "var", "", "");
+          props_GlobalVarRef = cpb.create();
+        }
+        return props_GlobalVarRef;
       case LanguageConceptSwitch.GreaterEqualsExpression:
         if (props_GreaterEqualsExpression == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -677,6 +695,14 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_NotParsedExpression = cpb.create();
         }
         return props_NotParsedExpression;
+      case LanguageConceptSwitch.NullExpression:
+        if (props_NullExpression == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.shortDesc("the NULL pointer");
+          cpb.rawPresentation("NULL");
+          props_NullExpression = cpb.create();
+        }
+        return props_NullExpression;
       case LanguageConceptSwitch.NumberLiteral:
         if (props_NumberLiteral == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

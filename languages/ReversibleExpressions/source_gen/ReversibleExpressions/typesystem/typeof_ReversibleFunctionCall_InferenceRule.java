@@ -30,10 +30,10 @@ public class typeof_ReversibleFunctionCall_InferenceRule extends AbstractInferen
     final List<SNode> actuals = ReversibleFunctionCall__BehaviorDescriptor.getActuals_id2TIMRpJodKn.invoke(call);
     final int formalCount = ListSequence.fromList(formals).count();
     final int actualCount = ListSequence.fromList(actuals).count();
-    if ((!((boolean) ReversibleFunctionCall__BehaviorDescriptor.hasEllipsis_id2TIMRpJok1r.invoke(call)) && formalCount != actualCount) || ((boolean) ReversibleFunctionCall__BehaviorDescriptor.hasEllipsis_id2TIMRpJok1r.invoke(call) && actualCount < formalCount)) {
+    if (formalCount != actualCount) {
       {
         final MessageTarget errorTarget = new NodeMessageTarget();
-        IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(call, "wrong number of arguments, expected: " + ListSequence.fromList(SLinkOperations.getChildren(ReversibleFunctionCall__BehaviorDescriptor.getFunction_id2TIMRpJnWr_.invoke(call), LINKS.arguments$gPkY)).count(), "r:a08f1c59-09f4-4839-91dc-89de02b086a5(ReversibleExpressions.typesystem)", "688756255682717084", null, errorTarget);
+        IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(call, "wrong number of arguments, expected: " + ListSequence.fromList(SLinkOperations.getChildren(ReversibleFunctionCall__BehaviorDescriptor.getFunction_id2TIMRpJnWr_.invoke(call), LINKS.arguments$6da0)).count(), "r:a08f1c59-09f4-4839-91dc-89de02b086a5(ReversibleExpressions.typesystem)", "688756255682717084", null, errorTarget);
       }
     } else {
       final int smaller = Math.min(actualCount, formalCount);
@@ -113,7 +113,7 @@ public class typeof_ReversibleFunctionCall_InferenceRule extends AbstractInferen
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink arguments$gPkY = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, 0x4f39f90935e92f45L, "arguments");
+    /*package*/ static final SContainmentLink arguments$6da0 = MetaAdapterFactory.getContainmentLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x707ac195dd5d51f2L, 0x4f39f90935e92f45L, "arguments");
   }
 
   private static final class CONCEPTS {

@@ -14,8 +14,8 @@
   </root>
   <root nodeRef="r:69b854b5-1607-4a31-a5d5-03c17535ea4a(DESL.actions)/1477309532093105808">
     <file name="TerminationFunctionFactory.java">
-      <node id="1477309532093270816" at="18,102,19,236" concept="0" />
-      <node id="1477309532093282173" at="19,236,20,117" concept="0" />
+      <node id="1477309532093270816" at="18,102,19,242" concept="0" />
+      <node id="1477309532093282173" at="19,242,20,117" concept="0" />
       <node id="1477309532094650122" at="20,117,21,0" concept="5" />
       <node id="1477309532094651513" at="21,0,22,287" concept="0" />
       <node id="1477309532093269597" at="22,287,23,0" concept="5" />
@@ -32,29 +32,31 @@
       <node id="1477309532093180758" at="33,72,34,0" concept="5" />
       <node id="1477309532093180777" at="34,0,35,151" concept="0" />
       <node id="1477309532093266003" at="35,151,36,157" concept="0" />
-      <node id="1477309532093105808" at="41,0,42,0" concept="6" trace="function$cpRu" />
-      <node id="1477309532093105808" at="42,0,43,0" concept="6" trace="type$sXU3" />
-      <node id="1477309532093105808" at="43,0,44,0" concept="6" trace="baseType$zMGV" />
-      <node id="1477309532093105808" at="44,0,45,0" concept="6" trace="arguments$6da0" />
-      <node id="1477309532093105808" at="48,0,49,0" concept="6" trace="name$MnvL" />
-      <node id="1477309532093105808" at="49,0,50,0" concept="6" trace="const$VWr7" />
-      <node id="1477309532093105809" at="18,0,38,0" concept="1" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;ILorg/jetbrains/mps/openapi/model/SModel;)V" />
-      <scope id="1477309532093105809" at="18,102,36,157">
+      <node id="5666369706451966933" at="36,157,37,295" concept="0" />
+      <node id="1477309532093105808" at="42,0,43,0" concept="6" trace="function$cpRu" />
+      <node id="1477309532093105808" at="43,0,44,0" concept="6" trace="type$sXU3" />
+      <node id="1477309532093105808" at="44,0,45,0" concept="6" trace="baseType$zMGV" />
+      <node id="1477309532093105808" at="45,0,46,0" concept="6" trace="arguments$6da0" />
+      <node id="1477309532093105808" at="46,0,47,0" concept="6" trace="revBody$QkEt" />
+      <node id="1477309532093105808" at="50,0,51,0" concept="6" trace="name$MnvL" />
+      <node id="1477309532093105808" at="51,0,52,0" concept="6" trace="const$VWr7" />
+      <node id="1477309532093105809" at="18,0,39,0" concept="1" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;ILorg/jetbrains/mps/openapi/model/SModel;)V" />
+      <scope id="1477309532093105809" at="18,102,37,295">
         <var name="me" id="1477309532093105832" />
         <var name="snapshot" id="1477309532093137544" />
         <var name="voidPointer" id="1477309532093137666" />
       </scope>
-      <scope id="1477309532093105809" at="18,0,38,0">
+      <scope id="1477309532093105809" at="18,0,39,0">
         <var name="enclosingNode" id="1477309532093105809" />
         <var name="index" id="1477309532093105809" />
         <var name="model" id="1477309532093105809" />
         <var name="newNode" id="1477309532093105809" />
         <var name="sampleNode" id="1477309532093105809" />
       </scope>
-      <unit id="1477309532093105808" at="47,0,51,0" name="DESL.actions.TerminationFunctionFactory$PROPS" />
-      <unit id="1477309532093105808" at="40,0,46,0" name="DESL.actions.TerminationFunctionFactory$LINKS" />
-      <unit id="1477309532093105809" at="17,0,39,0" name="DESL.actions.TerminationFunctionFactory$NodeFactory_1477309532093105809" />
-      <unit id="1477309532093105808" at="16,0,52,0" name="DESL.actions.TerminationFunctionFactory" />
+      <unit id="1477309532093105808" at="49,0,53,0" name="DESL.actions.TerminationFunctionFactory$PROPS" />
+      <unit id="1477309532093105808" at="41,0,48,0" name="DESL.actions.TerminationFunctionFactory$LINKS" />
+      <unit id="1477309532093105809" at="17,0,40,0" name="DESL.actions.TerminationFunctionFactory$NodeFactory_1477309532093105809" />
+      <unit id="1477309532093105808" at="16,0,54,0" name="DESL.actions.TerminationFunctionFactory" />
     </file>
   </root>
   <root nodeRef="r:69b854b5-1607-4a31-a5d5-03c17535ea4a(DESL.actions)/3297662491776892431">
@@ -103,56 +105,57 @@
       <node id="5103575337110310036" at="24,205,25,74" concept="0" />
       <node id="6809993550457810439" at="25,74,26,251" concept="0" />
       <node id="6809993550452491021" at="26,251,27,74" concept="0" />
-      <node id="5103575337110310042" at="27,74,28,82" concept="0" />
-      <node id="5103575337110310048" at="28,82,29,0" concept="5" />
-      <node id="5781293655540601332" at="29,0,30,38" concept="4" />
-      <node id="5781293655540603498" at="30,38,31,212" concept="2" />
-      <node id="5781293655540606517" at="31,212,32,190" concept="2" />
-      <node id="5781293655540609382" at="32,190,33,60" concept="0" />
-      <node id="5781293655540627068" at="33,60,34,65" concept="0" />
-      <node id="5781293655540635924" at="34,65,35,158" concept="0" />
-      <node id="5781293655540599900" at="35,158,36,0" concept="5" />
-      <node id="5103575337110310049" at="36,0,37,30" concept="4" />
-      <node id="5103575337110310058" at="37,30,38,204" concept="2" />
-      <node id="5103575337110310064" at="38,204,39,191" concept="2" />
-      <node id="5103575337110310070" at="39,191,40,62" concept="0" />
-      <node id="5103575337110310076" at="40,62,41,66" concept="0" />
-      <node id="5103575337110310082" at="41,66,42,159" concept="0" />
-      <node id="5781293655540711432" at="42,159,43,0" concept="5" />
-      <node id="5781293655540713162" at="43,0,44,37" concept="4" />
-      <node id="5781293655540716049" at="44,37,45,214" concept="2" />
-      <node id="5781293655540719636" at="45,214,46,197" concept="2" />
-      <node id="5781293655540723205" at="46,197,47,75" concept="0" />
-      <node id="5781293655540735585" at="47,75,48,74" concept="0" />
-      <node id="5781293655540744113" at="48,74,49,165" concept="0" />
-      <node id="5781293655540807427" at="49,165,50,0" concept="5" />
-      <node id="5781293655540819916" at="50,0,51,34" concept="4" />
-      <node id="5781293655540823151" at="51,34,52,200" concept="2" />
-      <node id="5781293655540844836" at="52,200,53,202" concept="2" />
-      <node id="5781293655540848991" at="53,202,54,76" concept="0" />
-      <node id="5781293655540858340" at="54,76,55,195" concept="2" />
-      <node id="5781293655540861639" at="55,195,56,70" concept="0" />
-      <node id="5781293655540871643" at="56,70,57,71" concept="0" />
-      <node id="5781293655540883944" at="57,71,58,163" concept="0" />
-      <node id="5781293655540817903" at="58,163,59,0" concept="5" />
-      <node id="5781293655540813817" at="59,0,60,32" concept="4" />
-      <node id="5781293655540963900" at="60,32,61,192" concept="2" />
-      <node id="5781293655540968587" at="61,192,62,65" concept="0" />
-      <node id="8124770336485891077" at="62,65,63,203" concept="2" />
-      <node id="8124770336485894247" at="63,203,64,254" concept="0" />
-      <node id="5781293655540981271" at="64,254,65,69" concept="0" />
-      <node id="5781293655540993995" at="65,69,66,160" concept="0" />
-      <node id="5103575337110310021" at="71,0,72,0" concept="6" trace="name$MnvL" />
-      <node id="5103575337110310021" at="72,0,73,0" concept="6" trace="isForward$rJ$J" />
-      <node id="5103575337110310021" at="76,0,77,0" concept="6" trace="revBody$QkEt" />
-      <node id="5103575337110310021" at="77,0,78,0" concept="6" trace="forwardFunction$5bPH" />
+      <node id="5666369706464414172" at="27,74,28,240" concept="0" />
+      <node id="5103575337110310042" at="28,240,29,82" concept="0" />
+      <node id="5103575337110310048" at="29,82,30,0" concept="5" />
+      <node id="5781293655540601332" at="30,0,31,38" concept="4" />
+      <node id="5781293655540603498" at="31,38,32,212" concept="2" />
+      <node id="5781293655540606517" at="32,212,33,190" concept="2" />
+      <node id="5781293655540609382" at="33,190,34,60" concept="0" />
+      <node id="5781293655540627068" at="34,60,35,65" concept="0" />
+      <node id="5781293655540635924" at="35,65,36,158" concept="0" />
+      <node id="5781293655540599900" at="36,158,37,0" concept="5" />
+      <node id="5103575337110310049" at="37,0,38,30" concept="4" />
+      <node id="5103575337110310058" at="38,30,39,204" concept="2" />
+      <node id="5103575337110310064" at="39,204,40,191" concept="2" />
+      <node id="5103575337110310070" at="40,191,41,62" concept="0" />
+      <node id="5103575337110310076" at="41,62,42,66" concept="0" />
+      <node id="5103575337110310082" at="42,66,43,159" concept="0" />
+      <node id="5781293655540711432" at="43,159,44,0" concept="5" />
+      <node id="5781293655540713162" at="44,0,45,37" concept="4" />
+      <node id="5781293655540716049" at="45,37,46,214" concept="2" />
+      <node id="5781293655540719636" at="46,214,47,197" concept="2" />
+      <node id="5781293655540723205" at="47,197,48,75" concept="0" />
+      <node id="5781293655540735585" at="48,75,49,74" concept="0" />
+      <node id="5781293655540744113" at="49,74,50,165" concept="0" />
+      <node id="5781293655540807427" at="50,165,51,0" concept="5" />
+      <node id="5781293655540819916" at="51,0,52,34" concept="4" />
+      <node id="5781293655540823151" at="52,34,53,200" concept="2" />
+      <node id="5781293655540844836" at="53,200,54,202" concept="2" />
+      <node id="5781293655540848991" at="54,202,55,76" concept="0" />
+      <node id="5781293655540858340" at="55,76,56,195" concept="2" />
+      <node id="5781293655540861639" at="56,195,57,70" concept="0" />
+      <node id="5781293655540871643" at="57,70,58,71" concept="0" />
+      <node id="5781293655540883944" at="58,71,59,163" concept="0" />
+      <node id="5781293655540817903" at="59,163,60,0" concept="5" />
+      <node id="5781293655540813817" at="60,0,61,32" concept="4" />
+      <node id="5781293655540963900" at="61,32,62,192" concept="2" />
+      <node id="5781293655540968587" at="62,192,63,65" concept="0" />
+      <node id="8124770336485891077" at="63,65,64,203" concept="2" />
+      <node id="8124770336485894247" at="64,203,65,254" concept="0" />
+      <node id="5781293655540981271" at="65,254,66,69" concept="0" />
+      <node id="5781293655540993995" at="66,69,67,160" concept="0" />
+      <node id="5103575337110310021" at="72,0,73,0" concept="6" trace="name$MnvL" />
+      <node id="5103575337110310021" at="73,0,74,0" concept="6" trace="isForward$rJ$J" />
+      <node id="5103575337110310021" at="77,0,78,0" concept="6" trace="revBody$QkEt" />
       <node id="5103575337110310021" at="78,0,79,0" concept="6" trace="type$sXU3" />
-      <node id="5103575337110310021" at="79,0,80,0" concept="6" trace="arguments$gPkY" />
-      <node id="5103575337110310021" at="80,0,81,0" concept="6" trace="baseType$zMGV" />
-      <node id="5103575337110310021" at="81,0,82,0" concept="6" trace="stateStruct$NqNO" />
-      <node id="5103575337110310021" at="85,0,86,0" concept="6" trace="ClassDefinition$NR" />
-      <node id="5103575337110310022" at="21,0,68,0" concept="1" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;ILorg/jetbrains/mps/openapi/model/SModel;)V" />
-      <scope id="5103575337110310022" at="21,102,66,160">
+      <node id="5103575337110310021" at="79,0,80,0" concept="6" trace="forwardFunction$5bPH" />
+      <node id="5103575337110310021" at="80,0,81,0" concept="6" trace="arguments$6da0" />
+      <node id="5103575337110310021" at="81,0,82,0" concept="6" trace="baseType$zMGV" />
+      <node id="5103575337110310021" at="82,0,83,0" concept="6" trace="stateStruct$NqNO" />
+      <node id="5103575337110310021" at="86,0,87,0" concept="6" trace="ClassDefinition$NR" />
+      <node id="5103575337110310022" at="21,0,69,0" concept="1" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;ILorg/jetbrains/mps/openapi/model/SModel;)V" />
+      <scope id="5103575337110310022" at="21,102,67,160">
         <var name="content" id="5781293655540858343" />
         <var name="data" id="5781293655540963903" />
         <var name="doubleType" id="5103575337110310059" />
@@ -166,18 +169,18 @@
         <var name="voidPointer" id="5781293655540844839" />
         <var name="voidType" id="5781293655540823154" />
       </scope>
-      <scope id="5103575337110310022" at="21,0,68,0">
+      <scope id="5103575337110310022" at="21,0,69,0">
         <var name="enclosingNode" id="5103575337110310022" />
         <var name="index" id="5103575337110310022" />
         <var name="model" id="5103575337110310022" />
         <var name="newNode" id="5103575337110310022" />
         <var name="sampleNode" id="5103575337110310022" />
       </scope>
-      <unit id="5103575337110310021" at="84,0,87,0" name="DESL.actions.EventHandlerFactory$CONCEPTS" />
-      <unit id="5103575337110310021" at="70,0,74,0" name="DESL.actions.EventHandlerFactory$PROPS" />
-      <unit id="5103575337110310021" at="75,0,83,0" name="DESL.actions.EventHandlerFactory$LINKS" />
-      <unit id="5103575337110310022" at="20,0,69,0" name="DESL.actions.EventHandlerFactory$NodeFactory_5103575337110310022" />
-      <unit id="5103575337110310021" at="19,0,88,0" name="DESL.actions.EventHandlerFactory" />
+      <unit id="5103575337110310021" at="85,0,88,0" name="DESL.actions.EventHandlerFactory$CONCEPTS" />
+      <unit id="5103575337110310021" at="71,0,75,0" name="DESL.actions.EventHandlerFactory$PROPS" />
+      <unit id="5103575337110310021" at="76,0,84,0" name="DESL.actions.EventHandlerFactory$LINKS" />
+      <unit id="5103575337110310022" at="20,0,70,0" name="DESL.actions.EventHandlerFactory$NodeFactory_5103575337110310022" />
+      <unit id="5103575337110310021" at="19,0,89,0" name="DESL.actions.EventHandlerFactory" />
     </file>
   </root>
   <root nodeRef="r:69b854b5-1607-4a31-a5d5-03c17535ea4a(DESL.actions)/7425362163987672469">

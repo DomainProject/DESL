@@ -98,7 +98,7 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
     return SPropertyOperations.getBoolean(myNode, PROPS.hasEllipsis$NQI);
   }
   private EditorCell createRefNode_0() {
-    SingleRoleCellProvider provider = new typeSingleRoleHandler_gxqege_a0(myNode, LINKS.type$m1NA, getEditorContext());
+    SingleRoleCellProvider provider = new typeSingleRoleHandler_gxqege_a0(myNode, LINKS.type$sXU3, getEditorContext());
     return provider.createCell();
   }
   private static class typeSingleRoleHandler_gxqege_a0 extends SingleRoleCellProvider {
@@ -118,8 +118,8 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
     protected EditorCell createChildCell(SNode child) {
       EditorCell editorCell = getUpdateSession().updateChildNodeCell(child);
-      editorCell.setAction(CellActionType.DELETE, new CellAction_DeleteSmart(getNode(), LINKS.type$m1NA, child));
-      editorCell.setAction(CellActionType.BACKSPACE, new CellAction_DeleteSmart(getNode(), LINKS.type$m1NA, child));
+      editorCell.setAction(CellActionType.DELETE, new CellAction_DeleteSmart(getNode(), LINKS.type$sXU3, child));
+      editorCell.setAction(CellActionType.BACKSPACE, new CellAction_DeleteSmart(getNode(), LINKS.type$sXU3, child));
       installCellInfo(child, editorCell, false);
       return editorCell;
     }
@@ -131,13 +131,13 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
         editorCell.setSubstituteInfo((isEmpty ? new SEmptyContainmentSubstituteInfo(editorCell) : new SChildSubstituteInfo(editorCell)));
       }
       if (editorCell.getSRole() == null) {
-        editorCell.setSRole(LINKS.type$m1NA);
+        editorCell.setSRole(LINKS.type$sXU3);
       }
     }
     @Override
     protected EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(getNode(), LINKS.type$m1NA));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(getNode(), LINKS.type$sXU3));
       try {
         EditorCell editorCell = super.createEmptyCell();
         editorCell.setCellId("empty_type");
@@ -211,7 +211,7 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
       return myNode;
     }
     public SContainmentLink getSLink() {
-      return LINKS.arguments$gPkY;
+      return LINKS.arguments$6da0;
     }
     public SAbstractConcept getChildSConcept() {
       return CONCEPTS.IArgumentLike$DP;
@@ -224,7 +224,7 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
     }
     public EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(argumentsListHandler_gxqege_d0.this.getNode(), LINKS.arguments$gPkY));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(argumentsListHandler_gxqege_d0.this.getNode(), LINKS.arguments$6da0));
       try {
         EditorCell emptyCell = null;
         emptyCell = createReadOnlyModelAccessor_0();
@@ -381,8 +381,8 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink type$m1NA = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, 0x4b1eecbba6894aa4L, "type");
-    /*package*/ static final SContainmentLink arguments$gPkY = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, 0x4f39f90935e92f45L, "arguments");
+    /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
+    /*package*/ static final SContainmentLink arguments$6da0 = MetaAdapterFactory.getContainmentLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x707ac195dd5d51f2L, 0x4f39f90935e92f45L, "arguments");
     /*package*/ static final SContainmentLink ellipsisKind$Tg5 = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, 0x4b1eecbba6896531L, "ellipsisKind");
   }
 

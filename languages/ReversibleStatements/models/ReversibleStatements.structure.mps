@@ -855,7 +855,7 @@
     <property role="TrG5h" value="InitExpression" />
     <property role="34LRSv" value="{" />
     <property role="EcuMT" value="8850915533694634145" />
-    <ref role="1TJDcQ" to="mj1l:7FQByU3CrCM" resolve="Expression" />
+    <ref role="1TJDcQ" to="ib4b:7FQByU3CrCM" resolve="ReversibleExpression" />
     <node concept="1TJgyj" id="7FkLcyyQKyy" role="1TKVEi">
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <property role="20kJfa" value="elements" />

@@ -12,6 +12,7 @@
     <import index="hwgx" ref="r:fd2980c8-676c-4b19-b524-18c70e02f8b7(com.mbeddr.core.base.behavior)" />
     <import index="qd6m" ref="r:c4c3f7d3-0acf-4671-a134-5fab66c4e637(com.mbeddr.core.modules.behavior)" />
     <import index="kmi" ref="r:afa7ae5b-c41f-45e8-9678-2beae3621a33(ReversibleStatements.structure)" />
+    <import index="x27k" ref="r:75ecab8a-8931-4140-afc6-4b46398710fc(com.mbeddr.core.modules.structure)" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" />
     <import index="mhfm" ref="3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)" />
     <import index="mhbf" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.model(MPS.OpenAPI/)" />
@@ -728,7 +729,7 @@
                   </node>
                 </node>
                 <node concept="3TrEf2" id="2n" role="2OqNvi">
-                  <ref role="3Tt5mk" to="w8o:4GuVbIAykE$" resolve="type" />
+                  <ref role="3Tt5mk" to="mj1l:hEaDaGor64" resolve="type" />
                   <uo k="s:originTrace" v="n:6263969635230286811" />
                 </node>
               </node>
@@ -828,7 +829,7 @@
                     </node>
                   </node>
                   <node concept="3Tsc0h" id="2N" role="2OqNvi">
-                    <ref role="3TtcxE" to="w8o:4WTYg$PUiX5" resolve="arguments" />
+                    <ref role="3TtcxE" to="x27k:4WTYg$PUiX5" resolve="arguments" />
                     <uo k="s:originTrace" v="n:6263969635230300569" />
                   </node>
                 </node>

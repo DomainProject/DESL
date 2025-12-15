@@ -59,7 +59,7 @@
       <node id="3297662491777059709" at="114,0,115,0" concept="9" trace="name$MnvL" />
       <node id="3297662491777059709" at="118,0,119,0" concept="9" trace="forwardFunction$5bPH" />
       <node id="3297662491777059709" at="119,0,120,0" concept="9" trace="type$sXU3" />
-      <node id="3297662491777059709" at="120,0,121,0" concept="9" trace="arguments$gPkY" />
+      <node id="3297662491777059709" at="120,0,121,0" concept="9" trace="arguments$6da0" />
       <node id="3297662491777059709" at="34,0,36,0" concept="10" trace="___init___#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
       <node id="3297662491777059709" at="63,0,65,0" concept="1" trace="EventHandler__BehaviorDescriptor#()V" />
       <node id="3297662491777059709" at="73,49,76,5" concept="4" />

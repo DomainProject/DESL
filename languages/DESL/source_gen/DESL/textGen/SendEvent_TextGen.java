@@ -93,7 +93,7 @@ public class SendEvent_TextGen extends TextGenDescriptorBase {
       tgs.append(eventName);
       tgs.append(");");
       tgs.newLine();
-      if (!(Objects.equals(SNodeOperations.getConcept(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.with$_CC9)), CONCEPTS.NullExpression$Oy))) {
+      if (!(Objects.equals(SNodeOperations.getConcept(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.with$_CC9)), CONCEPTS.NullExpression$rn))) {
         tgs.indent();
         tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.with$_CC9));
         tgs.append(".event_type = event_");
@@ -167,6 +167,7 @@ public class SendEvent_TextGen extends TextGenDescriptorBase {
     /*package*/ static final SConcept SendEvent$u = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x68458b9b5da4ec77L, "DESL.structure.SendEvent");
     /*package*/ static final SConcept EventHandler$Ov = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, "DESL.structure.EventHandler");
     /*package*/ static final SConcept DESLModel$DK = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, "DESL.structure.DESLModel");
+    /*package*/ static final SConcept NullExpression$rn = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x64c559d9787488eL, "ReversibleExpressions.structure.NullExpression");
     /*package*/ static final SConcept RootSimGPUM2M$GC = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0xa56bb45af68e0a2L, "DESL.structure.RootSimGPUM2M");
     /*package*/ static final SInterfaceConcept TraceableConcept$L = MetaAdapterFactory.getInterfaceConcept(0x9ded098bad6a4657L, 0xbfd948636cfe8bc3L, 0x465516cf87c705a3L, "jetbrains.mps.lang.traceable.structure.TraceableConcept");
   }

@@ -205,8 +205,9 @@
       <node id="1393584806741167411" at="167,0,168,0" concept="11" trace="SendEvent$u" />
       <node id="1393584806741167411" at="168,0,169,0" concept="11" trace="EventHandler$Ov" />
       <node id="1393584806741167411" at="169,0,170,0" concept="11" trace="DESLModel$DK" />
-      <node id="1393584806741167411" at="170,0,171,0" concept="11" trace="RootSimGPUM2M$GC" />
-      <node id="1393584806741167411" at="171,0,172,0" concept="11" trace="TraceableConcept$L" />
+      <node id="1393584806741167411" at="170,0,171,0" concept="11" trace="NullExpression$rn" />
+      <node id="1393584806741167411" at="171,0,172,0" concept="11" trace="RootSimGPUM2M$GC" />
+      <node id="1393584806741167411" at="172,0,173,0" concept="11" trace="TraceableConcept$L" />
       <node id="1393584806741167411" at="138,0,141,5" concept="4" />
       <node id="1393584806744892465" at="42,103,47,9" concept="4" />
       <node id="1393584806743438432" at="53,137,58,13" concept="4" />
@@ -248,8 +249,8 @@
       </scope>
       <unit id="1393584806741167411" at="154,0,158,0" name="DESL.textGen.SendEvent_TextGen$PROPS" />
       <unit id="1393584806741167411" at="144,0,153,0" name="DESL.textGen.SendEvent_TextGen$LINKS" />
-      <unit id="1393584806741167411" at="159,0,173,0" name="DESL.textGen.SendEvent_TextGen$CONCEPTS" />
-      <unit id="1393584806741167411" at="24,0,174,0" name="DESL.textGen.SendEvent_TextGen" />
+      <unit id="1393584806741167411" at="159,0,174,0" name="DESL.textGen.SendEvent_TextGen$CONCEPTS" />
+      <unit id="1393584806741167411" at="24,0,175,0" name="DESL.textGen.SendEvent_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
       <node id="1393584806741167411" at="88,43,89,39" concept="8" />
@@ -261,22 +262,22 @@
       <node id="1477309532093105781" at="16,54,17,55" concept="6" />
       <node id="1477309532100708681" at="18,113,19,72" concept="2" />
       <node id="1477309532100709012" at="19,72,20,20" concept="2" />
-      <node id="1477309532100710313" at="20,20,21,136" concept="2" />
+      <node id="1477309532100710313" at="20,20,21,139" concept="2" />
       <node id="1477309532093339970" at="22,116,23,49" concept="2" />
       <node id="1477309532093340163" at="23,49,24,173" concept="2" />
       <node id="1477309532093352547" at="24,173,25,32" concept="2" />
       <node id="1477309532093353333" at="25,32,26,20" concept="2" />
-      <node id="1477309532093383055" at="26,20,27,136" concept="2" />
+      <node id="1477309532093383055" at="26,20,27,139" concept="2" />
       <node id="1477309532093105781" at="32,0,33,0" concept="11" trace="RootSimM2M$x5" />
       <node id="1477309532093105781" at="33,0,34,0" concept="11" trace="UseM2M$UU" />
       <node id="1477309532093105781" at="34,0,35,0" concept="11" trace="ClassDefinition$NR" />
       <node id="1477309532093105781" at="38,0,39,0" concept="11" trace="function$cpRu" />
-      <node id="1477309532093105781" at="39,0,40,0" concept="11" trace="body$1GE0" />
+      <node id="1477309532093105781" at="39,0,40,0" concept="11" trace="revBody$QkEt" />
       <node id="1477309532093105781" at="40,0,41,0" concept="11" trace="stateStruct$NqNO" />
       <node id="1477309532093304246" at="17,55,28,5" concept="4" />
       <node id="1477309532093105781" at="15,0,30,0" concept="5" trace="generateText#(Ljetbrains/mps/text/rt/TextGenContext;)V" />
-      <scope id="1477309532093304248" at="18,113,21,136" />
-      <scope id="1477309532093325239" at="22,116,27,136" />
+      <scope id="1477309532093304248" at="18,113,21,139" />
+      <scope id="1477309532093325239" at="22,116,27,139" />
       <scope id="1477309532093105781" at="16,54,28,5">
         <var name="tgs" id="1477309532093105781" />
       </scope>
@@ -1382,8 +1383,8 @@
       <node id="2627485982927188045" at="183,0,184,14" concept="9" />
       <node id="2627485982927079400" at="184,14,185,64" concept="2" />
       <node id="2627485982927097488" at="185,64,186,20" concept="2" />
-      <node id="2627485982927243554" at="186,20,187,167" concept="2" />
-      <node id="2627485982927348644" at="187,167,188,20" concept="2" />
+      <node id="2627485982927243554" at="186,20,187,170" concept="2" />
+      <node id="2627485982927348644" at="187,170,188,20" concept="2" />
       <node id="4688771844545391911" at="189,5,190,18" concept="2" />
       <node id="2627485982927012213" at="190,18,191,0" concept="10" />
       <node id="4688771844545402874" at="191,0,192,0" concept="10" />
@@ -1453,13 +1454,12 @@
       <node id="4688771844543501160" at="263,0,264,0" concept="11" trace="handlers$Nr2P" />
       <node id="4688771844543501160" at="264,0,265,0" concept="11" trace="termination$42K6" />
       <node id="4688771844543501160" at="265,0,266,0" concept="11" trace="function$cpRu" />
-      <node id="4688771844543501160" at="266,0,267,0" concept="11" trace="body$1GE0" />
-      <node id="4688771844543501160" at="270,0,271,0" concept="11" trace="name$MnvL" />
-      <node id="4688771844543501160" at="271,0,272,0" concept="11" trace="eventName$cuOv" />
-      <node id="4688771844543501160" at="275,0,276,0" concept="11" trace="EventDefinition$wO" />
-      <node id="4688771844543501160" at="276,0,277,0" concept="11" trace="ClassDefinition$NR" />
-      <node id="4688771844543501160" at="277,0,278,0" concept="11" trace="EventHandler$Ov" />
-      <node id="4688771844543501160" at="278,0,279,0" concept="11" trace="UnitConcept$1g" />
+      <node id="4688771844543501160" at="269,0,270,0" concept="11" trace="name$MnvL" />
+      <node id="4688771844543501160" at="270,0,271,0" concept="11" trace="eventName$cuOv" />
+      <node id="4688771844543501160" at="274,0,275,0" concept="11" trace="EventDefinition$wO" />
+      <node id="4688771844543501160" at="275,0,276,0" concept="11" trace="ClassDefinition$NR" />
+      <node id="4688771844543501160" at="276,0,277,0" concept="11" trace="EventHandler$Ov" />
+      <node id="4688771844543501160" at="277,0,278,0" concept="11" trace="UnitConcept$1g" />
       <node id="4688771844543501160" at="247,0,250,5" concept="4" />
       <node id="2481019114554591618" at="114,0,118,5" concept="4" />
       <node id="4688771844545337035" at="132,0,137,7" concept="3" />
@@ -1505,10 +1505,10 @@
       <scope id="4688771844543501160" at="25,0,252,0">
         <var name="ctx" id="4688771844543501160" />
       </scope>
-      <unit id="4688771844543501160" at="269,0,273,0" name="DESL.textGen.UseM2M_TextGen$PROPS" />
-      <unit id="4688771844543501160" at="274,0,280,0" name="DESL.textGen.UseM2M_TextGen$CONCEPTS" />
-      <unit id="4688771844543501160" at="253,0,268,0" name="DESL.textGen.UseM2M_TextGen$LINKS" />
-      <unit id="4688771844543501160" at="24,0,281,0" name="DESL.textGen.UseM2M_TextGen" />
+      <unit id="4688771844543501160" at="268,0,272,0" name="DESL.textGen.UseM2M_TextGen$PROPS" />
+      <unit id="4688771844543501160" at="273,0,279,0" name="DESL.textGen.UseM2M_TextGen$CONCEPTS" />
+      <unit id="4688771844543501160" at="253,0,267,0" name="DESL.textGen.UseM2M_TextGen$LINKS" />
+      <unit id="4688771844543501160" at="24,0,280,0" name="DESL.textGen.UseM2M_TextGen" />
     </file>
   </root>
   <root nodeRef="r:eb88f38c-5da2-4104-b158-3a01b585020f(DESL.textGen)/4688771844543578924">
@@ -3300,35 +3300,34 @@
       <node id="9066337358837503729" at="684,0,685,0" concept="11" trace="externalFunctions$LqEg" />
       <node id="9066337358837503729" at="685,0,686,0" concept="11" trace="handlers$Nr2P" />
       <node id="9066337358837503729" at="686,0,687,0" concept="11" trace="forwardFunction$5bPH" />
-      <node id="9066337358837503729" at="687,0,688,0" concept="11" trace="arguments$gPkY" />
-      <node id="9066337358837503729" at="688,0,689,0" concept="11" trace="baseType$zMGV" />
-      <node id="9066337358837503729" at="689,0,690,0" concept="11" trace="stateStruct$NqNO" />
-      <node id="9066337358837503729" at="690,0,691,0" concept="11" trace="revBody$QkEt" />
-      <node id="9066337358837503729" at="691,0,692,0" concept="11" trace="revStatements$IdM8" />
-      <node id="9066337358837503729" at="692,0,693,0" concept="11" trace="to$WtFs" />
-      <node id="9066337358837503729" at="693,0,694,0" concept="11" trace="arg$WIp5" />
-      <node id="9066337358837503729" at="694,0,695,0" concept="11" trace="reverseFunction$yyGT" />
-      <node id="9066337358837503729" at="695,0,696,0" concept="11" trace="classes$SNAM" />
-      <node id="9066337358837503729" at="696,0,697,0" concept="11" trace="processes$2JvY" />
-      <node id="9066337358837503729" at="700,0,701,0" concept="11" trace="name$MnvL" />
-      <node id="9066337358837503729" at="701,0,702,0" concept="11" trace="right$2uAQ" />
-      <node id="9066337358837503729" at="702,0,703,0" concept="11" trace="left$2u8O" />
-      <node id="9066337358837503729" at="703,0,704,0" concept="11" trace="eventName$cuOv" />
-      <node id="9066337358837503729" at="707,0,708,0" concept="11" trace="EventDefinition$wO" />
-      <node id="9066337358837503729" at="708,0,709,0" concept="11" trace="ProcessArray$Ux" />
-      <node id="9066337358837503729" at="709,0,710,0" concept="11" trace="ProcessAllocation$5Z" />
-      <node id="9066337358837503729" at="710,0,711,0" concept="11" trace="RngContext$1E" />
-      <node id="9066337358837503729" at="711,0,712,0" concept="11" trace="Random$XZ" />
-      <node id="9066337358837503729" at="712,0,713,0" concept="11" trace="Expent$Yu" />
-      <node id="9066337358837503729" at="713,0,714,0" concept="11" trace="ExternalFunction$U_" />
-      <node id="9066337358837503729" at="714,0,715,0" concept="11" trace="EventHandler$Ov" />
-      <node id="9066337358837503729" at="715,0,716,0" concept="11" trace="Argument$9m" />
-      <node id="9066337358837503729" at="716,0,717,0" concept="11" trace="PointerType$HX" />
-      <node id="9066337358837503729" at="717,0,718,0" concept="11" trace="SendEvent$u" />
-      <node id="9066337358837503729" at="718,0,719,0" concept="11" trace="ArgumentRef$iE" />
-      <node id="9066337358837503729" at="719,0,720,0" concept="11" trace="ClassDefinition$NR" />
-      <node id="9066337358837503729" at="720,0,721,0" concept="11" trace="ProcessSequence$B$" />
-      <node id="9066337358837503729" at="721,0,722,0" concept="11" trace="UnitConcept$1g" />
+      <node id="9066337358837503729" at="687,0,688,0" concept="11" trace="baseType$zMGV" />
+      <node id="9066337358837503729" at="688,0,689,0" concept="11" trace="stateStruct$NqNO" />
+      <node id="9066337358837503729" at="689,0,690,0" concept="11" trace="revBody$QkEt" />
+      <node id="9066337358837503729" at="690,0,691,0" concept="11" trace="revStatements$IdM8" />
+      <node id="9066337358837503729" at="691,0,692,0" concept="11" trace="to$WtFs" />
+      <node id="9066337358837503729" at="692,0,693,0" concept="11" trace="arg$bO7D" />
+      <node id="9066337358837503729" at="693,0,694,0" concept="11" trace="reverseFunction$yyGT" />
+      <node id="9066337358837503729" at="694,0,695,0" concept="11" trace="classes$SNAM" />
+      <node id="9066337358837503729" at="695,0,696,0" concept="11" trace="processes$2JvY" />
+      <node id="9066337358837503729" at="699,0,700,0" concept="11" trace="name$MnvL" />
+      <node id="9066337358837503729" at="700,0,701,0" concept="11" trace="right$2uAQ" />
+      <node id="9066337358837503729" at="701,0,702,0" concept="11" trace="left$2u8O" />
+      <node id="9066337358837503729" at="702,0,703,0" concept="11" trace="eventName$cuOv" />
+      <node id="9066337358837503729" at="706,0,707,0" concept="11" trace="EventDefinition$wO" />
+      <node id="9066337358837503729" at="707,0,708,0" concept="11" trace="ProcessArray$Ux" />
+      <node id="9066337358837503729" at="708,0,709,0" concept="11" trace="ProcessAllocation$5Z" />
+      <node id="9066337358837503729" at="709,0,710,0" concept="11" trace="RngContext$1E" />
+      <node id="9066337358837503729" at="710,0,711,0" concept="11" trace="Random$XZ" />
+      <node id="9066337358837503729" at="711,0,712,0" concept="11" trace="Expent$Yu" />
+      <node id="9066337358837503729" at="712,0,713,0" concept="11" trace="ExternalFunction$U_" />
+      <node id="9066337358837503729" at="713,0,714,0" concept="11" trace="EventHandler$Ov" />
+      <node id="9066337358837503729" at="714,0,715,0" concept="11" trace="Argument$9m" />
+      <node id="9066337358837503729" at="715,0,716,0" concept="11" trace="PointerType$HX" />
+      <node id="9066337358837503729" at="716,0,717,0" concept="11" trace="SendEvent$u" />
+      <node id="9066337358837503729" at="717,0,718,0" concept="11" trace="ArgumentRef$Ar" />
+      <node id="9066337358837503729" at="718,0,719,0" concept="11" trace="ClassDefinition$NR" />
+      <node id="9066337358837503729" at="719,0,720,0" concept="11" trace="ProcessSequence$B$" />
+      <node id="9066337358837503729" at="720,0,721,0" concept="11" trace="UnitConcept$1g" />
       <node id="4480120030390132671" at="202,16,204,11" concept="0" />
       <node id="2575222304959634034" at="61,23,64,5" concept="3" />
       <node id="4480120030389523232" at="194,110,197,11" concept="4" />
@@ -3485,10 +3484,10 @@
       <scope id="9066337358837503729" at="28,0,673,0">
         <var name="ctx" id="9066337358837503729" />
       </scope>
-      <unit id="9066337358837503729" at="699,0,705,0" name="DESL.textGen.RossM2M_TextGen$PROPS" />
-      <unit id="9066337358837503729" at="706,0,723,0" name="DESL.textGen.RossM2M_TextGen$CONCEPTS" />
-      <unit id="9066337358837503729" at="674,0,698,0" name="DESL.textGen.RossM2M_TextGen$LINKS" />
-      <unit id="9066337358837503729" at="27,0,724,0" name="DESL.textGen.RossM2M_TextGen" />
+      <unit id="9066337358837503729" at="698,0,704,0" name="DESL.textGen.RossM2M_TextGen$PROPS" />
+      <unit id="9066337358837503729" at="705,0,722,0" name="DESL.textGen.RossM2M_TextGen$CONCEPTS" />
+      <unit id="9066337358837503729" at="674,0,697,0" name="DESL.textGen.RossM2M_TextGen$LINKS" />
+      <unit id="9066337358837503729" at="27,0,723,0" name="DESL.textGen.RossM2M_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
       <node id="9066337358837503729" at="86,41,87,37" concept="8" />

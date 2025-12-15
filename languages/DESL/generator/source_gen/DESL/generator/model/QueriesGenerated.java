@@ -246,7 +246,6 @@ public class QueriesGenerated extends QueryProviderBase {
     }
     for (SNode handler : ListSequence.fromList(SModelOperations.nodes(_context.getModel(), CONCEPTS.EventHandler$Ov))) {
       ReversibleFunction__BehaviorDescriptor.propagateReversibility_id5U1XgQ$bWsf.invoke(SLinkOperations.getTarget(handler, LINKS.forwardFunction$5bPH));
-
       SLinkOperations.setTarget(handler, LINKS.reverseFunction$yyGT, SNodeOperations.copyNode(SLinkOperations.getTarget(handler, LINKS.forwardFunction$5bPH)));
       SPropertyOperations.assign(SLinkOperations.getTarget(handler, LINKS.reverseFunction$yyGT), PROPS.isForward$rJ$J, false);
       ReversibleFunction__BehaviorDescriptor.propagateReversibility_id5U1XgQ$bWsf.invoke(SLinkOperations.getTarget(handler, LINKS.reverseFunction$yyGT));

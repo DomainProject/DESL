@@ -103,6 +103,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     deps.aggregatedLanguage(0x92d2ea165a424fdfL, 0xa676c7604efe3504L, "de.slisson.mps.richtext");
     deps.aggregatedLanguage(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, "com.mbeddr.core.modules");
     deps.aggregatedLanguage(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, "ReversibleFunctions");
+    deps.aggregatedLanguage(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, "ReversibleExpressions");
     deps.aggregatedLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage");
     deps.aggregatedLanguage(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, "jetbrains.mps.lang.text");
   }
@@ -387,8 +388,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.super_(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L);
     b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(DESL.structure)/2627485982916065607");
     b.version(3);
-    b.aggregate("mean", 0x2476b49498469e72L).target(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba32L).optional(false).ordered(true).multiple(false).origin("2627485982920187506").done();
-    b.aggregate("ctx", 0x2476b494988230f9L).target(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba32L).optional(false).ordered(true).multiple(false).origin("2627485982924091641").done();
+    b.aggregate("mean", 0x2476b49498469e72L).target(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L).optional(false).ordered(true).multiple(false).origin("2627485982920187506").done();
+    b.aggregate("ctx", 0x2476b494988230f9L).target(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L).optional(false).ordered(true).multiple(false).origin("2627485982924091641").done();
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForExternalFunction() {
@@ -636,8 +637,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   private static ConceptDescriptor createDescriptorForInitializeState() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("DESL", "InitializeState", 0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6ea143d2092cc82fL);
     b.class_(false, false, false);
-    // extends: com.mbeddr.core.statements.structure.Statement
-    b.super_(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad6d03L);
+    // extends: ReversibleStatements.structure.ReversibleStatement
+    b.super_(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad6d03L);
     b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(DESL.structure)/7971727384798611503");
     b.version(3);
     b.associate("stateVariable", 0x6ea143d2092cc830L).target(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x1c69b376a2f94e75L).optional(false).origin("7971727384798611504").done();
@@ -738,7 +739,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.super_(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L);
     b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(DESL.structure)/2627485982916065606");
     b.version(3);
-    b.aggregate("ctx", 0x2476b49498823101L).target(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba32L).optional(false).ordered(true).multiple(false).origin("2627485982924091649").done();
+    b.aggregate("ctx", 0x2476b49498823101L).target(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L).optional(false).ordered(true).multiple(false).origin("2627485982924091649").done();
     b.alias("Random");
     return b.create();
   }
@@ -781,14 +782,14 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   private static ConceptDescriptor createDescriptorForSendEvent() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("DESL", "SendEvent", 0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x68458b9b5da4ec77L);
     b.class_(false, false, false);
-    // extends: com.mbeddr.core.statements.structure.Statement
-    b.super_(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad6d03L);
+    // extends: ReversibleStatements.structure.ReversibleStatement
+    b.super_(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad6d03L);
     b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(DESL.structure)/7513565052744821879");
     b.version(3);
     b.associate("event", 0x6f2af7ea6966abcaL).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x7c2c5977e3e10df9L).optional(true).origin("8010487473394592714").done();
-    b.aggregate("when", 0x6f2af7ea696e149dL).target(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba32L).optional(true).ordered(true).multiple(false).origin("8010487473395078301").done();
-    b.aggregate("to", 0x6f2af7ea6983412cL).target(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba32L).optional(true).ordered(true).multiple(false).origin("8010487473396465964").done();
-    b.aggregate("with", 0x6f36cc77d0d566c2L).target(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba32L).optional(true).ordered(true).multiple(false).origin("8013817401929197250").done();
+    b.aggregate("when", 0x6f2af7ea696e149dL).target(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L).optional(true).ordered(true).multiple(false).origin("8010487473395078301").done();
+    b.aggregate("to", 0x6f2af7ea6983412cL).target(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L).optional(true).ordered(true).multiple(false).origin("8010487473396465964").done();
+    b.aggregate("with", 0x6f36cc77d0d566c2L).target(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L).optional(true).ordered(true).multiple(false).origin("8013817401929197250").done();
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForStartupFunction() {
@@ -847,7 +848,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.parent(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x148075313bb54673L);
     b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(DESL.structure)/1477309532093105773");
     b.version(3);
-    b.aggregate("function", 0x148075313bb5466eL).target(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x595522006a5b97e1L).optional(false).ordered(true).multiple(false).origin("1477309532093105774").done();
+    b.aggregate("function", 0x148075313bb5466eL).target(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL).optional(false).ordered(true).multiple(false).origin("1477309532093105774").done();
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForTypeDefinition() {

@@ -717,8 +717,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   private static ConceptDescriptor createDescriptorForInitExpression() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("ReversibleStatements", "InitExpression", 0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x7ad4c4c8a2db08a1L);
     b.class_(false, false, false);
-    // extends: com.mbeddr.core.expressions.structure.Expression
-    b.super_(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba32L);
+    // extends: ReversibleExpressions.structure.ReversibleExpression
+    b.super_(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L);
     b.parent(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x479c34ecb3e934c3L);
     b.parent(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x391df9e40e14d64cL);
     b.origin("r:afa7ae5b-c41f-45e8-9678-2beae3621a33(ReversibleStatements.structure)/8850915533694634145");

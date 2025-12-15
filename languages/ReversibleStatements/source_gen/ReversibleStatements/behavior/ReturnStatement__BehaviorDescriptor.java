@@ -33,7 +33,7 @@ public final class ReturnStatement__BehaviorDescriptor extends BaseBHDescriptor 
   }
 
   /*package*/ static boolean needsReturnValue_id5ak6HMA0oem(@NotNull SNode __thisNode__) {
-    return !(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(__thisNode__, CONCEPTS.ReversibleFunction$IL, false, false), LINKS.type$m1NA), CONCEPTS.VoidType$GT));
+    return !(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(__thisNode__, CONCEPTS.ReversibleFunction$IL, false, false), LINKS.type$sXU3), CONCEPTS.VoidType$GT));
   }
   /*package*/ static boolean isInFunction_id7ztw3UYMrFT(@NotNull SNode __thisNode__) {
     return (SNodeOperations.getNodeAncestor(__thisNode__, CONCEPTS.ReversibleFunction$IL, false, false) != null);
@@ -93,6 +93,6 @@ public final class ReturnStatement__BehaviorDescriptor extends BaseBHDescriptor 
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink type$m1NA = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, 0x4b1eecbba6894aa4L, "type");
+    /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
   }
 }

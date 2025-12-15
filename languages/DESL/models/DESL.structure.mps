@@ -13,9 +13,9 @@
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
     <import index="c4fa" ref="r:9f0e84b6-2ec7-4f9e-83e0-feedc77b63a3(com.mbeddr.core.statements.structure)" implicit="true" />
     <import index="w8o" ref="r:e84d12fa-9ad2-42d4-95e8-d9ef0c30fdf9(ReversibleFunctions.structure)" implicit="true" />
-    <import index="tpee" ref="r:00000000-0000-4000-0000-011c895902ca(jetbrains.mps.baseLanguage.structure)" implicit="true" />
-    <import index="ib4b" ref="r:539823a2-87c6-4a7e-abc8-d6fc586848eb(ReversibleExpressions.structure)" implicit="true" />
     <import index="kmi" ref="r:afa7ae5b-c41f-45e8-9678-2beae3621a33(ReversibleStatements.structure)" implicit="true" />
+    <import index="ib4b" ref="r:539823a2-87c6-4a7e-abc8-d6fc586848eb(ReversibleExpressions.structure)" implicit="true" />
+    <import index="tpee" ref="r:00000000-0000-4000-0000-011c895902ca(jetbrains.mps.baseLanguage.structure)" implicit="true" />
   </imports>
   <registry>
     <language id="c72da2b9-7cce-4447-8389-f407dc1158b7" name="jetbrains.mps.lang.structure">
@@ -225,24 +225,24 @@
   <node concept="1TIwiD" id="6x5yTHtDeLR">
     <property role="EcuMT" value="7513565052744821879" />
     <property role="TrG5h" value="SendEvent" />
-    <ref role="1TJDcQ" to="c4fa:3CmSUB7FmO3" resolve="Statement" />
+    <ref role="1TJDcQ" to="kmi:3CmSUB7FmO3" resolve="ReversibleStatement" />
     <node concept="1TJgyj" id="6WEXYDDrxit" role="1TKVEi">
       <property role="IQ2ns" value="8010487473395078301" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <property role="20kJfa" value="when" />
-      <ref role="20lvS9" to="mj1l:7FQByU3CrCM" resolve="Expression" />
+      <ref role="20lvS9" to="ib4b:7FQByU3CrCM" resolve="ReversibleExpression" />
     </node>
     <node concept="1TJgyj" id="6WEXYDDwO4G" role="1TKVEi">
       <property role="IQ2ns" value="8010487473396465964" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <property role="20kJfa" value="to" />
-      <ref role="20lvS9" to="mj1l:7FQByU3CrCM" resolve="Expression" />
+      <ref role="20lvS9" to="ib4b:7FQByU3CrCM" resolve="ReversibleExpression" />
     </node>
     <node concept="1TJgyj" id="6WQN7vgPmr2" role="1TKVEi">
       <property role="IQ2ns" value="8013817401929197250" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <property role="20kJfa" value="with" />
-      <ref role="20lvS9" to="mj1l:7FQByU3CrCM" resolve="Expression" />
+      <ref role="20lvS9" to="ib4b:7FQByU3CrCM" resolve="ReversibleExpression" />
     </node>
     <node concept="1TJgyj" id="6WEXYDDpEJa" role="1TKVEi">
       <property role="IQ2ns" value="8010487473394592714" />
@@ -713,7 +713,7 @@
     <property role="TrG5h" value="InitializeState" />
     <property role="R4oN_" value="initialize state for the current LP" />
     <property role="34LRSv" value="InitState" />
-    <ref role="1TJDcQ" to="c4fa:3CmSUB7FmO3" resolve="Statement" />
+    <ref role="1TJDcQ" to="kmi:3CmSUB7FmO3" resolve="ReversibleStatement" />
     <node concept="1TJgyj" id="6UxgX89bcwK" role="1TKVEi">
       <property role="IQ2ns" value="7971727384798611504" />
       <property role="20kJfa" value="stateVariable" />
@@ -943,7 +943,7 @@
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <property role="20kJfa" value="function" />
       <property role="20lbJX" value="fLJekj4/_1" />
-      <ref role="20lvS9" to="x27k:5_l8w1EmTvx" resolve="Function" />
+      <ref role="20lvS9" to="w8o:5U1XgQxbKlv" resolve="ReversibleFunction" />
     </node>
     <node concept="PrWs8" id="1i0tj4VHkpO" role="PzmwI">
       <ref role="PrY4T" node="1i0tj4VHkpN" resolve="ITerminationFunction" />
@@ -973,7 +973,7 @@
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <property role="20kJfa" value="ctx" />
       <property role="20lbJX" value="fLJekj4/_1" />
-      <ref role="20lvS9" to="mj1l:7FQByU3CrCM" resolve="Expression" />
+      <ref role="20lvS9" to="ib4b:7FQByU3CrCM" resolve="ReversibleExpression" />
     </node>
   </node>
   <node concept="1TIwiD" id="2hQH9io1V_7">
@@ -987,14 +987,14 @@
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <property role="20kJfa" value="mean" />
       <property role="20lbJX" value="fLJekj4/_1" />
-      <ref role="20lvS9" to="mj1l:7FQByU3CrCM" resolve="Expression" />
+      <ref role="20lvS9" to="ib4b:7FQByU3CrCM" resolve="ReversibleExpression" />
     </node>
     <node concept="1TJgyj" id="2hQH9iowz3T" role="1TKVEi">
       <property role="IQ2ns" value="2627485982924091641" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <property role="20kJfa" value="ctx" />
       <property role="20lbJX" value="fLJekj4/_1" />
-      <ref role="20lvS9" to="mj1l:7FQByU3CrCM" resolve="Expression" />
+      <ref role="20lvS9" to="ib4b:7FQByU3CrCM" resolve="ReversibleExpression" />
     </node>
   </node>
   <node concept="1TIwiD" id="2hQH9iorxir">

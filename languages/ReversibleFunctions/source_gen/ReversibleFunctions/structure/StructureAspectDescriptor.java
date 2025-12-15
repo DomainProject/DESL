@@ -38,7 +38,6 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     deps.extendedLanguage(0x61c69711ed614850L, 0x81d97714ff227fb0L, "com.mbeddr.core.expressions");
     deps.aggregatedLanguage(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, "ReversibleStatements");
     deps.aggregatedLanguage(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, "com.mbeddr.core.modules");
-    deps.aggregatedLanguage(0x61c69711ed614850L, 0x81d97714ff227fb0L, "com.mbeddr.core.expressions");
     deps.aggregatedLanguage(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, "ReversibleExpressions");
     deps.aggregatedLanguage(0xefda956e491e4f00L, 0xba1436af2f213ecfL, "com.mbeddr.core.udt");
   }
@@ -103,14 +102,13 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.parent(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L);
     b.parent(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111cL);
     b.parent(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c630e1L);
+    b.parent(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x707ac195dd5d51f2L);
     b.origin("r:e84d12fa-9ad2-42d4-95e8-d9ef0c30fdf9(ReversibleFunctions.structure)/6809993550448493919");
     b.version(3);
     b.property("hasEllipsis", 0x4b1eecbba689652fL).type(PrimitiveTypeId.BOOLEAN).origin("5413024092842976559").done();
     b.property("inline", 0x4b1eecbba6896530L).type(PrimitiveTypeId.BOOLEAN).origin("5413024092842976560").done();
     b.aggregate("revBody", 0x5e81f50da12f79a6L).target(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L).optional(false).ordered(true).multiple(false).origin("6809993550448523686").done();
-    b.aggregate("arguments", 0x4f39f90935e92f45L).target(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x75302b1261129ff9L).optional(true).ordered(true).multiple(true).origin("5708867820623310661").done();
     b.aggregate("checkpointingVariables", 0x571ea5ef242a50aaL).target(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x571ea5ef247e3b6dL).optional(true).ordered(true).multiple(true).origin("6277637377123569834").done();
-    b.aggregate("type", 0x4b1eecbba6894aa4L).target(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba36L).optional(false).ordered(true).multiple(false).origin("5413024092842969764").done();
     b.aggregate("ellipsisKind", 0x4b1eecbba6896531L).target(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0xc42f172f6d01a6eL).optional(true).ordered(true).multiple(false).origin("5413024092842976561").done();
     return b.create();
   }

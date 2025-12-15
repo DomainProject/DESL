@@ -605,5 +605,35 @@
       </node>
     </node>
   </node>
+  <node concept="3_zdsH" id="4UyZjBJzpGN">
+    <ref role="3_znuS" to="ib4b:4UyZjBJzdrS" resolve="GlobalConstantRef" />
+    <node concept="3__wT9" id="4UyZjBJzpGO" role="3_A6iZ">
+      <node concept="3clFbS" id="4UyZjBJzpGP" role="2VODD2">
+        <node concept="3_DX4M" id="4UyZjBJzpHe" role="3cqZAp">
+          <node concept="2OqwBi" id="4UyZjBJzpZQ" role="3_H1SZ">
+            <node concept="3__QtB" id="4UyZjBJzpHF" role="2Oq$k0" />
+            <node concept="3TrEf2" id="4UyZjBJzrnM" role="2OqNvi">
+              <ref role="3Tt5mk" to="ib4b:4UyZjBJzdrU" resolve="constant" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
+  <node concept="3_zdsH" id="4UyZjBKfugc">
+    <ref role="3_znuS" to="ib4b:4UyZjBKfjC5" resolve="GlobalVarRef" />
+    <node concept="3__wT9" id="4UyZjBKfugd" role="3_A6iZ">
+      <node concept="3clFbS" id="4UyZjBKfuge" role="2VODD2">
+        <node concept="3_DX4M" id="4UyZjBKfugB" role="3cqZAp">
+          <node concept="2OqwBi" id="4UyZjBKfu_J" role="3_H1SZ">
+            <node concept="3__QtB" id="4UyZjBKfugE" role="2Oq$k0" />
+            <node concept="3TrEf2" id="4UyZjBKfvml" role="2OqNvi">
+              <ref role="3Tt5mk" to="ib4b:4UyZjBKfjCa" resolve="var" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
 </model>
 

@@ -255,7 +255,7 @@
     <ref role="1XX52x" to="w8o:5U1XgQxbKlv" resolve="ReversibleFunction" />
     <node concept="3EZMnI" id="6Q7bJ$$mLHM" role="2wV5jI">
       <node concept="3F1sOY" id="6Q7bJ$$mLHO" role="3EZMnx">
-        <ref role="1NtTu8" to="w8o:4GuVbIAykE$" resolve="type" />
+        <ref role="1NtTu8" to="mj1l:hEaDaGor64" resolve="type" />
       </node>
       <node concept="3F0A7n" id="6Q7bJ$$mLHP" role="3EZMnx">
         <property role="1cu_pB" value="gtguBGO/firstEditableCell" />
@@ -274,7 +274,7 @@
       </node>
       <node concept="3F2HdR" id="6Q7bJ$$mLHR" role="3EZMnx">
         <property role="2czwfO" value="," />
-        <ref role="1NtTu8" to="w8o:4WTYg$PUiX5" resolve="arguments" />
+        <ref role="1NtTu8" to="x27k:4WTYg$PUiX5" resolve="arguments" />
         <node concept="1HlG4h" id="6Q7bJ$$mS$7" role="2czzBI">
           <node concept="1HfYo3" id="6Q7bJ$$mS$8" role="1HlULh">
             <node concept="3TQlhw" id="6Q7bJ$$mS$9" role="1Hhtcw">

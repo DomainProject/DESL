@@ -136,6 +136,7 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
     editorCell.addEditorCell(createConstant_12());
     editorCell.addEditorCell(createComponent_37());
     editorCell.addEditorCell(createRefNodeList_8());
+    editorCell.addEditorCell(createComponent_38());
     editorCell.addEditorCell(createConstant_13());
     return editorCell;
   }
@@ -1630,9 +1631,16 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
       }
     }
   }
+  private EditorCell createComponent_38() {
+    EditorCell editorCell = getCellFactory().createEditorComponentCell(myNode, "DESL.editor.DESModelSpacer");
+    Style style = new StyleImpl();
+    style.set(StyleAttributes.INDENT_LAYOUT_INDENT, true);
+    editorCell.getStyle().putAll(style);
+    return editorCell;
+  }
   private EditorCell createConstant_13() {
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "}");
-    editorCell.setCellId("Constant_w5xk7i_kc0");
+    editorCell.setCellId("Constant_w5xk7i_lc0");
     Style style = new StyleImpl();
     style.set(StyleAttributes.INDENT_LAYOUT_ON_NEW_LINE, true);
     editorCell.getStyle().putAll(style);

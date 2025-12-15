@@ -184,7 +184,7 @@ public class UseM2M_TextGen extends TextGenDescriptorBase {
       // OnGVT
       tgs.append("bool OnGVT(unsigned int me, void *snapshot)");
       tgs.newLine();
-      tgs.appendNode(SLinkOperations.getTarget(SLinkOperations.getTarget(SLinkOperations.getTarget(c, LINKS.termination$42K6), LINKS.function$cpRu), LINKS.body$1GE0));
+      tgs.appendNode(SLinkOperations.getTarget(SLinkOperations.getTarget(SLinkOperations.getTarget(c, LINKS.termination$42K6), LINKS.function$cpRu), LINKS.revBody$QkEt));
       tgs.newLine();
     }
     tgs.newLine();
@@ -263,7 +263,6 @@ public class UseM2M_TextGen extends TextGenDescriptorBase {
     /*package*/ static final SContainmentLink handlers$Nr2P = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x4117a694e5b8c1a3L, "handlers");
     /*package*/ static final SContainmentLink termination$42K6 = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x148075313bb9b63dL, "termination");
     /*package*/ static final SContainmentLink function$cpRu = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x148075313bb5466dL, 0x148075313bb5466eL, "function");
-    /*package*/ static final SContainmentLink body$1GE0 = MetaAdapterFactory.getContainmentLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x595522006a5b97e1L, 0x3a16e3a9c7ad9954L, "body");
   }
 
   private static final class PROPS {

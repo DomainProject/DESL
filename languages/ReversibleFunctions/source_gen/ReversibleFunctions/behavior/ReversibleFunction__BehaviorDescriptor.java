@@ -9,10 +9,10 @@ import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
+import org.jetbrains.mps.openapi.model.SNode;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
@@ -27,8 +27,9 @@ public final class ReversibleFunction__BehaviorDescriptor extends BaseBHDescript
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, "ReversibleFunctions.structure.ReversibleFunction");
 
   public static final SMethod<Void> propagateReversibility_id5U1XgQ$bWsf = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("propagateReversibility").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6809993550498875151L).languageId(0xa63b80c6b9db7397L, 0x5eb14d5ab5f74626L).build2();
+  public static final SMethod<SNode> getStatementList_id71UKpntnl7S = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getStatementList").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8105003328814797304L).languageId(0x8efc09336c1b0001L, 0x6d11763d483d4b2bL).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(propagateReversibility_id5U1XgQ$bWsf);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(propagateReversibility_id5U1XgQ$bWsf, getStatementList_id71UKpntnl7S);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -41,6 +42,9 @@ public final class ReversibleFunction__BehaviorDescriptor extends BaseBHDescript
         SPropertyOperations.assign(rev, PROPS.isForward$pAg5, true);
       }
     }
+  }
+  /*package*/ static SNode getStatementList_id71UKpntnl7S(@NotNull SNode __thisNode__) {
+    return null;
   }
 
   /*package*/ ReversibleFunction__BehaviorDescriptor() {
@@ -61,6 +65,8 @@ public final class ReversibleFunction__BehaviorDescriptor extends BaseBHDescript
       case 0:
         propagateReversibility_id5U1XgQ$bWsf(node);
         return null;
+      case 1:
+        return (T) ((SNode) getStatementList_id71UKpntnl7S(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }

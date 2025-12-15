@@ -279,44 +279,42 @@
   </root>
   <root nodeRef="r:b1228d9b-8e2c-4c06-8c54-62acd072f382(ReversibleStatements.constraints)/5337391105143334392">
     <file name="InitExpression_Constraints.java">
-      <node id="5337391105143334392" at="22,88,23,51" concept="11" />
-      <node id="5337391105143334392" at="26,127,27,128" concept="6" />
-      <node id="5337391105143334392" at="27,128,28,0" concept="8" />
-      <node id="5337391105143334392" at="29,55,30,71" concept="2" />
-      <node id="5337391105143334392" at="31,9,32,0" concept="8" />
-      <node id="5337391105143334392" at="32,0,33,22" concept="7" />
-      <node id="8237807170236183667" at="38,128,39,212" concept="7" />
-      <node id="5337391105143334392" at="41,0,42,0" concept="9" trace="canBeChildBreakingPoint" />
-      <node id="5337391105143334392" at="44,0,45,0" concept="9" trace="InitExpression$YK" />
-      <node id="5337391105143334392" at="45,0,46,0" concept="9" trace="IInitializationContext$rO" />
-      <node id="5337391105143334392" at="46,0,47,0" concept="9" trace="AssignmentExpr$mZ" />
-      <node id="5337391105143334392" at="28,0,31,9" concept="4" />
-      <node id="5337391105143334392" at="38,0,41,0" concept="10" trace="staticCanBeAChild#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/language/SAbstractConcept;Lorg/jetbrains/mps/openapi/language/SContainmentLink;)Z" />
-      <node id="5337391105143334392" at="25,0,35,0" concept="5" trace="invoke#(Ljetbrains/mps/smodel/runtime/ConstraintContext_CanBeChild;Ljetbrains/mps/smodel/runtime/CheckingNodeContext;)Ljava/lang/Boolean;" />
-      <node id="5337391105143334392" at="23,51,35,7" concept="2" />
-      <node id="5337391105143334392" at="22,0,37,0" concept="1" trace="InitExpression_Constraints#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptorInitContext;)V" />
-      <scope id="5337391105143334392" at="29,55,30,71" />
-      <scope id="8237807170236183666" at="38,128,39,212" />
-      <scope id="5337391105143334392" at="38,0,41,0">
+      <node id="5337391105143334392" at="20,88,21,51" concept="11" />
+      <node id="5337391105143334392" at="24,127,25,128" concept="6" />
+      <node id="5337391105143334392" at="25,128,26,0" concept="8" />
+      <node id="5337391105143334392" at="27,55,28,71" concept="2" />
+      <node id="5337391105143334392" at="29,9,30,0" concept="8" />
+      <node id="5337391105143334392" at="30,0,31,22" concept="7" />
+      <node id="5666369706467843954" at="36,128,37,16" concept="7" />
+      <node id="5337391105143334392" at="39,0,40,0" concept="9" trace="canBeChildBreakingPoint" />
+      <node id="5337391105143334392" at="42,0,43,0" concept="9" trace="InitExpression$YK" />
+      <node id="5337391105143334392" at="26,0,29,9" concept="4" />
+      <node id="5337391105143334392" at="36,0,39,0" concept="10" trace="staticCanBeAChild#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/language/SAbstractConcept;Lorg/jetbrains/mps/openapi/language/SContainmentLink;)Z" />
+      <node id="5337391105143334392" at="23,0,33,0" concept="5" trace="invoke#(Ljetbrains/mps/smodel/runtime/ConstraintContext_CanBeChild;Ljetbrains/mps/smodel/runtime/CheckingNodeContext;)Ljava/lang/Boolean;" />
+      <node id="5337391105143334392" at="21,51,33,7" concept="2" />
+      <node id="5337391105143334392" at="20,0,35,0" concept="1" trace="InitExpression_Constraints#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptorInitContext;)V" />
+      <scope id="5337391105143334392" at="27,55,28,71" />
+      <scope id="8237807170236183666" at="36,128,37,16" />
+      <scope id="5337391105143334392" at="36,0,39,0">
         <var name="childConcept" id="5337391105143334392" />
         <var name="link" id="5337391105143334392" />
         <var name="node" id="5337391105143334392" />
         <var name="parentNode" id="5337391105143334392" />
       </scope>
-      <scope id="5337391105143334392" at="26,127,33,22">
+      <scope id="5337391105143334392" at="24,127,31,22">
         <var name="result" id="5337391105143334392" />
       </scope>
-      <scope id="5337391105143334392" at="25,0,35,0">
+      <scope id="5337391105143334392" at="23,0,33,0">
         <var name="checkingNodeContext" id="5337391105143334392" />
         <var name="context" id="5337391105143334392" />
       </scope>
-      <scope id="5337391105143334392" at="22,88,35,7" />
-      <scope id="5337391105143334392" at="22,0,37,0">
+      <scope id="5337391105143334392" at="20,88,33,7" />
+      <scope id="5337391105143334392" at="20,0,35,0">
         <var name="initContext" id="5337391105143334392" />
       </scope>
-      <unit id="5337391105143334392" at="43,0,48,0" name="ReversibleStatements.constraints.InitExpression_Constraints$CONCEPTS" />
-      <unit id="5337391105143334392" at="24,32,35,5" name="ReversibleStatements.constraints.InitExpression_Constraints$1" />
-      <unit id="5337391105143334392" at="21,0,49,0" name="ReversibleStatements.constraints.InitExpression_Constraints" />
+      <unit id="5337391105143334392" at="41,0,44,0" name="ReversibleStatements.constraints.InitExpression_Constraints$CONCEPTS" />
+      <unit id="5337391105143334392" at="22,32,33,5" name="ReversibleStatements.constraints.InitExpression_Constraints$1" />
+      <unit id="5337391105143334392" at="19,0,45,0" name="ReversibleStatements.constraints.InitExpression_Constraints" />
     </file>
   </root>
   <root nodeRef="r:b1228d9b-8e2c-4c06-8c54-62acd072f382(ReversibleStatements.constraints)/5413024092817338505">
@@ -417,42 +415,42 @@
   </root>
   <root nodeRef="r:b1228d9b-8e2c-4c06-8c54-62acd072f382(ReversibleStatements.constraints)/6371110426264899620">
     <file name="ArgumentRef_Constraints.java">
-      <node id="6371110426264899620" at="27,85,28,48" concept="11" />
-      <node id="6371110426264899621" at="28,48,29,26" concept="2" />
-      <node id="6371110426264899621" at="33,54,34,52" concept="11" />
-      <node id="6371110426264899621" at="41,61,42,133" concept="7" />
-      <node id="6371110426264899793" at="45,78,46,322" concept="7" />
-      <node id="6371110426264899620" at="53,0,54,0" concept="9" trace="ArgumentRef$Ar" />
-      <node id="6371110426264899620" at="54,0,55,0" concept="9" trace="ReversibleFunction$IL" />
-      <node id="6371110426264899620" at="58,0,59,0" concept="9" trace="arg$bO7D" />
-      <node id="6371110426264899620" at="59,0,60,0" concept="9" trace="arguments$gPkY" />
-      <node id="6371110426264899621" at="33,0,36,0" concept="1" trace="RD1#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptor;)V" />
-      <node id="6371110426264899620" at="27,0,31,0" concept="1" trace="ArgumentRef_Constraints#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptorInitContext;)V" />
-      <node id="6371110426264899621" at="40,0,44,0" concept="5" trace="getSearchScopeValidatorNode#()Lorg/jetbrains/mps/openapi/model/SNodeReference;" />
-      <node id="6371110426264899621" at="44,0,48,0" concept="5" trace="createScope#(Ljetbrains/mps/smodel/runtime/ReferenceConstraintsContext;)Ljetbrains/mps/scope/Scope;" />
-      <node id="6371110426264899621" at="38,54,48,8" concept="7" />
-      <node id="6371110426264899621" at="36,0,50,0" concept="5" trace="getScopeProvider#()Ljetbrains/mps/smodel/runtime/ReferenceScopeProvider;" />
-      <scope id="6371110426264899621" at="33,54,34,52" />
-      <scope id="6371110426264899621" at="41,61,42,133" />
-      <scope id="6371110426264899621" at="45,78,46,322" />
-      <scope id="6371110426264899620" at="27,85,29,26" />
-      <scope id="6371110426264899621" at="33,0,36,0">
+      <node id="6371110426264899620" at="28,85,29,48" concept="11" />
+      <node id="6371110426264899621" at="29,48,30,26" concept="2" />
+      <node id="6371110426264899621" at="34,54,35,52" concept="11" />
+      <node id="6371110426264899621" at="42,61,43,133" concept="7" />
+      <node id="6371110426264899793" at="46,78,47,317" concept="7" />
+      <node id="6371110426264899620" at="54,0,55,0" concept="9" trace="ArgumentRef$Ar" />
+      <node id="6371110426264899620" at="55,0,56,0" concept="9" trace="IFunctionLike$zN" />
+      <node id="6371110426264899620" at="59,0,60,0" concept="9" trace="arg$bO7D" />
+      <node id="6371110426264899620" at="60,0,61,0" concept="9" trace="arguments$6da0" />
+      <node id="6371110426264899621" at="34,0,37,0" concept="1" trace="RD1#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptor;)V" />
+      <node id="6371110426264899620" at="28,0,32,0" concept="1" trace="ArgumentRef_Constraints#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptorInitContext;)V" />
+      <node id="6371110426264899621" at="41,0,45,0" concept="5" trace="getSearchScopeValidatorNode#()Lorg/jetbrains/mps/openapi/model/SNodeReference;" />
+      <node id="6371110426264899621" at="45,0,49,0" concept="5" trace="createScope#(Ljetbrains/mps/smodel/runtime/ReferenceConstraintsContext;)Ljetbrains/mps/scope/Scope;" />
+      <node id="6371110426264899621" at="39,54,49,8" concept="7" />
+      <node id="6371110426264899621" at="37,0,51,0" concept="5" trace="getScopeProvider#()Ljetbrains/mps/smodel/runtime/ReferenceScopeProvider;" />
+      <scope id="6371110426264899621" at="34,54,35,52" />
+      <scope id="6371110426264899621" at="42,61,43,133" />
+      <scope id="6371110426264899621" at="46,78,47,317" />
+      <scope id="6371110426264899620" at="28,85,30,26" />
+      <scope id="6371110426264899621" at="34,0,37,0">
         <var name="container" id="6371110426264899621" />
       </scope>
-      <scope id="6371110426264899620" at="27,0,31,0">
+      <scope id="6371110426264899620" at="28,0,32,0">
         <var name="initContext" id="6371110426264899620" />
       </scope>
-      <scope id="6371110426264899621" at="40,0,44,0" />
-      <scope id="6371110426264899621" at="44,0,48,0">
+      <scope id="6371110426264899621" at="41,0,45,0" />
+      <scope id="6371110426264899621" at="45,0,49,0">
         <var name="_context" id="6371110426264899621" />
       </scope>
-      <scope id="6371110426264899621" at="38,54,48,8" />
-      <scope id="6371110426264899621" at="36,0,50,0" />
-      <unit id="6371110426264899620" at="52,0,56,0" name="ReversibleStatements.constraints.ArgumentRef_Constraints$CONCEPTS" />
-      <unit id="6371110426264899620" at="57,0,61,0" name="ReversibleStatements.constraints.ArgumentRef_Constraints$LINKS" />
-      <unit id="6371110426264899621" at="39,17,48,7" name="ReversibleStatements.constraints.ArgumentRef_Constraints$RD1$1" />
-      <unit id="6371110426264899621" at="32,0,51,0" name="ReversibleStatements.constraints.ArgumentRef_Constraints$RD1" />
-      <unit id="6371110426264899620" at="26,0,62,0" name="ReversibleStatements.constraints.ArgumentRef_Constraints" />
+      <scope id="6371110426264899621" at="39,54,49,8" />
+      <scope id="6371110426264899621" at="37,0,51,0" />
+      <unit id="6371110426264899620" at="53,0,57,0" name="ReversibleStatements.constraints.ArgumentRef_Constraints$CONCEPTS" />
+      <unit id="6371110426264899620" at="58,0,62,0" name="ReversibleStatements.constraints.ArgumentRef_Constraints$LINKS" />
+      <unit id="6371110426264899621" at="40,17,49,7" name="ReversibleStatements.constraints.ArgumentRef_Constraints$RD1$1" />
+      <unit id="6371110426264899621" at="33,0,52,0" name="ReversibleStatements.constraints.ArgumentRef_Constraints$RD1" />
+      <unit id="6371110426264899620" at="27,0,63,0" name="ReversibleStatements.constraints.ArgumentRef_Constraints" />
     </file>
   </root>
   <root nodeRef="r:b1228d9b-8e2c-4c06-8c54-62acd072f382(ReversibleStatements.constraints)/713811912321759511">

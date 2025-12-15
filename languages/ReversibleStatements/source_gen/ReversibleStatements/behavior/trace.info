@@ -3266,7 +3266,7 @@
       <node id="5413024092817308768" at="86,40,87,19" concept="9" />
       <node id="5413024092817308768" at="91,0,92,0" concept="12" trace="ReversibleFunction$IL" />
       <node id="5413024092817308768" at="92,0,93,0" concept="12" trace="VoidType$GT" />
-      <node id="5413024092817308768" at="96,0,97,0" concept="12" trace="type$m1NA" />
+      <node id="5413024092817308768" at="96,0,97,0" concept="12" trace="type$sXU3" />
       <node id="5413024092817308768" at="32,0,34,0" concept="13" trace="___init___#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
       <node id="5413024092817308768" at="42,0,44,0" concept="2" trace="ReturnStatement__BehaviorDescriptor#()V" />
       <node id="5413024092817308768" at="35,0,38,0" concept="13" trace="needsReturnValue_id5ak6HMA0oem#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />

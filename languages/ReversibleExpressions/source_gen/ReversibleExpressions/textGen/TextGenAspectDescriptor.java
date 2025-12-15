@@ -39,10 +39,16 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new GenericDotExpression_TextGen();
       case LanguageConceptSwitch.GenericMemberRef:
         return new GenericMemberRef_TextGen();
+      case LanguageConceptSwitch.GlobalConstantRef:
+        return new GlobalConstantRef_TextGen();
+      case LanguageConceptSwitch.GlobalVarRef:
+        return new GlobalVarRef_TextGen();
       case LanguageConceptSwitch.HexNumberLiteral:
         return new HexNumberLiteral_TextGen();
       case LanguageConceptSwitch.NotExpression:
         return new NotExpression_TextGen();
+      case LanguageConceptSwitch.NullExpression:
+        return new NullExpression_TextGen();
       case LanguageConceptSwitch.NumberLiteral:
         return new NumberLiteral_TextGen();
       case LanguageConceptSwitch.OctalNumberLiteral:

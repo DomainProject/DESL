@@ -17,7 +17,7 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/5351203823916750322:jetbrains.mps.baseLanguage.structure.TryUniversalStatement" />
   <root>
     <file name="EditorAspectDescriptorImpl.java">
-      <unit at="19,0,348,0" name="ReversibleExpressions.editor.EditorAspectDescriptorImpl" />
+      <unit at="19,0,360,0" name="ReversibleExpressions.editor.EditorAspectDescriptorImpl" />
     </file>
     <file name="GenericMemberRef_SubstituteMenu.java">
       <unit at="61,0,64,0" name="ReversibleExpressions.editor.GenericMemberRef_SubstituteMenu$CONCEPTS" />
@@ -25,6 +25,20 @@
       <unit at="38,0,45,0" name="ReversibleExpressions.editor.GenericMemberRef_SubstituteMenu$SMP_ReferenceScope_zc63ln_a" />
       <unit at="45,0,60,0" name="ReversibleExpressions.editor.GenericMemberRef_SubstituteMenu$SMP_Subconcepts_zc63ln_b" />
       <unit at="25,0,69,0" name="ReversibleExpressions.editor.GenericMemberRef_SubstituteMenu" />
+    </file>
+    <file name="GlobalConstantRef_SubstituteMenu.java">
+      <unit at="61,0,64,0" name="ReversibleExpressions.editor.GlobalConstantRef_SubstituteMenu$CONCEPTS" />
+      <unit at="65,0,68,0" name="ReversibleExpressions.editor.GlobalConstantRef_SubstituteMenu$LINKS" />
+      <unit at="38,0,45,0" name="ReversibleExpressions.editor.GlobalConstantRef_SubstituteMenu$SMP_ReferenceScope_lv09ly_a" />
+      <unit at="45,0,60,0" name="ReversibleExpressions.editor.GlobalConstantRef_SubstituteMenu$SMP_Subconcepts_lv09ly_b" />
+      <unit at="25,0,69,0" name="ReversibleExpressions.editor.GlobalConstantRef_SubstituteMenu" />
+    </file>
+    <file name="GlobalVarRef_SubstituteMenu.java">
+      <unit at="61,0,64,0" name="ReversibleExpressions.editor.GlobalVarRef_SubstituteMenu$CONCEPTS" />
+      <unit at="65,0,68,0" name="ReversibleExpressions.editor.GlobalVarRef_SubstituteMenu$LINKS" />
+      <unit at="38,0,45,0" name="ReversibleExpressions.editor.GlobalVarRef_SubstituteMenu$SMP_ReferenceScope_j31vjo_a" />
+      <unit at="45,0,60,0" name="ReversibleExpressions.editor.GlobalVarRef_SubstituteMenu$SMP_Subconcepts_j31vjo_b" />
+      <unit at="25,0,69,0" name="ReversibleExpressions.editor.GlobalVarRef_SubstituteMenu" />
     </file>
     <file name="GrammarActionsDescriptor.java">
       <unit at="3137,0,3140,0" name="ReversibleExpressions.editor.GrammarActionsDescriptor$PROPS" />
@@ -276,6 +290,16 @@
       <unit at="34,0,44,0" name="ReversibleExpressions.editor.GrammarCellsSubstituteMenu_GenericMemberRef$GrammarCellsSubstituteMenuPart_bkeu6n_a" />
       <unit at="22,0,49,0" name="ReversibleExpressions.editor.GrammarCellsSubstituteMenu_GenericMemberRef" />
     </file>
+    <file name="GrammarCellsSubstituteMenu_GlobalConstantRef.java">
+      <unit at="45,0,48,0" name="ReversibleExpressions.editor.GrammarCellsSubstituteMenu_GlobalConstantRef$CONCEPTS" />
+      <unit at="34,0,44,0" name="ReversibleExpressions.editor.GrammarCellsSubstituteMenu_GlobalConstantRef$GrammarCellsSubstituteMenuPart_dx6lc8_a" />
+      <unit at="22,0,49,0" name="ReversibleExpressions.editor.GrammarCellsSubstituteMenu_GlobalConstantRef" />
+    </file>
+    <file name="GrammarCellsSubstituteMenu_GlobalVarRef.java">
+      <unit at="45,0,48,0" name="ReversibleExpressions.editor.GrammarCellsSubstituteMenu_GlobalVarRef$CONCEPTS" />
+      <unit at="34,0,44,0" name="ReversibleExpressions.editor.GrammarCellsSubstituteMenu_GlobalVarRef$GrammarCellsSubstituteMenuPart_ndg6kl_a" />
+      <unit at="22,0,49,0" name="ReversibleExpressions.editor.GrammarCellsSubstituteMenu_GlobalVarRef" />
+    </file>
     <file name="GrammarCellsSubstituteMenu_GreaterEqualsExpression.java">
       <unit at="44,0,47,0" name="ReversibleExpressions.editor.GrammarCellsSubstituteMenu_GreaterEqualsExpression$CONCEPTS" />
       <unit at="33,0,43,0" name="ReversibleExpressions.editor.GrammarCellsSubstituteMenu_GreaterEqualsExpression$GrammarCellsSubstituteMenuPart_p2ulqy_a" />
@@ -475,6 +499,11 @@
       <unit at="44,0,47,0" name="ReversibleExpressions.editor.GrammarCellsSubstituteMenu_NotParsedExpression$CONCEPTS" />
       <unit at="33,0,43,0" name="ReversibleExpressions.editor.GrammarCellsSubstituteMenu_NotParsedExpression$GrammarCellsSubstituteMenuPart_h9ad4g_a" />
       <unit at="21,0,48,0" name="ReversibleExpressions.editor.GrammarCellsSubstituteMenu_NotParsedExpression" />
+    </file>
+    <file name="GrammarCellsSubstituteMenu_NullExpression.java">
+      <unit at="44,0,47,0" name="ReversibleExpressions.editor.GrammarCellsSubstituteMenu_NullExpression$CONCEPTS" />
+      <unit at="33,0,43,0" name="ReversibleExpressions.editor.GrammarCellsSubstituteMenu_NullExpression$GrammarCellsSubstituteMenuPart_y38jil_a" />
+      <unit at="21,0,48,0" name="ReversibleExpressions.editor.GrammarCellsSubstituteMenu_NullExpression" />
     </file>
     <file name="GrammarCellsSubstituteMenu_NumberLiteral.java">
       <unit at="44,0,47,0" name="ReversibleExpressions.editor.GrammarCellsSubstituteMenu_NumberLiteral$CONCEPTS" />
@@ -6425,6 +6454,131 @@
       <unit id="4420643699735354150" at="24,0,66,0" name="ReversibleExpressions.editor.toggle_PostIncDec" />
     </file>
   </root>
+  <root nodeRef="r:e9706a5f-6192-4ab2-9fe9-9e1d284b7670(ReversibleExpressions.editor)/453831797798030060">
+    <file name="NullExpression_Editor.java">
+      <node id="453831797798030060" at="11,79,12,80" concept="8" />
+      <node id="453831797798030060" at="11,0,14,0" concept="6" trace="createEditorCell#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <scope id="453831797798030060" at="11,79,12,80" />
+      <scope id="453831797798030060" at="11,0,14,0">
+        <var name="editorContext" id="453831797798030060" />
+        <var name="node" id="453831797798030060" />
+      </scope>
+      <unit id="453831797798030060" at="10,0,15,0" name="ReversibleExpressions.editor.NullExpression_Editor" />
+    </file>
+    <file name="NullExpression_EditorBuilder_a.java">
+      <node id="453831797798030060" at="16,94,17,19" concept="13" />
+      <node id="453831797798030060" at="17,19,18,18" concept="2" />
+      <node id="453831797798030060" at="23,26,24,18" concept="8" />
+      <node id="453831797798030060" at="27,39,28,31" concept="8" />
+      <node id="453831797798030062" at="31,42,32,119" concept="7" />
+      <node id="453831797798030062" at="32,119,33,72" concept="7" />
+      <node id="453831797798030062" at="34,26,35,27" concept="2" />
+      <node id="453831797798030062" at="35,27,36,30" concept="2" />
+      <node id="453831797798030062" at="37,5,38,22" concept="8" />
+      <node id="453831797798030060" at="13,0,15,0" concept="3" trace="myNode" />
+      <node id="453831797798030060" at="27,0,30,0" concept="6" trace="createCell#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="453831797798030060" at="16,0,20,0" concept="1" trace="NullExpression_EditorBuilder_a#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)V" />
+      <node id="453831797798030062" at="33,72,37,5" concept="5" />
+      <node id="453831797798030060" at="21,0,26,0" concept="6" trace="getNode#()Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="453831797798030062" at="31,0,40,0" concept="6" trace="createComponent_0#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <scope id="453831797798030060" at="23,26,24,18" />
+      <scope id="453831797798030060" at="27,39,28,31" />
+      <scope id="453831797798030060" at="16,94,18,18" />
+      <scope id="453831797798030062" at="34,26,36,30" />
+      <scope id="453831797798030060" at="27,0,30,0" />
+      <scope id="453831797798030060" at="16,0,20,0">
+        <var name="context" id="453831797798030060" />
+        <var name="node" id="453831797798030060" />
+      </scope>
+      <scope id="453831797798030060" at="21,0,26,0" />
+      <scope id="453831797798030062" at="31,42,38,22">
+        <var name="bigCell" id="453831797798030062" />
+        <var name="editorCell" id="453831797798030062" />
+      </scope>
+      <scope id="453831797798030062" at="31,0,40,0" />
+      <unit id="453831797798030060" at="12,0,41,0" name="ReversibleExpressions.editor.NullExpression_EditorBuilder_a" />
+    </file>
+  </root>
+  <root nodeRef="r:e9706a5f-6192-4ab2-9fe9-9e1d284b7670(ReversibleExpressions.editor)/453831797798030657">
+    <file name="NullExpression_SubstituteMenu.java">
+      <node id="453831797798030657" at="24,42,25,210" concept="13" />
+      <node id="453831797798030657" at="29,118,30,140" concept="7" />
+      <node id="453831797798030659" at="30,140,31,123" concept="2" />
+      <node id="453831797798030657" at="31,123,32,18" concept="8" />
+      <node id="453831797798030659" at="39,77,40,37" concept="7" />
+      <node id="453831797798030659" at="40,37,41,28" concept="2" />
+      <node id="453831797798030659" at="41,28,42,18" concept="8" />
+      <node id="453831797798030659" at="45,0,46,0" concept="3" trace="_context" />
+      <node id="453831797798030659" at="46,50,47,51" concept="13" />
+      <node id="453831797798030659" at="47,51,48,27" concept="2" />
+      <node id="453831797798030659" at="51,41,52,71" concept="7" />
+      <node id="453831797798030659" at="52,71,53,149" concept="2" />
+      <node id="453831797798030946" at="58,56,59,51" concept="8" />
+      <node id="453831797798030659" at="63,58,64,51" concept="8" />
+      <node id="453831797798030659" at="67,66,68,50" concept="8" />
+      <node id="453831797798052072" at="70,85,71,48" concept="8" />
+      <node id="5765496628097710609" at="75,60,76,74" concept="7" />
+      <node id="5765496628097710609" at="76,74,77,26" concept="8" />
+      <node id="453831797798030657" at="81,0,82,0" concept="11" trace="NullExpression$rn" />
+      <node id="453831797798030657" at="24,0,27,0" concept="1" trace="NullExpression_SubstituteMenu#()V" />
+      <node id="453831797798030659" at="70,0,73,0" concept="6" trace="canExecute_internal#(Ljava/lang/String;Z)Z" />
+      <node id="453831797798030659" at="46,0,50,0" concept="1" trace="Item#(Ljetbrains/mps/openapi/editor/menus/substitute/SubstituteMenuContext;)V" />
+      <node id="453831797798030659" at="51,0,55,0" concept="6" trace="resetTraceInfo#()V" />
+      <node id="453831797798030659" at="62,0,66,0" concept="6" trace="canExecute#(Ljava/lang/String;)Z" />
+      <node id="453831797798030659" at="66,0,70,0" concept="6" trace="canExecuteStrictly#(Ljava/lang/String;)Z" />
+      <node id="5765496628097710609" at="75,0,79,0" concept="12" trace="createNullExpression_mao0ks_a0a0a#()Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="453831797798030659" at="56,0,61,0" concept="6" trace="createNode#(Ljava/lang/String;)Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="453831797798030657" at="27,0,34,0" concept="6" trace="getParts#(Ljetbrains/mps/openapi/editor/menus/substitute/SubstituteMenuContext;)Ljava/util/List;" />
+      <node id="453831797798030659" at="37,0,44,0" concept="6" trace="createItem#(Ljetbrains/mps/openapi/editor/menus/substitute/SubstituteMenuContext;)Ljetbrains/mps/openapi/editor/menus/substitute/SubstituteMenuItem;" />
+      <scope id="453831797798030657" at="24,42,25,210" />
+      <scope id="453831797798030659" at="58,56,59,51" />
+      <scope id="453831797798030659" at="63,58,64,51" />
+      <scope id="453831797798030659" at="67,66,68,50" />
+      <scope id="453831797798030659" at="70,85,71,48" />
+      <scope id="453831797798030659" at="46,50,48,27" />
+      <scope id="453831797798030659" at="51,41,53,149">
+        <var name="description" id="453831797798030659" />
+      </scope>
+      <scope id="5765496628097710609" at="75,60,77,26">
+        <var name="n0" id="5765496628097710609" />
+      </scope>
+      <scope id="453831797798030657" at="24,0,27,0" />
+      <scope id="453831797798030657" at="29,118,32,18">
+        <var name="result" id="453831797798030657" />
+      </scope>
+      <scope id="453831797798030659" at="39,77,42,18">
+        <var name="item" id="453831797798030659" />
+      </scope>
+      <scope id="453831797798030659" at="70,0,73,0">
+        <var name="pattern" id="453831797798030659" />
+        <var name="strictly" id="453831797798030659" />
+      </scope>
+      <scope id="453831797798030659" at="46,0,50,0">
+        <var name="context" id="453831797798030659" />
+      </scope>
+      <scope id="453831797798030659" at="51,0,55,0" />
+      <scope id="453831797798030659" at="62,0,66,0">
+        <var name="pattern" id="453831797798030659" />
+      </scope>
+      <scope id="453831797798030659" at="66,0,70,0">
+        <var name="pattern" id="453831797798030659" />
+      </scope>
+      <scope id="5765496628097710609" at="75,0,79,0" />
+      <scope id="453831797798030659" at="56,0,61,0">
+        <var name="pattern" id="453831797798030659" />
+      </scope>
+      <scope id="453831797798030657" at="27,0,34,0">
+        <var name="_context" id="453831797798030657" />
+      </scope>
+      <scope id="453831797798030659" at="37,0,44,0">
+        <var name="_context" id="453831797798030659" />
+      </scope>
+      <unit id="453831797798030657" at="80,0,83,0" name="ReversibleExpressions.editor.NullExpression_SubstituteMenu$CONCEPTS" />
+      <unit id="453831797798030659" at="44,0,74,0" name="ReversibleExpressions.editor.NullExpression_SubstituteMenu$SMP_Action_mao0ks_a$Item" />
+      <unit id="453831797798030659" at="35,0,75,0" name="ReversibleExpressions.editor.NullExpression_SubstituteMenu$SMP_Action_mao0ks_a" />
+      <unit id="453831797798030657" at="23,0,84,0" name="ReversibleExpressions.editor.NullExpression_SubstituteMenu" />
+    </file>
+  </root>
   <root nodeRef="r:e9706a5f-6192-4ab2-9fe9-9e1d284b7670(ReversibleExpressions.editor)/5550109098754549893">
     <file name="deleteNotExpressionExclPoint.java">
       <node id="5550109098754549894" at="22,56,23,51" concept="2" />
@@ -6508,6 +6662,322 @@
       <unit id="5550109098754549893" at="73,0,76,0" name="ReversibleExpressions.editor.deleteNotExpressionExclPoint$LINKS" />
       <unit id="5550109098754549894" at="21,15,29,5" name="ReversibleExpressions.editor.deleteNotExpressionExclPoint$1" />
       <unit id="5550109098754549893" at="18,0,77,0" name="ReversibleExpressions.editor.deleteNotExpressionExclPoint" />
+    </file>
+  </root>
+  <root nodeRef="r:e9706a5f-6192-4ab2-9fe9-9e1d284b7670(ReversibleExpressions.editor)/5666369706459453179">
+    <file name="GlobalConstantRef_Editor.java">
+      <node id="5666369706459453179" at="11,79,12,83" concept="8" />
+      <node id="5666369706459453179" at="11,0,14,0" concept="6" trace="createEditorCell#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <scope id="5666369706459453179" at="11,79,12,83" />
+      <scope id="5666369706459453179" at="11,0,14,0">
+        <var name="editorContext" id="5666369706459453179" />
+        <var name="node" id="5666369706459453179" />
+      </scope>
+      <unit id="5666369706459453179" at="10,0,15,0" name="ReversibleExpressions.editor.GlobalConstantRef_Editor" />
+    </file>
+    <file name="GlobalConstantRef_EditorBuilder_a.java">
+      <node id="5666369706459453179" at="44,97,45,19" concept="13" />
+      <node id="5666369706459453179" at="45,19,46,18" concept="2" />
+      <node id="5666369706459453179" at="51,26,52,18" concept="8" />
+      <node id="5666369706459453179" at="55,39,56,32" concept="8" />
+      <node id="5666369706459453179" at="59,43,60,118" concept="7" />
+      <node id="5666369706459453179" at="60,118,61,48" concept="2" />
+      <node id="5666369706459453179" at="61,48,62,28" concept="2" />
+      <node id="5666369706459453179" at="62,28,63,31" concept="2" />
+      <node id="5666369706459453181" at="63,31,64,48" concept="2" />
+      <node id="5666369706459453179" at="64,48,65,22" concept="8" />
+      <node id="5666369706459453179" at="67,40,68,61" concept="7" />
+      <node id="5666369706459453179" at="70,72,71,186" concept="7" />
+      <node id="5666369706459453179" at="71,186,72,60" concept="2" />
+      <node id="5666369706459453179" at="72,60,73,48" concept="2" />
+      <node id="5666369706459453179" at="73,48,74,58" concept="2" />
+      <node id="5666369706459453179" at="74,58,75,20" concept="8" />
+      <node id="5666369706459453179" at="78,58,79,97" concept="7" />
+      <node id="5666369706459453179" at="79,97,80,131" concept="2" />
+      <node id="5666369706459453179" at="80,131,81,135" concept="2" />
+      <node id="5666369706459453179" at="81,135,82,20" concept="8" />
+      <node id="5666369706459453179" at="84,6,85,0" concept="10" />
+      <node id="5666369706459453179" at="85,0,86,46" concept="2" />
+      <node id="5666369706459453179" at="86,46,87,50" concept="7" />
+      <node id="5666369706459453179" at="87,50,88,0" concept="10" />
+      <node id="5666369706459453179" at="89,40,90,40" concept="2" />
+      <node id="5666369706459453179" at="90,40,91,47" concept="2" />
+      <node id="5666369706459453179" at="92,5,93,143" concept="2" />
+      <node id="5666369706459453179" at="93,143,94,150" concept="7" />
+      <node id="5666369706459453179" at="94,150,95,205" concept="7" />
+      <node id="5666369706459453179" at="96,73,97,87" concept="7" />
+      <node id="5666369706459453179" at="97,87,98,145" concept="8" />
+      <node id="5666369706459453179" at="99,10,100,22" concept="8" />
+      <node id="5666369706459453183" at="105,0,106,0" concept="3" trace="myReferencingNode" />
+      <node id="5666369706459453183" at="107,109,108,21" concept="13" />
+      <node id="5666369706459453183" at="108,21,109,42" concept="2" />
+      <node id="5666369706459453183" at="109,42,110,20" concept="2" />
+      <node id="5666369706459453183" at="113,41,114,32" concept="8" />
+      <node id="5666369706459453183" at="119,28,120,20" concept="8" />
+      <node id="5666369706459453189" at="123,43,124,41" concept="2" />
+      <node id="5666369706459453189" at="125,11,126,51" concept="7" />
+      <node id="5666369706459453189" at="126,51,127,78" concept="2" />
+      <node id="5666369706459453189" at="127,78,128,150" concept="7" />
+      <node id="5666369706459453189" at="128,150,129,47" concept="2" />
+      <node id="5666369706459453189" at="129,47,130,46" concept="2" />
+      <node id="5666369706459453189" at="130,46,131,38" concept="7" />
+      <node id="5666369706459453189" at="131,38,132,68" concept="2" />
+      <node id="5666369706459453189" at="132,68,133,56" concept="2" />
+      <node id="5666369706459453189" at="133,56,134,44" concept="2" />
+      <node id="5666369706459453189" at="134,44,135,88" concept="2" />
+      <node id="5666369706459453189" at="135,88,136,35" concept="2" />
+      <node id="5666369706459453189" at="136,35,137,157" concept="7" />
+      <node id="5666369706459453189" at="137,157,138,210" concept="7" />
+      <node id="5666369706459453189" at="139,76,140,91" concept="7" />
+      <node id="5666369706459453189" at="140,91,141,147" concept="8" />
+      <node id="5666369706459453189" at="142,14,143,26" concept="8" />
+      <node id="5666369706459453189" at="144,17,145,42" concept="2" />
+      <node id="5666369706459453179" at="151,0,152,0" concept="11" trace="constant$ODeS" />
+      <node id="5666369706459453179" at="155,0,156,0" concept="11" trace="LinkAttribute$v_" />
+      <node id="5666369706459453179" at="156,0,157,0" concept="11" trace="PropertyAttribute$Gb" />
+      <node id="5666369706459453179" at="160,0,161,0" concept="11" trace="name$MnvL" />
+      <node id="5666369706459453179" at="41,0,43,0" concept="3" trace="myNode" />
+      <node id="5666369706459453183" at="103,0,105,0" concept="3" trace="myNode" />
+      <node id="5666369706459453179" at="55,0,58,0" concept="6" trace="createCell#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="5666369706459453183" at="113,0,116,0" concept="6" trace="createCell#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="5666369706459453179" at="44,0,48,0" concept="1" trace="GlobalConstantRef_EditorBuilder_a#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)V" />
+      <node id="5666369706459453179" at="88,0,92,5" concept="5" />
+      <node id="5666369706459453179" at="49,0,54,0" concept="6" trace="getNode#()Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="5666369706459453179" at="95,205,100,22" concept="5" />
+      <node id="5666369706459453183" at="107,0,112,0" concept="1" trace="Inline_Builder0#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)V" />
+      <node id="5666369706459453183" at="117,0,122,0" concept="6" trace="getNode#()Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="5666369706459453189" at="138,210,143,26" concept="5" />
+      <node id="5666369706459453179" at="70,0,77,0" concept="6" trace="createReferenceCell#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="5666369706459453179" at="77,0,84,0" concept="6" trace="createErrorCell#(Ljava/lang/String;)Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="5666369706459453179" at="59,0,67,0" concept="6" trace="createCollection_0#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="5666369706459453179" at="68,61,84,6" concept="7" />
+      <node id="5666369706459453189" at="124,41,146,7" concept="14" />
+      <node id="5666369706459453189" at="123,0,148,0" concept="6" trace="createProperty_0#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="5666369706459453179" at="67,0,102,0" concept="6" trace="createRefCell_0#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <scope id="5666369706459453179" at="51,26,52,18" />
+      <scope id="5666369706459453179" at="55,39,56,32" />
+      <scope id="5666369706459453183" at="113,41,114,32" />
+      <scope id="5666369706459453183" at="119,28,120,20" />
+      <scope id="5666369706459453189" at="144,17,145,42" />
+      <scope id="5666369706459453179" at="44,97,46,18" />
+      <scope id="5666369706459453179" at="89,40,91,47" />
+      <scope id="5666369706459453179" at="96,73,98,145">
+        <var name="manager" id="5666369706459453179" />
+      </scope>
+      <scope id="5666369706459453189" at="139,76,141,147">
+        <var name="manager" id="5666369706459453189" />
+      </scope>
+      <scope id="5666369706459453179" at="55,0,58,0" />
+      <scope id="5666369706459453183" at="107,109,110,20" />
+      <scope id="5666369706459453183" at="113,0,116,0" />
+      <scope id="5666369706459453179" at="44,0,48,0">
+        <var name="context" id="5666369706459453179" />
+        <var name="node" id="5666369706459453179" />
+      </scope>
+      <scope id="5666369706459453179" at="78,58,82,20">
+        <var name="cell" id="5666369706459453179" />
+      </scope>
+      <scope id="5666369706459453179" at="49,0,54,0" />
+      <scope id="5666369706459453179" at="70,72,75,20">
+        <var name="cell" id="5666369706459453179" />
+      </scope>
+      <scope id="5666369706459453183" at="107,0,112,0">
+        <var name="context" id="5666369706459453183" />
+        <var name="node" id="5666369706459453183" />
+        <var name="referencingNode" id="5666369706459453183" />
+      </scope>
+      <scope id="5666369706459453183" at="117,0,122,0" />
+      <scope id="5666369706459453179" at="59,43,65,22">
+        <var name="editorCell" id="5666369706459453179" />
+      </scope>
+      <scope id="5666369706459453179" at="70,0,77,0">
+        <var name="targetNode" id="5666369706459453179" />
+      </scope>
+      <scope id="5666369706459453179" at="77,0,84,0">
+        <var name="error" id="5666369706459453179" />
+      </scope>
+      <scope id="5666369706459453179" at="59,0,67,0" />
+      <scope id="5666369706459453189" at="125,11,143,26">
+        <var name="currentPropertyAttributes" id="5666369706459453189" />
+        <var name="editorCell" id="5666369706459453189" />
+        <var name="property" id="5666369706459453189" />
+        <var name="propertyAttributes" id="5666369706459453189" />
+        <var name="style" id="5666369706459453189" />
+      </scope>
+      <scope id="5666369706459453189" at="123,43,146,7" />
+      <scope id="5666369706459453189" at="123,0,148,0" />
+      <scope id="5666369706459453179" at="67,40,100,22">
+        <var name="currentReferenceAttributes" id="5666369706459453179" />
+        <var name="editorCell" id="5666369706459453179" />
+        <var name="provider" id="5666369706459453179" />
+        <var name="referenceAttributes" id="5666369706459453179" />
+        <var name="referenceLink" id="5666369706459453179" />
+      </scope>
+      <scope id="5666369706459453179" at="67,0,102,0" />
+      <unit id="5666369706459453179" at="150,0,153,0" name="ReversibleExpressions.editor.GlobalConstantRef_EditorBuilder_a$LINKS" />
+      <unit id="5666369706459453179" at="159,0,162,0" name="ReversibleExpressions.editor.GlobalConstantRef_EditorBuilder_a$PROPS" />
+      <unit id="5666369706459453179" at="154,0,158,0" name="ReversibleExpressions.editor.GlobalConstantRef_EditorBuilder_a$CONCEPTS" />
+      <unit id="5666369706459453179" at="69,42,84,5" name="ReversibleExpressions.editor.GlobalConstantRef_EditorBuilder_a$1" />
+      <unit id="5666369706459453183" at="102,0,149,0" name="ReversibleExpressions.editor.GlobalConstantRef_EditorBuilder_a$Inline_Builder0" />
+      <unit id="5666369706459453179" at="40,0,163,0" name="ReversibleExpressions.editor.GlobalConstantRef_EditorBuilder_a" />
+    </file>
+  </root>
+  <root nodeRef="r:e9706a5f-6192-4ab2-9fe9-9e1d284b7670(ReversibleExpressions.editor)/5666369706471012875">
+    <file name="GlobalVarRef_Editor.java">
+      <node id="5666369706471012875" at="11,79,12,78" concept="8" />
+      <node id="5666369706471012875" at="11,0,14,0" concept="6" trace="createEditorCell#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <scope id="5666369706471012875" at="11,79,12,78" />
+      <scope id="5666369706471012875" at="11,0,14,0">
+        <var name="editorContext" id="5666369706471012875" />
+        <var name="node" id="5666369706471012875" />
+      </scope>
+      <unit id="5666369706471012875" at="10,0,15,0" name="ReversibleExpressions.editor.GlobalVarRef_Editor" />
+    </file>
+    <file name="GlobalVarRef_EditorBuilder_a.java">
+      <node id="5666369706471012875" at="44,92,45,19" concept="13" />
+      <node id="5666369706471012875" at="45,19,46,18" concept="2" />
+      <node id="5666369706471012875" at="51,26,52,18" concept="8" />
+      <node id="5666369706471012875" at="55,39,56,32" concept="8" />
+      <node id="5666369706471012875" at="59,43,60,118" concept="7" />
+      <node id="5666369706471012875" at="60,118,61,48" concept="2" />
+      <node id="5666369706471012875" at="61,48,62,28" concept="2" />
+      <node id="5666369706471012875" at="62,28,63,31" concept="2" />
+      <node id="5666369706471012877" at="63,31,64,48" concept="2" />
+      <node id="5666369706471012875" at="64,48,65,22" concept="8" />
+      <node id="5666369706471012875" at="67,40,68,56" concept="7" />
+      <node id="5666369706471012875" at="70,72,71,181" concept="7" />
+      <node id="5666369706471012875" at="71,181,72,60" concept="2" />
+      <node id="5666369706471012875" at="72,60,73,48" concept="2" />
+      <node id="5666369706471012875" at="73,48,74,58" concept="2" />
+      <node id="5666369706471012875" at="74,58,75,20" concept="8" />
+      <node id="5666369706471012875" at="78,58,79,97" concept="7" />
+      <node id="5666369706471012875" at="79,97,80,131" concept="2" />
+      <node id="5666369706471012875" at="80,131,81,135" concept="2" />
+      <node id="5666369706471012875" at="81,135,82,20" concept="8" />
+      <node id="5666369706471012875" at="84,6,85,0" concept="10" />
+      <node id="5666369706471012875" at="85,0,86,41" concept="2" />
+      <node id="5666369706471012875" at="86,41,87,50" concept="7" />
+      <node id="5666369706471012875" at="87,50,88,0" concept="10" />
+      <node id="5666369706471012875" at="89,40,90,40" concept="2" />
+      <node id="5666369706471012875" at="90,40,91,42" concept="2" />
+      <node id="5666369706471012875" at="92,5,93,143" concept="2" />
+      <node id="5666369706471012875" at="93,143,94,150" concept="7" />
+      <node id="5666369706471012875" at="94,150,95,205" concept="7" />
+      <node id="5666369706471012875" at="96,73,97,87" concept="7" />
+      <node id="5666369706471012875" at="97,87,98,145" concept="8" />
+      <node id="5666369706471012875" at="99,10,100,22" concept="8" />
+      <node id="5666369706471012879" at="105,0,106,0" concept="3" trace="myReferencingNode" />
+      <node id="5666369706471012879" at="107,109,108,21" concept="13" />
+      <node id="5666369706471012879" at="108,21,109,42" concept="2" />
+      <node id="5666369706471012879" at="109,42,110,20" concept="2" />
+      <node id="5666369706471012879" at="113,41,114,32" concept="8" />
+      <node id="5666369706471012879" at="119,28,120,20" concept="8" />
+      <node id="5666369706471012885" at="123,43,124,41" concept="2" />
+      <node id="5666369706471012885" at="125,11,126,51" concept="7" />
+      <node id="5666369706471012885" at="126,51,127,78" concept="2" />
+      <node id="5666369706471012885" at="127,78,128,150" concept="7" />
+      <node id="5666369706471012885" at="128,150,129,47" concept="2" />
+      <node id="5666369706471012885" at="129,47,130,46" concept="2" />
+      <node id="5666369706471012885" at="130,46,131,38" concept="7" />
+      <node id="5666369706471012885" at="131,38,132,68" concept="2" />
+      <node id="5666369706471012885" at="132,68,133,56" concept="2" />
+      <node id="5666369706471012885" at="133,56,134,44" concept="2" />
+      <node id="5666369706471012885" at="134,44,135,88" concept="2" />
+      <node id="5666369706471012885" at="135,88,136,35" concept="2" />
+      <node id="5666369706471012885" at="136,35,137,157" concept="7" />
+      <node id="5666369706471012885" at="137,157,138,210" concept="7" />
+      <node id="5666369706471012885" at="139,76,140,91" concept="7" />
+      <node id="5666369706471012885" at="140,91,141,147" concept="8" />
+      <node id="5666369706471012885" at="142,14,143,26" concept="8" />
+      <node id="5666369706471012885" at="144,17,145,42" concept="2" />
+      <node id="5666369706471012875" at="151,0,152,0" concept="11" trace="var$Q_mg" />
+      <node id="5666369706471012875" at="155,0,156,0" concept="11" trace="LinkAttribute$v_" />
+      <node id="5666369706471012875" at="156,0,157,0" concept="11" trace="PropertyAttribute$Gb" />
+      <node id="5666369706471012875" at="160,0,161,0" concept="11" trace="name$MnvL" />
+      <node id="5666369706471012875" at="41,0,43,0" concept="3" trace="myNode" />
+      <node id="5666369706471012879" at="103,0,105,0" concept="3" trace="myNode" />
+      <node id="5666369706471012875" at="55,0,58,0" concept="6" trace="createCell#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="5666369706471012879" at="113,0,116,0" concept="6" trace="createCell#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="5666369706471012875" at="44,0,48,0" concept="1" trace="GlobalVarRef_EditorBuilder_a#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)V" />
+      <node id="5666369706471012875" at="88,0,92,5" concept="5" />
+      <node id="5666369706471012875" at="49,0,54,0" concept="6" trace="getNode#()Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="5666369706471012875" at="95,205,100,22" concept="5" />
+      <node id="5666369706471012879" at="107,0,112,0" concept="1" trace="Inline_Builder0#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)V" />
+      <node id="5666369706471012879" at="117,0,122,0" concept="6" trace="getNode#()Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="5666369706471012885" at="138,210,143,26" concept="5" />
+      <node id="5666369706471012875" at="70,0,77,0" concept="6" trace="createReferenceCell#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="5666369706471012875" at="77,0,84,0" concept="6" trace="createErrorCell#(Ljava/lang/String;)Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="5666369706471012875" at="59,0,67,0" concept="6" trace="createCollection_0#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="5666369706471012875" at="68,56,84,6" concept="7" />
+      <node id="5666369706471012885" at="124,41,146,7" concept="14" />
+      <node id="5666369706471012885" at="123,0,148,0" concept="6" trace="createProperty_0#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="5666369706471012875" at="67,0,102,0" concept="6" trace="createRefCell_0#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <scope id="5666369706471012875" at="51,26,52,18" />
+      <scope id="5666369706471012875" at="55,39,56,32" />
+      <scope id="5666369706471012879" at="113,41,114,32" />
+      <scope id="5666369706471012879" at="119,28,120,20" />
+      <scope id="5666369706471012885" at="144,17,145,42" />
+      <scope id="5666369706471012875" at="44,92,46,18" />
+      <scope id="5666369706471012875" at="89,40,91,42" />
+      <scope id="5666369706471012875" at="96,73,98,145">
+        <var name="manager" id="5666369706471012875" />
+      </scope>
+      <scope id="5666369706471012885" at="139,76,141,147">
+        <var name="manager" id="5666369706471012885" />
+      </scope>
+      <scope id="5666369706471012875" at="55,0,58,0" />
+      <scope id="5666369706471012879" at="107,109,110,20" />
+      <scope id="5666369706471012879" at="113,0,116,0" />
+      <scope id="5666369706471012875" at="44,0,48,0">
+        <var name="context" id="5666369706471012875" />
+        <var name="node" id="5666369706471012875" />
+      </scope>
+      <scope id="5666369706471012875" at="78,58,82,20">
+        <var name="cell" id="5666369706471012875" />
+      </scope>
+      <scope id="5666369706471012875" at="49,0,54,0" />
+      <scope id="5666369706471012875" at="70,72,75,20">
+        <var name="cell" id="5666369706471012875" />
+      </scope>
+      <scope id="5666369706471012879" at="107,0,112,0">
+        <var name="context" id="5666369706471012879" />
+        <var name="node" id="5666369706471012879" />
+        <var name="referencingNode" id="5666369706471012879" />
+      </scope>
+      <scope id="5666369706471012879" at="117,0,122,0" />
+      <scope id="5666369706471012875" at="59,43,65,22">
+        <var name="editorCell" id="5666369706471012875" />
+      </scope>
+      <scope id="5666369706471012875" at="70,0,77,0">
+        <var name="targetNode" id="5666369706471012875" />
+      </scope>
+      <scope id="5666369706471012875" at="77,0,84,0">
+        <var name="error" id="5666369706471012875" />
+      </scope>
+      <scope id="5666369706471012875" at="59,0,67,0" />
+      <scope id="5666369706471012885" at="125,11,143,26">
+        <var name="currentPropertyAttributes" id="5666369706471012885" />
+        <var name="editorCell" id="5666369706471012885" />
+        <var name="property" id="5666369706471012885" />
+        <var name="propertyAttributes" id="5666369706471012885" />
+        <var name="style" id="5666369706471012885" />
+      </scope>
+      <scope id="5666369706471012885" at="123,43,146,7" />
+      <scope id="5666369706471012885" at="123,0,148,0" />
+      <scope id="5666369706471012875" at="67,40,100,22">
+        <var name="currentReferenceAttributes" id="5666369706471012875" />
+        <var name="editorCell" id="5666369706471012875" />
+        <var name="provider" id="5666369706471012875" />
+        <var name="referenceAttributes" id="5666369706471012875" />
+        <var name="referenceLink" id="5666369706471012875" />
+      </scope>
+      <scope id="5666369706471012875" at="67,0,102,0" />
+      <unit id="5666369706471012875" at="150,0,153,0" name="ReversibleExpressions.editor.GlobalVarRef_EditorBuilder_a$LINKS" />
+      <unit id="5666369706471012875" at="159,0,162,0" name="ReversibleExpressions.editor.GlobalVarRef_EditorBuilder_a$PROPS" />
+      <unit id="5666369706471012875" at="154,0,158,0" name="ReversibleExpressions.editor.GlobalVarRef_EditorBuilder_a$CONCEPTS" />
+      <unit id="5666369706471012875" at="69,42,84,5" name="ReversibleExpressions.editor.GlobalVarRef_EditorBuilder_a$1" />
+      <unit id="5666369706471012879" at="102,0,149,0" name="ReversibleExpressions.editor.GlobalVarRef_EditorBuilder_a$Inline_Builder0" />
+      <unit id="5666369706471012875" at="40,0,163,0" name="ReversibleExpressions.editor.GlobalVarRef_EditorBuilder_a" />
     </file>
   </root>
   <root nodeRef="r:e9706a5f-6192-4ab2-9fe9-9e1d284b7670(ReversibleExpressions.editor)/5718859801792466477">

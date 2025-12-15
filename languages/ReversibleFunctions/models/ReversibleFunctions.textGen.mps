@@ -14,6 +14,7 @@
     <import index="dylp" ref="r:9840bc62-cb31-4ef3-9c9b-2de91c97cc15(com.mbeddr.core.expressions.textGen)" />
     <import index="hwgx" ref="r:fd2980c8-676c-4b19-b524-18c70e02f8b7(com.mbeddr.core.base.behavior)" />
     <import index="kmi" ref="r:afa7ae5b-c41f-45e8-9678-2beae3621a33(ReversibleStatements.structure)" implicit="true" />
+    <import index="x27k" ref="r:75ecab8a-8931-4140-afc6-4b46398710fc(com.mbeddr.core.modules.structure)" implicit="true" />
     <import index="qd6m" ref="r:c4c3f7d3-0acf-4671-a134-5fab66c4e637(com.mbeddr.core.modules.behavior)" implicit="true" />
   </imports>
   <registry>
@@ -249,7 +250,7 @@
             <node concept="2OqwBi" id="5rI5N7ZIZaQ" role="lb14g">
               <node concept="117lpO" id="5rI5N7ZIYIL" role="2Oq$k0" />
               <node concept="3TrEf2" id="5rI5N7ZJ0fr" role="2OqNvi">
-                <ref role="3Tt5mk" to="w8o:4GuVbIAykE$" resolve="type" />
+                <ref role="3Tt5mk" to="mj1l:hEaDaGor64" resolve="type" />
               </node>
             </node>
           </node>
@@ -273,7 +274,7 @@
             <node concept="2OqwBi" id="5rI5N7ZJ3zu" role="lbANJ">
               <node concept="117lpO" id="5rI5N7ZJ3ze" role="2Oq$k0" />
               <node concept="3Tsc0h" id="5rI5N7ZJ3Ap" role="2OqNvi">
-                <ref role="3TtcxE" to="w8o:4WTYg$PUiX5" resolve="arguments" />
+                <ref role="3TtcxE" to="x27k:4WTYg$PUiX5" resolve="arguments" />
               </node>
             </node>
           </node>

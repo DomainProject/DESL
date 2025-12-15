@@ -12,11 +12,9 @@ import jetbrains.mps.smodel.runtime.CheckingNodeContext;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public class InitExpression_Constraints extends BaseConstraintsDescriptor {
   /*package*/ InitExpression_Constraints(ConstraintsDescriptorInitContext initContext) {
@@ -36,13 +34,11 @@ public class InitExpression_Constraints extends BaseConstraintsDescriptor {
   }
 
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return (SNodeOperations.getNodeAncestor(parentNode, CONCEPTS.IInitializationContext$rO, true, false) != null) || (SNodeOperations.getNodeAncestor(parentNode, CONCEPTS.AssignmentExpr$mZ, true, false) != null);
+    return true;
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:b1228d9b-8e2c-4c06-8c54-62acd072f382(ReversibleStatements.constraints)", "8237807170236183665");
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept InitExpression$YK = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x7ad4c4c8a2db08a1L, "ReversibleStatements.structure.InitExpression");
-    /*package*/ static final SInterfaceConcept IInitializationContext$rO = MetaAdapterFactory.getInterfaceConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x762e1ebb8661ad60L, "com.mbeddr.core.expressions.structure.IInitializationContext");
-    /*package*/ static final SConcept AssignmentExpr$mZ = MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x4e85add925440dL, "com.mbeddr.core.expressions.structure.AssignmentExpr");
   }
 }

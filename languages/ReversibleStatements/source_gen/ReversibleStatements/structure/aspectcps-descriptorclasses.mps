@@ -17745,7 +17745,7 @@
               <property role="3oM_SC" value="extends:" />
             </node>
             <node concept="3oM_SD" id="1Bi" role="1PaTwD">
-              <property role="3oM_SC" value="com.mbeddr.core.expressions.structure.Expression" />
+              <property role="3oM_SC" value="ReversibleExpressions.structure.ReversibleExpression" />
             </node>
           </node>
         </node>
@@ -17761,10 +17761,10 @@
             <node concept="liA8E" id="1Bm" role="2OqNvi">
               <ref role="37wK5l" to="bzg8:~ConceptDescriptorBuilder2.super_(long,long,long)" resolve="super_" />
               <node concept="11gdke" id="1Bn" role="37wK5m">
-                <property role="11gdj1" value="61c69711ed614850L" />
+                <property role="11gdj1" value="9abffa92487542bfL" />
               </node>
               <node concept="11gdke" id="1Bo" role="37wK5m">
-                <property role="11gdj1" value="81d97714ff227fb0L" />
+                <property role="11gdj1" value="9379c4f95eb496d4L" />
               </node>
               <node concept="11gdke" id="1Bp" role="37wK5m">
                 <property role="11gdj1" value="7af69e2e83a1ba32L" />

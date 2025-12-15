@@ -1111,7 +1111,7 @@
       <property role="IQ2ns" value="3345835282713132986" />
       <property role="20kJfa" value="function" />
       <property role="20lbJX" value="fLJekj4/_1" />
-      <ref role="20lvS9" to="w8o:5U1XgQxbKlv" resolve="ReversibleFunction" />
+      <ref role="20lvS9" to="x27k:71UKpntnl7M" resolve="IFunctionLike" />
     </node>
     <node concept="1TJgyj" id="2TIMRpJ5rYS" role="1TKVEi">
       <property role="IQ2ns" value="3345835282713132984" />
@@ -1213,6 +1213,45 @@
     <property role="EcuMT" value="8247522966973228720" />
     <property role="3GE5qa" value="expr.arith.binary" />
     <property role="TrG5h" value="IBinArithmetic" />
+  </node>
+  <node concept="1TIwiD" id="4UyZjBJzdrS">
+    <property role="EcuMT" value="5666369706459453176" />
+    <property role="TrG5h" value="GlobalConstantRef" />
+    <ref role="1TJDcQ" node="7FQByU3CrCM" resolve="ReversibleExpression" />
+    <node concept="PrWs8" id="4UyZjBJzdrT" role="PzmwI">
+      <ref role="PrY4T" to="vs0r:7jSUHHvkAp9" resolve="IModuleContentRef" />
+    </node>
+    <node concept="1TJgyj" id="4UyZjBJzdrU" role="1TKVEi">
+      <property role="IQ2ns" value="5666369706459453178" />
+      <property role="20kJfa" value="constant" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" to="x27k:2VsHNE70LB4" resolve="AbstractDefineLike" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="4UyZjBKfjC5">
+    <property role="EcuMT" value="5666369706471012869" />
+    <property role="TrG5h" value="GlobalVarRef" />
+    <property role="R4oN_" value="--" />
+    <ref role="1TJDcQ" node="7FQByU3CrCM" resolve="ReversibleExpression" />
+    <node concept="PrWs8" id="4UyZjBKfjC8" role="PzmwI">
+      <ref role="PrY4T" to="vs0r:7jSUHHvkAp9" resolve="IModuleContentRef" />
+    </node>
+    <node concept="PrWs8" id="4UyZjBKfjC9" role="PzmwI">
+      <ref role="PrY4T" node="1LDGRqyQFAa" resolve="IVariableReference" />
+    </node>
+    <node concept="1TJgyj" id="4UyZjBKfjCa" role="1TKVEi">
+      <property role="IQ2ns" value="5666369706471012874" />
+      <property role="20kJfa" value="var" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" to="x27k:5IYyAOzCrre" resolve="GlobalVariableDeclaration" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="pclpQnxOye">
+    <property role="EcuMT" value="453831797798029454" />
+    <property role="TrG5h" value="NullExpression" />
+    <property role="34LRSv" value="NULL" />
+    <property role="R4oN_" value="the NULL pointer" />
+    <ref role="1TJDcQ" node="7FQByU3CrDq" resolve="Literal" />
   </node>
 </model>
 
