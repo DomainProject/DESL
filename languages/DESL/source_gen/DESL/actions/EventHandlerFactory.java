@@ -24,7 +24,7 @@ public class EventHandlerFactory {
       SNode newFunction = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, "ReversibleFunctions.structure.ReversibleFunction"));
       SPropertyOperations.assign(newFunction, PROPS.name$MnvL, "handler");
       SLinkOperations.setTarget(newFunction, LINKS.revBody$QkEt, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, "ReversibleStatements.structure.ReversibleStatementList")));
-      SPropertyOperations.assign(newFunction, PROPS.isForward$rJ$J, true);
+      SPropertyOperations.assign(newFunction, PROPS.isForward$pAg5, true);
       SLinkOperations.setTarget(newFunction, LINKS.type$sXU3, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x6d872ef9245a0d19L, "com.mbeddr.core.expressions.structure.VoidType")));
       SLinkOperations.setTarget(newNode, LINKS.forwardFunction$5bPH, newFunction);
 
@@ -70,7 +70,7 @@ public class EventHandlerFactory {
 
   private static final class PROPS {
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
-    /*package*/ static final SProperty isForward$rJ$J = MetaAdapterFactory.getProperty(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111cL, 0x5e81f50da1382199L, "isForward");
+    /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
   }
 
   private static final class LINKS {

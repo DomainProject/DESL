@@ -58,6 +58,9 @@ public class QueriesGenerated extends QueryProviderBase {
   public static Iterable<SNode> sourceNodesQuery_1_2(final SourceSubstituteMacroNodesContext _context) {
     return SLinkOperations.getChildren(_context.getNode(), LINKS.functions$VlQq);
   }
+  public static Iterable<SNode> sourceNodesQuery_1_3(final SourceSubstituteMacroNodesContext _context) {
+    return SLinkOperations.getChildren(_context.getNode(), LINKS.events$bAl3);
+  }
   public static void mappingScript_CodeBlock_2(final MappingScriptContext _context) {
 
 
@@ -150,11 +153,11 @@ public class QueriesGenerated extends QueryProviderBase {
         }
 
         SPropertyOperations.assign(function, PROPS.reversibilityRequired$Zgdy, true);
-        SPropertyOperations.assign(function, PROPS.isForward$rJ$J, true);
+        SPropertyOperations.assign(function, PROPS.isForward$pAg5, true);
         ReversibleFunction__BehaviorDescriptor.propagateReversibility_id5U1XgQ$bWsf.invoke(function);
         SNode newFunction = SNodeOperations.copyNode(function);
         SPropertyOperations.assign(newFunction, PROPS.name$MnvL, SPropertyOperations.getString(newFunction, PROPS.name$MnvL) + "_reverse");
-        SPropertyOperations.assign(newFunction, PROPS.isForward$rJ$J, false);
+        SPropertyOperations.assign(newFunction, PROPS.isForward$pAg5, false);
         ReversibleFunction__BehaviorDescriptor.propagateReversibility_id5U1XgQ$bWsf.invoke(newFunction);
         ListSequence.fromList(reversedFunctions).addElement(newFunction);
 
@@ -195,9 +198,10 @@ public class QueriesGenerated extends QueryProviderBase {
   private final Map<String, SourceNodesQuery> snsqMethods = new HashMap<String, SourceNodesQuery>();
   {
     int i = 0;
-    snsqMethods.put("453831797810849037", new SNsQ(i++));
+    snsqMethods.put("2754554544856377861", new SNsQ(i++));
     snsqMethods.put("1964272224263988067", new SNsQ(i++));
     snsqMethods.put("5413024092855471889", new SNsQ(i++));
+    snsqMethods.put("8875523996822560559", new SNsQ(i++));
   }
   @NotNull
   @Override
@@ -219,6 +223,8 @@ public class QueriesGenerated extends QueryProviderBase {
           return IterableUtil.asCollection(QueriesGenerated.sourceNodesQuery_1_1(ctx));
         case 2:
           return IterableUtil.asCollection(QueriesGenerated.sourceNodesQuery_1_2(ctx));
+        case 3:
+          return IterableUtil.asCollection(QueriesGenerated.sourceNodesQuery_1_3(ctx));
         default:
           throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no method for query %s (key: #%d)", ctx.getTemplateReference(), methodKey));
       }
@@ -259,13 +265,13 @@ public class QueriesGenerated extends QueryProviderBase {
     /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
     /*package*/ static final SProperty callsDestructiveMacro$eoF = MetaAdapterFactory.getProperty(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1b427f2e49d1fe84L, 0x2d0ea789450dadafL, "callsDestructiveMacro");
     /*package*/ static final SProperty reversibilityRequired$Zgdy = MetaAdapterFactory.getProperty(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111cL, 0x56ee1731ff5a6482L, "reversibilityRequired");
-    /*package*/ static final SProperty isForward$rJ$J = MetaAdapterFactory.getProperty(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111cL, 0x5e81f50da1382199L, "isForward");
   }
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink reversibleItems$5wYj = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x56ee1731fef0eae5L, 0x56ee1731fef0eae6L, "reversibleItems");
     /*package*/ static final SContainmentLink structs$ZHxn = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x56ee1731fef0eae5L, 0x482205b2742202cdL, "structs");
     /*package*/ static final SContainmentLink functions$VlQq = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x56ee1731fef0eae5L, 0x7f5aaca6ab31ec34L, "functions");
+    /*package*/ static final SContainmentLink events$bAl3 = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x56ee1731fef0eae5L, 0x7b2c320cf2083899L, "events");
     /*package*/ static final SContainmentLink content$L7Vn = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145008fL, 0x78202c09dd229062L, "content");
     /*package*/ static final SReferenceLink macro$QKaR = MetaAdapterFactory.getReferenceLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1b427f2e49d1fe84L, 0x1b427f2e49d1fe85L, "macro");
     /*package*/ static final SContainmentLink supportVariable$WrxR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x586abb2d5743cb69L, "supportVariable");

@@ -10,6 +10,7 @@
     <import index="mj1l" ref="r:c371cf98-dcc8-4a43-8eb8-8a8096de18b2(com.mbeddr.core.expressions.structure)" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" />
     <import index="w8o" ref="r:e84d12fa-9ad2-42d4-95e8-d9ef0c30fdf9(ReversibleFunctions.structure)" implicit="true" />
+    <import index="kmi" ref="r:afa7ae5b-c41f-45e8-9678-2beae3621a33(ReversibleStatements.structure)" implicit="true" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -71,7 +72,7 @@
               <node concept="2OqwBi" id="5U1XgQ$6xZ1" role="37vLTJ">
                 <node concept="1r4Lsj" id="5U1XgQ$6xmQ" role="2Oq$k0" />
                 <node concept="3TrcHB" id="5U1XgQ$6$sR" role="2OqNvi">
-                  <ref role="3TsBF5" to="w8o:5U1XgQxe26p" resolve="isForward" />
+                  <ref role="3TsBF5" to="kmi:5rI5N7Zmx5J" resolve="isForward" />
                 </node>
               </node>
             </node>

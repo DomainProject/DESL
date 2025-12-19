@@ -525,6 +525,21 @@
           <property role="VOm3f" value="true" />
         </node>
       </node>
+      <node concept="3F2HdR" id="7GGcwNM23$S" role="3EZMnx">
+        <ref role="1NtTu8" to="w8o:7GGcwNM23yp" resolve="events" />
+        <node concept="l2Vlx" id="7GGcwNM23$U" role="2czzBx" />
+        <node concept="pVoyu" id="7GGcwNM23$V" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+        <node concept="pj6Ft" id="7GGcwNM23_2" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+      </node>
+      <node concept="3F0ifn" id="7GGcwNM23$Y" role="3EZMnx">
+        <node concept="pVoyu" id="7GGcwNM23_1" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+      </node>
       <node concept="3F2HdR" id="1H2vMT9p2GJ" role="3EZMnx">
         <ref role="1NtTu8" to="w8o:4wy1r9O8wbd" resolve="structs" />
         <node concept="l2Vlx" id="1H2vMT9p2GL" role="2czzBx" />

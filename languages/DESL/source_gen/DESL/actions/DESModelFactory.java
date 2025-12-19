@@ -17,14 +17,14 @@ public class DESModelFactory {
   public static class NodeFactory_3297662491776892432 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, int index, SModel model) {
       /*
-        <type> <var>;
-        ExpressionStatement
-        <type> <var>; 
-         
-        
-        <type> <var>;
-        ExpressionStatement
-        ExpressionStatement
+        '''SNode newEventType = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x7c2c5977e3e10df9L, "DESL.structure.EventType"));'''
+        '''SPropertyOperations.assign(newEventType, PROPS.name$MnvL, "INIT");'''
+        '''SNode newEventHandler = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, "DESL.structure.EventHandler"));''' 
+        '''<no node>''' 
+        '''<no node>'''
+        '''SNode eventDefinition = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2e66f9a613f69c80L, "DESL.structure.EventDefinition"));'''
+        '''SLinkOperations.setTarget(eventDefinition, LINKS.eventType$MGmZ, newEventType);'''
+        '''ListSequence.fromList(SLinkOperations.getChildren(newNode, LINKS.events$uflG)).addElement(eventDefinition);'''
 
       */
 

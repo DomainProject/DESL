@@ -126,6 +126,13 @@
       <property role="20lbJX" value="fLJekj5/_0__n" />
       <ref role="20lvS9" to="clbe:5yYXyc4Z0CJ" resolve="StructDeclaration" />
     </node>
+    <node concept="1TJgyj" id="7GGcwNM23yp" role="1TKVEi">
+      <property role="IQ2ns" value="8875523996822026393" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="events" />
+      <property role="20lbJX" value="fLJekj5/_0__n" />
+      <ref role="20lvS9" to="rdv6:2TAYqojXDM0" resolve="EventDefinition" />
+    </node>
   </node>
   <node concept="1TIwiD" id="5rI5N7Zx2HX">
     <property role="EcuMT" value="6263969635226626941" />
@@ -189,11 +196,6 @@
   <node concept="PlHQZ" id="2XBKnohhh4s">
     <property role="EcuMT" value="3415911555223851292" />
     <property role="TrG5h" value="IReversibleItem" />
-    <node concept="1TJgyi" id="5U1XgQxe26p" role="1TKVEl">
-      <property role="IQ2nx" value="6809993550449090969" />
-      <property role="TrG5h" value="isForward" />
-      <ref role="AX2Wp" to="tpck:fKAQMTB" resolve="boolean" />
-    </node>
     <node concept="1TJgyi" id="5rI5N7ZmAi2" role="1TKVEl">
       <property role="IQ2nx" value="6263969635223889026" />
       <property role="TrG5h" value="reversibilityRequired" />
@@ -206,6 +208,9 @@
     </node>
     <node concept="PrWs8" id="1H2vMT9C0Nd" role="PrDN$">
       <ref role="PrY4T" to="x27k:5_l8w1EmTdf" resolve="IModuleContent" />
+    </node>
+    <node concept="PrWs8" id="2oU9ceCujj9" role="PrDN$">
+      <ref role="PrY4T" to="kmi:5rI5N7ZmrVr" resolve="IReversible" />
     </node>
   </node>
   <node concept="1TIwiD" id="2XBKnohtUQQ">

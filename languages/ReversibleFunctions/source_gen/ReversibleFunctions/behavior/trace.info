@@ -224,7 +224,7 @@
       <node id="3415911555226784359" at="166,14,167,58" concept="12" />
       <node id="3415911555226784359" at="173,48,174,22" concept="7" />
       <node id="3415911555226784359" at="179,40,180,19" concept="7" />
-      <node id="3415911555226784359" at="184,0,185,0" concept="9" trace="isForward$rJ$J" />
+      <node id="3415911555226784359" at="184,0,185,0" concept="9" trace="isForward$pAg5" />
       <node id="3415911555226784359" at="185,0,186,0" concept="9" trace="name$MnvL" />
       <node id="3415911555226784359" at="186,0,187,0" concept="9" trace="value$qZmE" />
       <node id="3415911555226784359" at="187,0,188,0" concept="9" trace="resultIsLValue$6M7F" />
@@ -553,9 +553,8 @@
       <node id="6809993550498875132" at="89,48,90,22" concept="7" />
       <node id="6809993550498875132" at="95,40,96,19" concept="7" />
       <node id="6809993550498875132" at="100,0,101,0" concept="9" trace="isForward$pAg5" />
-      <node id="6809993550498875132" at="101,0,102,0" concept="9" trace="isForward$rJ$J" />
-      <node id="6809993550498875132" at="105,0,106,0" concept="9" trace="ForStatement$Bb" />
-      <node id="6809993550498875132" at="106,0,107,0" concept="9" trace="IReversible$$B" />
+      <node id="6809993550498875132" at="104,0,105,0" concept="9" trace="ForStatement$Bb" />
+      <node id="6809993550498875132" at="105,0,106,0" concept="9" trace="IReversible$$B" />
       <node id="6809993550498875132" at="34,0,36,0" concept="10" trace="___init___#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
       <node id="9176837022592825504" at="41,12,43,7" concept="0" />
       <node id="6809993550498875132" at="50,0,52,0" concept="1" trace="ReversibleFunction__BehaviorDescriptor#()V" />
@@ -624,9 +623,9 @@
         <var name="node" id="6809993550498875132" />
         <var name="parameters" id="6809993550498875132" />
       </scope>
-      <unit id="6809993550498875132" at="99,0,103,0" name="ReversibleFunctions.behavior.ReversibleFunction__BehaviorDescriptor$PROPS" />
-      <unit id="6809993550498875132" at="104,0,108,0" name="ReversibleFunctions.behavior.ReversibleFunction__BehaviorDescriptor$CONCEPTS" />
-      <unit id="6809993550498875132" at="26,0,109,0" name="ReversibleFunctions.behavior.ReversibleFunction__BehaviorDescriptor" />
+      <unit id="6809993550498875132" at="99,0,102,0" name="ReversibleFunctions.behavior.ReversibleFunction__BehaviorDescriptor$PROPS" />
+      <unit id="6809993550498875132" at="103,0,107,0" name="ReversibleFunctions.behavior.ReversibleFunction__BehaviorDescriptor$CONCEPTS" />
+      <unit id="6809993550498875132" at="26,0,108,0" name="ReversibleFunctions.behavior.ReversibleFunction__BehaviorDescriptor" />
     </file>
   </root>
 </debug-info>

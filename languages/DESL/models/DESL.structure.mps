@@ -10,10 +10,10 @@
     <import index="zqge" ref="r:59e90602-6655-4552-86eb-441a42a9a0e4(jetbrains.mps.lang.text.structure)" />
     <import index="mj1l" ref="r:c371cf98-dcc8-4a43-8eb8-8a8096de18b2(com.mbeddr.core.expressions.structure)" />
     <import index="87nw" ref="r:ca2ab6bb-f6e7-4c0f-a88c-b78b9b31fff3(de.slisson.mps.richtext.structure)" implicit="true" />
+    <import index="kmi" ref="r:afa7ae5b-c41f-45e8-9678-2beae3621a33(ReversibleStatements.structure)" implicit="true" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
     <import index="c4fa" ref="r:9f0e84b6-2ec7-4f9e-83e0-feedc77b63a3(com.mbeddr.core.statements.structure)" implicit="true" />
     <import index="w8o" ref="r:e84d12fa-9ad2-42d4-95e8-d9ef0c30fdf9(ReversibleFunctions.structure)" implicit="true" />
-    <import index="kmi" ref="r:afa7ae5b-c41f-45e8-9678-2beae3621a33(ReversibleStatements.structure)" implicit="true" />
     <import index="ib4b" ref="r:539823a2-87c6-4a7e-abc8-d6fc586848eb(ReversibleExpressions.structure)" implicit="true" />
     <import index="tpee" ref="r:00000000-0000-4000-0000-011c895902ca(jetbrains.mps.baseLanguage.structure)" implicit="true" />
   </imports>
@@ -161,6 +161,13 @@
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <property role="20kJfa" value="testFunction" />
       <ref role="20lvS9" to="x27k:5_l8w1EmTvx" resolve="Function" />
+    </node>
+    <node concept="1TJgyj" id="5pwKhxgj6HS" role="1TKVEi">
+      <property role="IQ2ns" value="6224186995196586872" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="checkpointingVariables" />
+      <property role="20lbJX" value="fLJekj5/_0__n" />
+      <ref role="20lvS9" to="kmi:5suDuW$vzHH" resolve="CheckpointLocalVarRef" />
     </node>
     <node concept="1TJgyi" id="3k7QKnRLm2P" role="1TKVEl">
       <property role="IQ2nx" value="3821263627525382325" />
@@ -943,7 +950,7 @@
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <property role="20kJfa" value="function" />
       <property role="20lbJX" value="fLJekj4/_1" />
-      <ref role="20lvS9" to="w8o:5U1XgQxbKlv" resolve="ReversibleFunction" />
+      <ref role="20lvS9" to="x27k:5_l8w1EmTvx" resolve="Function" />
     </node>
     <node concept="PrWs8" id="1i0tj4VHkpO" role="PzmwI">
       <ref role="PrY4T" node="1i0tj4VHkpN" resolve="ITerminationFunction" />
@@ -975,6 +982,9 @@
       <property role="20lbJX" value="fLJekj4/_1" />
       <ref role="20lvS9" to="ib4b:7FQByU3CrCM" resolve="ReversibleExpression" />
     </node>
+    <node concept="PrWs8" id="2oU9ceBEn0n" role="PzmwI">
+      <ref role="PrY4T" node="2oU9ceBEn0k" resolve="IRNGCall" />
+    </node>
   </node>
   <node concept="1TIwiD" id="2hQH9io1V_7">
     <property role="EcuMT" value="2627485982916065607" />
@@ -995,6 +1005,9 @@
       <property role="20kJfa" value="ctx" />
       <property role="20lbJX" value="fLJekj4/_1" />
       <ref role="20lvS9" to="ib4b:7FQByU3CrCM" resolve="ReversibleExpression" />
+    </node>
+    <node concept="PrWs8" id="2oU9ceBEn0l" role="PzmwI">
+      <ref role="PrY4T" node="2oU9ceBEn0k" resolve="IRNGCall" />
     </node>
   </node>
   <node concept="1TIwiD" id="2hQH9iorxir">
@@ -1129,6 +1142,11 @@
     <property role="EcuMT" value="6094645616989323921" />
     <property role="3GE5qa" value="handler" />
     <property role="TrG5h" value="IHandler" />
+  </node>
+  <node concept="PlHQZ" id="2oU9ceBEn0k">
+    <property role="EcuMT" value="2754554544840601620" />
+    <property role="3GE5qa" value="random" />
+    <property role="TrG5h" value="IRNGCall" />
   </node>
 </model>
 

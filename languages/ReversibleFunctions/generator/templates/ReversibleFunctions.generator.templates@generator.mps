@@ -149,6 +149,9 @@
       </concept>
     </language>
     <language id="f75f9e3f-b00b-4997-8af2-0a8ce6b25221" name="ReversibleStatements">
+      <concept id="6263969635223846619" name="ReversibleStatements.structure.IReversible" flags="ngI" index="2DHUBE">
+        <property id="6263969635223867759" name="isForward" index="2DH0pu" />
+      </concept>
       <concept id="4185783222026475861" name="ReversibleStatements.structure.ReversibleStatementList" flags="ng" index="3XIRFX" />
     </language>
     <language id="efda956e-491e-4f00-ba14-36af2f213ecf" name="com.mbeddr.core.udt">
@@ -244,6 +247,12 @@
         <child id="2535923850359271783" name="elements" index="1PaTwD" />
       </concept>
     </language>
+    <language id="c4765525-912b-41b9-ace4-ce3b88117666" name="DESL">
+      <concept id="8947624931137490425" name="DESL.structure.EventType" flags="ng" index="2vNlie" />
+      <concept id="3343634265063988352" name="DESL.structure.EventDefinition" flags="ng" index="X$6kA">
+        <child id="3343634265063988354" name="eventType" index="X$6k$" />
+      </concept>
+    </language>
     <language id="61c69711-ed61-4850-81d9-7714ff227fb0" name="com.mbeddr.core.expressions">
       <concept id="318113533128716675" name="com.mbeddr.core.expressions.structure.ITyped" flags="ngI" index="2C2TGh">
         <child id="318113533128716676" name="type" index="2C2TGm" />
@@ -253,6 +262,7 @@
     </language>
     <language id="5eb14d5a-b5f7-4626-a63b-80c6b9db7397" name="ReversibleFunctions">
       <concept id="6263969635216976613" name="ReversibleFunctions.structure.ReversibleScript" flags="ng" index="2C7JRk">
+        <child id="8875523996822026393" name="events" index="2990El" />
         <child id="6263969635216976614" name="reversibleItems" index="2C7JRn" />
         <child id="5197723183949677261" name="structs" index="W00tZ" />
         <child id="9176837022557531188" name="functions" index="3kqO2i" />
@@ -260,7 +270,6 @@
       <concept id="6263969635226626941" name="ReversibleFunctions.structure.ReversibleScriptExp" flags="ng" index="2DqzLc" />
       <concept id="3415911555223851292" name="ReversibleFunctions.structure.IReversibleItem" flags="ngI" index="Y8H1E">
         <property id="6263969635223889026" name="reversibilityRequired" index="2DH7eN" />
-        <property id="6809993550449090969" name="isForward" index="3ZItik" />
       </concept>
       <concept id="6809993550448493919" name="ReversibleFunctions.structure.ReversibleFunction" flags="ng" index="3ZFJ1i">
         <child id="6809993550448523686" name="revBody" index="3ZFCMF" />
@@ -300,14 +309,14 @@
   </node>
   <node concept="2DqzLc" id="5rI5N7ZzJ4W">
     <property role="TrG5h" value="ReversibleScript" />
-    <node concept="3ZFJ1i" id="pclpQoiI9b" role="2C7JRn">
-      <property role="3ZItik" value="true" />
+    <node concept="3ZFJ1i" id="2oU9ceCAyp1" role="2C7JRn">
+      <property role="2DH0pu" value="true" />
       <property role="2DH7eN" value="true" />
-      <node concept="3XIRFX" id="pclpQoiI9d" role="3ZFCMF" />
-      <node concept="3TlMgo" id="pclpQoiI9f" role="2C2TGm" />
-      <node concept="2b32R4" id="pclpQoiIka" role="lGtFl">
-        <node concept="3JmXsc" id="pclpQoiIkd" role="2P8S$">
-          <node concept="3clFbS" id="pclpQoiIke" role="2VODD2">
+      <node concept="3XIRFX" id="2oU9ceCAyp3" role="3ZFCMF" />
+      <node concept="3TlMgo" id="2oU9ceCAyp5" role="2C2TGm" />
+      <node concept="2b32R4" id="2oU9ceCAyC2" role="lGtFl">
+        <node concept="3JmXsc" id="2oU9ceCAyC5" role="2P8S$">
+          <node concept="3clFbS" id="2oU9ceCAyC6" role="2VODD2">
             <node concept="3clFbF" id="2XBKnohlXfP" role="3cqZAp">
               <node concept="2OqwBi" id="2XBKnohm0V7" role="3clFbG">
                 <node concept="2OqwBi" id="2XBKnohlXfK" role="2Oq$k0">
@@ -403,6 +412,23 @@
               <node concept="30H73N" id="1H2vMT9yHBV" role="2Oq$k0" />
               <node concept="3TrcHB" id="1H2vMT9yK$L" role="2OqNvi">
                 <ref role="3TsBF5" to="tpck:h0TrG11" resolve="name" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="X$6kA" id="7GGcwNM45ko" role="2990El">
+      <node concept="2vNlie" id="7GGcwNM45kp" role="X$6k$" />
+      <node concept="2b32R4" id="7GGcwNM45WG" role="lGtFl">
+        <node concept="3JmXsc" id="7GGcwNM45WJ" role="2P8S$">
+          <node concept="3clFbS" id="7GGcwNM45WK" role="2VODD2">
+            <node concept="3clFbF" id="7GGcwNM45WQ" role="3cqZAp">
+              <node concept="2OqwBi" id="7GGcwNM45WL" role="3clFbG">
+                <node concept="3Tsc0h" id="7GGcwNM45WO" role="2OqNvi">
+                  <ref role="3TtcxE" to="w8o:7GGcwNM23yp" resolve="events" />
+                </node>
+                <node concept="30H73N" id="7GGcwNM45WP" role="2Oq$k0" />
               </node>
             </node>
           </node>
@@ -1223,7 +1249,7 @@
                         <ref role="2Gs0qQ" node="5rI5N7ZzJgL" resolve="function" />
                       </node>
                       <node concept="3TrcHB" id="5rI5N7ZzSN3" role="2OqNvi">
-                        <ref role="3TsBF5" to="w8o:5U1XgQxe26p" resolve="isForward" />
+                        <ref role="3TsBF5" to="kmi:5rI5N7Zmx5J" resolve="isForward" />
                       </node>
                     </node>
                   </node>
@@ -1285,7 +1311,7 @@
                         <ref role="3cqZAo" node="5rI5N7ZzONK" resolve="newFunction" />
                       </node>
                       <node concept="3TrcHB" id="5rI5N7ZzY2W" role="2OqNvi">
-                        <ref role="3TsBF5" to="w8o:5U1XgQxe26p" resolve="isForward" />
+                        <ref role="3TsBF5" to="kmi:5rI5N7Zmx5J" resolve="isForward" />
                       </node>
                     </node>
                   </node>

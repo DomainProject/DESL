@@ -13,6 +13,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import com.mbeddr.core.expressions.textGen.TokenTextGen;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import com.mbeddr.core.base.behavior.IIdentifierNamedConcept__BehaviorDescriptor;
+import ReversibleExpressions.textGen.StateSaving;
 import jetbrains.mps.lang.traceable.behavior.TraceableConcept__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SProperty;
@@ -52,19 +53,32 @@ public class LocalVariableDeclaration_TextGen extends TextGenDescriptorBase {
 
     TokenTextGen.genTypeWithName(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.type$sXU3), IIdentifierNamedConcept__BehaviorDescriptor.processedName_id3x8oZgL6CjW.invoke(ctx.getPrimaryInput(), SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL)), ctx);
 
-    if (SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.init$41s$) != null) {
-      tgs.append(" = ");
-      tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.init$41s$));
-    }
-    tgs.append(";");
+    if (SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5)) {
 
-    if (Sequence.fromIterable(IHasPrefixes__BehaviorDescriptor.surroundingPrefixes_id8PQYytSgXH.invoke(ctx.getPrimaryInput())).isNotEmpty()) {
+      if (SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.init$41s$) != null) {
+        tgs.append(" = ");
+        tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.init$41s$));
+      }
+      tgs.append(";");
+
+      for (SNode p : Sequence.fromIterable(IHasPrefixes__BehaviorDescriptor.surroundingPrefixes_id8PQYytSgXH.invoke(ctx.getPrimaryInput()))) {
+        tgs.indent();
+        tgs.append(Prefix__BehaviorDescriptor.afterText_id8PQYytSnuO.invoke(p));
+      }
+
       tgs.newLine();
-    }
-    for (SNode p : Sequence.fromIterable(IHasPrefixes__BehaviorDescriptor.surroundingPrefixes_id8PQYytSgXH.invoke(ctx.getPrimaryInput()))) {
+
       tgs.indent();
-      tgs.append(Prefix__BehaviorDescriptor.afterText_id8PQYytSnuO.invoke(p));
+      StateSaving.stateSaving(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), PROPS.name$MnvL), SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableToSaveName$udlR), ctx);
+    } else {
+      if ((SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.init$41s$) != null)) {
+        tgs.append(" = checkpoint.");
+        tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), PROPS.name$MnvL));
+        tgs.append(";");
+      }
     }
+
+
     if (tgs.needPositions()) {
       tgs.fillPositionInfo(TraceableConcept__BehaviorDescriptor.getTraceableProperty_id4pl5GY7LKmH.invoke(SNodeOperations.cast(ctx.getPrimaryInput(), CONCEPTS.TraceableConcept$L)));
     }
@@ -75,11 +89,14 @@ public class LocalVariableDeclaration_TextGen extends TextGenDescriptorBase {
     /*package*/ static final SProperty extern$rgi8 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad96e6L, 0x706f9277156aec25L, "extern");
     /*package*/ static final SProperty storeInRegister$NMWY = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x509503be9ecc5d25L, 0x509503be9ecc5d27L, "storeInRegister");
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty variableToSaveName$udlR = MetaAdapterFactory.getProperty(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x27d0c8e745a2c78dL, 0x1b427f2e4b08b057L, "variableToSaveName");
+    /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
   }
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
     /*package*/ static final SContainmentLink init$41s$ = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad96e6L, 0x3a16e3a9c7ae01f7L, "init");
+    /*package*/ static final SContainmentLink supportVariable$WrxR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x586abb2d5743cb69L, "supportVariable");
   }
 
   private static final class CONCEPTS {

@@ -13,6 +13,8 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import ReversibleExpressions.textGen.TokenTextGen;
+import com.mbeddr.core.base.behavior.IIdentifierNamedConcept__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import java.util.Objects;
 import com.mbeddr.core.modules.behavior.ITypeDeclaration__BehaviorDescriptor;
@@ -75,31 +77,25 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     // structs
     Structs.structs(ctx.getPrimaryInput(), ctx);
 
-    // checkpoint struct
+
+    /*
+      struct checkpoint
+
+    */
+
+
     tgs.append("struct checkpoint {");
     tgs.newLine();
-    ctx.getBuffer().area().increaseIndent();
-
-    if (SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL).contains("pcs")) {
+    for (SNode var : ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.checkpointingVariables$cw2o))) {
       tgs.indent();
-      tgs.append("int32_t channel_to_reallocate;");
-      tgs.newLine();
-      tgs.indent();
-      tgs.append("int32_t channel_to_free;");
-      tgs.newLine();
-      tgs.indent();
-      tgs.append("struct lp_state_type state;");
-      tgs.newLine();
-    } else if (SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL).contains("phold")) {
-      tgs.indent();
-      tgs.append("struct phold_state state;");
+      TokenTextGen.genTypeWithName(SLinkOperations.getTarget(SLinkOperations.getTarget(var, LINKS.var$iAI8), LINKS.type$sXU3), IIdentifierNamedConcept__BehaviorDescriptor.processedName_id3x8oZgL6CjW.invoke(SLinkOperations.getTarget(var, LINKS.var$iAI8), SPropertyOperations.getString(SLinkOperations.getTarget(var, LINKS.var$iAI8), PROPS.name$MnvL)), ctx);
+      tgs.append(";");
       tgs.newLine();
     }
-
-    ctx.getBuffer().area().decreaseIndent();
     tgs.append("};");
     tgs.newLine();
     tgs.newLine();
+
 
     /*
       events enum and message struct, foreach class
@@ -676,9 +672,11 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     /*package*/ static final SContainmentLink events$uflG = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x2dc3a69083753b9fL, "events");
     /*package*/ static final SContainmentLink processes$hZqx = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6393783L, 0x4117a694e6393787L, "processes");
     /*package*/ static final SContainmentLink processAllocations$cuUJ = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x4117a694e6409a0eL, "processAllocations");
+    /*package*/ static final SReferenceLink var$iAI8 = MetaAdapterFactory.getReferenceLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x571ea5ef247e3b6dL, 0x571ea5ef247e3b6eL, "var");
+    /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
+    /*package*/ static final SContainmentLink checkpointingVariables$cw2o = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x5660c118504c6b78L, "checkpointingVariables");
     /*package*/ static final SContainmentLink messageStruct$xVlJ = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x6de6339fa564bed8L, "messageStruct");
     /*package*/ static final SContainmentLink members$C59R = MetaAdapterFactory.getContainmentLink(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x6285e27d4ff6c9f5L, 0x6285e27d4ff7db92L, "members");
-    /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
     /*package*/ static final SContainmentLink arguments$6da0 = MetaAdapterFactory.getContainmentLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x707ac195dd5d51f2L, 0x4f39f90935e92f45L, "arguments");
     /*package*/ static final SContainmentLink body$1GE0 = MetaAdapterFactory.getContainmentLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x595522006a5b97e1L, 0x3a16e3a9c7ad9954L, "body");
     /*package*/ static final SContainmentLink externalFunctions$LqEg = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x6f36cc77d0a2c4ceL, "externalFunctions");

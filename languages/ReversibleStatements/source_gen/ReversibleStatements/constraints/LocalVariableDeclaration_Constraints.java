@@ -8,6 +8,7 @@ import jetbrains.mps.smodel.runtime.base.BasePropertyConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
 import org.jetbrains.mps.openapi.model.SNode;
 import com.mbeddr.core.base.behavior.IIdentifierNamedConcept__BehaviorDescriptor;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SProperty;
@@ -16,6 +17,7 @@ public class LocalVariableDeclaration_Constraints extends BaseConstraintsDescrip
   /*package*/ LocalVariableDeclaration_Constraints(ConstraintsDescriptorInitContext initContext) {
     super(CONCEPTS.LocalVariableDeclaration$7E, initContext);
     record(new ShortDescription_PD(this));
+    record(new Name_PD(this));
   }
 
   /*package*/ static final class ShortDescription_PD extends BasePropertyConstraintsDescriptor {
@@ -27,6 +29,19 @@ public class LocalVariableDeclaration_Constraints extends BaseConstraintsDescrip
       return (String) IIdentifierNamedConcept__BehaviorDescriptor.shortDescriptionForCCMenu_id4JF77iuPRBw.invoke(node);
     }
   }
+  /*package*/ static final class Name_PD extends BasePropertyConstraintsDescriptor {
+    public Name_PD(ConstraintsDescriptor container) {
+      super(PROPS.name$MnvL, container, false, true, false);
+    }
+    @Override
+    public void setPropertyValue(SNode node, Object propertyValue) {
+      staticSetPropertyValue(node, SPropertyOperations.castString(propertyValue));
+    }
+    private static void staticSetPropertyValue(SNode node, String propertyValue) {
+      SPropertyOperations.assign(node, PROPS.name$MnvL, propertyValue);
+      SPropertyOperations.assign(node, PROPS.variableToSaveName$udlR, propertyValue);
+    }
+  }
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept LocalVariableDeclaration$7E = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad96e6L, "ReversibleStatements.structure.LocalVariableDeclaration");
@@ -34,5 +49,7 @@ public class LocalVariableDeclaration_Constraints extends BaseConstraintsDescrip
 
   private static final class PROPS {
     /*package*/ static final SProperty shortDescription$Yd4v = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x10d34f97574L, "shortDescription");
+    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty variableToSaveName$udlR = MetaAdapterFactory.getProperty(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x27d0c8e745a2c78dL, 0x1b427f2e4b08b057L, "variableToSaveName");
   }
 }

@@ -7,15 +7,15 @@ import jetbrains.mps.text.rt.TextGenContext;
 import jetbrains.mps.text.impl.TextGenSupport;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.traceable.behavior.TraceableConcept__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class ReversibleStatementList_TextGen extends TextGenDescriptorBase {
@@ -28,8 +28,6 @@ public class ReversibleStatementList_TextGen extends TextGenDescriptorBase {
       tgs.newLine();
     }
 
-
-
     _FunctionTypes._void_P0_E0 func = () -> {
 
       // append local variable declarations at the beginning
@@ -38,13 +36,12 @@ public class ReversibleStatementList_TextGen extends TextGenDescriptorBase {
       // append state savings/restores
       ReversibleStatementListUtils.stateHandlingVariables(ctx.getPrimaryInput(), ctx);
 
+      if (!(SPropertyOperations.getBoolean(SNodeOperations.cast(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.IReversible$$B), PROPS.isForward$pAg5))) {
+        ReversibleStatementListUtils.restoreRng(ctx.getPrimaryInput(), ctx);
+      }
+
       // exclude local variable declarations as they've been inserted at the beginning of the reversible statement list
       for (SNode statement : ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.revStatements$IdM8)).where((it) -> !(SNodeOperations.isInstanceOf(it, CONCEPTS.LocalVariableDeclaration$7E)))) {
-
-
-
-
-
         boolean notInvisibleStatementList = !(SNodeOperations.isInstanceOf(statement, CONCEPTS.ReversibleStatementList$qe) && SPropertyOperations.getBoolean(SNodeOperations.cast(statement, CONCEPTS.ReversibleStatementList$qe), PROPS.isInvisible$wTPL));
         if (notInvisibleStatementList) {
           tgs.indent();
@@ -78,9 +75,11 @@ public class ReversibleStatementList_TextGen extends TextGenDescriptorBase {
 
   private static final class PROPS {
     /*package*/ static final SProperty isInvisible$wTPL = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, 0x4b1eecbba63cdb33L, "isInvisible");
+    /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
   }
 
   private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IReversible$$B = MetaAdapterFactory.getInterfaceConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, "ReversibleStatements.structure.IReversible");
     /*package*/ static final SConcept ReversibleStatementList$qe = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, "ReversibleStatements.structure.ReversibleStatementList");
     /*package*/ static final SConcept SwitchStatement$kf = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x2b8026b23bc2d9fcL, "ReversibleStatements.structure.SwitchStatement");
     /*package*/ static final SInterfaceConcept IStatmentListContainer$Vp = MetaAdapterFactory.getInterfaceConcept(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x5f5c402aa7667ef3L, "com.mbeddr.core.statements.structure.IStatmentListContainer");

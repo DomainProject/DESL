@@ -760,6 +760,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.parent(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x4ba188b8c52b0074L);
     b.parent(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x53230be2414d6890L);
     b.parent(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x206240b1fa7242fbL);
+    b.parent(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x27d0c8e745a2c78dL);
     b.origin("r:afa7ae5b-c41f-45e8-9678-2beae3621a33(ReversibleStatements.structure)/4185783222026475238");
     b.version(3);
     b.property("static", 0x394f433631987f7eL).type(PrimitiveTypeId.BOOLEAN).origin("4129593283361406846").done();

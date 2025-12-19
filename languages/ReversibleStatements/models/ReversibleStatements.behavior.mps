@@ -256,14 +256,9 @@
         <child id="5383422241790532083" name="tags" index="3nqlJM" />
       </concept>
       <concept id="5349172909345532724" name="jetbrains.mps.baseLanguage.javadoc.structure.MethodDocComment" flags="ng" index="P$JXv" />
-      <concept id="8465538089690331500" name="jetbrains.mps.baseLanguage.javadoc.structure.CommentLine" flags="ng" index="TZ5HA">
-        <child id="8970989240999019149" name="part" index="1dT_Ay" />
-      </concept>
-      <concept id="8465538089690331492" name="jetbrains.mps.baseLanguage.javadoc.structure.DeprecatedBlockDocTag" flags="ng" index="TZ5HI">
-        <child id="2667874559098216723" name="text" index="3HnX3l" />
-      </concept>
-      <concept id="8970989240999019143" name="jetbrains.mps.baseLanguage.javadoc.structure.TextCommentLinePart" flags="ng" index="1dT_AC">
-        <property id="8970989240999019144" name="text" index="1dT_AB" />
+      <concept id="8465538089690331492" name="jetbrains.mps.baseLanguage.javadoc.structure.DeprecatedBlockDocTag" flags="ng" index="TZ5HI" />
+      <concept id="5085607816302529296" name="jetbrains.mps.baseLanguage.javadoc.structure.IHoldCommentLines" flags="ngI" index="1VezTd">
+        <child id="5085607816302529587" name="commentBody" index="1Vez_I" />
       </concept>
     </language>
     <language id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation">
@@ -1925,12 +1920,21 @@
       </node>
       <node concept="P$JXv" id="5wYC9YPj55G" role="lGtFl">
         <node concept="TZ5HI" id="5wYC9YPj55H" role="3nqlJM">
-          <node concept="TZ5HA" id="5wYC9YPj55I" role="3HnX3l">
-            <node concept="1dT_AC" id="5wYC9YPj5sY" role="1dT_Ay">
-              <property role="1dT_AB" value=" Use/override getContributedLocalVariables(node" />
+          <node concept="1PaTwC" id="5pwKhxfMmFa" role="1Vez_I">
+            <node concept="3oM_SD" id="5pwKhxfMmFb" role="1PaTwD">
+              <property role="3oM_SC" value="" />
             </node>
-            <node concept="1dT_AC" id="5wYC9YPj5te" role="1dT_Ay">
-              <property role="1dT_AB" value=") instead." />
+            <node concept="3oM_SD" id="5pwKhxfMmFc" role="1PaTwD">
+              <property role="3oM_SC" value="Use/override" />
+            </node>
+            <node concept="3oM_SD" id="5pwKhxfMmFd" role="1PaTwD">
+              <property role="3oM_SC" value="getContributedLocalVariables(node" />
+            </node>
+            <node concept="3oM_SD" id="5pwKhxfMmFe" role="1PaTwD">
+              <property role="3oM_SC" value=")" />
+            </node>
+            <node concept="3oM_SD" id="5pwKhxfMmFf" role="1PaTwD">
+              <property role="3oM_SC" value="instead." />
             </node>
           </node>
         </node>
@@ -2621,6 +2625,26 @@
       <node concept="3Tqbb2" id="5lh8AoYYMNZ" role="3clF45">
         <ref role="ehGHo" to="mj1l:7FQByU3CrCM" resolve="Expression" />
       </node>
+    </node>
+    <node concept="13i0hz" id="2oU9ceCP8gk" role="13h7CS">
+      <property role="TrG5h" value="getBaseName" />
+      <ref role="13i0hy" to="e32u:2vgMet5LndN" resolve="getBaseName" />
+      <node concept="3Tm1VV" id="2oU9ceCP8gl" role="1B3o_S" />
+      <node concept="3clFbS" id="2oU9ceCP8go" role="3clF47">
+        <node concept="3clFbF" id="2oU9ceCP8UJ" role="3cqZAp">
+          <node concept="Xl_RD" id="2oU9ceCP8UI" role="3clFbG">
+            <property role="Xl_RC" value="local_var_decl_" />
+          </node>
+        </node>
+      </node>
+      <node concept="17QB3L" id="2oU9ceCP8gp" role="3clF45" />
+    </node>
+    <node concept="13i0hz" id="2oU9ceCP8gs" role="13h7CS">
+      <property role="TrG5h" value="handleCopyPaste" />
+      <ref role="13i0hy" to="e32u:33MO5h9wdZT" resolve="handleCopyPaste" />
+      <node concept="3Tm1VV" id="2oU9ceCP8gt" role="1B3o_S" />
+      <node concept="3clFbS" id="2oU9ceCP8gw" role="3clF47" />
+      <node concept="3cqZAl" id="2oU9ceCP8gx" role="3clF45" />
     </node>
   </node>
   <node concept="13h7C7" id="7LOsK3rQiu9">

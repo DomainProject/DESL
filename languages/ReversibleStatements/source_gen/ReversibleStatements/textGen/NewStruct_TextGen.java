@@ -30,7 +30,87 @@ public class NewStruct_TextGen extends TextGenDescriptorBase {
     boolean requiresReversibility = SPropertyOperations.getBoolean(SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.ReversibleFunction$IL, false, false), PROPS.reversibilityRequired$Zgdy);
 
     /*
-      <type> <var>; { <statement> { <statement> if
+      '''SNode structType = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x58bef62304fc0a38L, "com.mbeddr.core.udt.structure.StructType"));''' '''{ 
+  final SNode localVariableDeclaration = SNodeOperations.getParent(ctx.getPrimaryInput()); 
+  if (SNodeOperations.isInstanceOf(localVariableDeclaration, CONCEPTS.LocalVariableDeclaration$ft)) { 
+    if (Objects.equals(SNodeOperations.getConcept(SLinkOperations.getTarget([ SNode ] localVariableDeclaration, LINKS.type$sXU3)), CONCEPTS.StructType$B3)) { 
+      // the struct is declared but not malloc'd, NewStruct should not be used  
+    } else if (Objects.equals(SNodeOperations.getConcept(SLinkOperations.getTarget([ SNode ] localVariableDeclaration, LINKS.type$sXU3)), CONCEPTS.PointerType$HX) && Objects.equals(SNodeOperations.getConcept(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget([ SNode ] localVariableDeclaration, LINKS.type$sXU3), CONCEPTS.PointerType$HX), LINKS.baseType$zMGV)), CONCEPTS.StructType$B3)) { 
+      structType = SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget([ SNode ] localVariableDeclaration, LINKS.type$sXU3), CONCEPTS.PointerType$HX), LINKS.baseType$zMGV), CONCEPTS.StructType$B3); 
+       
+       
+      if (requiresReversibility) { 
+         
+        tgs.append("rev_malloc(arena, sizeof("); 
+        tgs.appendNode(structType); 
+        tgs.append("));"); 
+        tgs.newLine(); 
+      } else { 
+        tgs.append("("); 
+        tgs.appendNode(structType); 
+        tgs.append(" *)malloc(sizeof("); 
+        tgs.appendNode(structType); 
+        tgs.append("));"); 
+        tgs.newLine(); 
+        tgs.indent(); 
+        tgs.append("if ("); 
+        tgs.append(SPropertyOperations.getString([ SNode ] localVariableDeclaration, PROPS.name$MnvL)); 
+        tgs.append(" == NULL) {"); 
+        tgs.newLine(); 
+      } 
+    } 
+  } 
+}''' '''''' '''{ 
+  final SNode assignmentExpr = SNodeOperations.getParent(ctx.getPrimaryInput()); 
+  if (SNodeOperations.isInstanceOf(assignmentExpr, CONCEPTS.AssignmentExpr$mZ)) { 
+    { 
+      final SNode genericDotExpression = SLinkOperations.getTarget([ SNode ] assignmentExpr, LINKS.left$SkXz); 
+      if (SNodeOperations.isInstanceOf(genericDotExpression, CONCEPTS.GenericDotExpression$uQ)) { 
+        { 
+          final SNode pointerType = SLinkOperations.getTarget(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget([ SNode ] genericDotExpression, LINKS.target$CEPF), CONCEPTS.GenericMemberRef$bk), LINKS.member$wUNL), LINKS.type$sXU3); 
+          if (SNodeOperations.isInstanceOf(pointerType, CONCEPTS.PointerType$HX)) { 
+            // the existing variable is a struct member  
+            structType = SNodeOperations.cast(SLinkOperations.getTarget([ SNode ] pointerType, LINKS.baseType$zMGV), CONCEPTS.StructType$B3); 
+             
+            if (requiresReversibility) { 
+              tgs.append("rev_malloc(arena, sizeof("); 
+              tgs.appendNode(structType); 
+              tgs.append("));"); 
+              tgs.newLine(); 
+            } else { 
+              tgs.append("("); 
+              tgs.appendNode(structType); 
+              tgs.append(" *)malloc(sizeof("); 
+              tgs.appendNode(structType); 
+              tgs.append("));"); 
+              tgs.newLine(); 
+              tgs.indent(); 
+              tgs.append("if ("); 
+              tgs.appendNode(SLinkOperations.getTarget([ SNode ] assignmentExpr, LINKS.left$SkXz)); 
+              tgs.append(" == NULL) {"); 
+              tgs.newLine(); 
+            } 
+          } 
+        } 
+      } 
+    } 
+  } 
+}''' '''''' '''if (!requiresReversibility) { 
+  ctx.getBuffer().area().increaseIndent(); 
+  tgs.indent(); 
+  tgs.append("printf("malloc error: unable to allocate memory!");"); 
+  tgs.newLine(); 
+  tgs.indent(); 
+  tgs.append("puts("");"); 
+  tgs.newLine(); 
+  tgs.indent(); 
+  tgs.append("exit(-1);"); 
+  tgs.newLine(); 
+  ctx.getBuffer().area().decreaseIndent(); 
+  tgs.indent(); 
+  tgs.append("}"); 
+  tgs.newLine(); 
+}'''
       the new struct can also be assigned to an existing variable
 
     */

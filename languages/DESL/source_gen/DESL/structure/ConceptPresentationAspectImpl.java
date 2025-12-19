@@ -41,6 +41,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_IMacro;
   private ConceptPresentation props_IProcessAllocation;
   private ConceptPresentation props_IProcessList;
+  private ConceptPresentation props_IRNGCall;
   private ConceptPresentation props_IStartupFunction;
   private ConceptPresentation props_IStructDefinition;
   private ConceptPresentation props_ITerminationFunction;
@@ -292,6 +293,12 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_IProcessList = cpb.create();
         }
         return props_IProcessList;
+      case LanguageConceptSwitch.IRNGCall:
+        if (props_IRNGCall == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          props_IRNGCall = cpb.create();
+        }
+        return props_IRNGCall;
       case LanguageConceptSwitch.IStartupFunction:
         if (props_IStartupFunction == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

@@ -58,7 +58,6 @@ public class InitializeState_TextGen extends TextGenDescriptorBase {
       tgs.append("SetState(");
       tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.stateVariable$Lo8Y), PROPS.name$MnvL));
       tgs.append(");");
-      tgs.newLine();
     }
     if (tgs.needPositions()) {
       tgs.fillPositionInfo(TraceableConcept__BehaviorDescriptor.getTraceableProperty_id4pl5GY7LKmH.invoke(SNodeOperations.cast(ctx.getPrimaryInput(), CONCEPTS.TraceableConcept$L)));

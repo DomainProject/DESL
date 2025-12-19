@@ -818,7 +818,7 @@
                   <ref role="3cqZAo" node="4rjyFEGTSMf" resolve="newFunction" />
                 </node>
                 <node concept="3TrcHB" id="5U1XgQxr3DS" role="2OqNvi">
-                  <ref role="3TsBF5" to="w8o:5U1XgQxe26p" resolve="isForward" />
+                  <ref role="3TsBF5" to="kmi:5rI5N7Zmx5J" resolve="isForward" />
                 </node>
               </node>
             </node>
@@ -2014,7 +2014,7 @@
               <node concept="2ShNRf" id="1i0tj4VHYZD" role="37vLTx">
                 <node concept="3zrR0B" id="1i0tj4VHYTd" role="2ShVmc">
                   <node concept="3Tqbb2" id="1i0tj4VHYTe" role="3zrR0E">
-                    <ref role="ehGHo" to="w8o:5U1XgQxbKlv" resolve="ReversibleFunction" />
+                    <ref role="ehGHo" to="x27k:5_l8w1EmTvx" resolve="Function" />
                   </node>
                 </node>
               </node>
@@ -2258,7 +2258,7 @@
               <node concept="2ShNRf" id="4UyZjBJ6GF1" role="37vLTx">
                 <node concept="3zrR0B" id="4UyZjBJ6Gw7" role="2ShVmc">
                   <node concept="3Tqbb2" id="4UyZjBJ6Gw8" role="3zrR0E">
-                    <ref role="ehGHo" to="kmi:3CmSUB7Fp_l" resolve="ReversibleStatementList" />
+                    <ref role="ehGHo" to="c4fa:3CmSUB7Fp_l" resolve="StatementList" />
                   </node>
                 </node>
               </node>
@@ -2270,7 +2270,7 @@
                   </node>
                 </node>
                 <node concept="3TrEf2" id="4UyZjBJ6FNs" role="2OqNvi">
-                  <ref role="3Tt5mk" to="w8o:5U1XgQxbRAA" resolve="revBody" />
+                  <ref role="3Tt5mk" to="x27k:3CmSUB7Fp_k" resolve="body" />
                 </node>
               </node>
             </node>

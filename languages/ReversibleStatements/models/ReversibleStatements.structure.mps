@@ -397,6 +397,9 @@
     <node concept="PrWs8" id="21ygb7Ut1I1" role="PzmwI">
       <ref role="PrY4T" node="21ygb7Us$bV" resolve="IAllocationVariable" />
     </node>
+    <node concept="PrWs8" id="2oU9ceCP7o3" role="PzmwI">
+      <ref role="PrY4T" to="ib4b:2vgMet5CGud" resolve="IDestructiveOperation" />
+    </node>
     <node concept="1QGGSu" id="1N5Tah$AJkG" role="rwd14">
       <property role="1iqoE4" value="${module}/icons/localvar.png" />
     </node>

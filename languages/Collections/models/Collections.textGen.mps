@@ -43,6 +43,9 @@
       <concept id="1068580123136" name="jetbrains.mps.baseLanguage.structure.StatementList" flags="sn" stub="5293379017992965193" index="3clFbS">
         <child id="1068581517665" name="statement" index="3cqZAp" />
       </concept>
+      <concept id="1081516740877" name="jetbrains.mps.baseLanguage.structure.NotExpression" flags="nn" index="3fqX7Q">
+        <child id="1081516765348" name="expression" index="3fr31v" />
+      </concept>
       <concept id="5497648299878491908" name="jetbrains.mps.baseLanguage.structure.BaseVariableReference" flags="nn" index="1M0zk4">
         <reference id="5497648299878491909" name="baseVariableDeclaration" index="1M0zk5" />
       </concept>
@@ -465,6 +468,30 @@
                   <node concept="117lpO" id="15nhu1PC5iw" role="2Oq$k0" />
                   <node concept="3TrEf2" id="79P5B3OiGTG" role="2OqNvi">
                     <ref role="3Tt5mk" to="mj1t:2mriF_PpxPk" resolve="body" />
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="3clFbH" id="2oU9ceCNHTP" role="3cqZAp" />
+            <node concept="3clFbJ" id="2oU9ceCNIaT" role="3cqZAp">
+              <node concept="3clFbS" id="2oU9ceCNIaV" role="3clFbx">
+                <node concept="lc7rE" id="2oU9ceCNJS9" role="3cqZAp">
+                  <node concept="1bDJIP" id="2oU9ceCNJS_" role="lcghm">
+                    <ref role="1rvKf6" to="sytt:2oU9ceBElnR" resolve="restoreRng" />
+                    <node concept="2OqwBi" id="2oU9ceCNJXt" role="1ryhcI">
+                      <node concept="117lpO" id="2oU9ceCNJSZ" role="2Oq$k0" />
+                      <node concept="3TrEf2" id="2oU9ceCNK0r" role="2OqNvi">
+                        <ref role="3Tt5mk" to="mj1t:2mriF_PpxPk" resolve="body" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+              <node concept="3fqX7Q" id="2oU9ceCNJRr" role="3clFbw">
+                <node concept="2OqwBi" id="2oU9ceCNJRt" role="3fr31v">
+                  <node concept="117lpO" id="2oU9ceCNJRu" role="2Oq$k0" />
+                  <node concept="3TrcHB" id="2oU9ceCNJRv" role="2OqNvi">
+                    <ref role="3TsBF5" to="kmi:5rI5N7Zmx5J" resolve="isForward" />
                   </node>
                 </node>
               </node>

@@ -27,7 +27,7 @@ public class Random_TextGen extends TextGenDescriptorBase {
       tgs.append(")");
     } else if ((SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.UseM2M$UU, false, false) != null)) {
       tgs.append("Random()");
-    } else if ((SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.RossM2M$aQ, false, false) != null)) {
+    } else if ((SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.RossM2M$aQ, false, false) != null) || SPropertyOperations.getBoolean(SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.ReversibleFunction$IL, false, false), PROPS.reversibilityRequired$Zgdy)) {
       if (SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5)) {
         tgs.append("tw_rand_unif(");
         tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.ctx$bQr0));
@@ -41,18 +41,6 @@ public class Random_TextGen extends TextGenDescriptorBase {
       tgs.append("random(");
       tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.ctx$bQr0));
       tgs.append(", g_n_nodes)");
-    } else {
-
-      // todo uncomment
-      if (SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5)) {
-        tgs.append("tw_rand_unif(");
-        tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.ctx$bQr0));
-        tgs.append(")");
-      } else {
-        tgs.append("tw_rand_reverse_unif(");
-        tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.ctx$bQr0));
-        tgs.append(")");
-      }
     }
 
     if (tgs.needPositions()) {
@@ -63,6 +51,7 @@ public class Random_TextGen extends TextGenDescriptorBase {
   private static final class CONCEPTS {
     /*package*/ static final SConcept RootSimM2M$x5 = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2e66f9a61334f363L, "DESL.structure.RootSimM2M");
     /*package*/ static final SConcept UseM2M$UU = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4111dd2682dce668L, "DESL.structure.UseM2M");
+    /*package*/ static final SConcept ReversibleFunction$IL = MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, "ReversibleFunctions.structure.ReversibleFunction");
     /*package*/ static final SConcept RossM2M$aQ = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x7dd219cad75cd6eeL, "DESL.structure.RossM2M");
     /*package*/ static final SConcept RootSimGPUM2M$GC = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0xa56bb45af68e0a2L, "DESL.structure.RootSimGPUM2M");
     /*package*/ static final SInterfaceConcept TraceableConcept$L = MetaAdapterFactory.getInterfaceConcept(0x9ded098bad6a4657L, 0xbfd948636cfe8bc3L, 0x465516cf87c705a3L, "jetbrains.mps.lang.traceable.structure.TraceableConcept");
@@ -74,5 +63,6 @@ public class Random_TextGen extends TextGenDescriptorBase {
 
   private static final class PROPS {
     /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
+    /*package*/ static final SProperty reversibilityRequired$Zgdy = MetaAdapterFactory.getProperty(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111cL, 0x56ee1731ff5a6482L, "reversibilityRequired");
   }
 }

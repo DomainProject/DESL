@@ -16,7 +16,7 @@ import org.jetbrains.mps.openapi.language.SProperty;
 public class TerminationFunctionFactory {
   public static class NodeFactory_1477309532093105809 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, int index, SModel model) {
-      SLinkOperations.setTarget(newNode, LINKS.function$cpRu, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, "ReversibleFunctions.structure.ReversibleFunction")));
+      SLinkOperations.setTarget(newNode, LINKS.function$cpRu, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x595522006a5b97e1L, "com.mbeddr.core.modules.structure.Function")));
       SPropertyOperations.assign(SLinkOperations.getTarget(newNode, LINKS.function$cpRu), PROPS.name$MnvL, "CanEnd");
 
       SLinkOperations.setTarget(SLinkOperations.getTarget(newNode, LINKS.function$cpRu), LINKS.type$sXU3, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba3aL, "com.mbeddr.core.expressions.structure.BooleanType")));
@@ -34,7 +34,7 @@ public class TerminationFunctionFactory {
 
       ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(newNode, LINKS.function$cpRu), LINKS.arguments$6da0)).addElement(me);
       ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(newNode, LINKS.function$cpRu), LINKS.arguments$6da0)).addElement(snapshot);
-      SLinkOperations.setTarget(SLinkOperations.getTarget(newNode, LINKS.function$cpRu), LINKS.revBody$QkEt, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, "ReversibleStatements.structure.ReversibleStatementList")));
+      SLinkOperations.setTarget(SLinkOperations.getTarget(newNode, LINKS.function$cpRu), LINKS.body$1GE0, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad9955L, "com.mbeddr.core.statements.structure.StatementList")));
     }
   }
 
@@ -43,7 +43,7 @@ public class TerminationFunctionFactory {
     /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
     /*package*/ static final SContainmentLink baseType$zMGV = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x6bbcdccef5e46755L, 0x6bbcdccef5e46756L, "baseType");
     /*package*/ static final SContainmentLink arguments$6da0 = MetaAdapterFactory.getContainmentLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x707ac195dd5d51f2L, 0x4f39f90935e92f45L, "arguments");
-    /*package*/ static final SContainmentLink revBody$QkEt = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, 0x5e81f50da12f79a6L, "revBody");
+    /*package*/ static final SContainmentLink body$1GE0 = MetaAdapterFactory.getContainmentLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x595522006a5b97e1L, 0x3a16e3a9c7ad9954L, "body");
   }
 
   private static final class PROPS {

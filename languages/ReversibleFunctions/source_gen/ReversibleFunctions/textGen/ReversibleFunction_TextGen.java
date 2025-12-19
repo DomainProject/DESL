@@ -26,7 +26,7 @@ public class ReversibleFunction_TextGen extends TextGenDescriptorBase {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     tgs.createPositionInfo();
 
-    if (SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$rJ$J)) {
+    if (SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5)) {
       tgs.append("struct checkpoint {");
       tgs.newLine();
       for (SNode var : ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.checkpointingVariables$5GhH)).where((it) -> (SLinkOperations.getTarget(it, LINKS.var$iAI8) != null))) {
@@ -72,7 +72,7 @@ public class ReversibleFunction_TextGen extends TextGenDescriptorBase {
 
   private static final class PROPS {
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
-    /*package*/ static final SProperty isForward$rJ$J = MetaAdapterFactory.getProperty(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111cL, 0x5e81f50da1382199L, "isForward");
+    /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
   }
 
   private static final class CONCEPTS {

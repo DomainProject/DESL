@@ -33,6 +33,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     deps.extendedLanguage(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, "jetbrains.mps.lang.core");
     deps.extendedLanguage(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, "ReversibleExpressions");
     deps.extendedLanguage(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, "com.mbeddr.core.modules");
+    deps.extendedLanguage(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, "ReversibleStatements");
     deps.extendedLanguage(0xc4765525912b41b9L, 0xace4ce3b88117666L, "DESL");
     deps.extendedLanguage(0xd4280a54f6df4383L, 0xaa41d1b2bffa7eb1L, "com.mbeddr.core.base");
     deps.extendedLanguage(0x61c69711ed614850L, 0x81d97714ff227fb0L, "com.mbeddr.core.expressions");
@@ -40,6 +41,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     deps.aggregatedLanguage(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, "com.mbeddr.core.modules");
     deps.aggregatedLanguage(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, "ReversibleExpressions");
     deps.aggregatedLanguage(0xefda956e491e4f00L, 0xba1436af2f213ecfL, "com.mbeddr.core.udt");
+    deps.aggregatedLanguage(0xc4765525912b41b9L, 0xace4ce3b88117666L, "DESL");
   }
 
   @Override
@@ -89,9 +91,9 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("ReversibleFunctions", "IReversibleItem", 0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111cL);
     b.interface_();
     b.parent(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x595522006a5b934fL);
+    b.parent(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL);
     b.origin("r:e84d12fa-9ad2-42d4-95e8-d9ef0c30fdf9(ReversibleFunctions.structure)/3415911555223851292");
     b.version(3);
-    b.property("isForward", 0x5e81f50da1382199L).type(PrimitiveTypeId.BOOLEAN).origin("6809993550449090969").done();
     b.property("reversibilityRequired", 0x56ee1731ff5a6482L).type(PrimitiveTypeId.BOOLEAN).origin("6263969635223889026").done();
     b.property("expand", 0x2f67c1761149413aL).type(PrimitiveTypeId.BOOLEAN).origin("3415911555224125754").done();
     return b.create();
@@ -159,6 +161,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.aggregate("reversibleItems", 0x56ee1731fef0eae6L).target(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111cL).optional(true).ordered(true).multiple(true).origin("6263969635216976614").done();
     b.aggregate("functions", 0x7f5aaca6ab31ec34L).target(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x595522006a5b97e1L).optional(true).ordered(true).multiple(true).origin("9176837022557531188").done();
     b.aggregate("structs", 0x482205b2742202cdL).target(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x58bef62304fc0a2fL).optional(true).ordered(true).multiple(true).origin("5197723183949677261").done();
+    b.aggregate("events", 0x7b2c320cf2083899L).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2e66f9a613f69c80L).optional(true).ordered(true).multiple(true).origin("8875523996822026393").done();
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForReversibleScriptExp() {

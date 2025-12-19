@@ -32,7 +32,7 @@ public class GetRandContext_TextGen extends TextGenDescriptorBase {
       tgs.append(stateStructName);
       tgs.append("->ctx");
 
-    } else if ((SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.RossM2M$aQ, false, false) != null)) {
+    } else if ((SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.RossM2M$aQ, false, false) != null) || SPropertyOperations.getBoolean(SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.ReversibleFunction$IL, false, false), PROPS.reversibilityRequired$Zgdy)) {
 
       tgs.append("lp->rng");
 
@@ -55,6 +55,7 @@ public class GetRandContext_TextGen extends TextGenDescriptorBase {
     /*package*/ static final SConcept PointerType$HX = MetaAdapterFactory.getConcept(0x3bf5377ae9044dedL, 0x97545a516023bfaaL, 0x3e0cae5e366d630L, "com.mbeddr.core.pointers.structure.PointerType");
     /*package*/ static final SConcept DESLModel$DK = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, "DESL.structure.DESLModel");
     /*package*/ static final SConcept ClassDefinition$NR = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, "DESL.structure.ClassDefinition");
+    /*package*/ static final SConcept ReversibleFunction$IL = MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, "ReversibleFunctions.structure.ReversibleFunction");
     /*package*/ static final SConcept RossM2M$aQ = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x7dd219cad75cd6eeL, "DESL.structure.RossM2M");
     /*package*/ static final SConcept RootSimGPUM2M$GC = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0xa56bb45af68e0a2L, "DESL.structure.RootSimGPUM2M");
     /*package*/ static final SInterfaceConcept TraceableConcept$L = MetaAdapterFactory.getInterfaceConcept(0x9ded098bad6a4657L, 0xbfd948636cfe8bc3L, 0x465516cf87c705a3L, "jetbrains.mps.lang.traceable.structure.TraceableConcept");
@@ -70,5 +71,6 @@ public class GetRandContext_TextGen extends TextGenDescriptorBase {
 
   private static final class PROPS {
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty reversibilityRequired$Zgdy = MetaAdapterFactory.getProperty(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111cL, 0x56ee1731ff5a6482L, "reversibilityRequired");
   }
 }

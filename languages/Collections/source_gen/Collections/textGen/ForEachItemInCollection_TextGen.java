@@ -47,6 +47,10 @@ public class ForEachItemInCollection_TextGen extends TextGenDescriptorBase {
     // append state savings/restores
     ReversibleStatementListUtils.stateHandlingVariables(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$6qqU), ctx);
 
+    if (!(SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5))) {
+      ReversibleStatementListUtils.restoreRng(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$6qqU), ctx);
+    }
+
     for (SNode stmt : ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$6qqU), LINKS.revStatements$IdM8))) {
       tgs.indent();
       tgs.appendNode(stmt);
@@ -79,6 +83,7 @@ public class ForEachItemInCollection_TextGen extends TextGenDescriptorBase {
   private static final class PROPS {
     /*package*/ static final SProperty variableName$xecS = MetaAdapterFactory.getProperty(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x259b4ab97565ea5eL, 0x2d57d1c347710003L, "variableName");
     /*package*/ static final SProperty iteratorName$Z1d4 = MetaAdapterFactory.getProperty(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x259b4ab97565ea5eL, 0x72751670f419b537L, "iteratorName");
+    /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
   }
 
   private static final class CONCEPTS {

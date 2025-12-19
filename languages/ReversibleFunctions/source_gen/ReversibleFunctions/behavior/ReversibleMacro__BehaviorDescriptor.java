@@ -44,7 +44,7 @@ public final class ReversibleMacro__BehaviorDescriptor extends BaseBHDescriptor 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getArgumentToSaveIndex_id2vwNr_9BbOi, getPresentation_idhEwIMiw, sortWeight_id6W5EUuUE5hm, exportable_id5HxjapwgqKI, isStaticallyEvaluatable_id6ydhAa2hH2s, evaluateStatically_id6ydhAa2hHmU, resultIsLValue_id4b64BCc3TpW, isSourceFileContent_id6rD2$2sc6_0, isHeaderFileContent_id6rD2$2sc8kI);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
-    SPropertyOperations.assign(__thisNode__, PROPS.isForward$rJ$J, true);
+    SPropertyOperations.assign(__thisNode__, PROPS.isForward$pAg5, true);
   }
 
   /*package*/ static int getArgumentToSaveIndex_id2vwNr_9BbOi(@NotNull SNode __thisNode__) {
@@ -181,7 +181,7 @@ public final class ReversibleMacro__BehaviorDescriptor extends BaseBHDescriptor 
   }
 
   private static final class PROPS {
-    /*package*/ static final SProperty isForward$rJ$J = MetaAdapterFactory.getProperty(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111cL, 0x5e81f50da1382199L, "isForward");
+    /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
     /*package*/ static final SProperty value$qZmE = MetaAdapterFactory.getProperty(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x1eb611a68febd3e5L, 0x1eb611a68fec38b0L, "value");
     /*package*/ static final SProperty resultIsLValue$6M7F = MetaAdapterFactory.getProperty(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145008fL, 0x42c6127a0bd2ce95L, "resultIsLValue");

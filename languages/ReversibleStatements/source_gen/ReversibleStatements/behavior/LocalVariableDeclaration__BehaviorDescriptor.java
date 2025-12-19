@@ -34,8 +34,10 @@ public final class LocalVariableDeclaration__BehaviorDescriptor extends BaseBHDe
   public static final SMethod<Boolean> canBeStatic_id58TcxRGFbfJ = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("canBeStatic").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(5924821888888779759L).languageId(0x8af20a8ce6b25221L, 0xf75f9e3fb00b4997L).build2();
   public static final SMethod<SNode> getDeclaredType_id1LDGRqyYkTX = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getDeclaredType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2047364827738361469L).languageId(0x81d97714ff227fb0L, 0x61c69711ed614850L).build2();
   public static final SMethod<SNode> getInitExpression_id5O5ERJtHyWT = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getInitExpression").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6702952168899882809L).languageId(0x81d97714ff227fb0L, 0x61c69711ed614850L).build2();
+  public static final SMethod<String> getBaseName_id2vgMet5LndN = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getBaseName").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2869013858268574579L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
+  public static final SMethod<Void> handleCopyPaste_id33MO5h9wdZT = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("handleCopyPaste").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(3527110518613532665L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getType_id67hg1wL_GfW, isCommentable_id3RtPbXKOu_B, isIncompleteTypeAllowed_id3_EX3WibiOp, getTypeComputationNode_id7kDeEuVjSvB, getStaticallyEvaluatableNode_id3fs$L2LZpYI, getInitExpression_id1LDGRqyYkU1, canBeStatic_id58TcxRGFbfJ, getDeclaredType_id1LDGRqyYkTX, getInitExpression_id5O5ERJtHyWT);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getType_id67hg1wL_GfW, isCommentable_id3RtPbXKOu_B, isIncompleteTypeAllowed_id3_EX3WibiOp, getTypeComputationNode_id7kDeEuVjSvB, getStaticallyEvaluatableNode_id3fs$L2LZpYI, getInitExpression_id1LDGRqyYkU1, canBeStatic_id58TcxRGFbfJ, getDeclaredType_id1LDGRqyYkTX, getInitExpression_id5O5ERJtHyWT, getBaseName_id2vgMet5LndN, handleCopyPaste_id33MO5h9wdZT);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -67,6 +69,11 @@ public final class LocalVariableDeclaration__BehaviorDescriptor extends BaseBHDe
   }
   /*package*/ static SNode getInitExpression_id5O5ERJtHyWT(@NotNull SNode __thisNode__) {
     return SLinkOperations.getTarget(__thisNode__, LINKS.init$41s$);
+  }
+  /*package*/ static String getBaseName_id2vgMet5LndN(@NotNull SNode __thisNode__) {
+    return "local_var_decl_";
+  }
+  /*package*/ static void handleCopyPaste_id33MO5h9wdZT(@NotNull SNode __thisNode__) {
   }
 
   /*package*/ LocalVariableDeclaration__BehaviorDescriptor() {
@@ -102,6 +109,11 @@ public final class LocalVariableDeclaration__BehaviorDescriptor extends BaseBHDe
         return (T) ((SNode) getDeclaredType_id1LDGRqyYkTX(node));
       case 8:
         return (T) ((SNode) getInitExpression_id5O5ERJtHyWT(node));
+      case 9:
+        return (T) ((String) getBaseName_id2vgMet5LndN(node));
+      case 10:
+        handleCopyPaste_id33MO5h9wdZT(node);
+        return null;
       default:
         throw new BHMethodNotFoundException(this, method);
     }

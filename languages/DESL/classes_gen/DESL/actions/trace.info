@@ -14,8 +14,8 @@
   </root>
   <root nodeRef="r:69b854b5-1607-4a31-a5d5-03c17535ea4a(DESL.actions)/1477309532093105808">
     <file name="TerminationFunctionFactory.java">
-      <node id="1477309532093270816" at="18,102,19,242" concept="0" />
-      <node id="1477309532093282173" at="19,242,20,117" concept="0" />
+      <node id="1477309532093270816" at="18,102,19,236" concept="0" />
+      <node id="1477309532093282173" at="19,236,20,117" concept="0" />
       <node id="1477309532094650122" at="20,117,21,0" concept="5" />
       <node id="1477309532094651513" at="21,0,22,287" concept="0" />
       <node id="1477309532093269597" at="22,287,23,0" concept="5" />
@@ -32,16 +32,16 @@
       <node id="1477309532093180758" at="33,72,34,0" concept="5" />
       <node id="1477309532093180777" at="34,0,35,151" concept="0" />
       <node id="1477309532093266003" at="35,151,36,157" concept="0" />
-      <node id="5666369706451966933" at="36,157,37,295" concept="0" />
+      <node id="5666369706451966933" at="36,157,37,288" concept="0" />
       <node id="1477309532093105808" at="42,0,43,0" concept="6" trace="function$cpRu" />
       <node id="1477309532093105808" at="43,0,44,0" concept="6" trace="type$sXU3" />
       <node id="1477309532093105808" at="44,0,45,0" concept="6" trace="baseType$zMGV" />
       <node id="1477309532093105808" at="45,0,46,0" concept="6" trace="arguments$6da0" />
-      <node id="1477309532093105808" at="46,0,47,0" concept="6" trace="revBody$QkEt" />
+      <node id="1477309532093105808" at="46,0,47,0" concept="6" trace="body$1GE0" />
       <node id="1477309532093105808" at="50,0,51,0" concept="6" trace="name$MnvL" />
       <node id="1477309532093105808" at="51,0,52,0" concept="6" trace="const$VWr7" />
       <node id="1477309532093105809" at="18,0,39,0" concept="1" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;ILorg/jetbrains/mps/openapi/model/SModel;)V" />
-      <scope id="1477309532093105809" at="18,102,37,295">
+      <scope id="1477309532093105809" at="18,102,37,288">
         <var name="me" id="1477309532093105832" />
         <var name="snapshot" id="1477309532093137544" />
         <var name="voidPointer" id="1477309532093137666" />
@@ -146,7 +146,7 @@
       <node id="5781293655540981271" at="65,254,66,69" concept="0" />
       <node id="5781293655540993995" at="66,69,67,160" concept="0" />
       <node id="5103575337110310021" at="72,0,73,0" concept="6" trace="name$MnvL" />
-      <node id="5103575337110310021" at="73,0,74,0" concept="6" trace="isForward$rJ$J" />
+      <node id="5103575337110310021" at="73,0,74,0" concept="6" trace="isForward$pAg5" />
       <node id="5103575337110310021" at="77,0,78,0" concept="6" trace="revBody$QkEt" />
       <node id="5103575337110310021" at="78,0,79,0" concept="6" trace="type$sXU3" />
       <node id="5103575337110310021" at="79,0,80,0" concept="6" trace="forwardFunction$5bPH" />
