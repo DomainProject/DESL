@@ -102,7 +102,9 @@ public class ModelListenersDescriptor implements IModelListenersDescriptor {
     ListSequence.fromList(listeners).addElement(new ChildListener(CONCEPTS.LocalVariableDeclaration$7E, LINKS.type$sXU3) {
       @Override
       public void childAdded(final SNode instance, final SNode child) {
-        SLinkOperations.setTarget(SLinkOperations.getTarget(instance, LINKS.supportVariable$WrxR), LINKS.type$sXU3, SNodeOperations.copyNode(child));
+        if (!(SNodeOperations.isInstanceOf(instance, CONCEPTS.ForVarDecl$3i))) {
+          SLinkOperations.setTarget(SLinkOperations.getTarget(instance, LINKS.supportVariable$WrxR), LINKS.type$sXU3, SNodeOperations.copyNode(child));
+        }
       }
     });
 
@@ -116,6 +118,7 @@ public class ModelListenersDescriptor implements IModelListenersDescriptor {
     /*package*/ static final SConcept NumberLiteral$jK = MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba67L, "com.mbeddr.core.expressions.structure.NumberLiteral");
     /*package*/ static final SConcept ExpressionStatement$L7 = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a4018a8592L, "ReversibleStatements.structure.ExpressionStatement");
     /*package*/ static final SConcept LocalVariableDeclaration$7E = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad96e6L, "ReversibleStatements.structure.LocalVariableDeclaration");
+    /*package*/ static final SConcept ForVarDecl$3i = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a401870e23L, "ReversibleStatements.structure.ForVarDecl");
   }
 
   private static final class LINKS {

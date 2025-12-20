@@ -273,6 +273,8 @@ public class QueriesGenerated extends QueryProviderBase {
       List<SNode> reversedFunctions = new ArrayList<SNode>();
       for (SNode function : ListSequence.fromList(SNodeOperations.getNodeDescendants(root, CONCEPTS.ReversibleFunction$IL, false, new SAbstractConcept[]{}))) {
 
+        SPropertyOperations.assign(function, PROPS.reversibilityRequired$Zgdy, true);
+
         // state saving for macro calls
         for (SNode rmc : ListSequence.fromList(SNodeOperations.getNodeDescendants(function, CONCEPTS.ReversibleMacroCall$40, false, new SAbstractConcept[]{}))) {
           // state saving
@@ -299,6 +301,11 @@ public class QueriesGenerated extends QueryProviderBase {
 
         // add checkpointing variables to DESL model
         for (SNode stmtWithSupportVariable : ListSequence.fromList(SNodeOperations.getNodeDescendants(function, CONCEPTS.INeedSupportVariable$qI, false, new SAbstractConcept[]{}))) {
+
+          // ForVarDecl's support variable is always null and must be ignored 
+          if (SNodeOperations.hasRole(stmtWithSupportVariable, LINKS.iterator$fwes)) {
+            continue;
+          }
 
           // check if the stmt is contained in a loop
           if (!(SNodeOperations.isInstanceOf(SNodeOperations.getParent(SNodeOperations.getParent(stmtWithSupportVariable)), CONCEPTS.IReversibleLoop$k1))) {
@@ -658,8 +665,8 @@ public class QueriesGenerated extends QueryProviderBase {
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
     /*package*/ static final SProperty preventNameMangling$DOH5 = MetaAdapterFactory.getProperty(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x595522006a5b934fL, 0x5d18402e8bd65342L, "preventNameMangling");
     /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
-    /*package*/ static final SProperty callsDestructiveMacro$eoF = MetaAdapterFactory.getProperty(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1b427f2e49d1fe84L, 0x2d0ea789450dadafL, "callsDestructiveMacro");
     /*package*/ static final SProperty reversibilityRequired$Zgdy = MetaAdapterFactory.getProperty(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111cL, 0x56ee1731ff5a6482L, "reversibilityRequired");
+    /*package*/ static final SProperty callsDestructiveMacro$eoF = MetaAdapterFactory.getProperty(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1b427f2e49d1fe84L, 0x2d0ea789450dadafL, "callsDestructiveMacro");
   }
 
   private static final class LINKS {
@@ -680,6 +687,7 @@ public class QueriesGenerated extends QueryProviderBase {
     /*package*/ static final SContainmentLink actuals$QKpS = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1b427f2e49d1fe84L, 0x1b427f2e49d1fe86L, "actuals");
     /*package*/ static final SContainmentLink actual$n_Ao = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x68ce0d48c3998717L, 0x68ce0d48c3998719L, "actual");
     /*package*/ static final SContainmentLink init$$i$n = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad96e6L, 0x3a16e3a9c7ae01f7L, "init");
+    /*package*/ static final SContainmentLink iterator$fwes = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a40186e676L, 0x64ae61a401870e40L, "iterator");
     /*package*/ static final SReferenceLink var$iAI8 = MetaAdapterFactory.getReferenceLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x571ea5ef247e3b6dL, 0x571ea5ef247e3b6eL, "var");
     /*package*/ static final SContainmentLink additionalVariables$en7t = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x6337a44ca461bdf4L, 0x6337a44ca461be00L, "additionalVariables");
     /*package*/ static final SContainmentLink forwardFunction$5bPH = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x74d88000543a2a9fL, "forwardFunction");

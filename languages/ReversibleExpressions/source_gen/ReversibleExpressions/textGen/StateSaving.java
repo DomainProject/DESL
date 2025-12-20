@@ -8,7 +8,7 @@ import jetbrains.mps.text.impl.TextGenSupport;
 public abstract class StateSaving {
   public static void stateSaving(String variableName, String variableToSaveName, final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
-    tgs.append("checkpoint.");
+    tgs.append("content->cp.");
     tgs.append(variableName);
     tgs.append(" = ");
     tgs.append(variableToSaveName);

@@ -13,10 +13,12 @@ import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class IDestructiveOperation__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x27d0c8e745a2c78dL, "ReversibleExpressions.structure.IDestructiveOperation");
@@ -26,7 +28,9 @@ public final class IDestructiveOperation__BehaviorDescriptor extends BaseBHDescr
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getBaseName_id2vgMet5LndN);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
-    INeedSupportVariable__BehaviorDescriptor.createVariable_id5xEIMPngWHX.invoke(__thisNode__, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x75739ed9f39e3888L, "com.mbeddr.core.expressions.structure.Int32tType")), IDestructiveOperation__BehaviorDescriptor.getBaseName_id2vgMet5LndN.invoke(__thisNode__), null);
+    if (!(SNodeOperations.isInstanceOf(__thisNode__, CONCEPTS.ForVarDecl$3i))) {
+      INeedSupportVariable__BehaviorDescriptor.createVariable_id5xEIMPngWHX.invoke(__thisNode__, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x75739ed9f39e3888L, "com.mbeddr.core.expressions.structure.Int32tType")), IDestructiveOperation__BehaviorDescriptor.getBaseName_id2vgMet5LndN.invoke(__thisNode__), null);
+    }
   }
 
 
@@ -72,5 +76,9 @@ public final class IDestructiveOperation__BehaviorDescriptor extends BaseBHDescr
   @Override
   public SAbstractConcept getConcept() {
     return CONCEPT;
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ForVarDecl$3i = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a401870e23L, "ReversibleStatements.structure.ForVarDecl");
   }
 }

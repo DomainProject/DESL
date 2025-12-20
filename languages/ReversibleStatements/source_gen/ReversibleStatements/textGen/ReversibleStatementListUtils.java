@@ -30,7 +30,7 @@ public abstract class ReversibleStatementListUtils {
         if (SPropertyOperations.getBoolean(revStatementList, PROPS.isForward$pAg5)) {
           if (isContainedInLoop) {
             tgs.indent();
-            tgs.append("checkpoint.");
+            tgs.append("content->cp.");
             tgs.append(SPropertyOperations.getString(destructiveExpr, PROPS.loopArrayName$wAd5));
             tgs.append("[");
             tgs.append(IReversibleLoop__BehaviorDescriptor.getIterationVariableName_id6cRD4M$XPR9.invoke(loopAncestor));
@@ -40,7 +40,7 @@ public abstract class ReversibleStatementListUtils {
             tgs.newLine();
           } else {
             tgs.indent();
-            tgs.append("checkpoint.");
+            tgs.append("content->cp.");
             tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(destructiveExpr, LINKS.supportVariable$WrxR), PROPS.name$MnvL));
             tgs.append(" = ");
             tgs.appendNode(SLinkOperations.getTarget(SLinkOperations.getTarget(destructiveExpr, LINKS.supportVariable$WrxR), LINKS.init$$i$n));
@@ -52,7 +52,7 @@ public abstract class ReversibleStatementListUtils {
           if (isContainedInLoop) {
             tgs.indent();
             tgs.appendNode(SLinkOperations.getTarget(SLinkOperations.getTarget(destructiveExpr, LINKS.supportVariable$WrxR), LINKS.init$$i$n));
-            tgs.append(" = checkpoint.");
+            tgs.append(" = content->cp.");
             tgs.append(SPropertyOperations.getString(destructiveExpr, PROPS.loopArrayName$wAd5));
             tgs.append("[");
             tgs.append(IReversibleLoop__BehaviorDescriptor.getIterationVariableName_id6cRD4M$XPR9.invoke(loopAncestor));
@@ -62,7 +62,7 @@ public abstract class ReversibleStatementListUtils {
           } else {
             tgs.indent();
             tgs.appendNode(SLinkOperations.getTarget(SLinkOperations.getTarget(destructiveExpr, LINKS.supportVariable$WrxR), LINKS.init$$i$n));
-            tgs.append(" = checkpoint.");
+            tgs.append(" = content->cp.");
             tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(destructiveExpr, LINKS.supportVariable$WrxR), PROPS.name$MnvL));
             tgs.append("; // to restore");
             tgs.appendNode(destructiveExpr);

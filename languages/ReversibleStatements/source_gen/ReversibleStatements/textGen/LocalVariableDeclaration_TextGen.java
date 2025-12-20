@@ -72,7 +72,7 @@ public class LocalVariableDeclaration_TextGen extends TextGenDescriptorBase {
       StateSaving.stateSaving(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), PROPS.name$MnvL), SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableToSaveName$udlR), ctx);
     } else {
       if ((SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.init$41s$) != null)) {
-        tgs.append(" = checkpoint.");
+        tgs.append(" = content->cp.");
         tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), PROPS.name$MnvL));
         tgs.append(";");
       }

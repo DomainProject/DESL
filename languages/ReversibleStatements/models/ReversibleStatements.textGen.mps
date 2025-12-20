@@ -1987,7 +1987,7 @@
                 <node concept="3clFbS" id="2oU9ceDJJAI" role="3clFbx">
                   <node concept="lc7rE" id="2oU9ceDJM6$" role="3cqZAp">
                     <node concept="la8eA" id="2oU9ceDJM6_" role="lcghm">
-                      <property role="lacIc" value=" = checkpoint." />
+                      <property role="lacIc" value=" = content-&gt;cp." />
                     </node>
                     <node concept="l9hG8" id="2oU9ceDJM7n" role="lcghm">
                       <node concept="2OqwBi" id="2oU9ceDJPAm" role="lb14g">
@@ -5908,7 +5908,7 @@
                       <node concept="3clFbS" id="5lh8AoX5aQV" role="3clFbx">
                         <node concept="lc7rE" id="5lh8AoX5cN$" role="3cqZAp">
                           <node concept="la8eA" id="5lh8AoX5cN_" role="lcghm">
-                            <property role="lacIc" value="checkpoint." />
+                            <property role="lacIc" value="content-&gt;cp." />
                             <property role="ldcpH" value="true" />
                           </node>
                           <node concept="l9hG8" id="5lh8AoX5cNA" role="lcghm">
@@ -5965,7 +5965,7 @@
                         <node concept="3clFbS" id="5lh8AoX5b$B" role="9aQI4">
                           <node concept="lc7rE" id="15nhu1PxKK2" role="3cqZAp">
                             <node concept="la8eA" id="15nhu1PxKK3" role="lcghm">
-                              <property role="lacIc" value="checkpoint." />
+                              <property role="lacIc" value="content-&gt;cp." />
                               <property role="ldcpH" value="true" />
                             </node>
                             <node concept="l9hG8" id="15nhu1PxKK4" role="lcghm">
@@ -6045,7 +6045,7 @@
                               </node>
                             </node>
                             <node concept="la8eA" id="15nhu1PxKKu" role="lcghm">
-                              <property role="lacIc" value=" = checkpoint." />
+                              <property role="lacIc" value=" = content-&gt;cp." />
                             </node>
                             <node concept="l9hG8" id="5lh8AoX5juj" role="lcghm">
                               <node concept="2OqwBi" id="5lh8AoX5juk" role="lb14g">
@@ -6104,7 +6104,7 @@
                                 </node>
                               </node>
                               <node concept="la8eA" id="5lh8AoXcuBS" role="lcghm">
-                                <property role="lacIc" value=" = checkpoint." />
+                                <property role="lacIc" value=" = content-&gt;cp." />
                               </node>
                               <node concept="l9hG8" id="5lh8AoXcuBT" role="lcghm">
                                 <node concept="2OqwBi" id="5lh8AoXcz4E" role="lb14g">

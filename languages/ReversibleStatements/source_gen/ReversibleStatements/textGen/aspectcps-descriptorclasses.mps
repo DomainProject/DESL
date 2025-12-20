@@ -10408,7 +10408,7 @@
                         <ref role="37wK5l" to="kpbf:~TextGenSupport.append(java.lang.CharSequence)" resolve="append" />
                         <uo k="s:originTrace" v="n:2754554544875577765" />
                         <node concept="Xl_RD" id="HG" role="37wK5m">
-                          <property role="Xl_RC" value=" = checkpoint." />
+                          <property role="Xl_RC" value=" = content-&gt;cp." />
                           <uo k="s:originTrace" v="n:2754554544875577765" />
                         </node>
                       </node>
@@ -14879,7 +14879,7 @@
                               <ref role="37wK5l" to="kpbf:~TextGenSupport.append(java.lang.CharSequence)" resolve="append" />
                               <uo k="s:originTrace" v="n:6147732788844219621" />
                               <node concept="Xl_RD" id="11P" role="37wK5m">
-                                <property role="Xl_RC" value="checkpoint." />
+                                <property role="Xl_RC" value="content-&gt;cp." />
                                 <uo k="s:originTrace" v="n:6147732788844219621" />
                               </node>
                             </node>
@@ -15070,7 +15070,7 @@
                                 <ref role="37wK5l" to="kpbf:~TextGenSupport.append(java.lang.CharSequence)" resolve="append" />
                                 <uo k="s:originTrace" v="n:1249544251965377539" />
                                 <node concept="Xl_RD" id="12C" role="37wK5m">
-                                  <property role="Xl_RC" value="checkpoint." />
+                                  <property role="Xl_RC" value="content-&gt;cp." />
                                   <uo k="s:originTrace" v="n:1249544251965377539" />
                                 </node>
                               </node>
@@ -15289,7 +15289,7 @@
                                 <ref role="37wK5l" to="kpbf:~TextGenSupport.append(java.lang.CharSequence)" resolve="append" />
                                 <uo k="s:originTrace" v="n:1249544251965377566" />
                                 <node concept="Xl_RD" id="13A" role="37wK5m">
-                                  <property role="Xl_RC" value=" = checkpoint." />
+                                  <property role="Xl_RC" value=" = content-&gt;cp." />
                                   <uo k="s:originTrace" v="n:1249544251965377566" />
                                 </node>
                               </node>
@@ -15480,7 +15480,7 @@
                                   <ref role="37wK5l" to="kpbf:~TextGenSupport.append(java.lang.CharSequence)" resolve="append" />
                                   <uo k="s:originTrace" v="n:6147732788846127608" />
                                   <node concept="Xl_RD" id="14o" role="37wK5m">
-                                    <property role="Xl_RC" value=" = checkpoint." />
+                                    <property role="Xl_RC" value=" = content-&gt;cp." />
                                     <uo k="s:originTrace" v="n:6147732788846127608" />
                                   </node>
                                 </node>

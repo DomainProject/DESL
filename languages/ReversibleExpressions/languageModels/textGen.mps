@@ -2003,7 +2003,7 @@
       <node concept="3clFbS" id="79Sp4cYQKw8" role="3clF47">
         <node concept="lc7rE" id="79Sp4cYQKxp" role="3cqZAp">
           <node concept="la8eA" id="79Sp4cYQKxq" role="lcghm">
-            <property role="lacIc" value="checkpoint." />
+            <property role="lacIc" value="content-&gt;cp." />
           </node>
           <node concept="l9hG8" id="79Sp4cYQKxr" role="lcghm">
             <node concept="37vLTw" id="79Sp4cYQKUH" role="lb14g">
