@@ -30,7 +30,7 @@ public class ElseIfPart_TextGen extends TextGenDescriptorBase {
     String iteratorName = "";
     String reverseIteratorName = "";
     if (isContainedInLoop) {
-      reverseIteratorName = iteratorName = "checkpoint." + IReversibleLoop__BehaviorDescriptor.getIterationVariableName_id6cRD4M$XPR9.invoke(SNodeOperations.cast(loopAncestor, CONCEPTS.IReversibleLoop$k1));
+      reverseIteratorName = iteratorName = "content->cp." + IReversibleLoop__BehaviorDescriptor.getIterationVariableName_id6cRD4M$XPR9.invoke(SNodeOperations.cast(loopAncestor, CONCEPTS.IReversibleLoop$k1));
     }
 
     if (SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5) || !(requiresReversibility)) {
@@ -55,7 +55,7 @@ public class ElseIfPart_TextGen extends TextGenDescriptorBase {
           tgs.newLine();
         } else {
           tgs.indent();
-          tgs.append("checkpoint.");
+          tgs.append("content->cp.");
           tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.IfStatement$AR), LINKS.supportVariable$WrxR), PROPS.name$MnvL));
           tgs.append(" |=  (1 << ");
           tgs.append(String.valueOf(SNodeOperations.getIndexInParent(ctx.getPrimaryInput()) + 1));
@@ -85,7 +85,7 @@ public class ElseIfPart_TextGen extends TextGenDescriptorBase {
         tgs.append(String.valueOf(SNodeOperations.getIndexInParent(ctx.getPrimaryInput()) + 1));
         tgs.append(")) ");
       } else {
-        tgs.append("else if (checkpoint.");
+        tgs.append("else if (content->cp.");
         tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.IfStatement$AR), LINKS.supportVariable$WrxR), PROPS.name$MnvL));
         tgs.append(" & (1 << ");
         tgs.append(String.valueOf(SNodeOperations.getIndexInParent(ctx.getPrimaryInput()) + 1));

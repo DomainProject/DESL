@@ -44,10 +44,6 @@ public abstract class ROSSUtils {
     ROSSUtils.rossStructCheckpointInstantiation(deslModel, ctx);
 
     ROSSUtils.rossSwitchEvent(c, true, ctx);
-
-    tgs.indent();
-    tgs.append("}");
-    tgs.newLine();
     ctx.getBuffer().area().decreaseIndent();
 
     tgs.append("}");
@@ -96,14 +92,14 @@ public abstract class ROSSUtils {
     tgs.newLine();
     ctx.getBuffer().area().decreaseIndent();
     ctx.getBuffer().area().decreaseIndent();
+    tgs.indent();
+    tgs.append("}");
+    tgs.newLine();
   }
   public static void rossStructCheckpointInstantiation(SNode deslModel, final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     tgs.indent();
     tgs.append("struct checkpoint cp = {0};");
-    tgs.newLine();
-    tgs.indent();
-    tgs.append("content->cp = cp;");
     tgs.newLine();
   }
 

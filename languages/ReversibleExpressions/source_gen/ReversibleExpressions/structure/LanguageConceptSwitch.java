@@ -106,18 +106,19 @@ public final class LanguageConceptSwitch {
   public static final int ReversibleMacroArg = 94;
   public static final int ReversibleMacroCall = 95;
   public static final int ScientificNumber = 96;
-  public static final int StaticValueExpression = 97;
-  public static final int TernaryExpression = 98;
-  public static final int TrueLiteral = 99;
-  public static final int UnaryArithmeticExpression = 100;
-  public static final int UnaryExpression = 101;
-  public static final int UnaryLogicalExpression = 102;
-  public static final int UnaryMinusExpression = 103;
-  public static final int UnaryPrePosModificationExpression = 104;
-  public static final int UnsignedIntegerLiteral = 105;
-  public static final int VaArgExpression = 106;
-  public static final int VaList = 107;
-  public static final int VoidType = 108;
+  public static final int SizeOfExpr = 97;
+  public static final int StaticValueExpression = 98;
+  public static final int TernaryExpression = 99;
+  public static final int TrueLiteral = 100;
+  public static final int UnaryArithmeticExpression = 101;
+  public static final int UnaryExpression = 102;
+  public static final int UnaryLogicalExpression = 103;
+  public static final int UnaryMinusExpression = 104;
+  public static final int UnaryPrePosModificationExpression = 105;
+  public static final int UnsignedIntegerLiteral = 106;
+  public static final int VaArgExpression = 107;
+  public static final int VaList = 108;
+  public static final int VoidType = 109;
 
   public LanguageConceptSwitch() {
     LanguageConceptIndexBuilder builder = new LanguageConceptIndexBuilder(0x9abffa92487542bfL, 0x9379c4f95eb496d4L);
@@ -218,6 +219,7 @@ public final class LanguageConceptSwitch {
     builder.put(0x68ce0d48c3998717L, ReversibleMacroArg);
     builder.put(0x1b427f2e49d1fe84L, ReversibleMacroCall);
     builder.put(0x172ddc48ec9eb7ceL, ScientificNumber);
+    builder.put(0x25ed4e3df2af806cL, SizeOfExpr);
     builder.put(0x688d46628178f19aL, StaticValueExpression);
     builder.put(0x79253aa36e3393aeL, TernaryExpression);
     builder.put(0x7af69e2e83a1ba5eL, TrueLiteral);

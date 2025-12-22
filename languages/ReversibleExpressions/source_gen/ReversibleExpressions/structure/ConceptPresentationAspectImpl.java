@@ -106,6 +106,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_ReversibleMacroArg;
   private ConceptPresentation props_ReversibleMacroCall;
   private ConceptPresentation props_ScientificNumber;
+  private ConceptPresentation props_SizeOfExpr;
   private ConceptPresentation props_StaticValueExpression;
   private ConceptPresentation props_TernaryExpression;
   private ConceptPresentation props_TrueLiteral;
@@ -818,6 +819,14 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_ScientificNumber = cpb.create();
         }
         return props_ScientificNumber;
+      case LanguageConceptSwitch.SizeOfExpr:
+        if (props_SizeOfExpr == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.shortDesc("get the size of a type");
+          cpb.rawPresentation("sizeof[");
+          props_SizeOfExpr = cpb.create();
+        }
+        return props_SizeOfExpr;
       case LanguageConceptSwitch.StaticValueExpression:
         if (props_StaticValueExpression == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

@@ -6,26 +6,45 @@ import jetbrains.mps.text.rt.TextGenDescriptorBase;
 import jetbrains.mps.text.rt.TextGenContext;
 import jetbrains.mps.text.impl.TextGenSupport;
 import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import ReversibleStatements.behavior.IHasPrefixes__BehaviorDescriptor;
 import ReversibleStatements.behavior.Prefix__BehaviorDescriptor;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import com.mbeddr.core.expressions.textGen.TokenTextGen;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import com.mbeddr.core.base.behavior.IIdentifierNamedConcept__BehaviorDescriptor;
 import ReversibleExpressions.textGen.StateSaving;
 import jetbrains.mps.lang.traceable.behavior.TraceableConcept__BehaviorDescriptor;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import org.jetbrains.mps.openapi.language.SProperty;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class LocalVariableDeclaration_TextGen extends TextGenDescriptorBase {
   @Override
   public void generateText(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     tgs.createPositionInfo();
+
+    // created messages should not be saved on the state
+    boolean saveState = true;
+    {
+      final SNode structType = SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.type$sXU3);
+      if (SNodeOperations.isInstanceOf(structType, CONCEPTS.StructType$B3)) {
+        if (SLinkOperations.getTarget(structType, LINKS.struct$WCsg) == SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.DESLModel$DK, false, false), LINKS.messageStruct$xVlJ)) {
+          saveState = false;
+        }
+      }
+    }
+
+    if (!(saveState) && !(SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5))) {
+      return;
+    }
+
+
     for (SNode p : Sequence.fromIterable(IHasPrefixes__BehaviorDescriptor.beforePrefixes_id8PQYytRYmo.invoke(ctx.getPrimaryInput()))) {
       tgs.append(Prefix__BehaviorDescriptor.beforeText_id8PQYytSnuo.invoke(p));
       tgs.newLine();
@@ -53,6 +72,7 @@ public class LocalVariableDeclaration_TextGen extends TextGenDescriptorBase {
 
     TokenTextGen.genTypeWithName(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.type$sXU3), IIdentifierNamedConcept__BehaviorDescriptor.processedName_id3x8oZgL6CjW.invoke(ctx.getPrimaryInput(), SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL)), ctx);
 
+
     if (SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5)) {
 
       if (SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.init$41s$) != null) {
@@ -68,8 +88,15 @@ public class LocalVariableDeclaration_TextGen extends TextGenDescriptorBase {
 
       tgs.newLine();
 
-      tgs.indent();
-      StateSaving.stateSaving(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), PROPS.name$MnvL), SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableToSaveName$udlR), ctx);
+      if (saveState) {
+        tgs.indent();
+        StateSaving.stateSaving(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), PROPS.name$MnvL), SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableToSaveName$udlR), ctx);
+      }
+
+      // if the lvd defines a new message, associate the struct checkpoint (created at the beginning of the event handler, with the new message)
+
+
+
     } else {
       if ((SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.init$41s$) != null)) {
         tgs.append(" = content->cp.");
@@ -84,22 +111,26 @@ public class LocalVariableDeclaration_TextGen extends TextGenDescriptorBase {
     }
   }
 
-  private static final class PROPS {
-    /*package*/ static final SProperty static$TPnO = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad96e6L, 0x394f433631987f7eL, "static");
-    /*package*/ static final SProperty extern$rgi8 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad96e6L, 0x706f9277156aec25L, "extern");
-    /*package*/ static final SProperty storeInRegister$NMWY = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x509503be9ecc5d25L, 0x509503be9ecc5d27L, "storeInRegister");
-    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
-    /*package*/ static final SProperty variableToSaveName$udlR = MetaAdapterFactory.getProperty(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x27d0c8e745a2c78dL, 0x1b427f2e4b08b057L, "variableToSaveName");
-    /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
-  }
-
   private static final class LINKS {
     /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
+    /*package*/ static final SContainmentLink messageStruct$xVlJ = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x6de6339fa564bed8L, "messageStruct");
+    /*package*/ static final SReferenceLink struct$WCsg = MetaAdapterFactory.getReferenceLink(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x58bef62304fc0a38L, 0x58bef62304fc0a39L, "struct");
     /*package*/ static final SContainmentLink init$41s$ = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad96e6L, 0x3a16e3a9c7ae01f7L, "init");
     /*package*/ static final SContainmentLink supportVariable$WrxR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x586abb2d5743cb69L, "supportVariable");
   }
 
   private static final class CONCEPTS {
+    /*package*/ static final SConcept StructType$B3 = MetaAdapterFactory.getConcept(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x58bef62304fc0a38L, "com.mbeddr.core.udt.structure.StructType");
+    /*package*/ static final SConcept DESLModel$DK = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, "DESL.structure.DESLModel");
     /*package*/ static final SInterfaceConcept TraceableConcept$L = MetaAdapterFactory.getInterfaceConcept(0x9ded098bad6a4657L, 0xbfd948636cfe8bc3L, 0x465516cf87c705a3L, "jetbrains.mps.lang.traceable.structure.TraceableConcept");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
+    /*package*/ static final SProperty static$TPnO = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad96e6L, 0x394f433631987f7eL, "static");
+    /*package*/ static final SProperty extern$rgi8 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad96e6L, 0x706f9277156aec25L, "extern");
+    /*package*/ static final SProperty storeInRegister$NMWY = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x509503be9ecc5d25L, 0x509503be9ecc5d27L, "storeInRegister");
+    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty variableToSaveName$udlR = MetaAdapterFactory.getProperty(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x27d0c8e745a2c78dL, 0x1b427f2e4b08b057L, "variableToSaveName");
   }
 }

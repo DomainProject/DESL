@@ -58,7 +58,7 @@ public class IfStatement_TextGen extends TextGenDescriptorBase {
           tgs.newLine();
         } else {
           tgs.indent();
-          tgs.append("checkpoint.");
+          tgs.append("content->cp.");
           tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), PROPS.name$MnvL));
           tgs.append(" |= (1 << 0);");
           tgs.newLine();
@@ -84,7 +84,7 @@ public class IfStatement_TextGen extends TextGenDescriptorBase {
         tgs.append(reverseIteratorName);
         tgs.append("] & (1 << 0)) ");
       } else {
-        tgs.append("if (checkpoint.");
+        tgs.append("if (content->cp.");
         tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), PROPS.name$MnvL));
         tgs.append(" & (1 << 0)) ");
       }

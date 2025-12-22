@@ -6,12 +6,14 @@ import jetbrains.mps.text.rt.TextGenDescriptorBase;
 import jetbrains.mps.text.rt.TextGenContext;
 import jetbrains.mps.text.impl.TextGenSupport;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.lang.traceable.behavior.UnitConcept__BehaviorDescriptor;
+import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.lang.traceable.behavior.UnitConcept__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public class ReversibleScriptExp_TextGen extends TextGenDescriptorBase {
@@ -19,7 +21,7 @@ public class ReversibleScriptExp_TextGen extends TextGenDescriptorBase {
   public void generateText(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     tgs.createUnitInfo();
-    for (SNode function : ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.reversibleItems$5wYj))) {
+    for (SNode function : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.reversibleItems$5wYj), CONCEPTS.ReversibleFunction$IL))) {
       tgs.appendNode(function);
       tgs.newLine();
     }
@@ -39,6 +41,7 @@ public class ReversibleScriptExp_TextGen extends TextGenDescriptorBase {
   }
 
   private static final class CONCEPTS {
+    /*package*/ static final SConcept ReversibleFunction$IL = MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, "ReversibleFunctions.structure.ReversibleFunction");
     /*package*/ static final SInterfaceConcept UnitConcept$1g = MetaAdapterFactory.getInterfaceConcept(0x9ded098bad6a4657L, 0xbfd948636cfe8bc3L, 0x465516cf87c705a4L, "jetbrains.mps.lang.traceable.structure.UnitConcept");
   }
 }

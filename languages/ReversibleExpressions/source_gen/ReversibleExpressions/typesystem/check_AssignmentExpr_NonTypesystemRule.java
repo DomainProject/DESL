@@ -9,10 +9,10 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import ReversibleExpressions.behavior.ReversibleExpression__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
@@ -25,10 +25,6 @@ public class check_AssignmentExpr_NonTypesystemRule extends AbstractNonTypesyste
   }
   public void applyRule(final SNode ae, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     if (!((boolean) ReversibleExpression__BehaviorDescriptor.isLValue_id6iIoqg1yDKH.invoke(SLinkOperations.getTarget(ae, LINKS.left$KPKR)))) {
-      {
-        final MessageTarget errorTarget = new NodeMessageTarget();
-        IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(SLinkOperations.getTarget(ae, LINKS.left$KPKR), "cannot be assigned (not an lvalue)", "r:a08f1c59-09f4-4839-91dc-89de02b086a5(ReversibleExpressions.typesystem)", "6275792049641552252", null, errorTarget);
-      }
     }
     if (SNodeOperations.isInstanceOf(ae, CONCEPTS.INumberOperation$ez)) {
       if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(ae, LINKS.left$KPKR), CONCEPTS.INumber$C8) && SNodeOperations.isInstanceOf(SLinkOperations.getTarget(ae, LINKS.right$KPZS), CONCEPTS.INumber$C8)) {

@@ -93,7 +93,13 @@
       </concept>
     </language>
     <language id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel">
+      <concept id="1177026924588" name="jetbrains.mps.lang.smodel.structure.RefConcept_Reference" flags="nn" index="chp4Y">
+        <reference id="1177026940964" name="conceptDeclaration" index="cht4Q" />
+      </concept>
       <concept id="1179409122411" name="jetbrains.mps.lang.smodel.structure.Node_ConceptMethodCall" flags="nn" index="2qgKlT" />
+      <concept id="4693937538533521280" name="jetbrains.mps.lang.smodel.structure.OfConceptOperation" flags="ng" index="v3k3i">
+        <child id="4693937538533538124" name="requestedConcept" index="v3oSu" />
+      </concept>
       <concept id="1172008320231" name="jetbrains.mps.lang.smodel.structure.Node_IsNotNullOperation" flags="nn" index="3x8VRR" />
       <concept id="1138056022639" name="jetbrains.mps.lang.smodel.structure.SPropertyAccess" flags="nn" index="3TrcHB">
         <reference id="1138056395725" name="property" index="3TsBF5" />
@@ -304,10 +310,17 @@
           <node concept="2GrKxI" id="5rI5N7Z_PsM" role="2Gsz3X">
             <property role="TrG5h" value="function" />
           </node>
-          <node concept="2OqwBi" id="5rI5N7Z_PBM" role="2GsD0m">
-            <node concept="117lpO" id="5rI5N7Z_Pub" role="2Oq$k0" />
-            <node concept="3Tsc0h" id="5rI5N7Z_Q0t" role="2OqNvi">
-              <ref role="3TtcxE" to="w8o:5rI5N7YWeFA" resolve="reversibleItems" />
+          <node concept="2OqwBi" id="2nHjzRN0IZm" role="2GsD0m">
+            <node concept="2OqwBi" id="5rI5N7Z_PBM" role="2Oq$k0">
+              <node concept="117lpO" id="5rI5N7Z_Pub" role="2Oq$k0" />
+              <node concept="3Tsc0h" id="5rI5N7Z_Q0t" role="2OqNvi">
+                <ref role="3TtcxE" to="w8o:5rI5N7YWeFA" resolve="reversibleItems" />
+              </node>
+            </node>
+            <node concept="v3k3i" id="2nHjzRN0Q0U" role="2OqNvi">
+              <node concept="chp4Y" id="2nHjzRN0Q4a" role="v3oSu">
+                <ref role="cht4Q" to="w8o:5U1XgQxbKlv" resolve="ReversibleFunction" />
+              </node>
             </node>
           </node>
           <node concept="3clFbS" id="5rI5N7Z_PsO" role="2LFqv$">

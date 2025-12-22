@@ -58,45 +58,12 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     tgs.newLine();
     tgs.newLine();
 
-    long total_lps = 0;
-    for (SNode processAllocation : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.processAllocations$cuUJ), CONCEPTS.ProcessAllocation$5Z))) {
-      total_lps += (SPropertyOperations.getInteger(SNodeOperations.cast(SLinkOperations.getTarget(processAllocation, LINKS.processes$hZqx), CONCEPTS.ProcessArray$Ux), PROPS.right$2uAQ) - SPropertyOperations.getInteger(SNodeOperations.cast(SLinkOperations.getTarget(processAllocation, LINKS.processes$hZqx), CONCEPTS.ProcessArray$Ux), PROPS.left$2u8O) + 1);
-    }
-
-    tgs.append("unsigned total_lps = ");
-    tgs.append(String.valueOf(total_lps));
-    tgs.append(";");
-    tgs.newLine();
-    tgs.newLine();
-
     // state structs
     StateStructs.stateStructs(ctx.getPrimaryInput(), ctx);
 
     // structs
     Structs.structs(ctx.getPrimaryInput(), ctx);
 
-
-    /*
-      struct checkpoint
-
-    */
-
-
-    tgs.append("struct checkpoint {");
-    tgs.newLine();
-    ctx.getBuffer().area().increaseIndent();
-    for (SNode var : ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.checkpointingVariables$cw2o))) {
-      tgs.indent();
-      tgs.appendNode(SLinkOperations.getTarget(SLinkOperations.getTarget(var, LINKS.var$iAI8), LINKS.type$sXU3));
-      tgs.append(" ");
-      tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(var, LINKS.var$iAI8), PROPS.name$MnvL));
-      tgs.append(";");
-      tgs.newLine();
-    }
-    ctx.getBuffer().area().decreaseIndent();
-    tgs.append("};");
-    tgs.newLine();
-    tgs.newLine();
 
 
     /*
@@ -125,6 +92,36 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     tgs.newLine();
     tgs.newLine();
 
+
+    /*
+      todo it cannot have struct *_message as field type
+      CHECKPOINT STRUCT
+
+    */
+
+
+    tgs.append("struct checkpoint {");
+    tgs.newLine();
+    ctx.getBuffer().area().increaseIndent();
+    for (SNode var : ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.checkpointingVariables$cw2o))) {
+      tgs.indent();
+      tgs.appendNode(SLinkOperations.getTarget(SLinkOperations.getTarget(var, LINKS.var$iAI8), LINKS.type$sXU3));
+      tgs.append(" ");
+      tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(var, LINKS.var$iAI8), PROPS.name$MnvL));
+      tgs.append(";");
+      tgs.newLine();
+    }
+    ctx.getBuffer().area().decreaseIndent();
+    tgs.append("};");
+    tgs.newLine();
+    tgs.newLine();
+
+
+    /*
+      MESSAGE STRUCT
+
+    */
+
     tgs.append("struct ");
     tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.messageStruct$xVlJ), PROPS.name$MnvL));
     tgs.append(" {");
@@ -147,7 +144,19 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     tgs.newLine();
 
 
+
     // global variables
+
+    long total_lps = 0;
+    for (SNode processAllocation : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.processAllocations$cuUJ), CONCEPTS.ProcessAllocation$5Z))) {
+      total_lps += (SPropertyOperations.getInteger(SNodeOperations.cast(SLinkOperations.getTarget(processAllocation, LINKS.processes$hZqx), CONCEPTS.ProcessArray$Ux), PROPS.right$2uAQ) - SPropertyOperations.getInteger(SNodeOperations.cast(SLinkOperations.getTarget(processAllocation, LINKS.processes$hZqx), CONCEPTS.ProcessArray$Ux), PROPS.left$2u8O) + 1);
+    }
+    tgs.append("unsigned total_lps = ");
+    tgs.append(String.valueOf(total_lps));
+    tgs.append(";");
+    tgs.newLine();
+    tgs.newLine();
+
     Configuration.configuration(ctx.getPrimaryInput(), ctx);
 
     // custom allocator (to make malloc reversible)
@@ -198,6 +207,8 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
 
     if (SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL).contains("phold")) {
       tgs.append("void __attribute__ ((noinline)) busy_loop(unsigned long long max) {\n    for (unsigned long long i = 0; i < max; i++) {\n        __asm__ volatile(\"pause\" : \"+g\" (i) : :);\n    }\n}\n");
+      tgs.newLine();
+      tgs.append("void __attribute__ ((noinline)) busy_loop_reverse(unsigned long long max) {\n    for (unsigned long long i = 0; i < max; i++) {\n        __asm__ volatile(\"pause\" : \"+g\" (i) : :);\n    }\n}\n");
       tgs.newLine();
     }
 
@@ -281,7 +292,7 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
 
       tgs.append("void reverse(");
       tgs.appendNode(ITypeDeclaration__BehaviorDescriptor.createType_id3o2OLGv7CoR.invoke(SLinkOperations.getTarget(c, LINKS.stateStruct$NqNO)));
-      tgs.append(" *s, tw_bf *bf, ");
+      tgs.append(" *state, tw_bf *bf, ");
       tgs.appendNode(ITypeDeclaration__BehaviorDescriptor.createType_id3o2OLGv7CoR.invoke(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.messageStruct$xVlJ)));
       tgs.append(" *content, tw_lp *lp)");
       tgs.newLine();
@@ -510,13 +521,13 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
   private static final class LINKS {
     /*package*/ static final SContainmentLink eventType$MGmZ = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2e66f9a613f69c80L, 0x2e66f9a613f69c82L, "eventType");
     /*package*/ static final SContainmentLink events$uflG = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x2dc3a69083753b9fL, "events");
-    /*package*/ static final SContainmentLink processes$hZqx = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6393783L, 0x4117a694e6393787L, "processes");
-    /*package*/ static final SContainmentLink processAllocations$cuUJ = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x4117a694e6409a0eL, "processAllocations");
     /*package*/ static final SReferenceLink var$iAI8 = MetaAdapterFactory.getReferenceLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x571ea5ef247e3b6dL, 0x571ea5ef247e3b6eL, "var");
     /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
     /*package*/ static final SContainmentLink checkpointingVariables$cw2o = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x5660c118504c6b78L, "checkpointingVariables");
     /*package*/ static final SContainmentLink messageStruct$xVlJ = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x6de6339fa564bed8L, "messageStruct");
     /*package*/ static final SContainmentLink members$C59R = MetaAdapterFactory.getContainmentLink(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x6285e27d4ff6c9f5L, 0x6285e27d4ff7db92L, "members");
+    /*package*/ static final SContainmentLink processes$hZqx = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6393783L, 0x4117a694e6393787L, "processes");
+    /*package*/ static final SContainmentLink processAllocations$cuUJ = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x4117a694e6409a0eL, "processAllocations");
     /*package*/ static final SContainmentLink arguments$6da0 = MetaAdapterFactory.getContainmentLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x707ac195dd5d51f2L, 0x4f39f90935e92f45L, "arguments");
     /*package*/ static final SContainmentLink body$1GE0 = MetaAdapterFactory.getContainmentLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x595522006a5b97e1L, 0x3a16e3a9c7ad9954L, "body");
     /*package*/ static final SContainmentLink externalFunctions$LqEg = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x6f36cc77d0a2c4ceL, "externalFunctions");

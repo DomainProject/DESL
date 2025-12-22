@@ -44,24 +44,25 @@ public class NewCollection_Constraints extends BaseConstraintsDescriptor {
         return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(lvd, LINKS.type$sXU3), CONCEPTS.Collection$YT);
       }
     }
+
     {
       final SNode assignment = parentNode;
-      if (SNodeOperations.isInstanceOf(assignment, CONCEPTS.AssignmentExpr$mZ)) {
+      if (SNodeOperations.isInstanceOf(assignment, CONCEPTS.AssignmentExpr$aj)) {
         {
-          final SNode genericDotExpression = SLinkOperations.getTarget(assignment, LINKS.left$SkXz);
-          if (SNodeOperations.isInstanceOf(genericDotExpression, CONCEPTS.GenericDotExpression$uQ)) {
+          final SNode genericDotExpression = SLinkOperations.getTarget(assignment, LINKS.left$KPKR);
+          if (SNodeOperations.isInstanceOf(genericDotExpression, CONCEPTS.GenericDotExpression$ia)) {
             {
-              final SNode member = SLinkOperations.getTarget(genericDotExpression, LINKS.target$CEPF);
-              if (SNodeOperations.isInstanceOf(member, CONCEPTS.GenericMemberRef$bk)) {
-                return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SLinkOperations.getTarget(member, LINKS.member$wUNL), LINKS.type$sXU3), CONCEPTS.Collection$YT);
+              final SNode member = SLinkOperations.getTarget(genericDotExpression, LINKS.target$xbCZ);
+              if (SNodeOperations.isInstanceOf(member, CONCEPTS.GenericMemberRef$Ue)) {
+                return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SLinkOperations.getTarget(member, LINKS.member$gCRV), LINKS.type$sXU3), CONCEPTS.Collection$YT);
               }
             }
           }
         }
         {
-          final SNode localVarRef = SLinkOperations.getTarget(assignment, LINKS.left$SkXz);
-          if (SNodeOperations.isInstanceOf(localVarRef, CONCEPTS.LocalVarRef$VQ)) {
-            return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SLinkOperations.getTarget(localVarRef, LINKS.var$YUyC), LINKS.type$sXU3), CONCEPTS.Collection$YT);
+          final SNode localVarRef = SLinkOperations.getTarget(assignment, LINKS.left$KPKR);
+          if (SNodeOperations.isInstanceOf(localVarRef, CONCEPTS.LocalVarRef$O3)) {
+            return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SLinkOperations.getTarget(localVarRef, LINKS.var$uDqP), LINKS.type$sXU3), CONCEPTS.Collection$YT);
           }
         }
       }
@@ -74,17 +75,17 @@ public class NewCollection_Constraints extends BaseConstraintsDescriptor {
     /*package*/ static final SConcept NewCollection$bv = MetaAdapterFactory.getConcept(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0xcc29beb5056b0a2L, "Collections.structure.NewCollection");
     /*package*/ static final SConcept LocalVariableDeclaration$ft = MetaAdapterFactory.getConcept(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad96e6L, "com.mbeddr.core.statements.structure.LocalVariableDeclaration");
     /*package*/ static final SConcept Collection$YT = MetaAdapterFactory.getConcept(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x6f36cc77d0af8690L, "Collections.structure.Collection");
-    /*package*/ static final SConcept AssignmentExpr$mZ = MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x4e85add925440dL, "com.mbeddr.core.expressions.structure.AssignmentExpr");
-    /*package*/ static final SConcept GenericDotExpression$uQ = MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x401df715da462c0cL, "com.mbeddr.core.expressions.structure.GenericDotExpression");
-    /*package*/ static final SConcept GenericMemberRef$bk = MetaAdapterFactory.getConcept(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x619e8ce80b8d18e4L, "com.mbeddr.core.udt.structure.GenericMemberRef");
-    /*package*/ static final SConcept LocalVarRef$VQ = MetaAdapterFactory.getConcept(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x1d0c3765e2e1d67aL, "com.mbeddr.core.statements.structure.LocalVarRef");
+    /*package*/ static final SConcept AssignmentExpr$aj = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4e85add925440dL, "ReversibleExpressions.structure.AssignmentExpr");
+    /*package*/ static final SConcept GenericDotExpression$ia = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x401df715da462c0cL, "ReversibleExpressions.structure.GenericDotExpression");
+    /*package*/ static final SConcept GenericMemberRef$Ue = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4f5d78b09e1b9a5fL, "ReversibleExpressions.structure.GenericMemberRef");
+    /*package*/ static final SConcept LocalVarRef$O3 = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x1d0c3765e2e1d67aL, "ReversibleStatements.structure.LocalVarRef");
   }
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
-    /*package*/ static final SContainmentLink left$SkXz = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba34L, 0x7af69e2e83a1ba40L, "left");
-    /*package*/ static final SContainmentLink target$CEPF = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x401df715da462c0cL, 0x619e8ce80b7ff48bL, "target");
-    /*package*/ static final SReferenceLink member$wUNL = MetaAdapterFactory.getReferenceLink(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x619e8ce80b8d18e4L, 0x619e8ce80b8d18e6L, "member");
-    /*package*/ static final SReferenceLink var$YUyC = MetaAdapterFactory.getReferenceLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x1d0c3765e2e1d67aL, 0x1d0c3765e2e1fe27L, "var");
+    /*package*/ static final SContainmentLink left$KPKR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba34L, 0x7af69e2e83a1ba40L, "left");
+    /*package*/ static final SContainmentLink target$xbCZ = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x401df715da462c0cL, 0x619e8ce80b7ff48bL, "target");
+    /*package*/ static final SReferenceLink member$gCRV = MetaAdapterFactory.getReferenceLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4f5d78b09e1b9a5fL, 0x4f5d78b09f1589e9L, "member");
+    /*package*/ static final SReferenceLink var$uDqP = MetaAdapterFactory.getReferenceLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x1d0c3765e2e1d67aL, 0x1d0c3765e2e1fe27L, "var");
   }
 }

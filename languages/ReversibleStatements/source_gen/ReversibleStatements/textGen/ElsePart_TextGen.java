@@ -26,7 +26,7 @@ public class ElsePart_TextGen extends TextGenDescriptorBase {
 
     boolean isContainedInLoop = SNodeOperations.isInstanceOf(loopAncestor, CONCEPTS.IReversibleLoop$k1);
 
-    String iteratorName = "checkpoint.";
+    String iteratorName = "content->cp.";
     if (isContainedInLoop) {
       iteratorName += IReversibleLoop__BehaviorDescriptor.getIterationVariableName_id6cRD4M$XPR9.invoke(SNodeOperations.cast(loopAncestor, CONCEPTS.IReversibleLoop$k1));
     }

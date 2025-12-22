@@ -49,6 +49,12 @@ public final class DESLModel__BehaviorDescriptor extends BaseBHDescriptor {
         }
       }
       {
+        final SNode reversibleFunction = function;
+        if (SNodeOperations.isInstanceOf(reversibleFunction, CONCEPTS.ReversibleFunction$IL)) {
+          ListSequence.fromList(added).addElement(reversibleFunction);
+        }
+      }
+      {
         final SNode p = function;
         if (SNodeOperations.isInstanceOf(p, CONCEPTS.ExternalFunctionPrototype$V4)) {
           ListSequence.fromList(added).addElement(SLinkOperations.getTarget(p, LINKS.prototype$lY0a));
@@ -133,6 +139,7 @@ public final class DESLModel__BehaviorDescriptor extends BaseBHDescriptor {
     /*package*/ static final SConcept ExternalStructDefinition$8P = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x5808433cc497c579L, "DESL.structure.ExternalStructDefinition");
     /*package*/ static final SConcept GlobalVarDecl$PV = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4ba181fb0880155eL, "DESL.structure.GlobalVarDecl");
     /*package*/ static final SConcept Function$K8 = MetaAdapterFactory.getConcept(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x595522006a5b97e1L, "com.mbeddr.core.modules.structure.Function");
+    /*package*/ static final SConcept ReversibleFunction$IL = MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, "ReversibleFunctions.structure.ReversibleFunction");
     /*package*/ static final SConcept ExternalFunctionPrototype$V4 = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228cL, "DESL.structure.ExternalFunctionPrototype");
     /*package*/ static final SConcept MacroVariable$z9 = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x74450034d00e6945L, "DESL.structure.MacroVariable");
     /*package*/ static final SConcept MacroFunction$$7 = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x74450034d00e6947L, "DESL.structure.MacroFunction");

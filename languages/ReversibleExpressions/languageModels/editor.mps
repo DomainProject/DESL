@@ -3283,5 +3283,35 @@
       </node>
     </node>
   </node>
+  <node concept="24kQdi" id="2nHjzRMFS1K">
+    <ref role="1XX52x" to="ib4b:2nHjzRMFS1G" resolve="SizeOfExpr" />
+    <node concept="3EZMnI" id="fwMInzpjic" role="2wV5jI">
+      <node concept="3F0ifn" id="fwMInzpjif" role="3EZMnx">
+        <property role="3F0ifm" value="sizeof" />
+        <ref role="1k5W1q" to="r4b4:2CEi94dgHKA" resolve="KW" />
+        <node concept="11LMrY" id="2mhTzLJGPyM" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+      </node>
+      <node concept="3F0ifn" id="2Td8scy5Sjy" role="3EZMnx">
+        <property role="3F0ifm" value="[" />
+        <ref role="1k5W1q" to="r4b4:2CEi94dhjGU" resolve="Brackets" />
+        <node concept="11LMrY" id="2Td8scy5Sjz" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+      </node>
+      <node concept="3F1sOY" id="fwMInzpjij" role="3EZMnx">
+        <ref role="1NtTu8" to="ib4b:2nHjzRMFS1J" resolve="typeToCalculate" />
+      </node>
+      <node concept="3F0ifn" id="2mhTzLJGPx9" role="3EZMnx">
+        <property role="3F0ifm" value="]" />
+        <ref role="1k5W1q" to="r4b4:2CEi94dhjGU" resolve="Brackets" />
+        <node concept="11L4FC" id="2mhTzLJGP$l" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+      </node>
+      <node concept="l2Vlx" id="7apEgWbIHTs" role="2iSdaV" />
+    </node>
+  </node>
 </model>
 

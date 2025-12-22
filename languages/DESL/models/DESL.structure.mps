@@ -12,6 +12,7 @@
     <import index="87nw" ref="r:ca2ab6bb-f6e7-4c0f-a88c-b78b9b31fff3(de.slisson.mps.richtext.structure)" implicit="true" />
     <import index="kmi" ref="r:afa7ae5b-c41f-45e8-9678-2beae3621a33(ReversibleStatements.structure)" implicit="true" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
+    <import index="vs0r" ref="r:f7764ca4-8c75-4049-922b-08516400a727(com.mbeddr.core.base.structure)" implicit="true" />
     <import index="c4fa" ref="r:9f0e84b6-2ec7-4f9e-83e0-feedc77b63a3(com.mbeddr.core.statements.structure)" implicit="true" />
     <import index="w8o" ref="r:e84d12fa-9ad2-42d4-95e8-d9ef0c30fdf9(ReversibleFunctions.structure)" implicit="true" />
     <import index="ib4b" ref="r:539823a2-87c6-4a7e-abc8-d6fc586848eb(ReversibleExpressions.structure)" implicit="true" />
@@ -178,6 +179,9 @@
       <property role="IQ2nx" value="6094645617012170727" />
       <property role="TrG5h" value="requiresReversibleHandlers" />
       <ref role="AX2Wp" to="tpck:fKAQMTB" resolve="boolean" />
+    </node>
+    <node concept="PrWs8" id="2nHjzRMqt8m" role="PzmwI">
+      <ref role="PrY4T" to="vs0r:6clJcrJXo2z" resolve="IVisibleElementProvider" />
     </node>
   </node>
   <node concept="1TIwiD" id="7KGmnvzSgRT">
@@ -732,7 +736,7 @@
     <property role="EcuMT" value="7971727384801361905" />
     <property role="TrG5h" value="CreateArray" />
     <property role="34LRSv" value="CreateArray" />
-    <ref role="1TJDcQ" to="mj1l:7FQByU3CrCM" resolve="Expression" />
+    <ref role="1TJDcQ" to="ib4b:7FQByU3CrCM" resolve="ReversibleExpression" />
     <node concept="1TJgyj" id="6UxgX89lFZM" role="1TKVEi">
       <property role="IQ2ns" value="7971727384801361906" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />

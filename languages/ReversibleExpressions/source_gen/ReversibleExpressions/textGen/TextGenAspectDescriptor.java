@@ -71,6 +71,8 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new ReversibleMacroCall_TextGen();
       case LanguageConceptSwitch.ScientificNumber:
         return new ScientificNumber_TextGen();
+      case LanguageConceptSwitch.SizeOfExpr:
+        return new SizeOfExpr_TextGen();
       case LanguageConceptSwitch.TrueLiteral:
         return new TrueLiteral_TextGen();
       case LanguageConceptSwitch.UnaryMinusExpression:

@@ -334,6 +334,30 @@
                 <node concept="2jxLKc" id="6WQN7vgLKdw" role="1tU5fm" />
               </node>
             </node>
+            <node concept="Jncv_" id="2nHjzRMwjw9" role="3cqZAp">
+              <ref role="JncvD" to="w8o:5U1XgQxbKlv" resolve="ReversibleFunction" />
+              <node concept="2GrUjf" id="2nHjzRMwlI4" role="JncvB">
+                <ref role="2Gs0qQ" node="6WQN7vgL_cZ" resolve="function" />
+              </node>
+              <node concept="3clFbS" id="2nHjzRMwjwd" role="Jncv$">
+                <node concept="3clFbF" id="2nHjzRMwrwo" role="3cqZAp">
+                  <node concept="2OqwBi" id="2nHjzRMwxo9" role="3clFbG">
+                    <node concept="37vLTw" id="2nHjzRMwrwn" role="2Oq$k0">
+                      <ref role="3cqZAo" node="3k7QKnRKeRM" resolve="added" />
+                    </node>
+                    <node concept="TSZUe" id="2nHjzRMwIz0" role="2OqNvi">
+                      <node concept="Jnkvi" id="2nHjzRMwKbI" role="25WWJ7">
+                        <ref role="1M0zk5" node="2nHjzRMwjwf" resolve="reversibleFunction" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+              <node concept="JncvC" id="2nHjzRMwjwf" role="JncvA">
+                <property role="TrG5h" value="reversibleFunction" />
+                <node concept="2jxLKc" id="2nHjzRMwjwg" role="1tU5fm" />
+              </node>
+            </node>
             <node concept="Jncv_" id="6WQN7vgM77D" role="3cqZAp">
               <ref role="JncvD" to="rdv6:6WQN7vgLyac" resolve="ExternalFunctionPrototype" />
               <node concept="2GrUjf" id="6WQN7vgM7JQ" role="JncvB">

@@ -1253,5 +1253,19 @@
     <property role="R4oN_" value="the NULL pointer" />
     <ref role="1TJDcQ" node="7FQByU3CrDq" resolve="Literal" />
   </node>
+  <node concept="1TIwiD" id="2nHjzRMFS1G">
+    <property role="EcuMT" value="2732926576855318636" />
+    <property role="TrG5h" value="SizeOfExpr" />
+    <property role="34LRSv" value="sizeof[" />
+    <property role="R4oN_" value="get the size of a type" />
+    <ref role="1TJDcQ" node="7FQByU3CrCM" resolve="ReversibleExpression" />
+    <node concept="1TJgyj" id="2nHjzRMFS1J" role="1TKVEi">
+      <property role="IQ2ns" value="2732926576855318639" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="typeToCalculate" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" to="mj1l:7FQByU3CrCQ" resolve="Type" />
+    </node>
+  </node>
 </model>
 

@@ -23,6 +23,7 @@ import ReversibleExpressions.behavior.ReversibleMacroCall__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import ReversibleFunctions.behavior.ReversibleMacro__BehaviorDescriptor;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 import ReversibleFunctions.behavior.ReversibleFunction__BehaviorDescriptor;
 import java.util.Map;
 import jetbrains.mps.generator.impl.query.MapRootRuleCondition;
@@ -301,6 +302,11 @@ public class QueriesGenerated extends QueryProviderBase {
 
         // add checkpointing variables to DESL model
         for (SNode stmtWithSupportVariable : ListSequence.fromList(SNodeOperations.getNodeDescendants(function, CONCEPTS.INeedSupportVariable$qI, false, new SAbstractConcept[]{}))) {
+
+          // ignore support variables having as type the message struct
+          if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SLinkOperations.getTarget(stmtWithSupportVariable, LINKS.supportVariable$WrxR), LINKS.type$sXU3), CONCEPTS.StructType$B3) && SLinkOperations.getTarget(SNodeOperations.cast(TypecheckingFacade.getFromContext().getTypeOf(stmtWithSupportVariable), CONCEPTS.StructType$B3), LINKS.struct$WCsg) == SLinkOperations.getTarget(root, LINKS.messageStruct$xVlJ)) {
+            continue;
+          }
 
           // ForVarDecl's support variable is always null and must be ignored 
           if (SNodeOperations.hasRole(stmtWithSupportVariable, LINKS.iterator$fwes)) {
@@ -687,6 +693,8 @@ public class QueriesGenerated extends QueryProviderBase {
     /*package*/ static final SContainmentLink actuals$QKpS = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1b427f2e49d1fe84L, 0x1b427f2e49d1fe86L, "actuals");
     /*package*/ static final SContainmentLink actual$n_Ao = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x68ce0d48c3998717L, 0x68ce0d48c3998719L, "actual");
     /*package*/ static final SContainmentLink init$$i$n = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad96e6L, 0x3a16e3a9c7ae01f7L, "init");
+    /*package*/ static final SReferenceLink struct$WCsg = MetaAdapterFactory.getReferenceLink(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x58bef62304fc0a38L, 0x58bef62304fc0a39L, "struct");
+    /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
     /*package*/ static final SContainmentLink iterator$fwes = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a40186e676L, 0x64ae61a401870e40L, "iterator");
     /*package*/ static final SReferenceLink var$iAI8 = MetaAdapterFactory.getReferenceLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x571ea5ef247e3b6dL, 0x571ea5ef247e3b6eL, "var");
     /*package*/ static final SContainmentLink additionalVariables$en7t = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x6337a44ca461bdf4L, 0x6337a44ca461be00L, "additionalVariables");
@@ -702,6 +710,7 @@ public class QueriesGenerated extends QueryProviderBase {
     /*package*/ static final SInterfaceConcept IVariableReference$Kb = MetaAdapterFactory.getInterfaceConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1c69b376a2dab98aL, "ReversibleExpressions.structure.IVariableReference");
     /*package*/ static final SConcept ArgumentRef$Ar = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x586abb2d564e82ffL, "ReversibleStatements.structure.ArgumentRef");
     /*package*/ static final SConcept LocalVarRef$O3 = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x1d0c3765e2e1d67aL, "ReversibleStatements.structure.LocalVarRef");
+    /*package*/ static final SConcept StructType$B3 = MetaAdapterFactory.getConcept(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x58bef62304fc0a38L, "com.mbeddr.core.udt.structure.StructType");
     /*package*/ static final SInterfaceConcept IReversibleLoop$k1 = MetaAdapterFactory.getInterfaceConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x6337a44ca461bdf4L, "ReversibleStatements.structure.IReversibleLoop");
     /*package*/ static final SInterfaceConcept INeedSupportVariable$qI = MetaAdapterFactory.getInterfaceConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, "ReversibleExpressions.structure.INeedSupportVariable");
     /*package*/ static final SConcept EventHandler$Ov = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, "DESL.structure.EventHandler");

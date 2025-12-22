@@ -13,9 +13,13 @@ import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.scope.Scope;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsContext;
-import jetbrains.mps.scope.ListScope;
+import java.util.List;
+import org.jetbrains.mps.openapi.model.SNode;
+import java.util.ArrayList;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.scope.ListScope;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
@@ -40,7 +44,12 @@ public class SendEvent_Constraints extends BaseConstraintsDescriptor {
         }
         @Override
         public Scope createScope(final ReferenceConstraintsContext _context) {
-          return ListScope.forNamedElements(SNodeOperations.getNodeDescendants(SNodeOperations.getNodeAncestor(_context.getReferenceNode(), CONCEPTS.DESLModel$DK, false, false), CONCEPTS.EventType$wx, false, new SAbstractConcept[]{}));
+
+          List<SNode> ret = new ArrayList<SNode>();
+          ListSequence.fromList(ret).addSequence(ListSequence.fromList(SNodeOperations.getNodeDescendants(SNodeOperations.getNodeAncestor(_context.getReferenceNode(), CONCEPTS.DESLModel$DK, false, false), CONCEPTS.EventType$wx, false, new SAbstractConcept[]{})));
+          ListSequence.fromList(ret).addSequence(ListSequence.fromList(SNodeOperations.getNodeDescendants(SNodeOperations.getNodeAncestor(_context.getReferenceNode(), CONCEPTS.ReversibleScript$ki, false, false), CONCEPTS.EventType$wx, false, new SAbstractConcept[]{})));
+
+          return ListScope.forNamedElements(ret);
         }
       };
     }
@@ -50,6 +59,7 @@ public class SendEvent_Constraints extends BaseConstraintsDescriptor {
     /*package*/ static final SConcept SendEvent$u = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x68458b9b5da4ec77L, "DESL.structure.SendEvent");
     /*package*/ static final SConcept DESLModel$DK = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, "DESL.structure.DESLModel");
     /*package*/ static final SConcept EventType$wx = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x7c2c5977e3e10df9L, "DESL.structure.EventType");
+    /*package*/ static final SConcept ReversibleScript$ki = MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x56ee1731fef0eae5L, "ReversibleFunctions.structure.ReversibleScript");
   }
 
   private static final class LINKS {
