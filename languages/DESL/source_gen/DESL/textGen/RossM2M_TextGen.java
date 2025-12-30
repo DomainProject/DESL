@@ -204,7 +204,7 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
       }
     }
 
-
+    // todo move busy_loop and busy_loop_reverse to an external file
     if (SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL).contains("phold")) {
       tgs.append("void __attribute__ ((noinline)) busy_loop(unsigned long long max) {\n    for (unsigned long long i = 0; i < max; i++) {\n        __asm__ volatile(\"pause\" : \"+g\" (i) : :);\n    }\n}\n");
       tgs.newLine();

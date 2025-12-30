@@ -84,6 +84,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_LessEqualsExpression;
   private ConceptPresentation props_LessExpression;
   private ConceptPresentation props_Literal;
+  private ConceptPresentation props_MemberInitExpression;
   private ConceptPresentation props_MinusExpression;
   private ConceptPresentation props_ModuloExpression;
   private ConceptPresentation props_MultiExpression;
@@ -101,6 +102,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_PostIncrementExpression;
   private ConceptPresentation props_PreDecrementExpression;
   private ConceptPresentation props_PreIncrementExpression;
+  private ConceptPresentation props_ReferenceExpr;
   private ConceptPresentation props_ReversibleExpression;
   private ConceptPresentation props_ReversibleFunctionCall;
   private ConceptPresentation props_ReversibleMacroArg;
@@ -649,6 +651,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_Literal = cpb.create();
         }
         return props_Literal;
+      case LanguageConceptSwitch.MemberInitExpression:
+        if (props_MemberInitExpression == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.presentationByReference(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x5645fe3fa5608271L, 0x5645fe3fa5608277L, "element", "", "");
+          props_MemberInitExpression = cpb.create();
+        }
+        return props_MemberInitExpression;
       case LanguageConceptSwitch.MinusExpression:
         if (props_MinusExpression == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -782,6 +791,14 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_PreIncrementExpression = cpb.create();
         }
         return props_PreIncrementExpression;
+      case LanguageConceptSwitch.ReferenceExpr:
+        if (props_ReferenceExpr == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.shortDesc("get address");
+          cpb.rawPresentation("&");
+          props_ReferenceExpr = cpb.create();
+        }
+        return props_ReferenceExpr;
       case LanguageConceptSwitch.ReversibleExpression:
         if (props_ReversibleExpression == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

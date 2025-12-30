@@ -11887,142 +11887,233 @@
       <unit id="7971727384801361907" at="10,0,15,0" name="DESL.editor.CreateArray_Editor" />
     </file>
     <file name="CreateArray_EditorBuilder_a.java">
-      <node id="7971727384801361907" at="30,91,31,19" concept="13" />
-      <node id="7971727384801361907" at="31,19,32,18" concept="2" />
-      <node id="7971727384801361907" at="37,26,38,18" concept="8" />
-      <node id="7971727384801361907" at="41,39,42,32" concept="8" />
-      <node id="7971727384801361907" at="45,43,46,118" concept="6" />
-      <node id="7971727384801361907" at="46,118,47,48" concept="2" />
-      <node id="7971727384801361907" at="47,48,48,28" concept="2" />
-      <node id="7971727384801361907" at="48,28,49,31" concept="2" />
-      <node id="7971727384801361915" at="49,31,50,49" concept="2" />
-      <node id="7971727384801361918" at="50,49,51,49" concept="2" />
-      <node id="7971727384801361921" at="51,49,52,48" concept="2" />
-      <node id="7971727384801361924" at="52,48,53,49" concept="2" />
-      <node id="7971727384801361907" at="53,49,54,22" concept="8" />
-      <node id="7971727384801361915" at="56,41,57,104" concept="6" />
-      <node id="7971727384801361915" at="57,104,58,47" concept="2" />
-      <node id="7971727384801361915" at="58,47,59,34" concept="2" />
-      <node id="7971727384801361915" at="59,34,60,22" concept="8" />
-      <node id="7971727384801361918" at="62,41,63,94" concept="6" />
-      <node id="7971727384801361918" at="63,94,64,47" concept="2" />
-      <node id="7971727384801361918" at="64,47,65,34" concept="6" />
-      <node id="7971727384801361918" at="65,34,66,60" concept="2" />
-      <node id="7971727384801361918" at="66,60,67,40" concept="2" />
-      <node id="7971727384801361918" at="67,40,68,34" concept="2" />
-      <node id="7971727384801361918" at="68,34,69,22" concept="8" />
-      <node id="7971727384801361907" at="71,40,72,119" concept="6" />
-      <node id="7971727384801361907" at="72,119,73,33" concept="8" />
-      <node id="7971727384801361907" at="79,118,80,38" concept="13" />
-      <node id="7971727384801361907" at="80,38,81,25" concept="2" />
-      <node id="7971727384801361907" at="86,28,87,20" concept="8" />
-      <node id="7971727384801361907" at="90,55,91,76" concept="6" />
-      <node id="7971727384801361907" at="91,76,92,113" concept="2" />
-      <node id="7971727384801361907" at="92,113,93,116" concept="2" />
-      <node id="7971727384801361907" at="93,116,94,48" concept="2" />
-      <node id="7971727384801361907" at="94,48,95,24" concept="8" />
-      <node id="7971727384801361907" at="101,118,102,137" concept="2" />
-      <node id="7971727384801361907" at="104,42,105,45" concept="2" />
-      <node id="7971727384801361907" at="109,44,110,41" concept="2" />
-      <node id="7971727384801361907" at="110,41,111,104" concept="2" />
-      <node id="7971727384801361907" at="112,11,113,56" concept="6" />
-      <node id="7971727384801361907" at="113,56,114,43" concept="2" />
-      <node id="7971727384801361907" at="114,43,115,48" concept="2" />
-      <node id="7971727384801361907" at="115,48,116,35" concept="2" />
-      <node id="7971727384801361907" at="116,35,117,26" concept="8" />
-      <node id="7971727384801361907" at="118,17,119,42" concept="2" />
-      <node id="7971727384801361907" at="122,40,123,25" concept="8" />
-      <node id="7971727384801361924" at="126,41,127,94" concept="6" />
-      <node id="7971727384801361924" at="127,94,128,47" concept="2" />
-      <node id="7971727384801361924" at="128,47,129,34" concept="6" />
-      <node id="7971727384801361924" at="129,34,130,60" concept="2" />
-      <node id="7971727384801361924" at="130,60,131,40" concept="2" />
-      <node id="7971727384801361924" at="131,40,132,34" concept="2" />
-      <node id="7971727384801361924" at="132,34,133,22" concept="8" />
-      <node id="7971727384801361907" at="137,0,138,0" concept="11" trace="size$QIgu" />
-      <node id="7971727384801361907" at="27,0,29,0" concept="3" trace="myNode" />
-      <node id="7971727384801361907" at="76,0,78,0" concept="3" trace="myNode" />
-      <node id="7971727384801361907" at="41,0,44,0" concept="5" trace="createCell#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
-      <node id="7971727384801361907" at="100,87,103,7" concept="4" />
-      <node id="7971727384801361907" at="103,7,106,7" concept="4" />
-      <node id="7971727384801361907" at="122,0,125,0" concept="5" trace="getNoTargetText#()Ljava/lang/String;" />
-      <node id="7971727384801361907" at="30,0,34,0" concept="1" trace="CreateArray_EditorBuilder_a#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)V" />
-      <node id="7971727384801361907" at="71,0,75,0" concept="5" trace="createRefNode_0#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
-      <node id="7971727384801361907" at="79,0,83,0" concept="1" trace="sizeSingleRoleHandler_a7jyk7_c0#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/language/SContainmentLink;Ljetbrains/mps/openapi/editor/EditorContext;)V" />
-      <node id="7971727384801361907" at="35,0,40,0" concept="5" trace="getNode#()Lorg/jetbrains/mps/openapi/model/SNode;" />
-      <node id="7971727384801361907" at="84,0,89,0" concept="5" trace="getNode#()Lorg/jetbrains/mps/openapi/model/SNode;" />
-      <node id="7971727384801361915" at="56,0,62,0" concept="5" trace="createConstant_0#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
-      <node id="7971727384801361907" at="90,0,97,0" concept="5" trace="createChildCell#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
-      <node id="7971727384801361907" at="100,0,108,0" concept="5" trace="installCellInfo#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/openapi/editor/cells/EditorCell;Z)V" />
-      <node id="7971727384801361918" at="62,0,71,0" concept="5" trace="createConstant_1#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
-      <node id="7971727384801361907" at="111,104,120,7" concept="14" />
-      <node id="7971727384801361924" at="126,0,135,0" concept="5" trace="createConstant_2#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
-      <node id="7971727384801361907" at="45,0,56,0" concept="5" trace="createCollection_0#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
-      <node id="7971727384801361907" at="108,0,122,0" concept="5" trace="createEmptyCell#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
-      <scope id="7971727384801361907" at="37,26,38,18" />
-      <scope id="7971727384801361907" at="41,39,42,32" />
-      <scope id="7971727384801361907" at="86,28,87,20" />
-      <scope id="7971727384801361907" at="101,118,102,137" />
-      <scope id="7971727384801361907" at="104,42,105,45" />
-      <scope id="7971727384801361907" at="118,17,119,42" />
-      <scope id="7971727384801361907" at="122,40,123,25" />
-      <scope id="7971727384801361907" at="30,91,32,18" />
-      <scope id="7971727384801361907" at="71,40,73,33">
+      <node id="7971727384801361907" at="32,91,33,19" concept="13" />
+      <node id="7971727384801361907" at="33,19,34,18" concept="2" />
+      <node id="7971727384801361907" at="39,26,40,18" concept="8" />
+      <node id="7971727384801361907" at="43,39,44,32" concept="8" />
+      <node id="7971727384801361907" at="47,43,48,118" concept="6" />
+      <node id="7971727384801361907" at="48,118,49,48" concept="2" />
+      <node id="7971727384801361907" at="49,48,50,28" concept="2" />
+      <node id="7971727384801361907" at="50,28,51,31" concept="2" />
+      <node id="7971727384801361915" at="51,31,52,49" concept="2" />
+      <node id="7971727384801361918" at="52,49,53,49" concept="2" />
+      <node id="2088979449565544822" at="53,49,54,48" concept="2" />
+      <node id="2088979449565544825" at="54,48,55,49" concept="2" />
+      <node id="7971727384801361921" at="55,49,56,48" concept="2" />
+      <node id="7971727384801361924" at="56,48,57,49" concept="2" />
+      <node id="7971727384801361907" at="57,49,58,22" concept="8" />
+      <node id="7971727384801361915" at="60,41,61,104" concept="6" />
+      <node id="7971727384801361915" at="61,104,62,47" concept="2" />
+      <node id="7971727384801361915" at="62,47,63,34" concept="6" />
+      <node id="7971727384801361915" at="63,34,64,57" concept="2" />
+      <node id="7971727384801361915" at="64,57,65,40" concept="2" />
+      <node id="7971727384801361915" at="65,40,66,34" concept="2" />
+      <node id="7971727384801361915" at="66,34,67,22" concept="8" />
+      <node id="7971727384801361918" at="69,41,70,94" concept="6" />
+      <node id="7971727384801361918" at="70,94,71,47" concept="2" />
+      <node id="7971727384801361918" at="71,47,72,34" concept="6" />
+      <node id="7971727384801361918" at="72,34,73,56" concept="2" />
+      <node id="2088979449565545526" at="73,56,74,54" concept="2" />
+      <node id="2088979449565545528" at="74,54,75,55" concept="2" />
+      <node id="7971727384801361918" at="75,55,76,40" concept="2" />
+      <node id="7971727384801361918" at="76,40,77,34" concept="2" />
+      <node id="7971727384801361918" at="77,34,78,22" concept="8" />
+      <node id="7971727384801361907" at="80,40,81,137" concept="6" />
+      <node id="7971727384801361907" at="81,137,82,33" concept="8" />
+      <node id="7971727384801361907" at="88,127,89,38" concept="13" />
+      <node id="7971727384801361907" at="89,38,90,25" concept="2" />
+      <node id="7971727384801361907" at="95,28,96,20" concept="8" />
+      <node id="7971727384801361907" at="99,55,100,76" concept="6" />
+      <node id="7971727384801361907" at="100,76,101,122" concept="2" />
+      <node id="7971727384801361907" at="101,122,102,125" concept="2" />
+      <node id="7971727384801361907" at="102,125,103,48" concept="2" />
+      <node id="7971727384801361907" at="103,48,104,24" concept="8" />
+      <node id="7971727384801361907" at="110,118,111,137" concept="2" />
+      <node id="7971727384801361907" at="113,42,114,54" concept="2" />
+      <node id="7971727384801361907" at="118,44,119,41" concept="2" />
+      <node id="7971727384801361907" at="119,41,120,113" concept="2" />
+      <node id="7971727384801361907" at="121,11,122,56" concept="6" />
+      <node id="7971727384801361907" at="122,56,123,52" concept="2" />
+      <node id="7971727384801361907" at="123,52,124,48" concept="2" />
+      <node id="7971727384801361907" at="124,48,125,35" concept="2" />
+      <node id="7971727384801361907" at="125,35,126,26" concept="8" />
+      <node id="7971727384801361907" at="127,17,128,42" concept="2" />
+      <node id="7971727384801361907" at="131,40,132,34" concept="8" />
+      <node id="2088979449565544825" at="135,41,136,94" concept="6" />
+      <node id="2088979449565544825" at="136,94,137,47" concept="2" />
+      <node id="2088979449565544825" at="137,47,138,34" concept="6" />
+      <node id="2088979449565544827" at="138,34,139,54" concept="2" />
+      <node id="2088979449565544825" at="139,54,140,40" concept="2" />
+      <node id="2088979449565544825" at="140,40,141,34" concept="2" />
+      <node id="2088979449565544825" at="141,34,142,22" concept="8" />
+      <node id="7971727384801361907" at="144,40,145,119" concept="6" />
+      <node id="7971727384801361907" at="145,119,146,33" concept="8" />
+      <node id="7971727384801361907" at="152,118,153,38" concept="13" />
+      <node id="7971727384801361907" at="153,38,154,25" concept="2" />
+      <node id="7971727384801361907" at="159,28,160,20" concept="8" />
+      <node id="7971727384801361907" at="163,55,164,76" concept="6" />
+      <node id="7971727384801361907" at="164,76,165,113" concept="2" />
+      <node id="7971727384801361907" at="165,113,166,116" concept="2" />
+      <node id="7971727384801361907" at="166,116,167,48" concept="2" />
+      <node id="7971727384801361907" at="167,48,168,24" concept="8" />
+      <node id="7971727384801361907" at="174,118,175,137" concept="2" />
+      <node id="7971727384801361907" at="177,42,178,45" concept="2" />
+      <node id="7971727384801361907" at="182,44,183,41" concept="2" />
+      <node id="7971727384801361907" at="183,41,184,104" concept="2" />
+      <node id="7971727384801361907" at="185,11,186,56" concept="6" />
+      <node id="7971727384801361907" at="186,56,187,43" concept="2" />
+      <node id="7971727384801361907" at="187,43,188,48" concept="2" />
+      <node id="7971727384801361907" at="188,48,189,35" concept="2" />
+      <node id="7971727384801361907" at="189,35,190,26" concept="8" />
+      <node id="7971727384801361907" at="191,17,192,42" concept="2" />
+      <node id="7971727384801361907" at="195,40,196,25" concept="8" />
+      <node id="7971727384801361924" at="199,41,200,94" concept="6" />
+      <node id="7971727384801361924" at="200,94,201,47" concept="2" />
+      <node id="7971727384801361924" at="201,47,202,34" concept="6" />
+      <node id="7971727384801361924" at="202,34,203,56" concept="2" />
+      <node id="2088979449565545522" at="203,56,204,54" concept="2" />
+      <node id="2088979449565545524" at="204,54,205,55" concept="2" />
+      <node id="7971727384801361924" at="205,55,206,40" concept="2" />
+      <node id="7971727384801361924" at="206,40,207,34" concept="2" />
+      <node id="7971727384801361924" at="207,34,208,22" concept="8" />
+      <node id="7971727384801361907" at="212,0,213,0" concept="11" trace="arrayVariable$p6nT" />
+      <node id="7971727384801361907" at="213,0,214,0" concept="11" trace="size$QIgu" />
+      <node id="7971727384801361907" at="29,0,31,0" concept="3" trace="myNode" />
+      <node id="7971727384801361907" at="85,0,87,0" concept="3" trace="myNode" />
+      <node id="7971727384801361907" at="149,0,151,0" concept="3" trace="myNode" />
+      <node id="7971727384801361907" at="43,0,46,0" concept="5" trace="createCell#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="7971727384801361907" at="109,87,112,7" concept="4" />
+      <node id="7971727384801361907" at="112,7,115,7" concept="4" />
+      <node id="7971727384801361907" at="131,0,134,0" concept="5" trace="getNoTargetText#()Ljava/lang/String;" />
+      <node id="7971727384801361907" at="173,87,176,7" concept="4" />
+      <node id="7971727384801361907" at="176,7,179,7" concept="4" />
+      <node id="7971727384801361907" at="195,0,198,0" concept="5" trace="getNoTargetText#()Ljava/lang/String;" />
+      <node id="7971727384801361907" at="32,0,36,0" concept="1" trace="CreateArray_EditorBuilder_a#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)V" />
+      <node id="7971727384801361907" at="80,0,84,0" concept="5" trace="createRefNode_0#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="7971727384801361907" at="88,0,92,0" concept="1" trace="arrayVariableSingleRoleHandler_a7jyk7_c0#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/language/SContainmentLink;Ljetbrains/mps/openapi/editor/EditorContext;)V" />
+      <node id="7971727384801361907" at="144,0,148,0" concept="5" trace="createRefNode_1#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="7971727384801361907" at="152,0,156,0" concept="1" trace="sizeSingleRoleHandler_a7jyk7_e0#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/language/SContainmentLink;Ljetbrains/mps/openapi/editor/EditorContext;)V" />
+      <node id="7971727384801361907" at="37,0,42,0" concept="5" trace="getNode#()Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="7971727384801361907" at="93,0,98,0" concept="5" trace="getNode#()Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="7971727384801361907" at="157,0,162,0" concept="5" trace="getNode#()Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="7971727384801361907" at="99,0,106,0" concept="5" trace="createChildCell#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="7971727384801361907" at="163,0,170,0" concept="5" trace="createChildCell#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="7971727384801361907" at="109,0,117,0" concept="5" trace="installCellInfo#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/openapi/editor/cells/EditorCell;Z)V" />
+      <node id="7971727384801361907" at="173,0,181,0" concept="5" trace="installCellInfo#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/openapi/editor/cells/EditorCell;Z)V" />
+      <node id="7971727384801361915" at="60,0,69,0" concept="5" trace="createConstant_0#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="7971727384801361907" at="120,113,129,7" concept="14" />
+      <node id="2088979449565544825" at="135,0,144,0" concept="5" trace="createConstant_2#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="7971727384801361907" at="184,104,193,7" concept="14" />
+      <node id="7971727384801361918" at="69,0,80,0" concept="5" trace="createConstant_1#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="7971727384801361924" at="199,0,210,0" concept="5" trace="createConstant_3#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="7971727384801361907" at="47,0,60,0" concept="5" trace="createCollection_0#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="7971727384801361907" at="117,0,131,0" concept="5" trace="createEmptyCell#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="7971727384801361907" at="181,0,195,0" concept="5" trace="createEmptyCell#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <scope id="7971727384801361907" at="39,26,40,18" />
+      <scope id="7971727384801361907" at="43,39,44,32" />
+      <scope id="7971727384801361907" at="95,28,96,20" />
+      <scope id="7971727384801361907" at="110,118,111,137" />
+      <scope id="7971727384801361907" at="113,42,114,54" />
+      <scope id="7971727384801361907" at="127,17,128,42" />
+      <scope id="7971727384801361907" at="131,40,132,34" />
+      <scope id="7971727384801361907" at="159,28,160,20" />
+      <scope id="7971727384801361907" at="174,118,175,137" />
+      <scope id="7971727384801361907" at="177,42,178,45" />
+      <scope id="7971727384801361907" at="191,17,192,42" />
+      <scope id="7971727384801361907" at="195,40,196,25" />
+      <scope id="7971727384801361907" at="32,91,34,18" />
+      <scope id="7971727384801361907" at="80,40,82,33">
         <var name="provider" id="7971727384801361907" />
       </scope>
-      <scope id="7971727384801361907" at="79,118,81,25" />
-      <scope id="7971727384801361907" at="41,0,44,0" />
-      <scope id="7971727384801361907" at="122,0,125,0" />
-      <scope id="7971727384801361907" at="30,0,34,0">
+      <scope id="7971727384801361907" at="88,127,90,25" />
+      <scope id="7971727384801361907" at="144,40,146,33">
+        <var name="provider" id="7971727384801361907" />
+      </scope>
+      <scope id="7971727384801361907" at="152,118,154,25" />
+      <scope id="7971727384801361907" at="43,0,46,0" />
+      <scope id="7971727384801361907" at="131,0,134,0" />
+      <scope id="7971727384801361907" at="195,0,198,0" />
+      <scope id="7971727384801361907" at="32,0,36,0">
         <var name="context" id="7971727384801361907" />
         <var name="node" id="7971727384801361907" />
       </scope>
-      <scope id="7971727384801361915" at="56,41,60,22">
-        <var name="editorCell" id="7971727384801361915" />
-      </scope>
-      <scope id="7971727384801361907" at="71,0,75,0" />
-      <scope id="7971727384801361907" at="79,0,83,0">
+      <scope id="7971727384801361907" at="80,0,84,0" />
+      <scope id="7971727384801361907" at="88,0,92,0">
         <var name="containmentLink" id="7971727384801361907" />
         <var name="context" id="7971727384801361907" />
         <var name="ownerNode" id="7971727384801361907" />
       </scope>
-      <scope id="7971727384801361907" at="35,0,40,0" />
-      <scope id="7971727384801361907" at="84,0,89,0" />
-      <scope id="7971727384801361907" at="90,55,95,24">
+      <scope id="7971727384801361907" at="144,0,148,0" />
+      <scope id="7971727384801361907" at="152,0,156,0">
+        <var name="containmentLink" id="7971727384801361907" />
+        <var name="context" id="7971727384801361907" />
+        <var name="ownerNode" id="7971727384801361907" />
+      </scope>
+      <scope id="7971727384801361907" at="37,0,42,0" />
+      <scope id="7971727384801361907" at="93,0,98,0" />
+      <scope id="7971727384801361907" at="99,55,104,24">
         <var name="editorCell" id="7971727384801361907" />
       </scope>
-      <scope id="7971727384801361907" at="112,11,117,26">
+      <scope id="7971727384801361907" at="121,11,126,26">
         <var name="editorCell" id="7971727384801361907" />
       </scope>
-      <scope id="7971727384801361915" at="56,0,62,0" />
-      <scope id="7971727384801361907" at="100,87,106,7" />
-      <scope id="7971727384801361918" at="62,41,69,22">
-        <var name="editorCell" id="7971727384801361918" />
-        <var name="style" id="7971727384801361918" />
+      <scope id="7971727384801361907" at="157,0,162,0" />
+      <scope id="7971727384801361907" at="163,55,168,24">
+        <var name="editorCell" id="7971727384801361907" />
       </scope>
-      <scope id="7971727384801361907" at="90,0,97,0">
+      <scope id="7971727384801361907" at="185,11,190,26">
+        <var name="editorCell" id="7971727384801361907" />
+      </scope>
+      <scope id="7971727384801361907" at="109,87,115,7" />
+      <scope id="7971727384801361907" at="173,87,179,7" />
+      <scope id="7971727384801361915" at="60,41,67,22">
+        <var name="editorCell" id="7971727384801361915" />
+        <var name="style" id="7971727384801361915" />
+      </scope>
+      <scope id="7971727384801361907" at="99,0,106,0">
         <var name="child" id="7971727384801361907" />
       </scope>
-      <scope id="7971727384801361924" at="126,41,133,22">
-        <var name="editorCell" id="7971727384801361924" />
-        <var name="style" id="7971727384801361924" />
+      <scope id="2088979449565544825" at="135,41,142,22">
+        <var name="editorCell" id="2088979449565544825" />
+        <var name="style" id="2088979449565544825" />
       </scope>
-      <scope id="7971727384801361907" at="100,0,108,0">
+      <scope id="7971727384801361907" at="163,0,170,0">
+        <var name="child" id="7971727384801361907" />
+      </scope>
+      <scope id="7971727384801361907" at="109,0,117,0">
         <var name="child" id="7971727384801361907" />
         <var name="editorCell" id="7971727384801361907" />
         <var name="isEmpty" id="7971727384801361907" />
       </scope>
-      <scope id="7971727384801361907" at="45,43,54,22">
+      <scope id="7971727384801361907" at="173,0,181,0">
+        <var name="child" id="7971727384801361907" />
+        <var name="editorCell" id="7971727384801361907" />
+        <var name="isEmpty" id="7971727384801361907" />
+      </scope>
+      <scope id="7971727384801361915" at="60,0,69,0" />
+      <scope id="7971727384801361918" at="69,41,78,22">
+        <var name="editorCell" id="7971727384801361918" />
+        <var name="style" id="7971727384801361918" />
+      </scope>
+      <scope id="2088979449565544825" at="135,0,144,0" />
+      <scope id="7971727384801361924" at="199,41,208,22">
+        <var name="editorCell" id="7971727384801361924" />
+        <var name="style" id="7971727384801361924" />
+      </scope>
+      <scope id="7971727384801361907" at="47,43,58,22">
         <var name="editorCell" id="7971727384801361907" />
       </scope>
-      <scope id="7971727384801361918" at="62,0,71,0" />
-      <scope id="7971727384801361924" at="126,0,135,0" />
-      <scope id="7971727384801361907" at="45,0,56,0" />
-      <scope id="7971727384801361907" at="109,44,120,7" />
-      <scope id="7971727384801361907" at="108,0,122,0" />
-      <unit id="7971727384801361907" at="136,0,139,0" name="DESL.editor.CreateArray_EditorBuilder_a$LINKS" />
-      <unit id="7971727384801361907" at="75,0,126,0" name="DESL.editor.CreateArray_EditorBuilder_a$sizeSingleRoleHandler_a7jyk7_c0" />
-      <unit id="7971727384801361907" at="26,0,140,0" name="DESL.editor.CreateArray_EditorBuilder_a" />
+      <scope id="7971727384801361918" at="69,0,80,0" />
+      <scope id="7971727384801361907" at="118,44,129,7" />
+      <scope id="7971727384801361907" at="182,44,193,7" />
+      <scope id="7971727384801361924" at="199,0,210,0" />
+      <scope id="7971727384801361907" at="47,0,60,0" />
+      <scope id="7971727384801361907" at="117,0,131,0" />
+      <scope id="7971727384801361907" at="181,0,195,0" />
+      <unit id="7971727384801361907" at="211,0,215,0" name="DESL.editor.CreateArray_EditorBuilder_a$LINKS" />
+      <unit id="7971727384801361907" at="84,0,135,0" name="DESL.editor.CreateArray_EditorBuilder_a$arrayVariableSingleRoleHandler_a7jyk7_c0" />
+      <unit id="7971727384801361907" at="148,0,199,0" name="DESL.editor.CreateArray_EditorBuilder_a$sizeSingleRoleHandler_a7jyk7_e0" />
+      <unit id="7971727384801361907" at="28,0,216,0" name="DESL.editor.CreateArray_EditorBuilder_a" />
     </file>
   </root>
   <root nodeRef="r:b9d4912c-8e8b-4f1b-b887-99265d0b4cdb(DESL.editor)/7977015571504361195">

@@ -9,7 +9,7 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1070462154015:jetbrains.mps.baseLanguage.structure.StaticFieldDeclaration" />
   <root>
     <file name="DataFlowAspectDescriptorImpl.java">
-      <unit at="15,0,50,0" name="ReversibleExpressions.dataFlow.DataFlowAspectDescriptorImpl" />
+      <unit at="15,0,52,0" name="ReversibleExpressions.dataFlow.DataFlowAspectDescriptorImpl" />
     </file>
   </root>
   <root nodeRef="r:8775283b-358b-48f4-940b-ff7509a23a91(ReversibleExpressions.dataFlow)/2047364827736713476">
@@ -168,6 +168,21 @@
       </scope>
       <unit id="6072660817912695639" at="17,0,20,0" name="ReversibleExpressions.dataFlow.CastExpression_DataFlow$LINKS" />
       <unit id="6072660817912695639" at="12,0,21,0" name="ReversibleExpressions.dataFlow.CastExpression_DataFlow" />
+    </file>
+  </root>
+  <root nodeRef="r:8775283b-358b-48f4-940b-ff7509a23a91(ReversibleExpressions.dataFlow)/6216654409965908796">
+    <file name="MemberInitExpression_DataFlow.java">
+      <node id="6216654409965908823" at="14,60,15,105" concept="1" />
+      <node id="6216654409965913477" at="15,105,16,262" concept="1" />
+      <node id="6216654409965908796" at="20,0,21,0" concept="6" trace="value$liHV" />
+      <node id="6216654409965908796" at="21,0,22,0" concept="6" trace="element$liWW" />
+      <node id="6216654409965908796" at="14,0,18,0" concept="3" trace="build#(Ljetbrains/mps/lang/dataFlow/DataFlowBuilderContext;)V" />
+      <scope id="6216654409965908798" at="14,60,16,262" />
+      <scope id="6216654409965908796" at="14,0,18,0">
+        <var name="_context" id="6216654409965908796" />
+      </scope>
+      <unit id="6216654409965908796" at="19,0,23,0" name="ReversibleExpressions.dataFlow.MemberInitExpression_DataFlow$LINKS" />
+      <unit id="6216654409965908796" at="13,0,24,0" name="ReversibleExpressions.dataFlow.MemberInitExpression_DataFlow" />
     </file>
   </root>
   <root nodeRef="r:8775283b-358b-48f4-940b-ff7509a23a91(ReversibleExpressions.dataFlow)/7178842692850421924">

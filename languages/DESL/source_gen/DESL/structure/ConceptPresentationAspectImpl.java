@@ -89,7 +89,8 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
       case LanguageConceptSwitch.CreateArray:
         if (props_CreateArray == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.rawPresentation("CreateArray");
+          cpb.shortDesc("allocate memory for an array");
+          cpb.rawPresentation("createArray");
           props_CreateArray = cpb.create();
         }
         return props_CreateArray;

@@ -14,7 +14,6 @@ import ReversibleStatements.behavior.IHasPrefixes__BehaviorDescriptor;
 import ReversibleStatements.behavior.Prefix__BehaviorDescriptor;
 import com.mbeddr.core.expressions.textGen.TokenTextGen;
 import com.mbeddr.core.base.behavior.IIdentifierNamedConcept__BehaviorDescriptor;
-import ReversibleExpressions.textGen.StateSaving;
 import jetbrains.mps.lang.traceable.behavior.TraceableConcept__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -88,21 +87,13 @@ public class LocalVariableDeclaration_TextGen extends TextGenDescriptorBase {
 
       tgs.newLine();
 
-      if (saveState) {
-        tgs.indent();
-        StateSaving.stateSaving(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), PROPS.name$MnvL), SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableToSaveName$udlR), ctx);
-      }
 
       // if the lvd defines a new message, associate the struct checkpoint (created at the beginning of the event handler, with the new message)
 
 
 
     } else {
-      if ((SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.init$41s$) != null)) {
-        tgs.append(" = content->cp.");
-        tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), PROPS.name$MnvL));
-        tgs.append(";");
-      }
+      tgs.append(";");
     }
 
 
@@ -116,7 +107,6 @@ public class LocalVariableDeclaration_TextGen extends TextGenDescriptorBase {
     /*package*/ static final SContainmentLink messageStruct$xVlJ = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x6de6339fa564bed8L, "messageStruct");
     /*package*/ static final SReferenceLink struct$WCsg = MetaAdapterFactory.getReferenceLink(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x58bef62304fc0a38L, 0x58bef62304fc0a39L, "struct");
     /*package*/ static final SContainmentLink init$41s$ = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad96e6L, 0x3a16e3a9c7ae01f7L, "init");
-    /*package*/ static final SContainmentLink supportVariable$WrxR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x586abb2d5743cb69L, "supportVariable");
   }
 
   private static final class CONCEPTS {
@@ -131,6 +121,5 @@ public class LocalVariableDeclaration_TextGen extends TextGenDescriptorBase {
     /*package*/ static final SProperty extern$rgi8 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad96e6L, 0x706f9277156aec25L, "extern");
     /*package*/ static final SProperty storeInRegister$NMWY = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x509503be9ecc5d25L, 0x509503be9ecc5d27L, "storeInRegister");
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
-    /*package*/ static final SProperty variableToSaveName$udlR = MetaAdapterFactory.getProperty(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x27d0c8e745a2c78dL, 0x1b427f2e4b08b057L, "variableToSaveName");
   }
 }

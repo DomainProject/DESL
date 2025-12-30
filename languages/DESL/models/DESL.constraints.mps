@@ -702,6 +702,7 @@
     </node>
   </node>
   <node concept="1M2fIO" id="1CQK2811Qbo">
+    <property role="3GE5qa" value="topology" />
     <ref role="1M2myG" to="rdv6:1CQK280Kq96" resolve="InitTopology" />
     <node concept="1N5Pfh" id="1CQK2811Qbp" role="1Mr941">
       <ref role="1N5Vy1" to="rdv6:1CQK280Kq97" resolve="variable" />

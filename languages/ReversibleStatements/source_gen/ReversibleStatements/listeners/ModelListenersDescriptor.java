@@ -107,6 +107,14 @@ public class ModelListenersDescriptor implements IModelListenersDescriptor {
         }
       }
     });
+    ListSequence.fromList(listeners).addElement(new ChildListener(CONCEPTS.PointerType$HX, LINKS.baseType$zMGV) {
+      @Override
+      public void childAdded(final SNode instance, final SNode child) {
+        if (SConceptOperations.isExactly(SNodeOperations.asSConcept(SNodeOperations.getConcept(SNodeOperations.getParent(instance))), CONCEPTS.LocalVariableDeclaration$7E)) {
+          SLinkOperations.setTarget(SNodeOperations.cast(SLinkOperations.getTarget(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(instance), CONCEPTS.LocalVariableDeclaration$7E), LINKS.supportVariable$WrxR), LINKS.type$sXU3), CONCEPTS.PointerType$HX), LINKS.baseType$zMGV, SNodeOperations.copyNode(child));
+        }
+      }
+    });
 
     return listeners;
   }
@@ -119,6 +127,7 @@ public class ModelListenersDescriptor implements IModelListenersDescriptor {
     /*package*/ static final SConcept ExpressionStatement$L7 = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a4018a8592L, "ReversibleStatements.structure.ExpressionStatement");
     /*package*/ static final SConcept LocalVariableDeclaration$7E = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad96e6L, "ReversibleStatements.structure.LocalVariableDeclaration");
     /*package*/ static final SConcept ForVarDecl$3i = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a401870e23L, "ReversibleStatements.structure.ForVarDecl");
+    /*package*/ static final SConcept PointerType$HX = MetaAdapterFactory.getConcept(0x3bf5377ae9044dedL, 0x97545a516023bfaaL, 0x3e0cae5e366d630L, "com.mbeddr.core.pointers.structure.PointerType");
   }
 
   private static final class LINKS {

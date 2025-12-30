@@ -635,5 +635,34 @@
       </node>
     </node>
   </node>
+  <node concept="3_zdsH" id="5p5ZzY_ozcW">
+    <ref role="3_znuS" to="ib4b:5p5ZzY_o89L" resolve="MemberInitExpression" />
+    <node concept="3__wT9" id="5p5ZzY_ozcX" role="3_A6iZ">
+      <node concept="3clFbS" id="5p5ZzY_ozcY" role="2VODD2">
+        <node concept="3AgYrR" id="5p5ZzY_ozdn" role="3cqZAp">
+          <node concept="2OqwBi" id="5p5ZzY_ozxE" role="3Ah4Yx">
+            <node concept="3__QtB" id="5p5ZzY_ozdO" role="2Oq$k0" />
+            <node concept="3TrEf2" id="5p5ZzY_o$gq" role="2OqNvi">
+              <ref role="3Tt5mk" to="ib4b:5p5ZzY_o89Q" resolve="value" />
+            </node>
+          </node>
+        </node>
+        <node concept="3_FXB6" id="5p5ZzY_o$m5" role="3cqZAp">
+          <node concept="2OqwBi" id="5p5ZzY_o$mZ" role="3_H1SZ">
+            <node concept="3__QtB" id="5p5ZzY_o$mJ" role="2Oq$k0" />
+            <node concept="3TrEf2" id="5p5ZzY_o_UQ" role="2OqNvi">
+              <ref role="3Tt5mk" to="ib4b:5p5ZzY_o89R" resolve="element" />
+            </node>
+          </node>
+          <node concept="2OqwBi" id="5p5ZzY_oAis" role="1XBRO_">
+            <node concept="3__QtB" id="5p5ZzY_oA0i" role="2Oq$k0" />
+            <node concept="3TrEf2" id="5p5ZzY_oAlI" role="2OqNvi">
+              <ref role="3Tt5mk" to="ib4b:5p5ZzY_o89Q" resolve="value" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
 </model>
 

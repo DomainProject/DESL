@@ -86,7 +86,7 @@ public class ButtonFactory {
 
   public static JComponent addDocumentation(final EditorContext editorContext, final SNode node) {
     /*
-      '''<no node>''' '''return button;'''
+       return
 
     */
 

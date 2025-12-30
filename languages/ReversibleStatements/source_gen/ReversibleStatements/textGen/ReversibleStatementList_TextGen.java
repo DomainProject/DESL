@@ -14,8 +14,8 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.traceable.behavior.TraceableConcept__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class ReversibleStatementList_TextGen extends TextGenDescriptorBase {
@@ -29,6 +29,18 @@ public class ReversibleStatementList_TextGen extends TextGenDescriptorBase {
     }
 
     _FunctionTypes._void_P0_E0 func = () -> {
+
+      if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.ReversibleFunction$IL)) {
+        if (SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5)) {
+          tgs.indent();
+          tgs.append("struct checkpoint cp = {0};");
+          tgs.newLine();
+        } else {
+          tgs.indent();
+          tgs.append("struct checkpoint cp = content->cp;");
+          tgs.newLine();
+        }
+      }
 
       // append local variable declarations at the beginning
       ReversibleStatementListUtils.variableDeclarations(ctx.getPrimaryInput(), ctx);
@@ -79,6 +91,7 @@ public class ReversibleStatementList_TextGen extends TextGenDescriptorBase {
   }
 
   private static final class CONCEPTS {
+    /*package*/ static final SConcept ReversibleFunction$IL = MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, "ReversibleFunctions.structure.ReversibleFunction");
     /*package*/ static final SInterfaceConcept IReversible$$B = MetaAdapterFactory.getInterfaceConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, "ReversibleStatements.structure.IReversible");
     /*package*/ static final SConcept ReversibleStatementList$qe = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, "ReversibleStatements.structure.ReversibleStatementList");
     /*package*/ static final SConcept SwitchStatement$kf = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x2b8026b23bc2d9fcL, "ReversibleStatements.structure.SwitchStatement");

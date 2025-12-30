@@ -91,6 +91,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptLessEqualsExpression = createDescriptorForLessEqualsExpression();
   /*package*/ final ConceptDescriptor myConceptLessExpression = createDescriptorForLessExpression();
   /*package*/ final ConceptDescriptor myConceptLiteral = createDescriptorForLiteral();
+  /*package*/ final ConceptDescriptor myConceptMemberInitExpression = createDescriptorForMemberInitExpression();
   /*package*/ final ConceptDescriptor myConceptMinusExpression = createDescriptorForMinusExpression();
   /*package*/ final ConceptDescriptor myConceptModuloExpression = createDescriptorForModuloExpression();
   /*package*/ final ConceptDescriptor myConceptMultiExpression = createDescriptorForMultiExpression();
@@ -108,6 +109,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptPostIncrementExpression = createDescriptorForPostIncrementExpression();
   /*package*/ final ConceptDescriptor myConceptPreDecrementExpression = createDescriptorForPreDecrementExpression();
   /*package*/ final ConceptDescriptor myConceptPreIncrementExpression = createDescriptorForPreIncrementExpression();
+  /*package*/ final ConceptDescriptor myConceptReferenceExpr = createDescriptorForReferenceExpr();
   /*package*/ final ConceptDescriptor myConceptReversibleExpression = createDescriptorForReversibleExpression();
   /*package*/ final ConceptDescriptor myConceptReversibleFunctionCall = createDescriptorForReversibleFunctionCall();
   /*package*/ final ConceptDescriptor myConceptReversibleMacroArg = createDescriptorForReversibleMacroArg();
@@ -148,7 +150,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptAndExpression, myConceptArrayAccessExpression, myConceptAssignmentExpr, myConceptBinaryArithmeticExpression, myConceptBinaryComparisonExpression, myConceptBinaryEqualityComparisonExpression, myConceptBinaryExpression, myConceptBinaryLogicalExpression, myConceptBinaryNumberLiteral, myConceptBinaryOrderedComparisonExpression, myConceptBitwiseAndExpression, myConceptBitwiseBinaryArithmaticsExpression, myConceptBitwiseDirectAssignmentExpression, myConceptBitwiseLeftShiftExpression, myConceptBitwiseNotExpression, myConceptBitwiseORExpression, myConceptBitwiseRightShiftExpression, myConceptBitwiseXORExpression, myConceptBooleanLiteral, myConceptCastExpression, myConceptCharLiteral, myConceptCommentedContent, myConceptDirectAssignmentExpression, myConceptDirectBitwiseANDAssignmentExpression, myConceptDirectBitwiseLeftShiftAssignmentExpression, myConceptDirectBitwiseORAssignmentExpression, myConceptDirectBitwiseRightShiftExpression, myConceptDirectBitwiseXORAssignmentExpression, myConceptDirectDivAssignmentExpression, myConceptDirectMinusAssignmentExpression, myConceptDirectModuloAssignmentExpression, myConceptDirectMultiAssignmentExpression, myConceptDirectPlusAssignmentExpression, myConceptDivExpression, myConceptEqualsExpression, myConceptExpressionList, myConceptFalseLiteral, myConceptGenericDotExpression, myConceptGenericMemberRef, myConceptGlobalConstantRef, myConceptGlobalVarRef, myConceptGreaterEqualsExpression, myConceptGreaterExpression, myConceptHexNumberLiteral, myConceptIAncestorRelevantNode, myConceptIAssignmentLike, myConceptIAssignmentSide, myConceptIBinArithmetic, myConceptIBinaryLike, myConceptIDestructiveOperation, myConceptIDuplicateConceptInCondition, myConceptIExpressionWrapper, myConceptIGenericDotTarget, myConceptIIncompleteParenthesis, myConceptIInitializationContext, myConceptILiteralDecorator, myConceptILiteralLike, myConceptIMemberReference, myConceptINeedSupportVariable, myConceptINumberOperation, myConceptINumericLiteral, myConceptIOnlyInInitialization, myConceptIPrintable, myConceptIRequireStdArgHeader, myConceptIRequiresTypeToBeInferred, myConceptIRestrictConstAndVolatile, myConceptISelfTypingInBinaryExpression, myConceptIStopReshuffling, myConceptITypeDecorator, myConceptITyped, myConceptIVariableDeclaration, myConceptIVariableReference, myConceptLessEqualsExpression, myConceptLessExpression, myConceptLiteral, myConceptMinusExpression, myConceptModuloExpression, myConceptMultiExpression, myConceptNotEqualsExpression, myConceptNotExpression, myConceptNotParsedExpression, myConceptNullExpression, myConceptNumberLiteral, myConceptNumericLiteral, myConceptOctalNumberLiteral, myConceptOrExpression, myConceptParensExpression, myConceptPlusExpression, myConceptPostDecrementExpression, myConceptPostIncrementExpression, myConceptPreDecrementExpression, myConceptPreIncrementExpression, myConceptReversibleExpression, myConceptReversibleFunctionCall, myConceptReversibleMacroArg, myConceptReversibleMacroCall, myConceptScientificNumber, myConceptSizeOfExpr, myConceptStaticValueExpression, myConceptTernaryExpression, myConceptTrueLiteral, myConceptUnaryArithmeticExpression, myConceptUnaryExpression, myConceptUnaryLogicalExpression, myConceptUnaryMinusExpression, myConceptUnaryPrePosModificationExpression, myConceptUnsignedIntegerLiteral, myConceptVaArgExpression, myConceptVaList, myConceptVoidType);
+    return Arrays.asList(myConceptAndExpression, myConceptArrayAccessExpression, myConceptAssignmentExpr, myConceptBinaryArithmeticExpression, myConceptBinaryComparisonExpression, myConceptBinaryEqualityComparisonExpression, myConceptBinaryExpression, myConceptBinaryLogicalExpression, myConceptBinaryNumberLiteral, myConceptBinaryOrderedComparisonExpression, myConceptBitwiseAndExpression, myConceptBitwiseBinaryArithmaticsExpression, myConceptBitwiseDirectAssignmentExpression, myConceptBitwiseLeftShiftExpression, myConceptBitwiseNotExpression, myConceptBitwiseORExpression, myConceptBitwiseRightShiftExpression, myConceptBitwiseXORExpression, myConceptBooleanLiteral, myConceptCastExpression, myConceptCharLiteral, myConceptCommentedContent, myConceptDirectAssignmentExpression, myConceptDirectBitwiseANDAssignmentExpression, myConceptDirectBitwiseLeftShiftAssignmentExpression, myConceptDirectBitwiseORAssignmentExpression, myConceptDirectBitwiseRightShiftExpression, myConceptDirectBitwiseXORAssignmentExpression, myConceptDirectDivAssignmentExpression, myConceptDirectMinusAssignmentExpression, myConceptDirectModuloAssignmentExpression, myConceptDirectMultiAssignmentExpression, myConceptDirectPlusAssignmentExpression, myConceptDivExpression, myConceptEqualsExpression, myConceptExpressionList, myConceptFalseLiteral, myConceptGenericDotExpression, myConceptGenericMemberRef, myConceptGlobalConstantRef, myConceptGlobalVarRef, myConceptGreaterEqualsExpression, myConceptGreaterExpression, myConceptHexNumberLiteral, myConceptIAncestorRelevantNode, myConceptIAssignmentLike, myConceptIAssignmentSide, myConceptIBinArithmetic, myConceptIBinaryLike, myConceptIDestructiveOperation, myConceptIDuplicateConceptInCondition, myConceptIExpressionWrapper, myConceptIGenericDotTarget, myConceptIIncompleteParenthesis, myConceptIInitializationContext, myConceptILiteralDecorator, myConceptILiteralLike, myConceptIMemberReference, myConceptINeedSupportVariable, myConceptINumberOperation, myConceptINumericLiteral, myConceptIOnlyInInitialization, myConceptIPrintable, myConceptIRequireStdArgHeader, myConceptIRequiresTypeToBeInferred, myConceptIRestrictConstAndVolatile, myConceptISelfTypingInBinaryExpression, myConceptIStopReshuffling, myConceptITypeDecorator, myConceptITyped, myConceptIVariableDeclaration, myConceptIVariableReference, myConceptLessEqualsExpression, myConceptLessExpression, myConceptLiteral, myConceptMemberInitExpression, myConceptMinusExpression, myConceptModuloExpression, myConceptMultiExpression, myConceptNotEqualsExpression, myConceptNotExpression, myConceptNotParsedExpression, myConceptNullExpression, myConceptNumberLiteral, myConceptNumericLiteral, myConceptOctalNumberLiteral, myConceptOrExpression, myConceptParensExpression, myConceptPlusExpression, myConceptPostDecrementExpression, myConceptPostIncrementExpression, myConceptPreDecrementExpression, myConceptPreIncrementExpression, myConceptReferenceExpr, myConceptReversibleExpression, myConceptReversibleFunctionCall, myConceptReversibleMacroArg, myConceptReversibleMacroCall, myConceptScientificNumber, myConceptSizeOfExpr, myConceptStaticValueExpression, myConceptTernaryExpression, myConceptTrueLiteral, myConceptUnaryArithmeticExpression, myConceptUnaryExpression, myConceptUnaryLogicalExpression, myConceptUnaryMinusExpression, myConceptUnaryPrePosModificationExpression, myConceptUnsignedIntegerLiteral, myConceptVaArgExpression, myConceptVaList, myConceptVoidType);
   }
 
   @Override
@@ -305,6 +307,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptLessExpression;
       case LanguageConceptSwitch.Literal:
         return myConceptLiteral;
+      case LanguageConceptSwitch.MemberInitExpression:
+        return myConceptMemberInitExpression;
       case LanguageConceptSwitch.MinusExpression:
         return myConceptMinusExpression;
       case LanguageConceptSwitch.ModuloExpression:
@@ -339,6 +343,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptPreDecrementExpression;
       case LanguageConceptSwitch.PreIncrementExpression:
         return myConceptPreIncrementExpression;
+      case LanguageConceptSwitch.ReferenceExpr:
+        return myConceptReferenceExpr;
       case LanguageConceptSwitch.ReversibleExpression:
         return myConceptReversibleExpression;
       case LanguageConceptSwitch.ReversibleFunctionCall:
@@ -1091,6 +1097,19 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.version(3);
     return b.create();
   }
+  private static ConceptDescriptor createDescriptorForMemberInitExpression() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("ReversibleExpressions", "MemberInitExpression", 0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x5645fe3fa5608271L);
+    b.class_(false, false, false);
+    // extends: ReversibleExpressions.structure.ReversibleExpression
+    b.super_(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L);
+    b.parent(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x52bfade908143913L);
+    b.parent(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x391df9e40e14d64cL);
+    b.origin("r:539823a2-87c6-4a7e-abc8-d6fc586848eb(ReversibleExpressions.structure)/6216654409965798001");
+    b.version(3);
+    b.associate("element", 0x5645fe3fa5608277L).target(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0xbb5df1249c339f0L).optional(false).origin("6216654409965798007").done();
+    b.aggregate("value", 0x5645fe3fa5608276L).target(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L).optional(false).ordered(true).multiple(false).origin("6216654409965798006").done();
+    return b.create();
+  }
   private static ConceptDescriptor createDescriptorForMinusExpression() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("ReversibleExpressions", "MinusExpression", 0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4ffba68fe82b621aL);
     b.class_(false, false, false);
@@ -1263,6 +1282,16 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.super_(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x632cdd5acfb8529eL);
     b.origin("r:539823a2-87c6-4a7e-abc8-d6fc586848eb(ReversibleExpressions.structure)/4375898003726285487");
     b.version(3);
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForReferenceExpr() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("ReversibleExpressions", "ReferenceExpr", 0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x5645fe3fa5e373fdL);
+    b.class_(false, false, false);
+    // extends: ReversibleExpressions.structure.UnaryExpression
+    b.super_(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x29b5b7c4a3763232L);
+    b.origin("r:539823a2-87c6-4a7e-abc8-d6fc586848eb(ReversibleExpressions.structure)/6216654409974379517");
+    b.version(3);
+    b.alias("&");
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForReversibleExpression() {

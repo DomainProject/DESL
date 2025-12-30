@@ -735,14 +735,25 @@
   <node concept="1TIwiD" id="6UxgX89lFZL">
     <property role="EcuMT" value="7971727384801361905" />
     <property role="TrG5h" value="CreateArray" />
-    <property role="34LRSv" value="CreateArray" />
+    <property role="34LRSv" value="createArray" />
+    <property role="R4oN_" value="allocate memory for an array" />
     <ref role="1TJDcQ" to="ib4b:7FQByU3CrCM" resolve="ReversibleExpression" />
     <node concept="1TJgyj" id="6UxgX89lFZM" role="1TKVEi">
       <property role="IQ2ns" value="7971727384801361906" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <property role="20kJfa" value="size" />
       <property role="20lbJX" value="fLJekj4/_1" />
-      <ref role="20lvS9" to="mj1l:4ZVDCZCaQ85" resolve="BinaryArithmeticExpression" />
+      <ref role="20lvS9" to="mj1l:7FQByU3CrCM" resolve="Expression" />
+    </node>
+    <node concept="1TJgyj" id="1NXyVRisu1r" role="1TKVEi">
+      <property role="IQ2ns" value="2088979449565536347" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="arrayVariable" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" to="kmi:21ygb7Us$bV" resolve="IAllocationVariable" />
+    </node>
+    <node concept="PrWs8" id="1NXyVRisu1q" role="PzmwI">
+      <ref role="PrY4T" to="ib4b:2vgMet5CGud" resolve="IDestructiveOperation" />
     </node>
   </node>
   <node concept="PlHQZ" id="4IxwvG7_K62">
@@ -924,6 +935,7 @@
     <property role="EcuMT" value="1888908346002612806" />
     <property role="TrG5h" value="InitTopology" />
     <property role="34LRSv" value="InitTopology" />
+    <property role="3GE5qa" value="topology" />
     <ref role="1TJDcQ" to="c4fa:3CmSUB7FmO3" resolve="Statement" />
     <node concept="1TJgyi" id="1CQK2811Qbn" role="1TKVEl">
       <property role="IQ2nx" value="1888908346007184087" />
@@ -1033,7 +1045,7 @@
     <property role="EcuMT" value="2627485982950054339" />
     <property role="TrG5h" value="GetReceiver" />
     <property role="3GE5qa" value="topology" />
-    <ref role="1TJDcQ" to="mj1l:7FQByU3CrCM" resolve="Expression" />
+    <ref role="1TJDcQ" to="ib4b:7FQByU3CrCM" resolve="ReversibleExpression" />
     <node concept="1TJgyi" id="2hQH9iq3_Bk" role="1TKVEl">
       <property role="IQ2nx" value="2627485982950054356" />
       <property role="TrG5h" value="geometry" />

@@ -14,6 +14,7 @@
     <import index="mj1l" ref="r:c371cf98-dcc8-4a43-8eb8-8a8096de18b2(com.mbeddr.core.expressions.structure)" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" />
     <import index="w8o" ref="r:e84d12fa-9ad2-42d4-95e8-d9ef0c30fdf9(ReversibleFunctions.structure)" />
+    <import index="e32u" ref="r:457bcadc-5da5-4b82-8524-230e48ca7946(ReversibleExpressions.behavior)" implicit="true" />
   </imports>
   <registry>
     <language id="af65afd8-f0dd-4942-87d9-63a55f2a9db1" name="jetbrains.mps.lang.behavior">
@@ -928,6 +929,32 @@
     <ref role="13h7C2" to="rdv6:44nDDj_Ic6w" resolve="ClassDefinition" />
     <node concept="13hLZK" id="44nDDj_Krq2" role="13h7CW">
       <node concept="3clFbS" id="44nDDj_Krq3" role="2VODD2" />
+    </node>
+  </node>
+  <node concept="13h7C7" id="1NXyVRiswhP">
+    <ref role="13h7C2" to="rdv6:6UxgX89lFZL" resolve="CreateArray" />
+    <node concept="13hLZK" id="1NXyVRiswhQ" role="13h7CW">
+      <node concept="3clFbS" id="1NXyVRiswhR" role="2VODD2" />
+    </node>
+    <node concept="13i0hz" id="1NXyVRiswi8" role="13h7CS">
+      <property role="TrG5h" value="getBaseName" />
+      <ref role="13i0hy" to="e32u:2vgMet5LndN" resolve="getBaseName" />
+      <node concept="3Tm1VV" id="1NXyVRiswi9" role="1B3o_S" />
+      <node concept="3clFbS" id="1NXyVRiswic" role="3clF47">
+        <node concept="3clFbF" id="1NXyVRiswif" role="3cqZAp">
+          <node concept="Xl_RD" id="1NXyVRiswie" role="3clFbG">
+            <property role="Xl_RC" value="create_array_" />
+          </node>
+        </node>
+      </node>
+      <node concept="17QB3L" id="1NXyVRiswid" role="3clF45" />
+    </node>
+    <node concept="13i0hz" id="1NXyVRiswig" role="13h7CS">
+      <property role="TrG5h" value="handleCopyPaste" />
+      <ref role="13i0hy" to="e32u:33MO5h9wdZT" resolve="handleCopyPaste" />
+      <node concept="3Tm1VV" id="1NXyVRiswih" role="1B3o_S" />
+      <node concept="3clFbS" id="1NXyVRiswik" role="3clF47" />
+      <node concept="3cqZAl" id="1NXyVRiswil" role="3clF45" />
     </node>
   </node>
 </model>

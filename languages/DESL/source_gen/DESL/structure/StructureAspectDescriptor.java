@@ -94,17 +94,17 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     deps.extendedLanguage(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, "jetbrains.mps.lang.core");
     deps.extendedLanguage(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, "ReversibleExpressions");
     deps.extendedLanguage(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, "com.mbeddr.core.modules");
-    deps.extendedLanguage(0x61c69711ed614850L, 0x81d97714ff227fb0L, "com.mbeddr.core.expressions");
     deps.extendedLanguage(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, "ReversibleStatements");
     deps.extendedLanguage(0xa9d696470840491eL, 0xbf392eb0805d2011L, "com.mbeddr.core.statements");
+    deps.extendedLanguage(0x61c69711ed614850L, 0x81d97714ff227fb0L, "com.mbeddr.core.expressions");
     deps.extendedLanguage(0xefda956e491e4f00L, 0xba1436af2f213ecfL, "com.mbeddr.core.udt");
     deps.extendedLanguage(0xd4280a54f6df4383L, 0xaa41d1b2bffa7eb1L, "com.mbeddr.core.base");
     deps.aggregatedLanguage(0xefda956e491e4f00L, 0xba1436af2f213ecfL, "com.mbeddr.core.udt");
     deps.aggregatedLanguage(0xa9d696470840491eL, 0xbf392eb0805d2011L, "com.mbeddr.core.statements");
     deps.aggregatedLanguage(0x61c69711ed614850L, 0x81d97714ff227fb0L, "com.mbeddr.core.expressions");
+    deps.aggregatedLanguage(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, "ReversibleStatements");
     deps.aggregatedLanguage(0x92d2ea165a424fdfL, 0xa676c7604efe3504L, "de.slisson.mps.richtext");
     deps.aggregatedLanguage(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, "com.mbeddr.core.modules");
-    deps.aggregatedLanguage(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, "ReversibleStatements");
     deps.aggregatedLanguage(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, "ReversibleFunctions");
     deps.aggregatedLanguage(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, "ReversibleExpressions");
     deps.aggregatedLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage");
@@ -281,10 +281,12 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.class_(false, false, false);
     // extends: ReversibleExpressions.structure.ReversibleExpression
     b.super_(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L);
+    b.parent(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x27d0c8e745a2c78dL);
     b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(DESL.structure)/7971727384801361905");
     b.version(3);
-    b.aggregate("size", 0x6ea143d20956bff2L).target(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x4ffba68fe82b6205L).optional(false).ordered(true).multiple(false).origin("7971727384801361906").done();
-    b.alias("CreateArray");
+    b.aggregate("size", 0x6ea143d20956bff2L).target(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba32L).optional(false).ordered(true).multiple(false).origin("7971727384801361906").done();
+    b.aggregate("arrayVariable", 0x1cfd8bbdd271e05bL).target(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x206240b1fa7242fbL).optional(false).ordered(true).multiple(false).origin("2088979449565536347").done();
+    b.alias("createArray");
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForDESLModel() {
@@ -467,8 +469,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   private static ConceptDescriptor createDescriptorForGetReceiver() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("DESL", "GetReceiver", 0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2476b4949a0e59c3L);
     b.class_(false, false, false);
-    // extends: com.mbeddr.core.expressions.structure.Expression
-    b.super_(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba32L);
+    // extends: ReversibleExpressions.structure.ReversibleExpression
+    b.super_(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L);
     b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(DESL.structure)/2627485982950054339");
     b.version(3);
     b.property("geometry", 0x2476b4949a0e59d4L).type(MetaIdFactory.dataTypeId(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2476b4949a0e59c4L)).origin("2627485982950054356").done();

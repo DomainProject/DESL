@@ -45,6 +45,8 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new GlobalVarRef_TextGen();
       case LanguageConceptSwitch.HexNumberLiteral:
         return new HexNumberLiteral_TextGen();
+      case LanguageConceptSwitch.MemberInitExpression:
+        return new MemberInitExpression_TextGen();
       case LanguageConceptSwitch.NotExpression:
         return new NotExpression_TextGen();
       case LanguageConceptSwitch.NullExpression:
@@ -63,6 +65,8 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new PreDecrementExpression_TextGen();
       case LanguageConceptSwitch.PreIncrementExpression:
         return new PreIncrementExpression_TextGen();
+      case LanguageConceptSwitch.ReferenceExpr:
+        return new ReferenceExpr_TextGen();
       case LanguageConceptSwitch.ReversibleFunctionCall:
         return new ReversibleFunctionCall_TextGen();
       case LanguageConceptSwitch.ReversibleMacroArg:

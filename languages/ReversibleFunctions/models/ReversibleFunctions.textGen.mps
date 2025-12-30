@@ -50,10 +50,18 @@
       <concept id="1068580123136" name="jetbrains.mps.baseLanguage.structure.StatementList" flags="sn" stub="5293379017992965193" index="3clFbS">
         <child id="1068581517665" name="statement" index="3cqZAp" />
       </concept>
+      <concept id="1081516740877" name="jetbrains.mps.baseLanguage.structure.NotExpression" flags="nn" index="3fqX7Q">
+        <child id="1081516765348" name="expression" index="3fr31v" />
+      </concept>
       <concept id="1204053956946" name="jetbrains.mps.baseLanguage.structure.IMethodCall" flags="ngI" index="1ndlxa">
         <reference id="1068499141037" name="baseMethodDeclaration" index="37wK5l" />
         <child id="1068499141038" name="actualArgument" index="37wK5m" />
       </concept>
+      <concept id="1081773326031" name="jetbrains.mps.baseLanguage.structure.BinaryOperation" flags="nn" index="3uHJSO">
+        <child id="1081773367579" name="rightExpression" index="3uHU7w" />
+        <child id="1081773367580" name="leftExpression" index="3uHU7B" />
+      </concept>
+      <concept id="1080120340718" name="jetbrains.mps.baseLanguage.structure.AndExpression" flags="nn" index="1Wc70l" />
     </language>
     <language id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures">
       <concept id="2524418899405758586" name="jetbrains.mps.baseLanguage.closures.structure.InferredClosureParameterDeclaration" flags="ig" index="gl6BB" />
@@ -99,6 +107,10 @@
       <concept id="1179409122411" name="jetbrains.mps.lang.smodel.structure.Node_ConceptMethodCall" flags="nn" index="2qgKlT" />
       <concept id="4693937538533521280" name="jetbrains.mps.lang.smodel.structure.OfConceptOperation" flags="ng" index="v3k3i">
         <child id="4693937538533538124" name="requestedConcept" index="v3oSu" />
+      </concept>
+      <concept id="1139613262185" name="jetbrains.mps.lang.smodel.structure.Node_GetParentOperation" flags="nn" index="1mfA1w" />
+      <concept id="1139621453865" name="jetbrains.mps.lang.smodel.structure.Node_IsInstanceOfOperation" flags="nn" index="1mIQ4w">
+        <child id="1177027386292" name="conceptArgument" index="cj9EA" />
       </concept>
       <concept id="1172008320231" name="jetbrains.mps.lang.smodel.structure.Node_IsNotNullOperation" flags="nn" index="3x8VRR" />
       <concept id="1138056022639" name="jetbrains.mps.lang.smodel.structure.SPropertyAccess" flags="nn" index="3TrcHB">
@@ -243,10 +255,25 @@
               <node concept="l8MVK" id="5suDuW$aWS9" role="lcghm" />
             </node>
           </node>
-          <node concept="2OqwBi" id="37agc69qhjb" role="3clFbw">
-            <node concept="117lpO" id="37agc69qgHn" role="2Oq$k0" />
-            <node concept="3TrcHB" id="37agc69qlkc" role="2OqNvi">
-              <ref role="3TsBF5" to="kmi:5rI5N7Zmx5J" resolve="isForward" />
+          <node concept="1Wc70l" id="1NXyVRhA1Fy" role="3clFbw">
+            <node concept="3fqX7Q" id="1NXyVRhA3wM" role="3uHU7w">
+              <node concept="2OqwBi" id="1NXyVRhA3wO" role="3fr31v">
+                <node concept="2OqwBi" id="1NXyVRhA3wP" role="2Oq$k0">
+                  <node concept="117lpO" id="1NXyVRhA3wQ" role="2Oq$k0" />
+                  <node concept="1mfA1w" id="1NXyVRhA3wR" role="2OqNvi" />
+                </node>
+                <node concept="1mIQ4w" id="1NXyVRhA3wS" role="2OqNvi">
+                  <node concept="chp4Y" id="1NXyVRhA3wT" role="cj9EA">
+                    <ref role="cht4Q" to="rdv6:1FqAw$nj9oK" resolve="DESLModel" />
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="2OqwBi" id="37agc69qhjb" role="3uHU7B">
+              <node concept="117lpO" id="37agc69qgHn" role="2Oq$k0" />
+              <node concept="3TrcHB" id="37agc69qlkc" role="2OqNvi">
+                <ref role="3TsBF5" to="kmi:5rI5N7Zmx5J" resolve="isForward" />
+              </node>
             </node>
           </node>
         </node>

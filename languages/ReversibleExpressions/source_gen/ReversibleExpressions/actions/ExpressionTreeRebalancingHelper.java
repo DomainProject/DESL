@@ -17,12 +17,6 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public class ExpressionTreeRebalancingHelper {
 
-  /**
-   * Performs a left rotation on the expression tree at the given node.
-   * 
-   * @param node the node where the roatation should be performed
-   * @return true if the rotation was successful, false otherwise
-   */
   private static boolean rotateLeft(SNode node) {
     SNode rightChild = SNodeOperations.cast(SLinkOperations.getTarget(node, LINKS.right$KPZS), CONCEPTS.BinaryExpression$b);
     // backSideExpression may be null at this point
@@ -38,12 +32,6 @@ public class ExpressionTreeRebalancingHelper {
     }
   }
 
-  /**
-   * Performs a right rotation on the expression tree at the given node.
-   * 
-   * @param node the node where the rotation should be performed
-   * @return return true if the rotation was successful, false otherwise
-   */
   private static boolean rotateRight(SNode node) {
     SNode child = SNodeOperations.cast(SLinkOperations.getTarget(node, LINKS.left$KPKR), CONCEPTS.BinaryExpression$b);
     // backSideExpression may be null at this point
@@ -59,25 +47,12 @@ public class ExpressionTreeRebalancingHelper {
     }
   }
 
-  /**
-   * Checks whether the priority is correct in the expression tree within the given child-parent node.
-   * isRight indicates if child is the right child of parent.
-   * The expression tree needs to be rotated, if either one of the two conditions hold
-   * (1) the child node's priority is smaller than of the parent's
-   * (2) they have the same priorities but the child is a right child (and we want to have left derivation)
-   */
   private static boolean isBadPriority(SNode parent, SNode child, boolean isRight) {
     int childPriority = (int) ReversibleExpression__BehaviorDescriptor.getPriolevel_id5HxjapwgqKu.invoke(SNodeOperations.asSConcept(SNodeOperations.getConcept(child)));
     int parentPriority = (int) ReversibleExpression__BehaviorDescriptor.getPriolevel_id5HxjapwgqKu.invoke(SNodeOperations.asSConcept(SNodeOperations.getConcept(parent)));
     return childPriority < parentPriority || (isRight && childPriority == parentPriority);
   }
 
-  /**
-   * Rebalances the subtree of the given expression.
-   * Only binary expressions are considered for rebalancing.
-   * 
-   * @param expression the expression which will be the root of the rebalancing
-   */
   public static void demandRebalanceSubtree(SNode expression) {
     List<SNode> candidates = new ArrayList<SNode>();
     ListSequence.fromList(candidates).addElement(expression);
@@ -90,14 +65,6 @@ public class ExpressionTreeRebalancingHelper {
     }
   }
 
-  /**
-   * Rebalances the whole expression tree of the given expression.
-   * This means that the rebalancing will take place on the subtree
-   * of the root of the tree where expression is present.
-   * Only binary expressions are considered for rebalancing.
-   * 
-   * @param expression the expression in the tree
-   */
   public static void demandRebalanceTree(SNode expression) {
     SNode act = expression;
     while (SNodeOperations.getParent(act) != null && SNodeOperations.isInstanceOf(SNodeOperations.getParent(act), CONCEPTS.ReversibleExpression$Zd)) {
@@ -190,13 +157,6 @@ public class ExpressionTreeRebalancingHelper {
     }
   }
 
-  /**
-   * Returns the first binary expression where the given expression is on the given side.
-   * 
-   * @param expression the descendant expression
-   * @param isRight true - if the expression should be on the right, false - if the expression should be on the left
-   * @return the found binary expression
-   */
   public static SNode getBinaryExpression(SNode expression, boolean isRight) {
     if (!(SNodeOperations.isInstanceOf(SNodeOperations.getParent(expression), CONCEPTS.BinaryExpression$b))) {
       return null;

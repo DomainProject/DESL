@@ -13,6 +13,7 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import com.mbeddr.core.expressions.behavior.IVariableDeclaration__BehaviorDescriptor;
 import ReversibleExpressions.behavior.IVariableReference__BehaviorDescriptor;
+import com.mbeddr.core.modules.behavior.ITypeDeclaration__BehaviorDescriptor;
 import jetbrains.mps.lang.traceable.behavior.TraceableConcept__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -87,12 +88,11 @@ public class SendEvent_TextGen extends TextGenDescriptorBase {
       // get message type
       SNode messageType = null;
       if (!(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.with$_CC9), CONCEPTS.NullExpression$rn))) {
-        {
-          final SNode varRef = SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.with$_CC9);
-          if (SNodeOperations.isInstanceOf(varRef, CONCEPTS.IVariableReference$Kb)) {
-            messageType = IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(varRef));
-          }
+        if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.with$_CC9), CONCEPTS.IVariableReference$Kb)) {
+          messageType = IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(SNodeOperations.cast(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.with$_CC9), CONCEPTS.IVariableReference$Kb)));
         }
+      } else {
+        messageType = ITypeDeclaration__BehaviorDescriptor.createType_id3o2OLGv7CoR.invoke(SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.DESLModel$DK, false, false), LINKS.messageStruct$xVlJ));
       }
 
 
@@ -117,7 +117,11 @@ public class SendEvent_TextGen extends TextGenDescriptorBase {
         tgs.append(eventName);
         tgs.append(");");
         tgs.newLine();
-        if ((messageType == null)) {
+        tgs.indent();
+        tgs.append(payloadName);
+        tgs.append("->cp = cp;");
+        tgs.newLine();
+        if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.with$_CC9), CONCEPTS.NullExpression$rn)) {
           tgs.indent();
           tgs.append(payloadName);
           tgs.append("->event_type = event_");
@@ -171,6 +175,7 @@ public class SendEvent_TextGen extends TextGenDescriptorBase {
     /*package*/ static final SContainmentLink with$_CC9 = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x68458b9b5da4ec77L, 0x6f36cc77d0d566c2L, "with");
     /*package*/ static final SReferenceLink var$YUyC = MetaAdapterFactory.getReferenceLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x1d0c3765e2e1d67aL, 0x1d0c3765e2e1fe27L, "var");
     /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
+    /*package*/ static final SContainmentLink messageStruct$xVlJ = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x6de6339fa564bed8L, "messageStruct");
   }
 
   private static final class PROPS {
@@ -192,6 +197,7 @@ public class SendEvent_TextGen extends TextGenDescriptorBase {
     /*package*/ static final SConcept EventHandler$Ov = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, "DESL.structure.EventHandler");
     /*package*/ static final SInterfaceConcept IVariableReference$Kb = MetaAdapterFactory.getInterfaceConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1c69b376a2dab98aL, "ReversibleExpressions.structure.IVariableReference");
     /*package*/ static final SConcept NullExpression$rn = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x64c559d9787488eL, "ReversibleExpressions.structure.NullExpression");
+    /*package*/ static final SConcept DESLModel$DK = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, "DESL.structure.DESLModel");
     /*package*/ static final SConcept RootSimGPUM2M$GC = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0xa56bb45af68e0a2L, "DESL.structure.RootSimGPUM2M");
     /*package*/ static final SInterfaceConcept TraceableConcept$L = MetaAdapterFactory.getInterfaceConcept(0x9ded098bad6a4657L, 0xbfd948636cfe8bc3L, 0x465516cf87c705a3L, "jetbrains.mps.lang.traceable.structure.TraceableConcept");
   }

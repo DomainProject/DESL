@@ -14,7 +14,7 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1070475587102:jetbrains.mps.baseLanguage.structure.SuperConstructorInvocation" />
   <root>
     <file name="ConstraintsAspectDescriptor.java">
-      <unit at="15,0,66,0" name="ReversibleExpressions.constraints.ConstraintsAspectDescriptor" />
+      <unit at="15,0,68,0" name="ReversibleExpressions.constraints.ConstraintsAspectDescriptor" />
     </file>
   </root>
   <root nodeRef="r:e81df3c1-b167-4843-95a2-4c0dd8e517e2(ReversibleExpressions.constraints)/1054289341113450471">
@@ -722,6 +722,63 @@
       <unit id="5718859801798777963" at="49,17,89,7" name="ReversibleExpressions.constraints.GenericMemberRef_Constraints$RD1$1" />
       <unit id="5718859801798777963" at="42,0,92,0" name="ReversibleExpressions.constraints.GenericMemberRef_Constraints$RD1" />
       <unit id="5718859801798772487" at="36,0,113,0" name="ReversibleExpressions.constraints.GenericMemberRef_Constraints" />
+    </file>
+  </root>
+  <root nodeRef="r:e81df3c1-b167-4843-95a2-4c0dd8e517e2(ReversibleExpressions.constraints)/6216654409965805973">
+    <file name="MemberInitExpression_Constraints.java">
+      <node id="6216654409965805973" at="30,94,31,57" concept="11" />
+      <node id="6216654409965806376" at="31,57,32,26" concept="2" />
+      <node id="6216654409965806376" at="36,54,37,56" concept="11" />
+      <node id="6216654409965806376" at="44,61,45,134" concept="6" />
+      <node id="6491070606984418342" at="48,78,49,165" concept="5" />
+      <node id="6216654409971532693" at="50,88,51,0" concept="8" />
+      <node id="6491070606984418259" at="51,0,52,86" concept="5" />
+      <node id="6216654409971564601" at="53,123,54,197" concept="2" />
+      <node id="6216654409971540669" at="55,13,56,0" concept="8" />
+      <node id="6491070606984418267" at="57,73,58,242" concept="6" />
+      <node id="6491070606984418283" at="60,11,61,34" concept="6" />
+      <node id="6216654409965805973" at="68,0,69,0" concept="9" trace="MemberInitExpression$7e" />
+      <node id="6216654409965805973" at="69,0,70,0" concept="9" trace="IVariableDeclaration$O8" />
+      <node id="6216654409965805973" at="70,0,71,0" concept="9" trace="SUType$qX" />
+      <node id="6216654409965805973" at="71,0,72,0" concept="9" trace="InitExpression$YK" />
+      <node id="6216654409965805973" at="75,0,76,0" concept="9" trace="element$liWW" />
+      <node id="6216654409965806376" at="36,0,39,0" concept="1" trace="RD1#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptor;)V" />
+      <node id="6216654409971541385" at="52,86,55,13" concept="3" />
+      <node id="6491070606984418265" at="56,0,59,13" concept="3" />
+      <node id="6216654409965805973" at="30,0,34,0" concept="1" trace="MemberInitExpression_Constraints#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptorInitContext;)V" />
+      <node id="6216654409965806376" at="43,0,47,0" concept="4" trace="getSearchScopeValidatorNode#()Lorg/jetbrains/mps/openapi/model/SNodeReference;" />
+      <node id="6491070606984418257" at="49,165,60,11" concept="3" />
+      <node id="6216654409965806376" at="47,0,63,0" concept="4" trace="createScope#(Ljetbrains/mps/smodel/runtime/ReferenceConstraintsContext;)Ljetbrains/mps/scope/Scope;" />
+      <node id="6216654409965806376" at="41,54,63,8" concept="6" />
+      <node id="6216654409965806376" at="39,0,65,0" concept="4" trace="getScopeProvider#()Ljetbrains/mps/smodel/runtime/ReferenceScopeProvider;" />
+      <scope id="6216654409965806376" at="36,54,37,56" />
+      <scope id="6216654409965806376" at="44,61,45,134" />
+      <scope id="6216654409971541387" at="53,123,54,197" />
+      <scope id="6491070606984418266" at="57,73,58,242" />
+      <scope id="6216654409965805973" at="30,94,32,26" />
+      <scope id="6216654409965806376" at="36,0,39,0">
+        <var name="container" id="6216654409965806376" />
+      </scope>
+      <scope id="6216654409965805973" at="30,0,34,0">
+        <var name="initContext" id="6216654409965805973" />
+      </scope>
+      <scope id="6216654409965806376" at="43,0,47,0" />
+      <scope id="6491070606984418258" at="50,88,59,13">
+        <var name="type" id="6491070606984418260" />
+      </scope>
+      <scope id="6216654409965806376" at="48,78,61,34">
+        <var name="enclosingNode" id="6491070606984418343" />
+      </scope>
+      <scope id="6216654409965806376" at="47,0,63,0">
+        <var name="_context" id="6216654409965806376" />
+      </scope>
+      <scope id="6216654409965806376" at="41,54,63,8" />
+      <scope id="6216654409965806376" at="39,0,65,0" />
+      <unit id="6216654409965805973" at="74,0,77,0" name="ReversibleExpressions.constraints.MemberInitExpression_Constraints$LINKS" />
+      <unit id="6216654409965805973" at="67,0,73,0" name="ReversibleExpressions.constraints.MemberInitExpression_Constraints$CONCEPTS" />
+      <unit id="6216654409965806376" at="42,17,63,7" name="ReversibleExpressions.constraints.MemberInitExpression_Constraints$RD1$1" />
+      <unit id="6216654409965806376" at="35,0,66,0" name="ReversibleExpressions.constraints.MemberInitExpression_Constraints$RD1" />
+      <unit id="6216654409965805973" at="29,0,78,0" name="ReversibleExpressions.constraints.MemberInitExpression_Constraints" />
     </file>
   </root>
   <root nodeRef="r:e81df3c1-b167-4843-95a2-4c0dd8e517e2(ReversibleExpressions.constraints)/6485560170887684321">

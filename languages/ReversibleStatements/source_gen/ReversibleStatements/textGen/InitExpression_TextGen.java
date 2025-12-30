@@ -19,14 +19,14 @@ public class InitExpression_TextGen extends TextGenDescriptorBase {
   public void generateText(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     tgs.createPositionInfo();
-    if (SNodeOperations.isInstanceOf(ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.elements$m038)).first(), CONCEPTS.IStructuredInitExpression$xm)) {
+    if (SNodeOperations.isInstanceOf(ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.elements$m038)).first(), CONCEPTS.IStructuredInitExpression$pz)) {
       tgs.newLine();
       tgs.indent();
     }
     tgs.append("{");
 
     ctx.getBuffer().area().increaseIndent();
-    if (SNodeOperations.isInstanceOf(ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.elements$m038)).first(), CONCEPTS.IStructuredInitExpression$xm)) {
+    if (SNodeOperations.isInstanceOf(ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.elements$m038)).first(), CONCEPTS.IStructuredInitExpression$pz)) {
       tgs.newLine();
     } else {
       tgs.append(" ");
@@ -34,7 +34,7 @@ public class InitExpression_TextGen extends TextGenDescriptorBase {
 
     int col = 0;
     for (SNode currentElement : ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.elements$m038))) {
-      if (SNodeOperations.isInstanceOf(ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.elements$m038)).first(), CONCEPTS.IStructuredInitExpression$xm)) {
+      if (SNodeOperations.isInstanceOf(ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.elements$m038)).first(), CONCEPTS.IStructuredInitExpression$pz)) {
         tgs.indent();
       }
 
@@ -43,7 +43,7 @@ public class InitExpression_TextGen extends TextGenDescriptorBase {
         tgs.append(", ");
       }
 
-      if (SNodeOperations.isInstanceOf(ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.elements$m038)).first(), CONCEPTS.IStructuredInitExpression$xm)) {
+      if (SNodeOperations.isInstanceOf(ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.elements$m038)).first(), CONCEPTS.IStructuredInitExpression$pz)) {
         tgs.newLine();
       } else {
         if (col >= 10) {
@@ -56,7 +56,7 @@ public class InitExpression_TextGen extends TextGenDescriptorBase {
     }
     ctx.getBuffer().area().decreaseIndent();
 
-    if (SNodeOperations.isInstanceOf(ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.elements$m038)).first(), CONCEPTS.IStructuredInitExpression$xm)) {
+    if (SNodeOperations.isInstanceOf(ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.elements$m038)).first(), CONCEPTS.IStructuredInitExpression$pz)) {
       tgs.indent();
     } else {
       tgs.append(" ");
@@ -72,7 +72,7 @@ public class InitExpression_TextGen extends TextGenDescriptorBase {
   }
 
   private static final class CONCEPTS {
-    /*package*/ static final SInterfaceConcept IStructuredInitExpression$xm = MetaAdapterFactory.getInterfaceConcept(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x391df9e40e14d64cL, "com.mbeddr.core.statements.structure.IStructuredInitExpression");
+    /*package*/ static final SInterfaceConcept IStructuredInitExpression$pz = MetaAdapterFactory.getInterfaceConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x391df9e40e14d64cL, "ReversibleStatements.structure.IStructuredInitExpression");
     /*package*/ static final SInterfaceConcept TraceableConcept$L = MetaAdapterFactory.getInterfaceConcept(0x9ded098bad6a4657L, 0xbfd948636cfe8bc3L, 0x465516cf87c705a3L, "jetbrains.mps.lang.traceable.structure.TraceableConcept");
   }
 }

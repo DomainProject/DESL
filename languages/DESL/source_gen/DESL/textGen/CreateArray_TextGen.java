@@ -5,104 +5,111 @@ package DESL.textGen;
 import jetbrains.mps.text.rt.TextGenDescriptorBase;
 import jetbrains.mps.text.rt.TextGenContext;
 import jetbrains.mps.text.impl.TextGenSupport;
-import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import com.mbeddr.core.expressions.behavior.IVariableDeclaration__BehaviorDescriptor;
+import com.mbeddr.core.expressions.behavior.IVariableReference__BehaviorDescriptor;
+import jetbrains.mps.lang.core.behavior.BaseConcept__BehaviorDescriptor;
+import ReversibleExpressions.textGen.StateSaving;
 import jetbrains.mps.lang.traceable.behavior.TraceableConcept__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
-import org.jetbrains.mps.openapi.language.SProperty;
 
 public class CreateArray_TextGen extends TextGenDescriptorBase {
   @Override
   public void generateText(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     tgs.createPositionInfo();
-    String arrayName = "";
+
+
+
+    boolean revRequired = SPropertyOperations.getBoolean(SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.ReversibleFunction$IL, false, false), PROPS.reversibilityRequired$Zgdy);
+    String arrayName = null;
+    SNode type = SConceptOperations.createNewNode(SNodeOperations.asInstanceConcept(MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x11f8a0774f2L, "jetbrains.mps.lang.core.structure.IType")));
+
     {
-      final SNode localVariableDeclaration = SNodeOperations.getParent(ctx.getPrimaryInput());
-      if (SNodeOperations.isInstanceOf(localVariableDeclaration, CONCEPTS.LocalVariableDeclaration$ft)) {
-        {
-          final SNode pointerType = SLinkOperations.getTarget(localVariableDeclaration, LINKS.type$sXU3);
-          if (SNodeOperations.isInstanceOf(pointerType, CONCEPTS.PointerType$HX)) {
-            // type *array = CreateArray(...)
-            tgs.append("malloc(sizeof(");
-            tgs.appendNode(SLinkOperations.getTarget(pointerType, LINKS.baseType$zMGV));
-            tgs.append(") * ");
-            tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.size$QIgu));
-            tgs.append(");");
-            tgs.newLine();
-            arrayName = SPropertyOperations.getString(localVariableDeclaration, PROPS.name$MnvL);
-          }
+      final SNode varRef = SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.arrayVariable$p6nT);
+      if (SNodeOperations.isInstanceOf(varRef, CONCEPTS.IVariableReference$WR)) {
+        type = SLinkOperations.getTarget(SNodeOperations.cast(IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(varRef)), CONCEPTS.PointerType$HX), LINKS.baseType$zMGV);
+        arrayName = SPropertyOperations.getString(IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(varRef), PROPS.name$MnvL);
+      }
+    }
+    {
+      final SNode lvd = SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.arrayVariable$p6nT);
+      if (SNodeOperations.isInstanceOf(lvd, CONCEPTS.LocalVariableDeclaration$7E)) {
+        type = SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(lvd, LINKS.type$sXU3), CONCEPTS.PointerType$HX), LINKS.baseType$zMGV);
+        arrayName = SPropertyOperations.getString(lvd, PROPS.name$MnvL);
+
+        if (SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5) || !(revRequired)) {
+          tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.arrayVariable$p6nT));
+          tgs.newLine();
+          tgs.indent();
         }
       }
     }
     {
-      final SNode assignmentExpr = SNodeOperations.getParent(ctx.getPrimaryInput());
-      if (SNodeOperations.isInstanceOf(assignmentExpr, CONCEPTS.AssignmentExpr$mZ)) {
-        // array = CreateArray(...)
-        {
-          final SNode localVarRef = SLinkOperations.getTarget(assignmentExpr, LINKS.left$SkXz);
-          if (SNodeOperations.isInstanceOf(localVarRef, CONCEPTS.LocalVarRef$VQ)) {
-            tgs.append("malloc(sizeof(");
-            tgs.appendNode(SLinkOperations.getTarget(SLinkOperations.getTarget(localVarRef, LINKS.var$YUyC), LINKS.type$sXU3));
-            tgs.append(") * ");
-            tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.size$QIgu));
-            tgs.append(");");
-            tgs.newLine();
-            arrayName = SPropertyOperations.getString(SLinkOperations.getTarget(localVarRef, LINKS.var$YUyC), PROPS.name$MnvL);
-          }
-        }
-        {
-          final SNode genericDotExpression = SLinkOperations.getTarget(assignmentExpr, LINKS.left$SkXz);
-          if (SNodeOperations.isInstanceOf(genericDotExpression, CONCEPTS.GenericDotExpression$uQ)) {
-            // struct->array = CreateArray(...)
-            tgs.append("malloc(sizeof(");
-            tgs.appendNode(SLinkOperations.getTarget(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(genericDotExpression, LINKS.target$CEPF), CONCEPTS.GenericMemberRef$bk), LINKS.member$wUNL), LINKS.type$sXU3));
-            tgs.append(") * ");
-            tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.size$QIgu));
-            tgs.append(");");
-            tgs.newLine();
-            {
-              final SNode localVarRef = SLinkOperations.getTarget(genericDotExpression, LINKS.expression$PfNq);
-              if (SNodeOperations.isInstanceOf(localVarRef, CONCEPTS.LocalVarRef$VQ)) {
-                arrayName = SPropertyOperations.getString(SLinkOperations.getTarget(localVarRef, LINKS.var$YUyC), PROPS.name$MnvL) + "->" + SPropertyOperations.getString(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(genericDotExpression, LINKS.target$CEPF), CONCEPTS.GenericMemberRef$bk), LINKS.member$wUNL), PROPS.name$MnvL);
-              }
-            }
-            {
-              final SNode argumentRef = SLinkOperations.getTarget(genericDotExpression, LINKS.expression$PfNq);
-              if (SNodeOperations.isInstanceOf(argumentRef, CONCEPTS.ArgumentRef$iE)) {
-                arrayName = SPropertyOperations.getString(SLinkOperations.getTarget(argumentRef, LINKS.arg$WIp5), PROPS.name$MnvL) + "->" + SPropertyOperations.getString(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(genericDotExpression, LINKS.target$CEPF), CONCEPTS.GenericMemberRef$bk), LINKS.member$wUNL), PROPS.name$MnvL);
-              }
-            }
-          }
-        }
+      final SNode gde = SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.arrayVariable$p6nT);
+      if (SNodeOperations.isInstanceOf(gde, CONCEPTS.GenericDotExpression$ia)) {
+        type = SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(gde, LINKS.target$xbCZ), CONCEPTS.GenericMemberRef$Ue), LINKS.member$gCRV), LINKS.type$sXU3), CONCEPTS.PointerType$HX), LINKS.baseType$zMGV);
+        arrayName = BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(gde);
       }
     }
 
-    tgs.indent();
-    tgs.append("if (");
-    tgs.append(arrayName);
-    tgs.append("== NULL) {");
-    tgs.newLine();
-    ctx.getBuffer().area().increaseIndent();
-    tgs.indent();
-    tgs.append("printf(\"malloc error: unable to allocate memory!\");");
-    tgs.newLine();
-    tgs.indent();
-    tgs.append("puts(\"\");");
-    tgs.newLine();
-    tgs.indent();
-    tgs.append("exit(-1);");
-    tgs.newLine();
-    ctx.getBuffer().area().decreaseIndent();
-    tgs.indent();
-    tgs.append("}");
-    tgs.newLine();
+    if (revRequired) {
+      if (SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5)) {
+        tgs.append(arrayName);
+        tgs.append(" = rev_malloc(arena, sizeof(");
+        tgs.appendNode(type);
+        tgs.append(" * (");
+        tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.size$QIgu));
+        tgs.append(")));");
+        tgs.newLine();
+        tgs.indent();
+        StateSaving.stateSaving(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), PROPS.name$MnvL), arrayName, ctx);
+      } else {
+        tgs.append("rev_free(arena, sizeof(checkpoint.");
+        tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), PROPS.name$MnvL));
+        tgs.append("));");
+        tgs.newLine();
+      }
+    } else {
+      tgs.append(arrayName);
+      tgs.append(" = (");
+      tgs.appendNode(type);
+      tgs.append(" *)malloc(sizeof(");
+      tgs.appendNode(type);
+      tgs.append(" * (");
+      tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.size$QIgu));
+      tgs.append(")));");
+      tgs.newLine();
+      tgs.indent();
+      tgs.append("if (");
+      tgs.append(arrayName);
+      tgs.append(" == NULL) {");
+      tgs.newLine();
+      ctx.getBuffer().area().increaseIndent();
+      tgs.indent();
+      tgs.append("printf(\"malloc error: unable to allocate memory!\");");
+      tgs.newLine();
+      tgs.indent();
+      tgs.append("puts(\"\");");
+      tgs.newLine();
+      tgs.indent();
+      tgs.append("exit(-1);");
+      tgs.newLine();
+      ctx.getBuffer().area().decreaseIndent();
+      tgs.indent();
+      tgs.append("}");
+      tgs.newLine();
+    }
+
 
 
     if (tgs.needPositions()) {
@@ -111,29 +118,28 @@ public class CreateArray_TextGen extends TextGenDescriptorBase {
   }
 
   private static final class CONCEPTS {
-    /*package*/ static final SConcept LocalVariableDeclaration$ft = MetaAdapterFactory.getConcept(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad96e6L, "com.mbeddr.core.statements.structure.LocalVariableDeclaration");
+    /*package*/ static final SConcept ReversibleFunction$IL = MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, "ReversibleFunctions.structure.ReversibleFunction");
+    /*package*/ static final SInterfaceConcept IVariableReference$WR = MetaAdapterFactory.getInterfaceConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x1c69b376a2dab98aL, "com.mbeddr.core.expressions.structure.IVariableReference");
     /*package*/ static final SConcept PointerType$HX = MetaAdapterFactory.getConcept(0x3bf5377ae9044dedL, 0x97545a516023bfaaL, 0x3e0cae5e366d630L, "com.mbeddr.core.pointers.structure.PointerType");
-    /*package*/ static final SConcept AssignmentExpr$mZ = MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x4e85add925440dL, "com.mbeddr.core.expressions.structure.AssignmentExpr");
-    /*package*/ static final SConcept LocalVarRef$VQ = MetaAdapterFactory.getConcept(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x1d0c3765e2e1d67aL, "com.mbeddr.core.statements.structure.LocalVarRef");
-    /*package*/ static final SConcept GenericDotExpression$uQ = MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x401df715da462c0cL, "com.mbeddr.core.expressions.structure.GenericDotExpression");
-    /*package*/ static final SConcept GenericMemberRef$bk = MetaAdapterFactory.getConcept(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x619e8ce80b8d18e4L, "com.mbeddr.core.udt.structure.GenericMemberRef");
-    /*package*/ static final SConcept ArgumentRef$iE = MetaAdapterFactory.getConcept(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x1d0c3765e2e7d0baL, "com.mbeddr.core.modules.structure.ArgumentRef");
+    /*package*/ static final SConcept LocalVariableDeclaration$7E = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad96e6L, "ReversibleStatements.structure.LocalVariableDeclaration");
+    /*package*/ static final SConcept GenericDotExpression$ia = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x401df715da462c0cL, "ReversibleExpressions.structure.GenericDotExpression");
+    /*package*/ static final SConcept GenericMemberRef$Ue = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4f5d78b09e1b9a5fL, "ReversibleExpressions.structure.GenericMemberRef");
     /*package*/ static final SInterfaceConcept TraceableConcept$L = MetaAdapterFactory.getInterfaceConcept(0x9ded098bad6a4657L, 0xbfd948636cfe8bc3L, 0x465516cf87c705a3L, "jetbrains.mps.lang.traceable.structure.TraceableConcept");
   }
 
-  private static final class LINKS {
-    /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
-    /*package*/ static final SContainmentLink baseType$zMGV = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x6bbcdccef5e46755L, 0x6bbcdccef5e46756L, "baseType");
-    /*package*/ static final SContainmentLink size$QIgu = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6ea143d20956bff1L, 0x6ea143d20956bff2L, "size");
-    /*package*/ static final SContainmentLink left$SkXz = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba34L, 0x7af69e2e83a1ba40L, "left");
-    /*package*/ static final SReferenceLink var$YUyC = MetaAdapterFactory.getReferenceLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x1d0c3765e2e1d67aL, 0x1d0c3765e2e1fe27L, "var");
-    /*package*/ static final SContainmentLink target$CEPF = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x401df715da462c0cL, 0x619e8ce80b7ff48bL, "target");
-    /*package*/ static final SReferenceLink member$wUNL = MetaAdapterFactory.getReferenceLink(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x619e8ce80b8d18e4L, 0x619e8ce80b8d18e6L, "member");
-    /*package*/ static final SContainmentLink expression$PfNq = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x29b5b7c4a3763232L, 0x64ae61a4018a9c50L, "expression");
-    /*package*/ static final SReferenceLink arg$WIp5 = MetaAdapterFactory.getReferenceLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x1d0c3765e2e7d0baL, 0x1d0c3765e2e7d0bbL, "arg");
+  private static final class PROPS {
+    /*package*/ static final SProperty reversibilityRequired$Zgdy = MetaAdapterFactory.getProperty(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111cL, 0x56ee1731ff5a6482L, "reversibilityRequired");
+    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
   }
 
-  private static final class PROPS {
-    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink arrayVariable$p6nT = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6ea143d20956bff1L, 0x1cfd8bbdd271e05bL, "arrayVariable");
+    /*package*/ static final SContainmentLink baseType$zMGV = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x6bbcdccef5e46755L, 0x6bbcdccef5e46756L, "baseType");
+    /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
+    /*package*/ static final SContainmentLink target$xbCZ = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x401df715da462c0cL, 0x619e8ce80b7ff48bL, "target");
+    /*package*/ static final SReferenceLink member$gCRV = MetaAdapterFactory.getReferenceLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4f5d78b09e1b9a5fL, 0x4f5d78b09f1589e9L, "member");
+    /*package*/ static final SContainmentLink size$QIgu = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6ea143d20956bff1L, 0x6ea143d20956bff2L, "size");
+    /*package*/ static final SContainmentLink supportVariable$WrxR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x586abb2d5743cb69L, "supportVariable");
   }
 }

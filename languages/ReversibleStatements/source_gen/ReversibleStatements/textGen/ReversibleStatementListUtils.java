@@ -24,13 +24,16 @@ public abstract class ReversibleStatementListUtils {
     SNode loopAncestor = (SNodeOperations.isInstanceOf(SNodeOperations.getParent(revStatementList), CONCEPTS.IReversibleLoop$k1) ? SNodeOperations.cast(SNodeOperations.getParent(revStatementList), CONCEPTS.IReversibleLoop$k1) : SNodeOperations.getNodeAncestor(revStatementList, CONCEPTS.IReversibleLoop$k1, false, false));
     boolean isContainedInLoop = (loopAncestor != null);
 
-    for (SNode destructiveExpr : ListSequence.fromList(SNodeOperations.getNodeDescendants(revStatementList, CONCEPTS.IDestructiveOperation$SP, false, new SAbstractConcept[]{})).where((it) -> SNodeOperations.isInstanceOf(it, CONCEPTS.ReversibleExpression$Zd))) {
+
+    // exclude ALlocateStruct and CreateArray as their state is saved and restored in their textgen 
+    for (SNode destructiveExpr : ListSequence.fromList(SNodeOperations.getNodeDescendants(revStatementList, CONCEPTS.IDestructiveOperation$SP, false, new SAbstractConcept[]{})).where((it) -> SNodeOperations.isInstanceOf(it, CONCEPTS.ReversibleExpression$Zd) && !(SNodeOperations.isInstanceOf(it, CONCEPTS.AllocateStruct$Pb)) && !(SNodeOperations.isInstanceOf(it, CONCEPTS.CreateArray$_5)))) {
+
 
       if ((SNodeOperations.getParent(destructiveExpr) == revStatementList || SNodeOperations.getNodeAncestor(destructiveExpr, CONCEPTS.ReversibleStatementList$qe, false, false) == revStatementList) && (SLinkOperations.getTarget(destructiveExpr, LINKS.supportVariable$WrxR) != null)) {
         if (SPropertyOperations.getBoolean(revStatementList, PROPS.isForward$pAg5)) {
           if (isContainedInLoop) {
             tgs.indent();
-            tgs.append("content->cp.");
+            tgs.append("cp.");
             tgs.append(SPropertyOperations.getString(destructiveExpr, PROPS.loopArrayName$wAd5));
             tgs.append("[");
             tgs.append(IReversibleLoop__BehaviorDescriptor.getIterationVariableName_id6cRD4M$XPR9.invoke(loopAncestor));
@@ -40,31 +43,30 @@ public abstract class ReversibleStatementListUtils {
             tgs.newLine();
           } else {
             tgs.indent();
-            tgs.append("content->cp.");
+            tgs.append("cp.");
             tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(destructiveExpr, LINKS.supportVariable$WrxR), PROPS.name$MnvL));
             tgs.append(" = ");
             tgs.appendNode(SLinkOperations.getTarget(SLinkOperations.getTarget(destructiveExpr, LINKS.supportVariable$WrxR), LINKS.init$$i$n));
-            tgs.append("; // to save ");
-            tgs.appendNode(destructiveExpr);
+            tgs.append(";");
             tgs.newLine();
           }
         } else {
           if (isContainedInLoop) {
             tgs.indent();
             tgs.appendNode(SLinkOperations.getTarget(SLinkOperations.getTarget(destructiveExpr, LINKS.supportVariable$WrxR), LINKS.init$$i$n));
-            tgs.append(" = content->cp.");
+            tgs.append(" = cp.");
             tgs.append(SPropertyOperations.getString(destructiveExpr, PROPS.loopArrayName$wAd5));
             tgs.append("[");
             tgs.append(IReversibleLoop__BehaviorDescriptor.getIterationVariableName_id6cRD4M$XPR9.invoke(loopAncestor));
-            tgs.append("]; // to restore");
+            tgs.append("];");
             tgs.appendNode(destructiveExpr);
             tgs.newLine();
           } else {
             tgs.indent();
             tgs.appendNode(SLinkOperations.getTarget(SLinkOperations.getTarget(destructiveExpr, LINKS.supportVariable$WrxR), LINKS.init$$i$n));
-            tgs.append(" = content->cp.");
+            tgs.append(" = cp.");
             tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(destructiveExpr, LINKS.supportVariable$WrxR), PROPS.name$MnvL));
-            tgs.append("; // to restore");
+            tgs.append(";");
             tgs.appendNode(destructiveExpr);
             tgs.newLine();
           }
@@ -101,7 +103,9 @@ public abstract class ReversibleStatementListUtils {
     /*package*/ static final SInterfaceConcept IReversibleLoop$k1 = MetaAdapterFactory.getInterfaceConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x6337a44ca461bdf4L, "ReversibleStatements.structure.IReversibleLoop");
     /*package*/ static final SConcept ReversibleStatementList$qe = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, "ReversibleStatements.structure.ReversibleStatementList");
     /*package*/ static final SInterfaceConcept IDestructiveOperation$SP = MetaAdapterFactory.getInterfaceConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x27d0c8e745a2c78dL, "ReversibleExpressions.structure.IDestructiveOperation");
+    /*package*/ static final SConcept CreateArray$_5 = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6ea143d20956bff1L, "DESL.structure.CreateArray");
     /*package*/ static final SConcept ReversibleExpression$Zd = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L, "ReversibleExpressions.structure.ReversibleExpression");
+    /*package*/ static final SConcept AllocateStruct$Pb = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x4f052dce270158d9L, "ReversibleStatements.structure.AllocateStruct");
     /*package*/ static final SConcept ForVarDecl$3i = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a401870e23L, "ReversibleStatements.structure.ForVarDecl");
     /*package*/ static final SConcept LocalVariableDeclaration$7E = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad96e6L, "ReversibleStatements.structure.LocalVariableDeclaration");
     /*package*/ static final SInterfaceConcept IRNGCall$1j = MetaAdapterFactory.getInterfaceConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x263a24c3a7a97014L, "DESL.structure.IRNGCall");

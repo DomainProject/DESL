@@ -1267,5 +1267,36 @@
       <ref role="20lvS9" to="mj1l:7FQByU3CrCQ" resolve="Type" />
     </node>
   </node>
+  <node concept="1TIwiD" id="5p5ZzY_o89L">
+    <property role="EcuMT" value="6216654409965798001" />
+    <property role="TrG5h" value="MemberInitExpression" />
+    <ref role="1TJDcQ" node="7FQByU3CrCM" resolve="ReversibleExpression" />
+    <node concept="PrWs8" id="5p5ZzY_o89O" role="PzmwI">
+      <ref role="PrY4T" to="kmi:5aZFu$853$j" resolve="IIndependentInitExpression" />
+    </node>
+    <node concept="PrWs8" id="5p5ZzY_o89P" role="PzmwI">
+      <ref role="PrY4T" to="kmi:3$tYuge5dpc" resolve="IStructuredInitExpression" />
+    </node>
+    <node concept="1TJgyj" id="5p5ZzY_o89Q" role="1TKVEi">
+      <property role="IQ2ns" value="6216654409965798006" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="value" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" node="7FQByU3CrCM" resolve="ReversibleExpression" />
+    </node>
+    <node concept="1TJgyj" id="5p5ZzY_o89R" role="1TKVEi">
+      <property role="IQ2ns" value="6216654409965798007" />
+      <property role="20kJfa" value="element" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" to="clbe:IPRL99KNBK" resolve="IValuedElement" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="5p5ZzY_SRfX">
+    <property role="EcuMT" value="6216654409974379517" />
+    <property role="TrG5h" value="ReferenceExpr" />
+    <property role="34LRSv" value="&amp;" />
+    <property role="R4oN_" value="get address" />
+    <ref role="1TJDcQ" node="2APHWiztz8M" resolve="UnaryExpression" />
+  </node>
 </model>
 
