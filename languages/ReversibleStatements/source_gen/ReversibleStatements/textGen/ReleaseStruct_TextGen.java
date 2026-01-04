@@ -33,12 +33,12 @@ public class ReleaseStruct_TextGen extends TextGenDescriptorBase {
     if (SPropertyOperations.getBoolean(SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.ReversibleFunction$IL, false, false), PROPS.reversibilityRequired$Zgdy)) {
       if (SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5)) {
         StateSaving.stateSaving(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), PROPS.name$MnvL), SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableToSaveName$udlR), ctx);
-        tgs.append("rev_free(arena, ");
+        tgs.append("rev_free(arena, cp.");
         tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), PROPS.name$MnvL));
         tgs.append(");");
         tgs.newLine();
       } else {
-        tgs.append("rev_remalloc(checkpoint.");
+        tgs.append("rev_remalloc(cp.");
         tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), PROPS.name$MnvL));
         tgs.append(");");
         tgs.newLine();

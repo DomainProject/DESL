@@ -2,8 +2,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "malloc.h"
-#include <ROOT-Sim.h>
 
+#define LP_INIT 1
+#define LP_FINI 2
 #define EVENT 3
 
 #define COMPLETE_EVENTS 5000
@@ -11,10 +12,11 @@
 #define NUM_LPS 16000
 
 
+
 typedef double simtime_t;
 typedef unsigned long lp_id_t;
 
-struct checkpoint;struct phold_state {
+struct phold_state {
   uint64_t complete_events;
 };
 
@@ -23,18 +25,15 @@ typedef enum {
   event_LP_INIT,
   event_LP_FINI,
   event_EVENT,
-} phold_new_ross_EVENT_TYPE;
+} phold_ross_EVENT_TYPE;
 
 struct checkpoint {
-  lp_id_t local_var_decl_55fe5a5d;
   uint16_t selected_branch_b16a12f4;
-  lp_id_t assignment_var_0494e01c;
-  struct phold_message local_var_decl_a95b9ba6;
-  struct phold_message local_var_decl_e6c1fbb0;
+  lp_id_t assignment_var_caf2fb24;
 };
 
 struct phold_message {
-  phold_new_ross_EVENT_TYPE event_type;
+  phold_ross_EVENT_TYPE event_type;
   struct checkpoint cp;
   int64_t dummy_data;
 };
@@ -46,6 +45,7 @@ static simtime_t mean = 1.0;
 static simtime_t lookahead = 0.0;
 static int32_t start_events = 1;
 
+struct malloc_state *arena;
 tw_peid custom_mapping_lp_to_pe(tw_lpid gid)
 {
     tw_lpid ret;
@@ -121,25 +121,29 @@ void __attribute__ ((noinline)) busy_loop(unsigned long long max) {
     }
 }
 
+void __attribute__ ((noinline)) busy_loop_reverse(unsigned long long max) {
+    for (unsigned long long i = 0; i < max; i++) {
+        __asm__ volatile("pause" : "+g" (i) : :);
+    }
+}
 
-void phold_new_ross_class_init(struct phold_state *state, tw_lp *lp)
+
+void phold_ross_class_init(struct phold_state *state, tw_lp *lp)
 {
   tw_lpid me = lp->gid;
   double now = 0;
   struct checkpoint cp = {0};
+  struct phold_message new_event = { 0 };
+
   
   
   
 
-  struct phold_message new_eventstruct phold_message
-struct phold_message
- = { 0 };
-  content->cp.local_var_decl_e6c1fbb0 = new_event;
-  
   for ( int32_t i = 0 ; i < start_events; i++ )
   {
     tw_event *e0_lp_init = tw_event_new(me, tw_rand_exponential(lp->rng, mean) + lookahead, lp);
     struct phold_message *data0_lp_init = tw_event_data(e0_lp_init);
+    data0_lp_init->cp = cp;
     new_event.event_type = event_EVENT;
     memcpy(data0_lp_init, &new_event, sizeof(struct phold_message));
     tw_event_send(e0_lp_init);
@@ -147,7 +151,7 @@ struct phold_message
 
 }
 
-void phold_new_ross_class_event(struct phold_state *state, tw_bf *bf, struct phold_message *content, tw_lp *lp)
+void phold_ross_class_event(struct phold_state *state, tw_bf *bf, struct phold_message *content, tw_lp *lp)
 {
   tw_lpid me = lp->gid;
   double now = 0;
@@ -156,28 +160,23 @@ void phold_new_ross_class_event(struct phold_state *state, tw_bf *bf, struct pho
 
     case event_EVENT:
       {
-        lp_id_t destlp_id_t
-struct phold_message
- = me;
-        content->cp.local_var_decl_55fe5a5d = dest;
-        
-        struct phold_message new_eventstruct phold_message
-struct phold_message
- = { 0 };
-        content->cp.local_var_decl_a95b9ba6 = new_event;
-        
+        struct checkpoint cp = content->cp;
         state->complete_events++;
         busy_loop(BUSY_LOOP_DURATION);
         
 
+        lp_id_t dest = me;
+
         if (tw_rand_unif(lp->rng) <= p_remote) {
-          content->cp.assignment_var_0494e01c = dest; // to save dest = ((lp_id_t)((tw_rand_unif(lp->rng) * NUM_LPS)))
-          checkpoint.selected_branch_b16a12f4 |= (1 << 0);
+          cp.selected_branch_b16a12f4 |= (1 << 0);
           dest = ((lp_id_t)((tw_rand_unif(lp->rng) * NUM_LPS)));
         }
 
+        struct phold_message new_event = { 0 };
+
         tw_event *e0_event = tw_event_new(dest, now + tw_rand_exponential(lp->rng, mean) + lookahead, lp);
         struct phold_message *data0_event = tw_event_data(e0_event);
+        data0_event->cp = cp;
         new_event.event_type = event_EVENT;
         memcpy(data0_event, &new_event, sizeof(struct phold_message));
         tw_event_send(e0_event);
@@ -190,45 +189,42 @@ struct phold_message
   }
 }
 
-void phold_new_ross_class_final(struct phold_state *s, tw_lp *lp) {}
+void phold_ross_class_final(struct phold_state *s, tw_lp *lp) {}
 
-void reverse(struct phold_state *s, tw_bf *bf, struct phold_message *content, tw_lp *lp)
+void reverse(struct phold_state *state, tw_bf *bf, struct phold_message *content, tw_lp *lp)
 {
+  tw_lpid me = lp->gid;
+
   switch(content->event_type) {
 
     case event_EVENT:
       {
-        lp_id_t destlp_id_t
-struct phold_message
- = content->cp.local_var_decl_55fe5a5d;
-        struct phold_message new_eventstruct phold_message
-struct phold_message
- = content->cp.local_var_decl_a95b9ba6;
+        struct checkpoint cp = content->cp;
         tw_rand_reverse_unif(lp->rng);
         tw_rand_reverse_unif(lp->rng);
         state->complete_events--;
-        busy_loop_reverse(BUSY_LOOP_DURATION);
+        busy_loop(BUSY_LOOP_DURATION);
         
 
-        if (checkpoint.selected_branch_b16a12f4 & (1 << 0)) {
-          dest = content->cp.assignment_var_0494e01c; // to restore
+        lp_id_t dest;
+        if (cp.selected_branch_b16a12f4 & (1 << 0)) {
           tw_rand_reverse_unif(lp->rng);
           ;
         }
 
+        struct phold_message new_event;
         
       }
       break;
 
     case event_LP_INIT:
       {
-        struct phold_message new_eventstruct phold_message
-struct phold_message
- = content->cp.local_var_decl_e6c1fbb0;
+        struct checkpoint cp = content->cp;
         
         
         
 
+        struct phold_message new_event;
         for ( int32_t i = 0 ; i < start_events; i++ )
         {
           tw_rand_reverse_unif(lp->rng);
@@ -241,6 +237,7 @@ struct phold_message
     default:
       fprintf(stderr, "Unknown event type! (event type = %d)", content->event_type);
       abort();
+  }
 }
 
 typedef enum {
@@ -249,12 +246,12 @@ typedef enum {
 
 tw_lptype model_lps[] = {
   {
-  (init_f) phold_new_ross_class_init,
+  (init_f) phold_ross_class_init,
   (pre_run_f) NULL,
-  (event_f) phold_new_ross_class_event,
+  (event_f) phold_ross_class_event,
   (revent_f) reverse,
   (commit_f) NULL,
-  (final_f) phold_new_ross_class_final,
+  (final_f) phold_ross_class_final,
   (map_f) custom_mapping_lp_to_pe,
   sizeof(struct phold_state)
   },
@@ -265,7 +262,9 @@ int main(int argc, char **argv)
 {
   tw_init(&argc, &argv);
 
-    
+  
+  arena = malloc_state_init();
+
   g_tw_ts_end = 5750.0;
 
   g_tw_mapping = CUSTOM;
@@ -288,6 +287,8 @@ int main(int argc, char **argv)
 
   tw_run();
   tw_end();
+
+  malloc_state_wipe(&arena);
 
   return 0;
 }

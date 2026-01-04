@@ -41,8 +41,8 @@ public class ForStatement_TextGen extends TextGenDescriptorBase {
     }
     tgs.append("; ");
 
-    if (SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.condition$fwVv) != null) {
-      tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.condition$fwVv));
+    if (SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.condition$3gCl) != null) {
+      tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.condition$3gCl));
 
     }
     tgs.append("; ");
@@ -70,7 +70,7 @@ public class ForStatement_TextGen extends TextGenDescriptorBase {
   private static final class LINKS {
     /*package*/ static final SContainmentLink iterator$fwes = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a40186e676L, 0x64ae61a401870e40L, "iterator");
     /*package*/ static final SContainmentLink additionalIterators$umBI = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a40186e676L, 0x5239321dec4ec665L, "additionalIterators");
-    /*package*/ static final SContainmentLink condition$fwVv = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a40186e676L, 0x64ae61a401870e43L, "condition");
+    /*package*/ static final SContainmentLink condition$3gCl = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x6337a44ca461bdf4L, 0x64ae61a401870e43L, "condition");
     /*package*/ static final SContainmentLink incr$fAzR = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a40186e676L, 0x64ae61a401870e46L, "incr");
     /*package*/ static final SContainmentLink body$fofU = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a40186e676L, 0x64ae61a401870e33L, "body");
   }

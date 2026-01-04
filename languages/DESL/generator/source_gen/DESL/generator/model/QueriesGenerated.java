@@ -19,11 +19,13 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import java.util.List;
 import java.util.ArrayList;
-import ReversibleExpressions.behavior.ReversibleMacroCall__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import ReversibleExpressions.behavior.GenericDotExpression__BehaviorDescriptor;
+import com.mbeddr.core.expressions.behavior.IVariableReference__BehaviorDescriptor;
 import ReversibleFunctions.behavior.ReversibleMacro__BehaviorDescriptor;
 import jetbrains.mps.typechecking.TypecheckingFacade;
+import com.mbeddr.core.expressions.behavior.IVariableDeclaration__BehaviorDescriptor;
 import ReversibleFunctions.behavior.ReversibleFunction__BehaviorDescriptor;
 import java.util.Map;
 import jetbrains.mps.generator.impl.query.MapRootRuleCondition;
@@ -249,22 +251,16 @@ public class QueriesGenerated extends QueryProviderBase {
       // create reversed macros
       List<SNode> newMacros = new ArrayList<SNode>();
       for (SNode macro : ListSequence.fromList(SLinkOperations.getChildren(root, LINKS.macros$Sq68)).where((it) -> SNodeOperations.isInstanceOf(it, CONCEPTS.ReversibleMacro$EH))) {
-        if (!(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.cast(macro, CONCEPTS.ReversibleMacro$EH), LINKS.content$L7Vn), CONCEPTS.IDestructiveOperation$SP))) {
 
-          {
-            final SNode rmc = SLinkOperations.getTarget(SNodeOperations.cast(macro, CONCEPTS.ReversibleMacro$EH), LINKS.content$L7Vn);
-            if (SNodeOperations.isInstanceOf(rmc, CONCEPTS.ReversibleMacroCall$40)) {
-              if ((boolean) ReversibleMacroCall__BehaviorDescriptor.checkIfDestructiveMacroCalled_id2OeDS_5iwt8.invoke(rmc)) {
-                continue;
-              }
-            }
-          }
+        if (!(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.cast(macro, CONCEPTS.ReversibleMacro$EH), LINKS.content$L7Vn), CONCEPTS.IDestructiveOperation$SP)) || (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.cast(macro, CONCEPTS.ReversibleMacro$EH), LINKS.content$L7Vn), CONCEPTS.ReversibleMacroCall$40) && !(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(macro, CONCEPTS.ReversibleMacro$EH), LINKS.content$L7Vn), CONCEPTS.ReversibleMacroCall$40), LINKS.macro$QKaR), LINKS.content$L7Vn), CONCEPTS.IDestructiveOperation$SP)))) {
 
-          SNode newMacro = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145008fL, "ReversibleFunctions.structure.ReversibleMacro"));
+          SNode newMacro = SNodeOperations.copyNode(SNodeOperations.cast(macro, CONCEPTS.ReversibleMacro$EH));
           SPropertyOperations.assign(newMacro, PROPS.name$MnvL, SPropertyOperations.getString(SNodeOperations.cast(macro, CONCEPTS.ReversibleMacro$EH), PROPS.name$MnvL) + "_REVERSE");
           SLinkOperations.setTarget(newMacro, LINKS.content$L7Vn, SNodeOperations.copyNode(SLinkOperations.getTarget(SNodeOperations.cast(macro, CONCEPTS.ReversibleMacro$EH), LINKS.content$L7Vn)));
           SPropertyOperations.assign(SLinkOperations.getTarget(newMacro, LINKS.content$L7Vn), PROPS.isForward$pAg5, false);
+          SPropertyOperations.assign(newMacro, PROPS.preventNameMangling$DOH5, true);
           ListSequence.fromList(newMacros).addElement(newMacro);
+
         }
       }
       ListSequence.fromList(SLinkOperations.getChildren(root, LINKS.macros$Sq68)).addSequence(ListSequence.fromList(newMacros));
@@ -275,6 +271,61 @@ public class QueriesGenerated extends QueryProviderBase {
       for (SNode function : ListSequence.fromList(SNodeOperations.getNodeDescendants(root, CONCEPTS.ReversibleFunction$IL, false, new SAbstractConcept[]{}))) {
 
         SPropertyOperations.assign(function, PROPS.reversibilityRequired$Zgdy, true);
+
+
+        // disable state saving for binary expressions updating a local variable
+        for (SNode lvd : ListSequence.fromList(SNodeOperations.getNodeDescendants(function, CONCEPTS.LocalVariableDeclaration$7E, false, new SAbstractConcept[]{}))) {
+
+          for (SNode updateCollection : ListSequence.fromList(SNodeOperations.getNodeDescendants(function, CONCEPTS.IUpdateCollection$Uo, false, new SAbstractConcept[]{}))) {
+            SNode varRef = SConceptOperations.createNewNode(SNodeOperations.asInstanceConcept(MetaAdapterFactory.getInterfaceConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1c69b376a2dab98aL, "ReversibleExpressions.structure.IVariableReference")));
+            {
+              final SNode ref = SLinkOperations.getTarget(updateCollection, LINKS.collection$icQi);
+              if (SNodeOperations.isInstanceOf(ref, CONCEPTS.IVariableReference$Kb)) {
+                varRef = ref;
+              }
+            }
+            {
+              final SNode gde = SLinkOperations.getTarget(updateCollection, LINKS.collection$icQi);
+              if (SNodeOperations.isInstanceOf(gde, CONCEPTS.GenericDotExpression$ia)) {
+                {
+                  final SNode ref = GenericDotExpression__BehaviorDescriptor.getLeftmostExpression_id7kzrHkX2a1_.invoke(gde);
+                  if (SNodeOperations.isInstanceOf(ref, CONCEPTS.IVariableReference$Kb)) {
+                    varRef = ref;
+                  }
+                }
+              }
+            }
+            if (IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(varRef) == lvd) {
+              SPropertyOperations.assign(SNodeOperations.cast(updateCollection, CONCEPTS.ReversibleStatement$s8), PROPS.skipStateSaving$3wRV, true);
+            }
+
+          }
+
+          for (SNode binaryExpr : ListSequence.fromList(SNodeOperations.getNodeDescendants(function, CONCEPTS.BinaryExpression$b, false, new SAbstractConcept[]{}))) {
+            SNode varRef = SConceptOperations.createNewNode(SNodeOperations.asInstanceConcept(MetaAdapterFactory.getInterfaceConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1c69b376a2dab98aL, "ReversibleExpressions.structure.IVariableReference")));
+            {
+              final SNode ref = SLinkOperations.getTarget(binaryExpr, LINKS.left$KPKR);
+              if (SNodeOperations.isInstanceOf(ref, CONCEPTS.IVariableReference$Kb)) {
+                varRef = ref;
+              }
+            }
+            {
+              final SNode gde = SLinkOperations.getTarget(binaryExpr, LINKS.left$KPKR);
+              if (SNodeOperations.isInstanceOf(gde, CONCEPTS.GenericDotExpression$ia)) {
+                {
+                  final SNode ref = GenericDotExpression__BehaviorDescriptor.getLeftmostExpression_id7kzrHkX2a1_.invoke(gde);
+                  if (SNodeOperations.isInstanceOf(ref, CONCEPTS.IVariableReference$Kb)) {
+                    varRef = ref;
+                  }
+                }
+              }
+            }
+            if (IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(varRef) == lvd) {
+              SPropertyOperations.assign(binaryExpr, PROPS.skipStateSaving$3wRV, true);
+            }
+          }
+        }
+
 
         // state saving for macro calls
         for (SNode rmc : ListSequence.fromList(SNodeOperations.getNodeDescendants(function, CONCEPTS.ReversibleMacroCall$40, false, new SAbstractConcept[]{}))) {
@@ -313,12 +364,42 @@ public class QueriesGenerated extends QueryProviderBase {
             continue;
           }
 
+          // state saving for destructive macros is provided by ReversibleMacroArgs
+          if (SNodeOperations.isInstanceOf(stmtWithSupportVariable, CONCEPTS.ReversibleMacroCall$40)) {
+            continue;
+          }
+
+          // append to struct checkpoint only support variables of macro arguments that are saved
+          if (SNodeOperations.isInstanceOf(stmtWithSupportVariable, CONCEPTS.ReversibleMacroArg$Ip)) {
+            SNode revMacroCall = SNodeOperations.cast(SNodeOperations.getParent(SNodeOperations.cast(stmtWithSupportVariable, CONCEPTS.ReversibleMacroArg$Ip)), CONCEPTS.ReversibleMacroCall$40);
+            if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SLinkOperations.getTarget(revMacroCall, LINKS.macro$QKaR), LINKS.content$L7Vn), CONCEPTS.IDestructiveOperation$SP) || SPropertyOperations.getBoolean(revMacroCall, PROPS.callsDestructiveMacro$eoF)) {
+              if (SNodeOperations.getIndexInParent(stmtWithSupportVariable) != (int) ReversibleMacro__BehaviorDescriptor.getArgumentToSaveIndex_id2vwNr_9BbOi.invoke(SLinkOperations.getTarget(revMacroCall, LINKS.macro$QKaR))) {
+                continue;
+              }
+            }
+          }
+
+          // ignore array elements assignments (array[i] = something)
+          {
+            final SNode assignmentExpr = stmtWithSupportVariable;
+            if (SNodeOperations.isInstanceOf(assignmentExpr, CONCEPTS.AssignmentExpr$aj)) {
+              if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(assignmentExpr, LINKS.left$KPKR), CONCEPTS.IVariableReference$WR)) {
+                if (SNodeOperations.isInstanceOf(IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(SNodeOperations.cast(SLinkOperations.getTarget(assignmentExpr, LINKS.left$KPKR), CONCEPTS.IVariableReference$WR))), CONCEPTS.ArrayType$WW)) {
+                  continue;
+                }
+              } else if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(assignmentExpr, LINKS.left$KPKR), CONCEPTS.GenericDotExpression$ia)) {
+                if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(assignmentExpr, LINKS.left$KPKR), CONCEPTS.GenericDotExpression$ia), LINKS.target$xbCZ), CONCEPTS.GenericMemberRef$Ue), LINKS.member$gCRV), LINKS.type$sXU3), CONCEPTS.ArrayType$WW)) {
+                  continue;
+                }
+              }
+            }
+          }
+
           // check if the stmt is contained in a loop
           if (!(SNodeOperations.isInstanceOf(SNodeOperations.getParent(SNodeOperations.getParent(stmtWithSupportVariable)), CONCEPTS.IReversibleLoop$k1))) {
             SNode lvr = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x571ea5ef247e3b6dL, "ReversibleStatements.structure.CheckpointLocalVarRef"));
             SLinkOperations.setTarget(lvr, LINKS.var$iAI8, SLinkOperations.getTarget(stmtWithSupportVariable, LINKS.supportVariable$WrxR));
             ListSequence.fromList(SLinkOperations.getChildren(root, LINKS.checkpointingVariables$cw2o)).addElement(lvr);
-            LogContext.with(QueriesGenerated.class, null, null, null).info("Added new checkpointing variable");
           }
         }
         for (SNode loop : ListSequence.fromList(SNodeOperations.getNodeDescendants(function, CONCEPTS.IReversibleLoop$k1, false, new SAbstractConcept[]{}))) {
@@ -326,8 +407,6 @@ public class QueriesGenerated extends QueryProviderBase {
             SNode lvr = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x571ea5ef247e3b6dL, "ReversibleStatements.structure.CheckpointLocalVarRef"));
             SLinkOperations.setTarget(lvr, LINKS.var$iAI8, var);
             ListSequence.fromList(SLinkOperations.getChildren(root, LINKS.checkpointingVariables$cw2o)).addElement(lvr);
-            LogContext.with(QueriesGenerated.class, null, null, null).info("Added new checkpointing variable for loop");
-
           }
         }
 
@@ -351,8 +430,6 @@ public class QueriesGenerated extends QueryProviderBase {
 
       }
       ListSequence.fromList(SLinkOperations.getChildren(root, LINKS.externalFunctions$LqEg)).addSequence(ListSequence.fromList(reversedFunctions));
-
-
 
       LogContext.with(QueriesGenerated.class, null, null, null).info("Root has " + ListSequence.fromList(SLinkOperations.getChildren(root, LINKS.checkpointingVariables$cw2o)).count() + " checkpointing variables");
     }
@@ -672,6 +749,7 @@ public class QueriesGenerated extends QueryProviderBase {
     /*package*/ static final SProperty preventNameMangling$DOH5 = MetaAdapterFactory.getProperty(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x595522006a5b934fL, 0x5d18402e8bd65342L, "preventNameMangling");
     /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
     /*package*/ static final SProperty reversibilityRequired$Zgdy = MetaAdapterFactory.getProperty(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111cL, 0x56ee1731ff5a6482L, "reversibilityRequired");
+    /*package*/ static final SProperty skipStateSaving$3wRV = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x75236ed53cd866f2L, "skipStateSaving");
     /*package*/ static final SProperty callsDestructiveMacro$eoF = MetaAdapterFactory.getProperty(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1b427f2e49d1fe84L, 0x2d0ea789450dadafL, "callsDestructiveMacro");
   }
 
@@ -689,6 +767,8 @@ public class QueriesGenerated extends QueryProviderBase {
     /*package*/ static final SContainmentLink checkpointingVariables$cw2o = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x5660c118504c6b78L, "checkpointingVariables");
     /*package*/ static final SContainmentLink content$L7Vn = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145008fL, 0x78202c09dd229062L, "content");
     /*package*/ static final SReferenceLink macro$QKaR = MetaAdapterFactory.getReferenceLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1b427f2e49d1fe84L, 0x1b427f2e49d1fe85L, "macro");
+    /*package*/ static final SContainmentLink collection$icQi = MetaAdapterFactory.getContainmentLink(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x1b427f2e49f084f2L, 0x1b427f2e4a217c88L, "collection");
+    /*package*/ static final SContainmentLink left$KPKR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba34L, 0x7af69e2e83a1ba40L, "left");
     /*package*/ static final SContainmentLink supportVariable$WrxR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x586abb2d5743cb69L, "supportVariable");
     /*package*/ static final SContainmentLink actuals$QKpS = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1b427f2e49d1fe84L, 0x1b427f2e49d1fe86L, "actuals");
     /*package*/ static final SContainmentLink actual$n_Ao = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x68ce0d48c3998717L, 0x68ce0d48c3998719L, "actual");
@@ -696,6 +776,8 @@ public class QueriesGenerated extends QueryProviderBase {
     /*package*/ static final SReferenceLink struct$WCsg = MetaAdapterFactory.getReferenceLink(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x58bef62304fc0a38L, 0x58bef62304fc0a39L, "struct");
     /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
     /*package*/ static final SContainmentLink iterator$fwes = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a40186e676L, 0x64ae61a401870e40L, "iterator");
+    /*package*/ static final SContainmentLink target$xbCZ = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x401df715da462c0cL, 0x619e8ce80b7ff48bL, "target");
+    /*package*/ static final SReferenceLink member$gCRV = MetaAdapterFactory.getReferenceLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4f5d78b09e1b9a5fL, 0x4f5d78b09f1589e9L, "member");
     /*package*/ static final SReferenceLink var$iAI8 = MetaAdapterFactory.getReferenceLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x571ea5ef247e3b6dL, 0x571ea5ef247e3b6eL, "var");
     /*package*/ static final SContainmentLink additionalVariables$en7t = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x6337a44ca461bdf4L, 0x6337a44ca461be00L, "additionalVariables");
     /*package*/ static final SContainmentLink forwardFunction$5bPH = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x74d88000543a2a9fL, "forwardFunction");
@@ -708,9 +790,19 @@ public class QueriesGenerated extends QueryProviderBase {
     /*package*/ static final SConcept ReversibleMacroCall$40 = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1b427f2e49d1fe84L, "ReversibleExpressions.structure.ReversibleMacroCall");
     /*package*/ static final SInterfaceConcept IDestructiveOperation$SP = MetaAdapterFactory.getInterfaceConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x27d0c8e745a2c78dL, "ReversibleExpressions.structure.IDestructiveOperation");
     /*package*/ static final SInterfaceConcept IVariableReference$Kb = MetaAdapterFactory.getInterfaceConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1c69b376a2dab98aL, "ReversibleExpressions.structure.IVariableReference");
+    /*package*/ static final SConcept GenericDotExpression$ia = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x401df715da462c0cL, "ReversibleExpressions.structure.GenericDotExpression");
+    /*package*/ static final SConcept ReversibleStatement$s8 = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad6d03L, "ReversibleStatements.structure.ReversibleStatement");
+    /*package*/ static final SInterfaceConcept IUpdateCollection$Uo = MetaAdapterFactory.getInterfaceConcept(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x1b427f2e49f084f2L, "Collections.structure.IUpdateCollection");
+    /*package*/ static final SConcept BinaryExpression$b = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba34L, "ReversibleExpressions.structure.BinaryExpression");
+    /*package*/ static final SConcept LocalVariableDeclaration$7E = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad96e6L, "ReversibleStatements.structure.LocalVariableDeclaration");
     /*package*/ static final SConcept ArgumentRef$Ar = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x586abb2d564e82ffL, "ReversibleStatements.structure.ArgumentRef");
     /*package*/ static final SConcept LocalVarRef$O3 = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x1d0c3765e2e1d67aL, "ReversibleStatements.structure.LocalVarRef");
     /*package*/ static final SConcept StructType$B3 = MetaAdapterFactory.getConcept(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x58bef62304fc0a38L, "com.mbeddr.core.udt.structure.StructType");
+    /*package*/ static final SConcept ReversibleMacroArg$Ip = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x68ce0d48c3998717L, "ReversibleExpressions.structure.ReversibleMacroArg");
+    /*package*/ static final SConcept AssignmentExpr$aj = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4e85add925440dL, "ReversibleExpressions.structure.AssignmentExpr");
+    /*package*/ static final SInterfaceConcept IVariableReference$WR = MetaAdapterFactory.getInterfaceConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x1c69b376a2dab98aL, "com.mbeddr.core.expressions.structure.IVariableReference");
+    /*package*/ static final SConcept ArrayType$WW = MetaAdapterFactory.getConcept(0x3bf5377ae9044dedL, 0x97545a516023bfaaL, 0x4ed16d83a1d30c81L, "com.mbeddr.core.pointers.structure.ArrayType");
+    /*package*/ static final SConcept GenericMemberRef$Ue = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4f5d78b09e1b9a5fL, "ReversibleExpressions.structure.GenericMemberRef");
     /*package*/ static final SInterfaceConcept IReversibleLoop$k1 = MetaAdapterFactory.getInterfaceConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x6337a44ca461bdf4L, "ReversibleStatements.structure.IReversibleLoop");
     /*package*/ static final SInterfaceConcept INeedSupportVariable$qI = MetaAdapterFactory.getInterfaceConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, "ReversibleExpressions.structure.INeedSupportVariable");
     /*package*/ static final SConcept EventHandler$Ov = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, "DESL.structure.EventHandler");

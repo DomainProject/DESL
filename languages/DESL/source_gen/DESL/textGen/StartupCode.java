@@ -16,13 +16,11 @@ public abstract class StartupCode {
   public static void startupCode(SNode root, final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     SNode startupFunction = SNodeOperations.cast(ListSequence.fromList(SLinkOperations.getChildren(root, LINKS.startup$LlvU)).findFirst((it) -> SNodeOperations.isInstanceOf(it, CONCEPTS.StartupFunction$EL)), CONCEPTS.StartupFunction$EL);
-    ctx.getBuffer().area().increaseIndent();
-    for (SNode statement : ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(SLinkOperations.getTarget(startupFunction, LINKS.function$Ah6u), LINKS.body$1GE0), LINKS.statements$euTV))) {
+    for (SNode stmt : ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(SLinkOperations.getTarget(startupFunction, LINKS.function$Ah6u), LINKS.body$1GE0), LINKS.statements$euTV))) {
       tgs.indent();
-      tgs.appendNode(statement);
+      tgs.appendNode(stmt);
       tgs.newLine();
     }
-    ctx.getBuffer().area().decreaseIndent();
   }
 
   private static final class LINKS {

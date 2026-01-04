@@ -6,10 +6,10 @@ import jetbrains.mps.text.rt.TextGenDescriptorBase;
 import jetbrains.mps.text.rt.TextGenContext;
 import jetbrains.mps.text.impl.TextGenSupport;
 import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.traceable.behavior.UnitConcept__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -21,6 +21,12 @@ public class ReversibleScriptExp_TextGen extends TextGenDescriptorBase {
   public void generateText(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     tgs.createUnitInfo();
+
+    for (SNode struct : ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.structs$ZHxn))) {
+      tgs.appendNode(struct);
+      tgs.newLine();
+    }
+
     for (SNode function : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.reversibleItems$5wYj), CONCEPTS.ReversibleFunction$IL))) {
       tgs.appendNode(function);
       tgs.newLine();
@@ -36,6 +42,7 @@ public class ReversibleScriptExp_TextGen extends TextGenDescriptorBase {
   }
 
   private static final class LINKS {
+    /*package*/ static final SContainmentLink structs$ZHxn = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x56ee1731fef0eae5L, 0x482205b2742202cdL, "structs");
     /*package*/ static final SContainmentLink reversibleItems$5wYj = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x56ee1731fef0eae5L, 0x56ee1731fef0eae6L, "reversibleItems");
     /*package*/ static final SContainmentLink functions$VlQq = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x56ee1731fef0eae5L, 0x7f5aaca6ab31ec34L, "functions");
   }

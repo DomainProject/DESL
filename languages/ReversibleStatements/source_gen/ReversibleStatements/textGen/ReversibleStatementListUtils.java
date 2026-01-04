@@ -11,6 +11,9 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import ReversibleStatements.behavior.IReversibleLoop__BehaviorDescriptor;
+import java.util.List;
+import java.util.ArrayList;
+import jetbrains.mps.internal.collections.runtime.Sequence;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -26,7 +29,7 @@ public abstract class ReversibleStatementListUtils {
 
 
     // exclude ALlocateStruct and CreateArray as their state is saved and restored in their textgen 
-    for (SNode destructiveExpr : ListSequence.fromList(SNodeOperations.getNodeDescendants(revStatementList, CONCEPTS.IDestructiveOperation$SP, false, new SAbstractConcept[]{})).where((it) -> SNodeOperations.isInstanceOf(it, CONCEPTS.ReversibleExpression$Zd) && !(SNodeOperations.isInstanceOf(it, CONCEPTS.AllocateStruct$Pb)) && !(SNodeOperations.isInstanceOf(it, CONCEPTS.CreateArray$_5)))) {
+    for (SNode destructiveExpr : ListSequence.fromList(SNodeOperations.getNodeDescendants(revStatementList, CONCEPTS.IDestructiveOperation$SP, false, new SAbstractConcept[]{})).where((it) -> SNodeOperations.isInstanceOf(it, CONCEPTS.ReversibleExpression$Zd) && !(SNodeOperations.isInstanceOf(it, CONCEPTS.AllocateStruct$Pb)) && !(SNodeOperations.isInstanceOf(it, CONCEPTS.CreateArray$_5)) && !(SNodeOperations.isInstanceOf(it, CONCEPTS.ReversibleMacroCall$40)))) {
 
 
       if ((SNodeOperations.getParent(destructiveExpr) == revStatementList || SNodeOperations.getNodeAncestor(destructiveExpr, CONCEPTS.ReversibleStatementList$qe, false, false) == revStatementList) && (SLinkOperations.getTarget(destructiveExpr, LINKS.supportVariable$WrxR) != null)) {
@@ -77,7 +80,7 @@ public abstract class ReversibleStatementListUtils {
   public static void variableDeclarations(SNode revStatementList, final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     for (SNode varDecl : ListSequence.fromList(SNodeOperations.getNodeDescendants(revStatementList, CONCEPTS.LocalVariableDeclaration$7E, false, new SAbstractConcept[]{}))) {
-      if (SNodeOperations.isInstanceOf(varDecl, CONCEPTS.ForVarDecl$3i)) {
+      if (SNodeOperations.isInstanceOf(varDecl, CONCEPTS.ForVarDecl$3i) || SNodeOperations.hasRole(varDecl, LINKS.variable$xerT)) {
         continue;
       }
       if (SNodeOperations.getParent(varDecl) == revStatementList || SNodeOperations.getNodeAncestor(varDecl, CONCEPTS.ReversibleStatementList$qe, false, false) == revStatementList) {
@@ -98,27 +101,172 @@ public abstract class ReversibleStatementListUtils {
       }
     }
   }
+  public static void statementList(SNode statementList, String extraStatementStart, String extraStatementEnd, final TextGenContext ctx) {
+    final TextGenSupport tgs = new TextGenSupport(ctx);
+
+
+    boolean requiresReversibility = (SNodeOperations.isInstanceOf(SNodeOperations.getParent(statementList), CONCEPTS.ReversibleFunction$IL) ? SPropertyOperations.getBoolean(SNodeOperations.cast(SNodeOperations.getParent(statementList), CONCEPTS.ReversibleFunction$IL), PROPS.reversibilityRequired$Zgdy) : SPropertyOperations.getBoolean(SNodeOperations.getNodeAncestor(statementList, CONCEPTS.ReversibleFunction$IL, false, false), PROPS.reversibilityRequired$Zgdy));
+
+    boolean isForward = SPropertyOperations.getBoolean(SNodeOperations.cast(SNodeOperations.getParent(statementList), CONCEPTS.IReversible$$B), PROPS.isForward$pAg5);
+
+    // standard body
+    if (!(requiresReversibility)) {
+      for (SNode stmt : ListSequence.fromList(SLinkOperations.getChildren(statementList, LINKS.revStatements$IdM8))) {
+        tgs.indent();
+        tgs.appendNode(stmt);
+        tgs.newLine();
+      }
+      return;
+    }
+
+    // reversible body
+    if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(statementList), CONCEPTS.ReversibleFunction$IL)) {
+      tgs.indent();
+      tgs.append("struct checkpoint cp = content->cp;");
+      tgs.newLine();
+    }
+
+    if (extraStatementStart != null) {
+      tgs.indent();
+      tgs.append(extraStatementStart);
+    }
+
+    SNode loopAncestor = (SNodeOperations.isInstanceOf(SNodeOperations.getParent(statementList), CONCEPTS.IReversibleLoop$k1) ? SNodeOperations.cast(SNodeOperations.getParent(statementList), CONCEPTS.IReversibleLoop$k1) : SNodeOperations.getNodeAncestor(statementList, CONCEPTS.IReversibleLoop$k1, false, false));
+    boolean isContainedInLoop = (loopAncestor != null);
+
+    List<SNode> reorderedList = new ArrayList<SNode>();
+    ListSequence.fromList(reorderedList).addSequence(ListSequence.fromList(SLinkOperations.getChildren(statementList, LINKS.revStatements$IdM8)));
+
+
+    if (!(isForward)) {
+      ReversibleStatementListUtils.restoreRng(statementList, ctx);
+
+      // reorder statements: if a statement list contains an AddToCollection statement, when reversed the element that has been added to the collection in the forward function must be removed as soon as possible (to avoid use after free) 
+
+      List<SNode> addToCollectionList = new ArrayList<SNode>();
+      ListSequence.fromList(addToCollectionList).addSequence(Sequence.fromIterable(SNodeOperations.ofConcept(reorderedList, CONCEPTS.AddToCollection$NE)));
+      ListSequence.fromList(reorderedList).removeWhere((it) -> SNodeOperations.isInstanceOf(it, CONCEPTS.AddToCollection$NE));
+      for (SNode atc : ListSequence.fromList(addToCollectionList)) {
+        ListSequence.fromList(reorderedList).insertElement(0, atc);
+      }
+    }
+
+    for (SNode statement : ListSequence.fromList(reorderedList)) {
+
+      SNode destructive = null;
+      boolean defineStateSaving = false;
+      boolean stateSavingDisabled = false;
+
+      if (SNodeOperations.isInstanceOf(statement, CONCEPTS.IDestructiveOperation$SP)) {
+        destructive = SNodeOperations.cast(statement, CONCEPTS.IDestructiveOperation$SP);
+        defineStateSaving = SNodeOperations.isInstanceOf(statement, CONCEPTS.IDefineStateSaving$M2);
+        stateSavingDisabled = SPropertyOperations.getBoolean(statement, PROPS.skipStateSaving$3wRV);
+      } else if (SNodeOperations.isInstanceOf(statement, CONCEPTS.ExpressionStatement$L7) && SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.cast(statement, CONCEPTS.ExpressionStatement$L7), LINKS.expr$YTeC), CONCEPTS.IDestructiveOperation$SP)) {
+        destructive = SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(statement, CONCEPTS.ExpressionStatement$L7), LINKS.expr$YTeC), CONCEPTS.IDestructiveOperation$SP);
+        defineStateSaving = SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.cast(statement, CONCEPTS.ExpressionStatement$L7), LINKS.expr$YTeC), CONCEPTS.IDefineStateSaving$M2);
+        stateSavingDisabled = SPropertyOperations.getBoolean(SLinkOperations.getTarget(SNodeOperations.cast(statement, CONCEPTS.ExpressionStatement$L7), LINKS.expr$YTeC), PROPS.skipStateSaving$3wRV);
+      }
+
+      // skip state saving for non-destructive statements and for the destructive statements that define their own state saving
+      if ((destructive != null) && !(defineStateSaving) && !(stateSavingDisabled)) {
+
+        // STATE SAVING
+        if (isForward) {
+          // save state
+          if (isContainedInLoop) {
+            tgs.indent();
+            tgs.append("cp.");
+            tgs.append(SPropertyOperations.getString(destructive, PROPS.loopArrayName$wAd5));
+            tgs.append("[");
+            tgs.append(IReversibleLoop__BehaviorDescriptor.getIterationVariableName_id6cRD4M$XPR9.invoke(loopAncestor));
+            tgs.append("] = ");
+            tgs.append(SPropertyOperations.getString(destructive, PROPS.variableToSaveName$udlR));
+            tgs.append(";");
+            tgs.newLine();
+          } else {
+            tgs.indent();
+            tgs.append("cp.");
+            tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(destructive, LINKS.supportVariable$WrxR), PROPS.name$MnvL));
+            tgs.append(" = ");
+            tgs.append(SPropertyOperations.getString(destructive, PROPS.variableToSaveName$udlR));
+            tgs.append(";");
+            tgs.newLine();
+          }
+
+          tgs.indent();
+          tgs.appendNode(statement);
+          tgs.newLine();
+
+        } else {
+          // restore state
+          if (isContainedInLoop) {
+            tgs.indent();
+            tgs.append(SPropertyOperations.getString(destructive, PROPS.variableToSaveName$udlR));
+            tgs.append(" = cp.");
+            tgs.append(SPropertyOperations.getString(destructive, PROPS.loopArrayName$wAd5));
+            tgs.append("[");
+            tgs.append(IReversibleLoop__BehaviorDescriptor.getIterationVariableName_id6cRD4M$XPR9.invoke(loopAncestor));
+            tgs.append("];");
+            tgs.newLine();
+          } else {
+            tgs.indent();
+            tgs.append(SPropertyOperations.getString(destructive, PROPS.variableToSaveName$udlR));
+            tgs.append(" = cp.");
+            tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(destructive, LINKS.supportVariable$WrxR), PROPS.name$MnvL));
+            tgs.append(";");
+            tgs.newLine();
+          }
+          tgs.indent();
+          tgs.appendNode(statement);
+        }
+      } else {
+
+        // STANDARD STATEMENT
+        tgs.indent();
+        tgs.appendNode(statement);
+      }
+
+      tgs.newLine();
+    }
+
+    if (extraStatementEnd != null) {
+      tgs.indent();
+      tgs.append(extraStatementEnd);
+    }
+  }
 
   private static final class CONCEPTS {
     /*package*/ static final SInterfaceConcept IReversibleLoop$k1 = MetaAdapterFactory.getInterfaceConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x6337a44ca461bdf4L, "ReversibleStatements.structure.IReversibleLoop");
     /*package*/ static final SConcept ReversibleStatementList$qe = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, "ReversibleStatements.structure.ReversibleStatementList");
     /*package*/ static final SInterfaceConcept IDestructiveOperation$SP = MetaAdapterFactory.getInterfaceConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x27d0c8e745a2c78dL, "ReversibleExpressions.structure.IDestructiveOperation");
-    /*package*/ static final SConcept CreateArray$_5 = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6ea143d20956bff1L, "DESL.structure.CreateArray");
+    /*package*/ static final SConcept ReversibleMacroCall$40 = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1b427f2e49d1fe84L, "ReversibleExpressions.structure.ReversibleMacroCall");
     /*package*/ static final SConcept ReversibleExpression$Zd = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L, "ReversibleExpressions.structure.ReversibleExpression");
     /*package*/ static final SConcept AllocateStruct$Pb = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x4f052dce270158d9L, "ReversibleStatements.structure.AllocateStruct");
+    /*package*/ static final SConcept CreateArray$_5 = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6ea143d20956bff1L, "DESL.structure.CreateArray");
     /*package*/ static final SConcept ForVarDecl$3i = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a401870e23L, "ReversibleStatements.structure.ForVarDecl");
     /*package*/ static final SConcept LocalVariableDeclaration$7E = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad96e6L, "ReversibleStatements.structure.LocalVariableDeclaration");
     /*package*/ static final SInterfaceConcept IRNGCall$1j = MetaAdapterFactory.getInterfaceConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x263a24c3a7a97014L, "DESL.structure.IRNGCall");
+    /*package*/ static final SConcept ReversibleFunction$IL = MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, "ReversibleFunctions.structure.ReversibleFunction");
+    /*package*/ static final SInterfaceConcept IReversible$$B = MetaAdapterFactory.getInterfaceConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, "ReversibleStatements.structure.IReversible");
+    /*package*/ static final SConcept AddToCollection$NE = MetaAdapterFactory.getConcept(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0xcc29beb50645d41L, "Collections.structure.AddToCollection");
+    /*package*/ static final SInterfaceConcept IDefineStateSaving$M2 = MetaAdapterFactory.getInterfaceConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x75236ed53aed8fbcL, "ReversibleStatements.structure.IDefineStateSaving");
+    /*package*/ static final SConcept ExpressionStatement$L7 = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a4018a8592L, "ReversibleStatements.structure.ExpressionStatement");
   }
 
   private static final class PROPS {
     /*package*/ static final SProperty loopArrayName$wAd5 = MetaAdapterFactory.getProperty(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x6337a44ca4f72dbfL, "loopArrayName");
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
     /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
+    /*package*/ static final SProperty reversibilityRequired$Zgdy = MetaAdapterFactory.getProperty(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111cL, 0x56ee1731ff5a6482L, "reversibilityRequired");
+    /*package*/ static final SProperty skipStateSaving$3wRV = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x75236ed53cd866f2L, "skipStateSaving");
+    /*package*/ static final SProperty variableToSaveName$udlR = MetaAdapterFactory.getProperty(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x27d0c8e745a2c78dL, 0x1b427f2e4b08b057L, "variableToSaveName");
   }
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink supportVariable$WrxR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x586abb2d5743cb69L, "supportVariable");
     /*package*/ static final SContainmentLink init$$i$n = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad96e6L, 0x3a16e3a9c7ae01f7L, "init");
+    /*package*/ static final SContainmentLink variable$xerT = MetaAdapterFactory.getContainmentLink(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x259b4ab97565ea5eL, 0x2d57d1c347710004L, "variable");
+    /*package*/ static final SContainmentLink revStatements$IdM8 = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, 0x3a16e3a9c7ad9956L, "revStatements");
+    /*package*/ static final SContainmentLink expr$YTeC = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a4018a8592L, 0x64ae61a4018a8593L, "expr");
   }
 }

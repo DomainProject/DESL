@@ -6,17 +6,11 @@ import jetbrains.mps.text.rt.TextGenDescriptorBase;
 import jetbrains.mps.text.rt.TextGenContext;
 import jetbrains.mps.text.impl.TextGenSupport;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.traceable.behavior.TraceableConcept__BehaviorDescriptor;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
-import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class ReversibleStatementList_TextGen extends TextGenDescriptorBase {
   @Override
@@ -28,51 +22,14 @@ public class ReversibleStatementList_TextGen extends TextGenDescriptorBase {
       tgs.newLine();
     }
 
-    _FunctionTypes._void_P0_E0 func = () -> {
-
-      if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.ReversibleFunction$IL)) {
-        if (SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5)) {
-          tgs.indent();
-          tgs.append("struct checkpoint cp = {0};");
-          tgs.newLine();
-        } else {
-          tgs.indent();
-          tgs.append("struct checkpoint cp = content->cp;");
-          tgs.newLine();
-        }
-      }
-
-      // append local variable declarations at the beginning
-      ReversibleStatementListUtils.variableDeclarations(ctx.getPrimaryInput(), ctx);
-
-      // append state savings/restores
-      ReversibleStatementListUtils.stateHandlingVariables(ctx.getPrimaryInput(), ctx);
-
-      if (!(SPropertyOperations.getBoolean(SNodeOperations.cast(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.IReversible$$B), PROPS.isForward$pAg5))) {
-        ReversibleStatementListUtils.restoreRng(ctx.getPrimaryInput(), ctx);
-      }
-
-      // exclude local variable declarations as they've been inserted at the beginning of the reversible statement list
-      for (SNode statement : ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.revStatements$IdM8)).where((it) -> !(SNodeOperations.isInstanceOf(it, CONCEPTS.LocalVariableDeclaration$7E)))) {
-        boolean notInvisibleStatementList = !(SNodeOperations.isInstanceOf(statement, CONCEPTS.ReversibleStatementList$qe) && SPropertyOperations.getBoolean(SNodeOperations.cast(statement, CONCEPTS.ReversibleStatementList$qe), PROPS.isInvisible$wTPL));
-        if (notInvisibleStatementList) {
-          tgs.indent();
-        }
-        tgs.appendNode(statement);
-        if (notInvisibleStatementList && !(SNodeOperations.isInstanceOf(statement, CONCEPTS.IStatmentListContainer$Vp)) && !(SNodeOperations.isInstanceOf(statement, CONCEPTS.SwitchStatement$kf))) {
-          // the line break will be generated anyway by the contained statement list
-          tgs.newLine();
-        }
-      }
-    };
 
     if (!(SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isInvisible$wTPL))) {
       // use indent if the statement list is visible
       ctx.getBuffer().area().increaseIndent();
-      func.invoke();
+      ReversibleStatementListUtils.statementList(ctx.getPrimaryInput(), null, null, ctx);
       ctx.getBuffer().area().decreaseIndent();
     } else {
-      func.invoke();
+      ReversibleStatementListUtils.statementList(ctx.getPrimaryInput(), null, null, ctx);
     }
 
     if (!(SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isInvisible$wTPL))) {
@@ -87,20 +44,9 @@ public class ReversibleStatementList_TextGen extends TextGenDescriptorBase {
 
   private static final class PROPS {
     /*package*/ static final SProperty isInvisible$wTPL = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, 0x4b1eecbba63cdb33L, "isInvisible");
-    /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
   }
 
   private static final class CONCEPTS {
-    /*package*/ static final SConcept ReversibleFunction$IL = MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, "ReversibleFunctions.structure.ReversibleFunction");
-    /*package*/ static final SInterfaceConcept IReversible$$B = MetaAdapterFactory.getInterfaceConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, "ReversibleStatements.structure.IReversible");
-    /*package*/ static final SConcept ReversibleStatementList$qe = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, "ReversibleStatements.structure.ReversibleStatementList");
-    /*package*/ static final SConcept SwitchStatement$kf = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x2b8026b23bc2d9fcL, "ReversibleStatements.structure.SwitchStatement");
-    /*package*/ static final SInterfaceConcept IStatmentListContainer$Vp = MetaAdapterFactory.getInterfaceConcept(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x5f5c402aa7667ef3L, "com.mbeddr.core.statements.structure.IStatmentListContainer");
-    /*package*/ static final SConcept LocalVariableDeclaration$7E = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad96e6L, "ReversibleStatements.structure.LocalVariableDeclaration");
     /*package*/ static final SInterfaceConcept TraceableConcept$L = MetaAdapterFactory.getInterfaceConcept(0x9ded098bad6a4657L, 0xbfd948636cfe8bc3L, 0x465516cf87c705a3L, "jetbrains.mps.lang.traceable.structure.TraceableConcept");
-  }
-
-  private static final class LINKS {
-    /*package*/ static final SContainmentLink revStatements$IdM8 = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, 0x3a16e3a9c7ad9956L, "revStatements");
   }
 }

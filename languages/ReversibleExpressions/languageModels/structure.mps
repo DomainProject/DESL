@@ -1153,6 +1153,9 @@
     <node concept="PrWs8" id="7IOFtagkKeM" role="PzmwI">
       <ref role="PrY4T" node="2vgMet5CGud" resolve="IDestructiveOperation" />
     </node>
+    <node concept="PrWs8" id="7kzrHkUVq2z" role="PzmwI">
+      <ref role="PrY4T" to="kmi:7kzrHkUVoYW" resolve="IDefineStateSaving" />
+    </node>
   </node>
   <node concept="1TIwiD" id="6ze3kz3Aosn">
     <property role="EcuMT" value="7551988231317325591" />

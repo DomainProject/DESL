@@ -22,13 +22,13 @@ public class ForStatement_DataFlow extends DataFlowBuilder {
 
     _context.getBuilder().emitLabel("start");
 
-    if (SLinkOperations.getTarget(_context.getNode(), LINKS.condition$fwVv) != null && (boolean) Expression__BehaviorDescriptor.isStaticallyEvaluatable_id3ilck8Kr3zN.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.condition$fwVv)) && Expression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.condition$fwVv)) instanceof Boolean) {
-      Boolean value = (Boolean) Expression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.condition$fwVv));
+    if (SLinkOperations.getTarget(_context.getNode(), LINKS.condition$3gCl) != null && (boolean) Expression__BehaviorDescriptor.isStaticallyEvaluatable_id3ilck8Kr3zN.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.condition$3gCl)) && Expression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.condition$3gCl)) instanceof Boolean) {
+      Boolean value = (Boolean) Expression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.condition$3gCl));
       if (!(value)) {
         _context.getBuilder().emitJump(_context.getBuilder().after(_context.getNode()), "r:c205ea72-20c5-48ea-9b1b-6756ae88d68b(ReversibleStatements.dataFlow)/2873522757967662474");
       }
-    } else if (SLinkOperations.getTarget(_context.getNode(), LINKS.condition$fwVv) != null) {
-      _context.getBuilder().build((SNode) SLinkOperations.getTarget(_context.getNode(), LINKS.condition$fwVv));
+    } else if (SLinkOperations.getTarget(_context.getNode(), LINKS.condition$3gCl) != null) {
+      _context.getBuilder().build((SNode) SLinkOperations.getTarget(_context.getNode(), LINKS.condition$3gCl));
       _context.getBuilder().emitIfJump(_context.getBuilder().after(_context.getNode()), "r:c205ea72-20c5-48ea-9b1b-6756ae88d68b(ReversibleStatements.dataFlow)/2873522757967662504");
     }
 
@@ -48,7 +48,7 @@ public class ForStatement_DataFlow extends DataFlowBuilder {
   private static final class LINKS {
     /*package*/ static final SContainmentLink iterator$fwes = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a40186e676L, 0x64ae61a401870e40L, "iterator");
     /*package*/ static final SContainmentLink additionalIterators$umBI = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a40186e676L, 0x5239321dec4ec665L, "additionalIterators");
-    /*package*/ static final SContainmentLink condition$fwVv = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a40186e676L, 0x64ae61a401870e43L, "condition");
+    /*package*/ static final SContainmentLink condition$3gCl = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x6337a44ca461bdf4L, 0x64ae61a401870e43L, "condition");
     /*package*/ static final SContainmentLink body$fofU = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a40186e676L, 0x64ae61a401870e33L, "body");
     /*package*/ static final SContainmentLink incr$fAzR = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a40186e676L, 0x64ae61a401870e46L, "incr");
   }

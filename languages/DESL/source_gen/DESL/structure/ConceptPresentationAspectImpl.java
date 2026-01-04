@@ -30,6 +30,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_GetReceiver;
   private ConceptPresentation props_GlobalVarDecl;
   private ConceptPresentation props_Header;
+  private ConceptPresentation props_IAllocateMemory;
   private ConceptPresentation props_IClassDefinition;
   private ConceptPresentation props_IDocs;
   private ConceptPresentation props_IDocsElement;
@@ -228,6 +229,12 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_Header = cpb.create();
         }
         return props_Header;
+      case LanguageConceptSwitch.IAllocateMemory:
+        if (props_IAllocateMemory == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          props_IAllocateMemory = cpb.create();
+        }
+        return props_IAllocateMemory;
       case LanguageConceptSwitch.IClassDefinition:
         if (props_IClassDefinition == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

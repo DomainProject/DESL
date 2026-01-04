@@ -281,56 +281,55 @@
       </scope>
     </file>
     <file name="check_AllocateStruct_NonTypesystemRule.java">
-      <node id="2333498690114915600" at="29,5,30,87" concept="6" />
-      <node id="2333498690106970471" at="32,545,33,204" concept="2" />
-      <node id="2333498690105367003" at="34,11,35,70" concept="6" />
-      <node id="2333498690105367003" at="35,70,36,260" concept="6" />
-      <node id="2333498690105331905" at="42,50,43,38" concept="7" />
-      <node id="2333498690105331905" at="45,68,46,102" concept="7" />
-      <node id="2333498690105331905" at="48,30,49,17" concept="7" />
-      <node id="2333498690105331905" at="53,0,54,0" concept="10" trace="newStructVariable$EkJL" />
-      <node id="2333498690105331905" at="54,0,55,0" concept="10" trace="baseType$zMGV" />
-      <node id="2333498690105331905" at="58,0,59,0" concept="10" trace="IVariableReference$Kb" />
-      <node id="2333498690105331905" at="59,0,60,0" concept="10" trace="PointerType$HX" />
-      <node id="2333498690105331905" at="60,0,61,0" concept="10" trace="StructType$B3" />
-      <node id="2333498690105331905" at="61,0,62,0" concept="10" trace="AllocateStruct$Pb" />
-      <node id="2333498690105331905" at="26,0,28,0" concept="1" trace="check_AllocateStruct_NonTypesystemRule#()V" />
-      <node id="2333498690105331905" at="42,0,45,0" concept="5" trace="getApplicableConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
-      <node id="2333498690105331905" at="45,0,48,0" concept="5" trace="isApplicableAndPattern#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;" />
-      <node id="2333498690105331905" at="48,0,51,0" concept="5" trace="overrides#()Z" />
-      <node id="2333498690105367003" at="33,204,37,11" concept="0" />
-      <node id="2333498690105368879" at="31,81,38,9" concept="4" />
-      <node id="2333498690114915600" at="30,87,39,7" concept="4" />
-      <node id="2333498690114915600" at="28,115,40,5" concept="0" />
-      <node id="2333498690105331905" at="28,0,42,0" concept="5" trace="applyRule#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/typesystem/inference/TypeCheckingContext;Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;)V" />
-      <scope id="2333498690105331905" at="26,51,26,51" />
-      <scope id="2333498690105331905" at="42,50,43,38" />
-      <scope id="2333498690105331905" at="45,68,46,102" />
-      <scope id="2333498690105331905" at="48,30,49,17" />
-      <scope id="2333498690105331905" at="26,0,28,0" />
-      <scope id="2333498690105367003" at="34,11,36,260">
+      <node id="2333498690114915600" at="27,5,28,88" concept="6" />
+      <node id="2333498690105367003" at="31,11,32,70" concept="6" />
+      <node id="2333498690105367003" at="32,70,33,260" concept="6" />
+      <node id="2333498690105331905" at="39,50,40,38" concept="7" />
+      <node id="2333498690105331905" at="42,68,43,102" concept="7" />
+      <node id="2333498690105331905" at="45,30,46,17" concept="7" />
+      <node id="2333498690105331905" at="50,0,51,0" concept="10" trace="allocationVariable$GPxN" />
+      <node id="2333498690105331905" at="51,0,52,0" concept="10" trace="baseType$zMGV" />
+      <node id="2333498690105331905" at="55,0,56,0" concept="10" trace="IVariableReference$Kb" />
+      <node id="2333498690105331905" at="56,0,57,0" concept="10" trace="PointerType$HX" />
+      <node id="2333498690105331905" at="57,0,58,0" concept="10" trace="StructType$B3" />
+      <node id="2333498690105331905" at="58,0,59,0" concept="10" trace="AllocateStruct$Pb" />
+      <node id="2333498690105331905" at="24,0,26,0" concept="1" trace="check_AllocateStruct_NonTypesystemRule#()V" />
+      <node id="2333498690105331905" at="39,0,42,0" concept="5" trace="getApplicableConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
+      <node id="2333498690105331905" at="42,0,45,0" concept="5" trace="isApplicableAndPattern#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;" />
+      <node id="2333498690105331905" at="45,0,48,0" concept="5" trace="overrides#()Z" />
+      <node id="2333498690105367003" at="30,545,34,11" concept="0" />
+      <node id="2333498690105368879" at="29,81,35,9" concept="4" />
+      <node id="2333498690114915600" at="28,88,36,7" concept="4" />
+      <node id="2333498690114915600" at="26,115,37,5" concept="0" />
+      <node id="2333498690105331905" at="26,0,39,0" concept="5" trace="applyRule#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/typesystem/inference/TypeCheckingContext;Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;)V" />
+      <scope id="2333498690105331905" at="24,51,24,51" />
+      <scope id="2333498690105331905" at="39,50,40,38" />
+      <scope id="2333498690105331905" at="42,68,43,102" />
+      <scope id="2333498690105331905" at="45,30,46,17" />
+      <scope id="2333498690105331905" at="24,0,26,0" />
+      <scope id="2333498690105367003" at="31,11,33,260">
         <var name="_reporter_2309309498" id="2333498690105367003" />
         <var name="errorTarget" id="2333498690105367003" />
       </scope>
-      <scope id="2333498690105331905" at="42,0,45,0" />
-      <scope id="2333498690105331905" at="45,0,48,0">
+      <scope id="2333498690105331905" at="39,0,42,0" />
+      <scope id="2333498690105331905" at="42,0,45,0">
         <var name="argument" id="2333498690105331905" />
       </scope>
-      <scope id="2333498690105331905" at="48,0,51,0" />
-      <scope id="2333498690105368881" at="32,545,37,11" />
-      <scope id="2333498690114915604" at="31,81,38,9" />
-      <scope id="2333498690114915600" at="29,5,39,7">
+      <scope id="2333498690105331905" at="45,0,48,0" />
+      <scope id="2333498690105368881" at="30,545,34,11" />
+      <scope id="2333498690114915604" at="29,81,35,9" />
+      <scope id="2333498690114915600" at="27,5,36,7">
         <var name="varRef" id="2333498690114915600" />
       </scope>
-      <scope id="2333498690105331906" at="28,115,40,5" />
-      <scope id="2333498690105331905" at="28,0,42,0">
+      <scope id="2333498690105331906" at="26,115,37,5" />
+      <scope id="2333498690105331905" at="26,0,39,0">
         <var name="as" id="2333498690105331905" />
         <var name="status" id="2333498690105331905" />
         <var name="typeCheckingContext" id="2333498690105331905" />
       </scope>
-      <unit id="2333498690105331905" at="52,0,56,0" name="ReversibleStatements.typesystem.check_AllocateStruct_NonTypesystemRule$LINKS" />
-      <unit id="2333498690105331905" at="57,0,63,0" name="ReversibleStatements.typesystem.check_AllocateStruct_NonTypesystemRule$CONCEPTS" />
-      <unit id="2333498690105331905" at="25,0,64,0" name="ReversibleStatements.typesystem.check_AllocateStruct_NonTypesystemRule" />
+      <unit id="2333498690105331905" at="49,0,53,0" name="ReversibleStatements.typesystem.check_AllocateStruct_NonTypesystemRule$LINKS" />
+      <unit id="2333498690105331905" at="54,0,60,0" name="ReversibleStatements.typesystem.check_AllocateStruct_NonTypesystemRule$CONCEPTS" />
+      <unit id="2333498690105331905" at="23,0,61,0" name="ReversibleStatements.typesystem.check_AllocateStruct_NonTypesystemRule" />
     </file>
   </root>
   <root nodeRef="r:07afe000-9188-4b34-9180-ab5e86e4d5d2(ReversibleStatements.typesystem)/2873522757967644009">
@@ -351,7 +350,7 @@
       <node id="2873522757967644009" at="36,30,37,17" concept="7" />
       <node id="2873522757967660228" at="39,63,40,71" concept="6" />
       <node id="2873522757967660228" at="40,71,41,26" concept="7" />
-      <node id="2873522757967644009" at="45,0,46,0" concept="10" trace="condition$fwVv" />
+      <node id="2873522757967644009" at="45,0,46,0" concept="10" trace="condition$3gCl" />
       <node id="2873522757967644009" at="49,0,50,0" concept="10" trace="ForStatement$Bb" />
       <node id="2873522757967644009" at="50,0,51,0" concept="10" trace="BooleanType$fL" />
       <node id="2873522757967644009" at="19,0,21,0" concept="1" trace="typeof_RevForStatement_InferenceRule#()V" />

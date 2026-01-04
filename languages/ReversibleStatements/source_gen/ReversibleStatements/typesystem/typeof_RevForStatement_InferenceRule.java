@@ -21,7 +21,7 @@ public class typeof_RevForStatement_InferenceRule extends AbstractInferenceRule_
   public void applyRule(final SNode forStatement, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     if (!(typeCheckingContext.isSingleTypeComputation())) {
       {
-        SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(forStatement, LINKS.condition$fwVv);
+        SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(forStatement, LINKS.condition$3gCl);
         EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:07afe000-9188-4b34-9180-ab5e86e4d5d2(ReversibleStatements.typesystem)", "2873522757967655292", 0, null);
         typeCheckingContext.createLessThanInequality((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:07afe000-9188-4b34-9180-ab5e86e4d5d2(ReversibleStatements.typesystem)", "2873522757967655306", true), (SNode) createBooleanType_bc9c1k_a1a0c0a0a0b(), true, true, _info_12389875345);
       }
@@ -42,7 +42,7 @@ public class typeof_RevForStatement_InferenceRule extends AbstractInferenceRule_
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink condition$fwVv = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a40186e676L, 0x64ae61a401870e43L, "condition");
+    /*package*/ static final SContainmentLink condition$3gCl = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x6337a44ca461bdf4L, 0x64ae61a401870e43L, "condition");
   }
 
   private static final class CONCEPTS {

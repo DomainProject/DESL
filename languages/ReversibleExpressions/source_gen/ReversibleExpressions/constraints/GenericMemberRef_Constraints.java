@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import com.mbeddr.core.expressions.behavior.IVariableDeclaration__BehaviorDescriptor;
-import ReversibleExpressions.behavior.IVariableReference__BehaviorDescriptor;
+import com.mbeddr.core.expressions.behavior.IVariableReference__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import com.mbeddr.core.udt.behavior.SUDeclaration__BehaviorDescriptor;
 import com.mbeddr.core.udt.behavior.SUType__BehaviorDescriptor;

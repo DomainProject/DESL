@@ -12,6 +12,7 @@
     <import index="356a" ref="r:3b7ed80f-6cfd-45bc-b051-2f66c620dd27(jetbrains.mps.lang.traceable.structure)" implicit="true" />
     <import index="c4fa" ref="r:9f0e84b6-2ec7-4f9e-83e0-feedc77b63a3(com.mbeddr.core.statements.structure)" implicit="true" />
     <import index="x27k" ref="r:75ecab8a-8931-4140-afc6-4b46398710fc(com.mbeddr.core.modules.structure)" implicit="true" />
+    <import index="rdv6" ref="r:79077d65-28d5-4f56-905b-4bcf5185c60e(DESL.structure)" implicit="true" />
     <import index="k146" ref="r:5209fc71-bade-45c9-9079-f2d474f0d6ca(com.mbeddr.core.util.structure)" implicit="true" />
   </imports>
   <registry>
@@ -397,9 +398,6 @@
     <node concept="PrWs8" id="21ygb7Ut1I1" role="PzmwI">
       <ref role="PrY4T" node="21ygb7Us$bV" resolve="IAllocationVariable" />
     </node>
-    <node concept="PrWs8" id="2oU9ceCP7o3" role="PzmwI">
-      <ref role="PrY4T" to="ib4b:2vgMet5CGud" resolve="IDestructiveOperation" />
-    </node>
     <node concept="1QGGSu" id="1N5Tah$AJkG" role="rwd14">
       <property role="1iqoE4" value="${module}/icons/localvar.png" />
     </node>
@@ -492,12 +490,6 @@
       <property role="20lbJX" value="fLJekj5/_0__n" />
       <property role="IQ2ns" value="5924821888882624101" />
       <ref role="20lvS9" node="3hOuikE$B96" resolve="Iterator" />
-    </node>
-    <node concept="1TJgyj" id="6iIoqg1xKT3" role="1TKVEi">
-      <property role="20lmBu" value="fLJjDmT/aggregation" />
-      <property role="20kJfa" value="condition" />
-      <property role="IQ2ns" value="7254843406768606787" />
-      <ref role="20lvS9" to="ib4b:7FQByU3CrCM" resolve="ReversibleExpression" />
     </node>
     <node concept="1TJgyj" id="6iIoqg1xKT6" role="1TKVEi">
       <property role="20lmBu" value="fLJjDmT/aggregation" />
@@ -592,13 +584,6 @@
     <property role="R4oN_" value="while ( ) { .. }" />
     <property role="EcuMT" value="8441331188640771826" />
     <ref role="1TJDcQ" node="3CmSUB7FmO3" resolve="ReversibleStatement" />
-    <node concept="1TJgyj" id="7k_CvRMmYVN" role="1TKVEi">
-      <property role="20lmBu" value="fLJjDmT/aggregation" />
-      <property role="20kJfa" value="condition" />
-      <property role="20lbJX" value="fLJekj4/_1" />
-      <property role="IQ2ns" value="8441331188640771827" />
-      <ref role="20lvS9" to="mj1l:7FQByU3CrCM" resolve="Expression" />
-    </node>
     <node concept="1TJgyj" id="7k_CvRMmYVO" role="1TKVEi">
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <property role="20kJfa" value="body" />
@@ -944,9 +929,6 @@
     <node concept="PrWs8" id="2K9A72IepHH" role="PzmwI">
       <ref role="PrY4T" node="2K9A72IepH2" resolve="ICFGNode" />
     </node>
-    <node concept="PrWs8" id="5rI5N7ZmrVt" role="PzmwI">
-      <ref role="PrY4T" node="5rI5N7ZmrVr" resolve="IReversible" />
-    </node>
     <node concept="PrWs8" id="5w9EkGCEEdj" role="PzmwI">
       <ref role="PrY4T" node="5w9EkGCEEdi" resolve="IReversibleStatement" />
     </node>
@@ -999,6 +981,11 @@
       <property role="TrG5h" value="isForward" />
       <ref role="AX2Wp" to="tpck:fKAQMTB" resolve="boolean" />
     </node>
+    <node concept="1TJgyi" id="7kzrHkWQ6rM" role="1TKVEl">
+      <property role="IQ2nx" value="8440711988750345970" />
+      <property role="TrG5h" value="skipStateSaving" />
+      <ref role="AX2Wp" to="tpck:fKAQMTB" resolve="boolean" />
+    </node>
   </node>
   <node concept="1TIwiD" id="5xEIMPmjCbZ">
     <property role="EcuMT" value="6371110426264896255" />
@@ -1025,6 +1012,12 @@
       <property role="20kJfa" value="additionalVariables" />
       <property role="20lbJX" value="fLJekj5/_0__n" />
       <ref role="20lvS9" to="c4fa:3CmSUB7FprA" resolve="LocalVariableDeclaration" />
+    </node>
+    <node concept="1TJgyj" id="6iIoqg1xKT3" role="1TKVEi">
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="condition" />
+      <property role="IQ2ns" value="7254843406768606787" />
+      <ref role="20lvS9" to="ib4b:7FQByU3CrCM" resolve="ReversibleExpression" />
     </node>
   </node>
   <node concept="1TIwiD" id="5suDuW$vzHH">
@@ -1060,14 +1053,10 @@
     <property role="R4oN_" value="allocate memory for a new struct" />
     <ref role="1TJDcQ" node="3CmSUB7FmO3" resolve="ReversibleStatement" />
     <node concept="PrWs8" id="21ygb7Usgah" role="PzmwI">
-      <ref role="PrY4T" to="ib4b:2vgMet5CGud" resolve="IDestructiveOperation" />
+      <ref role="PrY4T" to="rdv6:7FTvvGPSfVC" resolve="IAllocateMemory" />
     </node>
-    <node concept="1TJgyj" id="21ygb7Us$dI" role="1TKVEi">
-      <property role="IQ2ns" value="2333498690086519662" />
-      <property role="20lmBu" value="fLJjDmT/aggregation" />
-      <property role="20kJfa" value="newStructVariable" />
-      <property role="20lbJX" value="fLJekj4/_1" />
-      <ref role="20lvS9" node="21ygb7Us$bV" resolve="IAllocationVariable" />
+    <node concept="PrWs8" id="7kzrHkW7_C5" role="PzmwI">
+      <ref role="PrY4T" node="7kzrHkUVoYW" resolve="IDefineStateSaving" />
     </node>
   </node>
   <node concept="PlHQZ" id="21ygb7Us$bV">
@@ -1101,6 +1090,9 @@
     <node concept="PrWs8" id="4W5bsS_Qt78" role="PzmwI">
       <ref role="PrY4T" to="ib4b:2vgMet5CGud" resolve="IDestructiveOperation" />
     </node>
+    <node concept="PrWs8" id="7kzrHkUVrg_" role="PzmwI">
+      <ref role="PrY4T" node="7kzrHkUVoYW" resolve="IDefineStateSaving" />
+    </node>
   </node>
   <node concept="1TIwiD" id="5w9EkGC$m2$">
     <property role="EcuMT" value="6343787690396311716" />
@@ -1114,6 +1106,9 @@
   <node concept="PlHQZ" id="5w9EkGCEEdi">
     <property role="EcuMT" value="6343787690397967186" />
     <property role="TrG5h" value="IReversibleStatement" />
+    <node concept="PrWs8" id="7kzrHkWQlHt" role="PrDN$">
+      <ref role="PrY4T" node="5rI5N7ZmrVr" resolve="IReversible" />
+    </node>
   </node>
   <node concept="1TIwiD" id="7IOFtafNdkc">
     <property role="EcuMT" value="8913940682340357388" />
@@ -1123,6 +1118,10 @@
     <node concept="PrWs8" id="7IOFtafNdkd" role="PzmwI">
       <ref role="PrY4T" node="5w9EkGCEEdi" resolve="IReversibleStatement" />
     </node>
+  </node>
+  <node concept="PlHQZ" id="7kzrHkUVoYW">
+    <property role="EcuMT" value="8440711988718178236" />
+    <property role="TrG5h" value="IDefineStateSaving" />
   </node>
 </model>
 

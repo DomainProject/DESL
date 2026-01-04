@@ -4,7 +4,7 @@ package ReversibleStatements.dataFlow;
 
 import jetbrains.mps.lang.dataFlow.DataFlowBuilder;
 import jetbrains.mps.lang.dataFlow.DataFlowBuilderContext;
-import ReversibleExpressions.behavior.IVariableReference__BehaviorDescriptor;
+import com.mbeddr.core.expressions.behavior.IVariableReference__BehaviorDescriptor;
 
 public class ArgumentRef_DataFlow extends DataFlowBuilder {
   public void build(final DataFlowBuilderContext _context) {

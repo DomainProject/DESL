@@ -9,13 +9,14 @@
     <import index="w10r" ref="r:8775283b-358b-48f4-940b-ff7509a23a91(ReversibleExpressions.dataFlow)" />
     <import index="c17a" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.language(MPS.OpenAPI/)" />
     <import index="hwgx" ref="r:fd2980c8-676c-4b19-b524-18c70e02f8b7(com.mbeddr.core.base.behavior)" />
+    <import index="ywuz" ref="r:c6ce92e7-5a98-4a6f-866a-ec8b9e945dd8(com.mbeddr.core.expressions.behavior)" />
     <import index="vs0r" ref="r:f7764ca4-8c75-4049-922b-08516400a727(com.mbeddr.core.base.structure)" />
     <import index="8qxk" ref="r:3dddb2c7-b2ba-4381-896a-2e702ca1fb6e(jetbrains.mps.lang.dataFlow.framework)" />
     <import index="ib4b" ref="r:539823a2-87c6-4a7e-abc8-d6fc586848eb(ReversibleExpressions.structure)" />
     <import index="e32u" ref="r:457bcadc-5da5-4b82-8524-230e48ca7946(ReversibleExpressions.behavior)" />
     <import index="33ny" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util(JDK/)" />
-    <import index="aplb" ref="2af156ab-65c1-4a62-bd0d-ea734f71eab6/r:a1d8bbbf-d4f0-431f-8dcd-a6badc777315(jetbrains.mps.dataFlow.runtime/jetbrains.mps.lang.dataFlow)" />
     <import index="mhfm" ref="3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)" />
+    <import index="aplb" ref="2af156ab-65c1-4a62-bd0d-ea734f71eab6/r:a1d8bbbf-d4f0-431f-8dcd-a6badc777315(jetbrains.mps.dataFlow.runtime/jetbrains.mps.lang.dataFlow)" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" />
   </imports>
   <registry>
@@ -504,7 +505,7 @@
                       </node>
                     </node>
                     <node concept="2qgKlT" id="1x" role="2OqNvi">
-                      <ref role="37wK5l" to="e32u:1LDGRqyQFAf" resolve="getVariable" />
+                      <ref role="37wK5l" to="ywuz:1LDGRqyQFAf" resolve="getVariable" />
                       <uo k="s:originTrace" v="n:4558808735059891700" />
                     </node>
                   </node>
@@ -1345,7 +1346,7 @@
                       </node>
                     </node>
                     <node concept="2qgKlT" id="5Y" role="2OqNvi">
-                      <ref role="37wK5l" to="e32u:1LDGRqyQFAf" resolve="getVariable" />
+                      <ref role="37wK5l" to="ywuz:1LDGRqyQFAf" resolve="getVariable" />
                       <uo k="s:originTrace" v="n:5782768392141304035" />
                     </node>
                   </node>
@@ -1423,7 +1424,7 @@
                       </node>
                     </node>
                     <node concept="2qgKlT" id="6n" role="2OqNvi">
-                      <ref role="37wK5l" to="e32u:1LDGRqyQFAf" resolve="getVariable" />
+                      <ref role="37wK5l" to="ywuz:1LDGRqyQFAf" resolve="getVariable" />
                       <uo k="s:originTrace" v="n:5782768392141312386" />
                     </node>
                   </node>
@@ -2319,7 +2320,7 @@
                       </node>
                     </node>
                     <node concept="2qgKlT" id="aV" role="2OqNvi">
-                      <ref role="37wK5l" to="e32u:1LDGRqyQFAf" resolve="getVariable" />
+                      <ref role="37wK5l" to="ywuz:1LDGRqyQFAf" resolve="getVariable" />
                       <uo k="s:originTrace" v="n:3105925081592869834" />
                     </node>
                   </node>

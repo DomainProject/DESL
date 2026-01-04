@@ -20,7 +20,7 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 public final class IVariableReference__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1c69b376a2dab98aL, "ReversibleExpressions.structure.IVariableReference");
 
-  public static final SMethod<SNode> getVariable_id1LDGRqyQFAf = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getVariable").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2047364827736357263L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
+  public static final SMethod<SNode> getVariable_id1LDGRqyQFAf = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getVariable").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2047364827736357263L).languageId(0x81d97714ff227fb0L, 0x61c69711ed614850L).build2();
   public static final SMethod<String> getVariableName_id79Sp4cYA0X2 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getVariableName").modifiers(12, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8248452957504802626L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
   public static final SMethod<SNode> target_id70kXLV4LLzy = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("target").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8076351743304603874L).languageId(0xaa41d1b2bffa7eb1L, 0xd4280a54f6df4383L).build2();
 
@@ -33,7 +33,7 @@ public final class IVariableReference__BehaviorDescriptor extends BaseBHDescript
     return null;
   }
   /*package*/ static SNode target_id70kXLV4LLzy(@NotNull SNode __thisNode__) {
-    return ((SNode) IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(__thisNode__));
+    return ((SNode) com.mbeddr.core.expressions.behavior.IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(__thisNode__));
   }
 
   /*package*/ IVariableReference__BehaviorDescriptor() {

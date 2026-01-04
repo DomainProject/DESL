@@ -11,7 +11,7 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1070462154015:jetbrains.mps.baseLanguage.structure.StaticFieldDeclaration" />
   <root>
     <file name="TypesystemDescriptor.java">
-      <unit at="8,0,20,0" name="DESL.typesystem.TypesystemDescriptor" />
+      <unit at="8,0,24,0" name="DESL.typesystem.TypesystemDescriptor" />
     </file>
   </root>
   <root nodeRef="r:6c6f575b-fd8b-4b90-9f2a-6cc39b82d403(DESL.typesystem)/2035552184181850839">
@@ -75,7 +75,7 @@
       </scope>
     </file>
     <file name="check_CreateArray_NonTypesystemRule.java">
-      <node id="2333498690114915600" at="28,5,29,92" concept="5" />
+      <node id="2333498690114915600" at="28,5,29,97" concept="5" />
       <node id="2333498690105367003" at="32,11,33,70" concept="5" />
       <node id="2333498690105367003" at="33,70,34,236" concept="5" />
       <node id="2088979449565561415" at="38,5,39,0" concept="7" />
@@ -84,7 +84,7 @@
       <node id="2088979449565548905" at="47,50,48,35" concept="6" />
       <node id="2088979449565548905" at="50,68,51,102" concept="6" />
       <node id="2088979449565548905" at="53,30,54,17" concept="6" />
-      <node id="2088979449565548905" at="58,0,59,0" concept="8" trace="arrayVariable$p6nT" />
+      <node id="2088979449565548905" at="58,0,59,0" concept="8" trace="allocationVariable$GPxN" />
       <node id="2088979449565548905" at="59,0,60,0" concept="8" trace="size$QIgu" />
       <node id="2088979449565548905" at="63,0,64,0" concept="8" trace="IVariableReference$Kb" />
       <node id="2088979449565548905" at="64,0,65,0" concept="8" trace="PointerType$HX" />
@@ -97,7 +97,7 @@
       <node id="2088979449565579730" at="40,156,44,7" concept="0" />
       <node id="2333498690105368879" at="30,81,36,9" concept="3" />
       <node id="2088979449565561686" at="39,0,45,5" concept="3" />
-      <node id="2333498690114915600" at="29,92,37,7" concept="3" />
+      <node id="2333498690114915600" at="29,97,37,7" concept="3" />
       <node id="2333498690114915600" at="27,124,38,5" concept="0" />
       <node id="2088979449565548905" at="27,0,47,0" concept="4" trace="applyRule#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/typesystem/inference/TypeCheckingContext;Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;)V" />
       <scope id="2088979449565548905" at="25,48,25,48" />
@@ -133,6 +133,79 @@
       <unit id="2088979449565548905" at="57,0,61,0" name="DESL.typesystem.check_CreateArray_NonTypesystemRule$LINKS" />
       <unit id="2088979449565548905" at="62,0,67,0" name="DESL.typesystem.check_CreateArray_NonTypesystemRule$CONCEPTS" />
       <unit id="2088979449565548905" at="24,0,68,0" name="DESL.typesystem.check_CreateArray_NonTypesystemRule" />
+    </file>
+  </root>
+  <root nodeRef="r:6c6f575b-fd8b-4b90-9f2a-6cc39b82d403(DESL.typesystem)/6749275141377621352">
+    <file name="TypesystemDescriptor.java">
+      <node id="6749275141377621352" at="18,5,19,100" concept="5" />
+      <node id="6749275141377621352" at="19,100,20,55" concept="2" />
+      <node id="6749275141377621352" at="17,5,21,5" concept="0" />
+      <scope id="6749275141377621352" at="18,5,20,55">
+        <var name="nonTypesystemRule" id="6749275141377621352" />
+      </scope>
+    </file>
+    <file name="check_IExternalFunction_NonTypesystemRule.java">
+      <node id="6749275141377767262" at="29,130,30,305" concept="5" />
+      <node id="6749275141377766967" at="30,305,31,0" concept="7" />
+      <node id="6749275141377649882" at="33,7,34,48" concept="5" />
+      <node id="6749275141377824613" at="37,13,38,72" concept="5" />
+      <node id="6749275141377824613" at="38,72,39,240" concept="5" />
+      <node id="6749275141379190397" at="44,5,45,0" concept="7" />
+      <node id="6749275141377621352" at="47,50,48,41" concept="6" />
+      <node id="6749275141377621352" at="50,68,51,102" concept="6" />
+      <node id="6749275141377621352" at="53,30,54,17" concept="6" />
+      <node id="6749275141377621352" at="58,0,59,0" concept="8" trace="DESLModel$DK" />
+      <node id="6749275141377621352" at="59,0,60,0" concept="8" trace="ReversibleFunction$IL" />
+      <node id="6749275141377621352" at="60,0,61,0" concept="8" trace="PointerType$HX" />
+      <node id="6749275141377621352" at="61,0,62,0" concept="8" trace="IExternalFunction$rD" />
+      <node id="6749275141377621352" at="65,0,66,0" concept="8" trace="arguments$6da0" />
+      <node id="6749275141377621352" at="66,0,67,0" concept="8" trace="type$sXU3" />
+      <node id="6749275141377621352" at="67,0,68,0" concept="8" trace="baseType$zMGV" />
+      <node id="6749275141377621352" at="68,0,69,0" concept="8" trace="messageStruct$xVlJ" />
+      <node id="6749275141377621352" at="69,0,70,0" concept="8" trace="externalFunctions$LqEg" />
+      <node id="6749275141377621352" at="73,0,74,0" concept="8" trace="name$MnvL" />
+      <node id="6749275141377621352" at="27,0,29,0" concept="1" trace="check_IExternalFunction_NonTypesystemRule#()V" />
+      <node id="6749275141377621352" at="47,0,50,0" concept="4" trace="getApplicableConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
+      <node id="6749275141377621352" at="50,0,53,0" concept="4" trace="isApplicableAndPattern#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;" />
+      <node id="6749275141377621352" at="53,0,56,0" concept="4" trace="overrides#()Z" />
+      <node id="6749275141377824613" at="36,647,40,13" concept="0" />
+      <node id="6749275141377649968" at="35,84,41,11" concept="3" />
+      <node id="6749275141377649882" at="34,48,42,9" concept="3" />
+      <node id="6749275141377649882" at="32,83,43,7" concept="0" />
+      <node id="6749275141379193174" at="31,0,44,5" concept="3" />
+      <node id="6749275141377621352" at="29,0,47,0" concept="4" trace="applyRule#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/typesystem/inference/TypeCheckingContext;Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;)V" />
+      <scope id="6749275141377621352" at="27,54,27,54" />
+      <scope id="6749275141377621352" at="47,50,48,41" />
+      <scope id="6749275141377621352" at="50,68,51,102" />
+      <scope id="6749275141377621352" at="53,30,54,17" />
+      <scope id="6749275141377621352" at="27,0,29,0" />
+      <scope id="6749275141377824613" at="37,13,39,240">
+        <var name="_reporter_2309309498" id="6749275141377824613" />
+        <var name="errorTarget" id="6749275141377824613" />
+      </scope>
+      <scope id="6749275141377621352" at="47,0,50,0" />
+      <scope id="6749275141377621352" at="50,0,53,0">
+        <var name="argument" id="6749275141377621352" />
+      </scope>
+      <scope id="6749275141377621352" at="53,0,56,0" />
+      <scope id="6749275141377649970" at="36,647,40,13" />
+      <scope id="6749275141377649884" at="35,84,41,11" />
+      <scope id="6749275141377649882" at="33,7,42,9">
+        <var name="revFunc" id="6749275141377649882" />
+      </scope>
+      <scope id="6749275141379193176" at="32,83,43,7" />
+      <scope id="6749275141377621353" at="29,130,45,0">
+        <var name="root" id="6749275141377767265" />
+      </scope>
+      <scope id="6749275141377621352" at="29,0,47,0">
+        <var name="iExternalFunction" id="6749275141377621352" />
+        <var name="status" id="6749275141377621352" />
+        <var name="typeCheckingContext" id="6749275141377621352" />
+      </scope>
+      <unit id="6749275141377621352" at="72,0,75,0" name="DESL.typesystem.check_IExternalFunction_NonTypesystemRule$PROPS" />
+      <unit id="6749275141377621352" at="57,0,63,0" name="DESL.typesystem.check_IExternalFunction_NonTypesystemRule$CONCEPTS" />
+      <unit id="6749275141377621352" at="64,0,71,0" name="DESL.typesystem.check_IExternalFunction_NonTypesystemRule$LINKS" />
+      <unit id="6749275141377621352" at="26,0,76,0" name="DESL.typesystem.check_IExternalFunction_NonTypesystemRule" />
     </file>
   </root>
 </debug-info>

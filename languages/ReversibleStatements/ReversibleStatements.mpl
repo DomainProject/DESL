@@ -23,6 +23,7 @@
     <dependency reexport="false">efda956e-491e-4f00-ba14-36af2f213ecf(com.mbeddr.core.udt)</dependency>
     <dependency reexport="false">2693fc71-9b0e-4b05-ab13-f57227d675f2(com.mbeddr.core.util)</dependency>
     <dependency reexport="false">c4765525-912b-41b9-ace4-ce3b88117666(DESL)</dependency>
+    <dependency reexport="false">99e1808b-e2d7-4c11-a40f-23376c03dda3(Collections)</dependency>
   </dependencies>
   <languageVersions>
     <language slang="l:9abffa92-4875-42bf-9379-c4f95eb496d4:ReversibleExpressions" version="5" />
@@ -89,6 +90,7 @@
   </languageVersions>
   <dependencyVersions>
     <module reference="3f233e7f-b8a6-46d2-a57f-795d56775243(Annotations)" version="0" />
+    <module reference="99e1808b-e2d7-4c11-a40f-23376c03dda3(Collections)" version="0" />
     <module reference="c4765525-912b-41b9-ace4-ce3b88117666(DESL)" version="0" />
     <module reference="6354ebe7-c22a-4a0f-ac54-50b52ab9b065(JDK)" version="0" />
     <module reference="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea(MPS.Core)" version="0" />

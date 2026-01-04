@@ -22,9 +22,9 @@
     <import index="hwgx" ref="r:fd2980c8-676c-4b19-b524-18c70e02f8b7(com.mbeddr.core.base.behavior)" implicit="true" />
     <import index="w8o" ref="r:e84d12fa-9ad2-42d4-95e8-d9ef0c30fdf9(ReversibleFunctions.structure)" implicit="true" />
     <import index="e32u" ref="r:457bcadc-5da5-4b82-8524-230e48ca7946(ReversibleExpressions.behavior)" implicit="true" />
+    <import index="mj1l" ref="r:c371cf98-dcc8-4a43-8eb8-8a8096de18b2(com.mbeddr.core.expressions.structure)" implicit="true" />
     <import index="clbe" ref="r:61d840b4-12c1-49ea-b142-b2a1550a9b15(com.mbeddr.core.udt.structure)" implicit="true" />
     <import index="ywuz" ref="r:c6ce92e7-5a98-4a6f-866a-ec8b9e945dd8(com.mbeddr.core.expressions.behavior)" implicit="true" />
-    <import index="mj1l" ref="r:c371cf98-dcc8-4a43-8eb8-8a8096de18b2(com.mbeddr.core.expressions.structure)" implicit="true" />
     <import index="2rho" ref="r:4e770e63-2ef5-4a0d-b2e8-c5c1a1565703(com.mbeddr.core.udt.behavior)" implicit="true" />
     <import index="yq40" ref="r:152b3fc0-83a1-4bab-a8cd-565eb8483785(com.mbeddr.core.pointers.structure)" implicit="true" />
     <import index="c4fa" ref="r:9f0e84b6-2ec7-4f9e-83e0-feedc77b63a3(com.mbeddr.core.statements.structure)" implicit="true" />
@@ -61,6 +61,7 @@
         <reference id="1068581517664" name="variableDeclaration" index="3cqZAo" />
       </concept>
       <concept id="1068498886294" name="jetbrains.mps.baseLanguage.structure.AssignmentExpression" flags="nn" index="37vLTI" />
+      <concept id="1225271221393" name="jetbrains.mps.baseLanguage.structure.NPENotEqualsExpression" flags="nn" index="17QLQc" />
       <concept id="1225271283259" name="jetbrains.mps.baseLanguage.structure.NPEEqualsExpression" flags="nn" index="17R0WA" />
       <concept id="1225271369338" name="jetbrains.mps.baseLanguage.structure.IsEmptyOperation" flags="nn" index="17RlXB" />
       <concept id="4972933694980447171" name="jetbrains.mps.baseLanguage.structure.BaseVariableDeclaration" flags="ng" index="19Szcq">
@@ -129,6 +130,7 @@
       <concept id="6702802731807420587" name="jetbrains.mps.lang.constraints.structure.ConstraintFunction_CanBeAParent" flags="ig" index="9SLcT" />
       <concept id="1202989658459" name="jetbrains.mps.lang.constraints.structure.ConstraintFunctionParameter_parentNode" flags="nn" index="nLn13" />
       <concept id="8966504967485224688" name="jetbrains.mps.lang.constraints.structure.ConstraintFunctionParameter_contextNode" flags="nn" index="2rP1CM" />
+      <concept id="4303308395523096213" name="jetbrains.mps.lang.constraints.structure.ConstraintFunctionParameter_childConcept" flags="ng" index="2DD5aU" />
       <concept id="1147467115080" name="jetbrains.mps.lang.constraints.structure.NodePropertyConstraint" flags="ng" index="EnEH3">
         <reference id="1147467295099" name="applicableProperty" index="EomxK" />
         <child id="1212097481299" name="propertyValidator" index="QCWH9" />
@@ -1787,6 +1789,21 @@
         </node>
       </node>
     </node>
+    <node concept="EnEH3" id="5QEfvHqZlS0" role="1MhHOB">
+      <ref role="EomxK" to="ib4b:2OeDS_53qQJ" resolve="callsDestructiveMacro" />
+    </node>
+    <node concept="9SLcT" id="5QEfvHsoWmc" role="9SGkU">
+      <node concept="3clFbS" id="5QEfvHsoWmd" role="2VODD2">
+        <node concept="3clFbF" id="5QEfvHsoWRj" role="3cqZAp">
+          <node concept="17QLQc" id="5QEfvHsoXoW" role="3clFbG">
+            <node concept="35c_gC" id="5QEfvHsoXpG" role="3uHU7w">
+              <ref role="35c_gD" to="mj1l:1LDGRqyQFAa" resolve="IVariableReference" />
+            </node>
+            <node concept="2DD5aU" id="5QEfvHsoWRi" role="3uHU7B" />
+          </node>
+        </node>
+      </node>
+    </node>
   </node>
   <node concept="1M2fIO" id="4Xtub2uuws7">
     <ref role="1M2myG" to="ib4b:4Xtub2u6TDv" resolve="GenericMemberRef" />
@@ -1885,7 +1902,7 @@
                             <ref role="1M0zk5" node="4Xtub2xFJ_G" resolve="varRef" />
                           </node>
                           <node concept="2qgKlT" id="4Xtub2xG69o" role="2OqNvi">
-                            <ref role="37wK5l" to="e32u:1LDGRqyQFAf" resolve="getVariable" />
+                            <ref role="37wK5l" to="ywuz:1LDGRqyQFAf" resolve="getVariable" />
                           </node>
                         </node>
                         <node concept="2qgKlT" id="4Xtub2xG7r$" role="2OqNvi">
@@ -2329,6 +2346,10 @@
         </node>
       </node>
     </node>
+  </node>
+  <node concept="1M2fIO" id="7FTvvGOKQgk">
+    <property role="3GE5qa" value="localvar" />
+    <ref role="1M2myG" to="ib4b:1LDGRqyQFAa" resolve="IVariableReference" />
   </node>
 </model>
 

@@ -39,7 +39,6 @@ public class LocalVariableDeclaration_Constraints extends BaseConstraintsDescrip
     }
     private static void staticSetPropertyValue(SNode node, String propertyValue) {
       SPropertyOperations.assign(node, PROPS.name$MnvL, propertyValue);
-      SPropertyOperations.assign(node, PROPS.variableToSaveName$udlR, propertyValue);
     }
   }
 
@@ -50,6 +49,5 @@ public class LocalVariableDeclaration_Constraints extends BaseConstraintsDescrip
   private static final class PROPS {
     /*package*/ static final SProperty shortDescription$Yd4v = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x10d34f97574L, "shortDescription");
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
-    /*package*/ static final SProperty variableToSaveName$udlR = MetaAdapterFactory.getProperty(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x27d0c8e745a2c78dL, 0x1b427f2e4b08b057L, "variableToSaveName");
   }
 }

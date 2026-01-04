@@ -52,6 +52,7 @@
   <uses language="l:c9d137c4-3259-44f8-80ff-33ab2b506ee4:jetbrains.mps.lang.util.order" />
   <uses language="l:696c1165-4a59-463b-bc5d-902caab85dd0:jetbrains.mps.make.facet" />
   <uses module="3f233e7f-b8a6-46d2-a57f-795d56775243(Annotations)" kind="dp" />
+  <uses module="c4765525-912b-41b9-ace4-ce3b88117666(DESL)" kind="dp" />
   <uses module="6354ebe7-c22a-4a0f-ac54-50b52ab9b065(JDK)" kind="rt+dp" />
   <uses module="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea(MPS.Core)" kind="rt+dp" />
   <uses module="1ed103c3-3aa6-49b7-9c21-6765ee11f224(MPS.Editor)" kind="rt+dp" />

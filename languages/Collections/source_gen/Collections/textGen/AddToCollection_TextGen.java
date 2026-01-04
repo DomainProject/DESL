@@ -5,21 +5,47 @@ package Collections.textGen;
 import jetbrains.mps.text.rt.TextGenDescriptorBase;
 import jetbrains.mps.text.rt.TextGenContext;
 import jetbrains.mps.text.impl.TextGenSupport;
+import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import ReversibleStatements.behavior.IReversibleLoop__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.traceable.behavior.TraceableConcept__BehaviorDescriptor;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SProperty;
-import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class AddToCollection_TextGen extends TextGenDescriptorBase {
   @Override
   public void generateText(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     tgs.createPositionInfo();
+
+    SNode loopAncestor = (SNodeOperations.isInstanceOf(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.IReversibleLoop$k1) ? SNodeOperations.cast(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.IReversibleLoop$k1) : SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.IReversibleLoop$k1, false, false));
+    boolean isContainedInLoop = (loopAncestor != null);
+
     if (SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5)) {
+
+      if (isContainedInLoop) {
+        tgs.append("cp.");
+        tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.loopArrayName$wAd5));
+        tgs.append("[");
+        tgs.append(IReversibleLoop__BehaviorDescriptor.getIterationVariableName_id6cRD4M$XPR9.invoke(loopAncestor));
+        tgs.append("] = ");
+        tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableToSaveName$udlR));
+        tgs.append(";");
+        tgs.newLine();
+      } else {
+        tgs.append("cp.");
+        tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), PROPS.name$MnvL));
+        tgs.append(" = ");
+        tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableToSaveName$udlR));
+        tgs.append(";");
+        tgs.newLine();
+      }
+
+      tgs.indent();
       tgs.append("list_insert_tail(");
       tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.collection$icQi));
       tgs.append(", ");
@@ -29,8 +55,8 @@ public class AddToCollection_TextGen extends TextGenDescriptorBase {
     } else {
       tgs.append("list_detach_by_content(");
       tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.collection$icQi));
-      tgs.append(", ");
-      tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableName$6uCq));
+      tgs.append(", cp.");
+      tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), PROPS.name$MnvL));
       tgs.append(");");
       tgs.newLine();
     }
@@ -39,16 +65,21 @@ public class AddToCollection_TextGen extends TextGenDescriptorBase {
     }
   }
 
-  private static final class LINKS {
-    /*package*/ static final SContainmentLink collection$icQi = MetaAdapterFactory.getContainmentLink(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x1b427f2e49f084f2L, 0x1b427f2e4a217c88L, "collection");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IReversibleLoop$k1 = MetaAdapterFactory.getInterfaceConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x6337a44ca461bdf4L, "ReversibleStatements.structure.IReversibleLoop");
+    /*package*/ static final SInterfaceConcept TraceableConcept$L = MetaAdapterFactory.getInterfaceConcept(0x9ded098bad6a4657L, 0xbfd948636cfe8bc3L, 0x465516cf87c705a3L, "jetbrains.mps.lang.traceable.structure.TraceableConcept");
   }
 
   private static final class PROPS {
+    /*package*/ static final SProperty loopArrayName$wAd5 = MetaAdapterFactory.getProperty(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x6337a44ca4f72dbfL, "loopArrayName");
+    /*package*/ static final SProperty variableToSaveName$udlR = MetaAdapterFactory.getProperty(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x27d0c8e745a2c78dL, 0x1b427f2e4b08b057L, "variableToSaveName");
+    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
     /*package*/ static final SProperty variableName$6uCq = MetaAdapterFactory.getProperty(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x1b427f2e49f084f2L, 0x1b427f2e4a21703bL, "variableName");
     /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
   }
 
-  private static final class CONCEPTS {
-    /*package*/ static final SInterfaceConcept TraceableConcept$L = MetaAdapterFactory.getInterfaceConcept(0x9ded098bad6a4657L, 0xbfd948636cfe8bc3L, 0x465516cf87c705a3L, "jetbrains.mps.lang.traceable.structure.TraceableConcept");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink supportVariable$WrxR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x586abb2d5743cb69L, "supportVariable");
+    /*package*/ static final SContainmentLink collection$icQi = MetaAdapterFactory.getContainmentLink(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x1b427f2e49f084f2L, 0x1b427f2e4a217c88L, "collection");
   }
 }

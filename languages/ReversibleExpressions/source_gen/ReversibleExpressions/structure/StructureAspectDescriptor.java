@@ -1336,6 +1336,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     // extends: ReversibleExpressions.structure.ReversibleExpression
     b.super_(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L);
     b.parent(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x27d0c8e745a2c78dL);
+    b.parent(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x75236ed53aed8fbcL);
     b.origin("r:539823a2-87c6-4a7e-abc8-d6fc586848eb(ReversibleExpressions.structure)/1964272224270679684");
     b.version(3);
     b.property("callsDestructiveMacro", 0x2d0ea789450dadafL).type(PrimitiveTypeId.BOOLEAN).origin("3246716589391588783").done();

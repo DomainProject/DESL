@@ -18,10 +18,12 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.core.behavior.BaseConcept__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SEnumOperations;
+import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class BinaryExpression__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba34L, "ReversibleExpressions.structure.BinaryExpression");
@@ -38,8 +40,9 @@ public final class BinaryExpression__BehaviorDescriptor extends BaseBHDescriptor
   public static final SMethod<String> getPresentation_idhEwIMiw = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getPresentation").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1213877396640L).languageId(0x9b92103b95ca8c0cL, 0xceab519525ea4f22L).build2();
   public static final SMethod<Integer> getFontStyle_id6P3AdoeYlwX = new SMethodBuilder<Integer>(new SJavaCompoundTypeImpl(Integer.TYPE)).name("getFontStyle").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7873304618715404349L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
   public static final SMethod<String> getReversedOperator_id4e6KBjCJeOF = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getReversedOperator").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(4865790254797090091L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
+  public static final SMethod<Boolean> isLoopCondition_id7FTvvGQ_l_a = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isLoopCondition").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8861252259734182218L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isLValue_id6iIoqg1yDKH, isStaticallyEvaluatable_id3ilck8Kr3zN, renderReadable_id1VQvajLb13M, isSideeffectFree_id6SENleF$SRD, requiresParensAroundArgument_id3_qrK00j4rM, getSyntacticallyLeftSideExpression_id4e6KBjFhyzo, getSyntacticallyRightSideExpression_id4e6KBjFh$LK, setSyntacticallyLeftSideExpression_id4e6KBjFhBuf, setSyntacticallyRightSideExpression_id4e6KBjFhDIu, getPresentation_idhEwIMiw, getFontStyle_id6P3AdoeYlwX, getReversedOperator_id4e6KBjCJeOF);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isLValue_id6iIoqg1yDKH, isStaticallyEvaluatable_id3ilck8Kr3zN, renderReadable_id1VQvajLb13M, isSideeffectFree_id6SENleF$SRD, requiresParensAroundArgument_id3_qrK00j4rM, getSyntacticallyLeftSideExpression_id4e6KBjFhyzo, getSyntacticallyRightSideExpression_id4e6KBjFh$LK, setSyntacticallyLeftSideExpression_id4e6KBjFhBuf, setSyntacticallyRightSideExpression_id4e6KBjFhDIu, getPresentation_idhEwIMiw, getFontStyle_id6P3AdoeYlwX, getReversedOperator_id4e6KBjCJeOF, isLoopCondition_id7FTvvGQ_l_a);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -79,6 +82,10 @@ public final class BinaryExpression__BehaviorDescriptor extends BaseBHDescriptor
   }
   /*package*/ static String getReversedOperator_id4e6KBjCJeOF(@NotNull SNode __thisNode__) {
     return "";
+  }
+  /*package*/ static boolean isLoopCondition_id7FTvvGQ_l_a(@NotNull SNode __thisNode__) {
+    return SNodeOperations.hasRole(__thisNode__, LINKS.condition$3gCl) || SNodeOperations.hasRole(SNodeOperations.getParent(__thisNode__), LINKS.condition$3gCl) || Sequence.fromIterable(SNodeOperations.ofConcept(SNodeOperations.getNodeAncestors(__thisNode__, null, false), CONCEPTS.ReversibleExpression$Zd)).where((it) -> SNodeOperations.hasRole(it, LINKS.condition$3gCl)).isNotEmpty();
+
   }
 
   /*package*/ BinaryExpression__BehaviorDescriptor() {
@@ -122,6 +129,8 @@ public final class BinaryExpression__BehaviorDescriptor extends BaseBHDescriptor
         return (T) ((Integer) getFontStyle_id6P3AdoeYlwX(node));
       case 11:
         return (T) ((String) getReversedOperator_id4e6KBjCJeOF(node));
+      case 12:
+        return (T) ((Boolean) isLoopCondition_id7FTvvGQ_l_a(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -154,5 +163,10 @@ public final class BinaryExpression__BehaviorDescriptor extends BaseBHDescriptor
   private static final class LINKS {
     /*package*/ static final SContainmentLink right$KPZS = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba34L, 0x7af69e2e83a1ba41L, "right");
     /*package*/ static final SContainmentLink left$KPKR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba34L, 0x7af69e2e83a1ba40L, "left");
+    /*package*/ static final SContainmentLink condition$3gCl = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x6337a44ca461bdf4L, 0x64ae61a401870e43L, "condition");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ReversibleExpression$Zd = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L, "ReversibleExpressions.structure.ReversibleExpression");
   }
 }

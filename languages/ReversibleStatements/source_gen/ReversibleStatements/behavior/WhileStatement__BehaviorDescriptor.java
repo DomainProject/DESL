@@ -33,7 +33,7 @@ public final class WhileStatement__BehaviorDescriptor extends BaseBHDescriptor {
 
   private static void ___init___(@NotNull SNode __thisNode__) {
     SLinkOperations.setNewChild(__thisNode__, LINKS.body$7sGD, null);
-    SLinkOperations.setNewChild(__thisNode__, LINKS.condition$7stC, null);
+    SLinkOperations.setNewChild(__thisNode__, LINKS.condition$3gCl, null);
     SNode init = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x620d2cb3076ed664L, "ReversibleExpressions.structure.UnsignedIntegerLiteral"));
     SPropertyOperations.assign(init, PROPS.value$jw9Y, "0");
     INeedSupportVariable__BehaviorDescriptor.createVariable_id5xEIMPngWHX.invoke(__thisNode__, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x75739ed9f39c4d7aL, "com.mbeddr.core.expressions.structure.UnsignedIntType")), "while_iterations_", init);
@@ -96,7 +96,7 @@ public final class WhileStatement__BehaviorDescriptor extends BaseBHDescriptor {
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink body$7sGD = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x7525a1fdf25beef2L, 0x7525a1fdf25beef4L, "body");
-    /*package*/ static final SContainmentLink condition$7stC = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x7525a1fdf25beef2L, 0x7525a1fdf25beef3L, "condition");
+    /*package*/ static final SContainmentLink condition$3gCl = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x6337a44ca461bdf4L, 0x64ae61a401870e43L, "condition");
     /*package*/ static final SContainmentLink supportVariable$WrxR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x586abb2d5743cb69L, "supportVariable");
   }
 

@@ -17,6 +17,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import com.mbeddr.core.expressions.behavior.IVariableDeclaration__BehaviorDescriptor;
+import com.mbeddr.core.expressions.behavior.IVariableReference__BehaviorDescriptor;
 import com.mbeddr.core.expressions.behavior.Type__BehaviorDescriptor;
 import com.mbeddr.core.expressions.behavior.Expression__BehaviorDescriptor;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
@@ -38,8 +39,9 @@ public final class GenericDotExpression__BehaviorDescriptor extends BaseBHDescri
   public static final SMethod<SNode> getSyntacticallyLeftSideExpression_id6mzZsELnTBJ = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getSyntacticallyLeftSideExpression").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7323976466035612143L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
   public static final SMethod<Void> setSyntacticallyLeftSideExpression_id6mzZsELnCP6 = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("setSyntacticallyLeftSideExpression").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7323976466035543366L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<SNode> getCodeForTarget_id1uoAWUPe22W = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getCodeForTarget").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1700280171438284988L).languageId(0x81d97714ff227fb0L, 0x61c69711ed614850L).build2();
+  public static final SMethod<SNode> getLeftmostExpression_id7kzrHkX2a1_ = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getLeftmostExpression").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8440711988753506405L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getRepresentation_id66uzewbvZAY, getPresentation_idhEwIMiw, renderReadable_id1VQvajLb13M, isLValue_id6iIoqg1yDKH, getPriolevel_id5HxjapwgqKu, getSyntacticallyLeftSideExpression_id6mzZsELnTBJ, setSyntacticallyLeftSideExpression_id6mzZsELnCP6, getCodeForTarget_id1uoAWUPe22W);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getRepresentation_id66uzewbvZAY, getPresentation_idhEwIMiw, renderReadable_id1VQvajLb13M, isLValue_id6iIoqg1yDKH, getPriolevel_id5HxjapwgqKu, getSyntacticallyLeftSideExpression_id6mzZsELnTBJ, setSyntacticallyLeftSideExpression_id6mzZsELnCP6, getCodeForTarget_id1uoAWUPe22W, getLeftmostExpression_id7kzrHkX2a1_);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -84,6 +86,15 @@ public final class GenericDotExpression__BehaviorDescriptor extends BaseBHDescri
   /*package*/ static SNode getCodeForTarget_id1uoAWUPe22W(@NotNull SNode __thisNode__) {
     return SLinkOperations.getTarget(__thisNode__, LINKS.expression$HKAI);
   }
+  /*package*/ static SNode getLeftmostExpression_id7kzrHkX2a1_(@NotNull SNode __thisNode__) {
+    {
+      final SNode gde = SLinkOperations.getTarget(__thisNode__, LINKS.expression$HKAI);
+      if (SNodeOperations.isInstanceOf(gde, CONCEPTS.GenericDotExpression$ia)) {
+        return GenericDotExpression__BehaviorDescriptor.getLeftmostExpression_id7kzrHkX2a1_.invoke(gde);
+      }
+    }
+    return SLinkOperations.getTarget(__thisNode__, LINKS.expression$HKAI);
+  }
 
   /*package*/ GenericDotExpression__BehaviorDescriptor() {
   }
@@ -115,6 +126,8 @@ public final class GenericDotExpression__BehaviorDescriptor extends BaseBHDescri
         return null;
       case 7:
         return (T) ((SNode) getCodeForTarget_id1uoAWUPe22W(node));
+      case 8:
+        return (T) ((SNode) getLeftmostExpression_id7kzrHkX2a1_(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }

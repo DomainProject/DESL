@@ -37,6 +37,7 @@ public class ModelListenersDescriptor implements IModelListenersDescriptor {
         // statement list is the body of a for/while statement
         if ((loopAncestor != null)) {
 
+
           // if a statement that needs a support variable is created within a loop, an array to store all the possible values must be created and associated to the reversible loop
 
           {
@@ -92,8 +93,6 @@ public class ModelListenersDescriptor implements IModelListenersDescriptor {
               SPropertyOperations.assign(SNodeOperations.cast(SLinkOperations.getTarget(type, LINKS.sizeExpr$S0Eu), CONCEPTS.NumberLiteral$jK), PROPS.value$qZmE, "1000");
 
               SPropertyOperations.assign(expr, PROPS.loopArrayName$wAd5, IReversibleLoop__BehaviorDescriptor.createAdditionalVariable_id6cRD4M$XPZ_.invoke(SNodeOperations.getNodeAncestor(instance, CONCEPTS.IReversibleLoop$k1, false, false), type, SPropertyOperations.getString(expr, PROPS.baseName$24BZ), null));
-
-
             }
           }
         }
@@ -102,16 +101,19 @@ public class ModelListenersDescriptor implements IModelListenersDescriptor {
     ListSequence.fromList(listeners).addElement(new ChildListener(CONCEPTS.LocalVariableDeclaration$7E, LINKS.type$sXU3) {
       @Override
       public void childAdded(final SNode instance, final SNode child) {
-        if (!(SNodeOperations.isInstanceOf(instance, CONCEPTS.ForVarDecl$3i))) {
-          SLinkOperations.setTarget(SLinkOperations.getTarget(instance, LINKS.supportVariable$WrxR), LINKS.type$sXU3, SNodeOperations.copyNode(child));
+        {
+          final SNode memoryAllocation = SNodeOperations.getParent(instance);
+          if (SNodeOperations.isInstanceOf(memoryAllocation, CONCEPTS.IAllocateMemory$Z3)) {
+            SLinkOperations.setTarget(SLinkOperations.getTarget(memoryAllocation, LINKS.supportVariable$WrxR), LINKS.type$sXU3, SNodeOperations.copyNode(child));
+          }
         }
       }
     });
     ListSequence.fromList(listeners).addElement(new ChildListener(CONCEPTS.PointerType$HX, LINKS.baseType$zMGV) {
       @Override
       public void childAdded(final SNode instance, final SNode child) {
-        if (SConceptOperations.isExactly(SNodeOperations.asSConcept(SNodeOperations.getConcept(SNodeOperations.getParent(instance))), CONCEPTS.LocalVariableDeclaration$7E)) {
-          SLinkOperations.setTarget(SNodeOperations.cast(SLinkOperations.getTarget(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(instance), CONCEPTS.LocalVariableDeclaration$7E), LINKS.supportVariable$WrxR), LINKS.type$sXU3), CONCEPTS.PointerType$HX), LINKS.baseType$zMGV, SNodeOperations.copyNode(child));
+        if (SConceptOperations.isExactly(SNodeOperations.asSConcept(SNodeOperations.getConcept(SNodeOperations.getParent(instance))), CONCEPTS.LocalVariableDeclaration$7E) && SNodeOperations.isInstanceOf(SNodeOperations.getParent(SNodeOperations.getParent(instance)), CONCEPTS.AllocateStruct$Pb)) {
+          SLinkOperations.setTarget(SNodeOperations.cast(SLinkOperations.getTarget(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(SNodeOperations.getParent(instance)), CONCEPTS.AllocateStruct$Pb), LINKS.supportVariable$WrxR), LINKS.type$sXU3), CONCEPTS.PointerType$HX), LINKS.baseType$zMGV, SNodeOperations.copyNode(child));
         }
       }
     });
@@ -126,8 +128,9 @@ public class ModelListenersDescriptor implements IModelListenersDescriptor {
     /*package*/ static final SConcept NumberLiteral$jK = MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba67L, "com.mbeddr.core.expressions.structure.NumberLiteral");
     /*package*/ static final SConcept ExpressionStatement$L7 = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a4018a8592L, "ReversibleStatements.structure.ExpressionStatement");
     /*package*/ static final SConcept LocalVariableDeclaration$7E = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad96e6L, "ReversibleStatements.structure.LocalVariableDeclaration");
-    /*package*/ static final SConcept ForVarDecl$3i = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a401870e23L, "ReversibleStatements.structure.ForVarDecl");
+    /*package*/ static final SInterfaceConcept IAllocateMemory$Z3 = MetaAdapterFactory.getInterfaceConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x7af97dfb35e0fee8L, "DESL.structure.IAllocateMemory");
     /*package*/ static final SConcept PointerType$HX = MetaAdapterFactory.getConcept(0x3bf5377ae9044dedL, 0x97545a516023bfaaL, 0x3e0cae5e366d630L, "com.mbeddr.core.pointers.structure.PointerType");
+    /*package*/ static final SConcept AllocateStruct$Pb = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x4f052dce270158d9L, "ReversibleStatements.structure.AllocateStruct");
   }
 
   private static final class LINKS {

@@ -10,7 +10,6 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.model.SNode;
 import ReversibleStatements.behavior.IReversibleLoop__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
@@ -30,7 +29,7 @@ public class ElseIfPart_TextGen extends TextGenDescriptorBase {
     String iteratorName = "";
     String reverseIteratorName = "";
     if (isContainedInLoop) {
-      reverseIteratorName = iteratorName = "content->cp." + IReversibleLoop__BehaviorDescriptor.getIterationVariableName_id6cRD4M$XPR9.invoke(SNodeOperations.cast(loopAncestor, CONCEPTS.IReversibleLoop$k1));
+      reverseIteratorName = iteratorName = "cp." + IReversibleLoop__BehaviorDescriptor.getIterationVariableName_id6cRD4M$XPR9.invoke(SNodeOperations.cast(loopAncestor, CONCEPTS.IReversibleLoop$k1));
     }
 
     if (SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5) || !(requiresReversibility)) {
@@ -40,36 +39,19 @@ public class ElseIfPart_TextGen extends TextGenDescriptorBase {
       tgs.append(") ");
       tgs.append("{");
       tgs.newLine();
+
+
+      String extraStmt;
+      if (isContainedInLoop) {
+        extraStmt = "cp." + SPropertyOperations.getString(SNodeOperations.cast(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.IfStatement$AR), PROPS.loopArrayName$wAd5) + "[" + iteratorName + "] |=  (1 << " + String.valueOf(SNodeOperations.getIndexInParent(ctx.getPrimaryInput()) + 1) + ");\n";
+      } else {
+        extraStmt = "cp." + SPropertyOperations.getString(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.IfStatement$AR), LINKS.supportVariable$WrxR), PROPS.name$MnvL) + " |=  (1 << " + String.valueOf(SNodeOperations.getIndexInParent(ctx.getPrimaryInput()) + 1) + ");\n";
+      }
+
       ctx.getBuffer().area().increaseIndent();
-      ReversibleStatementListUtils.stateHandlingVariables(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$_xRC), ctx);
-
-      if (requiresReversibility) {
-        if (isContainedInLoop) {
-          tgs.indent();
-          tgs.append(SPropertyOperations.getString(SNodeOperations.cast(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.IfStatement$AR), PROPS.loopArrayName$wAd5));
-          tgs.append("[");
-          tgs.append(iteratorName);
-          tgs.append("] |=  (1 << ");
-          tgs.append(String.valueOf(SNodeOperations.getIndexInParent(ctx.getPrimaryInput()) + 1));
-          tgs.append(");");
-          tgs.newLine();
-        } else {
-          tgs.indent();
-          tgs.append("content->cp.");
-          tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.IfStatement$AR), LINKS.supportVariable$WrxR), PROPS.name$MnvL));
-          tgs.append(" |=  (1 << ");
-          tgs.append(String.valueOf(SNodeOperations.getIndexInParent(ctx.getPrimaryInput()) + 1));
-          tgs.append(");");
-          tgs.newLine();
-        }
-      }
-
-      for (SNode stmt : ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$_xRC), LINKS.revStatements$IdM8))) {
-        tgs.indent();
-        tgs.appendNode(stmt);
-        tgs.newLine();
-      }
+      ReversibleStatementListUtils.statementList(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$_xRC), extraStmt, null, ctx);
       ctx.getBuffer().area().decreaseIndent();
+
       tgs.indent();
       tgs.append("}");
       tgs.newLine();
@@ -77,7 +59,7 @@ public class ElseIfPart_TextGen extends TextGenDescriptorBase {
     } else {
 
       if (isContainedInLoop) {
-        tgs.append("else if (");
+        tgs.append("else if (cp.");
         tgs.append(SPropertyOperations.getString(SNodeOperations.cast(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.IfStatement$AR), PROPS.loopArrayName$wAd5));
         tgs.append("[");
         tgs.append(reverseIteratorName);
@@ -85,7 +67,7 @@ public class ElseIfPart_TextGen extends TextGenDescriptorBase {
         tgs.append(String.valueOf(SNodeOperations.getIndexInParent(ctx.getPrimaryInput()) + 1));
         tgs.append(")) ");
       } else {
-        tgs.append("else if (content->cp.");
+        tgs.append("else if (cp.");
         tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.IfStatement$AR), LINKS.supportVariable$WrxR), PROPS.name$MnvL));
         tgs.append(" & (1 << ");
         tgs.append(String.valueOf(SNodeOperations.getIndexInParent(ctx.getPrimaryInput()) + 1));
@@ -110,8 +92,7 @@ public class ElseIfPart_TextGen extends TextGenDescriptorBase {
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink condition$_zJK = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x2b8026b23bc272a6L, 0x2b8026b23bc272afL, "condition");
-    /*package*/ static final SContainmentLink body$_xRC = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x2b8026b23bc272a6L, 0x2b8026b23bc272a7L, "body");
     /*package*/ static final SContainmentLink supportVariable$WrxR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x586abb2d5743cb69L, "supportVariable");
-    /*package*/ static final SContainmentLink revStatements$IdM8 = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, 0x3a16e3a9c7ad9956L, "revStatements");
+    /*package*/ static final SContainmentLink body$_xRC = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x2b8026b23bc272a6L, 0x2b8026b23bc272a7L, "body");
   }
 }

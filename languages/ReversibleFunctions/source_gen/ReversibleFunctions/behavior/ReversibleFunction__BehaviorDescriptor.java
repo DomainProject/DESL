@@ -22,6 +22,7 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class ReversibleFunction__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, "ReversibleFunctions.structure.ReversibleFunction");
@@ -39,7 +40,11 @@ public final class ReversibleFunction__BehaviorDescriptor extends BaseBHDescript
       if (!(SNodeOperations.isInstanceOf(SNodeOperations.getParent(rev), CONCEPTS.ForStatement$Bb))) {
         SPropertyOperations.assign(rev, PROPS.isForward$pAg5, SPropertyOperations.getBoolean(__thisNode__, PROPS.isForward$pAg5));
       } else {
-        SPropertyOperations.assign(rev, PROPS.isForward$pAg5, true);
+        if (SNodeOperations.hasRole(rev, LINKS.body$fofU)) {
+          SPropertyOperations.assign(rev, PROPS.isForward$pAg5, SPropertyOperations.getBoolean(__thisNode__, PROPS.isForward$pAg5));
+        } else {
+          SPropertyOperations.assign(rev, PROPS.isForward$pAg5, true);
+        }
       }
     }
   }
@@ -103,5 +108,9 @@ public final class ReversibleFunction__BehaviorDescriptor extends BaseBHDescript
   private static final class CONCEPTS {
     /*package*/ static final SConcept ForStatement$Bb = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a40186e676L, "ReversibleStatements.structure.ForStatement");
     /*package*/ static final SInterfaceConcept IReversible$$B = MetaAdapterFactory.getInterfaceConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, "ReversibleStatements.structure.IReversible");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink body$fofU = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a40186e676L, 0x64ae61a401870e33L, "body");
   }
 }

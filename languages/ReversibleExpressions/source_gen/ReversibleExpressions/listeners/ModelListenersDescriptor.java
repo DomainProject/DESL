@@ -16,7 +16,9 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import ReversibleExpressions.behavior.IVariableReference__BehaviorDescriptor;
 import com.mbeddr.core.expressions.behavior.IVariableDeclaration__BehaviorDescriptor;
+import ReversibleStatements.behavior.IReversibleLoop__BehaviorDescriptor;
 import jetbrains.mps.lang.core.behavior.BaseConcept__BehaviorDescriptor;
+import jetbrains.mps.baseLanguage.logging.rt.LogContext;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
@@ -55,6 +57,9 @@ public class ModelListenersDescriptor implements IModelListenersDescriptor {
       @Override
       public void childAdded(final SNode instance, final SNode child) {
 
+        SNode loopAncestor = SNodeOperations.getNodeAncestor(instance, CONCEPTS.IReversibleLoop$k1, false, false);
+        boolean isContainedInLoop = (loopAncestor != null);
+
         {
           final SNode destructiveOperation = instance;
           if (SNodeOperations.isInstanceOf(destructiveOperation, CONCEPTS.IDestructiveOperation$SP)) {
@@ -62,22 +67,78 @@ public class ModelListenersDescriptor implements IModelListenersDescriptor {
               final SNode varRef = child;
               if (SNodeOperations.isInstanceOf(varRef, CONCEPTS.IVariableReference$Kb)) {
                 SPropertyOperations.assign(destructiveOperation, PROPS.variableToSaveName$udlR, IVariableReference__BehaviorDescriptor.getVariableName_id79Sp4cYA0X2.invoke(varRef));
-                SLinkOperations.setTarget(SLinkOperations.getTarget(destructiveOperation, LINKS.supportVariable$WrxR), LINKS.type$sXU3, SNodeOperations.copyNode(SNodeOperations.cast(IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(varRef)), CONCEPTS.Type$dP)));
+                if (!(isContainedInLoop)) {
+                  SLinkOperations.setTarget(SLinkOperations.getTarget(destructiveOperation, LINKS.supportVariable$WrxR), LINKS.type$sXU3, SNodeOperations.copyNode(SNodeOperations.cast(IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(com.mbeddr.core.expressions.behavior.IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(varRef)), CONCEPTS.Type$dP)));
+                } else {
+                  IReversibleLoop__BehaviorDescriptor.updateAdditionalVariableType_id5wlskT_l0e7.invoke(loopAncestor, SNodeOperations.cast(IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(com.mbeddr.core.expressions.behavior.IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(varRef)), CONCEPTS.Type$dP), SPropertyOperations.getString(destructiveOperation, PROPS.loopArrayName$wAd5));
+                }
               }
             }
             {
               final SNode gde = child;
               if (SNodeOperations.isInstanceOf(gde, CONCEPTS.GenericDotExpression$ia)) {
+                SPropertyOperations.assign(destructiveOperation, PROPS.variableToSaveName$udlR, BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(gde));
                 {
                   final SNode gmr = SLinkOperations.getTarget(gde, LINKS.target$xbCZ);
                   if (SNodeOperations.isInstanceOf(gmr, CONCEPTS.GenericMemberRef$Ue)) {
-                    {
-                      final SNode varRef = SLinkOperations.getTarget(gde, LINKS.expression$HKAI);
-                      if (SNodeOperations.isInstanceOf(varRef, CONCEPTS.IVariableReference$Kb)) {
-                        SPropertyOperations.assign(destructiveOperation, PROPS.variableToSaveName$udlR, IVariableReference__BehaviorDescriptor.getVariableName_id79Sp4cYA0X2.invoke(varRef) + BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(gde) + SPropertyOperations.getString(SLinkOperations.getTarget(gmr, LINKS.member$gCRV), PROPS.name$MnvL));
+                    if (!(isContainedInLoop)) {
+                      SLinkOperations.setTarget(SLinkOperations.getTarget(destructiveOperation, LINKS.supportVariable$WrxR), LINKS.type$sXU3, SNodeOperations.copyNode(SLinkOperations.getTarget(SLinkOperations.getTarget(gmr, LINKS.member$gCRV), LINKS.type$sXU3)));
+                    } else {
+                      IReversibleLoop__BehaviorDescriptor.updateAdditionalVariableType_id5wlskT_l0e7.invoke(loopAncestor, SLinkOperations.getTarget(SLinkOperations.getTarget(gmr, LINKS.member$gCRV), LINKS.type$sXU3), SPropertyOperations.getString(destructiveOperation, PROPS.loopArrayName$wAd5));
+                    }
+                  }
+                }
+              }
+            }
+            {
+              final SNode aae = child;
+              if (SNodeOperations.isInstanceOf(aae, CONCEPTS.ArrayAccessExpression$xX)) {
+                {
+                  final SNode varRef = SLinkOperations.getTarget(aae, LINKS.expression$HKAI);
+                  if (SNodeOperations.isInstanceOf(varRef, CONCEPTS.IVariableReference$Kb)) {
+
+                    SPropertyOperations.assign(destructiveOperation, PROPS.variableToSaveName$udlR, IVariableReference__BehaviorDescriptor.getVariableName_id79Sp4cYA0X2.invoke(varRef) + '[' + BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(SLinkOperations.getTarget(aae, LINKS.indexExpr$M5fL)) + ']');
+                    if (!(isContainedInLoop)) {
+                      SLinkOperations.setTarget(SLinkOperations.getTarget(destructiveOperation, LINKS.supportVariable$WrxR), LINKS.type$sXU3, SNodeOperations.copyNode(SNodeOperations.cast(IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(com.mbeddr.core.expressions.behavior.IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(varRef)), CONCEPTS.Type$dP)));
+                    } else {
+
+                      if (SNodeOperations.isInstanceOf(IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(com.mbeddr.core.expressions.behavior.IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(varRef)), CONCEPTS.PointerType$HX)) {
+                        IReversibleLoop__BehaviorDescriptor.updateAdditionalVariableType_id5wlskT_l0e7.invoke(loopAncestor, SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(com.mbeddr.core.expressions.behavior.IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(varRef)), CONCEPTS.PointerType$HX), LINKS.baseType$zMGV), CONCEPTS.Type$dP), SPropertyOperations.getString(destructiveOperation, PROPS.loopArrayName$wAd5));
+                      } else {
+                        IReversibleLoop__BehaviorDescriptor.updateAdditionalVariableType_id5wlskT_l0e7.invoke(loopAncestor, SNodeOperations.cast(IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(com.mbeddr.core.expressions.behavior.IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(varRef)), CONCEPTS.Type$dP), SPropertyOperations.getString(destructiveOperation, PROPS.loopArrayName$wAd5));
                       }
                     }
-                    SLinkOperations.setTarget(SLinkOperations.getTarget(destructiveOperation, LINKS.supportVariable$WrxR), LINKS.type$sXU3, SNodeOperations.copyNode(SLinkOperations.getTarget(SLinkOperations.getTarget(gmr, LINKS.member$gCRV), LINKS.type$sXU3)));
+
+                    LogContext.with(ModelListenersDescriptor.class, null, null, null).info("Saving variable (aae, varRef)");
+                  }
+                }
+                {
+                  final SNode gde = SLinkOperations.getTarget(aae, LINKS.expression$HKAI);
+                  if (SNodeOperations.isInstanceOf(gde, CONCEPTS.GenericDotExpression$ia)) {
+                    {
+                      final SNode gmr = SLinkOperations.getTarget(gde, LINKS.target$xbCZ);
+                      if (SNodeOperations.isInstanceOf(gmr, CONCEPTS.GenericMemberRef$Ue)) {
+                        {
+                          final SNode varRef = SLinkOperations.getTarget(gde, LINKS.expression$HKAI);
+                          if (SNodeOperations.isInstanceOf(varRef, CONCEPTS.IVariableReference$Kb)) {
+                            SPropertyOperations.assign(destructiveOperation, PROPS.variableToSaveName$udlR, BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(gde) + '[' + BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(SLinkOperations.getTarget(aae, LINKS.indexExpr$M5fL)) + ']');
+                          }
+                        }
+
+                        if (!(isContainedInLoop)) {
+                          SLinkOperations.setTarget(SLinkOperations.getTarget(destructiveOperation, LINKS.supportVariable$WrxR), LINKS.type$sXU3, SNodeOperations.copyNode(SLinkOperations.getTarget(SLinkOperations.getTarget(gmr, LINKS.member$gCRV), LINKS.type$sXU3)));
+                        } else {
+                          if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SLinkOperations.getTarget(gmr, LINKS.member$gCRV), LINKS.type$sXU3), CONCEPTS.PointerType$HX)) {
+                            IReversibleLoop__BehaviorDescriptor.updateAdditionalVariableType_id5wlskT_l0e7.invoke(loopAncestor, SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(SLinkOperations.getTarget(gmr, LINKS.member$gCRV), LINKS.type$sXU3), CONCEPTS.PointerType$HX), LINKS.baseType$zMGV), CONCEPTS.Type$dP), SPropertyOperations.getString(destructiveOperation, PROPS.loopArrayName$wAd5));
+                          } else {
+                            IReversibleLoop__BehaviorDescriptor.updateAdditionalVariableType_id5wlskT_l0e7.invoke(loopAncestor, SLinkOperations.getTarget(SLinkOperations.getTarget(gmr, LINKS.member$gCRV), LINKS.type$sXU3), SPropertyOperations.getString(destructiveOperation, PROPS.loopArrayName$wAd5));
+                          }
+                        }
+
+                        LogContext.with(ModelListenersDescriptor.class, null, null, null).info("Saving variable (aae, gde) " + SPropertyOperations.getString(SLinkOperations.getTarget(destructiveOperation, LINKS.supportVariable$WrxR), PROPS.name$MnvL));
+
+                      }
+                    }
                   }
                 }
               }
@@ -93,8 +154,19 @@ public class ModelListenersDescriptor implements IModelListenersDescriptor {
       public void childAdded(final SNode instance, final SNode child) {
         {
           final SNode varRef = child;
-          if (SNodeOperations.isInstanceOf(varRef, CONCEPTS.IVariableReference$Kb)) {
-            SLinkOperations.setTarget(SLinkOperations.getTarget(instance, LINKS.supportVariable$WrxR), LINKS.type$sXU3, SNodeOperations.copyNode(SNodeOperations.cast(IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(varRef)), CONCEPTS.Type$dP)));
+          if (SNodeOperations.isInstanceOf(varRef, CONCEPTS.IVariableReference$WR)) {
+            SLinkOperations.setTarget(SLinkOperations.getTarget(instance, LINKS.supportVariable$WrxR), LINKS.type$sXU3, SNodeOperations.copyNode(SNodeOperations.cast(IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(com.mbeddr.core.expressions.behavior.IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(varRef)), CONCEPTS.Type$dP)));
+          }
+        }
+      }
+    });
+    ListSequence.fromList(listeners).addElement(new ChildListener(CONCEPTS.GenericDotExpression$ia, LINKS.target$xbCZ) {
+      @Override
+      public void childAdded(final SNode instance, final SNode child) {
+        {
+          final SNode memoryAllocation = SNodeOperations.getParent(instance);
+          if (SNodeOperations.isInstanceOf(memoryAllocation, CONCEPTS.IAllocateMemory$Z3)) {
+            SLinkOperations.setTarget(SLinkOperations.getTarget(memoryAllocation, LINKS.supportVariable$WrxR), LINKS.type$sXU3, SNodeOperations.copyNode(SLinkOperations.getTarget(SLinkOperations.getTarget(SNodeOperations.cast(child, CONCEPTS.GenericMemberRef$Ue), LINKS.member$gCRV), LINKS.type$sXU3)));
           }
         }
       }
@@ -108,12 +180,17 @@ public class ModelListenersDescriptor implements IModelListenersDescriptor {
     /*package*/ static final SConcept LocalVarRef$O3 = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x1d0c3765e2e1d67aL, "ReversibleStatements.structure.LocalVarRef");
     /*package*/ static final SConcept ArgumentRef$Ar = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x586abb2d564e82ffL, "ReversibleStatements.structure.ArgumentRef");
     /*package*/ static final SConcept BinaryExpression$b = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba34L, "ReversibleExpressions.structure.BinaryExpression");
+    /*package*/ static final SInterfaceConcept IReversibleLoop$k1 = MetaAdapterFactory.getInterfaceConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x6337a44ca461bdf4L, "ReversibleStatements.structure.IReversibleLoop");
     /*package*/ static final SInterfaceConcept IDestructiveOperation$SP = MetaAdapterFactory.getInterfaceConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x27d0c8e745a2c78dL, "ReversibleExpressions.structure.IDestructiveOperation");
     /*package*/ static final SInterfaceConcept IVariableReference$Kb = MetaAdapterFactory.getInterfaceConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1c69b376a2dab98aL, "ReversibleExpressions.structure.IVariableReference");
     /*package*/ static final SConcept Type$dP = MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba36L, "com.mbeddr.core.expressions.structure.Type");
     /*package*/ static final SConcept GenericDotExpression$ia = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x401df715da462c0cL, "ReversibleExpressions.structure.GenericDotExpression");
     /*package*/ static final SConcept GenericMemberRef$Ue = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4f5d78b09e1b9a5fL, "ReversibleExpressions.structure.GenericMemberRef");
+    /*package*/ static final SConcept ArrayAccessExpression$xX = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4f5d78b09fe52de9L, "ReversibleExpressions.structure.ArrayAccessExpression");
+    /*package*/ static final SConcept PointerType$HX = MetaAdapterFactory.getConcept(0x3bf5377ae9044dedL, 0x97545a516023bfaaL, 0x3e0cae5e366d630L, "com.mbeddr.core.pointers.structure.PointerType");
     /*package*/ static final SConcept ReversibleMacroArg$Ip = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x68ce0d48c3998717L, "ReversibleExpressions.structure.ReversibleMacroArg");
+    /*package*/ static final SInterfaceConcept IVariableReference$WR = MetaAdapterFactory.getInterfaceConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x1c69b376a2dab98aL, "com.mbeddr.core.expressions.structure.IVariableReference");
+    /*package*/ static final SInterfaceConcept IAllocateMemory$Z3 = MetaAdapterFactory.getInterfaceConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x7af97dfb35e0fee8L, "DESL.structure.IAllocateMemory");
   }
 
   private static final class LINKS {
@@ -124,13 +201,16 @@ public class ModelListenersDescriptor implements IModelListenersDescriptor {
     /*package*/ static final SContainmentLink supportVariable$WrxR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x586abb2d5743cb69L, "supportVariable");
     /*package*/ static final SContainmentLink init$$i$n = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad96e6L, 0x3a16e3a9c7ae01f7L, "init");
     /*package*/ static final SContainmentLink target$xbCZ = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x401df715da462c0cL, 0x619e8ce80b7ff48bL, "target");
-    /*package*/ static final SContainmentLink expression$HKAI = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x29b5b7c4a3763232L, 0x64ae61a4018a9c50L, "expression");
     /*package*/ static final SReferenceLink member$gCRV = MetaAdapterFactory.getReferenceLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4f5d78b09e1b9a5fL, 0x4f5d78b09f1589e9L, "member");
+    /*package*/ static final SContainmentLink expression$HKAI = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x29b5b7c4a3763232L, 0x64ae61a4018a9c50L, "expression");
+    /*package*/ static final SContainmentLink indexExpr$M5fL = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4f5d78b09fe52de9L, 0x4f5d78b09fe52defL, "indexExpr");
+    /*package*/ static final SContainmentLink baseType$zMGV = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x6bbcdccef5e46755L, 0x6bbcdccef5e46756L, "baseType");
     /*package*/ static final SContainmentLink actual$n_Ao = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x68ce0d48c3998717L, 0x68ce0d48c3998719L, "actual");
   }
 
   private static final class PROPS {
     /*package*/ static final SProperty variableToSaveName$udlR = MetaAdapterFactory.getProperty(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x27d0c8e745a2c78dL, 0x1b427f2e4b08b057L, "variableToSaveName");
+    /*package*/ static final SProperty loopArrayName$wAd5 = MetaAdapterFactory.getProperty(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x6337a44ca4f72dbfL, "loopArrayName");
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

@@ -10,7 +10,7 @@ import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import com.mbeddr.core.expressions.behavior.IVariableDeclaration__BehaviorDescriptor;
-import ReversibleExpressions.behavior.IVariableReference__BehaviorDescriptor;
+import com.mbeddr.core.expressions.behavior.IVariableReference__BehaviorDescriptor;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
@@ -26,7 +26,7 @@ public class check_CreateArray_NonTypesystemRule extends AbstractNonTypesystemRu
   }
   public void applyRule(final SNode createArray, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     {
-      final SNode varRef = SLinkOperations.getTarget(createArray, LINKS.arrayVariable$p6nT);
+      final SNode varRef = SLinkOperations.getTarget(createArray, LINKS.allocationVariable$GPxN);
       if (SNodeOperations.isInstanceOf(varRef, CONCEPTS.IVariableReference$Kb)) {
         if (!(SNodeOperations.isInstanceOf(IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(varRef)), CONCEPTS.PointerType$HX))) {
           {
@@ -55,7 +55,7 @@ public class check_CreateArray_NonTypesystemRule extends AbstractNonTypesystemRu
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink arrayVariable$p6nT = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6ea143d20956bff1L, 0x1cfd8bbdd271e05bL, "arrayVariable");
+    /*package*/ static final SContainmentLink allocationVariable$GPxN = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x7af97dfb35e0fee8L, 0x7af97dfb363145a9L, "allocationVariable");
     /*package*/ static final SContainmentLink size$QIgu = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6ea143d20956bff1L, 0x6ea143d20956bff2L, "size");
   }
 

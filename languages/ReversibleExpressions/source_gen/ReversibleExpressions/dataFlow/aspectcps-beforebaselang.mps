@@ -711,7 +711,7 @@
                       </node>
                     </node>
                     <node concept="FVvgk" id="25" role="2Oq$k0">
-                      <property role="1n_ezw" value="ReversibleExpressions.behavior.IVariableReference__BehaviorDescriptor" />
+                      <property role="1n_ezw" value="com.mbeddr.core.expressions.behavior.IVariableReference__BehaviorDescriptor" />
                       <property role="1n_iUB" value="getVariable_id1LDGRqyQFAf" />
                       <uo k="s:originTrace" v="n:96" />
                       <node concept="3uibUv" id="2o" role="FVu2M">
@@ -2314,7 +2314,7 @@
                       </node>
                     </node>
                     <node concept="FVvgk" id="8O" role="2Oq$k0">
-                      <property role="1n_ezw" value="ReversibleExpressions.behavior.IVariableReference__BehaviorDescriptor" />
+                      <property role="1n_ezw" value="com.mbeddr.core.expressions.behavior.IVariableReference__BehaviorDescriptor" />
                       <property role="1n_iUB" value="getVariable_id1LDGRqyQFAf" />
                       <uo k="s:originTrace" v="n:381" />
                       <node concept="3uibUv" id="94" role="FVu2M">
@@ -2471,7 +2471,7 @@
                       </node>
                     </node>
                     <node concept="FVvgk" id="9r" role="2Oq$k0">
-                      <property role="1n_ezw" value="ReversibleExpressions.behavior.IVariableReference__BehaviorDescriptor" />
+                      <property role="1n_ezw" value="com.mbeddr.core.expressions.behavior.IVariableReference__BehaviorDescriptor" />
                       <property role="1n_iUB" value="getVariable_id1LDGRqyQFAf" />
                       <uo k="s:originTrace" v="n:406" />
                       <node concept="3uibUv" id="9F" role="FVu2M">
@@ -3642,7 +3642,7 @@
                       </node>
                     </node>
                     <node concept="FVvgk" id="ep" role="2Oq$k0">
-                      <property role="1n_ezw" value="ReversibleExpressions.behavior.IVariableReference__BehaviorDescriptor" />
+                      <property role="1n_ezw" value="com.mbeddr.core.expressions.behavior.IVariableReference__BehaviorDescriptor" />
                       <property role="1n_iUB" value="getVariable_id1LDGRqyQFAf" />
                       <uo k="s:originTrace" v="n:698" />
                       <node concept="3uibUv" id="eG" role="FVu2M">

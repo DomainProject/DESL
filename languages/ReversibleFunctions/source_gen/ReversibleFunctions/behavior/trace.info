@@ -533,99 +533,106 @@
   </root>
   <root nodeRef="r:5f775eb7-d4ad-4f5f-b744-b9b80f5ce3f5(ReversibleFunctions.behavior)/6809993550498875132">
     <file name="ReversibleFunction__BehaviorDescriptor.java">
-      <node id="6809993550498875132" at="27,0,28,0" concept="9" trace="CONCEPT" />
-      <node id="6809993550498875132" at="29,0,30,0" concept="9" trace="propagateReversibility_id5U1XgQ$bWsf" />
-      <node id="6809993550498875132" at="30,0,31,0" concept="9" trace="getStatementList_id71UKpntnl7S" />
-      <node id="6809993550498875132" at="32,0,33,0" concept="9" trace="BH_METHODS" />
-      <node id="6809993550498888438" at="39,102,40,130" concept="2" />
-      <node id="9176837022592826509" at="41,14,42,68" concept="2" />
-      <node id="453831797805228744" at="46,88,47,16" concept="7" />
-      <node id="6809993550498875132" at="54,114,55,21" concept="2" />
-      <node id="6809993550498875132" at="59,114,60,49" concept="6" />
-      <node id="6809993550498875132" at="61,26,62,56" concept="12" />
-      <node id="6809993550498875132" at="65,13,66,51" concept="2" />
-      <node id="6809993550498875132" at="66,51,67,20" concept="7" />
-      <node id="6809993550498875132" at="68,13,69,66" concept="7" />
-      <node id="6809993550498875132" at="70,14,71,58" concept="12" />
-      <node id="6809993550498875132" at="76,128,77,49" concept="6" />
-      <node id="6809993550498875132" at="78,26,79,56" concept="12" />
-      <node id="6809993550498875132" at="82,14,83,58" concept="12" />
-      <node id="6809993550498875132" at="89,48,90,22" concept="7" />
-      <node id="6809993550498875132" at="95,40,96,19" concept="7" />
-      <node id="6809993550498875132" at="100,0,101,0" concept="9" trace="isForward$pAg5" />
-      <node id="6809993550498875132" at="104,0,105,0" concept="9" trace="ForStatement$Bb" />
-      <node id="6809993550498875132" at="105,0,106,0" concept="9" trace="IReversible$$B" />
-      <node id="6809993550498875132" at="34,0,36,0" concept="10" trace="___init___#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
-      <node id="9176837022592825504" at="41,12,43,7" concept="0" />
-      <node id="6809993550498875132" at="50,0,52,0" concept="1" trace="ReversibleFunction__BehaviorDescriptor#()V" />
-      <node id="6809993550498875132" at="46,0,49,0" concept="10" trace="getStatementList_id71UKpntnl7S#(Lorg/jetbrains/mps/openapi/model/SNode;)Lorg/jetbrains/mps/openapi/model/SNode;" />
-      <node id="6809993550498875132" at="60,49,63,5" concept="4" />
-      <node id="6809993550498875132" at="77,49,80,5" concept="4" />
-      <node id="6809993550498875132" at="53,0,57,0" concept="5" trace="initNode#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/core/aspects/behaviour/api/SConstructor;[Ljava/lang/Object;)V" />
-      <node id="6809993550498875132" at="80,5,84,5" concept="11" />
-      <node id="9176837022592486976" at="38,153,43,7" concept="4" />
-      <node id="6809993550498875132" at="87,0,92,0" concept="5" trace="getDeclaredMethods#()Ljava/util/List;" />
-      <node id="6809993550498875132" at="93,0,98,0" concept="5" trace="getConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
-      <node id="6809993550498875365" at="37,93,44,5" concept="3" />
-      <node id="6809993550498875132" at="37,0,46,0" concept="10" trace="propagateReversibility_id5U1XgQ$bWsf#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
-      <node id="6809993550498875132" at="63,5,72,5" concept="11" />
-      <node id="6809993550498875132" at="75,0,86,0" concept="5" trace="invokeSpecial0#(Lorg/jetbrains/mps/openapi/language/SAbstractConcept;Ljetbrains/mps/core/aspects/behaviour/api/SMethod;[Ljava/lang/Object;)null" />
-      <node id="6809993550498875132" at="58,0,74,0" concept="5" trace="invokeSpecial0#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/core/aspects/behaviour/api/SMethod;[Ljava/lang/Object;)null" />
-      <scope id="6809993550498875132" at="34,63,34,63" />
-      <scope id="6809993550498875132" at="50,56,50,56" />
-      <scope id="9176837022592486978" at="39,102,40,130" />
-      <scope id="9176837022592825505" at="41,14,42,68" />
-      <scope id="453831797805213108" at="46,88,47,16" />
-      <scope id="6809993550498875132" at="54,114,55,21" />
-      <scope id="6809993550498875132" at="61,26,62,56" />
-      <scope id="6809993550498875132" at="68,13,69,66" />
-      <scope id="6809993550498875132" at="70,14,71,58" />
-      <scope id="6809993550498875132" at="78,26,79,56" />
-      <scope id="6809993550498875132" at="82,14,83,58" />
-      <scope id="6809993550498875132" at="89,48,90,22" />
-      <scope id="6809993550498875132" at="95,40,96,19" />
-      <scope id="6809993550498875132" at="34,0,36,0">
+      <node id="6809993550498875132" at="28,0,29,0" concept="9" trace="CONCEPT" />
+      <node id="6809993550498875132" at="30,0,31,0" concept="9" trace="propagateReversibility_id5U1XgQ$bWsf" />
+      <node id="6809993550498875132" at="31,0,32,0" concept="9" trace="getStatementList_id71UKpntnl7S" />
+      <node id="6809993550498875132" at="33,0,34,0" concept="9" trace="BH_METHODS" />
+      <node id="6809993550498888438" at="40,102,41,130" concept="2" />
+      <node id="6347103831327342424" at="43,60,44,132" concept="2" />
+      <node id="9176837022592826509" at="45,16,46,70" concept="2" />
+      <node id="453831797805228744" at="51,88,52,16" concept="7" />
+      <node id="6809993550498875132" at="59,114,60,21" concept="2" />
+      <node id="6809993550498875132" at="64,114,65,49" concept="6" />
+      <node id="6809993550498875132" at="66,26,67,56" concept="12" />
+      <node id="6809993550498875132" at="70,13,71,51" concept="2" />
+      <node id="6809993550498875132" at="71,51,72,20" concept="7" />
+      <node id="6809993550498875132" at="73,13,74,66" concept="7" />
+      <node id="6809993550498875132" at="75,14,76,58" concept="12" />
+      <node id="6809993550498875132" at="81,128,82,49" concept="6" />
+      <node id="6809993550498875132" at="83,26,84,56" concept="12" />
+      <node id="6809993550498875132" at="87,14,88,58" concept="12" />
+      <node id="6809993550498875132" at="94,48,95,22" concept="7" />
+      <node id="6809993550498875132" at="100,40,101,19" concept="7" />
+      <node id="6809993550498875132" at="105,0,106,0" concept="9" trace="isForward$pAg5" />
+      <node id="6809993550498875132" at="109,0,110,0" concept="9" trace="ForStatement$Bb" />
+      <node id="6809993550498875132" at="110,0,111,0" concept="9" trace="IReversible$$B" />
+      <node id="6809993550498875132" at="114,0,115,0" concept="9" trace="body$fofU" />
+      <node id="6809993550498875132" at="35,0,37,0" concept="10" trace="___init___#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
+      <node id="6347103831327360400" at="45,14,47,9" concept="0" />
+      <node id="6809993550498875132" at="55,0,57,0" concept="1" trace="ReversibleFunction__BehaviorDescriptor#()V" />
+      <node id="6809993550498875132" at="51,0,54,0" concept="10" trace="getStatementList_id71UKpntnl7S#(Lorg/jetbrains/mps/openapi/model/SNode;)Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="6809993550498875132" at="65,49,68,5" concept="4" />
+      <node id="6809993550498875132" at="82,49,85,5" concept="4" />
+      <node id="6809993550498875132" at="58,0,62,0" concept="5" trace="initNode#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/core/aspects/behaviour/api/SConstructor;[Ljava/lang/Object;)V" />
+      <node id="6809993550498875132" at="85,5,89,5" concept="11" />
+      <node id="6347103831327336079" at="42,14,47,9" concept="4" />
+      <node id="6809993550498875132" at="92,0,97,0" concept="5" trace="getDeclaredMethods#()Ljava/util/List;" />
+      <node id="6809993550498875132" at="98,0,103,0" concept="5" trace="getConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
+      <node id="9176837022592825504" at="42,12,48,7" concept="0" />
+      <node id="9176837022592486976" at="39,153,48,7" concept="4" />
+      <node id="6809993550498875132" at="68,5,77,5" concept="11" />
+      <node id="6809993550498875365" at="38,93,49,5" concept="3" />
+      <node id="6809993550498875132" at="80,0,91,0" concept="5" trace="invokeSpecial0#(Lorg/jetbrains/mps/openapi/language/SAbstractConcept;Ljetbrains/mps/core/aspects/behaviour/api/SMethod;[Ljava/lang/Object;)null" />
+      <node id="6809993550498875132" at="38,0,51,0" concept="10" trace="propagateReversibility_id5U1XgQ$bWsf#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
+      <node id="6809993550498875132" at="63,0,79,0" concept="5" trace="invokeSpecial0#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/core/aspects/behaviour/api/SMethod;[Ljava/lang/Object;)null" />
+      <scope id="6809993550498875132" at="35,63,35,63" />
+      <scope id="6809993550498875132" at="55,56,55,56" />
+      <scope id="9176837022592486978" at="40,102,41,130" />
+      <scope id="6347103831327336081" at="43,60,44,132" />
+      <scope id="6347103831327360401" at="45,16,46,70" />
+      <scope id="453831797805213108" at="51,88,52,16" />
+      <scope id="6809993550498875132" at="59,114,60,21" />
+      <scope id="6809993550498875132" at="66,26,67,56" />
+      <scope id="6809993550498875132" at="73,13,74,66" />
+      <scope id="6809993550498875132" at="75,14,76,58" />
+      <scope id="6809993550498875132" at="83,26,84,56" />
+      <scope id="6809993550498875132" at="87,14,88,58" />
+      <scope id="6809993550498875132" at="94,48,95,22" />
+      <scope id="6809993550498875132" at="100,40,101,19" />
+      <scope id="6809993550498875132" at="35,0,37,0">
         <var name="__thisNode__" id="6809993550498875132" />
       </scope>
-      <scope id="6809993550498875132" at="50,0,52,0" />
-      <scope id="6809993550498875132" at="65,13,67,20" />
-      <scope id="6809993550498875132" at="46,0,49,0">
+      <scope id="6809993550498875132" at="55,0,57,0" />
+      <scope id="6809993550498875132" at="70,13,72,20" />
+      <scope id="6809993550498875132" at="51,0,54,0">
         <var name="__thisNode__" id="6809993550498875132" />
       </scope>
-      <scope id="6809993550498875132" at="53,0,57,0">
+      <scope id="6809993550498875132" at="58,0,62,0">
         <var name="constructor" id="6809993550498875132" />
         <var name="node" id="6809993550498875132" />
         <var name="parameters" id="6809993550498875132" />
       </scope>
-      <scope id="6809993550498875368" at="38,153,43,7" />
-      <scope id="6809993550498875132" at="87,0,92,0" />
-      <scope id="6809993550498875132" at="93,0,98,0" />
-      <scope id="6809993550498875154" at="37,93,44,5" />
-      <scope id="6809993550498875365" at="37,93,44,5">
-        <var name="rev" id="6809993550498875366" />
-      </scope>
-      <scope id="6809993550498875132" at="76,128,84,5">
+      <scope id="9176837022592825505" at="42,14,47,9" />
+      <scope id="6809993550498875132" at="92,0,97,0" />
+      <scope id="6809993550498875132" at="98,0,103,0" />
+      <scope id="6809993550498875132" at="81,128,89,5">
         <var name="methodIndex" id="6809993550498875132" />
       </scope>
-      <scope id="6809993550498875132" at="37,0,46,0">
-        <var name="__thisNode__" id="6809993550498875132" />
+      <scope id="6809993550498875368" at="39,153,48,7" />
+      <scope id="6809993550498875154" at="38,93,49,5" />
+      <scope id="6809993550498875365" at="38,93,49,5">
+        <var name="rev" id="6809993550498875366" />
       </scope>
-      <scope id="6809993550498875132" at="75,0,86,0">
+      <scope id="6809993550498875132" at="80,0,91,0">
         <var name="concept" id="6809993550498875132" />
         <var name="method" id="6809993550498875132" />
         <var name="parameters" id="6809993550498875132" />
       </scope>
-      <scope id="6809993550498875132" at="59,114,72,5">
+      <scope id="6809993550498875132" at="38,0,51,0">
+        <var name="__thisNode__" id="6809993550498875132" />
+      </scope>
+      <scope id="6809993550498875132" at="64,114,77,5">
         <var name="methodIndex" id="6809993550498875132" />
       </scope>
-      <scope id="6809993550498875132" at="58,0,74,0">
+      <scope id="6809993550498875132" at="63,0,79,0">
         <var name="method" id="6809993550498875132" />
         <var name="node" id="6809993550498875132" />
         <var name="parameters" id="6809993550498875132" />
       </scope>
-      <unit id="6809993550498875132" at="99,0,102,0" name="ReversibleFunctions.behavior.ReversibleFunction__BehaviorDescriptor$PROPS" />
-      <unit id="6809993550498875132" at="103,0,107,0" name="ReversibleFunctions.behavior.ReversibleFunction__BehaviorDescriptor$CONCEPTS" />
-      <unit id="6809993550498875132" at="26,0,108,0" name="ReversibleFunctions.behavior.ReversibleFunction__BehaviorDescriptor" />
+      <unit id="6809993550498875132" at="104,0,107,0" name="ReversibleFunctions.behavior.ReversibleFunction__BehaviorDescriptor$PROPS" />
+      <unit id="6809993550498875132" at="113,0,116,0" name="ReversibleFunctions.behavior.ReversibleFunction__BehaviorDescriptor$LINKS" />
+      <unit id="6809993550498875132" at="108,0,112,0" name="ReversibleFunctions.behavior.ReversibleFunction__BehaviorDescriptor$CONCEPTS" />
+      <unit id="6809993550498875132" at="27,0,117,0" name="ReversibleFunctions.behavior.ReversibleFunction__BehaviorDescriptor" />
     </file>
   </root>
 </debug-info>

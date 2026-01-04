@@ -35,27 +35,27 @@ public class CreateArray_TextGen extends TextGenDescriptorBase {
     SNode type = SConceptOperations.createNewNode(SNodeOperations.asInstanceConcept(MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x11f8a0774f2L, "jetbrains.mps.lang.core.structure.IType")));
 
     {
-      final SNode varRef = SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.arrayVariable$p6nT);
+      final SNode varRef = SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.allocationVariable$GPxN);
       if (SNodeOperations.isInstanceOf(varRef, CONCEPTS.IVariableReference$WR)) {
         type = SLinkOperations.getTarget(SNodeOperations.cast(IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(varRef)), CONCEPTS.PointerType$HX), LINKS.baseType$zMGV);
         arrayName = SPropertyOperations.getString(IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(varRef), PROPS.name$MnvL);
       }
     }
     {
-      final SNode lvd = SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.arrayVariable$p6nT);
+      final SNode lvd = SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.allocationVariable$GPxN);
       if (SNodeOperations.isInstanceOf(lvd, CONCEPTS.LocalVariableDeclaration$7E)) {
         type = SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(lvd, LINKS.type$sXU3), CONCEPTS.PointerType$HX), LINKS.baseType$zMGV);
         arrayName = SPropertyOperations.getString(lvd, PROPS.name$MnvL);
 
         if (SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5) || !(revRequired)) {
-          tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.arrayVariable$p6nT));
+          tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.allocationVariable$GPxN));
           tgs.newLine();
           tgs.indent();
         }
       }
     }
     {
-      final SNode gde = SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.arrayVariable$p6nT);
+      final SNode gde = SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.allocationVariable$GPxN);
       if (SNodeOperations.isInstanceOf(gde, CONCEPTS.GenericDotExpression$ia)) {
         type = SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(gde, LINKS.target$xbCZ), CONCEPTS.GenericMemberRef$Ue), LINKS.member$gCRV), LINKS.type$sXU3), CONCEPTS.PointerType$HX), LINKS.baseType$zMGV);
         arrayName = BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(gde);
@@ -67,16 +67,16 @@ public class CreateArray_TextGen extends TextGenDescriptorBase {
         tgs.append(arrayName);
         tgs.append(" = rev_malloc(arena, sizeof(");
         tgs.appendNode(type);
-        tgs.append(" * (");
+        tgs.append(") * (");
         tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.size$QIgu));
-        tgs.append(")));");
+        tgs.append("));");
         tgs.newLine();
         tgs.indent();
         StateSaving.stateSaving(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), PROPS.name$MnvL), arrayName, ctx);
       } else {
-        tgs.append("rev_free(arena, sizeof(checkpoint.");
+        tgs.append("rev_free(arena, cp.");
         tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), PROPS.name$MnvL));
-        tgs.append("));");
+        tgs.append(");");
         tgs.newLine();
       }
     } else {
@@ -134,7 +134,7 @@ public class CreateArray_TextGen extends TextGenDescriptorBase {
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink arrayVariable$p6nT = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6ea143d20956bff1L, 0x1cfd8bbdd271e05bL, "arrayVariable");
+    /*package*/ static final SContainmentLink allocationVariable$GPxN = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x7af97dfb35e0fee8L, 0x7af97dfb363145a9L, "allocationVariable");
     /*package*/ static final SContainmentLink baseType$zMGV = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x6bbcdccef5e46755L, 0x6bbcdccef5e46756L, "baseType");
     /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
     /*package*/ static final SContainmentLink target$xbCZ = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x401df715da462c0cL, 0x619e8ce80b7ff48bL, "target");

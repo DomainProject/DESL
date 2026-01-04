@@ -24,7 +24,7 @@
     <import index="kmi" ref="r:afa7ae5b-c41f-45e8-9678-2beae3621a33(ReversibleStatements.structure)" implicit="true" />
     <import index="qyxp" ref="r:173369a3-8060-4aa4-8d21-7c6337526a39(ReversibleStatements.behavior)" implicit="true" />
     <import index="ib4b" ref="r:539823a2-87c6-4a7e-abc8-d6fc586848eb(ReversibleExpressions.structure)" implicit="true" />
-    <import index="e32u" ref="r:457bcadc-5da5-4b82-8524-230e48ca7946(ReversibleExpressions.behavior)" implicit="true" />
+    <import index="rdv6" ref="r:79077d65-28d5-4f56-905b-4bcf5185c60e(DESL.structure)" implicit="true" />
     <import index="clbe" ref="r:61d840b4-12c1-49ea-b142-b2a1550a9b15(com.mbeddr.core.udt.structure)" implicit="true" />
   </imports>
   <registry>
@@ -226,11 +226,6 @@
       </concept>
       <concept id="1174663118805" name="jetbrains.mps.lang.typesystem.structure.CreateLessThanInequationStatement" flags="nn" index="1ZobV4" />
       <concept id="1174663239020" name="jetbrains.mps.lang.typesystem.structure.CreateGreaterThanInequationStatement" flags="nn" index="1ZoDhX" />
-    </language>
-    <language id="760a0a8c-eabb-4521-8bfd-65db761a9ba3" name="jetbrains.mps.baseLanguage.logging">
-      <concept id="6332851714983831325" name="jetbrains.mps.baseLanguage.logging.structure.MsgStatement" flags="ng" index="2xdQw9">
-        <child id="5721587534047265374" name="message" index="9lYJi" />
-      </concept>
     </language>
     <language id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel">
       <concept id="2788452359612124332" name="jetbrains.mps.lang.smodel.structure.LinkQualifier" flags="ng" index="29tlS9">
@@ -2387,25 +2382,12 @@
             <ref role="1YBMHb" node="21ygb7V$l34" resolve="as" />
           </node>
           <node concept="3TrEf2" id="21ygb7W8Uom" role="2OqNvi">
-            <ref role="3Tt5mk" to="kmi:21ygb7Us$dI" resolve="newStructVariable" />
+            <ref role="3Tt5mk" to="rdv6:7FTvvGQckmD" resolve="allocationVariable" />
           </node>
         </node>
         <node concept="3clFbS" id="21ygb7W8SOk" role="Jncv$">
           <node concept="3clFbJ" id="21ygb7V$u4J" role="3cqZAp">
             <node concept="3clFbS" id="21ygb7V$u4L" role="3clFbx">
-              <node concept="2xdQw9" id="21ygb7VE_5B" role="3cqZAp">
-                <node concept="2OqwBi" id="21ygb7W2Mmm" role="9lYJi">
-                  <node concept="2OqwBi" id="21ygb7VE_om" role="2Oq$k0">
-                    <node concept="1YBJjd" id="21ygb7VE_6z" role="2Oq$k0">
-                      <ref role="1YBMHb" node="21ygb7V$l34" resolve="as" />
-                    </node>
-                    <node concept="3TrEf2" id="21ygb7W2LCP" role="2OqNvi">
-                      <ref role="3Tt5mk" to="kmi:21ygb7Us$dI" resolve="newStructVariable" />
-                    </node>
-                  </node>
-                  <node concept="3JvlWi" id="21ygb7W2MMl" role="2OqNvi" />
-                </node>
-              </node>
               <node concept="2MkqsV" id="21ygb7V$tBr" role="3cqZAp">
                 <node concept="1YBJjd" id="21ygb7V$tLM" role="1urrMF">
                   <ref role="1YBMHb" node="21ygb7V$l34" resolve="as" />
@@ -2429,7 +2411,7 @@
                             <ref role="1M0zk5" node="21ygb7W8SOm" resolve="varRef" />
                           </node>
                           <node concept="2qgKlT" id="21ygb7W8XeS" role="2OqNvi">
-                            <ref role="37wK5l" to="e32u:1LDGRqyQFAf" resolve="getVariable" />
+                            <ref role="37wK5l" to="ywuz:1LDGRqyQFAf" resolve="getVariable" />
                           </node>
                         </node>
                         <node concept="2qgKlT" id="21ygb7W8Y1F" role="2OqNvi">
@@ -2456,7 +2438,7 @@
                         <ref role="1M0zk5" node="21ygb7W8SOm" resolve="varRef" />
                       </node>
                       <node concept="2qgKlT" id="21ygb7W8VZi" role="2OqNvi">
-                        <ref role="37wK5l" to="e32u:1LDGRqyQFAf" resolve="getVariable" />
+                        <ref role="37wK5l" to="ywuz:1LDGRqyQFAf" resolve="getVariable" />
                       </node>
                     </node>
                     <node concept="2qgKlT" id="21ygb7W8YkU" role="2OqNvi">

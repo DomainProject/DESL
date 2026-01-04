@@ -11,14 +11,16 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.lang.core.behavior.BaseConcept__BehaviorDescriptor;
 import com.mbeddr.core.expressions.behavior.IVariableDeclaration__BehaviorDescriptor;
-import ReversibleExpressions.behavior.IVariableReference__BehaviorDescriptor;
+import com.mbeddr.core.expressions.behavior.IVariableReference__BehaviorDescriptor;
 import ReversibleExpressions.textGen.StateSaving;
 import jetbrains.mps.lang.traceable.behavior.TraceableConcept__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class AllocateStruct_TextGen extends TextGenDescriptorBase {
   @Override
@@ -30,20 +32,28 @@ public class AllocateStruct_TextGen extends TextGenDescriptorBase {
     String variableName = "";
 
     {
-      final SNode varRef = SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.newStructVariable$EkJL);
+      final SNode gde = SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.allocationVariable$GPxN);
+      if (SNodeOperations.isInstanceOf(gde, CONCEPTS.GenericDotExpression$ia)) {
+        structType = SNodeOperations.copyNode(SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(gde, LINKS.target$xbCZ), CONCEPTS.GenericMemberRef$Ue), LINKS.member$gCRV), LINKS.type$sXU3), CONCEPTS.PointerType$HX), LINKS.baseType$zMGV), CONCEPTS.StructType$B3));
+        variableName = BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(gde);
+      }
+    }
+
+    {
+      final SNode varRef = SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.allocationVariable$GPxN);
       if (SNodeOperations.isInstanceOf(varRef, CONCEPTS.IVariableReference$Kb)) {
         structType = SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(varRef)), CONCEPTS.PointerType$HX), LINKS.baseType$zMGV), CONCEPTS.StructType$B3);
-        variableName = IVariableReference__BehaviorDescriptor.getVariableName_id79Sp4cYA0X2.invoke(varRef);
+        variableName = ReversibleExpressions.behavior.IVariableReference__BehaviorDescriptor.getVariableName_id79Sp4cYA0X2.invoke(varRef);
       }
     }
     {
-      final SNode lvd = SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.newStructVariable$EkJL);
+      final SNode lvd = SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.allocationVariable$GPxN);
       if (SNodeOperations.isInstanceOf(lvd, CONCEPTS.LocalVariableDeclaration$7E)) {
         structType = SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(lvd, LINKS.type$sXU3), CONCEPTS.PointerType$HX), LINKS.baseType$zMGV), CONCEPTS.StructType$B3);
         variableName = SPropertyOperations.getString(lvd, PROPS.name$MnvL);
 
         if (SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5) || !(revRequired)) {
-          tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.newStructVariable$EkJL));
+          tgs.appendNode(lvd);
           tgs.newLine();
           tgs.indent();
         }
@@ -60,9 +70,9 @@ public class AllocateStruct_TextGen extends TextGenDescriptorBase {
         tgs.indent();
         StateSaving.stateSaving(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), PROPS.name$MnvL), variableName, ctx);
       } else {
-        tgs.append("rev_free(arena, sizeof(checkpoint.");
+        tgs.append("rev_free(arena, cp.");
         tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), PROPS.name$MnvL));
-        tgs.append("));");
+        tgs.append(");");
         tgs.newLine();
       }
     } else {
@@ -102,9 +112,11 @@ public class AllocateStruct_TextGen extends TextGenDescriptorBase {
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept ReversibleFunction$IL = MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, "ReversibleFunctions.structure.ReversibleFunction");
-    /*package*/ static final SInterfaceConcept IVariableReference$Kb = MetaAdapterFactory.getInterfaceConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1c69b376a2dab98aL, "ReversibleExpressions.structure.IVariableReference");
+    /*package*/ static final SConcept GenericDotExpression$ia = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x401df715da462c0cL, "ReversibleExpressions.structure.GenericDotExpression");
+    /*package*/ static final SConcept GenericMemberRef$Ue = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4f5d78b09e1b9a5fL, "ReversibleExpressions.structure.GenericMemberRef");
     /*package*/ static final SConcept PointerType$HX = MetaAdapterFactory.getConcept(0x3bf5377ae9044dedL, 0x97545a516023bfaaL, 0x3e0cae5e366d630L, "com.mbeddr.core.pointers.structure.PointerType");
     /*package*/ static final SConcept StructType$B3 = MetaAdapterFactory.getConcept(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x58bef62304fc0a38L, "com.mbeddr.core.udt.structure.StructType");
+    /*package*/ static final SInterfaceConcept IVariableReference$Kb = MetaAdapterFactory.getInterfaceConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1c69b376a2dab98aL, "ReversibleExpressions.structure.IVariableReference");
     /*package*/ static final SConcept LocalVariableDeclaration$7E = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad96e6L, "ReversibleStatements.structure.LocalVariableDeclaration");
     /*package*/ static final SInterfaceConcept TraceableConcept$L = MetaAdapterFactory.getInterfaceConcept(0x9ded098bad6a4657L, 0xbfd948636cfe8bc3L, 0x465516cf87c705a3L, "jetbrains.mps.lang.traceable.structure.TraceableConcept");
   }
@@ -116,9 +128,11 @@ public class AllocateStruct_TextGen extends TextGenDescriptorBase {
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink newStructVariable$EkJL = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x4f052dce270158d9L, 0x206240b1fa72436eL, "newStructVariable");
-    /*package*/ static final SContainmentLink baseType$zMGV = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x6bbcdccef5e46755L, 0x6bbcdccef5e46756L, "baseType");
+    /*package*/ static final SContainmentLink allocationVariable$GPxN = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x7af97dfb35e0fee8L, 0x7af97dfb363145a9L, "allocationVariable");
+    /*package*/ static final SContainmentLink target$xbCZ = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x401df715da462c0cL, 0x619e8ce80b7ff48bL, "target");
+    /*package*/ static final SReferenceLink member$gCRV = MetaAdapterFactory.getReferenceLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4f5d78b09e1b9a5fL, 0x4f5d78b09f1589e9L, "member");
     /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
+    /*package*/ static final SContainmentLink baseType$zMGV = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x6bbcdccef5e46755L, 0x6bbcdccef5e46756L, "baseType");
     /*package*/ static final SContainmentLink supportVariable$WrxR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x586abb2d5743cb69L, "supportVariable");
   }
 }

@@ -7,14 +7,17 @@ import jetbrains.mps.text.rt.TextGenContext;
 import jetbrains.mps.text.impl.TextGenSupport;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
+import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.traceable.behavior.TraceableConcept__BehaviorDescriptor;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public class ReversibleFunctionCall_TextGen extends TextGenDescriptorBase {
@@ -27,8 +30,14 @@ public class ReversibleFunctionCall_TextGen extends TextGenDescriptorBase {
       tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.function$EyYZ), PROPS.name$MnvL));
       tgs.append("(");
     } else {
-      tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.function$EyYZ), PROPS.name$MnvL));
-      tgs.append("_reverse(");
+      if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.function$EyYZ), CONCEPTS.FunctionPrototype$JD)) {
+        SNode prototype = ListSequence.fromList(SNodeOperations.getNodeDescendants(SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.DESLModel$DK, false, false), CONCEPTS.ExternalFunctionPrototype$V4, false, new SAbstractConcept[]{})).findFirst((it) -> SLinkOperations.getTarget(it, LINKS.prototype$lY0a) == SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.function$EyYZ));
+        tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(prototype, LINKS.reversePrototype$Ibmx), PROPS.name$MnvL));
+        tgs.append("(");
+      } else {
+        tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.function$EyYZ), PROPS.name$MnvL));
+        tgs.append("_reverse(");
+      }
     }
     {
       Iterable<SNode> collection = SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.actuals$EywX);
@@ -49,6 +58,8 @@ public class ReversibleFunctionCall_TextGen extends TextGenDescriptorBase {
 
   private static final class LINKS {
     /*package*/ static final SReferenceLink function$EyYZ = MetaAdapterFactory.getReferenceLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x2e6ecb766f1587b4L, 0x2e6ecb766f15bfbaL, "function");
+    /*package*/ static final SContainmentLink prototype$lY0a = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228cL, 0x6f36cc77d0d15795L, "prototype");
+    /*package*/ static final SContainmentLink reversePrototype$Ibmx = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228cL, 0x7af97dfb356ba7f0L, "reversePrototype");
     /*package*/ static final SContainmentLink actuals$EywX = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x2e6ecb766f1587b4L, 0x2e6ecb766f15bfb8L, "actuals");
   }
 
@@ -58,6 +69,9 @@ public class ReversibleFunctionCall_TextGen extends TextGenDescriptorBase {
   }
 
   private static final class CONCEPTS {
+    /*package*/ static final SConcept DESLModel$DK = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, "DESL.structure.DESLModel");
+    /*package*/ static final SConcept ExternalFunctionPrototype$V4 = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228cL, "DESL.structure.ExternalFunctionPrototype");
+    /*package*/ static final SConcept FunctionPrototype$JD = MetaAdapterFactory.getConcept(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x595522006a5b97e0L, "com.mbeddr.core.modules.structure.FunctionPrototype");
     /*package*/ static final SInterfaceConcept TraceableConcept$L = MetaAdapterFactory.getInterfaceConcept(0x9ded098bad6a4657L, 0xbfd948636cfe8bc3L, 0x465516cf87c705a3L, "jetbrains.mps.lang.traceable.structure.TraceableConcept");
   }
 }

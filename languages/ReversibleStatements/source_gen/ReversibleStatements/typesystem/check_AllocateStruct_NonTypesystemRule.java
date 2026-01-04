@@ -10,9 +10,7 @@ import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import com.mbeddr.core.expressions.behavior.IVariableDeclaration__BehaviorDescriptor;
-import ReversibleExpressions.behavior.IVariableReference__BehaviorDescriptor;
-import jetbrains.mps.baseLanguage.logging.rt.LogContext;
-import jetbrains.mps.typechecking.TypecheckingFacade;
+import com.mbeddr.core.expressions.behavior.IVariableReference__BehaviorDescriptor;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
@@ -27,10 +25,9 @@ public class check_AllocateStruct_NonTypesystemRule extends AbstractNonTypesyste
   }
   public void applyRule(final SNode as, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     {
-      final SNode varRef = SLinkOperations.getTarget(as, LINKS.newStructVariable$EkJL);
+      final SNode varRef = SLinkOperations.getTarget(as, LINKS.allocationVariable$GPxN);
       if (SNodeOperations.isInstanceOf(varRef, CONCEPTS.IVariableReference$Kb)) {
         if (!(SNodeOperations.isInstanceOf(IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(varRef)), CONCEPTS.PointerType$HX)) || !(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.cast(IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(varRef)), CONCEPTS.PointerType$HX), LINKS.baseType$zMGV), CONCEPTS.StructType$B3))) {
-          LogContext.with(check_AllocateStruct_NonTypesystemRule.class, null, null, null).debug(TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(as, LINKS.newStructVariable$EkJL)));
           {
             final MessageTarget errorTarget = new NodeMessageTarget();
             IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(as, "Allocation variable must be a pointer to a struct", "r:07afe000-9188-4b34-9180-ab5e86e4d5d2(ReversibleStatements.typesystem)", "2333498690105367003", null, errorTarget);
@@ -50,7 +47,7 @@ public class check_AllocateStruct_NonTypesystemRule extends AbstractNonTypesyste
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink newStructVariable$EkJL = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x4f052dce270158d9L, 0x206240b1fa72436eL, "newStructVariable");
+    /*package*/ static final SContainmentLink allocationVariable$GPxN = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x7af97dfb35e0fee8L, 0x7af97dfb363145a9L, "allocationVariable");
     /*package*/ static final SContainmentLink baseType$zMGV = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x6bbcdccef5e46755L, 0x6bbcdccef5e46756L, "baseType");
   }
 

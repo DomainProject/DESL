@@ -18,19 +18,23 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import java.util.UUID;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.baseLanguage.logging.rt.LogContext;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class IReversibleLoop__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x6337a44ca461bdf4L, "ReversibleStatements.structure.IReversibleLoop");
 
   public static final SMethod<String> getIterationVariableName_id6cRD4M$XPR9 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getIterationVariableName").modifiers(12, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7149363582566096329L).languageId(0x8af20a8ce6b25221L, 0xf75f9e3fb00b4997L).build2();
   public static final SMethod<String> createAdditionalVariable_id6cRD4M$XPZ_ = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("createAdditionalVariable").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7149363582566096869L).languageId(0x8af20a8ce6b25221L, 0xf75f9e3fb00b4997L).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter(String.class, ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
+  public static final SMethod<Void> updateAdditionalVariableType_id5wlskT_l0e7 = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("updateAdditionalVariableType").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6347103831369974663L).languageId(0x8af20a8ce6b25221L, 0xf75f9e3fb00b4997L).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter(String.class, ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getIterationVariableName_id6cRD4M$XPR9, createAdditionalVariable_id6cRD4M$XPZ_);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getIterationVariableName_id6cRD4M$XPR9, createAdditionalVariable_id6cRD4M$XPZ_, updateAdditionalVariableType_id5wlskT_l0e7);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -46,6 +50,14 @@ public final class IReversibleLoop__BehaviorDescriptor extends BaseBHDescriptor 
     ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.additionalVariables$en7t)).addElement(newVar);
 
     return SPropertyOperations.getString(newVar, PROPS.name$MnvL);
+  }
+  /*package*/ static void updateAdditionalVariableType_id5wlskT_l0e7(@NotNull SNode __thisNode__, SNode type, final String variableName) {
+    SNode var = ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.additionalVariables$en7t)).findFirst((it) -> SPropertyOperations.getString(it, PROPS.name$MnvL).equals(variableName));
+    SLinkOperations.setTarget(SNodeOperations.cast(SLinkOperations.getTarget(var, LINKS.type$sXU3), CONCEPTS.ArrayType$WW), LINKS.baseType$zMGV, SNodeOperations.copyNode(type));
+
+    String log = "Variable " + SPropertyOperations.getString(var, PROPS.name$MnvL) + " has type " + SLinkOperations.getTarget(var, LINKS.type$sXU3) + " with base type " + SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(var, LINKS.type$sXU3), CONCEPTS.ArrayType$WW), LINKS.baseType$zMGV) + " with size " + SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(var, LINKS.type$sXU3), CONCEPTS.ArrayType$WW), LINKS.sizeExpr$S0Eu) + " (" + SPropertyOperations.getString(SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(var, LINKS.type$sXU3), CONCEPTS.ArrayType$WW), LINKS.sizeExpr$S0Eu), CONCEPTS.NumberLiteral$jK), PROPS.value$qZmE) + ")";
+
+    LogContext.with(IReversibleLoop__BehaviorDescriptor.class, null, null, null).info(log);
   }
 
   /*package*/ IReversibleLoop__BehaviorDescriptor() {
@@ -65,6 +77,9 @@ public final class IReversibleLoop__BehaviorDescriptor extends BaseBHDescriptor 
     switch (methodIndex) {
       case 1:
         return (T) ((String) createAdditionalVariable_id6cRD4M$XPZ_(node, (SNode) parameters[0], (String) parameters[1], (SNode) parameters[2]));
+      case 2:
+        updateAdditionalVariableType_id5wlskT_l0e7(node, (SNode) parameters[0], (String) parameters[1]);
+        return null;
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -98,9 +113,17 @@ public final class IReversibleLoop__BehaviorDescriptor extends BaseBHDescriptor 
     /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
     /*package*/ static final SContainmentLink init$$i$n = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad96e6L, 0x3a16e3a9c7ae01f7L, "init");
     /*package*/ static final SContainmentLink additionalVariables$en7t = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x6337a44ca461bdf4L, 0x6337a44ca461be00L, "additionalVariables");
+    /*package*/ static final SContainmentLink baseType$zMGV = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x6bbcdccef5e46755L, 0x6bbcdccef5e46756L, "baseType");
+    /*package*/ static final SContainmentLink sizeExpr$S0Eu = MetaAdapterFactory.getContainmentLink(0x3bf5377ae9044dedL, 0x97545a516023bfaaL, 0x4ed16d83a1d30c81L, 0x1429cfd56a064333L, "sizeExpr");
   }
 
   private static final class PROPS {
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty value$qZmE = MetaAdapterFactory.getProperty(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x1eb611a68febd3e5L, 0x1eb611a68fec38b0L, "value");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ArrayType$WW = MetaAdapterFactory.getConcept(0x3bf5377ae9044dedL, 0x97545a516023bfaaL, 0x4ed16d83a1d30c81L, "com.mbeddr.core.pointers.structure.ArrayType");
+    /*package*/ static final SConcept NumberLiteral$jK = MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba67L, "com.mbeddr.core.expressions.structure.NumberLiteral");
   }
 }

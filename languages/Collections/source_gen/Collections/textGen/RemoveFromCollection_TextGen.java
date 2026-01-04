@@ -20,7 +20,7 @@ public class RemoveFromCollection_TextGen extends TextGenDescriptorBase {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     tgs.createPositionInfo();
     if (SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5)) {
-      tgs.append("checkpoint.");
+      tgs.append("cp.");
       tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), PROPS.name$MnvL));
       tgs.append(" = ");
       tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableToSaveName$udlR));
@@ -36,7 +36,7 @@ public class RemoveFromCollection_TextGen extends TextGenDescriptorBase {
     } else {
       tgs.append("list_insert_tail(");
       tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.collection$icQi));
-      tgs.append(", checkpoint.");
+      tgs.append(", cp.");
       tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), PROPS.name$MnvL));
       tgs.append(");");
       tgs.newLine();

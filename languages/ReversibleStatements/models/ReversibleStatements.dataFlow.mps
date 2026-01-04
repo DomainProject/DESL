@@ -13,7 +13,6 @@
     <import index="rj8d" ref="r:da9fd96f-5c71-45ab-b2da-1aa6232ec67f(com.mbeddr.core.statements.behavior)" implicit="true" />
     <import index="33ny" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util(JDK/)" implicit="true" />
     <import index="kmi" ref="r:afa7ae5b-c41f-45e8-9678-2beae3621a33(ReversibleStatements.structure)" implicit="true" />
-    <import index="e32u" ref="r:457bcadc-5da5-4b82-8524-230e48ca7946(ReversibleExpressions.behavior)" implicit="true" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -1512,7 +1511,7 @@
           <node concept="2OqwBi" id="2kcYdYMz5a1" role="3_H1SZ">
             <node concept="3__QtB" id="2kcYdYMz59G" role="2Oq$k0" />
             <node concept="2qgKlT" id="2kcYdYMz5a8" role="2OqNvi">
-              <ref role="37wK5l" to="e32u:1LDGRqyQFAf" resolve="getVariable" />
+              <ref role="37wK5l" to="ywuz:1LDGRqyQFAf" resolve="getVariable" />
             </node>
           </node>
         </node>

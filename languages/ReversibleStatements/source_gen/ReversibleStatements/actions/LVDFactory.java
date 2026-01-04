@@ -5,27 +5,10 @@ package ReversibleStatements.actions;
 import jetbrains.mps.openapi.actions.descriptor.NodeFactory;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SModel;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import org.jetbrains.mps.openapi.language.SConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class LVDFactory {
   public static class NodeFactory_9145657560147586858 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, int index, SModel model) {
-      if ((SLinkOperations.getTarget(newNode, LINKS.type$sXU3) != null) && !(SNodeOperations.isInstanceOf(newNode, CONCEPTS.ForVarDecl$3i))) {
-        SLinkOperations.setTarget(SLinkOperations.getTarget(newNode, LINKS.supportVariable$WrxR), LINKS.type$sXU3, SNodeOperations.copyNode(SLinkOperations.getTarget(newNode, LINKS.type$sXU3)));
-      }
     }
-  }
-
-  private static final class CONCEPTS {
-    /*package*/ static final SConcept ForVarDecl$3i = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a401870e23L, "ReversibleStatements.structure.ForVarDecl");
-  }
-
-  private static final class LINKS {
-    /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
-    /*package*/ static final SContainmentLink supportVariable$WrxR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x586abb2d5743cb69L, "supportVariable");
   }
 }

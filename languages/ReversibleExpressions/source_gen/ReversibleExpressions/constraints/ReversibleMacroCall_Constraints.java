@@ -4,6 +4,11 @@ package ReversibleExpressions.constraints;
 
 import jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptorInitContext;
+import jetbrains.mps.smodel.runtime.ConstraintFunction;
+import jetbrains.mps.smodel.runtime.ConstraintContext_CanBeParent;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+import jetbrains.mps.smodel.runtime.CheckingNodeContext;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -11,7 +16,6 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import ReversibleExpressions.behavior.ReversibleMacroCall__BehaviorDescriptor;
-import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
 import org.jetbrains.mps.openapi.model.SNodeReference;
@@ -19,17 +23,31 @@ import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.scope.Scope;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsContext;
 import com.mbeddr.core.base.behavior.IVisibleElementProvider__BehaviorDescriptor;
+import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import java.util.Objects;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
-import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SProperty;
 
 public class ReversibleMacroCall_Constraints extends BaseConstraintsDescriptor {
   /*package*/ ReversibleMacroCall_Constraints(ConstraintsDescriptorInitContext initContext) {
     super(CONCEPTS.ReversibleMacroCall$40, initContext);
     record(new RD1(this));
+    setCanBeParent(new ConstraintFunction<ConstraintContext_CanBeParent, Boolean>() {
+      @NotNull
+      public Boolean invoke(@NotNull ConstraintContext_CanBeParent context, @Nullable CheckingNodeContext checkingNodeContext) {
+        boolean result = staticCanBeAParent(context.getNode(), context.getChildNode(), context.getChildConcept(), context.getLink());
+
+        if (!(result) && checkingNodeContext != null) {
+          checkingNodeContext.setBreakingNode(canBeParentBreakingPoint);
+        }
+
+        return result;
+      }
+    });
   }
 
   /*package*/ static final class RD1 extends BaseReferenceConstraintsDescriptor {
@@ -62,11 +80,16 @@ public class ReversibleMacroCall_Constraints extends BaseConstraintsDescriptor {
       };
     }
   }
+  private static boolean staticCanBeAParent(SNode node, SNode childNode, SAbstractConcept childConcept, SContainmentLink link) {
+    return !(Objects.equals(childConcept, CONCEPTS.IVariableReference$WR));
+  }
+  private static final SNodePointer canBeParentBreakingPoint = new SNodePointer("r:e81df3c1-b167-4843-95a2-4c0dd8e517e2(ReversibleExpressions.constraints)", "6749275141364237708");
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept ReversibleMacroCall$40 = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1b427f2e49d1fe84L, "ReversibleExpressions.structure.ReversibleMacroCall");
     /*package*/ static final SConcept ReversibleMacro$EH = MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145008fL, "ReversibleFunctions.structure.ReversibleMacro");
     /*package*/ static final SInterfaceConcept IVisibleElementProvider$$O = MetaAdapterFactory.getInterfaceConcept(0xd4280a54f6df4383L, 0xaa41d1b2bffa7eb1L, 0x6315bcc6eff580a3L, "com.mbeddr.core.base.structure.IVisibleElementProvider");
+    /*package*/ static final SInterfaceConcept IVariableReference$WR = MetaAdapterFactory.getInterfaceConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x1c69b376a2dab98aL, "com.mbeddr.core.expressions.structure.IVariableReference");
   }
 
   private static final class LINKS {

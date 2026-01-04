@@ -5,8 +5,8 @@ package Collections.textGen;
 import jetbrains.mps.text.rt.TextGenDescriptorBase;
 import jetbrains.mps.text.rt.TextGenContext;
 import jetbrains.mps.text.impl.TextGenSupport;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.traceable.behavior.TraceableConcept__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
@@ -19,54 +19,58 @@ public class FindFirst_TextGen extends TextGenDescriptorBase {
   public void generateText(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     tgs.createPositionInfo();
-    // define variable to be extracted
-    tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.destVariable$aG_k));
-    tgs.newLine();
-    // define iterator
-    tgs.indent();
-    tgs.appendNode(SLinkOperations.getTarget(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.elem$IobX), LINKS.type$sXU3));
-    tgs.append(" ");
-    tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.elem$IobX), PROPS.name$MnvL));
-    tgs.append(" = list_head(");
-    tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.collection$2W6r));
-    tgs.append(");");
-    tgs.newLine();
-    tgs.indent();
-    tgs.append("while(");
-    tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.elem$IobX), PROPS.name$MnvL));
-    tgs.append(" != NULL) {");
-    tgs.newLine();
-    ctx.getBuffer().area().increaseIndent();
-    tgs.indent();
-    tgs.append("if (");
-    tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.condition$InWW));
-    tgs.append(")");
-    tgs.append(" {");
-    tgs.newLine();
-    ctx.getBuffer().area().increaseIndent();
-    tgs.indent();
-    tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.destVariable$aG_k), PROPS.name$MnvL));
-    tgs.append(" = ");
-    tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.elem$IobX), PROPS.name$MnvL));
-    tgs.append(";");
-    tgs.newLine();
-    tgs.indent();
-    tgs.append("break;");
-    tgs.newLine();
-    ctx.getBuffer().area().decreaseIndent();
-    tgs.indent();
-    tgs.append("}");
-    tgs.newLine();
-    tgs.indent();
-    tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.elem$IobX), PROPS.name$MnvL));
-    tgs.append(" = list_next(");
-    tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.elem$IobX), PROPS.name$MnvL));
-    tgs.append(");");
-    tgs.newLine();
-    ctx.getBuffer().area().decreaseIndent();
-    tgs.indent();
-    tgs.append("}");
-    tgs.newLine();
+
+    if (SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5)) {
+
+      // define variable to be extracted
+      tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.destVariable$aG_k));
+      tgs.newLine();
+      // define iterator
+      tgs.indent();
+      tgs.appendNode(SLinkOperations.getTarget(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.elem$IobX), LINKS.type$sXU3));
+      tgs.append(" ");
+      tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.elem$IobX), PROPS.name$MnvL));
+      tgs.append(" = list_head(");
+      tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.collection$2W6r));
+      tgs.append(");");
+      tgs.newLine();
+      tgs.indent();
+      tgs.append("while(");
+      tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.elem$IobX), PROPS.name$MnvL));
+      tgs.append(" != NULL) {");
+      tgs.newLine();
+      ctx.getBuffer().area().increaseIndent();
+      tgs.indent();
+      tgs.append("if (");
+      tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.condition$InWW));
+      tgs.append(")");
+      tgs.append(" {");
+      tgs.newLine();
+      ctx.getBuffer().area().increaseIndent();
+      tgs.indent();
+      tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.destVariable$aG_k), PROPS.name$MnvL));
+      tgs.append(" = ");
+      tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.elem$IobX), PROPS.name$MnvL));
+      tgs.append(";");
+      tgs.newLine();
+      tgs.indent();
+      tgs.append("break;");
+      tgs.newLine();
+      ctx.getBuffer().area().decreaseIndent();
+      tgs.indent();
+      tgs.append("}");
+      tgs.newLine();
+      tgs.indent();
+      tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.elem$IobX), PROPS.name$MnvL));
+      tgs.append(" = list_next(");
+      tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.elem$IobX), PROPS.name$MnvL));
+      tgs.append(");");
+      tgs.newLine();
+      ctx.getBuffer().area().decreaseIndent();
+      tgs.indent();
+      tgs.append("}");
+      tgs.newLine();
+    }
     if (tgs.needPositions()) {
       tgs.fillPositionInfo(TraceableConcept__BehaviorDescriptor.getTraceableProperty_id4pl5GY7LKmH.invoke(SNodeOperations.cast(ctx.getPrimaryInput(), CONCEPTS.TraceableConcept$L)));
     }
@@ -82,6 +86,7 @@ public class FindFirst_TextGen extends TextGenDescriptorBase {
 
   private static final class PROPS {
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
   }
 
   private static final class CONCEPTS {

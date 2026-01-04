@@ -11,9 +11,6 @@
       <concept id="1080736578640" name="jetbrains.mps.lang.editor.structure.BaseEditorComponent" flags="ig" index="2wURMF">
         <child id="1080736633877" name="cellModel" index="2wV5jI" />
       </concept>
-      <concept id="1381004262292414836" name="jetbrains.mps.lang.editor.structure.ICellStyle" flags="ngI" index="1k5N5V">
-        <reference id="1381004262292426837" name="parentStyleClass" index="1k5W1q" />
-      </concept>
       <concept id="1073389446423" name="jetbrains.mps.lang.editor.structure.CellModel_Collection" flags="sn" stub="3013115976261988961" index="3EZMnI">
         <child id="1106270802874" name="cellLayout" index="2iSdaV" />
         <child id="1073389446424" name="childCellModel" index="3EZMnx" />
@@ -36,15 +33,7 @@
     <ref role="1XX52x" to="rdv6:2eX1KFhm6t3" resolve="GetRandContext" />
     <node concept="3EZMnI" id="2eX1KFhm6t8" role="2wV5jI">
       <node concept="3F0ifn" id="2eX1KFhm6tc" role="3EZMnx">
-        <property role="3F0ifm" value="GetRandContext" />
-      </node>
-      <node concept="3F0ifn" id="2eX1KFhm6tf" role="3EZMnx">
-        <property role="3F0ifm" value="(" />
-        <ref role="1k5W1q" node="2R3DD23tMJM" resolve="BraceStyle" />
-      </node>
-      <node concept="3F0ifn" id="2eX1KFhm6ti" role="3EZMnx">
-        <property role="3F0ifm" value=")" />
-        <ref role="1k5W1q" node="2R3DD23tMJM" resolve="BraceStyle" />
+        <property role="3F0ifm" value="GetRandContext()" />
       </node>
       <node concept="l2Vlx" id="2eX1KFhm6tb" role="2iSdaV" />
     </node>

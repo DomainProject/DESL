@@ -37,6 +37,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptGetReceiver = createDescriptorForGetReceiver();
   /*package*/ final ConceptDescriptor myConceptGlobalVarDecl = createDescriptorForGlobalVarDecl();
   /*package*/ final ConceptDescriptor myConceptHeader = createDescriptorForHeader();
+  /*package*/ final ConceptDescriptor myConceptIAllocateMemory = createDescriptorForIAllocateMemory();
   /*package*/ final ConceptDescriptor myConceptIClassDefinition = createDescriptorForIClassDefinition();
   /*package*/ final ConceptDescriptor myConceptIDocs = createDescriptorForIDocs();
   /*package*/ final ConceptDescriptor myConceptIDocsElement = createDescriptorForIDocsElement();
@@ -102,9 +103,9 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     deps.aggregatedLanguage(0xefda956e491e4f00L, 0xba1436af2f213ecfL, "com.mbeddr.core.udt");
     deps.aggregatedLanguage(0xa9d696470840491eL, 0xbf392eb0805d2011L, "com.mbeddr.core.statements");
     deps.aggregatedLanguage(0x61c69711ed614850L, 0x81d97714ff227fb0L, "com.mbeddr.core.expressions");
-    deps.aggregatedLanguage(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, "ReversibleStatements");
     deps.aggregatedLanguage(0x92d2ea165a424fdfL, 0xa676c7604efe3504L, "de.slisson.mps.richtext");
     deps.aggregatedLanguage(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, "com.mbeddr.core.modules");
+    deps.aggregatedLanguage(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, "ReversibleStatements");
     deps.aggregatedLanguage(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, "ReversibleFunctions");
     deps.aggregatedLanguage(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, "ReversibleExpressions");
     deps.aggregatedLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage");
@@ -113,7 +114,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptClassDefinition, myConceptCreateArray, myConceptDESLModel, myConceptDocsEntry, myConceptDocsM2M, myConceptEmptyLine, myConceptEventDefinition, myConceptEventDocs, myConceptEventHandler, myConceptEventHandlerDocs, myConceptEventType, myConceptExpent, myConceptExternalFunction, myConceptExternalFunctionPrototype, myConceptExternalMacro, myConceptExternalStructDefinition, myConceptFunctionDocs, myConceptGetRandContext, myConceptGetReceiver, myConceptGlobalVarDecl, myConceptHeader, myConceptIClassDefinition, myConceptIDocs, myConceptIDocsElement, myConceptIEventDefinition, myConceptIExternalFunction, myConceptIFiller, myConceptIGlobalVarDecl, myConceptIHandler, myConceptIMacro, myConceptIProcessAllocation, myConceptIProcessList, myConceptIRNGCall, myConceptIStartupFunction, myConceptIStructDefinition, myConceptITerminationFunction, myConceptIText, myConceptITypeDefinition, myConceptInitRandomContext, myConceptInitTopology, myConceptInitializeState, myConceptItem, myConceptItemList, myConceptMacroFunction, myConceptMacroVariable, myConceptParameterDocs, myConceptPlainText, myConceptProcessAllocation, myConceptProcessArray, myConceptProcessSequence, myConceptRandom, myConceptRngContext, myConceptRootSimGPUM2M, myConceptRootSimM2M, myConceptRossM2M, myConceptSendEvent, myConceptStartupFunction, myConceptStartupHandler, myConceptStructDefinition, myConceptStructDocs, myConceptStructMemberDocs, myConceptTerminationFunction, myConceptTypeDefinition, myConceptUseM2M);
+    return Arrays.asList(myConceptClassDefinition, myConceptCreateArray, myConceptDESLModel, myConceptDocsEntry, myConceptDocsM2M, myConceptEmptyLine, myConceptEventDefinition, myConceptEventDocs, myConceptEventHandler, myConceptEventHandlerDocs, myConceptEventType, myConceptExpent, myConceptExternalFunction, myConceptExternalFunctionPrototype, myConceptExternalMacro, myConceptExternalStructDefinition, myConceptFunctionDocs, myConceptGetRandContext, myConceptGetReceiver, myConceptGlobalVarDecl, myConceptHeader, myConceptIAllocateMemory, myConceptIClassDefinition, myConceptIDocs, myConceptIDocsElement, myConceptIEventDefinition, myConceptIExternalFunction, myConceptIFiller, myConceptIGlobalVarDecl, myConceptIHandler, myConceptIMacro, myConceptIProcessAllocation, myConceptIProcessList, myConceptIRNGCall, myConceptIStartupFunction, myConceptIStructDefinition, myConceptITerminationFunction, myConceptIText, myConceptITypeDefinition, myConceptInitRandomContext, myConceptInitTopology, myConceptInitializeState, myConceptItem, myConceptItemList, myConceptMacroFunction, myConceptMacroVariable, myConceptParameterDocs, myConceptPlainText, myConceptProcessAllocation, myConceptProcessArray, myConceptProcessSequence, myConceptRandom, myConceptRngContext, myConceptRootSimGPUM2M, myConceptRootSimM2M, myConceptRossM2M, myConceptSendEvent, myConceptStartupFunction, myConceptStartupHandler, myConceptStructDefinition, myConceptStructDocs, myConceptStructMemberDocs, myConceptTerminationFunction, myConceptTypeDefinition, myConceptUseM2M);
   }
 
   @Override
@@ -162,6 +163,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptGlobalVarDecl;
       case LanguageConceptSwitch.Header:
         return myConceptHeader;
+      case LanguageConceptSwitch.IAllocateMemory:
+        return myConceptIAllocateMemory;
       case LanguageConceptSwitch.IClassDefinition:
         return myConceptIClassDefinition;
       case LanguageConceptSwitch.IDocs:
@@ -281,11 +284,11 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.class_(false, false, false);
     // extends: ReversibleExpressions.structure.ReversibleExpression
     b.super_(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L);
-    b.parent(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x27d0c8e745a2c78dL);
+    b.parent(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x7af97dfb35e0fee8L);
+    b.parent(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x75236ed53aed8fbcL);
     b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(DESL.structure)/7971727384801361905");
     b.version(3);
     b.aggregate("size", 0x6ea143d20956bff2L).target(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba32L).optional(false).ordered(true).multiple(false).origin("7971727384801361906").done();
-    b.aggregate("arrayVariable", 0x1cfd8bbdd271e05bL).target(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x206240b1fa7242fbL).optional(false).ordered(true).multiple(false).origin("2088979449565536347").done();
     b.alias("createArray");
     return b.create();
   }
@@ -420,6 +423,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.version(3);
     b.property("headerName", 0x5808433cc4903a50L).type(PrimitiveTypeId.STRING).origin("6343394003426228816").done();
     b.aggregate("prototype", 0x6f36cc77d0d15795L).target(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x595522006a5b97e0L).optional(false).ordered(true).multiple(false).origin("8013817401928931221").done();
+    b.aggregate("reversePrototype", 0x7af97dfb356ba7f0L).target(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x595522006a5b97e0L).optional(false).ordered(true).multiple(false).origin("8861252259714672624").done();
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForExternalMacro() {
@@ -494,6 +498,15 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(DESL.structure)/5449779939266939615");
     b.version(3);
     b.property("text", 0x4ba181fb080e4ae0L).type(PrimitiveTypeId.STRING).origin("5449779939266939616").done();
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForIAllocateMemory() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("DESL", "IAllocateMemory", 0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x7af97dfb35e0fee8L);
+    b.interface_();
+    b.parent(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x27d0c8e745a2c78dL);
+    b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(DESL.structure)/8861252259722362600");
+    b.version(3);
+    b.aggregate("allocationVariable", 0x7af97dfb363145a9L).target(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x206240b1fa7242fbL).optional(false).ordered(true).multiple(false).origin("8861252259727623593").done();
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForIClassDefinition() {

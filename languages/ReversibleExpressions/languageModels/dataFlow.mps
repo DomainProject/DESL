@@ -8,6 +8,7 @@
   <imports>
     <import index="ib4b" ref="r:539823a2-87c6-4a7e-abc8-d6fc586848eb(ReversibleExpressions.structure)" />
     <import index="e32u" ref="r:457bcadc-5da5-4b82-8524-230e48ca7946(ReversibleExpressions.behavior)" />
+    <import index="ywuz" ref="r:c6ce92e7-5a98-4a6f-866a-ec8b9e945dd8(com.mbeddr.core.expressions.behavior)" implicit="true" />
     <import index="vs0r" ref="r:f7764ca4-8c75-4049-922b-08516400a727(com.mbeddr.core.base.structure)" implicit="true" />
     <import index="hwgx" ref="r:fd2980c8-676c-4b19-b524-18c70e02f8b7(com.mbeddr.core.base.behavior)" implicit="true" />
   </imports>
@@ -187,7 +188,7 @@
                   </node>
                 </node>
                 <node concept="2qgKlT" id="3X496gkclnO" role="2OqNvi">
-                  <ref role="37wK5l" to="e32u:1LDGRqyQFAf" resolve="getVariable" />
+                  <ref role="37wK5l" to="ywuz:1LDGRqyQFAf" resolve="getVariable" />
                 </node>
               </node>
             </node>
@@ -381,7 +382,7 @@
                   </node>
                 </node>
                 <node concept="2qgKlT" id="510xjrnW73z" role="2OqNvi">
-                  <ref role="37wK5l" to="e32u:1LDGRqyQFAf" resolve="getVariable" />
+                  <ref role="37wK5l" to="ywuz:1LDGRqyQFAf" resolve="getVariable" />
                 </node>
               </node>
             </node>
@@ -407,7 +408,7 @@
                   </node>
                 </node>
                 <node concept="2qgKlT" id="510xjrnW962" role="2OqNvi">
-                  <ref role="37wK5l" to="e32u:1LDGRqyQFAf" resolve="getVariable" />
+                  <ref role="37wK5l" to="ywuz:1LDGRqyQFAf" resolve="getVariable" />
                 </node>
               </node>
             </node>
@@ -478,7 +479,7 @@
                   </node>
                 </node>
                 <node concept="2qgKlT" id="2GqtAvzkrfa" role="2OqNvi">
-                  <ref role="37wK5l" to="e32u:1LDGRqyQFAf" resolve="getVariable" />
+                  <ref role="37wK5l" to="ywuz:1LDGRqyQFAf" resolve="getVariable" />
                 </node>
               </node>
             </node>

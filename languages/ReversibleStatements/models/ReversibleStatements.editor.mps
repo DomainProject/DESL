@@ -24,6 +24,7 @@
     <import index="qyxp" ref="r:173369a3-8060-4aa4-8d21-7c6337526a39(ReversibleStatements.behavior)" implicit="true" />
     <import index="vs0r" ref="r:f7764ca4-8c75-4049-922b-08516400a727(com.mbeddr.core.base.structure)" implicit="true" />
     <import index="tpch" ref="r:00000000-0000-4000-0000-011c8959028d(jetbrains.mps.lang.structure.editor)" implicit="true" />
+    <import index="rdv6" ref="r:79077d65-28d5-4f56-905b-4bcf5185c60e(DESL.structure)" implicit="true" />
   </imports>
   <registry>
     <language id="18bc6592-03a6-4e29-a83a-7ff23bde13ba" name="jetbrains.mps.lang.editor">
@@ -1667,7 +1668,7 @@
         </node>
       </node>
       <node concept="3F1sOY" id="7e09zBHEo2I" role="3EZMnx">
-        <ref role="1NtTu8" to="kmi:7k_CvRMmYVN" resolve="condition" />
+        <ref role="1NtTu8" to="kmi:6iIoqg1xKT3" resolve="condition" />
       </node>
       <node concept="3F0ifn" id="7e09zBHEo2S" role="3EZMnx">
         <property role="3F0ifm" value=")" />
@@ -1702,7 +1703,7 @@
         </node>
       </node>
       <node concept="3F1sOY" id="4hj596uNbOc" role="3EZMnx">
-        <ref role="1NtTu8" to="kmi:7k_CvRMmYVN" resolve="condition" />
+        <ref role="1NtTu8" to="kmi:6iIoqg1xKT3" resolve="condition" />
       </node>
       <node concept="3F0ifn" id="4hj596uNbOa" role="3EZMnx">
         <property role="3F0ifm" value=")" />
@@ -4469,7 +4470,7 @@
         </node>
       </node>
       <node concept="3F1sOY" id="21ygb7Ut1I3" role="3EZMnx">
-        <ref role="1NtTu8" to="kmi:21ygb7Us$dI" resolve="newStructVariable" />
+        <ref role="1NtTu8" to="rdv6:7FTvvGQckmD" resolve="allocationVariable" />
       </node>
       <node concept="3F0ifn" id="4W5bsSB0n5V" role="3EZMnx">
         <property role="3F0ifm" value=")" />

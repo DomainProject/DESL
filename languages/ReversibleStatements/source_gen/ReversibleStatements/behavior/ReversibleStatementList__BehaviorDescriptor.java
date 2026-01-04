@@ -50,7 +50,7 @@ public final class ReversibleStatementList__BehaviorDescriptor extends BaseBHDes
     List<SNode> declarations = new ArrayList<SNode>();
     ListSequence.fromList(declarations).addSequence(Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, LINKS.revStatements$IdM8), CONCEPTS.LocalVariableDeclaration$7E)));
     ListSequence.fromList(declarations).addSequence(Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, LINKS.revStatements$IdM8), CONCEPTS.ReversibleStatementList$qe)).where((it) -> SPropertyOperations.getBoolean(it, PROPS.isInvisible$wTPL)).translate((it) -> (Iterable<SNode>) ILocalVarScopeProvider__BehaviorDescriptor.getContributedLocalVariables_id3LB9aGm4C$b.invoke(it, node)));
-    ListSequence.fromList(declarations).addSequence(Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.collect(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, LINKS.revStatements$IdM8), CONCEPTS.AllocateStruct$Pb), LINKS.newStructVariable$EkJL), CONCEPTS.LocalVariableDeclaration$7E)));
+    ListSequence.fromList(declarations).addSequence(Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.collect(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, LINKS.revStatements$IdM8), CONCEPTS.AllocateStruct$Pb), LINKS.allocationVariable$GPxN), CONCEPTS.LocalVariableDeclaration$7E)));
     return declarations;
   }
   /*package*/ static boolean requiresMultiLines_id1z9MsBsVy8R(@NotNull SNode __thisNode__) {
@@ -153,7 +153,7 @@ public final class ReversibleStatementList__BehaviorDescriptor extends BaseBHDes
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink revStatements$IdM8 = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, 0x3a16e3a9c7ad9956L, "revStatements");
-    /*package*/ static final SContainmentLink newStructVariable$EkJL = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x4f052dce270158d9L, 0x206240b1fa72436eL, "newStructVariable");
+    /*package*/ static final SContainmentLink allocationVariable$GPxN = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x7af97dfb35e0fee8L, 0x7af97dfb363145a9L, "allocationVariable");
   }
 
   private static final class CONCEPTS {

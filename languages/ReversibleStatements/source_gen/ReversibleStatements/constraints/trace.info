@@ -355,28 +355,30 @@
       <node id="2754554544861855252" at="33,53,34,60" concept="11" />
       <node id="2754554544861855252" at="37,68,38,82" concept="2" />
       <node id="2754554544861856005" at="40,82,41,71" concept="2" />
-      <node id="2754554544861866235" at="41,71,42,85" concept="2" />
-      <node id="5470497459579431079" at="47,0,48,0" concept="9" trace="LocalVariableDeclaration$7E" />
-      <node id="5470497459579431079" at="51,0,52,0" concept="9" trace="shortDescription$Yd4v" />
-      <node id="5470497459579431079" at="52,0,53,0" concept="9" trace="name$MnvL" />
-      <node id="5470497459579431079" at="53,0,54,0" concept="9" trace="variableToSaveName$udlR" />
+      <node id="5470497459579431079" at="46,0,47,0" concept="9" trace="LocalVariableDeclaration$7E" />
+      <node id="5470497459579431079" at="50,0,51,0" concept="9" trace="shortDescription$Yd4v" />
+      <node id="5470497459579431079" at="51,0,52,0" concept="9" trace="name$MnvL" />
       <node id="5470497459578939145" at="24,0,27,0" concept="1" trace="ShortDescription_PD#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptor;)V" />
       <node id="2754554544861855252" at="33,0,36,0" concept="1" trace="Name_PD#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptor;)V" />
+      <node id="2754554544861855252" at="40,0,43,0" concept="10" trace="staticSetPropertyValue#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/String;)V" />
       <node id="5470497459578939145" at="27,0,31,0" concept="5" trace="getValue#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/Object;" />
       <node id="2754554544861855252" at="36,0,40,0" concept="5" trace="setPropertyValue#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/Object;)V" />
-      <node id="2754554544861855252" at="40,0,44,0" concept="10" trace="staticSetPropertyValue#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/String;)V" />
       <node id="5470497459579431079" at="17,0,22,0" concept="1" trace="LocalVariableDeclaration_Constraints#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptorInitContext;)V" />
       <scope id="5470497459578939145" at="24,65,25,72" />
       <scope id="5470497459578939147" at="28,40,29,119" />
       <scope id="2754554544861855252" at="33,53,34,60" />
       <scope id="2754554544861855252" at="37,68,38,82" />
-      <scope id="2754554544861855628" at="40,82,42,85" />
+      <scope id="2754554544861855628" at="40,82,41,71" />
       <scope id="5470497459579431079" at="17,98,20,30" />
       <scope id="5470497459578939145" at="24,0,27,0">
         <var name="container" id="5470497459578939145" />
       </scope>
       <scope id="2754554544861855252" at="33,0,36,0">
         <var name="container" id="2754554544861855252" />
+      </scope>
+      <scope id="2754554544861855252" at="40,0,43,0">
+        <var name="node" id="2754554544861855252" />
+        <var name="propertyValue" id="2754554544861855252" />
       </scope>
       <scope id="5470497459578939145" at="27,0,31,0">
         <var name="node" id="5470497459578939145" />
@@ -385,18 +387,14 @@
         <var name="node" id="2754554544861855252" />
         <var name="propertyValue" id="2754554544861855252" />
       </scope>
-      <scope id="2754554544861855252" at="40,0,44,0">
-        <var name="node" id="2754554544861855252" />
-        <var name="propertyValue" id="2754554544861855252" />
-      </scope>
       <scope id="5470497459579431079" at="17,0,22,0">
         <var name="initContext" id="5470497459579431079" />
       </scope>
-      <unit id="5470497459579431079" at="46,0,49,0" name="ReversibleStatements.constraints.LocalVariableDeclaration_Constraints$CONCEPTS" />
-      <unit id="5470497459579431079" at="50,0,55,0" name="ReversibleStatements.constraints.LocalVariableDeclaration_Constraints$PROPS" />
+      <unit id="5470497459579431079" at="45,0,48,0" name="ReversibleStatements.constraints.LocalVariableDeclaration_Constraints$CONCEPTS" />
+      <unit id="5470497459579431079" at="49,0,53,0" name="ReversibleStatements.constraints.LocalVariableDeclaration_Constraints$PROPS" />
       <unit id="5470497459578939145" at="23,0,32,0" name="ReversibleStatements.constraints.LocalVariableDeclaration_Constraints$ShortDescription_PD" />
-      <unit id="2754554544861855252" at="32,0,45,0" name="ReversibleStatements.constraints.LocalVariableDeclaration_Constraints$Name_PD" />
-      <unit id="5470497459579431079" at="16,0,56,0" name="ReversibleStatements.constraints.LocalVariableDeclaration_Constraints" />
+      <unit id="2754554544861855252" at="32,0,44,0" name="ReversibleStatements.constraints.LocalVariableDeclaration_Constraints$Name_PD" />
+      <unit id="5470497459579431079" at="16,0,54,0" name="ReversibleStatements.constraints.LocalVariableDeclaration_Constraints" />
     </file>
   </root>
   <root nodeRef="r:b1228d9b-8e2c-4c06-8c54-62acd072f382(ReversibleStatements.constraints)/5924821888884561503">
@@ -473,34 +471,38 @@
       <node id="713811912321759512" at="42,114,43,18" concept="7" />
       <node id="5694007667301408887" at="46,117,47,83" concept="2" />
       <node id="5694007667301415670" at="47,83,48,144" concept="2" />
-      <node id="713811912321759512" at="55,61,56,132" concept="7" />
-      <node id="713811912321877000" at="59,78,60,663" concept="7" />
-      <node id="713811912321759511" at="67,0,68,0" concept="9" trace="ReleaseStruct$Eo" />
-      <node id="713811912321759511" at="68,0,69,0" concept="9" trace="ReversibleFunction$IL" />
-      <node id="713811912321759511" at="69,0,70,0" concept="9" trace="IVariableDeclaration$O" />
-      <node id="713811912321759511" at="70,0,71,0" concept="9" trace="PointerType$HX" />
-      <node id="713811912321759511" at="71,0,72,0" concept="9" trace="StructType$B3" />
-      <node id="713811912321759511" at="75,0,76,0" concept="9" trace="struct$srIx" />
-      <node id="713811912321759511" at="76,0,77,0" concept="9" trace="baseType$zMGV" />
-      <node id="713811912321759511" at="80,0,81,0" concept="9" trace="variableToSaveName$udlR" />
-      <node id="713811912321759511" at="81,0,82,0" concept="9" trace="name$MnvL" />
+      <node id="6749275141394167609" at="48,144,49,281" concept="2" />
+      <node id="713811912321759512" at="56,61,57,132" concept="7" />
+      <node id="713811912321877000" at="60,78,61,663" concept="7" />
+      <node id="713811912321759511" at="68,0,69,0" concept="9" trace="ReleaseStruct$Eo" />
+      <node id="713811912321759511" at="69,0,70,0" concept="9" trace="Type$dP" />
+      <node id="713811912321759511" at="70,0,71,0" concept="9" trace="ReversibleFunction$IL" />
+      <node id="713811912321759511" at="71,0,72,0" concept="9" trace="IVariableDeclaration$O" />
+      <node id="713811912321759511" at="72,0,73,0" concept="9" trace="PointerType$HX" />
+      <node id="713811912321759511" at="73,0,74,0" concept="9" trace="StructType$B3" />
+      <node id="713811912321759511" at="77,0,78,0" concept="9" trace="struct$srIx" />
+      <node id="713811912321759511" at="78,0,79,0" concept="9" trace="supportVariable$WrxR" />
+      <node id="713811912321759511" at="79,0,80,0" concept="9" trace="type$sXU3" />
+      <node id="713811912321759511" at="80,0,81,0" concept="9" trace="baseType$zMGV" />
+      <node id="713811912321759511" at="84,0,85,0" concept="9" trace="variableToSaveName$udlR" />
+      <node id="713811912321759511" at="85,0,86,0" concept="9" trace="name$MnvL" />
       <node id="713811912321759512" at="38,0,41,0" concept="1" trace="RD1#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptor;)V" />
       <node id="713811912321759511" at="32,0,36,0" concept="1" trace="ReleaseStruct_Constraints#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptorInitContext;)V" />
       <node id="713811912321759512" at="41,0,45,0" concept="5" trace="validate#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
-      <node id="713811912321759512" at="54,0,58,0" concept="5" trace="getSearchScopeValidatorNode#()Lorg/jetbrains/mps/openapi/model/SNodeReference;" />
-      <node id="713811912321759512" at="58,0,62,0" concept="5" trace="createScope#(Ljetbrains/mps/smodel/runtime/ReferenceConstraintsContext;)Ljetbrains/mps/scope/Scope;" />
-      <node id="713811912321759512" at="45,0,50,0" concept="5" trace="onReferenceSet#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)V" />
-      <node id="713811912321759512" at="52,54,62,8" concept="7" />
-      <node id="713811912321759512" at="50,0,64,0" concept="5" trace="getScopeProvider#()Ljetbrains/mps/smodel/runtime/ReferenceScopeProvider;" />
+      <node id="713811912321759512" at="55,0,59,0" concept="5" trace="getSearchScopeValidatorNode#()Lorg/jetbrains/mps/openapi/model/SNodeReference;" />
+      <node id="713811912321759512" at="59,0,63,0" concept="5" trace="createScope#(Ljetbrains/mps/smodel/runtime/ReferenceConstraintsContext;)Ljetbrains/mps/scope/Scope;" />
+      <node id="713811912321759512" at="45,0,51,0" concept="5" trace="onReferenceSet#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)V" />
+      <node id="713811912321759512" at="53,54,63,8" concept="7" />
+      <node id="713811912321759512" at="51,0,65,0" concept="5" trace="getScopeProvider#()Ljetbrains/mps/smodel/runtime/ReferenceScopeProvider;" />
       <scope id="713811912321759512" at="38,54,39,54" />
       <scope id="713811912321759512" at="42,114,43,18" />
-      <scope id="713811912321759512" at="55,61,56,132" />
-      <scope id="713811912321759512" at="59,78,60,663" />
+      <scope id="713811912321759512" at="56,61,57,132" />
+      <scope id="713811912321759512" at="60,78,61,663" />
       <scope id="713811912321759511" at="32,87,34,26" />
-      <scope id="5694007667301408129" at="46,117,48,144" />
       <scope id="713811912321759512" at="38,0,41,0">
         <var name="container" id="713811912321759512" />
       </scope>
+      <scope id="5694007667301408129" at="46,117,49,281" />
       <scope id="713811912321759511" at="32,0,36,0">
         <var name="initContext" id="713811912321759511" />
       </scope>
@@ -509,23 +511,23 @@
         <var name="oldReferentNode" id="713811912321759512" />
         <var name="referenceNode" id="713811912321759512" />
       </scope>
-      <scope id="713811912321759512" at="54,0,58,0" />
-      <scope id="713811912321759512" at="58,0,62,0">
+      <scope id="713811912321759512" at="55,0,59,0" />
+      <scope id="713811912321759512" at="59,0,63,0">
         <var name="_context" id="713811912321759512" />
       </scope>
-      <scope id="713811912321759512" at="45,0,50,0">
+      <scope id="713811912321759512" at="45,0,51,0">
         <var name="newReferentNode" id="713811912321759512" />
         <var name="oldReferentNode" id="713811912321759512" />
         <var name="referenceNode" id="713811912321759512" />
       </scope>
-      <scope id="713811912321759512" at="52,54,62,8" />
-      <scope id="713811912321759512" at="50,0,64,0" />
-      <unit id="713811912321759511" at="74,0,78,0" name="ReversibleStatements.constraints.ReleaseStruct_Constraints$LINKS" />
-      <unit id="713811912321759511" at="79,0,83,0" name="ReversibleStatements.constraints.ReleaseStruct_Constraints$PROPS" />
-      <unit id="713811912321759511" at="66,0,73,0" name="ReversibleStatements.constraints.ReleaseStruct_Constraints$CONCEPTS" />
-      <unit id="713811912321759512" at="53,17,62,7" name="ReversibleStatements.constraints.ReleaseStruct_Constraints$RD1$1" />
-      <unit id="713811912321759512" at="37,0,65,0" name="ReversibleStatements.constraints.ReleaseStruct_Constraints$RD1" />
-      <unit id="713811912321759511" at="31,0,84,0" name="ReversibleStatements.constraints.ReleaseStruct_Constraints" />
+      <scope id="713811912321759512" at="53,54,63,8" />
+      <scope id="713811912321759512" at="51,0,65,0" />
+      <unit id="713811912321759511" at="83,0,87,0" name="ReversibleStatements.constraints.ReleaseStruct_Constraints$PROPS" />
+      <unit id="713811912321759511" at="76,0,82,0" name="ReversibleStatements.constraints.ReleaseStruct_Constraints$LINKS" />
+      <unit id="713811912321759511" at="67,0,75,0" name="ReversibleStatements.constraints.ReleaseStruct_Constraints$CONCEPTS" />
+      <unit id="713811912321759512" at="54,17,63,7" name="ReversibleStatements.constraints.ReleaseStruct_Constraints$RD1$1" />
+      <unit id="713811912321759512" at="37,0,66,0" name="ReversibleStatements.constraints.ReleaseStruct_Constraints$RD1" />
+      <unit id="713811912321759511" at="31,0,88,0" name="ReversibleStatements.constraints.ReleaseStruct_Constraints" />
     </file>
   </root>
   <root nodeRef="r:b1228d9b-8e2c-4c06-8c54-62acd072f382(ReversibleStatements.constraints)/8132151755547066640">

@@ -41,6 +41,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_ICFGNode;
   private ConceptPresentation props_ICFGRelevantNode;
   private ConceptPresentation props_ICanBeStoredInRegister;
+  private ConceptPresentation props_IDefineStateSaving;
   private ConceptPresentation props_IForLike;
   private ConceptPresentation props_IHasPrefixes;
   private ConceptPresentation props_IIndependentInitExpression;
@@ -315,6 +316,12 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_ICanBeStoredInRegister = cpb.create();
         }
         return props_ICanBeStoredInRegister;
+      case LanguageConceptSwitch.IDefineStateSaving:
+        if (props_IDefineStateSaving == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          props_IDefineStateSaving = cpb.create();
+        }
+        return props_IDefineStateSaving;
       case LanguageConceptSwitch.IForLike:
         if (props_IForLike == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

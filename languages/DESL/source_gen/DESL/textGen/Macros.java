@@ -23,6 +23,12 @@ public abstract class Macros {
       tgs.appendNode(constant);
     }
     tgs.newLine();
+
+    for (SNode macro : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(root, LINKS.macros$Sq68), CONCEPTS.ReversibleMacro$EH))) {
+      tgs.appendNode(macro);
+      tgs.newLine();
+    }
+    tgs.newLine();
   }
 
   private static final class LINKS {
@@ -32,5 +38,6 @@ public abstract class Macros {
   private static final class CONCEPTS {
     /*package*/ static final SConcept MacroVariable$z9 = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x74450034d00e6945L, "DESL.structure.MacroVariable");
     /*package*/ static final SConcept MacroFunction$$7 = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x74450034d00e6947L, "DESL.structure.MacroFunction");
+    /*package*/ static final SConcept ReversibleMacro$EH = MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145008fL, "ReversibleFunctions.structure.ReversibleMacro");
   }
 }

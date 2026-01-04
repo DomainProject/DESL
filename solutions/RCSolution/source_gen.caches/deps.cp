@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dependenciesRoot>
+  <uses language="l:99e1808b-e2d7-4c11-a40f-23376c03dda3:Collections" />
   <uses language="l:c4765525-912b-41b9-ace4-ce3b88117666:DESL" />
   <uses language="l:9abffa92-4875-42bf-9379-c4f95eb496d4:ReversibleExpressions" />
   <uses language="l:5eb14d5a-b5f7-4626-a63b-80c6b9db7397:ReversibleFunctions" />
   <uses language="l:f75f9e3f-b00b-4997-8af2-0a8ce6b25221:ReversibleStatements" />
+  <uses language="l:d4280a54-f6df-4383-aa41-d1b2bffa7eb1:com.mbeddr.core.base" />
   <uses language="l:61c69711-ed61-4850-81d9-7714ff227fb0:com.mbeddr.core.expressions" />
   <uses language="l:6d11763d-483d-4b2b-8efc-09336c1b0001:com.mbeddr.core.modules" />
   <uses language="l:3bf5377a-e904-4ded-9754-5a516023bfaa:com.mbeddr.core.pointers" />
   <uses language="l:a9d69647-0840-491e-bf39-2eb0805d2011:com.mbeddr.core.statements" />
   <uses language="l:efda956e-491e-4f00-ba14-36af2f213ecf:com.mbeddr.core.udt" />
+  <uses language="l:2693fc71-9b0e-4b05-ab13-f57227d675f2:com.mbeddr.core.util" />
+  <uses language="l:92d2ea16-5a42-4fdf-a676-c7604efe3504:de.slisson.mps.richtext" />
   <uses module="3f233e7f-b8a6-46d2-a57f-795d56775243(Annotations)" kind="dp" />
   <uses module="6354ebe7-c22a-4a0f-ac54-50b52ab9b065(JDK)" kind="rt+dp" />
   <uses module="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea(MPS.Core)" kind="rt+dp" />
