@@ -7,7 +7,6 @@ import jetbrains.mps.text.rt.TextGenContext;
 import jetbrains.mps.text.impl.TextGenSupport;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import ReversibleExpressions.textGen.StateSaving;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import java.util.List;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
@@ -32,15 +31,16 @@ public class ReleaseStruct_TextGen extends TextGenDescriptorBase {
 
     if (SPropertyOperations.getBoolean(SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.ReversibleFunction$IL, false, false), PROPS.reversibilityRequired$Zgdy)) {
       if (SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5)) {
-        StateSaving.stateSaving(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), PROPS.name$MnvL), SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableToSaveName$udlR), ctx);
+        tgs.append("push(stack, ");
+        tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), PROPS.name$MnvL));
+        tgs.append(");");
+        tgs.newLine();
         tgs.append("rev_free(arena, cp.");
         tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), PROPS.name$MnvL));
         tgs.append(");");
         tgs.newLine();
       } else {
-        tgs.append("rev_remalloc(cp.");
-        tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), PROPS.name$MnvL));
-        tgs.append(");");
+        tgs.append("rev_remalloc(pop(stack));");
         tgs.newLine();
       }
     } else {
@@ -85,7 +85,6 @@ public class ReleaseStruct_TextGen extends TextGenDescriptorBase {
 
   private static final class PROPS {
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
-    /*package*/ static final SProperty variableToSaveName$udlR = MetaAdapterFactory.getProperty(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x27d0c8e745a2c78dL, 0x1b427f2e4b08b057L, "variableToSaveName");
     /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
     /*package*/ static final SProperty reversibilityRequired$Zgdy = MetaAdapterFactory.getProperty(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111cL, 0x56ee1731ff5a6482L, "reversibilityRequired");
   }

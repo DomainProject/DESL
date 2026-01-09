@@ -334,8 +334,8 @@
       <node id="919468708905377089" at="12,0,13,0" concept="1" trace="props_AddToCollection" />
       <node id="919468708905377089" at="28,44,29,76" concept="3" />
       <node id="919468708905377089" at="29,76,30,53" concept="0" />
-      <node id="919468708905377089" at="30,53,31,37" concept="0" />
-      <node id="919468708905377089" at="31,37,32,47" concept="0" />
+      <node id="919468708905377089" at="30,53,31,49" concept="0" />
+      <node id="919468708905377089" at="31,49,32,47" concept="0" />
       <node id="919468708905377089" at="33,9,34,37" concept="4" />
       <node id="919468708905377089" at="27,49,33,9" concept="2" />
       <scope id="919468708905377089" at="28,44,32,47">
@@ -357,8 +357,8 @@
       <node id="919468708905377089" at="85,76,86,76" concept="0" />
       <node id="919468708905377089" at="86,76,87,97" concept="0" />
       <node id="919468708905377089" at="87,97,88,17" concept="0" />
-      <node id="919468708905377089" at="88,17,89,19" concept="0" />
-      <node id="919468708905377089" at="89,19,90,22" concept="4" />
+      <node id="919468708905377089" at="88,17,89,31" concept="0" />
+      <node id="919468708905377089" at="89,31,90,22" concept="4" />
       <node id="919468708905377089" at="80,0,92,0" concept="7" trace="createDescriptorForAddToCollection#()Ljetbrains/mps/smodel/runtime/ConceptDescriptor;" />
       <scope id="919468708905377089" at="52,49,53,40" />
       <scope id="919468708905377089" at="80,73,90,22">

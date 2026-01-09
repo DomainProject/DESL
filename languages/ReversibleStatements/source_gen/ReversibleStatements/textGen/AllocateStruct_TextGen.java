@@ -14,7 +14,6 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.core.behavior.BaseConcept__BehaviorDescriptor;
 import com.mbeddr.core.expressions.behavior.IVariableDeclaration__BehaviorDescriptor;
 import com.mbeddr.core.expressions.behavior.IVariableReference__BehaviorDescriptor;
-import ReversibleExpressions.textGen.StateSaving;
 import jetbrains.mps.lang.traceable.behavior.TraceableConcept__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
@@ -68,11 +67,12 @@ public class AllocateStruct_TextGen extends TextGenDescriptorBase {
         tgs.append("));");
         tgs.newLine();
         tgs.indent();
-        StateSaving.stateSaving(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), PROPS.name$MnvL), variableName, ctx);
-      } else {
-        tgs.append("rev_free(arena, cp.");
-        tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), PROPS.name$MnvL));
+        tgs.append("push(stack, ");
+        tgs.append(variableName);
         tgs.append(");");
+        tgs.newLine();
+      } else {
+        tgs.append("rev_free(arena, pop(stack);");
         tgs.newLine();
       }
     } else {
@@ -133,6 +133,5 @@ public class AllocateStruct_TextGen extends TextGenDescriptorBase {
     /*package*/ static final SReferenceLink member$gCRV = MetaAdapterFactory.getReferenceLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4f5d78b09e1b9a5fL, 0x4f5d78b09f1589e9L, "member");
     /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
     /*package*/ static final SContainmentLink baseType$zMGV = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x6bbcdccef5e46755L, 0x6bbcdccef5e46756L, "baseType");
-    /*package*/ static final SContainmentLink supportVariable$WrxR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x586abb2d5743cb69L, "supportVariable");
   }
 }

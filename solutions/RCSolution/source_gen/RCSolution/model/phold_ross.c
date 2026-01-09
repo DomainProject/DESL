@@ -169,7 +169,9 @@ void phold_ross_class_event(struct phold_state *state, tw_bf *bf, struct phold_m
 
         if (tw_rand_unif(lp->rng) <= p_remote) {
           cp.selected_branch_b16a12f4 |= (1 << 0);
+          push(stack, dest);
           dest = ((lp_id_t)((tw_rand_unif(lp->rng) * NUM_LPS)));
+
         }
 
         struct phold_message new_event = { 0 };
@@ -202,35 +204,36 @@ void reverse(struct phold_state *state, tw_bf *bf, struct phold_message *content
         struct checkpoint cp = content->cp;
         tw_rand_reverse_unif(lp->rng);
         tw_rand_reverse_unif(lp->rng);
-        state->complete_events--;
-        busy_loop(BUSY_LOOP_DURATION);
         
-
-        lp_id_t dest;
+        struct phold_message new_event;
         if (cp.selected_branch_b16a12f4 & (1 << 0)) {
           tw_rand_reverse_unif(lp->rng);
+dest           = pop(stack);
           ;
         }
 
-        struct phold_message new_event;
+        lp_id_t dest;
         
+
+        busy_loop(BUSY_LOOP_DURATION);
+        state->complete_events--;
       }
       break;
 
     case event_LP_INIT:
       {
         struct checkpoint cp = content->cp;
-        
-        
-        
-
-        struct phold_message new_event;
         for ( int32_t i = 0 ; i < start_events; i++ )
         {
           tw_rand_reverse_unif(lp->rng);
           
         }
 
+        struct phold_message new_event;
+        
+
+        
+        
       }
       break;
 

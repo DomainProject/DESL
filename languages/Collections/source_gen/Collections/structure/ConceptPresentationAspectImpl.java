@@ -28,7 +28,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         if (props_AddToCollection == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.shortDesc("add element to collection");
-          cpb.rawPresentation("add");
+          cpb.rawPresentation("AddToCollection");
           props_AddToCollection = cpb.create();
         }
         return props_AddToCollection;

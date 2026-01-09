@@ -54,8 +54,8 @@
   <node concept="1TIwiD" id="N2AYHgp5P1">
     <property role="EcuMT" value="919468708905377089" />
     <property role="TrG5h" value="AddToCollection" />
-    <property role="34LRSv" value="add" />
     <property role="R4oN_" value="add element to collection" />
+    <property role="34LRSv" value="AddToCollection" />
     <ref role="1TJDcQ" to="kmi:3CmSUB7FmO3" resolve="ReversibleStatement" />
     <node concept="PrWs8" id="1H2vMT9WeJH" role="PzmwI">
       <ref role="PrY4T" node="1H2vMT9W8jM" resolve="IUpdateCollection" />

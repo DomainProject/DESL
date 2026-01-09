@@ -86,7 +86,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.parent(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x75236ed53aed8fbcL);
     b.origin("r:7c7377c1-dded-46c2-9c44-39493c999dbb(Collections.structure)/919468708905377089");
     b.version(3);
-    b.alias("add");
+    b.alias("AddToCollection");
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForCollection() {

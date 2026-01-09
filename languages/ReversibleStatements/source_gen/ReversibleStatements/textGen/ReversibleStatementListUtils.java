@@ -13,7 +13,8 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import ReversibleStatements.behavior.IReversibleLoop__BehaviorDescriptor;
 import java.util.List;
 import java.util.ArrayList;
-import jetbrains.mps.internal.collections.runtime.Sequence;
+import java.util.Collections;
+import ReversibleStatements.behavior.IReversibleStatement__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -137,85 +138,57 @@ public abstract class ReversibleStatementListUtils {
     List<SNode> reorderedList = new ArrayList<SNode>();
     ListSequence.fromList(reorderedList).addSequence(ListSequence.fromList(SLinkOperations.getChildren(statementList, LINKS.revStatements$IdM8)));
 
-
     if (!(isForward)) {
+
       ReversibleStatementListUtils.restoreRng(statementList, ctx);
 
-      // reorder statements: if a statement list contains an AddToCollection statement, when reversed the element that has been added to the collection in the forward function must be removed as soon as possible (to avoid use after free) 
 
-      List<SNode> addToCollectionList = new ArrayList<SNode>();
-      ListSequence.fromList(addToCollectionList).addSequence(Sequence.fromIterable(SNodeOperations.ofConcept(reorderedList, CONCEPTS.AddToCollection$NE)));
-      ListSequence.fromList(reorderedList).removeWhere((it) -> SNodeOperations.isInstanceOf(it, CONCEPTS.AddToCollection$NE));
-      for (SNode atc : ListSequence.fromList(addToCollectionList)) {
-        ListSequence.fromList(reorderedList).insertElement(0, atc);
-      }
+
+      // reverse statement list
+      Collections.reverse(reorderedList);
+
     }
 
     for (SNode statement : ListSequence.fromList(reorderedList)) {
 
-      SNode destructive = null;
-      boolean defineStateSaving = false;
-      boolean stateSavingDisabled = false;
+      // retrieve the destructive statement/expression, if the statement defines one
+      SNode destructive = (SNodeOperations.isInstanceOf(IReversibleStatement__BehaviorDescriptor.getReversibleItem_id5KYvcY4rva$.invoke(statement), CONCEPTS.IDestructiveOperation$SP) ? SNodeOperations.cast(IReversibleStatement__BehaviorDescriptor.getReversibleItem_id5KYvcY4rva$.invoke(statement), CONCEPTS.IDestructiveOperation$SP) : null);
 
+      // does the statement define its own state saving (true) or it uses the default state saving mechanism (false)?
+      boolean defineStateSaving = SNodeOperations.isInstanceOf(IReversibleStatement__BehaviorDescriptor.getReversibleItem_id5KYvcY4rva$.invoke(statement), CONCEPTS.IDefineStateSaving$M2);
+
+
+      // does the statement require to disable state saving?
+      boolean stateSavingDisabled = false;
       if (SNodeOperations.isInstanceOf(statement, CONCEPTS.IDestructiveOperation$SP)) {
-        destructive = SNodeOperations.cast(statement, CONCEPTS.IDestructiveOperation$SP);
-        defineStateSaving = SNodeOperations.isInstanceOf(statement, CONCEPTS.IDefineStateSaving$M2);
         stateSavingDisabled = SPropertyOperations.getBoolean(statement, PROPS.skipStateSaving$3wRV);
       } else if (SNodeOperations.isInstanceOf(statement, CONCEPTS.ExpressionStatement$L7) && SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.cast(statement, CONCEPTS.ExpressionStatement$L7), LINKS.expr$YTeC), CONCEPTS.IDestructiveOperation$SP)) {
-        destructive = SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(statement, CONCEPTS.ExpressionStatement$L7), LINKS.expr$YTeC), CONCEPTS.IDestructiveOperation$SP);
-        defineStateSaving = SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.cast(statement, CONCEPTS.ExpressionStatement$L7), LINKS.expr$YTeC), CONCEPTS.IDefineStateSaving$M2);
-        stateSavingDisabled = SPropertyOperations.getBoolean(SLinkOperations.getTarget(SNodeOperations.cast(statement, CONCEPTS.ExpressionStatement$L7), LINKS.expr$YTeC), PROPS.skipStateSaving$3wRV);
+        stateSavingDisabled = SPropertyOperations.getBoolean(SLinkOperations.getTarget(SNodeOperations.cast(statement, CONCEPTS.ExpressionStatement$L7), LINKS.expr$YTeC), PROPS.disableStateSaving$rNjh);
       }
 
-      // skip state saving for non-destructive statements and for the destructive statements that define their own state saving
+
+      // skip state saving for non-destructive statements, for destructive statements defining their own state saving and for statement disabling state saving
       if ((destructive != null) && !(defineStateSaving) && !(stateSavingDisabled)) {
 
         // STATE SAVING
         if (isForward) {
           // save state
-          if (isContainedInLoop) {
-            tgs.indent();
-            tgs.append("cp.");
-            tgs.append(SPropertyOperations.getString(destructive, PROPS.loopArrayName$wAd5));
-            tgs.append("[");
-            tgs.append(IReversibleLoop__BehaviorDescriptor.getIterationVariableName_id6cRD4M$XPR9.invoke(loopAncestor));
-            tgs.append("] = ");
-            tgs.append(SPropertyOperations.getString(destructive, PROPS.variableToSaveName$udlR));
-            tgs.append(";");
-            tgs.newLine();
-          } else {
-            tgs.indent();
-            tgs.append("cp.");
-            tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(destructive, LINKS.supportVariable$WrxR), PROPS.name$MnvL));
-            tgs.append(" = ");
-            tgs.append(SPropertyOperations.getString(destructive, PROPS.variableToSaveName$udlR));
-            tgs.append(";");
-            tgs.newLine();
-          }
 
+          tgs.indent();
+          tgs.append("push(stack, ");
+          tgs.append(SPropertyOperations.getString(destructive, PROPS.variableToSaveName$udlR));
+          tgs.append(");");
+          tgs.newLine();
           tgs.indent();
           tgs.appendNode(statement);
           tgs.newLine();
 
         } else {
           // restore state
-          if (isContainedInLoop) {
-            tgs.indent();
-            tgs.append(SPropertyOperations.getString(destructive, PROPS.variableToSaveName$udlR));
-            tgs.append(" = cp.");
-            tgs.append(SPropertyOperations.getString(destructive, PROPS.loopArrayName$wAd5));
-            tgs.append("[");
-            tgs.append(IReversibleLoop__BehaviorDescriptor.getIterationVariableName_id6cRD4M$XPR9.invoke(loopAncestor));
-            tgs.append("];");
-            tgs.newLine();
-          } else {
-            tgs.indent();
-            tgs.append(SPropertyOperations.getString(destructive, PROPS.variableToSaveName$udlR));
-            tgs.append(" = cp.");
-            tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(destructive, LINKS.supportVariable$WrxR), PROPS.name$MnvL));
-            tgs.append(";");
-            tgs.newLine();
-          }
+          tgs.append(SPropertyOperations.getString(destructive, PROPS.variableToSaveName$udlR));
+          tgs.indent();
+          tgs.append(" = pop(stack);");
+          tgs.newLine();
           tgs.indent();
           tgs.appendNode(statement);
         }
@@ -248,7 +221,6 @@ public abstract class ReversibleStatementListUtils {
     /*package*/ static final SInterfaceConcept IRNGCall$1j = MetaAdapterFactory.getInterfaceConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x263a24c3a7a97014L, "DESL.structure.IRNGCall");
     /*package*/ static final SConcept ReversibleFunction$IL = MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, "ReversibleFunctions.structure.ReversibleFunction");
     /*package*/ static final SInterfaceConcept IReversible$$B = MetaAdapterFactory.getInterfaceConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, "ReversibleStatements.structure.IReversible");
-    /*package*/ static final SConcept AddToCollection$NE = MetaAdapterFactory.getConcept(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0xcc29beb50645d41L, "Collections.structure.AddToCollection");
     /*package*/ static final SInterfaceConcept IDefineStateSaving$M2 = MetaAdapterFactory.getInterfaceConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x75236ed53aed8fbcL, "ReversibleStatements.structure.IDefineStateSaving");
     /*package*/ static final SConcept ExpressionStatement$L7 = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a4018a8592L, "ReversibleStatements.structure.ExpressionStatement");
   }
@@ -259,6 +231,7 @@ public abstract class ReversibleStatementListUtils {
     /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
     /*package*/ static final SProperty reversibilityRequired$Zgdy = MetaAdapterFactory.getProperty(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111cL, 0x56ee1731ff5a6482L, "reversibilityRequired");
     /*package*/ static final SProperty skipStateSaving$3wRV = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x75236ed53cd866f2L, "skipStateSaving");
+    /*package*/ static final SProperty disableStateSaving$rNjh = MetaAdapterFactory.getProperty(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L, 0x3bc958288c005be7L, "disableStateSaving");
     /*package*/ static final SProperty variableToSaveName$udlR = MetaAdapterFactory.getProperty(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x27d0c8e745a2c78dL, 0x1b427f2e4b08b057L, "variableToSaveName");
   }
 

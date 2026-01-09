@@ -35,11 +35,10 @@ public class ReversibleMacroCall_TextGen extends TextGenDescriptorBase {
           {
             final SNode varRef = SLinkOperations.getTarget(ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.actuals$QKpS)).getElement(paramToSaveIndex), LINKS.actual$n_Ao);
             if (SNodeOperations.isInstanceOf(varRef, CONCEPTS.IVariableReference$WR)) {
-              tgs.append("cp.");
-              tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.actuals$QKpS)).getElement(paramToSaveIndex), LINKS.supportVariable$WrxR), PROPS.name$MnvL));
-              tgs.append(" = ");
+
+              tgs.append("push(stack, ");
               tgs.append(SPropertyOperations.getString(IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(varRef), PROPS.name$MnvL));
-              tgs.append(";");
+              tgs.append(");");
               tgs.newLine();
               tgs.indent();
             }
@@ -67,8 +66,8 @@ public class ReversibleMacroCall_TextGen extends TextGenDescriptorBase {
           final SNode varRef = SLinkOperations.getTarget(ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.actuals$QKpS)).getElement(paramToSaveIndex), LINKS.actual$n_Ao);
           if (SNodeOperations.isInstanceOf(varRef, CONCEPTS.IVariableReference$WR)) {
             tgs.append(SPropertyOperations.getString(IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(varRef), PROPS.name$MnvL));
-            tgs.append(" = cp.");
-            tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.actuals$QKpS)).getElement(paramToSaveIndex), LINKS.supportVariable$WrxR), PROPS.name$MnvL));
+            tgs.append(" = pop(stack);");
+            tgs.newLine();
           }
         }
       } else {
@@ -97,7 +96,6 @@ public class ReversibleMacroCall_TextGen extends TextGenDescriptorBase {
     /*package*/ static final SReferenceLink macro$QKaR = MetaAdapterFactory.getReferenceLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1b427f2e49d1fe84L, 0x1b427f2e49d1fe85L, "macro");
     /*package*/ static final SContainmentLink actuals$QKpS = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1b427f2e49d1fe84L, 0x1b427f2e49d1fe86L, "actuals");
     /*package*/ static final SContainmentLink actual$n_Ao = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x68ce0d48c3998717L, 0x68ce0d48c3998719L, "actual");
-    /*package*/ static final SContainmentLink supportVariable$WrxR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x586abb2d5743cb69L, "supportVariable");
     /*package*/ static final SContainmentLink content$L7Vn = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145008fL, 0x78202c09dd229062L, "content");
   }
 

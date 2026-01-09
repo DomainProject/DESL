@@ -33,8 +33,9 @@ public final class ReversibleStatement__BehaviorDescriptor extends BaseBHDescrip
   public static final SMethod<List<SAbstractConcept>> getCommentConcept_id5HxjapwgqLb = new SMethodBuilder<List<SAbstractConcept>>(new SJavaCompoundTypeImpl((Class<List<SAbstractConcept>>) ((Class) Object.class))).name("getCommentConcept").modifiers(9, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6584628407655574603L).languageId(0xaa41d1b2bffa7eb1L, 0xd4280a54f6df4383L).build2();
   public static final SMethod<Boolean> isCommentable_id3RtPbXKOu_B = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isCommentable").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(4457953124863306087L).languageId(0xaa41d1b2bffa7eb1L, 0xd4280a54f6df4383L).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<SNode> wrapInStatementList_id66UaKxBBAli = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("wrapInStatementList").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7041988282445358418L).languageId(0x8af20a8ce6b25221L, 0xf75f9e3fb00b4997L).build2();
+  public static final SMethod<SNode> getReversibleItem_id5KYvcY4rva$ = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getReversibleItem").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6646887330767303332L).languageId(0x8af20a8ce6b25221L, 0xf75f9e3fb00b4997L).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(simpleOneLiner_id1z9MsBsVy8o, getConceptToBeCounted_id6brBMefSzRs, getCommentConcept_id5HxjapwgqLb, isCommentable_id3RtPbXKOu_B, wrapInStatementList_id66UaKxBBAli);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(simpleOneLiner_id1z9MsBsVy8o, getConceptToBeCounted_id6brBMefSzRs, getCommentConcept_id5HxjapwgqLb, isCommentable_id3RtPbXKOu_B, wrapInStatementList_id66UaKxBBAli, getReversibleItem_id5KYvcY4rva$);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -57,6 +58,12 @@ public final class ReversibleStatement__BehaviorDescriptor extends BaseBHDescrip
     SNode sl = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, "ReversibleStatements.structure.ReversibleStatementList"));
     ListSequence.fromList(SLinkOperations.getChildren(sl, LINKS.revStatements$IdM8)).addElement(SNodeOperations.copyNode(__thisNode__));
     return sl;
+  }
+  /*package*/ static SNode getReversibleItem_id5KYvcY4rva$(@NotNull SNode __thisNode__) {
+    if (SNodeOperations.isInstanceOf(__thisNode__, CONCEPTS.ExpressionStatement$L7)) {
+      return SLinkOperations.getTarget(SNodeOperations.cast(__thisNode__, CONCEPTS.ExpressionStatement$L7), LINKS.expr$YTeC);
+    }
+    return __thisNode__;
   }
 
   /*package*/ ReversibleStatement__BehaviorDescriptor() {
@@ -82,6 +89,8 @@ public final class ReversibleStatement__BehaviorDescriptor extends BaseBHDescrip
         return (T) ((Boolean) isCommentable_id3RtPbXKOu_B(node, (SNode) parameters[0]));
       case 4:
         return (T) ((SNode) wrapInStatementList_id66UaKxBBAli(node));
+      case 5:
+        return (T) ((SNode) getReversibleItem_id5KYvcY4rva$(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -117,9 +126,11 @@ public final class ReversibleStatement__BehaviorDescriptor extends BaseBHDescrip
     /*package*/ static final SConcept ReversibleStatement$s8 = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad6d03L, "ReversibleStatements.structure.ReversibleStatement");
     /*package*/ static final SInterfaceConcept ICommentable$DE = MetaAdapterFactory.getInterfaceConcept(0xd4280a54f6df4383L, 0xaa41d1b2bffa7eb1L, 0x617d88a37ecb2fa8L, "com.mbeddr.core.base.structure.ICommentable");
     /*package*/ static final SConcept CommentedStatement$Wa = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x617d88a37ecb3342L, "ReversibleStatements.structure.CommentedStatement");
+    /*package*/ static final SConcept ExpressionStatement$L7 = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a4018a8592L, "ReversibleStatements.structure.ExpressionStatement");
   }
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink revStatements$IdM8 = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, 0x3a16e3a9c7ad9956L, "revStatements");
+    /*package*/ static final SContainmentLink expr$YTeC = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a4018a8592L, 0x64ae61a4018a8593L, "expr");
   }
 }

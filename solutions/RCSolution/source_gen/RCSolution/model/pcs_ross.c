@@ -116,7 +116,7 @@ typedef enum {
 } pcs_ross_EVENT_TYPE;
 
 struct checkpoint {
-  int32_t modulo_var3c0e3f2a;
+  int32_t modulo_var46037eaf;
   uint16_t selected_branch_5421b484;
   int32_t modulo_var44ff8c7c;
   uint16_t selected_branch_9f77d4b0;
@@ -210,7 +210,7 @@ struct event_content_type {
   int32_t *dummy;
 };
 
-unsigned total_lps = 40000;
+unsigned total_lps = 100;
 
 static bool pcs_statistics = false;
 static bool fading_check = false;
@@ -297,7 +297,10 @@ double recompute_ta(double _ref_ta, double time_now, struct event_content_type *
   struct checkpoint cp = content->cp;
   int32_t now = ((int32_t)((time_now)));
 
+  
+  push(stack, now);
   now % WEEK;
+
   
 
   if (now > 5 * DAY) {
@@ -307,7 +310,9 @@ double recompute_ta(double _ref_ta, double time_now, struct event_content_type *
 
   
 
+  push(stack, now);
   now % DAY;
+
   
 
   if (now < EARLY_MORNING) {
@@ -345,9 +350,15 @@ double generate_cross_path_gain(tw_rng_stream * ctx, struct event_content_type *
 
   
 
+  push(stack, variation);
   variation = 10 * tw_rand_unif(ctx);
+
+  push(stack, variation);
   variation = pow(10.0,variation / 10);
+
+  push(stack, value);
   value = CROSS_PATH_GAIN * variation;
+
   return value;
 }
 
@@ -360,9 +371,15 @@ double generate_path_gain(tw_rng_stream * ctx, struct event_content_type *conten
 
   
 
+  push(stack, variation);
   variation = 10 * tw_rand_unif(ctx);
+
+  push(stack, variation);
   variation = pow(10.0,variation / 10);
+
+  push(stack, value);
   value = PATH_GAIN * variation;
+
   return value;
 }
 
@@ -379,13 +396,13 @@ void deallocation(uint64_t me, struct lp_state_type *pointer, int32_t ch, struct
     c = list_next(c);
   }
 
-  cp.macro_arg_7a4d0c24 = pointer;
+  push(stack, pointer);
   RESET_CHANNEL(pointer,ch);
-  cp.remove_727e2491 = chan;
+  push(stack, chan);
   list_detach_by_content(pointer->channels, chan);
 
-  cp.release_67b87bef = chan;
-  rev_free(arena, cp.release_67b87bef);
+  push(stack, release_67b87bef);
+rev_free(arena, cp.release_67b87bef);
 
 }
 
@@ -402,14 +419,18 @@ uint32_t allocation(struct lp_state_type *state, tw_rng_stream * ctx, struct eve
 
   
 
+  push(stack, index);
   index = -1;
+
   
 
   for ( i = 0 ; i < CHANNELS_PER_CELL; i++ )
   {
     if (CHECK_CHANNEL(state,i) == 0) {
       cp.selected_branch_dd94a690[i] |= (1 << 0);
+      push(stack, index);
       index = ((int32_t)((i)));
+
       break;
     }
 
@@ -419,25 +440,29 @@ uint32_t allocation(struct lp_state_type *state, tw_rng_stream * ctx, struct eve
 
   if (index != -1) {
     cp.selected_branch_a4efa05b |= (1 << 0);
-    cp.macro_arg_b0aba626 = state;
+    push(stack, state);
     SET_CHANNEL(state,index);
     
 
     struct channel *c;
 
     c = rev_malloc(arena, sizeof(struct channel));
-    cp.allocate_struct_0ef788c1 = c;
-    
+    push(stack, c);
+
+    push(stack, c->channel_id);
     c->channel_id = index;
+
     c->sir_data = rev_malloc(arena, sizeof(struct sir_data_per_cell));
-    cp.allocate_struct_76a87b05 = c->sir_data;
-    
-    cp.add_d56ff5f7 = c;
+    push(stack, c->sir_data);
+
+    push(stackc);
     list_insert_tail(state->channels, c);
 
     
 
+    push(stack, summ);
     summ = 0.0;
+
     
 
     __typeof(list_head(state->channels)) ch = list_head(state->channels);
@@ -455,18 +480,28 @@ uint32_t allocation(struct lp_state_type *state, tw_rng_stream * ctx, struct eve
 
     if (fabsf(summ) < FLT_EPSILON) {
       cp.selected_branch_2489fd7d |= (1 << 0);
+      push(stack, c->sir_data->power);
       c->sir_data->power = MIN_POWER;
+
     }
     else {
+      push(stack, c->sir_data->fading);
       c->sir_data->fading = tw_rand_exponential(ctx, 1.0);
+
+      push(stack, c->sir_data->power);
       c->sir_data->power = (SIR_AIM * summ) / (generate_path_gain(ctx,((struct event_content_type *)((content)))) * c->sir_data->fading);
+
       if (c->sir_data->power < MIN_POWER) {
         cp.selected_branch_1ce5d931 |= (1 << 0);
+        push(stack, c->sir_data->power);
         c->sir_data->power = MIN_POWER;
+
       }
       else if (c->sir_data->power > MAX_POWER) {
         cp.selected_branch_1ce5d931 |=  (1 << 1);
+        push(stack, c->sir_data->power);
         c->sir_data->power = MAX_POWER;
+
       }
 
     }
@@ -500,17 +535,7 @@ void fading_recheck(struct lp_state_type *state, tw_rng_stream * ctx, struct eve
 double recompute_ta_reverse(double _ref_ta, double time_now, struct event_content_type *content)
 {
   struct checkpoint cp = content->cp;
-  int32_t now;
-  ;
-  
-
-  if (cp.selected_branch_5421b484 & (1 << 0)) {
-    return _ref_ta / WEEKEND_FACTOR;
-  }
-
-  
-
-  ;
+  return _ref_ta / NIGHT_FACTOR;
   
 
   if (cp.selected_branch_9f77d4b0 & (1 << 0)) {
@@ -531,85 +556,100 @@ double recompute_ta_reverse(double _ref_ta, double time_now, struct event_conten
 
   
 
-  return _ref_ta / NIGHT_FACTOR;
+now   = pop(stack);
+  ;
+  
+
+  if (cp.selected_branch_5421b484 & (1 << 0)) {
+    return _ref_ta / WEEKEND_FACTOR;
+  }
+
+  
+
+now   = pop(stack);
+  ;
+  
+  int32_t now;
 }
 
 double generate_cross_path_gain_reverse(tw_rng_stream * ctx, struct event_content_type *content)
 {
   struct checkpoint cp = content->cp;
   tw_rand_reverse_unif(ctx);
-  double value;
-  double variation;
+  return value;
+value   = pop(stack);
+  ;
+variation   = pop(stack);
+  ;
+variation   = pop(stack);
+  ;
   
 
-  ;
-  ;
-  ;
-  return value;
+  double variation;
+  double value;
 }
 
 double generate_path_gain_reverse(tw_rng_stream * ctx, struct event_content_type *content)
 {
   struct checkpoint cp = content->cp;
   tw_rand_reverse_unif(ctx);
-  double value;
-  double variation;
+  return value;
+value   = pop(stack);
+  ;
+variation   = pop(stack);
+  ;
+variation   = pop(stack);
+  ;
   
 
-  ;
-  ;
-  ;
-  return value;
+  double variation;
+  double value;
 }
 
 void deallocation_reverse(uint64_t me, struct lp_state_type *pointer, int32_t ch, struct event_content_type *content)
 {
   struct checkpoint cp = content->cp;
+  rev_remalloc(pop(stack));
+
+  list_insert_tail(pointer->channels, pop(stack));
+
+  pointer = pop(stack);
+;
   
-  pointer = cp.macro_arg_7a4d0c24;
-  list_insert_tail(pointer->channels, cp.remove_727e2491);
-
-  rev_remalloc(cp.release_67b87bef);
-
 }
 
 uint32_t allocation_reverse(struct lp_state_type *state, tw_rng_stream * ctx, struct event_content_type *content)
 {
   struct checkpoint cp = content->cp;
-  uint32_t i;
-  int32_t index;
-  uint32_t ch_counter;
-  double summ;
-  
-
-  ;
-  
-
-  for ( i = 0 ; i < CHANNELS_PER_CELL; i++ )
-  {
-    if (cp.selected_branch_dd94a690[i] & (1 << 0)) {
-      ;
-      break;
-    }
-
-  }
-
+  return index;
   
 
   if (cp.selected_branch_a4efa05b & (1 << 0)) {
-    list_detach_by_content(state->channels, cp.add_d56ff5f7);
-
-    state = cp.macro_arg_b0aba626;
     
 
-    rev_free(arena, cp.allocate_struct_0ef788c1);
+    if (cp.selected_branch_2489fd7d & (1 << 0)) {
+c->sir_data->power       = pop(stack);
+      ;
+    }
+    else {
+      tw_rand_reverse_unif(ctx);
+      if (cp.selected_branch_1ce5d931 & (1 << 0)) {
+c->sir_data->power         = pop(stack);
+        ;
+      }
+      else if (cp.selected_branch_1ce5d931 & (1 << 1)) {
+c->sir_data->power         = pop(stack);
+        ;
+      }
 
-    ;
-    rev_free(arena, cp.allocate_struct_76a87b05);
+c->sir_data->power       = pop(stack);
+      ;
+c->sir_data->fading       = pop(stack);
+      ;
+    }
 
     
 
-    ;
     
 
     __typeof(list_head(state->channels)) ch = list_head(state->channels);
@@ -624,35 +664,50 @@ uint32_t allocation_reverse(struct lp_state_type *state, tw_rng_stream * ctx, st
     }
     
 
+summ     = pop(stack);
+    ;
     
 
-    if (cp.selected_branch_2489fd7d & (1 << 0)) {
-      ;
-    }
-    else {
-      tw_rand_reverse_unif(ctx);
-      ;
-      ;
-      if (cp.selected_branch_1ce5d931 & (1 << 0)) {
-        ;
-      }
-      else if (cp.selected_branch_1ce5d931 & (1 << 1)) {
-        ;
-      }
+    list_detach_by_content(state->channels, pop(stack));
 
-    }
+    rev_free(arena, pop(stack);
+
+c->channel_id     = pop(stack);
+    ;
+    rev_free(arena, pop(stack);
 
     
 
+    state = pop(stack);
+;
   }
   else {
-    
     abort();
+    
   }
 
   
 
-  return index;
+  for ( i = 0 ; i < CHANNELS_PER_CELL; i++ )
+  {
+    if (cp.selected_branch_dd94a690[i] & (1 << 0)) {
+      break;
+index       = pop(stack);
+      ;
+    }
+
+  }
+
+  
+
+index   = pop(stack);
+  ;
+  
+
+  double summ;
+  uint32_t ch_counter;
+  int32_t index;
+  uint32_t i;
 }
 
 void fading_recheck_reverse(struct lp_state_type *state, tw_rng_stream * ctx, struct event_content_type *content)
@@ -693,11 +748,11 @@ void pcs_ross_class_init(struct lp_state_type *state, tw_lp *lp)
 
   
   state->channel_state = rev_malloc(arena, sizeof(uint32_t) * (2 * (CHANNELS_PER_CELL / BITS + 1)));
-  cp.create_array_5e458865 = state->channel_state;
-  ;
+  push(stack, state->channel_state);
+;
   for ( uint32_t w = 0 ; w < state->channel_counter / (sizeof(int32_t) * 8); w++ )
   {
-    cp.assignment_var_4fd3a515[w] = state->channel_state[w];
+    push(stack, state->channel_state[w]);
     state->channel_state[w] = 0;
 
   }
@@ -754,9 +809,15 @@ void pcs_ross_class_event(struct lp_state_type *state, tw_bf *bf, struct event_c
         deallocation(me,state,event_content->channel,event_content);
         
 
+        push(stack, new_contentnew_content.call_term_timecall_term_time);
         new_content.call_term_time = event_content->call_term_time;
+
+        push(stack, new_contentnew_content.fromfrom);
         new_content.from = me;
+
+        push(stack, new_contentnew_content.dummydummy);
         new_content.dummy = &(state->dummy);
+
         
 
         tw_event *e0_handoff_leave = tw_event_new(event_content->cell, now, lp);
@@ -809,22 +870,32 @@ void pcs_ross_class_event(struct lp_state_type *state, tw_bf *bf, struct event_c
           state->channel_counter--;
           
 
+          push(stack, new_contentnew_content.channelchannel);
           new_content.channel = allocation(state,lp->rng,event_content);
+
+          push(stack, new_contentnew_content.call_term_timecall_term_time);
           new_content.call_term_time = event_content->call_term_time;
+
           
 
           double handoff_time = 0;
 
           if (CELL_CHANGE_DISTRIBUTION == UNIFORM) {
             cp.selected_branch_30e6b214 |= (1 << 0);
+            push(stack, handoff_time);
             handoff_time = now + ((double)((ta_change * tw_rand_unif(lp->rng))));
+
           }
           else if (CELL_CHANGE_DISTRIBUTION == EXPONENTIAL) {
             cp.selected_branch_30e6b214 |=  (1 << 1);
+            push(stack, handoff_time);
             handoff_time = now + ((double)((tw_rand_exponential(lp->rng, ta_change))));
+
           }
           else {
+            push(stack, handoff_time);
             handoff_time = now + ((double)((5 * tw_rand_unif(lp->rng))));
+
           }
 
           
@@ -839,7 +910,9 @@ void pcs_ross_class_event(struct lp_state_type *state, tw_bf *bf, struct event_c
             tw_event_send(e0_start_call);
           }
           else {
+            push(stack, new_contentnew_content.cellcell);
             new_content.cell = GetReceiver(topology, me, DIRECTION_RANDOM);
+
             tw_event *e1_start_call = tw_event_new(me, handoff_time, lp);
             struct event_content_type *data1_start_call = tw_event_data(e1_start_call);
             data1_start_call->cp = cp;
@@ -877,21 +950,33 @@ void pcs_ross_class_event(struct lp_state_type *state, tw_bf *bf, struct event_c
           state->channel_counter--;
           
 
+          push(stack, new_contentnew_content.channelchannel);
           new_content.channel = allocation(state,lp->rng,((struct event_content_type *)((content))));
+
+          push(stack, new_contentnew_content.fromfrom);
           new_content.from = me;
+
+          push(stack, new_contentnew_content.sent_atsent_at);
           new_content.sent_at = now;
+
           
 
           if (DURATION_DISTRIBUTION == UNIFORM) {
             cp.selected_branch_75f91987 |= (1 << 0);
+            push(stack, new_contentnew_content.call_term_timecall_term_time);
             new_content.call_term_time = now + ((double)((ta_duration * tw_rand_unif(lp->rng))));
+
           }
           else if (DURATION_DISTRIBUTION == EXPONENTIAL) {
             cp.selected_branch_75f91987 |=  (1 << 1);
+            push(stack, new_contentnew_content.call_term_timecall_term_time);
             new_content.call_term_time = now + ((double)((tw_rand_exponential(lp->rng, ta_duration))));
+
           }
           else {
+            push(stack, new_contentnew_content.call_term_timecall_term_time);
             new_content.call_term_time = now + ((double)((5 * tw_rand_unif(lp->rng))));
+
           }
 
           
@@ -900,14 +985,20 @@ void pcs_ross_class_event(struct lp_state_type *state, tw_bf *bf, struct event_c
 
           if (CELL_CHANGE_DISTRIBUTION == UNIFORM) {
             cp.selected_branch_63a3c886 |= (1 << 0);
+            push(stack, handoff_time);
             handoff_time = now + ((double)((ta_change * tw_rand_unif(lp->rng))));
+
           }
           else if (CELL_CHANGE_DISTRIBUTION == EXPONENTIAL) {
             cp.selected_branch_63a3c886 |=  (1 << 1);
+            push(stack, handoff_time);
             handoff_time = now + ((double)((tw_rand_exponential(lp->rng, ta_change))));
+
           }
           else {
+            push(stack, handoff_time);
             handoff_time = now + ((double)((5 * tw_rand_unif(lp->rng))));
+
           }
 
           
@@ -922,7 +1013,9 @@ void pcs_ross_class_event(struct lp_state_type *state, tw_bf *bf, struct event_c
             tw_event_send(e0_handoff_recv);
           }
           else {
+            push(stack, new_contentnew_content.cellcell);
             new_content.cell = GetReceiver(topology, me, DIRECTION_RANDOM);
+
             tw_event *e1_handoff_recv = tw_event_new(me, handoff_time, lp);
             struct event_content_type *data1_handoff_recv = tw_event_data(e1_handoff_recv);
             data1_handoff_recv->cp = cp;
@@ -937,7 +1030,7 @@ void pcs_ross_class_event(struct lp_state_type *state, tw_bf *bf, struct event_c
 
         if (variable_ta) {
           cp.selected_branch_3fabdca7 |= (1 << 0);
-          cp.assignment_var_7ace8131 = state->ta;
+          push(stack, state->ta);
           state->ta = recompute_ta(ref_ta,now,((struct event_content_type *)((content))));
 
         }
@@ -948,14 +1041,20 @@ void pcs_ross_class_event(struct lp_state_type *state, tw_bf *bf, struct event_c
 
         if (DISTRIBUTION == UNIFORM) {
           cp.selected_branch_3521c49c |= (1 << 0);
+          push(stack, timestamp);
           timestamp = now + ((double)((state->ta * tw_rand_unif(lp->rng))));
+
         }
         else if (DISTRIBUTION == EXPONENTIAL) {
           cp.selected_branch_3521c49c |=  (1 << 1);
+          push(stack, timestamp);
           timestamp = now + ((double)((tw_rand_exponential(lp->rng, state->ta))));
+
         }
         else {
+          push(stack, timestamp);
           timestamp = now + ((double)((5 * tw_rand_unif(lp->rng))));
+
         }
 
         
@@ -999,40 +1098,41 @@ void reverse(struct lp_state_type *state, tw_bf *bf, struct event_content_type *
         tw_rand_reverse_unif(lp->rng);
         tw_rand_reverse_unif(lp->rng);
         
-        
-
-        state->channel_counter = cp.assignment_var_4d846f48;
+timestamp         = pop(stack);
         ;
-        state->ta = cp.assignment_var_eef83c91;
-        ;
-        state->me = cp.assignment_var_9d9af588;
-        ;
-        state->channels = cp.assignment_var_2364de57;
-        ;
-        
-
-        
-        rev_free(arena, cp.create_array_5e458865);
-;
-        for ( uint32_t w = 0 ; w < state->channel_counter / (sizeof(int32_t) * 8); w++ )
-        {
-          state->channel_state[w] = cp.assignment_var_4fd3a515[w];
-          ;
-        }
-
-        
-
-        /* 
-         * start the simulation
-         */
-        double timestamp;
-        
-        
-
         /* 
          * start the first fading recheck
          */
+        
+
+        
+        double timestamp;
+        /* 
+         * start the simulation
+         */
+        
+
+        for ( uint32_t w = 0 ; w < state->channel_counter / (sizeof(int32_t) * 8); w++ )
+        {
+state->channel_state[w]           = pop(stack);
+          ;
+        }
+
+        rev_free(arena, pop(stack));
+;
+        
+        
+
+state->channels         = pop(stack);
         ;
+state->me         = pop(stack);
+        ;
+state->ta         = pop(stack);
+        ;
+state->channel_counter         = pop(stack);
+        ;
+        
+
         
       }
       break;
@@ -1040,187 +1140,209 @@ void reverse(struct lp_state_type *state, tw_bf *bf, struct event_content_type *
     case event_HANDOFF_LEAVE:
       {
         struct checkpoint cp = content->cp;
-        struct event_content_type *event_content;
-        struct event_content_type new_content;
         
         
 
-        state->channel_counter--;
-        state->leaving_handoffs--;
+new_contentnew_content.dummydummy         = pop(stack);
+        ;
+new_contentnew_content.fromfrom         = pop(stack);
+        ;
+new_contentnew_content.call_term_timecall_term_time         = pop(stack);
+        ;
         
 
         deallocation_reverse(me,state,event_content->channel,event_content);
         
 
-        ;
-        ;
-        ;
+        state->leaving_handoffs--;
+        state->channel_counter--;
         
 
         
+        struct event_content_type new_content;
+        struct event_content_type *event_content;
       }
       break;
 
     case event_FADING_RECHECK:
       {
         struct checkpoint cp = content->cp;
-        fading_recheck_reverse(state,lp->rng,((struct event_content_type *)((content))));
-        double timestamp;
         
+        double timestamp;
+        fading_recheck_reverse(state,lp->rng,((struct event_content_type *)((content))));
       }
       break;
 
     case event_START_CALL:
       {
         struct checkpoint cp = content->cp;
-        struct event_content_type *event_content;
-        struct event_content_type new_content;
-        
-        
-
-        state->arriving_handoffs--;
-        state->arriving_calls--;
-        
-
         if (cp.selected_branch_fa876808 & (1 << 0)) {
           state->blocked_on_handoff--;
         }
         else {
-          state->channel_counter++;
-          
-
-          ;
-          ;
-          
-
-          double handoff_time;
-          if (cp.selected_branch_30e6b214 & (1 << 0)) {
-            tw_rand_reverse_unif(lp->rng);
-            ;
-          }
-          else if (cp.selected_branch_30e6b214 & (1 << 1)) {
-            tw_rand_reverse_unif(lp->rng);
-            ;
-          }
-          else {
-            tw_rand_reverse_unif(lp->rng);
-            ;
-          }
-
-          
-
           if (cp.selected_branch_33a23816 & (1 << 0)) {
             
           }
           else {
-            ;
             
+new_contentnew_content.cellcell             = pop(stack);
+            ;
           }
 
+          
+
+          if (cp.selected_branch_30e6b214 & (1 << 0)) {
+            tw_rand_reverse_unif(lp->rng);
+handoff_time             = pop(stack);
+            ;
+          }
+          else if (cp.selected_branch_30e6b214 & (1 << 1)) {
+            tw_rand_reverse_unif(lp->rng);
+handoff_time             = pop(stack);
+            ;
+          }
+          else {
+            tw_rand_reverse_unif(lp->rng);
+handoff_time             = pop(stack);
+            ;
+          }
+
+          double handoff_time;
+          
+
+new_contentnew_content.call_term_timecall_term_time           = pop(stack);
+          ;
+new_contentnew_content.channelchannel           = pop(stack);
+          ;
+          
+
+          state->channel_counter++;
         }
 
+        
+
+        state->arriving_calls--;
+        state->arriving_handoffs--;
+        
+
+        
+        struct event_content_type new_content;
+        struct event_content_type *event_content;
       }
       break;
 
     case event_HANDOFF_RECV:
       {
         struct checkpoint cp = content->cp;
-        struct event_content_type new_content;
         
         
 
-        state->arriving_calls--;
+        if (cp.selected_branch_3521c49c & (1 << 0)) {
+          tw_rand_reverse_unif(lp->rng);
+timestamp           = pop(stack);
+          ;
+        }
+        else if (cp.selected_branch_3521c49c & (1 << 1)) {
+          tw_rand_reverse_unif(lp->rng);
+timestamp           = pop(stack);
+          ;
+        }
+        else {
+          tw_rand_reverse_unif(lp->rng);
+timestamp           = pop(stack);
+          ;
+        }
+
+        double timestamp;
+        
+
+        if (cp.selected_branch_3fabdca7 & (1 << 0)) {
+state->ta           = pop(stack);
+          ;
+        }
+
         
 
         if (cp.selected_branch_7888e199 & (1 << 0)) {
           state->blocked_on_setup--;
         }
         else {
-          state->channel_counter++;
-          
-
-          ;
-          ;
-          ;
-          
-
-          if (cp.selected_branch_75f91987 & (1 << 0)) {
-            tw_rand_reverse_unif(lp->rng);
-            ;
-          }
-          else if (cp.selected_branch_75f91987 & (1 << 1)) {
-            tw_rand_reverse_unif(lp->rng);
-            ;
-          }
-          else {
-            tw_rand_reverse_unif(lp->rng);
-            ;
-          }
-
-          
-
-          double handoff_time;
-          if (cp.selected_branch_63a3c886 & (1 << 0)) {
-            tw_rand_reverse_unif(lp->rng);
-            ;
-          }
-          else if (cp.selected_branch_63a3c886 & (1 << 1)) {
-            tw_rand_reverse_unif(lp->rng);
-            ;
-          }
-          else {
-            tw_rand_reverse_unif(lp->rng);
-            ;
-          }
-
-          
-
           if (cp.selected_branch_53e25dab & (1 << 0)) {
             
           }
           else {
-            ;
             
+new_contentnew_content.cellcell             = pop(stack);
+            ;
           }
 
+          
+
+          if (cp.selected_branch_63a3c886 & (1 << 0)) {
+            tw_rand_reverse_unif(lp->rng);
+handoff_time             = pop(stack);
+            ;
+          }
+          else if (cp.selected_branch_63a3c886 & (1 << 1)) {
+            tw_rand_reverse_unif(lp->rng);
+handoff_time             = pop(stack);
+            ;
+          }
+          else {
+            tw_rand_reverse_unif(lp->rng);
+handoff_time             = pop(stack);
+            ;
+          }
+
+          double handoff_time;
+          
+
+          if (cp.selected_branch_75f91987 & (1 << 0)) {
+            tw_rand_reverse_unif(lp->rng);
+new_contentnew_content.call_term_timecall_term_time             = pop(stack);
+            ;
+          }
+          else if (cp.selected_branch_75f91987 & (1 << 1)) {
+            tw_rand_reverse_unif(lp->rng);
+new_contentnew_content.call_term_timecall_term_time             = pop(stack);
+            ;
+          }
+          else {
+            tw_rand_reverse_unif(lp->rng);
+new_contentnew_content.call_term_timecall_term_time             = pop(stack);
+            ;
+          }
+
+          
+
+new_contentnew_content.sent_atsent_at           = pop(stack);
+          ;
+new_contentnew_content.fromfrom           = pop(stack);
+          ;
+new_contentnew_content.channelchannel           = pop(stack);
+          ;
+          
+
+          state->channel_counter++;
         }
 
         
 
-        if (cp.selected_branch_3fabdca7 & (1 << 0)) {
-          state->ta = cp.assignment_var_7ace8131;
-          ;
-        }
-
-        
-
-        double timestamp;
-        if (cp.selected_branch_3521c49c & (1 << 0)) {
-          tw_rand_reverse_unif(lp->rng);
-          ;
-        }
-        else if (cp.selected_branch_3521c49c & (1 << 1)) {
-          tw_rand_reverse_unif(lp->rng);
-          ;
-        }
-        else {
-          tw_rand_reverse_unif(lp->rng);
-          ;
-        }
-
+        state->arriving_calls--;
         
 
         
+        struct event_content_type new_content;
       }
       break;
 
     case event_END_CALL:
       {
         struct checkpoint cp = content->cp;
-        struct event_content_type *event_content;
-        state->channel_counter--;
-        state->complete_calls--;
         deallocation_reverse(me,state,event_content->channel,event_content);
+        state->complete_calls--;
+        state->channel_counter--;
+        struct event_content_type *event_content;
       }
       break;
 
@@ -1252,7 +1374,7 @@ int main(int argc, char **argv)
 {
   tw_init(&argc, &argv);
 
-  topology = InitializeTopology(TOPOLOGY_HEXAGON, 200, 200);
+  topology = InitializeTopology(TOPOLOGY_HEXAGON, 10, 10);
 
   arena = malloc_state_init();
 
@@ -1263,7 +1385,7 @@ int main(int argc, char **argv)
   g_tw_custom_lp_global_to_local_map = &custom_mapping_lpgid_to_local;
 
   // define the number of LPs per PE
-  g_tw_nlp = 40000;
+  g_tw_nlp = 100;
   unsigned int custom_lps_per_pe = g_tw_nlp/tw_nnodes();
   unsigned int leftover_lps = g_tw_nlp % tw_nnodes();
 
