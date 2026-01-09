@@ -9,6 +9,7 @@
       <modulePath path="$PROJECT_DIR$/languages/ReversibleExpressions/ReversibleExpressions.mpl" folder="" />
       <modulePath path="$PROJECT_DIR$/languages/ReversibleFunctions/ReversibleFunctions.mpl" folder="" />
       <modulePath path="$PROJECT_DIR$/languages/ReversibleStatements/ReversibleStatements.mpl" folder="" />
+      <modulePath path="$PROJECT_DIR$/solutions/ActorLanguageSolution/ActorLanguageSolution.msd" folder="" />
       <modulePath path="$PROJECT_DIR$/solutions/DESL.build0/DESL.build.msd" folder="" />
       <modulePath path="$PROJECT_DIR$/solutions/RCSolution/RCSolution.msd" folder="" />
       <modulePath path="$PROJECT_DIR$/solutions/ReversibleFunctionsSolution/ReversibleFunctionsSolution.msd" folder="" />
