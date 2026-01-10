@@ -309,7 +309,7 @@
   </node>
   <node concept="2S6QgY" id="7jow01kbMqX">
     <property role="TrG5h" value="AddDocumentationToHandler" />
-    <ref role="2ZfgGC" to="rdv6:2R3DD23rX3g" resolve="EventHandler" />
+    <ref role="2ZfgGC" to="rdv6:2R3DD23rX3g" resolve="ReversibleEventHandler" />
     <node concept="2S6ZIM" id="7jow01kbMqY" role="2ZfVej">
       <node concept="3clFbS" id="7jow01kbMqZ" role="2VODD2">
         <node concept="3clFbF" id="7jow01kbYbR" role="3cqZAp">
@@ -367,7 +367,7 @@
   </node>
   <node concept="2S6QgY" id="7jow01kcaw6">
     <property role="TrG5h" value="RemoveDocumentationFromHandler" />
-    <ref role="2ZfgGC" to="rdv6:2R3DD23rX3g" resolve="EventHandler" />
+    <ref role="2ZfgGC" to="rdv6:2R3DD23rX3g" resolve="ReversibleEventHandler" />
     <node concept="2S6ZIM" id="7jow01kcaw7" role="2ZfVej">
       <node concept="3clFbS" id="7jow01kcaw8" role="2VODD2">
         <node concept="3clFbF" id="7jow01kcaN1" role="3cqZAp">

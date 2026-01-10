@@ -24,9 +24,9 @@ import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 
-public class SendEvent_Constraints extends BaseConstraintsDescriptor {
-  /*package*/ SendEvent_Constraints(ConstraintsDescriptorInitContext initContext) {
-    super(CONCEPTS.SendEvent$u, initContext);
+public class ReversibleSendEvent_Constraints extends BaseConstraintsDescriptor {
+  /*package*/ ReversibleSendEvent_Constraints(ConstraintsDescriptorInitContext initContext) {
+    super(CONCEPTS.ReversibleSendEvent$u, initContext);
     record(new RD1(this));
   }
 
@@ -56,7 +56,7 @@ public class SendEvent_Constraints extends BaseConstraintsDescriptor {
   }
 
   private static final class CONCEPTS {
-    /*package*/ static final SConcept SendEvent$u = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x68458b9b5da4ec77L, "DESL.structure.SendEvent");
+    /*package*/ static final SConcept ReversibleSendEvent$u = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x68458b9b5da4ec77L, "DESL.structure.ReversibleSendEvent");
     /*package*/ static final SConcept DESLModel$DK = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, "DESL.structure.DESLModel");
     /*package*/ static final SConcept EventType$wx = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x7c2c5977e3e10df9L, "DESL.structure.EventType");
     /*package*/ static final SConcept ReversibleScript$ki = MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x56ee1731fef0eae5L, "ReversibleFunctions.structure.ReversibleScript");

@@ -24,39 +24,39 @@ import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class EventHandler__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, "DESL.structure.EventHandler");
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x113f0963d3552649L, "DESL.structure.EventHandler");
 
-  public static final SMethod<Void> CreateHandler_id5ikxYnpE_re = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("CreateHandler").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6094645617008203470L).languageId(0xace4ce3b88117666L, 0xc4765525912b41b9L).build2(SMethodBuilder.createJavaParameter(String.class, ""));
-  public static final SMethod<Void> CreateStateArgument_id5ikxYnpEBN1 = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("CreateStateArgument").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6094645617008213185L).languageId(0xace4ce3b88117666L, 0xc4765525912b41b9L).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
+  public static final SMethod<Void> createHandler_id14Z2mfjlpcd = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("createHandler").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1242722346529559309L).languageId(0xace4ce3b88117666L, 0xc4765525912b41b9L).build2(SMethodBuilder.createJavaParameter(String.class, ""));
+  public static final SMethod<Void> createStateArgument_id14Z2mfjlr7T = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("createStateArgument").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1242722346529567225L).languageId(0xace4ce3b88117666L, 0xc4765525912b41b9L).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(CreateHandler_id5ikxYnpE_re, CreateStateArgument_id5ikxYnpEBN1);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(createHandler_id14Z2mfjlpcd, createStateArgument_id14Z2mfjlr7T);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
-  /*package*/ static void CreateHandler_id5ikxYnpE_re(@NotNull SNode __thisNode__, String functionName) {
-    SNode newFunction = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, "ReversibleFunctions.structure.ReversibleFunction"));
+  /*package*/ static void createHandler_id14Z2mfjlpcd(@NotNull SNode __thisNode__, String functionName) {
+    SNode newFunction = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x595522006a5b97e1L, "com.mbeddr.core.modules.structure.Function"));
     SPropertyOperations.assign(newFunction, PROPS.name$MnvL, functionName);
-    SLinkOperations.setTarget(__thisNode__, LINKS.forwardFunction$5bPH, newFunction);
+    SLinkOperations.setTarget(__thisNode__, LINKS.function$h6a1, newFunction);
 
     SNode doubleType = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7b064baaf4444619L, "com.mbeddr.core.expressions.structure.DoubleType"));
     SNode now = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x6d872ef9245a20d7L, "com.mbeddr.core.modules.structure.Argument"));
     SPropertyOperations.assign(now, PROPS.name$MnvL, "now");
     SLinkOperations.setTarget(now, LINKS.type$sXU3, doubleType);
-    ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(__thisNode__, LINKS.forwardFunction$5bPH), LINKS.arguments$6da0)).addElement(now);
+    ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(__thisNode__, LINKS.function$h6a1), LINKS.arguments$6da0)).addElement(now);
 
     SNode intType = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x75739ed9f39e3883L, "com.mbeddr.core.expressions.structure.Int16tType"));
     SNode myself = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x6d872ef9245a20d7L, "com.mbeddr.core.modules.structure.Argument"));
     SPropertyOperations.assign(myself, PROPS.name$MnvL, "MySelf");
     SLinkOperations.setTarget(myself, LINKS.type$sXU3, intType);
-    ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(__thisNode__, LINKS.forwardFunction$5bPH), LINKS.arguments$6da0)).addElement(myself);
+    ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(__thisNode__, LINKS.function$h6a1), LINKS.arguments$6da0)).addElement(myself);
   }
-  /*package*/ static void CreateStateArgument_id5ikxYnpEBN1(@NotNull SNode __thisNode__, SNode type) {
-    if (ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(__thisNode__, LINKS.forwardFunction$5bPH), LINKS.arguments$6da0)).where((it) -> SPropertyOperations.getString(it, PROPS.name$MnvL) == "lp_state").isEmpty()) {
+  /*package*/ static void createStateArgument_id14Z2mfjlr7T(@NotNull SNode __thisNode__, SNode type) {
+    if (ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(__thisNode__, LINKS.function$h6a1), LINKS.arguments$6da0)).where((it) -> SPropertyOperations.getString(it, PROPS.name$MnvL) == "lp_state").isEmpty()) {
       SNode newArgument = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x6d872ef9245a20d7L, "com.mbeddr.core.modules.structure.Argument"));
       SPropertyOperations.assign(newArgument, PROPS.name$MnvL, "lp_state");
       SLinkOperations.setTarget(newArgument, LINKS.type$sXU3, type);
-      ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(__thisNode__, LINKS.forwardFunction$5bPH), LINKS.arguments$6da0)).addElement(newArgument);
+      ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(__thisNode__, LINKS.function$h6a1), LINKS.arguments$6da0)).addElement(newArgument);
     }
   }
 
@@ -76,10 +76,10 @@ public final class EventHandler__BehaviorDescriptor extends BaseBHDescriptor {
     }
     switch (methodIndex) {
       case 0:
-        CreateHandler_id5ikxYnpE_re(node, (String) parameters[0]);
+        createHandler_id14Z2mfjlpcd(node, (String) parameters[0]);
         return null;
       case 1:
-        CreateStateArgument_id5ikxYnpEBN1(node, (SNode) parameters[0]);
+        createStateArgument_id14Z2mfjlr7T(node, (SNode) parameters[0]);
         return null;
       default:
         throw new BHMethodNotFoundException(this, method);
@@ -115,7 +115,7 @@ public final class EventHandler__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink forwardFunction$5bPH = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x74d88000543a2a9fL, "forwardFunction");
+    /*package*/ static final SContainmentLink function$h6a1 = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x113f0963d3552649L, 0x113f0963d355667fL, "function");
     /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
     /*package*/ static final SContainmentLink arguments$6da0 = MetaAdapterFactory.getContainmentLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x707ac195dd5d51f2L, 0x4f39f90935e92f45L, "arguments");
   }

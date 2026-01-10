@@ -22,34 +22,34 @@ import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 
-public class EventHandler_SubstituteMenu extends SubstituteMenuBase {
-  public EventHandler_SubstituteMenu() {
-    super(false, new EditorMenuDescriptorBase("default substitute menu for EventHandler. Generated from implicit smart reference attribute.", new SNodePointer("r:79077d65-28d5-4f56-905b-4bcf5185c60e(DESL.structure)", "3297662491775979728")));
+public class EventReference_SubstituteMenu extends SubstituteMenuBase {
+  public EventReference_SubstituteMenu() {
+    super(false, new EditorMenuDescriptorBase("default substitute menu for EventReference. Generated from implicit smart reference attribute.", new SNodePointer("r:79077d65-28d5-4f56-905b-4bcf5185c60e(DESL.structure)", "1242722346548780847")));
   }
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_zbm4fo_a(), CONCEPTS.EventHandler$Ov));
-    result.add(new SMP_Subconcepts_zbm4fo_b());
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_w7xorn_a(), CONCEPTS.EventReference$aR));
+    result.add(new SMP_Subconcepts_w7xorn_b());
     return result;
   }
 
-  public class SMP_ReferenceScope_zbm4fo_a extends ReferenceScopeSubstituteMenuPart {
+  public class SMP_ReferenceScope_w7xorn_a extends ReferenceScopeSubstituteMenuPart {
 
-    public SMP_ReferenceScope_zbm4fo_a() {
-      super(CONCEPTS.EventHandler$Ov, LINKS.event$cu_u, new EditorMenuDescriptorBase("reference scope substitute menu part", null));
+    public SMP_ReferenceScope_w7xorn_a() {
+      super(CONCEPTS.EventReference$aR, LINKS.event$S19u, new EditorMenuDescriptorBase("reference scope substitute menu part", null));
     }
 
   }
-  public class SMP_Subconcepts_zbm4fo_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
-    public SMP_Subconcepts_zbm4fo_b() {
-      super(new EditorMenuDescriptorBase("include menus for all the direct subconcepts of " + "EventHandler", null));
+  public class SMP_Subconcepts_w7xorn_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
+    public SMP_Subconcepts_w7xorn_b() {
+      super(new EditorMenuDescriptorBase("include menus for all the direct subconcepts of " + "EventReference", null));
     }
 
     @Override
     protected Collection<SAbstractConcept> getConcepts(final SubstituteMenuContext _context) {
-      return getDirectDescendants(_context, CONCEPTS.EventHandler$Ov);
+      return getDirectDescendants(_context, CONCEPTS.EventReference$aR);
     }
 
     @Override
@@ -59,10 +59,10 @@ public class EventHandler_SubstituteMenu extends SubstituteMenuBase {
   }
 
   private static final class CONCEPTS {
-    /*package*/ static final SConcept EventHandler$Ov = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, "DESL.structure.EventHandler");
+    /*package*/ static final SConcept EventReference$aR = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x113f0963d47adf2fL, "DESL.structure.EventReference");
   }
 
   private static final class LINKS {
-    /*package*/ static final SReferenceLink event$cu_u = MetaAdapterFactory.getReferenceLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x549487e5d9aa9e01L, "event");
+    /*package*/ static final SReferenceLink event$S19u = MetaAdapterFactory.getReferenceLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x113f0963d47adf2fL, 0x113f0963d47adf30L, "event");
   }
 }

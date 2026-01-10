@@ -4,73 +4,15 @@ package DESL.constraints;
 
 import jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptorInitContext;
-import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
-import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import org.jetbrains.annotations.Nullable;
-import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
-import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
-import org.jetbrains.mps.openapi.model.SNodeReference;
-import jetbrains.mps.smodel.SNodePointer;
-import jetbrains.mps.scope.Scope;
-import jetbrains.mps.smodel.runtime.ReferenceConstraintsContext;
-import jetbrains.mps.scope.ListScope;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import org.jetbrains.mps.openapi.language.SReferenceLink;
-import org.jetbrains.mps.openapi.language.SProperty;
 
 public class EventHandler_Constraints extends BaseConstraintsDescriptor {
   /*package*/ EventHandler_Constraints(ConstraintsDescriptorInitContext initContext) {
-    super(CONCEPTS.EventHandler$Ov, initContext);
-    record(new RD1(this));
-  }
-
-  /*package*/ static final class RD1 extends BaseReferenceConstraintsDescriptor {
-    /*package*/ RD1(ConstraintsDescriptor container) {
-      super(LINKS.event$cu_u, container, true, true);
-    }
-    @Override
-    public boolean validate(final SNode referenceNode, final SNode oldReferentNode, final SNode newReferentNode) {
-      return true;
-    }
-    @Override
-    public void onReferenceSet(final SNode referenceNode, final SNode oldReferentNode, final SNode newReferentNode) {
-      SLinkOperations.setTarget(referenceNode, LINKS.event$cu_u, newReferentNode);
-      SPropertyOperations.assign(referenceNode, PROPS.eventName$cuOv, SPropertyOperations.getString(newReferentNode, PROPS.name$MnvL));
-    }
-    @Nullable
-    @Override
-    public ReferenceScopeProvider getScopeProvider() {
-      return new BaseScopeProvider() {
-        @Override
-        public SNodeReference getSearchScopeValidatorNode() {
-          return new SNodePointer("r:048a4be0-4bfd-44e1-a4fe-33b591fb5056(DESL.constraints)", "6094645617008237958");
-        }
-        @Override
-        public Scope createScope(final ReferenceConstraintsContext _context) {
-          return ListScope.forNamedElements(SNodeOperations.getNodeDescendants(SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.DESLModel$DK, false, false), CONCEPTS.EventType$wx, false, new SAbstractConcept[]{}));
-        }
-      };
-    }
+    super(CONCEPTS.EventHandler$P0, initContext);
   }
 
   private static final class CONCEPTS {
-    /*package*/ static final SConcept EventHandler$Ov = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, "DESL.structure.EventHandler");
-    /*package*/ static final SConcept DESLModel$DK = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, "DESL.structure.DESLModel");
-    /*package*/ static final SConcept EventType$wx = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x7c2c5977e3e10df9L, "DESL.structure.EventType");
-  }
-
-  private static final class LINKS {
-    /*package*/ static final SReferenceLink event$cu_u = MetaAdapterFactory.getReferenceLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x549487e5d9aa9e01L, "event");
-  }
-
-  private static final class PROPS {
-    /*package*/ static final SProperty eventName$cuOv = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x549487e5d9aa9e02L, "eventName");
-    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SConcept EventHandler$P0 = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x113f0963d3552649L, "DESL.structure.EventHandler");
   }
 }

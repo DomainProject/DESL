@@ -13,7 +13,46 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1070475587102:jetbrains.mps.baseLanguage.structure.SuperConstructorInvocation" />
   <root>
     <file name="ConstraintsAspectDescriptor.java">
-      <unit at="15,0,52,0" name="DESL.constraints.ConstraintsAspectDescriptor" />
+      <unit at="15,0,56,0" name="DESL.constraints.ConstraintsAspectDescriptor" />
+    </file>
+  </root>
+  <root nodeRef="r:048a4be0-4bfd-44e1-a4fe-33b591fb5056(DESL.constraints)/1242722346542122427">
+    <file name="IHandler_Constraints.java">
+      <node id="1242722346542122427" at="11,82,12,45" concept="10" />
+      <node id="1242722346542122427" at="16,0,17,0" concept="8" trace="IHandler$Jq" />
+      <node id="1242722346542122427" at="11,0,14,0" concept="1" trace="IHandler_Constraints#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptorInitContext;)V" />
+      <scope id="1242722346542122427" at="11,82,12,45" />
+      <scope id="1242722346542122427" at="11,0,14,0">
+        <var name="initContext" id="1242722346542122427" />
+      </scope>
+      <unit id="1242722346542122427" at="15,0,18,0" name="DESL.constraints.IHandler_Constraints$CONCEPTS" />
+      <unit id="1242722346542122427" at="10,0,19,0" name="DESL.constraints.IHandler_Constraints" />
+    </file>
+  </root>
+  <root nodeRef="r:048a4be0-4bfd-44e1-a4fe-33b591fb5056(DESL.constraints)/1242722346545449601">
+    <file name="EventHandler_Constraints.java">
+      <node id="1242722346545449601" at="11,86,12,49" concept="10" />
+      <node id="1242722346545449601" at="16,0,17,0" concept="8" trace="EventHandler$P0" />
+      <node id="1242722346545449601" at="11,0,14,0" concept="1" trace="EventHandler_Constraints#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptorInitContext;)V" />
+      <scope id="1242722346545449601" at="11,86,12,49" />
+      <scope id="1242722346545449601" at="11,0,14,0">
+        <var name="initContext" id="1242722346545449601" />
+      </scope>
+      <unit id="1242722346545449601" at="15,0,18,0" name="DESL.constraints.EventHandler_Constraints$CONCEPTS" />
+      <unit id="1242722346545449601" at="10,0,19,0" name="DESL.constraints.EventHandler_Constraints" />
+    </file>
+  </root>
+  <root nodeRef="r:048a4be0-4bfd-44e1-a4fe-33b591fb5056(DESL.constraints)/1242722346545451356">
+    <file name="ReversibleEventHandler_Constraints.java">
+      <node id="1242722346545451356" at="11,96,12,59" concept="10" />
+      <node id="1242722346545451356" at="16,0,17,0" concept="8" trace="ReversibleEventHandler$Ov" />
+      <node id="1242722346545451356" at="11,0,14,0" concept="1" trace="ReversibleEventHandler_Constraints#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptorInitContext;)V" />
+      <scope id="1242722346545451356" at="11,96,12,59" />
+      <scope id="1242722346545451356" at="11,0,14,0">
+        <var name="initContext" id="1242722346545451356" />
+      </scope>
+      <unit id="1242722346545451356" at="15,0,18,0" name="DESL.constraints.ReversibleEventHandler_Constraints$CONCEPTS" />
+      <unit id="1242722346545451356" at="10,0,19,0" name="DESL.constraints.ReversibleEventHandler_Constraints" />
     </file>
   </root>
   <root nodeRef="r:048a4be0-4bfd-44e1-a4fe-33b591fb5056(DESL.constraints)/1888908346007184088">
@@ -153,45 +192,46 @@
   </root>
   <root nodeRef="r:048a4be0-4bfd-44e1-a4fe-33b591fb5056(DESL.constraints)/3616715704758546630">
     <file name="EventType_Constraints.java">
-      <node id="3616715704758546630" at="21,83,22,46" concept="10" />
-      <node id="3616715704758546631" at="22,46,23,30" concept="2" />
-      <node id="3616715704758546631" at="27,53,28,60" concept="10" />
-      <node id="3616715704758546631" at="31,68,32,82" concept="2" />
-      <node id="3616715704758546981" at="34,88,35,71" concept="2" />
-      <node id="3616715704758598277" at="35,71,36,339" concept="2" />
-      <node id="3616715704758546630" at="41,0,42,0" concept="8" trace="EventType$wx" />
-      <node id="3616715704758546630" at="42,0,43,0" concept="8" trace="DESLModel$DK" />
-      <node id="3616715704758546630" at="43,0,44,0" concept="8" trace="EventHandler$Ov" />
-      <node id="3616715704758546630" at="47,0,48,0" concept="8" trace="name$MnvL" />
-      <node id="3616715704758546630" at="48,0,49,0" concept="8" trace="eventName$cuOv" />
-      <node id="3616715704758546630" at="52,0,53,0" concept="8" trace="event$cu_u" />
-      <node id="3616715704758546631" at="27,0,30,0" concept="1" trace="Name_PD#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptor;)V" />
-      <node id="3616715704758546630" at="21,0,25,0" concept="1" trace="EventType_Constraints#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptorInitContext;)V" />
-      <node id="3616715704758546631" at="30,0,34,0" concept="4" trace="setPropertyValue#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/Object;)V" />
-      <node id="3616715704758546631" at="34,0,38,0" concept="9" trace="staticSetPropertyValue#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/String;)V" />
-      <scope id="3616715704758546631" at="27,53,28,60" />
-      <scope id="3616715704758546631" at="31,68,32,82" />
-      <scope id="3616715704758546630" at="21,83,23,30" />
-      <scope id="3616715704758546695" at="34,88,36,339" />
-      <scope id="3616715704758546631" at="27,0,30,0">
+      <node id="3616715704758546630" at="22,83,23,46" concept="10" />
+      <node id="3616715704758546631" at="23,46,24,30" concept="2" />
+      <node id="3616715704758546631" at="28,53,29,60" concept="10" />
+      <node id="3616715704758546631" at="32,68,33,82" concept="2" />
+      <node id="3616715704758546981" at="35,88,36,71" concept="2" />
+      <node id="3616715704758598277" at="36,71,37,394" concept="2" />
+      <node id="3616715704758546630" at="42,0,43,0" concept="8" trace="EventType$wx" />
+      <node id="3616715704758546630" at="43,0,44,0" concept="8" trace="DESLModel$DK" />
+      <node id="3616715704758546630" at="44,0,45,0" concept="8" trace="ReversibleEventHandler$Ov" />
+      <node id="3616715704758546630" at="48,0,49,0" concept="8" trace="name$MnvL" />
+      <node id="3616715704758546630" at="49,0,50,0" concept="8" trace="eventName$rI8o" />
+      <node id="3616715704758546630" at="53,0,54,0" concept="8" trace="event$w$QT" />
+      <node id="3616715704758546630" at="54,0,55,0" concept="8" trace="event$S19u" />
+      <node id="3616715704758546631" at="28,0,31,0" concept="1" trace="Name_PD#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptor;)V" />
+      <node id="3616715704758546630" at="22,0,26,0" concept="1" trace="EventType_Constraints#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptorInitContext;)V" />
+      <node id="3616715704758546631" at="31,0,35,0" concept="4" trace="setPropertyValue#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/Object;)V" />
+      <node id="3616715704758546631" at="35,0,39,0" concept="9" trace="staticSetPropertyValue#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/String;)V" />
+      <scope id="3616715704758546631" at="28,53,29,60" />
+      <scope id="3616715704758546631" at="32,68,33,82" />
+      <scope id="3616715704758546630" at="22,83,24,30" />
+      <scope id="3616715704758546695" at="35,88,37,394" />
+      <scope id="3616715704758546631" at="28,0,31,0">
         <var name="container" id="3616715704758546631" />
       </scope>
-      <scope id="3616715704758546630" at="21,0,25,0">
+      <scope id="3616715704758546630" at="22,0,26,0">
         <var name="initContext" id="3616715704758546630" />
       </scope>
-      <scope id="3616715704758546631" at="30,0,34,0">
+      <scope id="3616715704758546631" at="31,0,35,0">
         <var name="node" id="3616715704758546631" />
         <var name="propertyValue" id="3616715704758546631" />
       </scope>
-      <scope id="3616715704758546631" at="34,0,38,0">
+      <scope id="3616715704758546631" at="35,0,39,0">
         <var name="node" id="3616715704758546631" />
         <var name="propertyValue" id="3616715704758546631" />
       </scope>
-      <unit id="3616715704758546630" at="51,0,54,0" name="DESL.constraints.EventType_Constraints$LINKS" />
-      <unit id="3616715704758546630" at="46,0,50,0" name="DESL.constraints.EventType_Constraints$PROPS" />
-      <unit id="3616715704758546630" at="40,0,45,0" name="DESL.constraints.EventType_Constraints$CONCEPTS" />
-      <unit id="3616715704758546631" at="26,0,39,0" name="DESL.constraints.EventType_Constraints$Name_PD" />
-      <unit id="3616715704758546630" at="20,0,55,0" name="DESL.constraints.EventType_Constraints" />
+      <unit id="3616715704758546630" at="47,0,51,0" name="DESL.constraints.EventType_Constraints$PROPS" />
+      <unit id="3616715704758546630" at="52,0,56,0" name="DESL.constraints.EventType_Constraints$LINKS" />
+      <unit id="3616715704758546630" at="41,0,46,0" name="DESL.constraints.EventType_Constraints$CONCEPTS" />
+      <unit id="3616715704758546631" at="27,0,40,0" name="DESL.constraints.EventType_Constraints$Name_PD" />
+      <unit id="3616715704758546630" at="21,0,57,0" name="DESL.constraints.EventType_Constraints" />
     </file>
   </root>
   <root nodeRef="r:048a4be0-4bfd-44e1-a4fe-33b591fb5056(DESL.constraints)/4839193101007130194">
@@ -281,66 +321,6 @@
       <unit id="4839193101007162158" at="45,0,50,0" name="DESL.constraints.StructMemberDocs_Constraints$LINKS" />
       <unit id="4839193101007162702" at="25,0,40,0" name="DESL.constraints.StructMemberDocs_Constraints$RD1" />
       <unit id="4839193101007162158" at="19,0,56,0" name="DESL.constraints.StructMemberDocs_Constraints" />
-    </file>
-  </root>
-  <root nodeRef="r:048a4be0-4bfd-44e1-a4fe-33b591fb5056(DESL.constraints)/6094645617001544332">
-    <file name="EventHandler_Constraints.java">
-      <node id="6094645617001544332" at="28,86,29,49" concept="10" />
-      <node id="6094645617008221705" at="29,49,30,26" concept="2" />
-      <node id="6094645617008221705" at="34,54,35,53" concept="10" />
-      <node id="6094645617008221705" at="38,114,39,18" concept="6" />
-      <node id="6094645617008222470" at="42,117,43,82" concept="2" />
-      <node id="6094645617008227820" at="43,82,44,135" concept="2" />
-      <node id="6094645617008221705" at="51,61,52,117" concept="6" />
-      <node id="6094645617008238451" at="55,78,56,233" concept="6" />
-      <node id="6094645617001544332" at="63,0,64,0" concept="8" trace="EventHandler$Ov" />
-      <node id="6094645617001544332" at="64,0,65,0" concept="8" trace="DESLModel$DK" />
-      <node id="6094645617001544332" at="65,0,66,0" concept="8" trace="EventType$wx" />
-      <node id="6094645617001544332" at="69,0,70,0" concept="8" trace="event$cu_u" />
-      <node id="6094645617001544332" at="73,0,74,0" concept="8" trace="eventName$cuOv" />
-      <node id="6094645617001544332" at="74,0,75,0" concept="8" trace="name$MnvL" />
-      <node id="6094645617008221705" at="34,0,37,0" concept="1" trace="RD1#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptor;)V" />
-      <node id="6094645617001544332" at="28,0,32,0" concept="1" trace="EventHandler_Constraints#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptorInitContext;)V" />
-      <node id="6094645617008221705" at="37,0,41,0" concept="4" trace="validate#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
-      <node id="6094645617008221705" at="50,0,54,0" concept="4" trace="getSearchScopeValidatorNode#()Lorg/jetbrains/mps/openapi/model/SNodeReference;" />
-      <node id="6094645617008221705" at="54,0,58,0" concept="4" trace="createScope#(Ljetbrains/mps/smodel/runtime/ReferenceConstraintsContext;)Ljetbrains/mps/scope/Scope;" />
-      <node id="6094645617008221705" at="41,0,46,0" concept="4" trace="onReferenceSet#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)V" />
-      <node id="6094645617008221705" at="48,54,58,8" concept="6" />
-      <node id="6094645617008221705" at="46,0,60,0" concept="4" trace="getScopeProvider#()Ljetbrains/mps/smodel/runtime/ReferenceScopeProvider;" />
-      <scope id="6094645617008221705" at="34,54,35,53" />
-      <scope id="6094645617008221705" at="38,114,39,18" />
-      <scope id="6094645617008221705" at="51,61,52,117" />
-      <scope id="6094645617008221705" at="55,78,56,233" />
-      <scope id="6094645617001544332" at="28,86,30,26" />
-      <scope id="6094645617008222091" at="42,117,44,135" />
-      <scope id="6094645617008221705" at="34,0,37,0">
-        <var name="container" id="6094645617008221705" />
-      </scope>
-      <scope id="6094645617001544332" at="28,0,32,0">
-        <var name="initContext" id="6094645617001544332" />
-      </scope>
-      <scope id="6094645617008221705" at="37,0,41,0">
-        <var name="newReferentNode" id="6094645617008221705" />
-        <var name="oldReferentNode" id="6094645617008221705" />
-        <var name="referenceNode" id="6094645617008221705" />
-      </scope>
-      <scope id="6094645617008221705" at="50,0,54,0" />
-      <scope id="6094645617008221705" at="54,0,58,0">
-        <var name="_context" id="6094645617008221705" />
-      </scope>
-      <scope id="6094645617008221705" at="41,0,46,0">
-        <var name="newReferentNode" id="6094645617008221705" />
-        <var name="oldReferentNode" id="6094645617008221705" />
-        <var name="referenceNode" id="6094645617008221705" />
-      </scope>
-      <scope id="6094645617008221705" at="48,54,58,8" />
-      <scope id="6094645617008221705" at="46,0,60,0" />
-      <unit id="6094645617001544332" at="68,0,71,0" name="DESL.constraints.EventHandler_Constraints$LINKS" />
-      <unit id="6094645617001544332" at="72,0,76,0" name="DESL.constraints.EventHandler_Constraints$PROPS" />
-      <unit id="6094645617001544332" at="62,0,67,0" name="DESL.constraints.EventHandler_Constraints$CONCEPTS" />
-      <unit id="6094645617008221705" at="49,17,58,7" name="DESL.constraints.EventHandler_Constraints$RD1$1" />
-      <unit id="6094645617008221705" at="33,0,61,0" name="DESL.constraints.EventHandler_Constraints$RD1" />
-      <unit id="6094645617001544332" at="27,0,77,0" name="DESL.constraints.EventHandler_Constraints" />
     </file>
   </root>
   <root nodeRef="r:048a4be0-4bfd-44e1-a4fe-33b591fb5056(DESL.constraints)/6343394003426729574">
@@ -433,9 +413,9 @@
     </file>
   </root>
   <root nodeRef="r:048a4be0-4bfd-44e1-a4fe-33b591fb5056(DESL.constraints)/8124770336488932539">
-    <file name="SendEvent_Constraints.java">
-      <node id="8124770336488932539" at="28,83,29,45" concept="10" />
-      <node id="8124770336488932540" at="29,45,30,26" concept="2" />
+    <file name="ReversibleSendEvent_Constraints.java">
+      <node id="8124770336488932539" at="28,93,29,55" concept="10" />
+      <node id="8124770336488932540" at="29,55,30,26" concept="2" />
       <node id="8124770336488932540" at="34,54,35,54" concept="10" />
       <node id="8124770336488932540" at="42,61,43,117" concept="6" />
       <node id="2732926576861387951" at="46,78,47,0" concept="7" />
@@ -444,20 +424,20 @@
       <node id="2732926576861423087" at="49,263,50,270" concept="2" />
       <node id="2732926576861387957" at="50,270,51,0" concept="7" />
       <node id="8124770336488932879" at="51,0,52,49" concept="6" />
-      <node id="8124770336488932539" at="59,0,60,0" concept="8" trace="SendEvent$u" />
+      <node id="8124770336488932539" at="59,0,60,0" concept="8" trace="ReversibleSendEvent$u" />
       <node id="8124770336488932539" at="60,0,61,0" concept="8" trace="DESLModel$DK" />
       <node id="8124770336488932539" at="61,0,62,0" concept="8" trace="EventType$wx" />
       <node id="8124770336488932539" at="62,0,63,0" concept="8" trace="ReversibleScript$ki" />
       <node id="8124770336488932539" at="66,0,67,0" concept="8" trace="event$JXN2" />
       <node id="8124770336488932540" at="34,0,37,0" concept="1" trace="RD1#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptor;)V" />
-      <node id="8124770336488932539" at="28,0,32,0" concept="1" trace="SendEvent_Constraints#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptorInitContext;)V" />
+      <node id="8124770336488932539" at="28,0,32,0" concept="1" trace="ReversibleSendEvent_Constraints#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptorInitContext;)V" />
       <node id="8124770336488932540" at="41,0,45,0" concept="4" trace="getSearchScopeValidatorNode#()Lorg/jetbrains/mps/openapi/model/SNodeReference;" />
       <node id="8124770336488932540" at="45,0,54,0" concept="4" trace="createScope#(Ljetbrains/mps/smodel/runtime/ReferenceConstraintsContext;)Ljetbrains/mps/scope/Scope;" />
       <node id="8124770336488932540" at="39,54,54,8" concept="6" />
       <node id="8124770336488932540" at="37,0,56,0" concept="4" trace="getScopeProvider#()Ljetbrains/mps/smodel/runtime/ReferenceScopeProvider;" />
       <scope id="8124770336488932540" at="34,54,35,54" />
       <scope id="8124770336488932540" at="42,61,43,117" />
-      <scope id="8124770336488932539" at="28,83,30,26" />
+      <scope id="8124770336488932539" at="28,93,30,26" />
       <scope id="8124770336488932540" at="34,0,37,0">
         <var name="container" id="8124770336488932540" />
       </scope>
@@ -473,11 +453,11 @@
       </scope>
       <scope id="8124770336488932540" at="39,54,54,8" />
       <scope id="8124770336488932540" at="37,0,56,0" />
-      <unit id="8124770336488932539" at="65,0,68,0" name="DESL.constraints.SendEvent_Constraints$LINKS" />
-      <unit id="8124770336488932539" at="58,0,64,0" name="DESL.constraints.SendEvent_Constraints$CONCEPTS" />
-      <unit id="8124770336488932540" at="40,17,54,7" name="DESL.constraints.SendEvent_Constraints$RD1$1" />
-      <unit id="8124770336488932540" at="33,0,57,0" name="DESL.constraints.SendEvent_Constraints$RD1" />
-      <unit id="8124770336488932539" at="27,0,69,0" name="DESL.constraints.SendEvent_Constraints" />
+      <unit id="8124770336488932539" at="65,0,68,0" name="DESL.constraints.ReversibleSendEvent_Constraints$LINKS" />
+      <unit id="8124770336488932539" at="58,0,64,0" name="DESL.constraints.ReversibleSendEvent_Constraints$CONCEPTS" />
+      <unit id="8124770336488932540" at="40,17,54,7" name="DESL.constraints.ReversibleSendEvent_Constraints$RD1$1" />
+      <unit id="8124770336488932540" at="33,0,57,0" name="DESL.constraints.ReversibleSendEvent_Constraints$RD1" />
+      <unit id="8124770336488932539" at="27,0,69,0" name="DESL.constraints.ReversibleSendEvent_Constraints" />
     </file>
   </root>
   <root nodeRef="r:048a4be0-4bfd-44e1-a4fe-33b591fb5056(DESL.constraints)/8124770336498465306">

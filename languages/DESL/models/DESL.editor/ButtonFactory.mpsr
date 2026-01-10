@@ -982,7 +982,7 @@
                                   </node>
                                 </node>
                                 <node concept="Jncv_" id="1znE8iBVcF3" role="3cqZAp">
-                                  <ref role="JncvD" to="rdv6:2R3DD23rX3g" resolve="EventHandler" />
+                                  <ref role="JncvD" to="rdv6:2R3DD23rX3g" resolve="ReversibleEventHandler" />
                                   <node concept="37vLTw" id="1znE8iBVeVA" role="JncvB">
                                     <ref role="3cqZAo" node="1znE8iBUrDs" resolve="node" />
                                   </node>
@@ -1394,7 +1394,7 @@
                             </node>
                           </node>
                           <node concept="Jncv_" id="1znE8iBVIlm" role="3cqZAp">
-                            <ref role="JncvD" to="rdv6:2R3DD23rX3g" resolve="EventHandler" />
+                            <ref role="JncvD" to="rdv6:2R3DD23rX3g" resolve="ReversibleEventHandler" />
                             <node concept="37vLTw" id="1znE8iBVJIE" role="JncvB">
                               <ref role="3cqZAo" node="1znE8iBUwKs" resolve="node" />
                             </node>

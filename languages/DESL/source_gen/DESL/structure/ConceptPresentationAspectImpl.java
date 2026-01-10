@@ -19,6 +19,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_EventDocs;
   private ConceptPresentation props_EventHandler;
   private ConceptPresentation props_EventHandlerDocs;
+  private ConceptPresentation props_EventReference;
   private ConceptPresentation props_EventType;
   private ConceptPresentation props_Expent;
   private ConceptPresentation props_ExternalFunction;
@@ -35,6 +36,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_IDocs;
   private ConceptPresentation props_IDocsElement;
   private ConceptPresentation props_IEventDefinition;
+  private ConceptPresentation props_IEventHandler;
   private ConceptPresentation props_IExternalFunction;
   private ConceptPresentation props_IFiller;
   private ConceptPresentation props_IGlobalVarDecl;
@@ -61,6 +63,8 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_ProcessArray;
   private ConceptPresentation props_ProcessSequence;
   private ConceptPresentation props_Random;
+  private ConceptPresentation props_ReversibleEventHandler;
+  private ConceptPresentation props_ReversibleSendEvent;
   private ConceptPresentation props_RngContext;
   private ConceptPresentation props_RootSimGPUM2M;
   private ConceptPresentation props_RootSimM2M;
@@ -68,6 +72,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_SendEvent;
   private ConceptPresentation props_StartupFunction;
   private ConceptPresentation props_StartupHandler;
+  private ConceptPresentation props_StringValue;
   private ConceptPresentation props_StructDefinition;
   private ConceptPresentation props_StructDocs;
   private ConceptPresentation props_StructMemberDocs;
@@ -140,7 +145,8 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
       case LanguageConceptSwitch.EventHandler:
         if (props_EventHandler == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.presentationByReference(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x549487e5d9aa9e01L, "event", "", "");
+          cpb.shortDesc("event handler");
+          cpb.rawPresentation("EventHandler");
           props_EventHandler = cpb.create();
         }
         return props_EventHandler;
@@ -151,6 +157,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_EventHandlerDocs = cpb.create();
         }
         return props_EventHandlerDocs;
+      case LanguageConceptSwitch.EventReference:
+        if (props_EventReference == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.presentationByReference(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x113f0963d47adf2fL, 0x113f0963d47adf30L, "event", "", "");
+          props_EventReference = cpb.create();
+        }
+        return props_EventReference;
       case LanguageConceptSwitch.EventType:
         if (props_EventType == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -259,6 +272,12 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_IEventDefinition = cpb.create();
         }
         return props_IEventDefinition;
+      case LanguageConceptSwitch.IEventHandler:
+        if (props_IEventHandler == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          props_IEventHandler = cpb.create();
+        }
+        return props_IEventHandler;
       case LanguageConceptSwitch.IExternalFunction:
         if (props_IExternalFunction == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -431,6 +450,21 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_Random = cpb.create();
         }
         return props_Random;
+      case LanguageConceptSwitch.ReversibleEventHandler:
+        if (props_ReversibleEventHandler == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.shortDesc("reversible event handler");
+          cpb.rawPresentation("ReversibleEventHandler");
+          props_ReversibleEventHandler = cpb.create();
+        }
+        return props_ReversibleEventHandler;
+      case LanguageConceptSwitch.ReversibleSendEvent:
+        if (props_ReversibleSendEvent == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("ReversibleSendEvent");
+          props_ReversibleSendEvent = cpb.create();
+        }
+        return props_ReversibleSendEvent;
       case LanguageConceptSwitch.RngContext:
         if (props_RngContext == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -480,6 +514,14 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_StartupHandler = cpb.create();
         }
         return props_StartupHandler;
+      case LanguageConceptSwitch.StringValue:
+        if (props_StringValue == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.shortDesc("this should not be instantiated (only defined for M2M to ActorLanguage)");
+          cpb.rawPresentation("StringValue");
+          props_StringValue = cpb.create();
+        }
+        return props_StringValue;
       case LanguageConceptSwitch.StructDefinition:
         if (props_StructDefinition == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

@@ -56,12 +56,12 @@ public abstract class ROSSUtils {
     tgs.append("switch(content->event_type) {");
     tgs.newLine();
     ctx.getBuffer().area().increaseIndent();
-    for (SNode handler : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(c, LINKS.handlers$Nr2P), CONCEPTS.EventHandler$Ov))) {
-      if (!(isForward) || (!(SPropertyOperations.getString(handler, PROPS.eventName$cuOv).equals("INIT")) && !(SPropertyOperations.getString(handler, PROPS.eventName$cuOv).equals("LP_INIT")))) {
+    for (SNode handler : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(c, LINKS.handlers$Nr2P), CONCEPTS.ReversibleEventHandler$Ov))) {
+      if (!(isForward) || (!(SPropertyOperations.getString(handler, PROPS.eventName$rI8o).equals("INIT")) && !(SPropertyOperations.getString(handler, PROPS.eventName$rI8o).equals("LP_INIT")))) {
         tgs.newLine();
         tgs.indent();
         tgs.append("case event_");
-        tgs.append(SPropertyOperations.getString(handler, PROPS.eventName$cuOv));
+        tgs.append(SPropertyOperations.getString(handler, PROPS.eventName$rI8o));
         tgs.append(":");
         tgs.newLine();
         ctx.getBuffer().area().increaseIndent();
@@ -105,7 +105,7 @@ public abstract class ROSSUtils {
 
   private static final class PROPS {
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
-    /*package*/ static final SProperty eventName$cuOv = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x549487e5d9aa9e02L, "eventName");
+    /*package*/ static final SProperty eventName$rI8o = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x549487e5d88a4291L, 0x113f0963d355264aL, "eventName");
   }
 
   private static final class LINKS {
@@ -118,6 +118,6 @@ public abstract class ROSSUtils {
   }
 
   private static final class CONCEPTS {
-    /*package*/ static final SConcept EventHandler$Ov = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, "DESL.structure.EventHandler");
+    /*package*/ static final SConcept ReversibleEventHandler$Ov = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, "DESL.structure.ReversibleEventHandler");
   }
 }

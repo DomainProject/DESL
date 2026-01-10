@@ -9,11 +9,6 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
-import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import com.mbeddr.core.expressions.behavior.IVariableDeclaration__BehaviorDescriptor;
-import com.mbeddr.core.expressions.behavior.IVariableReference__BehaviorDescriptor;
-import com.mbeddr.core.modules.behavior.ITypeDeclaration__BehaviorDescriptor;
 import jetbrains.mps.lang.traceable.behavior.TraceableConcept__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -27,20 +22,19 @@ public class SendEvent_TextGen extends TextGenDescriptorBase {
   public void generateText(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     tgs.createPositionInfo();
-
     if ((SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.RootSimM2M$x5, false, false) != null) || (SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.UseM2M$UU, false, false) != null)) {
 
       // ROOT-Sim and USE
 
       tgs.append("ScheduleNewEvent(");
-      tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.to$WtFs));
+      tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.to$dBAv));
       tgs.append(", ");
-      tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.when$PyFU));
+      tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.when$dBnu));
       tgs.append(", ");
-      tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.event$JXN2), PROPS.name$MnvL));
+      tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.event$dHVU), PROPS.name$MnvL));
       tgs.append(", ");
       {
-        final SNode nullExpression = SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.with$_CC9);
+        final SNode nullExpression = SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.with$dBPw);
         if (SNodeOperations.isInstanceOf(nullExpression, CONCEPTS.NullExpression$Oy)) {
           tgs.append("NULL, 0);");
           tgs.newLine();
@@ -48,141 +42,47 @@ public class SendEvent_TextGen extends TextGenDescriptorBase {
         }
       }
       {
-        final SNode localVarRef = SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.with$_CC9);
+        final SNode localVarRef = SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.with$dBPw);
         if (SNodeOperations.isInstanceOf(localVarRef, CONCEPTS.LocalVarRef$VQ)) {
           {
             final SNode pointerType = SLinkOperations.getTarget(SLinkOperations.getTarget(localVarRef, LINKS.var$YUyC), LINKS.type$sXU3);
             if (SNodeOperations.isInstanceOf(pointerType, CONCEPTS.PointerType$HX)) {
-              tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.with$_CC9));
+              tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.with$dBPw));
               tgs.append(", ");
               return;
             }
           }
           tgs.append("&");
-          tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.with$_CC9));
+          tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.with$dBPw));
           tgs.append(", ");
         }
       }
       // todo cover cases in which node.with is not a LocalVarRef (e.g., ArgumentRef)
       tgs.append("sizeof(");
-      tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.with$_CC9));
+      tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.with$dBPw));
       tgs.append("));");
-
-    } else if ((SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.RossM2M$aQ, false, false) != null) || SPropertyOperations.getBoolean(SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.ReversibleFunction$IL, false, false), PROPS.reversibilityRequired$Zgdy)) {
-
-      // ROSS
-
-      // get event and payload name
-      int numEvents = ListSequence.fromList(SNodeOperations.getNodeDescendants(SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.ReversibleFunction$IL, false, false), CONCEPTS.SendEvent$u, false, new SAbstractConcept[]{})).indexOf(ctx.getPrimaryInput());
-      String eventName;
-      String payloadName;
-      // todo remove if and keep the else branch
-      if ((SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.EventHandler$Ov, false, false) == null)) {
-        eventName = "e" + numEvents + "_" + SPropertyOperations.getString(SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.ReversibleFunction$IL, false, false), PROPS.name$MnvL).toLowerCase();
-        payloadName = "data" + numEvents + "_" + SPropertyOperations.getString(SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.ReversibleFunction$IL, false, false), PROPS.name$MnvL).toLowerCase();
-      } else {
-        eventName = "e" + numEvents + "_" + SPropertyOperations.getString(SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.EventHandler$Ov, false, false), PROPS.eventName$cuOv).toLowerCase();
-        payloadName = "data" + numEvents + "_" + SPropertyOperations.getString(SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.EventHandler$Ov, false, false), PROPS.eventName$cuOv).toLowerCase();
-      }
-
-      // get message type
-      SNode messageType = null;
-      if (!(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.with$_CC9), CONCEPTS.NullExpression$rn))) {
-        if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.with$_CC9), CONCEPTS.IVariableReference$Kb)) {
-          messageType = IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(SNodeOperations.cast(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.with$_CC9), CONCEPTS.IVariableReference$Kb)));
-        }
-      } else {
-        messageType = ITypeDeclaration__BehaviorDescriptor.createType_id3o2OLGv7CoR.invoke(SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.DESLModel$DK, false, false), LINKS.messageStruct$xVlJ));
-      }
-
-
-      if (SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5)) {
-
-        // old stuff
-
-
-        tgs.append("tw_event *");
-        tgs.append(eventName);
-        tgs.append(" = tw_event_new(");
-        tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.to$WtFs));
-        tgs.append(", ");
-        tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.when$PyFU));
-        tgs.append(", lp);");
-        tgs.newLine();
-        tgs.indent();
-        tgs.appendNode(messageType);
-        tgs.append(" *");
-        tgs.append(payloadName);
-        tgs.append(" = tw_event_data(");
-        tgs.append(eventName);
-        tgs.append(");");
-        tgs.newLine();
-        tgs.indent();
-        tgs.append(payloadName);
-        tgs.append("->cp = cp;");
-        tgs.newLine();
-        if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.with$_CC9), CONCEPTS.NullExpression$rn)) {
-          tgs.indent();
-          tgs.append(payloadName);
-          tgs.append("->event_type = event_");
-          tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.event$JXN2), PROPS.name$MnvL));
-          tgs.append(";");
-          tgs.newLine();
-        } else {
-          tgs.indent();
-          tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.with$_CC9));
-          tgs.append(".event_type = event_");
-          tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.event$JXN2), PROPS.name$MnvL));
-          tgs.append(";");
-          tgs.newLine();
-          tgs.indent();
-          tgs.append("memcpy(");
-          tgs.append(payloadName);
-          tgs.append(", &");
-          tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.with$_CC9));
-          tgs.append(", sizeof(");
-          tgs.appendNode(messageType);
-          tgs.append("));");
-          tgs.newLine();
-        }
-        tgs.indent();
-        tgs.append("tw_event_send(");
-        tgs.append(eventName);
-        tgs.append(");");
-      }
-
 
     } else if ((SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.RootSimGPUM2M$GC, false, false) != null)) {
 
       // todo
 
     }
-
-
-
-
-
-
     if (tgs.needPositions()) {
       tgs.fillPositionInfo(TraceableConcept__BehaviorDescriptor.getTraceableProperty_id4pl5GY7LKmH.invoke(SNodeOperations.cast(ctx.getPrimaryInput(), CONCEPTS.TraceableConcept$L)));
     }
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink to$WtFs = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x68458b9b5da4ec77L, 0x6f2af7ea6983412cL, "to");
-    /*package*/ static final SContainmentLink when$PyFU = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x68458b9b5da4ec77L, 0x6f2af7ea696e149dL, "when");
-    /*package*/ static final SReferenceLink event$JXN2 = MetaAdapterFactory.getReferenceLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x68458b9b5da4ec77L, 0x6f2af7ea6966abcaL, "event");
-    /*package*/ static final SContainmentLink with$_CC9 = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x68458b9b5da4ec77L, 0x6f36cc77d0d566c2L, "with");
+    /*package*/ static final SContainmentLink to$dBAv = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x113f0963d4b62076L, 0x113f0963d4b62078L, "to");
+    /*package*/ static final SContainmentLink when$dBnu = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x113f0963d4b62076L, 0x113f0963d4b62077L, "when");
+    /*package*/ static final SReferenceLink event$dHVU = MetaAdapterFactory.getReferenceLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x113f0963d4b62076L, 0x113f0963d4b6207eL, "event");
+    /*package*/ static final SContainmentLink with$dBPw = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x113f0963d4b62076L, 0x113f0963d4b62079L, "with");
     /*package*/ static final SReferenceLink var$YUyC = MetaAdapterFactory.getReferenceLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x1d0c3765e2e1d67aL, 0x1d0c3765e2e1fe27L, "var");
     /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
-    /*package*/ static final SContainmentLink messageStruct$xVlJ = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x6de6339fa564bed8L, "messageStruct");
   }
 
   private static final class PROPS {
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
-    /*package*/ static final SProperty reversibilityRequired$Zgdy = MetaAdapterFactory.getProperty(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111cL, 0x56ee1731ff5a6482L, "reversibilityRequired");
-    /*package*/ static final SProperty eventName$cuOv = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x549487e5d9aa9e02L, "eventName");
-    /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
   }
 
   private static final class CONCEPTS {
@@ -191,13 +91,6 @@ public class SendEvent_TextGen extends TextGenDescriptorBase {
     /*package*/ static final SConcept PointerType$HX = MetaAdapterFactory.getConcept(0x3bf5377ae9044dedL, 0x97545a516023bfaaL, 0x3e0cae5e366d630L, "com.mbeddr.core.pointers.structure.PointerType");
     /*package*/ static final SConcept RootSimM2M$x5 = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2e66f9a61334f363L, "DESL.structure.RootSimM2M");
     /*package*/ static final SConcept UseM2M$UU = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4111dd2682dce668L, "DESL.structure.UseM2M");
-    /*package*/ static final SConcept ReversibleFunction$IL = MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, "ReversibleFunctions.structure.ReversibleFunction");
-    /*package*/ static final SConcept RossM2M$aQ = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x7dd219cad75cd6eeL, "DESL.structure.RossM2M");
-    /*package*/ static final SConcept SendEvent$u = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x68458b9b5da4ec77L, "DESL.structure.SendEvent");
-    /*package*/ static final SConcept EventHandler$Ov = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, "DESL.structure.EventHandler");
-    /*package*/ static final SInterfaceConcept IVariableReference$Kb = MetaAdapterFactory.getInterfaceConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1c69b376a2dab98aL, "ReversibleExpressions.structure.IVariableReference");
-    /*package*/ static final SConcept NullExpression$rn = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x64c559d9787488eL, "ReversibleExpressions.structure.NullExpression");
-    /*package*/ static final SConcept DESLModel$DK = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, "DESL.structure.DESLModel");
     /*package*/ static final SConcept RootSimGPUM2M$GC = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0xa56bb45af68e0a2L, "DESL.structure.RootSimGPUM2M");
     /*package*/ static final SInterfaceConcept TraceableConcept$L = MetaAdapterFactory.getInterfaceConcept(0x9ded098bad6a4657L, 0xbfd948636cfe8bc3L, 0x465516cf87c705a3L, "jetbrains.mps.lang.traceable.structure.TraceableConcept");
   }

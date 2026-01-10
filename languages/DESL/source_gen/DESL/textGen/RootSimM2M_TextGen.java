@@ -109,11 +109,11 @@ public class RootSimM2M_TextGen extends TextGenDescriptorBase {
       tgs.append("switch(event_type) {");
       tgs.newLine();
       ctx.getBuffer().area().increaseIndent();
-      for (SNode handler : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(c, LINKS.handlers$Nr2P), CONCEPTS.EventHandler$Ov))) {
+      for (SNode handler : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(c, LINKS.handlers$Nr2P), CONCEPTS.ReversibleEventHandler$Ov))) {
         tgs.newLine();
         tgs.indent();
         tgs.append("case ");
-        tgs.append(SPropertyOperations.getString(handler, PROPS.eventName$cuOv));
+        tgs.append(SPropertyOperations.getString(handler, PROPS.eventName$rI8o));
         tgs.append(":");
         tgs.newLine();
         ctx.getBuffer().area().increaseIndent();
@@ -321,14 +321,14 @@ public class RootSimM2M_TextGen extends TextGenDescriptorBase {
 
   private static final class PROPS {
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
-    /*package*/ static final SProperty eventName$cuOv = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x549487e5d9aa9e02L, "eventName");
+    /*package*/ static final SProperty eventName$rI8o = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x549487e5d88a4291L, 0x113f0963d355264aL, "eventName");
     /*package*/ static final SProperty right$2uAQ = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6486788L, 0x4117a694e648678cL, "right");
     /*package*/ static final SProperty left$2u8O = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6486788L, 0x4117a694e648678aL, "left");
   }
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept EventDefinition$wO = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2e66f9a613f69c80L, "DESL.structure.EventDefinition");
-    /*package*/ static final SConcept EventHandler$Ov = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, "DESL.structure.EventHandler");
+    /*package*/ static final SConcept ReversibleEventHandler$Ov = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, "DESL.structure.ReversibleEventHandler");
     /*package*/ static final SConcept ClassDefinition$NR = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, "DESL.structure.ClassDefinition");
     /*package*/ static final SConcept ProcessArray$Ux = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6486788L, "DESL.structure.ProcessArray");
     /*package*/ static final SConcept ProcessSequence$B$ = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e64867a6L, "DESL.structure.ProcessSequence");

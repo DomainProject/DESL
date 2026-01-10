@@ -35,16 +35,16 @@ public final class IntentionsDescriptor extends AbstractIntentionAspectDescripto
         if (true) {
           // concept
           intentions = new IntentionFactory[2];
-          intentions[0] = new AddDocumentationToHandler_Intention();
-          intentions[1] = new RemoveDocumentationFromHandler_Intention();
+          intentions[0] = new AddDocumentationToFunction_Intention();
+          intentions[1] = new RemoveDocumentationFromFunction_Intention();
         }
         break;
       case 1:
         if (true) {
           // concept
           intentions = new IntentionFactory[2];
-          intentions[0] = new AddDocumentationToFunction_Intention();
-          intentions[1] = new RemoveDocumentationFromFunction_Intention();
+          intentions[0] = new AddDocumentationToHandler_Intention();
+          intentions[1] = new RemoveDocumentationFromHandler_Intention();
         }
         break;
       default:
@@ -63,5 +63,5 @@ public final class IntentionsDescriptor extends AbstractIntentionAspectDescripto
     rv[3] = new RemoveDocumentationFromHandler_Intention();
     return Arrays.asList(rv);
   }
-  private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L), MetaIdFactory.conceptId(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228bL)).seal();
+  private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228bL), MetaIdFactory.conceptId(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L)).seal();
 }

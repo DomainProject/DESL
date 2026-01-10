@@ -26,6 +26,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptEventDocs = createDescriptorForEventDocs();
   /*package*/ final ConceptDescriptor myConceptEventHandler = createDescriptorForEventHandler();
   /*package*/ final ConceptDescriptor myConceptEventHandlerDocs = createDescriptorForEventHandlerDocs();
+  /*package*/ final ConceptDescriptor myConceptEventReference = createDescriptorForEventReference();
   /*package*/ final ConceptDescriptor myConceptEventType = createDescriptorForEventType();
   /*package*/ final ConceptDescriptor myConceptExpent = createDescriptorForExpent();
   /*package*/ final ConceptDescriptor myConceptExternalFunction = createDescriptorForExternalFunction();
@@ -42,6 +43,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptIDocs = createDescriptorForIDocs();
   /*package*/ final ConceptDescriptor myConceptIDocsElement = createDescriptorForIDocsElement();
   /*package*/ final ConceptDescriptor myConceptIEventDefinition = createDescriptorForIEventDefinition();
+  /*package*/ final ConceptDescriptor myConceptIEventHandler = createDescriptorForIEventHandler();
   /*package*/ final ConceptDescriptor myConceptIExternalFunction = createDescriptorForIExternalFunction();
   /*package*/ final ConceptDescriptor myConceptIFiller = createDescriptorForIFiller();
   /*package*/ final ConceptDescriptor myConceptIGlobalVarDecl = createDescriptorForIGlobalVarDecl();
@@ -68,6 +70,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptProcessArray = createDescriptorForProcessArray();
   /*package*/ final ConceptDescriptor myConceptProcessSequence = createDescriptorForProcessSequence();
   /*package*/ final ConceptDescriptor myConceptRandom = createDescriptorForRandom();
+  /*package*/ final ConceptDescriptor myConceptReversibleEventHandler = createDescriptorForReversibleEventHandler();
+  /*package*/ final ConceptDescriptor myConceptReversibleSendEvent = createDescriptorForReversibleSendEvent();
   /*package*/ final ConceptDescriptor myConceptRngContext = createDescriptorForRngContext();
   /*package*/ final ConceptDescriptor myConceptRootSimGPUM2M = createDescriptorForRootSimGPUM2M();
   /*package*/ final ConceptDescriptor myConceptRootSimM2M = createDescriptorForRootSimM2M();
@@ -75,6 +79,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptSendEvent = createDescriptorForSendEvent();
   /*package*/ final ConceptDescriptor myConceptStartupFunction = createDescriptorForStartupFunction();
   /*package*/ final ConceptDescriptor myConceptStartupHandler = createDescriptorForStartupHandler();
+  /*package*/ final ConceptDescriptor myConceptStringValue = createDescriptorForStringValue();
   /*package*/ final ConceptDescriptor myConceptStructDefinition = createDescriptorForStructDefinition();
   /*package*/ final ConceptDescriptor myConceptStructDocs = createDescriptorForStructDocs();
   /*package*/ final ConceptDescriptor myConceptStructMemberDocs = createDescriptorForStructMemberDocs();
@@ -106,15 +111,15 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     deps.aggregatedLanguage(0x92d2ea165a424fdfL, 0xa676c7604efe3504L, "de.slisson.mps.richtext");
     deps.aggregatedLanguage(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, "com.mbeddr.core.modules");
     deps.aggregatedLanguage(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, "ReversibleStatements");
-    deps.aggregatedLanguage(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, "ReversibleFunctions");
     deps.aggregatedLanguage(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, "ReversibleExpressions");
     deps.aggregatedLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage");
     deps.aggregatedLanguage(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, "jetbrains.mps.lang.text");
+    deps.aggregatedLanguage(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, "ReversibleFunctions");
   }
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptClassDefinition, myConceptCreateArray, myConceptDESLModel, myConceptDocsEntry, myConceptDocsM2M, myConceptEmptyLine, myConceptEventDefinition, myConceptEventDocs, myConceptEventHandler, myConceptEventHandlerDocs, myConceptEventType, myConceptExpent, myConceptExternalFunction, myConceptExternalFunctionPrototype, myConceptExternalMacro, myConceptExternalStructDefinition, myConceptFunctionDocs, myConceptGetRandContext, myConceptGetReceiver, myConceptGlobalVarDecl, myConceptHeader, myConceptIAllocateMemory, myConceptIClassDefinition, myConceptIDocs, myConceptIDocsElement, myConceptIEventDefinition, myConceptIExternalFunction, myConceptIFiller, myConceptIGlobalVarDecl, myConceptIHandler, myConceptIMacro, myConceptIProcessAllocation, myConceptIProcessList, myConceptIRNGCall, myConceptIStartupFunction, myConceptIStructDefinition, myConceptITerminationFunction, myConceptIText, myConceptITypeDefinition, myConceptInitRandomContext, myConceptInitTopology, myConceptInitializeState, myConceptItem, myConceptItemList, myConceptMacroFunction, myConceptMacroVariable, myConceptParameterDocs, myConceptPlainText, myConceptProcessAllocation, myConceptProcessArray, myConceptProcessSequence, myConceptRandom, myConceptRngContext, myConceptRootSimGPUM2M, myConceptRootSimM2M, myConceptRossM2M, myConceptSendEvent, myConceptStartupFunction, myConceptStartupHandler, myConceptStructDefinition, myConceptStructDocs, myConceptStructMemberDocs, myConceptTerminationFunction, myConceptTypeDefinition, myConceptUseM2M);
+    return Arrays.asList(myConceptClassDefinition, myConceptCreateArray, myConceptDESLModel, myConceptDocsEntry, myConceptDocsM2M, myConceptEmptyLine, myConceptEventDefinition, myConceptEventDocs, myConceptEventHandler, myConceptEventHandlerDocs, myConceptEventReference, myConceptEventType, myConceptExpent, myConceptExternalFunction, myConceptExternalFunctionPrototype, myConceptExternalMacro, myConceptExternalStructDefinition, myConceptFunctionDocs, myConceptGetRandContext, myConceptGetReceiver, myConceptGlobalVarDecl, myConceptHeader, myConceptIAllocateMemory, myConceptIClassDefinition, myConceptIDocs, myConceptIDocsElement, myConceptIEventDefinition, myConceptIEventHandler, myConceptIExternalFunction, myConceptIFiller, myConceptIGlobalVarDecl, myConceptIHandler, myConceptIMacro, myConceptIProcessAllocation, myConceptIProcessList, myConceptIRNGCall, myConceptIStartupFunction, myConceptIStructDefinition, myConceptITerminationFunction, myConceptIText, myConceptITypeDefinition, myConceptInitRandomContext, myConceptInitTopology, myConceptInitializeState, myConceptItem, myConceptItemList, myConceptMacroFunction, myConceptMacroVariable, myConceptParameterDocs, myConceptPlainText, myConceptProcessAllocation, myConceptProcessArray, myConceptProcessSequence, myConceptRandom, myConceptReversibleEventHandler, myConceptReversibleSendEvent, myConceptRngContext, myConceptRootSimGPUM2M, myConceptRootSimM2M, myConceptRossM2M, myConceptSendEvent, myConceptStartupFunction, myConceptStartupHandler, myConceptStringValue, myConceptStructDefinition, myConceptStructDocs, myConceptStructMemberDocs, myConceptTerminationFunction, myConceptTypeDefinition, myConceptUseM2M);
   }
 
   @Override
@@ -141,6 +146,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptEventHandler;
       case LanguageConceptSwitch.EventHandlerDocs:
         return myConceptEventHandlerDocs;
+      case LanguageConceptSwitch.EventReference:
+        return myConceptEventReference;
       case LanguageConceptSwitch.EventType:
         return myConceptEventType;
       case LanguageConceptSwitch.Expent:
@@ -173,6 +180,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptIDocsElement;
       case LanguageConceptSwitch.IEventDefinition:
         return myConceptIEventDefinition;
+      case LanguageConceptSwitch.IEventHandler:
+        return myConceptIEventHandler;
       case LanguageConceptSwitch.IExternalFunction:
         return myConceptIExternalFunction;
       case LanguageConceptSwitch.IFiller:
@@ -225,6 +234,10 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptProcessSequence;
       case LanguageConceptSwitch.Random:
         return myConceptRandom;
+      case LanguageConceptSwitch.ReversibleEventHandler:
+        return myConceptReversibleEventHandler;
+      case LanguageConceptSwitch.ReversibleSendEvent:
+        return myConceptReversibleSendEvent;
       case LanguageConceptSwitch.RngContext:
         return myConceptRngContext;
       case LanguageConceptSwitch.RootSimGPUM2M:
@@ -239,6 +252,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptStartupFunction;
       case LanguageConceptSwitch.StartupHandler:
         return myConceptStartupHandler;
+      case LanguageConceptSwitch.StringValue:
+        return myConceptStringValue;
       case LanguageConceptSwitch.StructDefinition:
         return myConceptStructDefinition;
       case LanguageConceptSwitch.StructDocs:
@@ -273,7 +288,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(DESL.structure)/4690400695369122208");
     b.version(3);
     b.aggregate("stateStruct", 0x4117a694e5b8c1a2L).target(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x58bef62304fc0a2fL).optional(false).ordered(true).multiple(false).origin("4690400695369122210").done();
-    b.aggregate("handlers", 0x4117a694e5b8c1a3L).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L).optional(true).ordered(true).multiple(true).origin("4690400695369122211").done();
+    b.aggregate("handlers", 0x4117a694e5b8c1a3L).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x549487e5d88a4291L).optional(true).ordered(true).multiple(true).origin("4690400695369122211").done();
     b.aggregate("startup", 0x6ea143d20905c7edL).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0a48d39L).optional(true).ordered(true).multiple(false).origin("7971727384796055533").done();
     b.aggregate("commonVariables", 0x323127c5741c9443L).target(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad96e6L).optional(true).ordered(true).multiple(true).origin("3616715704765289539").done();
     b.aggregate("termination", 0x148075313bb9b63dL).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x148075313bb5466dL).optional(true).ordered(true).multiple(false).origin("1477309532093396541").done();
@@ -364,16 +379,13 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForEventHandler() {
-    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("DESL", "EventHandler", 0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L);
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("DESL", "EventHandler", 0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x113f0963d3552649L);
     b.class_(false, false, false);
     b.parent(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x549487e5d88a4291L);
-    b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(DESL.structure)/3297662491775979728");
+    b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(DESL.structure)/1242722346529531465");
     b.version(3);
-    b.property("eventName", 0x549487e5d9aa9e02L).type(PrimitiveTypeId.STRING).origin("6094645617008221698").done();
-    b.associate("event", 0x549487e5d9aa9e01L).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x7c2c5977e3e10df9L).optional(false).origin("6094645617008221697").done();
-    b.aggregate("variables", 0x68458b9b5db03ca0L).target(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad96e6L).optional(true).ordered(true).multiple(true).origin("7513565052745563296").done();
-    b.aggregate("forwardFunction", 0x74d88000543a2a9fL).target(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL).optional(false).ordered(true).multiple(false).origin("8419620242270595743").done();
-    b.aggregate("reverseFunction", 0x5e81f50da138219aL).target(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL).optional(true).ordered(true).multiple(false).origin("6809993550449090970").done();
+    b.aggregate("function", 0x113f0963d355667fL).target(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x595522006a5b97e1L).optional(false).ordered(true).multiple(false).origin("1242722346529547903").done();
+    b.alias("EventHandler");
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForEventHandlerDocs() {
@@ -383,6 +395,14 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(DESL.structure)/8419620242269873778");
     b.version(3);
     b.associate("handler", 0x74d88000542f2674L).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L).optional(true).origin("8419620242269873780").done();
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForEventReference() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("DESL", "EventReference", 0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x113f0963d47adf2fL);
+    b.class_(false, false, false);
+    b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(DESL.structure)/1242722346548780847");
+    b.version(3);
+    b.associate("event", 0x113f0963d47adf30L).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x7c2c5977e3e10df9L).optional(false).origin("1242722346548780848").done();
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForEventType() {
@@ -539,6 +559,13 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.version(3);
     return b.create();
   }
+  private static ConceptDescriptor createDescriptorForIEventHandler() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("DESL", "IEventHandler", 0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x113f0963d3e28f3bL);
+    b.interface_();
+    b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(DESL.structure)/1242722346538798907");
+    b.version(3);
+    return b.create();
+  }
   private static ConceptDescriptor createDescriptorForIExternalFunction() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("DESL", "IExternalFunction", 0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c630e1L);
     b.interface_();
@@ -551,7 +578,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.interface_();
     b.parent(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c630e1L);
     b.parent(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x5808433cc497c578L);
-    b.parent(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x549487e5d88a4291L);
+    b.parent(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x113f0963d3e28f3bL);
     b.parent(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x74450034d00e6944L);
     b.parent(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4ba181fb08668351L);
     b.parent(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4ba181fb0873ae25L);
@@ -574,8 +601,11 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   private static ConceptDescriptor createDescriptorForIHandler() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("DESL", "IHandler", 0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x549487e5d88a4291L);
     b.interface_();
+    b.parent(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x113f0963d3e28f3bL);
     b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(DESL.structure)/6094645616989323921");
     b.version(3);
+    b.property("eventName", 0x113f0963d355264aL).type(PrimitiveTypeId.STRING).origin("1242722346529531466").done();
+    b.aggregate("event", 0x113f0963d47adf3eL).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x113f0963d47adf2fL).optional(false).ordered(true).multiple(false).origin("1242722346548780862").done();
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForIMacro() {
@@ -774,6 +804,31 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.alias("Random");
     return b.create();
   }
+  private static ConceptDescriptor createDescriptorForReversibleEventHandler() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("DESL", "ReversibleEventHandler", 0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L);
+    b.class_(false, false, false);
+    b.parent(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x549487e5d88a4291L);
+    b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(DESL.structure)/3297662491775979728");
+    b.version(3);
+    b.aggregate("variables", 0x68458b9b5db03ca0L).target(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad96e6L).optional(true).ordered(true).multiple(true).origin("7513565052745563296").done();
+    b.aggregate("forwardFunction", 0x74d88000543a2a9fL).target(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL).optional(false).ordered(true).multiple(false).origin("8419620242270595743").done();
+    b.aggregate("reverseFunction", 0x5e81f50da138219aL).target(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL).optional(true).ordered(true).multiple(false).origin("6809993550449090970").done();
+    b.alias("ReversibleEventHandler");
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForReversibleSendEvent() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("DESL", "ReversibleSendEvent", 0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x68458b9b5da4ec77L);
+    b.class_(false, false, false);
+    // extends: ReversibleStatements.structure.ReversibleStatement
+    b.super_(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad6d03L);
+    b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(DESL.structure)/7513565052744821879");
+    b.version(3);
+    b.associate("event", 0x6f2af7ea6966abcaL).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x7c2c5977e3e10df9L).optional(true).origin("8010487473394592714").done();
+    b.aggregate("when", 0x6f2af7ea696e149dL).target(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L).optional(true).ordered(true).multiple(false).origin("8010487473395078301").done();
+    b.aggregate("to", 0x6f2af7ea6983412cL).target(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L).optional(true).ordered(true).multiple(false).origin("8010487473396465964").done();
+    b.aggregate("with", 0x6f36cc77d0d566c2L).target(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L).optional(true).ordered(true).multiple(false).origin("8013817401929197250").done();
+    return b.create();
+  }
   private static ConceptDescriptor createDescriptorForRngContext() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("DESL", "RngContext", 0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x23bd070ad14172a2L);
     b.class_(false, false, false);
@@ -811,16 +866,16 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForSendEvent() {
-    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("DESL", "SendEvent", 0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x68458b9b5da4ec77L);
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("DESL", "SendEvent", 0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x113f0963d4b62076L);
     b.class_(false, false, false);
-    // extends: ReversibleStatements.structure.ReversibleStatement
-    b.super_(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad6d03L);
-    b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(DESL.structure)/7513565052744821879");
+    // extends: com.mbeddr.core.statements.structure.Statement
+    b.super_(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad6d03L);
+    b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(DESL.structure)/1242722346552664182");
     b.version(3);
-    b.associate("event", 0x6f2af7ea6966abcaL).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x7c2c5977e3e10df9L).optional(true).origin("8010487473394592714").done();
-    b.aggregate("when", 0x6f2af7ea696e149dL).target(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L).optional(true).ordered(true).multiple(false).origin("8010487473395078301").done();
-    b.aggregate("to", 0x6f2af7ea6983412cL).target(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L).optional(true).ordered(true).multiple(false).origin("8010487473396465964").done();
-    b.aggregate("with", 0x6f36cc77d0d566c2L).target(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L).optional(true).ordered(true).multiple(false).origin("8013817401929197250").done();
+    b.associate("event", 0x113f0963d4b6207eL).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x7c2c5977e3e10df9L).optional(true).origin("1242722346552664190").done();
+    b.aggregate("when", 0x113f0963d4b62077L).target(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba32L).optional(true).ordered(true).multiple(false).origin("1242722346552664183").done();
+    b.aggregate("to", 0x113f0963d4b62078L).target(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba32L).optional(true).ordered(true).multiple(false).origin("1242722346552664184").done();
+    b.aggregate("with", 0x113f0963d4b62079L).target(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba32L).optional(true).ordered(true).multiple(false).origin("1242722346552664185").done();
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForStartupFunction() {
@@ -840,6 +895,16 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.aggregate("docs", 0x6ea143d20916ed26L).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x74d88000542f2672L).optional(true).ordered(true).multiple(false).origin("7971727384797179174").done();
     b.aggregate("variables", 0x6ea143d20916ed27L).target(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad96e6L).optional(true).ordered(true).multiple(true).origin("7971727384797179175").done();
     b.aggregate("function", 0x6ea143d20916ed29L).target(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x595522006a5b97e1L).optional(false).ordered(true).multiple(false).origin("7971727384797179177").done();
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForStringValue() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("DESL", "StringValue", 0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x38ef3b1b01d56c89L);
+    b.class_(false, false, false);
+    // extends: ReversibleExpressions.structure.ReversibleExpression
+    b.super_(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L);
+    b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(DESL.structure)/4102562772738731145");
+    b.version(3);
+    b.property("value", 0x38ef3b1b01d56c8aL).type(PrimitiveTypeId.STRING).origin("4102562772738731146").done();
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForStructDefinition() {

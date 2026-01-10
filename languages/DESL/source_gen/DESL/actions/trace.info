@@ -9,7 +9,90 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1070462154015:jetbrains.mps.baseLanguage.structure.StaticFieldDeclaration" />
   <root>
     <file name="ActionAspectDescriptorImpl.java">
-      <unit at="12,0,36,0" name="DESL.actions.ActionAspectDescriptorImpl" />
+      <unit at="12,0,38,0" name="DESL.actions.ActionAspectDescriptorImpl" />
+    </file>
+  </root>
+  <root nodeRef="r:69b854b5-1607-4a31-a5d5-03c17535ea4a(DESL.actions)/1242722346529616690">
+    <file name="EventHandlerFactory.java">
+      <node id="1242722346529616710" at="21,102,22,24" concept="4" />
+      <node id="1242722346529616714" at="22,24,23,199" concept="2" />
+      <node id="1242722346529616720" at="23,199,24,74" concept="0" />
+      <node id="1242722346529616726" at="24,74,25,244" concept="0" />
+      <node id="1242722346529616740" at="25,244,26,240" concept="0" />
+      <node id="1242722346529616748" at="26,240,27,75" concept="0" />
+      <node id="1242722346529616754" at="27,75,28,0" concept="5" />
+      <node id="1242722346529616755" at="28,0,29,38" concept="4" />
+      <node id="1242722346529616761" at="29,38,30,212" concept="2" />
+      <node id="1242722346529616767" at="30,212,31,190" concept="2" />
+      <node id="1242722346529616773" at="31,190,32,60" concept="0" />
+      <node id="1242722346529616779" at="32,60,33,65" concept="0" />
+      <node id="1242722346529616785" at="33,65,34,151" concept="0" />
+      <node id="1242722346529616794" at="34,151,35,0" concept="5" />
+      <node id="1242722346529616795" at="35,0,36,30" concept="4" />
+      <node id="1242722346529616800" at="36,30,37,204" concept="2" />
+      <node id="1242722346529616806" at="37,204,38,191" concept="2" />
+      <node id="1242722346529616812" at="38,191,39,62" concept="0" />
+      <node id="1242722346529616818" at="39,62,40,66" concept="0" />
+      <node id="1242722346529616824" at="40,66,41,152" concept="0" />
+      <node id="1242722346529616833" at="41,152,42,0" concept="5" />
+      <node id="1242722346529616834" at="42,0,43,37" concept="4" />
+      <node id="1242722346529616839" at="43,37,44,214" concept="2" />
+      <node id="1242722346529616845" at="44,214,45,197" concept="2" />
+      <node id="1242722346529616851" at="45,197,46,75" concept="0" />
+      <node id="1242722346529616857" at="46,75,47,74" concept="0" />
+      <node id="1242722346529616863" at="47,74,48,158" concept="0" />
+      <node id="1242722346529616872" at="48,158,49,0" concept="5" />
+      <node id="1242722346529616873" at="49,0,50,34" concept="4" />
+      <node id="1242722346529616878" at="50,34,51,200" concept="2" />
+      <node id="1242722346529616884" at="51,200,52,202" concept="2" />
+      <node id="1242722346529616890" at="52,202,53,76" concept="0" />
+      <node id="1242722346529616896" at="53,76,54,195" concept="2" />
+      <node id="1242722346529616902" at="54,195,55,70" concept="0" />
+      <node id="1242722346529616908" at="55,70,56,71" concept="0" />
+      <node id="1242722346529616914" at="56,71,57,156" concept="0" />
+      <node id="1242722346529616923" at="57,156,58,0" concept="5" />
+      <node id="1242722346529616924" at="58,0,59,32" concept="4" />
+      <node id="1242722346529616929" at="59,32,60,192" concept="2" />
+      <node id="1242722346529616935" at="60,192,61,65" concept="0" />
+      <node id="1242722346529616941" at="61,65,62,203" concept="2" />
+      <node id="1242722346529616947" at="62,203,63,254" concept="0" />
+      <node id="1242722346529616959" at="63,254,64,69" concept="0" />
+      <node id="1242722346529616965" at="64,69,65,153" concept="0" />
+      <node id="1242722346529616690" at="70,0,71,0" concept="6" trace="name$MnvL" />
+      <node id="1242722346529616690" at="74,0,75,0" concept="6" trace="body$1GE0" />
+      <node id="1242722346529616690" at="75,0,76,0" concept="6" trace="type$sXU3" />
+      <node id="1242722346529616690" at="76,0,77,0" concept="6" trace="function$h6a1" />
+      <node id="1242722346529616690" at="77,0,78,0" concept="6" trace="arguments$6da0" />
+      <node id="1242722346529616690" at="78,0,79,0" concept="6" trace="baseType$zMGV" />
+      <node id="1242722346529616690" at="79,0,80,0" concept="6" trace="stateStruct$NqNO" />
+      <node id="1242722346529616690" at="83,0,84,0" concept="6" trace="ClassDefinition$NR" />
+      <node id="1242722346529616691" at="21,0,67,0" concept="1" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;ILorg/jetbrains/mps/openapi/model/SModel;)V" />
+      <scope id="1242722346529616691" at="21,102,65,153">
+        <var name="content" id="1242722346529616897" />
+        <var name="data" id="1242722346529616930" />
+        <var name="doubleType" id="1242722346529616801" />
+        <var name="eventType" id="1242722346529616846" />
+        <var name="me" id="1242722346529616768" />
+        <var name="newFunction" id="1242722346529616715" />
+        <var name="now" id="1242722346529616807" />
+        <var name="statePointer" id="1242722346529616942" />
+        <var name="uint64Type" id="1242722346529616762" />
+        <var name="unsignedType" id="1242722346529616840" />
+        <var name="voidPointer" id="1242722346529616885" />
+        <var name="voidType" id="1242722346529616879" />
+      </scope>
+      <scope id="1242722346529616691" at="21,0,67,0">
+        <var name="enclosingNode" id="1242722346529616691" />
+        <var name="index" id="1242722346529616691" />
+        <var name="model" id="1242722346529616691" />
+        <var name="newNode" id="1242722346529616691" />
+        <var name="sampleNode" id="1242722346529616691" />
+      </scope>
+      <unit id="1242722346529616690" at="69,0,72,0" name="DESL.actions.EventHandlerFactory$PROPS" />
+      <unit id="1242722346529616690" at="82,0,85,0" name="DESL.actions.EventHandlerFactory$CONCEPTS" />
+      <unit id="1242722346529616690" at="73,0,81,0" name="DESL.actions.EventHandlerFactory$LINKS" />
+      <unit id="1242722346529616691" at="20,0,68,0" name="DESL.actions.EventHandlerFactory$NodeFactory_1242722346529616691" />
+      <unit id="1242722346529616690" at="19,0,86,0" name="DESL.actions.EventHandlerFactory" />
     </file>
   </root>
   <root nodeRef="r:69b854b5-1607-4a31-a5d5-03c17535ea4a(DESL.actions)/1477309532093105808">
@@ -98,7 +181,7 @@
     </file>
   </root>
   <root nodeRef="r:69b854b5-1607-4a31-a5d5-03c17535ea4a(DESL.actions)/5103575337110310021">
-    <file name="EventHandlerFactory.java">
+    <file name="ReversibleEventHandlerFactory.java">
       <node id="5103575337110310025" at="21,102,22,0" concept="5" />
       <node id="5103575337110310026" at="22,0,23,24" concept="4" />
       <node id="5103575337110310030" at="23,24,24,205" concept="2" />
@@ -176,11 +259,11 @@
         <var name="newNode" id="5103575337110310022" />
         <var name="sampleNode" id="5103575337110310022" />
       </scope>
-      <unit id="5103575337110310021" at="85,0,88,0" name="DESL.actions.EventHandlerFactory$CONCEPTS" />
-      <unit id="5103575337110310021" at="71,0,75,0" name="DESL.actions.EventHandlerFactory$PROPS" />
-      <unit id="5103575337110310021" at="76,0,84,0" name="DESL.actions.EventHandlerFactory$LINKS" />
-      <unit id="5103575337110310022" at="20,0,70,0" name="DESL.actions.EventHandlerFactory$NodeFactory_5103575337110310022" />
-      <unit id="5103575337110310021" at="19,0,89,0" name="DESL.actions.EventHandlerFactory" />
+      <unit id="5103575337110310021" at="85,0,88,0" name="DESL.actions.ReversibleEventHandlerFactory$CONCEPTS" />
+      <unit id="5103575337110310021" at="71,0,75,0" name="DESL.actions.ReversibleEventHandlerFactory$PROPS" />
+      <unit id="5103575337110310021" at="76,0,84,0" name="DESL.actions.ReversibleEventHandlerFactory$LINKS" />
+      <unit id="5103575337110310022" at="20,0,70,0" name="DESL.actions.ReversibleEventHandlerFactory$NodeFactory_5103575337110310022" />
+      <unit id="5103575337110310021" at="19,0,89,0" name="DESL.actions.ReversibleEventHandlerFactory" />
     </file>
   </root>
   <root nodeRef="r:69b854b5-1607-4a31-a5d5-03c17535ea4a(DESL.actions)/7425362163987672469">

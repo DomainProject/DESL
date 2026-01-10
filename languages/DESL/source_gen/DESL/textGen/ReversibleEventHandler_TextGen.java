@@ -11,26 +11,26 @@ import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 
-public class EventHandler_TextGen extends TextGenDescriptorBase {
+public class ReversibleEventHandler_TextGen extends TextGenDescriptorBase {
   @Override
   public void generateText(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     tgs.append("forward handler ");
-    tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.eventName$cuOv));
+    tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.eventName$rI8o));
     tgs.newLine();
     tgs.appendNode(SLinkOperations.getTarget(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.forwardFunction$5bPH), LINKS.revBody$QkEt));
 
     tgs.newLine();
 
     tgs.append("reverse handler ");
-    tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.eventName$cuOv));
+    tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.eventName$rI8o));
     tgs.newLine();
     tgs.appendNode(SLinkOperations.getTarget(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.reverseFunction$yyGT), LINKS.revBody$QkEt));
 
   }
 
   private static final class PROPS {
-    /*package*/ static final SProperty eventName$cuOv = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x549487e5d9aa9e02L, "eventName");
+    /*package*/ static final SProperty eventName$rI8o = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x549487e5d88a4291L, 0x113f0963d355264aL, "eventName");
   }
 
   private static final class LINKS {

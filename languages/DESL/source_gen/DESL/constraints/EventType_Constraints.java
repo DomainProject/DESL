@@ -15,6 +15,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class EventType_Constraints extends BaseConstraintsDescriptor {
@@ -33,22 +34,23 @@ public class EventType_Constraints extends BaseConstraintsDescriptor {
     }
     private static void staticSetPropertyValue(final SNode node, String propertyValue) {
       SPropertyOperations.assign(node, PROPS.name$MnvL, propertyValue);
-      SPropertyOperations.assign(ListSequence.fromList(SNodeOperations.getNodeDescendants(SNodeOperations.getNodeAncestor(node, CONCEPTS.DESLModel$DK, false, false), CONCEPTS.EventHandler$Ov, false, new SAbstractConcept[]{})).findFirst((it) -> SLinkOperations.getTarget(it, LINKS.event$cu_u) == node), PROPS.eventName$cuOv, propertyValue);
+      SPropertyOperations.assign(ListSequence.fromList(SNodeOperations.getNodeDescendants(SNodeOperations.getNodeAncestor(node, CONCEPTS.DESLModel$DK, false, false), CONCEPTS.ReversibleEventHandler$Ov, false, new SAbstractConcept[]{})).findFirst((it) -> SLinkOperations.getTarget(SLinkOperations.getTarget(it, LINKS.event$w$QT), LINKS.event$S19u) == node), PROPS.eventName$rI8o, propertyValue);
     }
   }
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept EventType$wx = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x7c2c5977e3e10df9L, "DESL.structure.EventType");
     /*package*/ static final SConcept DESLModel$DK = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, "DESL.structure.DESLModel");
-    /*package*/ static final SConcept EventHandler$Ov = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, "DESL.structure.EventHandler");
+    /*package*/ static final SConcept ReversibleEventHandler$Ov = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, "DESL.structure.ReversibleEventHandler");
   }
 
   private static final class PROPS {
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
-    /*package*/ static final SProperty eventName$cuOv = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x549487e5d9aa9e02L, "eventName");
+    /*package*/ static final SProperty eventName$rI8o = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x549487e5d88a4291L, 0x113f0963d355264aL, "eventName");
   }
 
   private static final class LINKS {
-    /*package*/ static final SReferenceLink event$cu_u = MetaAdapterFactory.getReferenceLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x549487e5d9aa9e01L, "event");
+    /*package*/ static final SContainmentLink event$w$QT = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x549487e5d88a4291L, 0x113f0963d47adf3eL, "event");
+    /*package*/ static final SReferenceLink event$S19u = MetaAdapterFactory.getReferenceLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x113f0963d47adf2fL, 0x113f0963d47adf30L, "event");
   }
 }

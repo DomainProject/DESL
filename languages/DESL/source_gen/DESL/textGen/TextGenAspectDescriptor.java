@@ -39,8 +39,6 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new EventDefinition_TextGen();
       case LanguageConceptSwitch.EventDocs:
         return new EventDocs_TextGen();
-      case LanguageConceptSwitch.EventHandler:
-        return new EventHandler_TextGen();
       case LanguageConceptSwitch.EventHandlerDocs:
         return new EventHandlerDocs_TextGen();
       case LanguageConceptSwitch.Expent:
@@ -77,6 +75,10 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new ProcessArray_TextGen();
       case LanguageConceptSwitch.Random:
         return new Random_TextGen();
+      case LanguageConceptSwitch.ReversibleEventHandler:
+        return new ReversibleEventHandler_TextGen();
+      case LanguageConceptSwitch.ReversibleSendEvent:
+        return new ReversibleSendEvent_TextGen();
       case LanguageConceptSwitch.RngContext:
         return new RngContext_TextGen();
       case LanguageConceptSwitch.RootSimGPUM2M:
@@ -89,6 +91,8 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new SendEvent_TextGen();
       case LanguageConceptSwitch.StartupFunction:
         return new StartupFunction_TextGen();
+      case LanguageConceptSwitch.StringValue:
+        return new StringValue_TextGen();
       case LanguageConceptSwitch.StructDefinition:
         return new StructDefinition_TextGen();
       case LanguageConceptSwitch.TerminationFunction:

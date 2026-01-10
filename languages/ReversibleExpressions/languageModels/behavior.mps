@@ -49,6 +49,7 @@
     <import index="guwi" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.io(JDK/)" implicit="true" />
     <import index="tpcn" ref="r:00000000-0000-4000-0000-011c8959028b(jetbrains.mps.lang.structure.behavior)" implicit="true" />
     <import index="c4fa" ref="r:9f0e84b6-2ec7-4f9e-83e0-feedc77b63a3(com.mbeddr.core.statements.structure)" implicit="true" />
+    <import index="rdv6" ref="r:79077d65-28d5-4f56-905b-4bcf5185c60e(DESL.structure)" implicit="true" />
     <import index="qd6m" ref="r:c4c3f7d3-0acf-4671-a134-5fab66c4e637(com.mbeddr.core.modules.behavior)" implicit="true" />
     <import index="qyxp" ref="r:173369a3-8060-4aa4-8d21-7c6337526a39(ReversibleStatements.behavior)" implicit="true" />
     <import index="rj8d" ref="r:da9fd96f-5c71-45ab-b2da-1aa6232ec67f(com.mbeddr.core.statements.behavior)" implicit="true" />
@@ -15618,6 +15619,29 @@
       <node concept="3Tm1VV" id="66uzewbvZAZ" role="1B3o_S" />
       <node concept="17QB3L" id="66uzewbw1Z0" role="3clF45" />
       <node concept="3clFbS" id="66uzewbvZB1" role="3clF47">
+        <node concept="3clFbJ" id="37XFuj7xB1k" role="3cqZAp">
+          <node concept="3clFbS" id="37XFuj7xB1m" role="3clFbx">
+            <node concept="3cpWs6" id="37XFuj7xLQ_" role="3cqZAp">
+              <node concept="Xl_RD" id="37XFuj7xNHX" role="3cqZAk">
+                <property role="Xl_RC" value="-&gt;" />
+              </node>
+            </node>
+          </node>
+          <node concept="2OqwBi" id="37XFuj7xGbf" role="3clFbw">
+            <node concept="2OqwBi" id="37XFuj7xCBu" role="2Oq$k0">
+              <node concept="13iPFW" id="37XFuj7xBUW" role="2Oq$k0" />
+              <node concept="3TrEf2" id="37XFuj7xECO" role="2OqNvi">
+                <ref role="3Tt5mk" to="ib4b:6iIoqg1yDLg" resolve="expression" />
+              </node>
+            </node>
+            <node concept="1mIQ4w" id="37XFuj7XVhg" role="2OqNvi">
+              <node concept="chp4Y" id="37XFuj7XWbj" role="cj9EA">
+                <ref role="cht4Q" to="rdv6:3zJeLG1PmM9" resolve="StringValue" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbH" id="37XFuj7XZDg" role="3cqZAp" />
         <node concept="3clFbJ" id="3p0OY6VA1Cn" role="3cqZAp">
           <node concept="3clFbS" id="3p0OY6VA1Cp" role="3clFbx">
             <node concept="3cpWs6" id="3p0OY6VA6rx" role="3cqZAp">
@@ -15665,6 +15689,7 @@
           </node>
         </node>
         <node concept="3clFbH" id="4Xtub2xQ8L1" role="3cqZAp" />
+        <node concept="3clFbH" id="37XFuj7xwoV" role="3cqZAp" />
         <node concept="3clFbJ" id="4Xtub2xZZkV" role="3cqZAp">
           <node concept="3clFbS" id="4Xtub2xZZkX" role="3clFbx">
             <node concept="3clFbF" id="4Xtub2y03a$" role="3cqZAp">

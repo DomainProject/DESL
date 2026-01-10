@@ -236,7 +236,7 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
 
       // init function ( {node.name}_{class.name}_init(...) )
 
-      SNode initHandler = Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(c, LINKS.handlers$Nr2P), CONCEPTS.EventHandler$Ov)).findFirst((it) -> SPropertyOperations.getString(it, PROPS.eventName$cuOv).equals("INIT") || SPropertyOperations.getString(it, PROPS.eventName$cuOv).equals("LP_INIT"));
+      SNode initHandler = Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(c, LINKS.handlers$Nr2P), CONCEPTS.ReversibleEventHandler$Ov)).findFirst((it) -> SPropertyOperations.getString(it, PROPS.eventName$rI8o).equals("INIT") || SPropertyOperations.getString(it, PROPS.eventName$rI8o).equals("LP_INIT"));
 
       SNode stateArgumentInit = Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(SLinkOperations.getTarget(initHandler, LINKS.forwardFunction$5bPH), LINKS.arguments$6da0), CONCEPTS.Argument$9m)).findFirst((it) -> SNodeOperations.isInstanceOf(SLinkOperations.getTarget(it, LINKS.type$sXU3), CONCEPTS.PointerType$HX) && Objects.equals(SNodeOperations.getConcept(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(it, LINKS.type$sXU3), CONCEPTS.PointerType$HX), LINKS.baseType$zMGV)), SNodeOperations.getConcept(ITypeDeclaration__BehaviorDescriptor.createType_id3o2OLGv7CoR.invoke(SLinkOperations.getTarget(c, LINKS.stateStruct$NqNO)))));
       tgs.append("void ");
@@ -279,7 +279,7 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
 
       */
 
-      SNode sendToSomeoneElse = Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(SLinkOperations.getTarget(SLinkOperations.getTarget(initHandler, LINKS.forwardFunction$5bPH), LINKS.revBody$QkEt), LINKS.revStatements$IdM8), CONCEPTS.SendEvent$u)).where((it) -> SNodeOperations.isInstanceOf(SLinkOperations.getTarget(it, LINKS.to$WtFs), CONCEPTS.ArgumentRef$Ar) && SPropertyOperations.getString(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(it, LINKS.to$WtFs), CONCEPTS.ArgumentRef$Ar), LINKS.arg$bO7D), PROPS.name$MnvL) == "me").first();
+      SNode sendToSomeoneElse = Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(SLinkOperations.getTarget(SLinkOperations.getTarget(initHandler, LINKS.forwardFunction$5bPH), LINKS.revBody$QkEt), LINKS.revStatements$IdM8), CONCEPTS.ReversibleSendEvent$u)).where((it) -> SNodeOperations.isInstanceOf(SLinkOperations.getTarget(it, LINKS.to$WtFs), CONCEPTS.ArgumentRef$Ar) && SPropertyOperations.getString(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(it, LINKS.to$WtFs), CONCEPTS.ArgumentRef$Ar), LINKS.arg$bO7D), PROPS.name$MnvL) == "me").first();
 
       if ((sendToSomeoneElse != null)) {
         // todo pre_run handler (all the message definition statements should be moved from the INIT handler to the pre_run handler as well), maybe it would be simpler not to let the user send events to other LPs in the INIT handler
@@ -564,7 +564,7 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
     /*package*/ static final SProperty right$2uAQ = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6486788L, 0x4117a694e648678cL, "right");
     /*package*/ static final SProperty left$2u8O = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6486788L, 0x4117a694e648678aL, "left");
-    /*package*/ static final SProperty eventName$cuOv = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x549487e5d9aa9e02L, "eventName");
+    /*package*/ static final SProperty eventName$rI8o = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x549487e5d88a4291L, 0x113f0963d355264aL, "eventName");
   }
 
   private static final class CONCEPTS {
@@ -577,11 +577,11 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     /*package*/ static final SConcept Random$XZ = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2476b4949807b946L, "DESL.structure.Random");
     /*package*/ static final SConcept Expent$Yu = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2476b4949807b947L, "DESL.structure.Expent");
     /*package*/ static final SConcept ReversibleFunction$IL = MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, "ReversibleFunctions.structure.ReversibleFunction");
-    /*package*/ static final SConcept EventHandler$Ov = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, "DESL.structure.EventHandler");
+    /*package*/ static final SConcept ReversibleEventHandler$Ov = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, "DESL.structure.ReversibleEventHandler");
     /*package*/ static final SConcept Argument$9m = MetaAdapterFactory.getConcept(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x6d872ef9245a20d7L, "com.mbeddr.core.modules.structure.Argument");
     /*package*/ static final SConcept PointerType$HX = MetaAdapterFactory.getConcept(0x3bf5377ae9044dedL, 0x97545a516023bfaaL, 0x3e0cae5e366d630L, "com.mbeddr.core.pointers.structure.PointerType");
     /*package*/ static final SConcept LocalVariableDeclaration$7E = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad96e6L, "ReversibleStatements.structure.LocalVariableDeclaration");
-    /*package*/ static final SConcept SendEvent$u = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x68458b9b5da4ec77L, "DESL.structure.SendEvent");
+    /*package*/ static final SConcept ReversibleSendEvent$u = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x68458b9b5da4ec77L, "DESL.structure.ReversibleSendEvent");
     /*package*/ static final SConcept ArgumentRef$Ar = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x586abb2d564e82ffL, "ReversibleStatements.structure.ArgumentRef");
     /*package*/ static final SConcept ClassDefinition$NR = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, "DESL.structure.ClassDefinition");
     /*package*/ static final SConcept ProcessSequence$B$ = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e64867a6L, "DESL.structure.ProcessSequence");

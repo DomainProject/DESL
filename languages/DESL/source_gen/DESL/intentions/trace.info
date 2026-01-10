@@ -85,13 +85,13 @@
       <unit id="7312148809882581076" at="25,0,88,0" name="DESL.intentions.AddDocumentationToFunction_Intention" />
     </file>
     <file name="IntentionsDescriptor.java">
-      <node id="7312148809882581076" at="45,47,46,69" concept="1" />
+      <node id="7312148809882581076" at="37,47,38,69" concept="1" />
       <node id="7312148809882581076" at="59,52,60,55" concept="1" />
     </file>
   </root>
   <root nodeRef="r:82324c7e-502f-4c1e-82ff-000ec785c25b(DESL.intentions)/7312148809884717305">
     <file name="IntentionsDescriptor.java">
-      <node id="7312148809884717305" at="46,69,47,74" concept="1" />
+      <node id="7312148809884717305" at="38,69,39,74" concept="1" />
       <node id="7312148809884717305" at="60,55,61,60" concept="1" />
     </file>
     <file name="RemoveDocumentationFromFunction_Intention.java">
@@ -215,13 +215,13 @@
       <unit id="8419620242269873853" at="17,0,67,0" name="DESL.intentions.AddDocumentationToHandler_Intention" />
     </file>
     <file name="IntentionsDescriptor.java">
-      <node id="8419620242269873853" at="37,47,38,68" concept="1" />
+      <node id="8419620242269873853" at="45,47,46,68" concept="1" />
       <node id="8419620242269873853" at="61,60,62,54" concept="1" />
     </file>
   </root>
   <root nodeRef="r:82324c7e-502f-4c1e-82ff-000ec785c25b(DESL.intentions)/8419620242269972486">
     <file name="IntentionsDescriptor.java">
-      <node id="8419620242269972486" at="38,68,39,73" concept="1" />
+      <node id="8419620242269972486" at="46,68,47,73" concept="1" />
       <node id="8419620242269972486" at="62,54,63,59" concept="1" />
     </file>
     <file name="RemoveDocumentationFromHandler_Intention.java">
