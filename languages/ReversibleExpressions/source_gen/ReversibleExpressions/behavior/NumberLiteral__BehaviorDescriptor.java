@@ -25,11 +25,12 @@ public final class NumberLiteral__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba67L, "ReversibleExpressions.structure.NumberLiteral");
 
   public static final SMethod<Boolean> isStaticallyEvaluatable_id3ilck8Kr3zN = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isStaticallyEvaluatable").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(3788988821852141811L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
-  public static final SMethod<Object> evaluateStatically_id6OxpEKG0KPv = new SMethodBuilder<Object>(new SJavaCompoundTypeImpl(Object.class)).name("evaluateStatically").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7863679314024402271L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
+  /*package*/ static final SMethod<Object> evaluate_id3IEz7wLJKvS = new SMethodBuilder<Object>(new SJavaCompoundTypeImpl(Object.class)).name("evaluate").modifiers(0, AccessPrivileges.PRIVATE).concept(CONCEPT).baseMethodId(4299403242137126904L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
+  public static final SMethod<Object> evaluateStatically_id6OxpEKG0KPv = new SMethodBuilder<Object>(new SJavaCompoundTypeImpl(Object.class)).name("evaluateStatically").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7863679314024402271L).languageId(0x81d97714ff227fb0L, 0x61c69711ed614850L).build2();
   public static final SMethod<String> renderReadable_id1VQvajLb13M = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("renderReadable").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2231107713271337202L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
   public static final SMethod<String> getPresentation_idhEwIMiw = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getPresentation").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1213877396640L).languageId(0x9b92103b95ca8c0cL, 0xceab519525ea4f22L).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isStaticallyEvaluatable_id3ilck8Kr3zN, evaluateStatically_id6OxpEKG0KPv, renderReadable_id1VQvajLb13M, getPresentation_idhEwIMiw);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isStaticallyEvaluatable_id3ilck8Kr3zN, evaluate_id3IEz7wLJKvS, evaluateStatically_id6OxpEKG0KPv, renderReadable_id1VQvajLb13M, getPresentation_idhEwIMiw);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -37,7 +38,7 @@ public final class NumberLiteral__BehaviorDescriptor extends BaseBHDescriptor {
   /*package*/ static boolean isStaticallyEvaluatable_id3ilck8Kr3zN(@NotNull SNode __thisNode__) {
     return SPropertyOperations.getString(__thisNode__, PROPS.value$jw9Y) != null;
   }
-  /*package*/ static Object evaluateStatically_id6OxpEKG0KPv(@NotNull SNode __thisNode__) {
+  /*package*/ static Object evaluate_id3IEz7wLJKvS(@NotNull SNode __thisNode__) {
     if (isEmptyString(SPropertyOperations.getString(__thisNode__, PROPS.value$jw9Y))) {
       return BigInteger.ZERO;
     }
@@ -65,6 +66,9 @@ public final class NumberLiteral__BehaviorDescriptor extends BaseBHDescriptor {
       }
     }
   }
+  /*package*/ static Object evaluateStatically_id6OxpEKG0KPv(@NotNull SNode __thisNode__) {
+    return ((Object) NumberLiteral__BehaviorDescriptor.evaluate_id3IEz7wLJKvS.invokeSpecial(__thisNode__));
+  }
   /*package*/ static String renderReadable_id1VQvajLb13M(@NotNull SNode __thisNode__) {
     return SPropertyOperations.getString(__thisNode__, PROPS.value$jw9Y);
   }
@@ -90,10 +94,12 @@ public final class NumberLiteral__BehaviorDescriptor extends BaseBHDescriptor {
       case 0:
         return (T) ((Boolean) isStaticallyEvaluatable_id3ilck8Kr3zN(node));
       case 1:
-        return (T) ((Object) evaluateStatically_id6OxpEKG0KPv(node));
+        return (T) ((Object) evaluate_id3IEz7wLJKvS(node));
       case 2:
-        return (T) ((String) renderReadable_id1VQvajLb13M(node));
+        return (T) ((Object) evaluateStatically_id6OxpEKG0KPv(node));
       case 3:
+        return (T) ((String) renderReadable_id1VQvajLb13M(node));
+      case 4:
         return (T) ((String) getPresentation_idhEwIMiw(node));
       default:
         throw new BHMethodNotFoundException(this, method);

@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
+import com.mbeddr.core.expressions.behavior.Expression__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
@@ -22,7 +23,7 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
 public final class AndExpression__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7490dc0ede26e048L, "ReversibleExpressions.structure.AndExpression");
 
-  public static final SMethod<Object> evaluateStatically_id6OxpEKG0KPv = new SMethodBuilder<Object>(new SJavaCompoundTypeImpl(Object.class)).name("evaluateStatically").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7863679314024402271L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
+  public static final SMethod<Object> evaluateStatically_id6OxpEKG0KPv = new SMethodBuilder<Object>(new SJavaCompoundTypeImpl(Object.class)).name("evaluateStatically").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7863679314024402271L).languageId(0x81d97714ff227fb0L, 0x61c69711ed614850L).build2();
   public static final SMethod<Integer> getPriolevel_id5HxjapwgqKu = new SMethodBuilder<Integer>(new SJavaCompoundTypeImpl(Integer.TYPE)).name("getPriolevel").modifiers(9, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6584628407655574558L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(evaluateStatically_id6OxpEKG0KPv, getPriolevel_id5HxjapwgqKu);
@@ -31,8 +32,8 @@ public final class AndExpression__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ static Object evaluateStatically_id6OxpEKG0KPv(@NotNull SNode __thisNode__) {
-    Object leftEvaluationResult = ReversibleExpression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.left$KPKR));
-    Object rightEvaluationResult = ReversibleExpression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.right$KPZS));
+    Object leftEvaluationResult = Expression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.left$KPKR));
+    Object rightEvaluationResult = Expression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.right$KPZS));
     if (leftEvaluationResult instanceof Boolean && rightEvaluationResult instanceof Boolean) {
       return BooleanEvaluationHelper.and(((Boolean) leftEvaluationResult), ((Boolean) rightEvaluationResult));
     }

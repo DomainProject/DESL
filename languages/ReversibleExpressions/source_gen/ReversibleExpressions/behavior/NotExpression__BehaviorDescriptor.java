@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import com.mbeddr.core.expressions.behavior.Expression__BehaviorDescriptor;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -23,7 +24,7 @@ public final class NotExpression__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x352a4cc97cbac907L, "ReversibleExpressions.structure.NotExpression");
 
   public static final SMethod<Boolean> isStaticallyEvaluatable_id3ilck8Kr3zN = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isStaticallyEvaluatable").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(3788988821852141811L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
-  public static final SMethod<Object> evaluateStatically_id6OxpEKG0KPv = new SMethodBuilder<Object>(new SJavaCompoundTypeImpl(Object.class)).name("evaluateStatically").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7863679314024402271L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
+  public static final SMethod<Object> evaluateStatically_id6OxpEKG0KPv = new SMethodBuilder<Object>(new SJavaCompoundTypeImpl(Object.class)).name("evaluateStatically").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7863679314024402271L).languageId(0x81d97714ff227fb0L, 0x61c69711ed614850L).build2();
   public static final SMethod<SNode> getSyntacticallyRightSideExpression_id4e6KBjFr11c = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getSyntacticallyRightSideExpression").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(4865790254842122316L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
   public static final SMethod<Void> setSyntacticallyRightSideExpression_id4e6KBjFr2Oo = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("setSyntacticallyRightSideExpression").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(4865790254842129688L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<Integer> getPriolevel_id5HxjapwgqKu = new SMethodBuilder<Integer>(new SJavaCompoundTypeImpl(Integer.TYPE)).name("getPriolevel").modifiers(9, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6584628407655574558L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
@@ -37,7 +38,7 @@ public final class NotExpression__BehaviorDescriptor extends BaseBHDescriptor {
     return (boolean) ReversibleExpression__BehaviorDescriptor.isStaticallyEvaluatable_id3ilck8Kr3zN.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.expression$HKAI));
   }
   /*package*/ static Object evaluateStatically_id6OxpEKG0KPv(@NotNull SNode __thisNode__) {
-    Object evaluationResult = ReversibleExpression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.expression$HKAI));
+    Object evaluationResult = Expression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.expression$HKAI));
     if (evaluationResult instanceof Boolean) {
       return BooleanEvaluationHelper.not(((Boolean) evaluationResult));
     }

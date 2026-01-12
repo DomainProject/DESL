@@ -14,6 +14,7 @@
     <language slang="l:99e1808b-e2d7-4c11-a40f-23376c03dda3:Collections" version="0" />
     <language slang="l:c4765525-912b-41b9-ace4-ce3b88117666:DESL" version="0" />
     <language slang="l:9abffa92-4875-42bf-9379-c4f95eb496d4:ReversibleExpressions" version="5" />
+    <language slang="l:5eb14d5a-b5f7-4626-a63b-80c6b9db7397:ReversibleFunctions" version="0" />
     <language slang="l:f75f9e3f-b00b-4997-8af2-0a8ce6b25221:ReversibleStatements" version="0" />
     <language slang="l:d4280a54-f6df-4383-aa41-d1b2bffa7eb1:com.mbeddr.core.base" version="6" />
     <language slang="l:61c69711-ed61-4850-81d9-7714ff227fb0:com.mbeddr.core.expressions" version="5" />

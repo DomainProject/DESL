@@ -20,6 +20,10 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import ReversibleExpressions.behavior.IVariableReference__BehaviorDescriptor;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.baseLanguage.logging.rt.LogContext;
+import jetbrains.mps.lang.core.behavior.BaseConcept__BehaviorDescriptor;
+import com.mbeddr.core.expressions.behavior.Expression__BehaviorDescriptor;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -33,8 +37,11 @@ public final class ForStatement__BehaviorDescriptor extends BaseBHDescriptor {
   public static final SMethod<Iterable<SNode>> getContributedLocalVariables_id3LB9aGm4C$b = new SMethodBuilder<Iterable<SNode>>(new SJavaCompoundTypeImpl((Class<Iterable<SNode>>) ((Class) Object.class))).name("getContributedLocalVariables").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(4352487882105194763L).languageId(0x8af20a8ce6b25221L, 0xf75f9e3fb00b4997L).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<Boolean> isInclusionIndexDependent_id2tBHhziHcNe = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isInclusionIndexDependent").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2839437208299293902L).languageId(0x8af20a8ce6b25221L, 0xf75f9e3fb00b4997L).build2();
   public static final SMethod<String> getIterationVariableName_id6cRD4M$XPR9 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getIterationVariableName").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7149363582566096329L).languageId(0x8af20a8ce6b25221L, 0xf75f9e3fb00b4997L).build2();
+  public static final SMethod<Void> reverseFor_id7z2aqCBZmFa = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("reverseFor").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8701563240825318090L).languageId(0x8af20a8ce6b25221L, 0xf75f9e3fb00b4997L).build2();
+  public static final SMethod<Integer> computeNumberOfIterations_id5jvm5d2Pqj_ = new SMethodBuilder<Integer>(new SJavaCompoundTypeImpl(Integer.TYPE)).name("computeNumberOfIterations").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6115703933619250405L).languageId(0x8af20a8ce6b25221L, 0xf75f9e3fb00b4997L).build2();
+  /*package*/ static final SMethod<Double> getValue_id5jvm5d2Pzhq = new SMethodBuilder<Double>(new SJavaCompoundTypeImpl(Double.TYPE)).name("getValue").modifiers(0, AccessPrivileges.PRIVATE).concept(CONCEPT).baseMethodId(6115703933619287130L).languageId(0x8af20a8ce6b25221L, 0xf75f9e3fb00b4997L).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getContributedLocalVariables_id3LB9aGm4C$b, isInclusionIndexDependent_id2tBHhziHcNe, getIterationVariableName_id6cRD4M$XPR9);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getContributedLocalVariables_id3LB9aGm4C$b, isInclusionIndexDependent_id2tBHhziHcNe, getIterationVariableName_id6cRD4M$XPR9, reverseFor_id7z2aqCBZmFa, computeNumberOfIterations_id5jvm5d2Pqj_, getValue_id5jvm5d2Pzhq);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
     SLinkOperations.setNewChild(__thisNode__, LINKS.body$fofU, null);
@@ -68,6 +75,50 @@ public final class ForStatement__BehaviorDescriptor extends BaseBHDescriptor {
     }
     return "no-iterator";
   }
+  /*package*/ static void reverseFor_id7z2aqCBZmFa(@NotNull SNode __thisNode__) {
+
+    // compute new starting value (init_new = init_old + k * step, where k is the last value for which the condition is true)
+    // todo this only works for for statements having a >, >=, <, <= condition
+
+    SNode startLimit = Iterator__BehaviorDescriptor.getInit_id7z2aqCC1FUU.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.iterator$fwes));
+
+    SNode startingValue = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4ffba68fe82b621aL, "ReversibleExpressions.structure.MinusExpression"));
+    SLinkOperations.setTarget(startingValue, LINKS.left$KPKR, SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(__thisNode__, LINKS.condition$3gCl), CONCEPTS.BinaryExpression$b), LINKS.right$KPZS));
+    SLinkOperations.setTarget(startingValue, LINKS.right$KPZS, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba67L, "ReversibleExpressions.structure.NumberLiteral")));
+    SPropertyOperations.assign(SNodeOperations.cast(SLinkOperations.getTarget(startingValue, LINKS.right$KPZS), CONCEPTS.NumberLiteral$74), PROPS.value$jw9Y, "1");
+    Iterator__BehaviorDescriptor.setInit_id7z2aqCC1O9Q.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.iterator$fwes), startingValue);
+
+    // reverse condition and increment expressions (only works for "immediately" reversible expressions like >, >=, <, <=)
+    SPropertyOperations.assign(SLinkOperations.getTarget(__thisNode__, LINKS.condition$3gCl), PROPS.isForward$pAg5, false);
+    for (SNode incr : ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.incr$fAzR))) {
+      SPropertyOperations.assign(incr, PROPS.isForward$pAg5, false);
+    }
+
+    SLinkOperations.setTarget(SNodeOperations.cast(SLinkOperations.getTarget(__thisNode__, LINKS.condition$3gCl), CONCEPTS.BinaryExpression$b), LINKS.right$KPZS, startLimit);
+  }
+  /*package*/ static int computeNumberOfIterations_id5jvm5d2Pqj_(@NotNull SNode __thisNode__) {
+
+    LogContext.with(ForStatement__BehaviorDescriptor.class, null, null, null).info("Computing number of iterations for statement: " + BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(__thisNode__));
+
+    // todo this function assumes step 1 (i++/i--), oth. it would have been max(0, ceil((end - start)/step))
+    double start = ((double) ForStatement__BehaviorDescriptor.getValue_id5jvm5d2Pzhq.invokeSpecial(__thisNode__, Iterator__BehaviorDescriptor.getInit_id7z2aqCC1FUU.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.iterator$fwes))));
+    LogContext.with(ForStatement__BehaviorDescriptor.class, null, null, null).info("For start value is " + start);
+    double end = ((double) ForStatement__BehaviorDescriptor.getValue_id5jvm5d2Pzhq.invokeSpecial(__thisNode__, SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(__thisNode__, LINKS.condition$3gCl), CONCEPTS.BinaryExpression$b), LINKS.right$KPZS)));
+    LogContext.with(ForStatement__BehaviorDescriptor.class, null, null, null).info("End start value is " + end);
+
+
+    int result = ((int) Math.ceil(end - start));
+    LogContext.with(ForStatement__BehaviorDescriptor.class, null, null, null).info("Number of iterations: " + result);
+    return result;
+  }
+  /*package*/ static double getValue_id5jvm5d2Pzhq(@NotNull SNode __thisNode__, SNode expr) {
+    // NumberLiteral defined in ReversibleExpressions
+    // NumberLiteral defined in c.m.c.expressions
+
+    LogContext.with(ForStatement__BehaviorDescriptor.class, null, null, null).info("static evaluation result: " + Expression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(expr));
+    return ((Number) Expression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(expr)).doubleValue();
+
+  }
 
   /*package*/ ForStatement__BehaviorDescriptor() {
   }
@@ -90,6 +141,13 @@ public final class ForStatement__BehaviorDescriptor extends BaseBHDescriptor {
         return (T) ((Boolean) isInclusionIndexDependent_id2tBHhziHcNe(node));
       case 2:
         return (T) ((String) getIterationVariableName_id6cRD4M$XPR9(node));
+      case 3:
+        reverseFor_id7z2aqCBZmFa(node);
+        return null;
+      case 4:
+        return (T) ((Integer) computeNumberOfIterations_id5jvm5d2Pqj_(node));
+      case 5:
+        return (T) ((Double) getValue_id5jvm5d2Pzhq(node, (SNode) parameters[0]));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -124,14 +182,22 @@ public final class ForStatement__BehaviorDescriptor extends BaseBHDescriptor {
     /*package*/ static final SContainmentLink iterator$fwes = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a40186e676L, 0x64ae61a401870e40L, "iterator");
     /*package*/ static final SContainmentLink additionalIterators$umBI = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a40186e676L, 0x5239321dec4ec665L, "additionalIterators");
     /*package*/ static final SContainmentLink var$qtY4 = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x347479252a95b28aL, 0x347479252a963603L, "var");
+    /*package*/ static final SContainmentLink left$KPKR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba34L, 0x7af69e2e83a1ba40L, "left");
+    /*package*/ static final SContainmentLink condition$3gCl = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x6337a44ca461bdf4L, 0x64ae61a401870e43L, "condition");
+    /*package*/ static final SContainmentLink right$KPZS = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba34L, 0x7af69e2e83a1ba41L, "right");
+    /*package*/ static final SContainmentLink incr$fAzR = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a40186e676L, 0x64ae61a401870e46L, "incr");
   }
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept ForVarDecl$3i = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a401870e23L, "ReversibleStatements.structure.ForVarDecl");
     /*package*/ static final SConcept ForVarRef$v6 = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x347479252a95b28aL, "ReversibleStatements.structure.ForVarRef");
+    /*package*/ static final SConcept BinaryExpression$b = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba34L, "ReversibleExpressions.structure.BinaryExpression");
+    /*package*/ static final SConcept NumberLiteral$74 = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba67L, "ReversibleExpressions.structure.NumberLiteral");
   }
 
   private static final class PROPS {
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty value$jw9Y = MetaAdapterFactory.getProperty(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1eb611a68febd3e5L, 0x1eb611a68fec38b0L, "value");
+    /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
   }
 }

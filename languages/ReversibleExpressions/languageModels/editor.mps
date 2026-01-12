@@ -31,10 +31,10 @@
     <import index="88yf" ref="r:88bedd10-2f94-4be9-a78d-c68ca3393422(ReversibleExpressions.actions)" />
     <import index="e32u" ref="r:457bcadc-5da5-4b82-8524-230e48ca7946(ReversibleExpressions.behavior)" />
     <import index="c17a" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.language(MPS.OpenAPI/)" implicit="true" />
+    <import index="ywuz" ref="r:c6ce92e7-5a98-4a6f-866a-ec8b9e945dd8(com.mbeddr.core.expressions.behavior)" implicit="true" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
     <import index="vrqd" ref="r:53e59391-150a-45ff-930e-2b4fdafb0904(com.mbeddr.core.expressions.editor)" implicit="true" />
     <import index="kmi" ref="r:afa7ae5b-c41f-45e8-9678-2beae3621a33(ReversibleStatements.structure)" implicit="true" />
-    <import index="ywuz" ref="r:c6ce92e7-5a98-4a6f-866a-ec8b9e945dd8(com.mbeddr.core.expressions.behavior)" implicit="true" />
   </imports>
   <registry>
     <language id="18bc6592-03a6-4e29-a83a-7ff23bde13ba" name="jetbrains.mps.lang.editor">
@@ -1920,7 +1920,7 @@
                             <node concept="2OqwBi" id="1ZXA4k7$oVC" role="33vP2m">
                               <node concept="pncrf" id="1ZXA4k7$oVD" role="2Oq$k0" />
                               <node concept="2qgKlT" id="1ZXA4k7$oVE" role="2OqNvi">
-                                <ref role="37wK5l" to="e32u:6OxpEKG0KPv" resolve="evaluateStatically" />
+                                <ref role="37wK5l" to="ywuz:6OxpEKG0KPv" resolve="evaluateStatically" />
                               </node>
                             </node>
                           </node>
@@ -2070,7 +2070,7 @@
                     <node concept="2OqwBi" id="2CEi94dSf_q" role="3uHU7B">
                       <node concept="pncrf" id="2CEi94dSf_r" role="2Oq$k0" />
                       <node concept="2qgKlT" id="2CEi94dSf_s" role="2OqNvi">
-                        <ref role="37wK5l" to="e32u:6OxpEKG0KPv" resolve="evaluateStatically" />
+                        <ref role="37wK5l" to="ywuz:6OxpEKG0KPv" resolve="evaluateStatically" />
                       </node>
                     </node>
                   </node>

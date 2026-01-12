@@ -29,8 +29,10 @@ public final class ForVarDecl__BehaviorDescriptor extends BaseBHDescriptor {
   public static final SMethod<Boolean> canBeStoredInRegister_id58TcxRGHbLy = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("canBeStoredInRegister").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(5924821888889306210L).languageId(0x8af20a8ce6b25221L, 0xf75f9e3fb00b4997L).build2();
   public static final SMethod<SNode> getDeclaredType_id1LDGRqyYkTX = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getDeclaredType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2047364827738361469L).languageId(0x81d97714ff227fb0L, 0x61c69711ed614850L).build2();
   public static final SMethod<SNode> getInitExpression_id5O5ERJtHyWT = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getInitExpression").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6702952168899882809L).languageId(0x81d97714ff227fb0L, 0x61c69711ed614850L).build2();
+  public static final SMethod<SNode> getInit_id7z2aqCC1FUU = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getInit").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8701563240825929402L).languageId(0x8af20a8ce6b25221L, 0xf75f9e3fb00b4997L).build2();
+  public static final SMethod<Void> setInit_id7z2aqCC1O9Q = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("setInit").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8701563240825963126L).languageId(0x8af20a8ce6b25221L, 0xf75f9e3fb00b4997L).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getTraceableProperty_id4pl5GY7LKmH, canBeStatic_id58TcxRGFbfJ, canBeStoredInRegister_id58TcxRGHbLy, getDeclaredType_id1LDGRqyYkTX, getInitExpression_id5O5ERJtHyWT);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getTraceableProperty_id4pl5GY7LKmH, canBeStatic_id58TcxRGFbfJ, canBeStoredInRegister_id58TcxRGHbLy, getDeclaredType_id1LDGRqyYkTX, getInitExpression_id5O5ERJtHyWT, getInit_id7z2aqCC1FUU, setInit_id7z2aqCC1O9Q);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -49,6 +51,12 @@ public final class ForVarDecl__BehaviorDescriptor extends BaseBHDescriptor {
   }
   /*package*/ static SNode getInitExpression_id5O5ERJtHyWT(@NotNull SNode __thisNode__) {
     return SLinkOperations.getTarget(__thisNode__, LINKS.init$41s$);
+  }
+  /*package*/ static SNode getInit_id7z2aqCC1FUU(@NotNull SNode __thisNode__) {
+    return SLinkOperations.getTarget(__thisNode__, LINKS.init$41s$);
+  }
+  /*package*/ static void setInit_id7z2aqCC1O9Q(@NotNull SNode __thisNode__, SNode expr) {
+    SLinkOperations.setTarget(__thisNode__, LINKS.init$41s$, expr);
   }
 
   /*package*/ ForVarDecl__BehaviorDescriptor() {
@@ -76,6 +84,11 @@ public final class ForVarDecl__BehaviorDescriptor extends BaseBHDescriptor {
         return (T) ((SNode) getDeclaredType_id1LDGRqyYkTX(node));
       case 4:
         return (T) ((SNode) getInitExpression_id5O5ERJtHyWT(node));
+      case 5:
+        return (T) ((SNode) getInit_id7z2aqCC1FUU(node));
+      case 6:
+        setInit_id7z2aqCC1O9Q(node, (SNode) parameters[0]);
+        return null;
       default:
         throw new BHMethodNotFoundException(this, method);
     }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<product version="3" modelHash="86lp60skrvzem6mdcti69gmfee1qqhp">
-  <files names="ConstraintsAspectDescriptor.java:EventHandler_Constraints.java:EventType_Constraints.java:ExternalStructDefinition_Constraints.java:FunctionDocs_Constraints.java:IHandler_Constraints.java:InitTopology_Constraints.java:InitializeState_Constraints.java:ParameterDocs_Constraints.java:ProcessAllocation_Constraints.java:ReversibleEventHandler_Constraints.java:ReversibleSendEvent_Constraints.java:StructDocs_Constraints.java:StructMemberDocs_Constraints.java" />
+<product version="3" modelHash="-6y44xzm2t8xxr67skvkprxahemkq5mp">
+  <files names="ConstraintsAspectDescriptor.java:EventHandler_Constraints.java:EventReference_Constraints.java:EventType_Constraints.java:ExternalStructDefinition_Constraints.java:FunctionDocs_Constraints.java:IHandler_Constraints.java:InitTopology_Constraints.java:InitializeState_Constraints.java:ParameterDocs_Constraints.java:ProcessAllocation_Constraints.java:ReversibleEventHandler_Constraints.java:ReversibleSendEvent_Constraints.java:StructDocs_Constraints.java:StructMemberDocs_Constraints.java" />
 </product>
 

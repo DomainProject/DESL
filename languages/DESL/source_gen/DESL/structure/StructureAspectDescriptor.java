@@ -287,6 +287,10 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.parent(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L);
     b.origin("r:79077d65-28d5-4f56-905b-4bcf5185c60e(DESL.structure)/4690400695369122208");
     b.version(3);
+    b.property("doubleStackSize", 0x54df585342cdde6aL).type(PrimitiveTypeId.INTEGER).origin("6115703933618740842").done();
+    b.property("intStackSize", 0x54df585342e22151L).type(PrimitiveTypeId.INTEGER).origin("6115703933620068689").done();
+    b.property("uIntStackSize", 0x54df585342cdde6cL).type(PrimitiveTypeId.INTEGER).origin("6115703933618740844").done();
+    b.property("uInt16StackSize", 0x54df585342cdde6eL).type(PrimitiveTypeId.INTEGER).origin("6115703933618740846").done();
     b.aggregate("stateStruct", 0x4117a694e5b8c1a2L).target(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x58bef62304fc0a2fL).optional(false).ordered(true).multiple(false).origin("4690400695369122210").done();
     b.aggregate("handlers", 0x4117a694e5b8c1a3L).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x549487e5d88a4291L).optional(true).ordered(true).multiple(true).origin("4690400695369122211").done();
     b.aggregate("startup", 0x6ea143d20905c7edL).target(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0a48d39L).optional(true).ordered(true).multiple(false).origin("7971727384796055533").done();

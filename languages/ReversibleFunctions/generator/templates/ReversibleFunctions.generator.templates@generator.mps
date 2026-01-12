@@ -17,6 +17,7 @@
     <import index="x27k" ref="r:75ecab8a-8931-4140-afc6-4b46398710fc(com.mbeddr.core.modules.structure)" implicit="true" />
     <import index="e32u" ref="r:457bcadc-5da5-4b82-8524-230e48ca7946(ReversibleExpressions.behavior)" implicit="true" />
     <import index="c4fa" ref="r:9f0e84b6-2ec7-4f9e-83e0-feedc77b63a3(com.mbeddr.core.statements.structure)" implicit="true" />
+    <import index="qyxp" ref="r:173369a3-8060-4aa4-8d21-7c6337526a39(ReversibleStatements.behavior)" implicit="true" />
   </imports>
   <registry>
     <language id="13744753-c81f-424a-9c1b-cf8943bf4e86" name="jetbrains.mps.lang.sharedConcepts">
@@ -1334,6 +1335,36 @@
                     <node concept="TSZUe" id="5rI5N80eHMH" role="2OqNvi">
                       <node concept="37vLTw" id="5rI5N80eI85" role="25WWJ7">
                         <ref role="3cqZAo" node="5rI5N7ZzONK" resolve="newFunction" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+                <node concept="3clFbH" id="7z2aqCCpg$N" role="3cqZAp" />
+                <node concept="2Gpval" id="7z2aqCCphmn" role="3cqZAp">
+                  <node concept="2GrKxI" id="7z2aqCCphmp" role="2Gsz3X">
+                    <property role="TrG5h" value="forStmt" />
+                  </node>
+                  <node concept="2OqwBi" id="7z2aqCCpif7" role="2GsD0m">
+                    <node concept="37vLTw" id="7z2aqCCphKU" role="2Oq$k0">
+                      <ref role="3cqZAo" node="5rI5N7ZzONK" resolve="newFunction" />
+                    </node>
+                    <node concept="2Rf3mk" id="7z2aqCCpjb0" role="2OqNvi">
+                      <node concept="1xMEDy" id="7z2aqCCpjb2" role="1xVPHs">
+                        <node concept="chp4Y" id="7z2aqCCpjdq" role="ri$Ld">
+                          <ref role="cht4Q" to="kmi:6iIoqg1xIpQ" resolve="ForStatement" />
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="3clFbS" id="7z2aqCCphmt" role="2LFqv$">
+                    <node concept="3clFbF" id="7z2aqCCpjhG" role="3cqZAp">
+                      <node concept="2OqwBi" id="7z2aqCCpjFl" role="3clFbG">
+                        <node concept="2GrUjf" id="7z2aqCCpjhF" role="2Oq$k0">
+                          <ref role="2Gs0qQ" node="7z2aqCCphmp" resolve="forStmt" />
+                        </node>
+                        <node concept="2qgKlT" id="7z2aqCCpkV5" role="2OqNvi">
+                          <ref role="37wK5l" to="qyxp:7z2aqCBZmFa" resolve="reverseFor" />
+                        </node>
                       </node>
                     </node>
                   </node>

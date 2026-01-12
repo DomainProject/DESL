@@ -41,15 +41,16 @@ public class ElseIfPart_TextGen extends TextGenDescriptorBase {
       tgs.newLine();
 
 
-      String extraStmt;
-      if (isContainedInLoop) {
-        extraStmt = "cp." + SPropertyOperations.getString(SNodeOperations.cast(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.IfStatement$AR), PROPS.loopArrayName$wAd5) + "[" + iteratorName + "] |=  (1 << " + String.valueOf(SNodeOperations.getIndexInParent(ctx.getPrimaryInput()) + 1) + ");\n";
-      } else {
-        extraStmt = "cp." + SPropertyOperations.getString(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.IfStatement$AR), LINKS.supportVariable$WrxR), PROPS.name$MnvL) + " |=  (1 << " + String.valueOf(SNodeOperations.getIndexInParent(ctx.getPrimaryInput()) + 1) + ");\n";
-      }
 
       ctx.getBuffer().area().increaseIndent();
-      ReversibleStatementListUtils.statementList(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$_xRC), extraStmt, null, ctx);
+      tgs.indent();
+      tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.IfStatement$AR), LINKS.supportVariable$WrxR), PROPS.name$MnvL));
+      tgs.append(" |= (1 << ");
+      tgs.append(String.valueOf(SNodeOperations.getIndexInParent(ctx.getPrimaryInput()) + 1));
+      tgs.append(");");
+      tgs.newLine();
+      ReversibleStatementListUtils.stackStateHandling(SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5), SPropertyOperations.getString(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.IfStatement$AR), LINKS.supportVariable$WrxR), PROPS.name$MnvL), SLinkOperations.getTarget(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.IfStatement$AR), LINKS.supportVariable$WrxR), LINKS.type$sXU3), SNodeOperations.cast(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.IfStatement$AR), ctx);
+      ReversibleStatementListUtils.statementList(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$_xRC), null, null, ctx);
       ctx.getBuffer().area().decreaseIndent();
 
       tgs.indent();
@@ -58,21 +59,13 @@ public class ElseIfPart_TextGen extends TextGenDescriptorBase {
 
     } else {
 
-      if (isContainedInLoop) {
-        tgs.append("else if (cp.");
-        tgs.append(SPropertyOperations.getString(SNodeOperations.cast(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.IfStatement$AR), PROPS.loopArrayName$wAd5));
-        tgs.append("[");
-        tgs.append(reverseIteratorName);
-        tgs.append("] & (1 << ");
-        tgs.append(String.valueOf(SNodeOperations.getIndexInParent(ctx.getPrimaryInput()) + 1));
-        tgs.append(")) ");
-      } else {
-        tgs.append("else if (cp.");
-        tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.IfStatement$AR), LINKS.supportVariable$WrxR), PROPS.name$MnvL));
-        tgs.append(" & (1 << ");
-        tgs.append(String.valueOf(SNodeOperations.getIndexInParent(ctx.getPrimaryInput()) + 1));
-        tgs.append(")) ");
-      }
+
+      ReversibleStatementListUtils.stackStateHandling(SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5), SPropertyOperations.getString(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.IfStatement$AR), LINKS.supportVariable$WrxR), PROPS.name$MnvL), SLinkOperations.getTarget(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.IfStatement$AR), LINKS.supportVariable$WrxR), LINKS.type$sXU3), SNodeOperations.cast(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.IfStatement$AR), ctx);
+      tgs.append("else if (cp.");
+      tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.IfStatement$AR), LINKS.supportVariable$WrxR), PROPS.name$MnvL));
+      tgs.append(" & (1 << ");
+      tgs.append(String.valueOf(SNodeOperations.getIndexInParent(ctx.getPrimaryInput()) + 1));
+      tgs.append(")) ");
       tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$_xRC));
     }
   }
@@ -85,7 +78,6 @@ public class ElseIfPart_TextGen extends TextGenDescriptorBase {
 
   private static final class PROPS {
     /*package*/ static final SProperty reversibilityRequired$Zgdy = MetaAdapterFactory.getProperty(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111cL, 0x56ee1731ff5a6482L, "reversibilityRequired");
-    /*package*/ static final SProperty loopArrayName$wAd5 = MetaAdapterFactory.getProperty(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x6337a44ca4f72dbfL, "loopArrayName");
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
     /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
   }
@@ -93,6 +85,7 @@ public class ElseIfPart_TextGen extends TextGenDescriptorBase {
   private static final class LINKS {
     /*package*/ static final SContainmentLink condition$_zJK = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x2b8026b23bc272a6L, 0x2b8026b23bc272afL, "condition");
     /*package*/ static final SContainmentLink supportVariable$WrxR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x586abb2d5743cb69L, "supportVariable");
+    /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
     /*package*/ static final SContainmentLink body$_xRC = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x2b8026b23bc272a6L, 0x2b8026b23bc272a7L, "body");
   }
 }

@@ -14,6 +14,8 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import com.mbeddr.core.expressions.behavior.Expression__BehaviorDescriptor;
+import jetbrains.mps.baseLanguage.logging.rt.LogContext;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -24,7 +26,7 @@ public final class DivExpression__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4ffba68fe82b621eL, "ReversibleExpressions.structure.DivExpression");
 
   public static final SMethod<Boolean> isStaticallyEvaluatable_id3ilck8Kr3zN = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isStaticallyEvaluatable").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(3788988821852141811L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
-  public static final SMethod<Object> evaluateStatically_id6OxpEKG0KPv = new SMethodBuilder<Object>(new SJavaCompoundTypeImpl(Object.class)).name("evaluateStatically").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7863679314024402271L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
+  public static final SMethod<Object> evaluateStatically_id6OxpEKG0KPv = new SMethodBuilder<Object>(new SJavaCompoundTypeImpl(Object.class)).name("evaluateStatically").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7863679314024402271L).languageId(0x81d97714ff227fb0L, 0x61c69711ed614850L).build2();
   public static final SMethod<Integer> getPriolevel_id5HxjapwgqKu = new SMethodBuilder<Integer>(new SJavaCompoundTypeImpl(Integer.TYPE)).name("getPriolevel").modifiers(9, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6584628407655574558L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
   public static final SMethod<String> getReversedOperator_id4e6KBjCJeOF = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getReversedOperator").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(4865790254797090091L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
 
@@ -38,13 +40,17 @@ public final class DivExpression__BehaviorDescriptor extends BaseBHDescriptor {
       return false;
     }
     boolean rightStaticEval = (boolean) ReversibleExpression__BehaviorDescriptor.isStaticallyEvaluatable_id3ilck8Kr3zN.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.right$KPZS));
-    if (rightStaticEval && !(EH.isZero(ReversibleExpression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.right$KPZS))))) {
+    if (rightStaticEval && !(EH.isZero(Expression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.right$KPZS))))) {
       return (boolean) ReversibleExpression__BehaviorDescriptor.isStaticallyEvaluatable_id3ilck8Kr3zN.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.left$KPKR));
     }
     return false;
   }
   /*package*/ static Object evaluateStatically_id6OxpEKG0KPv(@NotNull SNode __thisNode__) {
-    return NumberEvaluationHelper.div(((Number) ReversibleExpression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.left$KPKR))), ((Number) ReversibleExpression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.right$KPZS))));
+
+    LogContext.with(DivExpression__BehaviorDescriptor.class, null, null, null).info("Division left: " + ((Number) Expression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.left$KPKR))));
+    LogContext.with(DivExpression__BehaviorDescriptor.class, null, null, null).info("Division right: " + ((Number) Expression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.right$KPZS))));
+
+    return NumberEvaluationHelper.div(((Number) Expression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.left$KPKR))), ((Number) Expression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.right$KPZS))));
   }
   /*package*/ static int getPriolevel_id5HxjapwgqKu(@NotNull SAbstractConcept __thisConcept__) {
     return 2000;

@@ -14,6 +14,7 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import com.mbeddr.core.expressions.behavior.Expression__BehaviorDescriptor;
 import java.math.BigInteger;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
@@ -31,7 +32,7 @@ public final class BitwiseBinaryArithmaticsExpression__BehaviorDescriptor extend
   }
 
   /*package*/ static boolean isStaticallyEvaluatable_id3ilck8Kr3zN(@NotNull SNode __thisNode__) {
-    return (boolean) ReversibleExpression__BehaviorDescriptor.isStaticallyEvaluatable_id3ilck8Kr3zN.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.left$KPKR)) && (boolean) ReversibleExpression__BehaviorDescriptor.isStaticallyEvaluatable_id3ilck8Kr3zN.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.right$KPZS)) && ReversibleExpression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.left$KPKR)) instanceof BigInteger && ReversibleExpression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.right$KPZS)) instanceof BigInteger;
+    return (boolean) ReversibleExpression__BehaviorDescriptor.isStaticallyEvaluatable_id3ilck8Kr3zN.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.left$KPKR)) && (boolean) ReversibleExpression__BehaviorDescriptor.isStaticallyEvaluatable_id3ilck8Kr3zN.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.right$KPZS)) && Expression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.left$KPKR)) instanceof BigInteger && Expression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.right$KPZS)) instanceof BigInteger;
   }
 
   /*package*/ BitwiseBinaryArithmaticsExpression__BehaviorDescriptor() {

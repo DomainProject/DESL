@@ -117,10 +117,44 @@ public class ReversibleSendEvent_TextGen extends TextGenDescriptorBase {
         tgs.append(eventName);
         tgs.append(");");
         tgs.newLine();
-        tgs.indent();
-        tgs.append(payloadName);
-        tgs.append("->cp = cp;");
-        tgs.newLine();
+
+        // add stacks to message
+        if (SPropertyOperations.getString(SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.ReversibleEventHandler$Ov, false, false), PROPS.eventName$rI8o).contains("INIT")) {
+          tgs.indent();
+          tgs.append(payloadName);
+          tgs.append("->doubleStack = doubleStack;");
+          tgs.newLine();
+          tgs.indent();
+          tgs.append(payloadName);
+          tgs.append("->intStack = intStack;");
+          tgs.newLine();
+          tgs.indent();
+          tgs.append(payloadName);
+          tgs.append("->uIntStack = uIntStack;");
+          tgs.newLine();
+          tgs.indent();
+          tgs.append(payloadName);
+          tgs.append("->ifStack = ifStack;");
+          tgs.newLine();
+        } else {
+          tgs.indent();
+          tgs.append(payloadName);
+          tgs.append("->doubleStack = content->doubleStack;");
+          tgs.newLine();
+          tgs.indent();
+          tgs.append(payloadName);
+          tgs.append("->intStack = content->intStack;");
+          tgs.newLine();
+          tgs.indent();
+          tgs.append(payloadName);
+          tgs.append("->uIntStack = content->uIntStack;");
+          tgs.newLine();
+          tgs.indent();
+          tgs.append(payloadName);
+          tgs.append("->ifStack = content->ifStack;");
+          tgs.newLine();
+        }
+
         if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.with$_CC9), CONCEPTS.NullExpression$rn)) {
           tgs.indent();
           tgs.append(payloadName);

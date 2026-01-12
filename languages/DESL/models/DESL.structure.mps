@@ -593,6 +593,26 @@
     <node concept="PrWs8" id="5kjbDRbF2cn" role="PzmwI">
       <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
     </node>
+    <node concept="1TJgyi" id="5jvm5d2NtTE" role="1TKVEl">
+      <property role="IQ2nx" value="6115703933618740842" />
+      <property role="TrG5h" value="doubleStackSize" />
+      <ref role="AX2Wp" to="tpck:fKAQMTA" resolve="integer" />
+    </node>
+    <node concept="1TJgyi" id="5jvm5d2Sy5h" role="1TKVEl">
+      <property role="IQ2nx" value="6115703933620068689" />
+      <property role="TrG5h" value="intStackSize" />
+      <ref role="AX2Wp" to="tpck:fKAQMTA" resolve="integer" />
+    </node>
+    <node concept="1TJgyi" id="5jvm5d2NtTG" role="1TKVEl">
+      <property role="IQ2nx" value="6115703933618740844" />
+      <property role="TrG5h" value="uIntStackSize" />
+      <ref role="AX2Wp" to="tpck:fKAQMTA" resolve="integer" />
+    </node>
+    <node concept="1TJgyi" id="5jvm5d2NtTI" role="1TKVEl">
+      <property role="IQ2nx" value="6115703933618740846" />
+      <property role="TrG5h" value="uInt16StackSize" />
+      <ref role="AX2Wp" to="tpck:fKAQMTA" resolve="integer" />
+    </node>
   </node>
   <node concept="1TIwiD" id="44nDDjAeju3">
     <property role="EcuMT" value="4690400695377540995" />

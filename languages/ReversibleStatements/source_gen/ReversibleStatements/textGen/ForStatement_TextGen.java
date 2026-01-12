@@ -21,6 +21,7 @@ public class ForStatement_TextGen extends TextGenDescriptorBase {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     tgs.createPositionInfo();
 
+
     tgs.append("for ( ");
     if (SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.iterator$fwes) != null) {
       tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.iterator$fwes));

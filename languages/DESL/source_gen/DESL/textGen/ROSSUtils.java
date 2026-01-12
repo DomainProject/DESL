@@ -41,7 +41,6 @@ public abstract class ROSSUtils {
     tgs.append("double now = 0;");
     tgs.newLine();
 
-    ROSSUtils.rossStructCheckpointInstantiation(deslModel, ctx);
 
     ROSSUtils.rossSwitchEvent(c, true, ctx);
     ctx.getBuffer().area().decreaseIndent();

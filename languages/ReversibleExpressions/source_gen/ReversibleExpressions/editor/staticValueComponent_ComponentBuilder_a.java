@@ -20,6 +20,7 @@ import jetbrains.mps.nodeEditor.cells.ModelAccessor;
 import ReversibleExpressions.behavior.ReversibleExpression__BehaviorDescriptor;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import jetbrains.mps.editor.runtime.cells.EmptyCellAction;
+import com.mbeddr.core.expressions.behavior.Expression__BehaviorDescriptor;
 import java.util.Objects;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import com.mbeddr.core.base.behavior.ISuppressStaticEvalWarnings__BehaviorDescriptor;
@@ -110,7 +111,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
       public String getText() {
         if ((boolean) ReversibleExpression__BehaviorDescriptor.isStaticallyEvaluatable_id3ilck8Kr3zN.invoke(myNode)) {
           try {
-            Object val = ReversibleExpression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(myNode);
+            Object val = Expression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(myNode);
             if (!(Objects.equals(val, null))) {
               return val + " [" + val.getClass() + "]";
             }

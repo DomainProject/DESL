@@ -12,6 +12,7 @@ import ReversibleExpressions.behavior.ReversibleExpression__BehaviorDescriptor;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
+import com.mbeddr.core.expressions.behavior.Expression__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import ReversibleExpressions.behavior.ITypeDecorator__BehaviorDescriptor;
 import jetbrains.mps.typesystem.inference.EquationInfo;
@@ -36,7 +37,7 @@ public class typeof_StaticValueExpression_InferenceRule extends AbstractInferenc
       {
         final SNode sveType = typeCheckingContext.typeOf(SLinkOperations.getTarget(staticValueExpression, LINKS.expr$xd_r), "r:a08f1c59-09f4-4839-91dc-89de02b086a5(ReversibleExpressions.typesystem)", "7533755140574207649", true);
         typeCheckingContext.whenConcrete(sveType, () -> {
-          Object staticValue = ReversibleExpression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(staticValueExpression);
+          Object staticValue = Expression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(staticValueExpression);
           if (!(staticValue instanceof Number)) {
             {
               final MessageTarget errorTarget = new NodeMessageTarget();

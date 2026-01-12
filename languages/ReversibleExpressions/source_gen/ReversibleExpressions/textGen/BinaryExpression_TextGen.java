@@ -27,7 +27,7 @@ public class BinaryExpression_TextGen extends TextGenDescriptorBase {
 
     // if the binary expression is a Div-, Minus-, Multi- or PlusExpression and it is the right side of a direct assignment expression, it must not be reversed
 
-    boolean reversibilityNotNeeded = (SNodeOperations.isInstanceOf(ctx.getPrimaryInput(), CONCEPTS.IBinArithmetic$8B) && (boolean) IBinArithmetic__BehaviorDescriptor.checkIfRightSideOfDirectAssignment_id79P5B3Nkar8.invoke(SNodeOperations.cast(ctx.getPrimaryInput(), CONCEPTS.IBinArithmetic$8B))) || (boolean) BinaryExpression__BehaviorDescriptor.isLoopCondition_id7FTvvGQ_l_a.invoke(ctx.getPrimaryInput());
+    boolean reversibilityNotNeeded = (SNodeOperations.isInstanceOf(ctx.getPrimaryInput(), CONCEPTS.IBinArithmetic$8B) && (boolean) IBinArithmetic__BehaviorDescriptor.checkIfRightSideOfDirectAssignment_id79P5B3Nkar8.invoke(SNodeOperations.cast(ctx.getPrimaryInput(), CONCEPTS.IBinArithmetic$8B)));
 
 
     if (isDestructive && !(SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5))) {

@@ -14,6 +14,7 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import com.mbeddr.core.expressions.behavior.Expression__BehaviorDescriptor;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -34,7 +35,7 @@ public final class BinaryArithmeticExpression__BehaviorDescriptor extends BaseBH
     return (boolean) ReversibleExpression__BehaviorDescriptor.isSideeffectFree_id6SENleF$SRD.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.left$KPKR)) && (boolean) ReversibleExpression__BehaviorDescriptor.isSideeffectFree_id6SENleF$SRD.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.right$KPZS));
   }
   /*package*/ static boolean isStaticallyEvaluatable_id3ilck8Kr3zN(@NotNull SNode __thisNode__) {
-    return (boolean) ReversibleExpression__BehaviorDescriptor.isStaticallyEvaluatable_id3ilck8Kr3zN.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.left$KPKR)) && (boolean) ReversibleExpression__BehaviorDescriptor.isStaticallyEvaluatable_id3ilck8Kr3zN.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.right$KPZS)) && ReversibleExpression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.left$KPKR)) instanceof Number && ReversibleExpression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.right$KPZS)) instanceof Number;
+    return (boolean) ReversibleExpression__BehaviorDescriptor.isStaticallyEvaluatable_id3ilck8Kr3zN.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.left$KPKR)) && (boolean) ReversibleExpression__BehaviorDescriptor.isStaticallyEvaluatable_id3ilck8Kr3zN.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.right$KPZS)) && Expression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.left$KPKR)) instanceof Number && Expression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.right$KPZS)) instanceof Number;
   }
 
   /*package*/ BinaryArithmeticExpression__BehaviorDescriptor() {

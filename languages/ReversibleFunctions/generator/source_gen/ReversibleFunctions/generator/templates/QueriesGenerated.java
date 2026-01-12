@@ -23,6 +23,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import ReversibleFunctions.behavior.ReversibleMacro__BehaviorDescriptor;
 import ReversibleFunctions.behavior.ReversibleFunction__BehaviorDescriptor;
+import ReversibleStatements.behavior.ForStatement__BehaviorDescriptor;
 import java.util.Map;
 import jetbrains.mps.generator.impl.query.ScriptCodeBlock;
 import java.util.HashMap;
@@ -161,6 +162,10 @@ public class QueriesGenerated extends QueryProviderBase {
         ReversibleFunction__BehaviorDescriptor.propagateReversibility_id5U1XgQ$bWsf.invoke(newFunction);
         ListSequence.fromList(reversedFunctions).addElement(newFunction);
 
+        for (SNode forStmt : ListSequence.fromList(SNodeOperations.getNodeDescendants(newFunction, CONCEPTS.ForStatement$Bb, false, new SAbstractConcept[]{}))) {
+          ForStatement__BehaviorDescriptor.reverseFor_id7z2aqCBZmFa.invoke(forStmt);
+        }
+
       }
 
       ListSequence.fromList(SLinkOperations.getChildren(root, LINKS.reversibleItems$5wYj)).addSequence(ListSequence.fromList(reversedFunctions));
@@ -292,6 +297,7 @@ public class QueriesGenerated extends QueryProviderBase {
     /*package*/ static final SConcept LocalVarRef$O3 = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x1d0c3765e2e1d67aL, "ReversibleStatements.structure.LocalVarRef");
     /*package*/ static final SInterfaceConcept IReversibleLoop$k1 = MetaAdapterFactory.getInterfaceConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x6337a44ca461bdf4L, "ReversibleStatements.structure.IReversibleLoop");
     /*package*/ static final SInterfaceConcept INeedSupportVariable$qI = MetaAdapterFactory.getInterfaceConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, "ReversibleExpressions.structure.INeedSupportVariable");
+    /*package*/ static final SConcept ForStatement$Bb = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a40186e676L, "ReversibleStatements.structure.ForStatement");
     /*package*/ static final SConcept ReversibleFunction$IL = MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, "ReversibleFunctions.structure.ReversibleFunction");
     /*package*/ static final SConcept ReversibleScript$ki = MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x56ee1731fef0eae5L, "ReversibleFunctions.structure.ReversibleScript");
   }

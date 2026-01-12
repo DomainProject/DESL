@@ -10,6 +10,7 @@ import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import ReversibleExpressions.behavior.ReversibleExpression__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import ReversibleExpressions.behavior.EH;
+import com.mbeddr.core.expressions.behavior.Expression__BehaviorDescriptor;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
@@ -23,7 +24,7 @@ public class check_DivExpression_NonTypesystemRule extends AbstractNonTypesystem
   }
   public void applyRule(final SNode divExpression, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     if ((boolean) ReversibleExpression__BehaviorDescriptor.isStaticallyEvaluatable_id3ilck8Kr3zN.invoke(SLinkOperations.getTarget(divExpression, LINKS.right$KPZS))) {
-      if (!(!(EH.isZero(ReversibleExpression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(SLinkOperations.getTarget(divExpression, LINKS.right$KPZS)))))) {
+      if (!(!(EH.isZero(Expression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(SLinkOperations.getTarget(divExpression, LINKS.right$KPZS)))))) {
         final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(SLinkOperations.getTarget(divExpression, LINKS.right$KPZS), "division by zero", "r:a08f1c59-09f4-4839-91dc-89de02b086a5(ReversibleExpressions.typesystem)", "885755812101841124", null, errorTarget);
       }

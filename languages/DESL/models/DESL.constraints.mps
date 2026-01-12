@@ -79,6 +79,9 @@
         <child id="1081773367579" name="rightExpression" index="3uHU7w" />
         <child id="1081773367580" name="leftExpression" index="3uHU7B" />
       </concept>
+      <concept id="5497648299878491908" name="jetbrains.mps.baseLanguage.structure.BaseVariableReference" flags="nn" index="1M0zk4">
+        <reference id="5497648299878491909" name="baseVariableDeclaration" index="1M0zk5" />
+      </concept>
     </language>
     <language id="3f4bc5f5-c6c1-4a28-8b10-c83066ffa4a1" name="jetbrains.mps.lang.constraints">
       <concept id="8966504967485224688" name="jetbrains.mps.lang.constraints.structure.ConstraintFunctionParameter_contextNode" flags="nn" index="2rP1CM" />
@@ -121,6 +124,14 @@
       <concept id="1145383075378" name="jetbrains.mps.lang.smodel.structure.SNodeListType" flags="in" index="2I9FWS">
         <reference id="1145383142433" name="elementConcept" index="2I9WkF" />
       </concept>
+      <concept id="1883223317721008708" name="jetbrains.mps.lang.smodel.structure.IfInstanceOfStatement" flags="nn" index="Jncv_">
+        <reference id="1883223317721008712" name="nodeConcept" index="JncvD" />
+        <child id="1883223317721008709" name="body" index="Jncv$" />
+        <child id="1883223317721008711" name="variable" index="JncvA" />
+        <child id="1883223317721008710" name="nodeExpression" index="JncvB" />
+      </concept>
+      <concept id="1883223317721008713" name="jetbrains.mps.lang.smodel.structure.IfInstanceOfVariable" flags="ng" index="JncvC" />
+      <concept id="1883223317721107059" name="jetbrains.mps.lang.smodel.structure.IfInstanceOfVarReference" flags="nn" index="Jnkvi" />
       <concept id="1171305280644" name="jetbrains.mps.lang.smodel.structure.Node_GetDescendantsOperation" flags="nn" index="2Rf3mk" />
       <concept id="1145567426890" name="jetbrains.mps.lang.smodel.structure.SNodeListCreator" flags="nn" index="2T8Vx0">
         <child id="1145567471833" name="createdType" index="2T96Bj" />
@@ -756,6 +767,88 @@
   <node concept="1M2fIO" id="14Z2mfki15s">
     <property role="3GE5qa" value="handler" />
     <ref role="1M2myG" to="rdv6:2R3DD23rX3g" resolve="ReversibleEventHandler" />
+  </node>
+  <node concept="1M2fIO" id="5jvm5d2hGfe">
+    <property role="3GE5qa" value="event" />
+    <ref role="1M2myG" to="rdv6:14Z2mfkuHWJ" resolve="EventReference" />
+    <node concept="1N5Pfh" id="5jvm5d2hGff" role="1Mr941">
+      <ref role="1N5Vy1" to="rdv6:14Z2mfkuHWK" resolve="event" />
+      <node concept="3dgokm" id="5jvm5d2hGi_" role="1N6uqs">
+        <node concept="3clFbS" id="5jvm5d2hGiA" role="2VODD2">
+          <node concept="3clFbF" id="5jvm5d2hGrp" role="3cqZAp">
+            <node concept="2YIFZM" id="5jvm5d2hGuD" role="3clFbG">
+              <ref role="37wK5l" to="o8zo:4IP40Bi3eAf" resolve="forNamedElements" />
+              <ref role="1Pybhc" to="o8zo:4IP40Bi3e_R" resolve="ListScope" />
+              <node concept="2OqwBi" id="5jvm5d2hHQF" role="37wK5m">
+                <node concept="2OqwBi" id="5jvm5d2hGNf" role="2Oq$k0">
+                  <node concept="2rP1CM" id="5jvm5d2hGzf" role="2Oq$k0" />
+                  <node concept="2Xjw5R" id="5jvm5d2hHcI" role="2OqNvi">
+                    <node concept="1xMEDy" id="5jvm5d2hHcK" role="1xVPHs">
+                      <node concept="chp4Y" id="5jvm5d2hHhv" role="ri$Ld">
+                        <ref role="cht4Q" to="rdv6:1FqAw$nj9oK" resolve="DESLModel" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+                <node concept="2Rf3mk" id="5jvm5d2hIM7" role="2OqNvi">
+                  <node concept="1xMEDy" id="5jvm5d2hIM9" role="1xVPHs">
+                    <node concept="chp4Y" id="5jvm5d2hIQV" role="ri$Ld">
+                      <ref role="cht4Q" to="rdv6:7KGmnvzSgRT" resolve="EventType" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="3k9gUc" id="5jvm5d2we4E" role="3kmjI7">
+        <node concept="3clFbS" id="5jvm5d2we4F" role="2VODD2">
+          <node concept="3clFbF" id="5jvm5d2wecy" role="3cqZAp">
+            <node concept="37vLTI" id="5jvm5d2wf0u" role="3clFbG">
+              <node concept="3khVwk" id="5jvm5d2wf7j" role="37vLTx" />
+              <node concept="2OqwBi" id="5jvm5d2wes$" role="37vLTJ">
+                <node concept="3kakTB" id="5jvm5d2wecx" role="2Oq$k0" />
+                <node concept="3TrEf2" id="5jvm5d2weBN" role="2OqNvi">
+                  <ref role="3Tt5mk" to="rdv6:14Z2mfkuHWK" resolve="event" />
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="Jncv_" id="5jvm5d2wfdi" role="3cqZAp">
+            <ref role="JncvD" to="rdv6:5ikxYnoy$ah" resolve="IHandler" />
+            <node concept="2OqwBi" id="5jvm5d2wfmL" role="JncvB">
+              <node concept="3kakTB" id="5jvm5d2wfe9" role="2Oq$k0" />
+              <node concept="1mfA1w" id="5jvm5d2wf$M" role="2OqNvi" />
+            </node>
+            <node concept="3clFbS" id="5jvm5d2wfdm" role="Jncv$">
+              <node concept="3clFbF" id="5jvm5d2wfHD" role="3cqZAp">
+                <node concept="37vLTI" id="5jvm5d2wh5y" role="3clFbG">
+                  <node concept="2OqwBi" id="5jvm5d2whLh" role="37vLTx">
+                    <node concept="3khVwk" id="5jvm5d2whtR" role="2Oq$k0" />
+                    <node concept="3TrcHB" id="5jvm5d2wi0A" role="2OqNvi">
+                      <ref role="3TsBF5" to="tpck:h0TrG11" resolve="name" />
+                    </node>
+                  </node>
+                  <node concept="2OqwBi" id="5jvm5d2wfS_" role="37vLTJ">
+                    <node concept="Jnkvi" id="5jvm5d2wfHC" role="2Oq$k0">
+                      <ref role="1M0zk5" node="5jvm5d2wfdo" resolve="iHandler" />
+                    </node>
+                    <node concept="3TrcHB" id="5jvm5d2wg6d" role="2OqNvi">
+                      <ref role="3TsBF5" to="rdv6:14Z2mfjlipa" resolve="eventName" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="JncvC" id="5jvm5d2wfdo" role="JncvA">
+              <property role="TrG5h" value="iHandler" />
+              <node concept="2jxLKc" id="5jvm5d2wfdp" role="1tU5fm" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
   </node>
 </model>
 

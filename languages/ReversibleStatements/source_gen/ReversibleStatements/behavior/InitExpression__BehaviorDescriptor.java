@@ -20,6 +20,7 @@ import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import ReversibleExpressions.behavior.ReversibleExpression__BehaviorDescriptor;
 import java.util.Objects;
+import com.mbeddr.core.expressions.behavior.Expression__BehaviorDescriptor;
 import java.math.BigInteger;
 import java.math.BigDecimal;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
@@ -63,7 +64,7 @@ public final class InitExpression__BehaviorDescriptor extends BaseBHDescriptor {
     return false;
   }
   /*package*/ static boolean isEmptyInitializer_id1ou7645jjtT(@NotNull SNode __thisNode__) {
-    return ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.elements$m038)).count() == 1 && (boolean) ReversibleExpression__BehaviorDescriptor.isStaticallyEvaluatable_id3ilck8Kr3zN.invoke(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.elements$m038)).first()) && (Objects.equals(ReversibleExpression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.elements$m038)).first()), BigInteger.ZERO) || Objects.equals(ReversibleExpression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.elements$m038)).first()), BigDecimal.ZERO));
+    return ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.elements$m038)).count() == 1 && (boolean) ReversibleExpression__BehaviorDescriptor.isStaticallyEvaluatable_id3ilck8Kr3zN.invoke(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.elements$m038)).first()) && (Objects.equals(Expression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.elements$m038)).first()), BigInteger.ZERO) || Objects.equals(Expression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.elements$m038)).first()), BigDecimal.ZERO));
 
   }
 

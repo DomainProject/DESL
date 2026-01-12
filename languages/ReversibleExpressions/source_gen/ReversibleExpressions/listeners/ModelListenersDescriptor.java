@@ -13,12 +13,12 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.baseLanguage.logging.rt.LogContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import ReversibleExpressions.behavior.IVariableReference__BehaviorDescriptor;
 import com.mbeddr.core.expressions.behavior.IVariableDeclaration__BehaviorDescriptor;
 import ReversibleStatements.behavior.IReversibleLoop__BehaviorDescriptor;
 import jetbrains.mps.lang.core.behavior.BaseConcept__BehaviorDescriptor;
-import jetbrains.mps.baseLanguage.logging.rt.LogContext;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
@@ -63,13 +63,15 @@ public class ModelListenersDescriptor implements IModelListenersDescriptor {
         {
           final SNode destructiveOperation = instance;
           if (SNodeOperations.isInstanceOf(destructiveOperation, CONCEPTS.IDestructiveOperation$SP)) {
+
+            LogContext.with(ModelListenersDescriptor.class, null, null, null).info("Destructive operation");
+
             {
               final SNode varRef = child;
               if (SNodeOperations.isInstanceOf(varRef, CONCEPTS.IVariableReference$Kb)) {
                 SPropertyOperations.assign(destructiveOperation, PROPS.variableToSaveName$udlR, IVariableReference__BehaviorDescriptor.getVariableName_id79Sp4cYA0X2.invoke(varRef));
-                if (!(isContainedInLoop)) {
-                  SLinkOperations.setTarget(SLinkOperations.getTarget(destructiveOperation, LINKS.supportVariable$WrxR), LINKS.type$sXU3, SNodeOperations.copyNode(SNodeOperations.cast(IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(com.mbeddr.core.expressions.behavior.IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(varRef)), CONCEPTS.Type$dP)));
-                } else {
+                SLinkOperations.setTarget(SLinkOperations.getTarget(destructiveOperation, LINKS.supportVariable$WrxR), LINKS.type$sXU3, SNodeOperations.copyNode(SNodeOperations.cast(IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(com.mbeddr.core.expressions.behavior.IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(varRef)), CONCEPTS.Type$dP)));
+                if (isContainedInLoop) {
                   IReversibleLoop__BehaviorDescriptor.updateAdditionalVariableType_id5wlskT_l0e7.invoke(loopAncestor, SNodeOperations.cast(IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(com.mbeddr.core.expressions.behavior.IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(varRef)), CONCEPTS.Type$dP), SPropertyOperations.getString(destructiveOperation, PROPS.loopArrayName$wAd5));
                 }
               }
@@ -81,9 +83,8 @@ public class ModelListenersDescriptor implements IModelListenersDescriptor {
                 {
                   final SNode gmr = SLinkOperations.getTarget(gde, LINKS.target$xbCZ);
                   if (SNodeOperations.isInstanceOf(gmr, CONCEPTS.GenericMemberRef$Ue)) {
-                    if (!(isContainedInLoop)) {
-                      SLinkOperations.setTarget(SLinkOperations.getTarget(destructiveOperation, LINKS.supportVariable$WrxR), LINKS.type$sXU3, SNodeOperations.copyNode(SLinkOperations.getTarget(SLinkOperations.getTarget(gmr, LINKS.member$gCRV), LINKS.type$sXU3)));
-                    } else {
+                    SLinkOperations.setTarget(SLinkOperations.getTarget(destructiveOperation, LINKS.supportVariable$WrxR), LINKS.type$sXU3, SNodeOperations.copyNode(SLinkOperations.getTarget(SLinkOperations.getTarget(gmr, LINKS.member$gCRV), LINKS.type$sXU3)));
+                    if (isContainedInLoop) {
                       IReversibleLoop__BehaviorDescriptor.updateAdditionalVariableType_id5wlskT_l0e7.invoke(loopAncestor, SLinkOperations.getTarget(SLinkOperations.getTarget(gmr, LINKS.member$gCRV), LINKS.type$sXU3), SPropertyOperations.getString(destructiveOperation, PROPS.loopArrayName$wAd5));
                     }
                   }
@@ -98,10 +99,8 @@ public class ModelListenersDescriptor implements IModelListenersDescriptor {
                   if (SNodeOperations.isInstanceOf(varRef, CONCEPTS.IVariableReference$Kb)) {
 
                     SPropertyOperations.assign(destructiveOperation, PROPS.variableToSaveName$udlR, IVariableReference__BehaviorDescriptor.getVariableName_id79Sp4cYA0X2.invoke(varRef) + '[' + BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(SLinkOperations.getTarget(aae, LINKS.indexExpr$M5fL)) + ']');
-                    if (!(isContainedInLoop)) {
-                      SLinkOperations.setTarget(SLinkOperations.getTarget(destructiveOperation, LINKS.supportVariable$WrxR), LINKS.type$sXU3, SNodeOperations.copyNode(SNodeOperations.cast(IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(com.mbeddr.core.expressions.behavior.IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(varRef)), CONCEPTS.Type$dP)));
-                    } else {
-
+                    SLinkOperations.setTarget(SLinkOperations.getTarget(destructiveOperation, LINKS.supportVariable$WrxR), LINKS.type$sXU3, SNodeOperations.copyNode(SNodeOperations.cast(IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(com.mbeddr.core.expressions.behavior.IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(varRef)), CONCEPTS.Type$dP)));
+                    if (isContainedInLoop) {
                       if (SNodeOperations.isInstanceOf(IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(com.mbeddr.core.expressions.behavior.IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(varRef)), CONCEPTS.PointerType$HX)) {
                         IReversibleLoop__BehaviorDescriptor.updateAdditionalVariableType_id5wlskT_l0e7.invoke(loopAncestor, SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(com.mbeddr.core.expressions.behavior.IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(varRef)), CONCEPTS.PointerType$HX), LINKS.baseType$zMGV), CONCEPTS.Type$dP), SPropertyOperations.getString(destructiveOperation, PROPS.loopArrayName$wAd5));
                       } else {
@@ -125,9 +124,8 @@ public class ModelListenersDescriptor implements IModelListenersDescriptor {
                           }
                         }
 
-                        if (!(isContainedInLoop)) {
-                          SLinkOperations.setTarget(SLinkOperations.getTarget(destructiveOperation, LINKS.supportVariable$WrxR), LINKS.type$sXU3, SNodeOperations.copyNode(SLinkOperations.getTarget(SLinkOperations.getTarget(gmr, LINKS.member$gCRV), LINKS.type$sXU3)));
-                        } else {
+                        SLinkOperations.setTarget(SLinkOperations.getTarget(destructiveOperation, LINKS.supportVariable$WrxR), LINKS.type$sXU3, SNodeOperations.copyNode(SLinkOperations.getTarget(SLinkOperations.getTarget(gmr, LINKS.member$gCRV), LINKS.type$sXU3)));
+                        if (isContainedInLoop) {
                           if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SLinkOperations.getTarget(gmr, LINKS.member$gCRV), LINKS.type$sXU3), CONCEPTS.PointerType$HX)) {
                             IReversibleLoop__BehaviorDescriptor.updateAdditionalVariableType_id5wlskT_l0e7.invoke(loopAncestor, SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(SLinkOperations.getTarget(gmr, LINKS.member$gCRV), LINKS.type$sXU3), CONCEPTS.PointerType$HX), LINKS.baseType$zMGV), CONCEPTS.Type$dP), SPropertyOperations.getString(destructiveOperation, PROPS.loopArrayName$wAd5));
                           } else {

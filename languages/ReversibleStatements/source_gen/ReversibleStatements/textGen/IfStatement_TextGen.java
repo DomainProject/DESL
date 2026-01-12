@@ -45,15 +45,15 @@ public class IfStatement_TextGen extends TextGenDescriptorBase {
       tgs.append(") {");
       tgs.newLine();
 
-      String extraStatement;
-      if (isContainedInLoop) {
-        extraStatement = "cp." + SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.loopArrayName$wAd5) + "[" + iteratorName + "] |= (1 << 0);\n";
-      } else {
-        extraStatement = "cp." + SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), PROPS.name$MnvL) + " |= (1 << 0);\n";
-      }
 
       ctx.getBuffer().area().increaseIndent();
-      ReversibleStatementListUtils.statementList(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.thenPart$JklD), extraStatement, null, ctx);
+      tgs.indent();
+      tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), PROPS.name$MnvL));
+      tgs.append(" |= (1 << 0);");
+      tgs.newLine();
+      tgs.indent();
+      ReversibleStatementListUtils.stackStateHandling(SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5), SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), PROPS.name$MnvL), SLinkOperations.getTarget(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), LINKS.type$sXU3), ctx.getPrimaryInput(), ctx);
+      ReversibleStatementListUtils.statementList(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.thenPart$JklD), null, null, ctx);
       ctx.getBuffer().area().decreaseIndent();
 
       tgs.indent();
@@ -62,17 +62,11 @@ public class IfStatement_TextGen extends TextGenDescriptorBase {
 
     } else {
       // REVERSE IF STATEMENT
-      if (isContainedInLoop) {
-        tgs.append("if (cp.");
-        tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.loopArrayName$wAd5));
-        tgs.append("[");
-        tgs.append(reverseIteratorName);
-        tgs.append("] & (1 << 0)) ");
-      } else {
-        tgs.append("if (cp.");
-        tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), PROPS.name$MnvL));
-        tgs.append(" & (1 << 0)) ");
-      }
+      ReversibleStatementListUtils.stackStateHandling(SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5), SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), PROPS.name$MnvL), SLinkOperations.getTarget(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), LINKS.type$sXU3), ctx.getPrimaryInput(), ctx);
+      tgs.indent();
+      tgs.append("if (");
+      tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), PROPS.name$MnvL));
+      tgs.append(" & (1 << 0)) ");
       tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.thenPart$JklD));
     }
 
@@ -98,7 +92,6 @@ public class IfStatement_TextGen extends TextGenDescriptorBase {
 
   private static final class PROPS {
     /*package*/ static final SProperty reversibilityRequired$Zgdy = MetaAdapterFactory.getProperty(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111cL, 0x56ee1731ff5a6482L, "reversibilityRequired");
-    /*package*/ static final SProperty loopArrayName$wAd5 = MetaAdapterFactory.getProperty(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x6337a44ca4f72dbfL, "loopArrayName");
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
     /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
   }
@@ -106,6 +99,7 @@ public class IfStatement_TextGen extends TextGenDescriptorBase {
   private static final class LINKS {
     /*package*/ static final SContainmentLink condition$Jk6C = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x5718179e5b1bb7d7L, 0x5718179e5b1bb7d8L, "condition");
     /*package*/ static final SContainmentLink supportVariable$WrxR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x586abb2d5743cb69L, "supportVariable");
+    /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
     /*package*/ static final SContainmentLink thenPart$JklD = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x5718179e5b1bb7d7L, 0x5718179e5b1bb7d9L, "thenPart");
     /*package*/ static final SContainmentLink elseIfs$3PWK = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x5718179e5b1bb7d7L, 0x2b8026b23bc273a3L, "elseIfs");
     /*package*/ static final SContainmentLink elsePart$Do88 = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x5718179e5b1bb7d7L, 0x2b8026b23bc2442bL, "elsePart");

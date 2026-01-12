@@ -5,24 +5,143 @@ package DESL.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import java.util.List;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
+import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
+import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
+import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
+import org.jetbrains.mps.openapi.model.SNode;
+import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.internal.collections.runtime.Sequence;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.baseLanguage.logging.rt.LogContext;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
+import java.util.Objects;
+import ReversibleStatements.behavior.ForStatement__BehaviorDescriptor;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public final class ClassDefinition__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, "DESL.structure.ClassDefinition");
 
+  public static final SMethod<Void> computeStacksSizes_id5jvm5d2NtRD = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("computeStacksSizes").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6115703933618740713L).languageId(0xace4ce3b88117666L, 0xc4765525912b41b9L).build2();
+  public static final SMethod<Integer> getStackSizeByType_id5jvm5d2RyP1 = new SMethodBuilder<Integer>(new SJavaCompoundTypeImpl(Integer.TYPE)).name("getStackSizeByType").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6115703933619809601L).languageId(0xace4ce3b88117666L, 0xc4765525912b41b9L).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<SAbstractConcept>) ((Class) Object.class), ""));
+  /*package*/ static final SMethod<Integer> computeNumOfStateSavingOperations_id5jvm5d2QWHR = new SMethodBuilder<Integer>(new SJavaCompoundTypeImpl(Integer.TYPE)).name("computeNumOfStateSavingOperations").modifiers(0, AccessPrivileges.PRIVATE).concept(CONCEPT).baseMethodId(6115703933619653495L).languageId(0xace4ce3b88117666L, 0xc4765525912b41b9L).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<SAbstractConcept>) ((Class) Object.class), ""));
+  /*package*/ static final SMethod<Integer> getUInt16StackSize_id5jvm5d2S7Iz = new SMethodBuilder<Integer>(new SJavaCompoundTypeImpl(Integer.TYPE)).name("getUInt16StackSize").modifiers(0, AccessPrivileges.PRIVATE).concept(CONCEPT).baseMethodId(6115703933619960739L).languageId(0xace4ce3b88117666L, 0xc4765525912b41b9L).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
+  /*package*/ static final SMethod<Integer> computeNumOfIfs_id5jvm5d2S8A4 = new SMethodBuilder<Integer>(new SJavaCompoundTypeImpl(Integer.TYPE)).name("computeNumOfIfs").modifiers(0, AccessPrivileges.PRIVATE).concept(CONCEPT).baseMethodId(6115703933619964292L).languageId(0xace4ce3b88117666L, 0xc4765525912b41b9L).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList();
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(computeStacksSizes_id5jvm5d2NtRD, getStackSizeByType_id5jvm5d2RyP1, computeNumOfStateSavingOperations_id5jvm5d2QWHR, getUInt16StackSize_id5jvm5d2S7Iz, computeNumOfIfs_id5jvm5d2S8A4);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
+  /*package*/ static void computeStacksSizes_id5jvm5d2NtRD(@NotNull SNode __thisNode__) {
+
+    int doubleStackSize = 0;
+    int intStackSize = 0;
+    int uIntStackSize = 0;
+    int uInt16StackSize = 0;
+
+    for (SNode handler : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, LINKS.handlers$Nr2P), CONCEPTS.ReversibleEventHandler$Ov))) {
+
+      LogContext.with(ClassDefinition__BehaviorDescriptor.class, null, null, null).info("Computing stack sizes for handler " + SPropertyOperations.getString(handler, PROPS.eventName$rI8o));
+
+      int curDoubleStackSize = ((int) ClassDefinition__BehaviorDescriptor.getStackSizeByType_id5jvm5d2RyP1.invoke(__thisNode__, handler, CONCEPTS.DoubleType$Lm));
+      if (doubleStackSize < curDoubleStackSize) {
+        doubleStackSize = curDoubleStackSize;
+      }
+
+      int curIntStackSize = ((int) ClassDefinition__BehaviorDescriptor.getStackSizeByType_id5jvm5d2RyP1.invoke(__thisNode__, handler, CONCEPTS.Int8tType$tq)) + ((int) ClassDefinition__BehaviorDescriptor.getStackSizeByType_id5jvm5d2RyP1.invoke(__thisNode__, handler, CONCEPTS.Int16tType$FW)) + ((int) ClassDefinition__BehaviorDescriptor.getStackSizeByType_id5jvm5d2RyP1.invoke(__thisNode__, handler, CONCEPTS.Int32tType$Sy)) + ((int) ClassDefinition__BehaviorDescriptor.getStackSizeByType_id5jvm5d2RyP1.invoke(__thisNode__, handler, CONCEPTS.Int64tType$UX));
+      if (intStackSize < curIntStackSize) {
+        intStackSize = curIntStackSize;
+      }
+
+      int curUIntStackSize = ((int) ClassDefinition__BehaviorDescriptor.getStackSizeByType_id5jvm5d2RyP1.invoke(__thisNode__, handler, CONCEPTS.UnsignedInt8tType$n3)) + ((int) ClassDefinition__BehaviorDescriptor.getStackSizeByType_id5jvm5d2RyP1.invoke(__thisNode__, handler, CONCEPTS.UnsignedInt16tType$pu)) + ((int) ClassDefinition__BehaviorDescriptor.getStackSizeByType_id5jvm5d2RyP1.invoke(__thisNode__, handler, CONCEPTS.UnsignedInt32tType$7z)) + ((int) ClassDefinition__BehaviorDescriptor.getStackSizeByType_id5jvm5d2RyP1.invoke(__thisNode__, handler, CONCEPTS.UnsignedInt64tType$at)) + ((int) ClassDefinition__BehaviorDescriptor.getStackSizeByType_id5jvm5d2RyP1.invoke(__thisNode__, handler, CONCEPTS.PointerType$HX)) + ((int) ClassDefinition__BehaviorDescriptor.getStackSizeByType_id5jvm5d2RyP1.invoke(__thisNode__, handler, CONCEPTS.Collection$YT));
+      if (uIntStackSize < curUIntStackSize) {
+        uIntStackSize = curUIntStackSize;
+      }
+
+      int curUInt16StackSize = ((int) ClassDefinition__BehaviorDescriptor.getUInt16StackSize_id5jvm5d2S7Iz.invokeSpecial(__thisNode__, handler));
+      if (uInt16StackSize < curUInt16StackSize) {
+        uInt16StackSize = curUInt16StackSize;
+      }
+    }
+
+    SPropertyOperations.assign(__thisNode__, PROPS.doubleStackSize$2G1n, doubleStackSize);
+    SPropertyOperations.assign(__thisNode__, PROPS.intStackSize$onug, intStackSize);
+    SPropertyOperations.assign(__thisNode__, PROPS.uIntStackSize$2Gvp, uIntStackSize);
+    SPropertyOperations.assign(__thisNode__, PROPS.uInt16StackSize$2GXr, uInt16StackSize);
+
+  }
+  /*package*/ static int getStackSizeByType_id5jvm5d2RyP1(@NotNull SNode __thisNode__, SNode handler, SAbstractConcept type) {
+
+    LogContext.with(ClassDefinition__BehaviorDescriptor.class, null, null, null).info("Computing stack size for type " + type.getName());
+
+    int res = 0;
+    res += ((int) ClassDefinition__BehaviorDescriptor.computeNumOfStateSavingOperations_id5jvm5d2QWHR.invokeSpecial(__thisNode__, handler, type));
+    for (SNode invokedFunction : ListSequence.fromList(SNodeOperations.getNodeDescendants(handler, CONCEPTS.ReversibleFunctionCall$TO, false, new SAbstractConcept[]{})).where((it) -> SNodeOperations.isInstanceOf(SLinkOperations.getTarget(it, LINKS.function$EyYZ), CONCEPTS.ReversibleFunction$IL))) {
+      res += ((int) ClassDefinition__BehaviorDescriptor.computeNumOfStateSavingOperations_id5jvm5d2QWHR.invokeSpecial(__thisNode__, invokedFunction, type));
+    }
+
+    LogContext.with(ClassDefinition__BehaviorDescriptor.class, null, null, null).info("Stack size is " + res);
+
+    return res;
+  }
+  /*package*/ static int computeNumOfStateSavingOperations_id5jvm5d2QWHR(@NotNull SNode __thisNode__, SNode stmtContainer, final SAbstractConcept type) {
+    int result = 0;
+    for (SNode destructiveOperation : ListSequence.fromList(SNodeOperations.getNodeDescendants(stmtContainer, CONCEPTS.IDestructiveOperation$SP, false, new SAbstractConcept[]{})).where((it) -> Objects.equals(SNodeOperations.getConcept(SLinkOperations.getTarget(SLinkOperations.getTarget(it, LINKS.supportVariable$WrxR), LINKS.type$sXU3)), type))) {
+
+      LogContext.with(ClassDefinition__BehaviorDescriptor.class, null, null, null).info("Considering destructive operation: " + SNodeOperations.getConcept(destructiveOperation).getName());
+
+      int curResult = 1;
+      int numIterations;
+      for (SNode forStmt : Sequence.fromIterable(SNodeOperations.ofConcept(SNodeOperations.getNodeAncestors(destructiveOperation, null, false), CONCEPTS.ForStatement$Bb))) {
+        LogContext.with(ClassDefinition__BehaviorDescriptor.class, null, null, null).info("Considering for statement");
+        numIterations = (int) ForStatement__BehaviorDescriptor.computeNumberOfIterations_id5jvm5d2Pqj_.invoke(forStmt);
+        if (numIterations == 0) {
+          // todo determine a better loop iterations number estimation
+          LogContext.with(ClassDefinition__BehaviorDescriptor.class, null, null, null).warning("Found loop with unknown number of iterations, defaulting to 500");
+          curResult *= 500;
+        } else {
+          curResult *= (int) ForStatement__BehaviorDescriptor.computeNumberOfIterations_id5jvm5d2Pqj_.invoke(forStmt);
+        }
+      }
+      result += curResult;
+    }
+    return result;
+  }
+  /*package*/ static int getUInt16StackSize_id5jvm5d2S7Iz(@NotNull SNode __thisNode__, SNode handler) {
+    int res = 0;
+    res += ((int) ClassDefinition__BehaviorDescriptor.computeNumOfIfs_id5jvm5d2S8A4.invokeSpecial(__thisNode__, handler));
+    for (SNode invokedFunction : ListSequence.fromList(SNodeOperations.getNodeDescendants(handler, CONCEPTS.ReversibleFunctionCall$TO, false, new SAbstractConcept[]{})).where((it) -> SNodeOperations.isInstanceOf(SLinkOperations.getTarget(it, LINKS.function$EyYZ), CONCEPTS.ReversibleFunction$IL))) {
+      res += ((int) ClassDefinition__BehaviorDescriptor.computeNumOfIfs_id5jvm5d2S8A4.invokeSpecial(__thisNode__, invokedFunction));
+    }
+    return res;
+  }
+  /*package*/ static int computeNumOfIfs_id5jvm5d2S8A4(@NotNull SNode __thisNode__, SNode stmtContainer) {
+
+    LogContext.with(ClassDefinition__BehaviorDescriptor.class, null, null, null).info("Computing stack size for ifs");
+
+    int result = 0;
+    for (SNode ifStmt : ListSequence.fromList(SNodeOperations.getNodeDescendants(stmtContainer, CONCEPTS.IfStatement$AR, false, new SAbstractConcept[]{}))) {
+      int curResult = 1 + ListSequence.fromList(SLinkOperations.getChildren(ifStmt, LINKS.elseIfs$3PWK)).count();
+      for (SNode forStmt : Sequence.fromIterable(SNodeOperations.ofConcept(SNodeOperations.getNodeAncestors(ifStmt, null, false), CONCEPTS.ForStatement$Bb))) {
+        curResult *= (int) ForStatement__BehaviorDescriptor.computeNumberOfIterations_id5jvm5d2Pqj_.invoke(forStmt);
+      }
+      result += curResult;
+    }
+    LogContext.with(ClassDefinition__BehaviorDescriptor.class, null, null, null).info("Stack size is " + result);
+    return result;
+  }
 
   /*package*/ ClassDefinition__BehaviorDescriptor() {
   }
@@ -39,6 +158,17 @@ public final class ClassDefinition__BehaviorDescriptor extends BaseBHDescriptor 
       throw new BHMethodNotFoundException(this, method);
     }
     switch (methodIndex) {
+      case 0:
+        computeStacksSizes_id5jvm5d2NtRD(node);
+        return null;
+      case 1:
+        return (T) ((Integer) getStackSizeByType_id5jvm5d2RyP1(node, (SNode) parameters[0], (SAbstractConcept) parameters[1]));
+      case 2:
+        return (T) ((Integer) computeNumOfStateSavingOperations_id5jvm5d2QWHR(node, (SNode) parameters[0], (SAbstractConcept) parameters[1]));
+      case 3:
+        return (T) ((Integer) getUInt16StackSize_id5jvm5d2S7Iz(node, (SNode) parameters[0]));
+      case 4:
+        return (T) ((Integer) computeNumOfIfs_id5jvm5d2S8A4(node, (SNode) parameters[0]));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -66,5 +196,41 @@ public final class ClassDefinition__BehaviorDescriptor extends BaseBHDescriptor 
   @Override
   public SAbstractConcept getConcept() {
     return CONCEPT;
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty eventName$rI8o = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x549487e5d88a4291L, 0x113f0963d355264aL, "eventName");
+    /*package*/ static final SProperty doubleStackSize$2G1n = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x54df585342cdde6aL, "doubleStackSize");
+    /*package*/ static final SProperty intStackSize$onug = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x54df585342e22151L, "intStackSize");
+    /*package*/ static final SProperty uIntStackSize$2Gvp = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x54df585342cdde6cL, "uIntStackSize");
+    /*package*/ static final SProperty uInt16StackSize$2GXr = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x54df585342cdde6eL, "uInt16StackSize");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept DoubleType$Lm = MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7b064baaf4444619L, "com.mbeddr.core.expressions.structure.DoubleType");
+    /*package*/ static final SConcept Int8tType$tq = MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x75739ed9f39e387aL, "com.mbeddr.core.expressions.structure.Int8tType");
+    /*package*/ static final SConcept Int16tType$FW = MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x75739ed9f39e3883L, "com.mbeddr.core.expressions.structure.Int16tType");
+    /*package*/ static final SConcept Int32tType$Sy = MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x75739ed9f39e3888L, "com.mbeddr.core.expressions.structure.Int32tType");
+    /*package*/ static final SConcept Int64tType$UX = MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x75739ed9f39e388dL, "com.mbeddr.core.expressions.structure.Int64tType");
+    /*package*/ static final SConcept UnsignedInt32tType$7z = MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x75739ed9f39e3892L, "com.mbeddr.core.expressions.structure.UnsignedInt32tType");
+    /*package*/ static final SConcept UnsignedInt16tType$pu = MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x75739ed9f39e38a2L, "com.mbeddr.core.expressions.structure.UnsignedInt16tType");
+    /*package*/ static final SConcept UnsignedInt8tType$n3 = MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x75739ed9f39e389dL, "com.mbeddr.core.expressions.structure.UnsignedInt8tType");
+    /*package*/ static final SConcept UnsignedInt64tType$at = MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x75739ed9f39e3898L, "com.mbeddr.core.expressions.structure.UnsignedInt64tType");
+    /*package*/ static final SConcept PointerType$HX = MetaAdapterFactory.getConcept(0x3bf5377ae9044dedL, 0x97545a516023bfaaL, 0x3e0cae5e366d630L, "com.mbeddr.core.pointers.structure.PointerType");
+    /*package*/ static final SConcept Collection$YT = MetaAdapterFactory.getConcept(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x6f36cc77d0af8690L, "Collections.structure.Collection");
+    /*package*/ static final SConcept ReversibleEventHandler$Ov = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, "DESL.structure.ReversibleEventHandler");
+    /*package*/ static final SConcept ReversibleFunctionCall$TO = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x2e6ecb766f1587b4L, "ReversibleExpressions.structure.ReversibleFunctionCall");
+    /*package*/ static final SConcept ReversibleFunction$IL = MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, "ReversibleFunctions.structure.ReversibleFunction");
+    /*package*/ static final SConcept ForStatement$Bb = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a40186e676L, "ReversibleStatements.structure.ForStatement");
+    /*package*/ static final SInterfaceConcept IDestructiveOperation$SP = MetaAdapterFactory.getInterfaceConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x27d0c8e745a2c78dL, "ReversibleExpressions.structure.IDestructiveOperation");
+    /*package*/ static final SConcept IfStatement$AR = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x5718179e5b1bb7d7L, "ReversibleStatements.structure.IfStatement");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink handlers$Nr2P = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x4117a694e5b8c1a3L, "handlers");
+    /*package*/ static final SReferenceLink function$EyYZ = MetaAdapterFactory.getReferenceLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x2e6ecb766f1587b4L, 0x2e6ecb766f15bfbaL, "function");
+    /*package*/ static final SContainmentLink supportVariable$WrxR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x586abb2d5743cb69L, "supportVariable");
+    /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
+    /*package*/ static final SContainmentLink elseIfs$3PWK = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x5718179e5b1bb7d7L, 0x2b8026b23bc273a3L, "elseIfs");
   }
 }

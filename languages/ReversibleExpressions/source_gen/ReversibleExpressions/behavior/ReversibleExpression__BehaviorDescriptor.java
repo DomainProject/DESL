@@ -19,7 +19,6 @@ import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import com.mbeddr.core.expressions.behavior.IVariableDeclaration__BehaviorDescriptor;
 import com.mbeddr.core.expressions.behavior.IVariableReference__BehaviorDescriptor;
-import java.math.BigInteger;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import com.mbeddr.core.expressions.behavior.Type__BehaviorDescriptor;
@@ -39,7 +38,6 @@ public final class ReversibleExpression__BehaviorDescriptor extends BaseBHDescri
   public static final SMethod<SNode> getWriteTarget_id1uoAWUPe2Ie = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getWriteTarget").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1700280171438287758L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
   public static final SMethod<Boolean> isLValue_id6iIoqg1yDKH = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isLValue").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7254843406768839725L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
   public static final SMethod<Boolean> isStaticallyEvaluatable_id3ilck8Kr3zN = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isStaticallyEvaluatable").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(3788988821852141811L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
-  public static final SMethod<Object> evaluateStatically_id6OxpEKG0KPv = new SMethodBuilder<Object>(new SJavaCompoundTypeImpl(Object.class)).name("evaluateStatically").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7863679314024402271L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
   public static final SMethod<String> renderReadable_id1VQvajLb13M = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("renderReadable").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2231107713271337202L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
   public static final SMethod<String> asList_id2JIP8c_ZWpI = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("asList").modifiers(0, AccessPrivileges.PROTECTED).concept(CONCEPT).baseMethodId(3165701247831361134L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2(SMethodBuilder.createJavaParameter((Class<Iterable<SNode>>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter(String.class, ""));
   public static final SMethod<String> asList_id2JIP8c_ZWqJ = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("asList").modifiers(0, AccessPrivileges.PROTECTED).concept(CONCEPT).baseMethodId(3165701247831361199L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2(SMethodBuilder.createJavaParameter((Class<Iterable<String>>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter(String.class, ""));
@@ -51,7 +49,7 @@ public final class ReversibleExpression__BehaviorDescriptor extends BaseBHDescri
   public static final SMethod<Boolean> isDotCapable_id66WTx3vdu2E = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isDotCapable").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7042756877439328426L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
   public static final SMethod<Boolean> requiresParenthesisInCast_id4o$BgAQrCHG = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("requiresParenthesisInCast").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(5054337346857503596L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getCodeForTarget_id1uoAWUPe22W, getWriteTarget_id1uoAWUPe2Ie, isLValue_id6iIoqg1yDKH, isStaticallyEvaluatable_id3ilck8Kr3zN, evaluateStatically_id6OxpEKG0KPv, renderReadable_id1VQvajLb13M, asList_id2JIP8c_ZWpI, asList_id2JIP8c_ZWqJ, isSideeffectFree_id6SENleF$SRD, requiresItsOwnLineInSomeContext_id5AweqC3NO9h, mayBePointerType_id3FUljR4fqsG, cleanup_id7rX8gRKIEsj, getPriolevel_id5HxjapwgqKu, isDotCapable_id66WTx3vdu2E, requiresParenthesisInCast_id4o$BgAQrCHG);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getCodeForTarget_id1uoAWUPe22W, getWriteTarget_id1uoAWUPe2Ie, isLValue_id6iIoqg1yDKH, isStaticallyEvaluatable_id3ilck8Kr3zN, renderReadable_id1VQvajLb13M, asList_id2JIP8c_ZWpI, asList_id2JIP8c_ZWqJ, isSideeffectFree_id6SENleF$SRD, requiresItsOwnLineInSomeContext_id5AweqC3NO9h, mayBePointerType_id3FUljR4fqsG, cleanup_id7rX8gRKIEsj, getPriolevel_id5HxjapwgqKu, isDotCapable_id66WTx3vdu2E, requiresParenthesisInCast_id4o$BgAQrCHG);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
     SPropertyOperations.assign(__thisNode__, PROPS.isForward$pAg5, true);
@@ -97,14 +95,11 @@ public final class ReversibleExpression__BehaviorDescriptor extends BaseBHDescri
   /*package*/ static boolean isStaticallyEvaluatable_id3ilck8Kr3zN(@NotNull SNode __thisNode__) {
     return false;
   }
-  /*package*/ static Object evaluateStatically_id6OxpEKG0KPv(@NotNull SNode __thisNode__) {
-    return BigInteger.ZERO;
-  }
   /*package*/ static String renderReadable_id1VQvajLb13M(@NotNull SNode __thisNode__) {
     if (LOG.isErrorLevel()) {
       LOG.error("<no renderReadable for " + SNodeOperations.getConcept(__thisNode__).getQualifiedName() + ">");
     }
-    return "<" + check_izas9e_a0a1a5(SNodeOperations.getConcept(__thisNode__)) + ">";
+    return "<" + check_izas9e_a0a1a4(SNodeOperations.getConcept(__thisNode__)) + ">";
   }
   /*package*/ static String asList_id2JIP8c_ZWpI(@NotNull SNode __thisNode__, Iterable<SNode> exprlist, String sep) {
     return ((String) ReversibleExpression__BehaviorDescriptor.asList_id2JIP8c_ZWqJ.invoke(__thisNode__, Sequence.fromIterable(exprlist).select((it) -> (String) ReversibleExpression__BehaviorDescriptor.renderReadable_id1VQvajLb13M.invoke(it)), sep));
@@ -173,25 +168,23 @@ public final class ReversibleExpression__BehaviorDescriptor extends BaseBHDescri
       case 3:
         return (T) ((Boolean) isStaticallyEvaluatable_id3ilck8Kr3zN(node));
       case 4:
-        return (T) ((Object) evaluateStatically_id6OxpEKG0KPv(node));
-      case 5:
         return (T) ((String) renderReadable_id1VQvajLb13M(node));
-      case 6:
+      case 5:
         return (T) ((String) asList_id2JIP8c_ZWpI(node, (Iterable<SNode>) parameters[0], (String) parameters[1]));
-      case 7:
+      case 6:
         return (T) ((String) asList_id2JIP8c_ZWqJ(node, (Iterable<String>) parameters[0], (String) parameters[1]));
-      case 8:
+      case 7:
         return (T) ((Boolean) isSideeffectFree_id6SENleF$SRD(node));
-      case 9:
+      case 8:
         return (T) ((Boolean) requiresItsOwnLineInSomeContext_id5AweqC3NO9h(node));
-      case 10:
+      case 9:
         return (T) ((Boolean) mayBePointerType_id3FUljR4fqsG(node));
-      case 11:
+      case 10:
         cleanup_id7rX8gRKIEsj(node);
         return null;
-      case 13:
+      case 12:
         return (T) ((Boolean) isDotCapable_id66WTx3vdu2E(node));
-      case 14:
+      case 13:
         return (T) ((Boolean) requiresParenthesisInCast_id4o$BgAQrCHG(node));
       default:
         throw new BHMethodNotFoundException(this, method);
@@ -205,7 +198,7 @@ public final class ReversibleExpression__BehaviorDescriptor extends BaseBHDescri
       throw new BHMethodNotFoundException(this, method);
     }
     switch (methodIndex) {
-      case 12:
+      case 11:
         return (T) ((Integer) getPriolevel_id5HxjapwgqKu(concept));
       default:
         throw new BHMethodNotFoundException(this, method);
@@ -223,7 +216,7 @@ public final class ReversibleExpression__BehaviorDescriptor extends BaseBHDescri
   public SAbstractConcept getConcept() {
     return CONCEPT;
   }
-  private static String check_izas9e_a0a1a5(SConcept checkedDotOperand) {
+  private static String check_izas9e_a0a1a4(SConcept checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getName();
     }

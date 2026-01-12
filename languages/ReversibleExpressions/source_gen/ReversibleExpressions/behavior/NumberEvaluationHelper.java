@@ -9,6 +9,7 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import com.mbeddr.core.expressions.behavior.Expression__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import ReversibleExpressions.typesystem.NumLiteralTypeHelper;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
@@ -262,7 +263,7 @@ public class NumberEvaluationHelper extends EH {
 
   public static SNode staticType(SNode leftType, SNode rightType, SNode e) {
     if ((boolean) ReversibleExpression__BehaviorDescriptor.isStaticallyEvaluatable_id3ilck8Kr3zN.invoke(e)) {
-      Object staticValue = ReversibleExpression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(e);
+      Object staticValue = Expression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(e);
       if (staticValue == null) {
         throw new IllegalArgumentException("static evaluation for " + SNodeOperations.getConcept(e) + " returned null but was statically evaluatable");
       }

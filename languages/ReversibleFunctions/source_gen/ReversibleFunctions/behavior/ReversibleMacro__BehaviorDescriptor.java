@@ -16,7 +16,6 @@ import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.baseLanguage.logging.rt.LogContext;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import com.mbeddr.core.expressions.behavior.Expression__BehaviorDescriptor;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
@@ -62,9 +61,6 @@ public final class ReversibleMacro__BehaviorDescriptor extends BaseBHDescriptor 
           {
             final SNode ref = SLinkOperations.getTarget(binaryExpression, LINKS.left$KPKR);
             if (SNodeOperations.isInstanceOf(ref, CONCEPTS.ReversibleMacroArgumentRef$S2)) {
-
-              LogContext.with(ReversibleMacro__BehaviorDescriptor.class, null, null, null).info("Saving parameter " + SPropertyOperations.getString(SLinkOperations.getTarget(ref, LINKS.arg$vQxE), PROPS.name$MnvL) + " with index " + SNodeOperations.getIndexInParent(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.arguments$5$Ru)).findFirst((it) -> it == SLinkOperations.getTarget(ref, LINKS.arg$vQxE))));
-
               return SNodeOperations.getIndexInParent(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.arguments$5$Ru)).findFirst((it) -> it == SLinkOperations.getTarget(ref, LINKS.arg$vQxE)));
             }
           }
@@ -191,8 +187,8 @@ public final class ReversibleMacro__BehaviorDescriptor extends BaseBHDescriptor 
     /*package*/ static final SContainmentLink content$L7Vn = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145008fL, 0x78202c09dd229062L, "content");
     /*package*/ static final SReferenceLink macro$QKaR = MetaAdapterFactory.getReferenceLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1b427f2e49d1fe84L, 0x1b427f2e49d1fe85L, "macro");
     /*package*/ static final SContainmentLink left$KPKR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba34L, 0x7af69e2e83a1ba40L, "left");
-    /*package*/ static final SReferenceLink arg$vQxE = MetaAdapterFactory.getReferenceLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c176117d6e39L, 0x2f67c176117d9dacL, "arg");
     /*package*/ static final SContainmentLink arguments$5$Ru = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145008fL, 0x539093cd74777237L, "arguments");
+    /*package*/ static final SReferenceLink arg$vQxE = MetaAdapterFactory.getReferenceLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c176117d6e39L, 0x2f67c176117d9dacL, "arg");
     /*package*/ static final SContainmentLink expression$HKAI = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x29b5b7c4a3763232L, 0x64ae61a4018a9c50L, "expression");
     /*package*/ static final SReferenceLink arg$jQg5 = MetaAdapterFactory.getReferenceLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x656c7fdaacd43d75L, 0x656c7fdaacd43d76L, "arg");
   }

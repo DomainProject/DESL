@@ -16,10 +16,14 @@ import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.baseLanguage.logging.rt.LogContext;
+import jetbrains.mps.lang.core.behavior.BaseConcept__BehaviorDescriptor;
+import com.mbeddr.core.expressions.behavior.Expression__BehaviorDescriptor;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SProperty;
 
@@ -31,8 +35,9 @@ public final class GlobalVarRef__BehaviorDescriptor extends BaseBHDescriptor {
   public static final SMethod<SNode> getVariable_id1LDGRqyQFAf = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getVariable").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2047364827736357263L).languageId(0x81d97714ff227fb0L, 0x61c69711ed614850L).build2();
   public static final SMethod<String> renderReadable_id1VQvajLb13M = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("renderReadable").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2231107713271337202L).languageId(0x81d97714ff227fb0L, 0x61c69711ed614850L).build2();
   public static final SMethod<String> getVariableName_id79Sp4cYA0X2 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getVariableName").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8248452957504802626L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
+  public static final SMethod<Object> evaluateStatically_id6OxpEKG0KPv = new SMethodBuilder<Object>(new SJavaCompoundTypeImpl(Object.class)).name("evaluateStatically").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7863679314024402271L).languageId(0x81d97714ff227fb0L, 0x61c69711ed614850L).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(rebindToProxy_id7jSUHHvkApb, referencedModuleContent_id7jSUHHvkAph, getVariable_id1LDGRqyQFAf, renderReadable_id1VQvajLb13M, getVariableName_id79Sp4cYA0X2);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(rebindToProxy_id7jSUHHvkApb, referencedModuleContent_id7jSUHHvkAph, getVariable_id1LDGRqyQFAf, renderReadable_id1VQvajLb13M, getVariableName_id79Sp4cYA0X2, evaluateStatically_id6OxpEKG0KPv);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -51,6 +56,10 @@ public final class GlobalVarRef__BehaviorDescriptor extends BaseBHDescriptor {
   }
   /*package*/ static String getVariableName_id79Sp4cYA0X2(@NotNull SNode __thisNode__) {
     return SPropertyOperations.getString(SLinkOperations.getTarget(__thisNode__, LINKS.var$Q_mg), PROPS.name$MnvL);
+  }
+  /*package*/ static Object evaluateStatically_id6OxpEKG0KPv(@NotNull SNode __thisNode__) {
+    LogContext.with(GlobalVarRef__BehaviorDescriptor.class, null, null, null).info("this.var.init = " + BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(SLinkOperations.getTarget(SLinkOperations.getTarget(__thisNode__, LINKS.var$Q_mg), LINKS.init$BXpk)));
+    return (Object) Expression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(SLinkOperations.getTarget(SLinkOperations.getTarget(__thisNode__, LINKS.var$Q_mg), LINKS.init$BXpk));
   }
 
   /*package*/ GlobalVarRef__BehaviorDescriptor() {
@@ -79,6 +88,8 @@ public final class GlobalVarRef__BehaviorDescriptor extends BaseBHDescriptor {
         return (T) ((String) renderReadable_id1VQvajLb13M(node));
       case 4:
         return (T) ((String) getVariableName_id79Sp4cYA0X2(node));
+      case 5:
+        return (T) ((Object) evaluateStatically_id6OxpEKG0KPv(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -110,6 +121,7 @@ public final class GlobalVarRef__BehaviorDescriptor extends BaseBHDescriptor {
 
   private static final class LINKS {
     /*package*/ static final SReferenceLink var$Q_mg = MetaAdapterFactory.getReferenceLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4ea2fd39f03d3a05L, 0x4ea2fd39f03d3a0aL, "var");
+    /*package*/ static final SContainmentLink init$BXpk = MetaAdapterFactory.getContainmentLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x5bbe8a6d23a1b6ceL, 0x2675825a6a4d4c89L, "init");
   }
 
   private static final class CONCEPTS {
