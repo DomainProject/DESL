@@ -48,7 +48,7 @@ public class WhileStatement_TextGen extends TextGenDescriptorBase {
       tgs.append(")");
       tgs.newLine();
 
-      ReversibleStatementListUtils.statementList(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$7sGD), null, "cp." + SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), PROPS.name$MnvL) + "++;\n", ctx);
+      ReversibleStatementListUtils.statementList(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$7sGD), ctx);
 
     } else {
 
@@ -82,8 +82,8 @@ public class WhileStatement_TextGen extends TextGenDescriptorBase {
 
   private static final class PROPS {
     /*package*/ static final SProperty reversibilityRequired$Zgdy = MetaAdapterFactory.getProperty(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111cL, 0x56ee1731ff5a6482L, "reversibilityRequired");
-    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
     /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
+    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 
   private static final class LINKS {

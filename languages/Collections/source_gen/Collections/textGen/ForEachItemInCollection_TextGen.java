@@ -5,88 +5,138 @@ package Collections.textGen;
 import jetbrains.mps.text.rt.TextGenDescriptorBase;
 import jetbrains.mps.text.rt.TextGenContext;
 import jetbrains.mps.text.impl.TextGenSupport;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import ReversibleStatements.textGen.ReversibleStatementListUtils;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
+import ReversibleStatements.textGen.ReversibleStatementListUtils;
 import jetbrains.mps.lang.traceable.behavior.TraceableConcept__BehaviorDescriptor;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class ForEachItemInCollection_TextGen extends TextGenDescriptorBase {
   @Override
   public void generateText(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     tgs.createPositionInfo();
-    tgs.append("__typeof(list_head(");
-    tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.collection$nEF));
-    tgs.append(")) ");
-    tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableName$xecS));
-    tgs.append(" = list_head(");
-    tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.collection$nEF));
-    tgs.append(");");
-    tgs.newLine();
-    tgs.indent();
-    tgs.append("int ");
-    tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.iteratorName$Z1d4));
-    tgs.append(" = 0;");
-    tgs.newLine();
-    tgs.indent();
-    tgs.append("while(");
-    tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableName$xecS));
-    tgs.append(" != NULL) {");
-    tgs.newLine();
 
-    ctx.getBuffer().area().increaseIndent();
-    // append local variable declarations at the beginning
-    ReversibleStatementListUtils.variableDeclarations(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$6qqU), ctx);
-    // append state savings/restores
-    ReversibleStatementListUtils.stateHandlingVariables(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$6qqU), ctx);
+    boolean reversiblityRequired = ((SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.ReversibleFunction$IL, false, false) != null) ? SPropertyOperations.getBoolean(SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.ReversibleFunction$IL, false, false), PROPS.reversibilityRequired$Zgdy) : false);
 
-    if (!(SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5))) {
-      ReversibleStatementListUtils.restoreRng(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$6qqU), ctx);
-    }
 
-    for (SNode stmt : ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$6qqU), LINKS.revStatements$IdM8))) {
-      tgs.indent();
-      tgs.appendNode(stmt);
+    if (!(reversiblityRequired)) {
+
+      tgs.append("__typeof(list_head(");
+      tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.collection$nEF));
+      tgs.append(")) ");
+      tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableName$xecS));
+      tgs.append(" = list_head(");
+      tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.collection$nEF));
+      tgs.append(");");
       tgs.newLine();
+      tgs.indent();
+      tgs.append("while(");
+      tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableName$xecS));
+      tgs.append(" != NULL) {");
+      tgs.newLine();
+      ctx.getBuffer().area().increaseIndent();
+      for (SNode stmt : ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$6qqU), LINKS.revStatements$IdM8))) {
+        tgs.indent();
+        tgs.appendNode(stmt);
+        tgs.newLine();
+      }
+      tgs.indent();
+      tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableName$xecS));
+      tgs.append(" = list_next(");
+      tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableName$xecS));
+      tgs.append(");");
+      tgs.newLine();
+      ctx.getBuffer().area().decreaseIndent();
+      tgs.append("}");
+
+    } else {
+
+      if (SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5)) {
+
+        tgs.append("__typeof(list_head(");
+        tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.collection$nEF));
+        tgs.append(")) ");
+        tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableName$xecS));
+        tgs.append(" = list_head(");
+        tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.collection$nEF));
+        tgs.append(");");
+        tgs.newLine();
+        tgs.indent();
+        tgs.append("while(");
+        tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableName$xecS));
+        tgs.append(" != NULL) {");
+        tgs.newLine();
+        ctx.getBuffer().area().increaseIndent();
+        ReversibleStatementListUtils.statementList(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$6qqU), ctx);
+        tgs.indent();
+        tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableName$xecS));
+        tgs.append(" = list_next(");
+        tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableName$xecS));
+        tgs.append(");");
+        tgs.newLine();
+        ctx.getBuffer().area().decreaseIndent();
+        tgs.indent();
+        tgs.append("}");
+
+      } else {
+
+        tgs.append("__typeof(list_tail(");
+        tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.collection$nEF));
+        tgs.append(")) ");
+        tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableName$xecS));
+        tgs.append(" = list_tail(");
+        tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.collection$nEF));
+        tgs.append(");");
+        tgs.newLine();
+        tgs.indent();
+        tgs.append("while(");
+        tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableName$xecS));
+        tgs.append(" != NULL) {");
+        tgs.newLine();
+        ctx.getBuffer().area().increaseIndent();
+        ReversibleStatementListUtils.statementList(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$6qqU), ctx);
+        tgs.indent();
+        tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableName$xecS));
+        tgs.append(" = list_prev(");
+        tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableName$xecS));
+        tgs.append(");");
+        tgs.newLine();
+        ctx.getBuffer().area().decreaseIndent();
+        tgs.indent();
+        tgs.append("}");
+
+
+      }
+
     }
-    tgs.indent();
-    tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableName$xecS));
-    tgs.append(" = list_next(");
-    tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableName$xecS));
-    tgs.append(");");
-    tgs.newLine();
-    tgs.indent();
-    tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.iteratorName$Z1d4));
-    tgs.append("++;");
-    tgs.newLine();
-    ctx.getBuffer().area().decreaseIndent();
-    tgs.indent();
-    tgs.append("}");
+
     if (tgs.needPositions()) {
       tgs.fillPositionInfo(TraceableConcept__BehaviorDescriptor.getTraceableProperty_id4pl5GY7LKmH.invoke(SNodeOperations.cast(ctx.getPrimaryInput(), CONCEPTS.TraceableConcept$L)));
     }
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ReversibleFunction$IL = MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, "ReversibleFunctions.structure.ReversibleFunction");
+    /*package*/ static final SInterfaceConcept TraceableConcept$L = MetaAdapterFactory.getInterfaceConcept(0x9ded098bad6a4657L, 0xbfd948636cfe8bc3L, 0x465516cf87c705a3L, "jetbrains.mps.lang.traceable.structure.TraceableConcept");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty reversibilityRequired$Zgdy = MetaAdapterFactory.getProperty(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111cL, 0x56ee1731ff5a6482L, "reversibilityRequired");
+    /*package*/ static final SProperty variableName$xecS = MetaAdapterFactory.getProperty(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x259b4ab97565ea5eL, 0x2d57d1c347710003L, "variableName");
+    /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
   }
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink collection$nEF = MetaAdapterFactory.getContainmentLink(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x259b4ab97565ea5eL, 0x2d57d1c347abef9fL, "collection");
     /*package*/ static final SContainmentLink body$6qqU = MetaAdapterFactory.getContainmentLink(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x259b4ab97565ea5eL, 0x259b4ab975661d54L, "body");
     /*package*/ static final SContainmentLink revStatements$IdM8 = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, 0x3a16e3a9c7ad9956L, "revStatements");
-  }
-
-  private static final class PROPS {
-    /*package*/ static final SProperty variableName$xecS = MetaAdapterFactory.getProperty(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x259b4ab97565ea5eL, 0x2d57d1c347710003L, "variableName");
-    /*package*/ static final SProperty iteratorName$Z1d4 = MetaAdapterFactory.getProperty(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x259b4ab97565ea5eL, 0x72751670f419b537L, "iteratorName");
-    /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
-  }
-
-  private static final class CONCEPTS {
-    /*package*/ static final SInterfaceConcept TraceableConcept$L = MetaAdapterFactory.getInterfaceConcept(0x9ded098bad6a4657L, 0xbfd948636cfe8bc3L, 0x465516cf87c705a3L, "jetbrains.mps.lang.traceable.structure.TraceableConcept");
   }
 }

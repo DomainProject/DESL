@@ -46,6 +46,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_IHasPrefixes;
   private ConceptPresentation props_IIndependentInitExpression;
   private ConceptPresentation props_IInitAwareType;
+  private ConceptPresentation props_IInterruptExecution;
   private ConceptPresentation props_ILocalVarScopeProvider;
   private ConceptPresentation props_ILoopStatement;
   private ConceptPresentation props_IReversible;
@@ -346,6 +347,12 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_IInitAwareType = cpb.create();
         }
         return props_IInitAwareType;
+      case LanguageConceptSwitch.IInterruptExecution:
+        if (props_IInterruptExecution == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          props_IInterruptExecution = cpb.create();
+        }
+        return props_IInterruptExecution;
       case LanguageConceptSwitch.ILocalVarScopeProvider:
         if (props_ILocalVarScopeProvider == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

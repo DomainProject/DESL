@@ -7,11 +7,13 @@ import jetbrains.mps.text.rt.TextGenContext;
 import jetbrains.mps.text.impl.TextGenSupport;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import org.jetbrains.mps.openapi.model.SNode;
-import ReversibleStatements.behavior.IReversibleLoop__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import jetbrains.mps.internal.collections.runtime.Sequence;
+import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
@@ -22,70 +24,96 @@ public class ElseIfPart_TextGen extends TextGenDescriptorBase {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     boolean requiresReversibility = SPropertyOperations.getBoolean(SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.ReversibleFunction$IL, false, false), PROPS.reversibilityRequired$Zgdy);
 
-    SNode loopAncestor = SNodeOperations.getParent(SNodeOperations.getParent(SNodeOperations.getParent(ctx.getPrimaryInput())));
+    if (!(requiresReversibility) || SPropertyOperations.getBoolean(SNodeOperations.cast(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.IfStatement$AR), PROPS.skipStateSaving$3wRV)) {
+      tgs.append("else if (");
+      tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.condition$_zJK));
+      tgs.append(") {");
+      tgs.newLine();
+      tgs.indent();
+      ReversibleStatementListUtils.statementList(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$_xRC), ctx);
+      tgs.indent();
+      tgs.append("}");
+      tgs.newLine();
 
-    boolean isContainedInLoop = SNodeOperations.isInstanceOf(loopAncestor, CONCEPTS.IReversibleLoop$k1);
+    } else if (SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5)) {
 
-    String iteratorName = "";
-    String reverseIteratorName = "";
-    if (isContainedInLoop) {
-      reverseIteratorName = iteratorName = "cp." + IReversibleLoop__BehaviorDescriptor.getIterationVariableName_id6cRD4M$XPR9.invoke(SNodeOperations.cast(loopAncestor, CONCEPTS.IReversibleLoop$k1));
-    }
-
-    if (SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5) || !(requiresReversibility)) {
+      // remove return statement from body to prevent returning before saving the support variable
+      SNode interruptingStmt = ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$_xRC), LINKS.revStatements$IdM8)).findFirst((it) -> SNodeOperations.isInstanceOf(it, CONCEPTS.ReturnStatement$ow) || SNodeOperations.isInstanceOf(it, CONCEPTS.BreakStatement$8H));
+      SNode filteredStatementList = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, "ReversibleStatements.structure.ReversibleStatementList"));
+      for (SNode stmt : ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$_xRC), LINKS.revStatements$IdM8)).where((it) -> !(SNodeOperations.isInstanceOf(it, CONCEPTS.ReturnStatement$ow)) && !(SNodeOperations.isInstanceOf(it, CONCEPTS.BreakStatement$8H)))) {
+        ListSequence.fromList(SLinkOperations.getChildren(filteredStatementList, LINKS.revStatements$IdM8)).addElement(SNodeOperations.copyNode(stmt));
+      }
 
       tgs.append("else if (");
       tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.condition$_zJK));
-      tgs.append(") ");
-      tgs.append("{");
+      tgs.append(") {");
       tgs.newLine();
-
-
-
       ctx.getBuffer().area().increaseIndent();
+
+      for (SNode ifStatement : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$_xRC), LINKS.revStatements$IdM8), CONCEPTS.IfStatement$AR)).where((it) -> !(SPropertyOperations.getBoolean(it, PROPS.skipStateSaving$3wRV)))) {
+        tgs.indent();
+        tgs.appendNode(SLinkOperations.getTarget(SLinkOperations.getTarget(ifStatement, LINKS.supportVariable$WrxR), LINKS.type$sXU3));
+        tgs.append(" ");
+        tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ifStatement, LINKS.supportVariable$WrxR), PROPS.name$MnvL));
+        tgs.append(" = 0;");
+        tgs.newLine();
+      }
+
+      ReversibleStatementListUtils.statements(ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$_xRC), LINKS.revStatements$IdM8)).where((it) -> !(SNodeOperations.isInstanceOf(it, CONCEPTS.IInterruptExecution$f5))).toList(), SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5), ctx);
+
+      // update support variable
       tgs.indent();
       tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.IfStatement$AR), LINKS.supportVariable$WrxR), PROPS.name$MnvL));
       tgs.append(" |= (1 << ");
       tgs.append(String.valueOf(SNodeOperations.getIndexInParent(ctx.getPrimaryInput()) + 1));
       tgs.append(");");
       tgs.newLine();
-      ReversibleStatementListUtils.stackStateHandling(SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5), SPropertyOperations.getString(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.IfStatement$AR), LINKS.supportVariable$WrxR), PROPS.name$MnvL), SLinkOperations.getTarget(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.IfStatement$AR), LINKS.supportVariable$WrxR), LINKS.type$sXU3), SNodeOperations.cast(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.IfStatement$AR), ctx);
-      ReversibleStatementListUtils.statementList(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$_xRC), null, null, ctx);
-      ctx.getBuffer().area().decreaseIndent();
 
+      // push support variable
+      tgs.indent();
+      ReversibleStatementListUtils.stackStateHandling(SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5), SPropertyOperations.getString(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.IfStatement$AR), LINKS.supportVariable$WrxR), PROPS.name$MnvL), SLinkOperations.getTarget(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.IfStatement$AR), LINKS.supportVariable$WrxR), LINKS.type$sXU3), SNodeOperations.cast(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.IfStatement$AR), ctx);
+
+      if ((interruptingStmt != null)) {
+        tgs.indent();
+        tgs.appendNode(interruptingStmt);
+        tgs.newLine();
+      }
+      ctx.getBuffer().area().decreaseIndent();
       tgs.indent();
       tgs.append("}");
       tgs.newLine();
-
     } else {
-
-
-      ReversibleStatementListUtils.stackStateHandling(SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5), SPropertyOperations.getString(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.IfStatement$AR), LINKS.supportVariable$WrxR), PROPS.name$MnvL), SLinkOperations.getTarget(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.IfStatement$AR), LINKS.supportVariable$WrxR), LINKS.type$sXU3), SNodeOperations.cast(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.IfStatement$AR), ctx);
-      tgs.append("else if (cp.");
+      tgs.indent();
+      tgs.append("else if (");
       tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.IfStatement$AR), LINKS.supportVariable$WrxR), PROPS.name$MnvL));
       tgs.append(" & (1 << ");
       tgs.append(String.valueOf(SNodeOperations.getIndexInParent(ctx.getPrimaryInput()) + 1));
       tgs.append(")) ");
       tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$_xRC));
     }
+
   }
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept ReversibleFunction$IL = MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, "ReversibleFunctions.structure.ReversibleFunction");
-    /*package*/ static final SInterfaceConcept IReversibleLoop$k1 = MetaAdapterFactory.getInterfaceConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x6337a44ca461bdf4L, "ReversibleStatements.structure.IReversibleLoop");
     /*package*/ static final SConcept IfStatement$AR = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x5718179e5b1bb7d7L, "ReversibleStatements.structure.IfStatement");
+    /*package*/ static final SConcept BreakStatement$8H = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x7525a1fdf25d5076L, "ReversibleStatements.structure.BreakStatement");
+    /*package*/ static final SConcept ReturnStatement$ow = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x4b1eecbba5015fabL, "ReversibleStatements.structure.ReturnStatement");
+    /*package*/ static final SInterfaceConcept IInterruptExecution$f5 = MetaAdapterFactory.getInterfaceConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x4a242d922b7ddf12L, "ReversibleStatements.structure.IInterruptExecution");
   }
 
   private static final class PROPS {
     /*package*/ static final SProperty reversibilityRequired$Zgdy = MetaAdapterFactory.getProperty(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111cL, 0x56ee1731ff5a6482L, "reversibilityRequired");
-    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty skipStateSaving$3wRV = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x75236ed53cd866f2L, "skipStateSaving");
     /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
+    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink condition$_zJK = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x2b8026b23bc272a6L, 0x2b8026b23bc272afL, "condition");
+    /*package*/ static final SContainmentLink body$_xRC = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x2b8026b23bc272a6L, 0x2b8026b23bc272a7L, "body");
+    /*package*/ static final SContainmentLink revStatements$IdM8 = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, 0x3a16e3a9c7ad9956L, "revStatements");
     /*package*/ static final SContainmentLink supportVariable$WrxR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x586abb2d5743cb69L, "supportVariable");
     /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
-    /*package*/ static final SContainmentLink body$_xRC = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x2b8026b23bc272a6L, 0x2b8026b23bc272a7L, "body");
   }
 }

@@ -7,20 +7,21 @@ import jetbrains.mps.text.rt.TextGenContext;
 import jetbrains.mps.text.impl.TextGenSupport;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import com.mbeddr.core.expressions.behavior.IVariableDeclaration__BehaviorDescriptor;
+import jetbrains.mps.internal.collections.runtime.Sequence;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.List;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
-import org.jetbrains.mps.openapi.model.SNode;
-import com.mbeddr.core.expressions.behavior.IVariableDeclaration__BehaviorDescriptor;
-import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.traceable.behavior.TraceableConcept__BehaviorDescriptor;
-import org.jetbrains.mps.openapi.language.SContainmentLink;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
-import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class ReleaseStruct_TextGen extends TextGenDescriptorBase {
   @Override
@@ -30,19 +31,86 @@ public class ReleaseStruct_TextGen extends TextGenDescriptorBase {
 
 
     if (SPropertyOperations.getBoolean(SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.ReversibleFunction$IL, false, false), PROPS.reversibilityRequired$Zgdy)) {
+
+      SNode structType = SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.struct$srIx)), CONCEPTS.PointerType$HX), LINKS.baseType$zMGV), CONCEPTS.StructType$B3);
+
       if (SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5)) {
-        tgs.append("push(stack, ");
-        tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), PROPS.name$MnvL));
+
+        // save non-ptr members' values on the stack
+        ReleaseStructUtils.releaseStruct(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.struct$srIx), PROPS.name$MnvL), structType, true, ctx);
+
+        // free pointer members
+        for (SNode structField : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(SLinkOperations.getTarget(structType, LINKS.struct$WCsg), LINKS.members$C59R), CONCEPTS.Member$J1))) {
+          {
+            final SNode ptrType = SLinkOperations.getTarget(structField, LINKS.type$sXU3);
+            if (SNodeOperations.isInstanceOf(ptrType, CONCEPTS.PointerType$HX)) {
+              {
+                final SNode strType = SLinkOperations.getTarget(ptrType, LINKS.baseType$zMGV);
+                if (SNodeOperations.isInstanceOf(strType, CONCEPTS.StructType$B3)) {
+                  if (!(SPropertyOperations.getString(SLinkOperations.getTarget(strType, LINKS.struct$WCsg), PROPS.name$MnvL).equals(SPropertyOperations.getString(SLinkOperations.getTarget(structType, LINKS.struct$WCsg), PROPS.name$MnvL)))) {
+                    tgs.indent();
+                    ReversibleStatementListUtils.stackStateHandling(true, SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableToSaveName$udlR) + "->" + SPropertyOperations.getString(structField, PROPS.name$MnvL), SLinkOperations.getTarget(structField, LINKS.type$sXU3), ctx.getPrimaryInput(), ctx);
+                    tgs.indent();
+                    tgs.append("rev_free_w(global_me, ");
+                    tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableToSaveName$udlR));
+                    tgs.append("->");
+                    tgs.append(SPropertyOperations.getString(structField, PROPS.name$MnvL));
+                    tgs.append(");");
+                    tgs.newLine();
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        // free struct
+        tgs.indent();
+        ReversibleStatementListUtils.stackStateHandling(true, SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableToSaveName$udlR), SNodeOperations.cast(IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.struct$srIx)), CONCEPTS.Type$dP), ctx.getPrimaryInput(), ctx);
+        tgs.indent();
+        tgs.append("rev_free_w(me, ");
+        tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableToSaveName$udlR));
         tgs.append(");");
         tgs.newLine();
-        tgs.append("rev_free(arena, cp.");
-        tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), PROPS.name$MnvL));
-        tgs.append(");");
-        tgs.newLine();
+
       } else {
-        tgs.append("rev_remalloc(pop(stack));");
+        // remalloc struct
+        tgs.indent();
+        ReversibleStatementListUtils.stackStateHandling(false, SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableToSaveName$udlR), SNodeOperations.cast(IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.struct$srIx)), CONCEPTS.Type$dP), ctx.getPrimaryInput(), ctx);
+        tgs.append("rev_remalloc_w(");
+        tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableToSaveName$udlR));
+        tgs.append(");");
         tgs.newLine();
+
+        // remalloc pointer members
+        for (SNode structField : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(SLinkOperations.getTarget(structType, LINKS.struct$WCsg), LINKS.members$C59R), CONCEPTS.Member$J1))) {
+          {
+            final SNode ptrType = SLinkOperations.getTarget(structField, LINKS.type$sXU3);
+            if (SNodeOperations.isInstanceOf(ptrType, CONCEPTS.PointerType$HX)) {
+              {
+                final SNode strType = SLinkOperations.getTarget(ptrType, LINKS.baseType$zMGV);
+                if (SNodeOperations.isInstanceOf(strType, CONCEPTS.StructType$B3)) {
+                  if (!(SPropertyOperations.getString(SLinkOperations.getTarget(strType, LINKS.struct$WCsg), PROPS.name$MnvL).equals(SPropertyOperations.getString(SLinkOperations.getTarget(structType, LINKS.struct$WCsg), PROPS.name$MnvL)))) {
+                    String varToRestore = SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableToSaveName$udlR) + "->" + SPropertyOperations.getString(structField, PROPS.name$MnvL);
+                    tgs.indent();
+                    ReversibleStatementListUtils.stackStateHandling(false, varToRestore, SLinkOperations.getTarget(structField, LINKS.type$sXU3), SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x9e7f826fe6178f6L, "ReversibleStatements.structure.ReleaseStruct")), ctx);
+                    tgs.indent();
+                    tgs.append("rev_remalloc_w(");
+                    tgs.append(varToRestore);
+                    tgs.append(");");
+                    tgs.newLine();
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        // restore non-ptr members' values
+        ReleaseStructUtils.releaseStruct(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.struct$srIx), PROPS.name$MnvL), SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.struct$srIx)), CONCEPTS.PointerType$HX), LINKS.baseType$zMGV), CONCEPTS.StructType$B3), false, ctx);
       }
+
+
     } else {
       List<String> members = ListSequence.fromList(new ArrayList<String>());
       Iterable<SNode> structMembers = SNodeOperations.ofConcept(SLinkOperations.getChildren(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.struct$srIx)), CONCEPTS.PointerType$HX), LINKS.baseType$zMGV), CONCEPTS.StructType$B3), LINKS.struct$WCsg), LINKS.members$C59R), CONCEPTS.Member$J1);
@@ -75,25 +143,26 @@ public class ReleaseStruct_TextGen extends TextGenDescriptorBase {
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink supportVariable$WrxR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x586abb2d5743cb69L, "supportVariable");
     /*package*/ static final SReferenceLink struct$srIx = MetaAdapterFactory.getReferenceLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x9e7f826fe6178f6L, 0x9e7f826fe6178fbL, "struct");
     /*package*/ static final SContainmentLink baseType$zMGV = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x6bbcdccef5e46755L, 0x6bbcdccef5e46756L, "baseType");
+    /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
     /*package*/ static final SReferenceLink struct$WCsg = MetaAdapterFactory.getReferenceLink(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x58bef62304fc0a38L, 0x58bef62304fc0a39L, "struct");
     /*package*/ static final SContainmentLink members$C59R = MetaAdapterFactory.getContainmentLink(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x6285e27d4ff6c9f5L, 0x6285e27d4ff7db92L, "members");
-    /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PointerType$HX = MetaAdapterFactory.getConcept(0x3bf5377ae9044dedL, 0x97545a516023bfaaL, 0x3e0cae5e366d630L, "com.mbeddr.core.pointers.structure.PointerType");
+    /*package*/ static final SConcept StructType$B3 = MetaAdapterFactory.getConcept(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x58bef62304fc0a38L, "com.mbeddr.core.udt.structure.StructType");
+    /*package*/ static final SConcept Member$J1 = MetaAdapterFactory.getConcept(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x51a277741cc50918L, "com.mbeddr.core.udt.structure.Member");
+    /*package*/ static final SConcept Type$dP = MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba36L, "com.mbeddr.core.expressions.structure.Type");
+    /*package*/ static final SConcept ReversibleFunction$IL = MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, "ReversibleFunctions.structure.ReversibleFunction");
+    /*package*/ static final SInterfaceConcept TraceableConcept$L = MetaAdapterFactory.getInterfaceConcept(0x9ded098bad6a4657L, 0xbfd948636cfe8bc3L, 0x465516cf87c705a3L, "jetbrains.mps.lang.traceable.structure.TraceableConcept");
   }
 
   private static final class PROPS {
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty variableToSaveName$udlR = MetaAdapterFactory.getProperty(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x27d0c8e745a2c78dL, 0x1b427f2e4b08b057L, "variableToSaveName");
     /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
     /*package*/ static final SProperty reversibilityRequired$Zgdy = MetaAdapterFactory.getProperty(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111cL, 0x56ee1731ff5a6482L, "reversibilityRequired");
-  }
-
-  private static final class CONCEPTS {
-    /*package*/ static final SConcept ReversibleFunction$IL = MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, "ReversibleFunctions.structure.ReversibleFunction");
-    /*package*/ static final SConcept PointerType$HX = MetaAdapterFactory.getConcept(0x3bf5377ae9044dedL, 0x97545a516023bfaaL, 0x3e0cae5e366d630L, "com.mbeddr.core.pointers.structure.PointerType");
-    /*package*/ static final SConcept StructType$B3 = MetaAdapterFactory.getConcept(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x58bef62304fc0a38L, "com.mbeddr.core.udt.structure.StructType");
-    /*package*/ static final SConcept Member$J1 = MetaAdapterFactory.getConcept(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x51a277741cc50918L, "com.mbeddr.core.udt.structure.Member");
-    /*package*/ static final SInterfaceConcept TraceableConcept$L = MetaAdapterFactory.getInterfaceConcept(0x9ded098bad6a4657L, 0xbfd948636cfe8bc3L, 0x465516cf87c705a3L, "jetbrains.mps.lang.traceable.structure.TraceableConcept");
   }
 }

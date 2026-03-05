@@ -35,7 +35,7 @@
       <unit at="25,0,69,0" name="ReversibleStatements.editor.CheckpointLocalVarRef_SubstituteMenu" />
     </file>
     <file name="EditorAspectDescriptorImpl.java">
-      <unit at="20,0,338,0" name="ReversibleStatements.editor.EditorAspectDescriptorImpl" />
+      <unit at="20,0,340,0" name="ReversibleStatements.editor.EditorAspectDescriptorImpl" />
     </file>
     <file name="GrammarActionsDescriptor.java">
       <unit at="755,0,760,0" name="ReversibleStatements.editor.GrammarActionsDescriptor$PROPS" />
@@ -231,6 +231,11 @@
       <unit at="44,0,47,0" name="ReversibleStatements.editor.GrammarCellsSubstituteMenu_IInitAwareType$CONCEPTS" />
       <unit at="33,0,43,0" name="ReversibleStatements.editor.GrammarCellsSubstituteMenu_IInitAwareType$GrammarCellsSubstituteMenuPart_9sjmxp_a" />
       <unit at="21,0,48,0" name="ReversibleStatements.editor.GrammarCellsSubstituteMenu_IInitAwareType" />
+    </file>
+    <file name="GrammarCellsSubstituteMenu_IInterruptExecution.java">
+      <unit at="44,0,47,0" name="ReversibleStatements.editor.GrammarCellsSubstituteMenu_IInterruptExecution$CONCEPTS" />
+      <unit at="33,0,43,0" name="ReversibleStatements.editor.GrammarCellsSubstituteMenu_IInterruptExecution$GrammarCellsSubstituteMenuPart_wel5g1_a" />
+      <unit at="21,0,48,0" name="ReversibleStatements.editor.GrammarCellsSubstituteMenu_IInterruptExecution" />
     </file>
     <file name="GrammarCellsSubstituteMenu_ILocalVarScopeProvider.java">
       <unit at="44,0,47,0" name="ReversibleStatements.editor.GrammarCellsSubstituteMenu_ILocalVarScopeProvider$CONCEPTS" />

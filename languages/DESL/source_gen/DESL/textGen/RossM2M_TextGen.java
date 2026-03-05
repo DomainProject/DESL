@@ -13,6 +13,7 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import com.mbeddr.core.modules.behavior.UniqueNameHelper;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import java.util.Objects;
 import com.mbeddr.core.modules.behavior.ITypeDeclaration__BehaviorDescriptor;
@@ -65,11 +66,85 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     tgs.newLine();
 
     /*
-      MACROS
+      MACROS: macro variables (global constants defined with #define), macro functions and reversible macros (for which the forward and reverse macros are both appended)
 
     */
 
     Macros.macros(ctx.getPrimaryInput(), ctx);
+
+    /*
+      NUM_LPS macro containing the number of LPs
+
+    */
+
+    int numLPs = 0;
+    for (SNode allocation : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.processAllocations$cuUJ), CONCEPTS.ProcessAllocation$5Z))) {
+      {
+        final SNode interval = SLinkOperations.getTarget(allocation, LINKS.processes$hZqx);
+        if (SNodeOperations.isInstanceOf(interval, CONCEPTS.ProcessArray$Ux)) {
+          numLPs += (SPropertyOperations.getInteger(interval, PROPS.right$2uAQ) - SPropertyOperations.getInteger(interval, PROPS.left$2u8O) + 1);
+        }
+      }
+      {
+        final SNode sequence = SLinkOperations.getTarget(allocation, LINKS.processes$hZqx);
+        if (SNodeOperations.isInstanceOf(sequence, CONCEPTS.ProcessSequence$B$)) {
+          numLPs += ListSequence.fromList(SLinkOperations.getChildren(sequence, LINKS.processes$2JvY)).count();
+        }
+      }
+    }
+
+    String numLPsMacroName = "NUM_LPS";
+    if (Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.macros$Sq68), CONCEPTS.MacroVariable$z9)).where((it) -> SPropertyOperations.getString(it, PROPS.name$MnvL).equals("NUM_LPS")).isNotEmpty()) {
+      numLPsMacroName += "_" + UniqueNameHelper.newUniqueName();
+    }
+    tgs.append("#define ");
+    tgs.append(numLPsMacroName);
+    tgs.append(" ");
+    tgs.append(String.valueOf(numLPs));
+    tgs.newLine();
+    tgs.newLine();
+
+    /*
+      STACK PUSH/POP MACROS
+
+    */
+
+    tgs.append("#define PUSH(stack, value)                                  \\");
+    tgs.newLine();
+    tgs.append("    do {                                                    \\");
+    tgs.newLine();
+    tgs.append("        if (!STACK_PUSH(stack, value)) {                    \\");
+    tgs.newLine();
+    tgs.append("            printf(\"Stack overflow!\\n\");                    \\");
+    tgs.newLine();
+    tgs.append("            fflush(stdout);                                 \\");
+    tgs.newLine();
+    tgs.append("            abort();                                        \\");
+    tgs.newLine();
+    tgs.append("        }                                                   \\");
+    tgs.newLine();
+    tgs.append("    } while (0)");
+    tgs.newLine();
+    tgs.newLine();
+
+    tgs.append("#define POP(stack, out_var)                                 \\");
+    tgs.newLine();
+    tgs.append("    do {                                                    \\");
+    tgs.newLine();
+    tgs.append("        if (!STACK_POP(stack, out_var)) {                   \\");
+    tgs.newLine();
+    tgs.append("            printf(\"Stack underflow!\\n\");                   \\");
+    tgs.newLine();
+    tgs.append("            fflush(stdout);                                 \\");
+    tgs.newLine();
+    tgs.append("            abort();                                        \\");
+    tgs.newLine();
+    tgs.append("        }                                                   \\");
+    tgs.newLine();
+    tgs.append("    } while (0)");
+    tgs.newLine();
+    tgs.newLine();
+
 
     /*
       TYPEDEFS
@@ -84,6 +159,7 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
 
     /*
       STATE STRUCTS FOR EACH CLASS
+      For each class, a state struct must be defined
 
     */
 
@@ -98,8 +174,7 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
 
     /*
       EVENTS ENUM
-      (ROSS requires the event type to be explicit in the received message, 
-      in order to handle different event types) 
+      ROSS requires the event type to be explicit in the received message, in order to handle different event types
 
     */
 
@@ -107,7 +182,7 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     tgs.newLine();
     for (SNode event : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.events$uflG), CONCEPTS.EventDefinition$wO))) {
       ctx.getBuffer().area().increaseIndent();
-      if (SPropertyOperations.getString(SLinkOperations.getTarget(event, LINKS.eventType$MGmZ), PROPS.name$MnvL) != "INIT" || SPropertyOperations.getString(SLinkOperations.getTarget(event, LINKS.eventType$MGmZ), PROPS.name$MnvL) != "LP_INIT") {
+      if (!(SPropertyOperations.getString(SLinkOperations.getTarget(event, LINKS.eventType$MGmZ), PROPS.name$MnvL).contains("INIT"))) {
         tgs.indent();
         tgs.append("event_");
         tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(event, LINKS.eventType$MGmZ), PROPS.name$MnvL));
@@ -122,18 +197,10 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     tgs.newLine();
     tgs.newLine();
 
-
-    /*
-      todo it cannot have struct *_message as field type
-      CHECKPOINT STRUCT
-
-    */
-
-
     /*
       STACK VARIABLES FOR STATE SAVING
-      There are three stack types: double (for storing double variables), unsigned int (for storing uints and pointers), and uint16 (for tracking branches). The size of each stack is computed as the maximum number of variables or branches needed across all event handlers and the functions they call, considering loops (if any of the state-saving statements is contained in a loop). 
-      For example, if an event handler needs to save 10 double variables and calls a function that needs 5 more, the total double stack size would be 15, assuming no other handlers require more.
+      There are four stack types: double (for storing double variables), unsigned int (for storing uints and pointers), int (for storing ints) and uint16 (for tracking branches). The size of each stack is computed as the maximum number of support variables needed across all event handlers and the functions they call, considering loops (if any of the state-saving statements is contained in a loop). 
+      For example, if an event handler needs to save 10 double variables and calls a function that needs 5 more, the total double stack size would be 15, assuming no other handlers require more. If the state saving variable is included in a loop having n iterations, the stack size becomes 15 * n.
 
     */
 
@@ -143,7 +210,7 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     int intStackSize = 0;
     int uInt16StackSize = 0;
 
-    // compute the maximum stack sizes across all the classes definitions
+    // compute the maximum stack sizes across all the class definitions
     for (SNode classDefinition : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.classes$SNAM), CONCEPTS.ClassDefinition$NR))) {
       if (SPropertyOperations.getInteger(classDefinition, PROPS.doubleStackSize$2G1n) > doubleStackSize) {
         doubleStackSize = SPropertyOperations.getInteger(classDefinition, PROPS.doubleStackSize$2G1n);
@@ -159,6 +226,7 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
       }
     }
 
+    // define stack types, specifying the stack sizes
     tgs.indent();
     tgs.append("DEFINE_STACK(DoubleStack, double, ");
     tgs.append(String.valueOf((doubleStackSize == 0 ? 1 : doubleStackSize)));
@@ -183,7 +251,8 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
 
 
     /*
-      MESSAGE STRUCT
+      MESSAGE STRUCT  
+      This struct defines the data exchanged between LPs (note that, even when multiple classes are defined, a single message struct can be created) 
 
     */
 
@@ -192,10 +261,13 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     tgs.append(" {");
     tgs.newLine();
     ctx.getBuffer().area().increaseIndent();
+    // event type field
     tgs.indent();
     tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL));
     tgs.append("_EVENT_TYPE event_type;");
     tgs.newLine();
+
+    // stacks
     tgs.indent();
     tgs.append("DoubleStack doubleStack;");
     tgs.newLine();
@@ -208,10 +280,16 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     tgs.indent();
     tgs.append("IfStack ifStack;");
     tgs.newLine();
+
+    // other members
     for (SNode member : ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.messageStruct$xVlJ), LINKS.members$C59R))) {
       tgs.indent();
       tgs.appendNode(member);
     }
+
+    // timestamp to advance simulation time
+    tgs.append("double timestamp;");
+    tgs.newLine();
     ctx.getBuffer().area().decreaseIndent();
     tgs.append("};");
     tgs.newLine();
@@ -223,6 +301,8 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
 
     */
 
+
+    // total number of LPs
     long total_lps = 0;
     for (SNode processAllocation : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.processAllocations$cuUJ), CONCEPTS.ProcessAllocation$5Z))) {
       total_lps += (SPropertyOperations.getInteger(SNodeOperations.cast(SLinkOperations.getTarget(processAllocation, LINKS.processes$hZqx), CONCEPTS.ProcessArray$Ux), PROPS.right$2uAQ) - SPropertyOperations.getInteger(SNodeOperations.cast(SLinkOperations.getTarget(processAllocation, LINKS.processes$hZqx), CONCEPTS.ProcessArray$Ux), PROPS.left$2u8O) + 1);
@@ -233,27 +313,79 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     tgs.newLine();
     tgs.newLine();
 
+    // global variables defined in the DESL model
     Configuration.configuration(ctx.getPrimaryInput(), ctx);
 
-    tgs.append("struct malloc_state *arena;");
+    // global variable containing the ID of the LP that is currently executing
+    tgs.append("_Thread_local uint64_t global_me;");
     tgs.newLine();
 
-    // custom allocator (to make malloc reversible)
+    /*
+      REVERSIBLE MALLOC 
+      arenas array, init_arenas function and wrapper macros
 
-    // custom mapping (LPs are evenly distributed among PEs, the leftovers are assigned to the first PE)
+    */
+
+    tgs.append("struct malloc_state *arenas[");
+    tgs.append(numLPsMacroName);
+    tgs.append("];");
+    tgs.newLine();
+    tgs.newLine();
+
+    tgs.append("void init_arenas() {");
+    tgs.newLine();
+    ctx.getBuffer().area().increaseIndent();
+    tgs.indent();
+    tgs.append("for (int i = 0; i < NUM_LPS; i++) {");
+    tgs.newLine();
+    ctx.getBuffer().area().increaseIndent();
+    tgs.indent();
+    tgs.append("arenas[i] = malloc_state_init();");
+    tgs.newLine();
+    ctx.getBuffer().area().decreaseIndent();
+    tgs.indent();
+    tgs.append("}");
+    tgs.newLine();
+    ctx.getBuffer().area().decreaseIndent();
+    tgs.append("}");
+    tgs.newLine();
+    tgs.newLine();
+
+    tgs.append("#define rev_free_w(me, ptr) rev_free(arenas[(me)], (ptr))");
+    tgs.newLine();
+    tgs.append("#define rev_remalloc_w(size) rev_remalloc((size))");
+    tgs.newLine();
+    tgs.append("#define rev_malloc_w(me, size) rev_malloc(arenas[(me)], (size))");
+    tgs.newLine();
+    tgs.newLine();
+
+
+    /*
+      CUSTOM MAPPING
+      LPs are evenly distributed among PEs, the leftovers are assigned to the first PE
+
+    */
+
     tgs.append("tw_peid custom_mapping_lp_to_pe(tw_lpid gid)\n{\n    tw_lpid ret;\n    unsigned min_num_lps_per_pe = total_lps / tw_nnodes();\n    unsigned extra_lps = total_lps % tw_nnodes();\n\n    if (gid < min_num_lps_per_pe + extra_lps)\n        ret = 0;\n    else\n        ret = (gid - extra_lps) / min_num_lps_per_pe;\n#ifdef DEBUG\n    printf(\"LP with GID %lu mapped on node %lu\", gid, ret);\n    puts(\"\");\n#endif\n\n    return ret;\n}\n");
     tgs.newLine();
     tgs.append("tw_lp *custom_mapping_lpgid_to_local(tw_lpid gid)\n{\n    tw_lpid ret;\n    unsigned min_num_lps_per_pe = total_lps / tw_nnodes();\n    unsigned extra_lps = total_lps % tw_nnodes();\n\n    if (gid < min_num_lps_per_pe + extra_lps) {\n        ret = gid;\n    } else {\n        ret = (gid - extra_lps) % min_num_lps_per_pe;\n    }\n\n#ifdef DEBUG\n    printf(\"[%lu] LP with GID %lu mapped on LID %lu\", g_tw_mynode, gid, ret);\n    puts(\"\");\n#endif\n\n    return g_tw_lp[ret];\n}\n");
     tgs.newLine();
-    tgs.append("void custom_mapping_setup(void)\n{\n    int lpid;\n    unsigned long gid;\n\n    // set up KPs\n    for (int kpid = 0; kpid < g_tw_nkp; kpid++)\n        tw_kp_onpe(kpid, g_tw_pe);\n\n    // figure out how many LPs are on this PE\n    unsigned min_num_lps_per_pe = total_lps/tw_nnodes();\n    unsigned extra_lps = total_lps - (min_num_lps_per_pe * tw_nnodes());\n    unsigned lps_on_pe = min_num_lps_per_pe;\n    if (g_tw_mynode == 0) {\n        lps_on_pe += extra_lps;\n    }\n\n    // set up the LPs\n    for (lpid = 0; lpid < lps_on_pe; lpid++) {\n\n        gid = g_tw_mynode * min_num_lps_per_pe + lpid + extra_lps * (g_tw_mynode != 0);\n#ifdef DEBUG\n        printf(\"[%lu] Setting up mapping: LP %d to GID %lu\", g_tw_mynode, lpid, gid);\n        puts(\"\");\n#endif\n        // map LP to KP\n        tw_lp_onpe(lpid, g_tw_pe, gid);\n        tw_lp_onkp(g_tw_lp[lpid], g_tw_kp[lpid % g_tw_nkp]);\n    }\n}\n");
+    tgs.append("void custom_mapping_setup(void)\n{\n    unsigned int lpid;\n    unsigned long gid;\n\n    // set up KPs\n    for (unsigned long kpid = 0; kpid < g_tw_nkp; kpid++)\n        tw_kp_onpe(kpid, g_tw_pe);\n\n    // figure out how many LPs are on this PE\n    unsigned min_num_lps_per_pe = total_lps/tw_nnodes();\n    unsigned extra_lps = total_lps - (min_num_lps_per_pe * tw_nnodes());\n    unsigned lps_on_pe = min_num_lps_per_pe;\n    if (g_tw_mynode == 0) {\n        lps_on_pe += extra_lps;\n    }\n\n    // set up the LPs\n    for (lpid = 0; lpid < lps_on_pe; lpid++) {\n\n        gid = g_tw_mynode * min_num_lps_per_pe + lpid + extra_lps * (g_tw_mynode != 0);\n#ifdef DEBUG\n        printf(\"[%lu] Setting up mapping: LP %d to GID %lu\", g_tw_mynode, lpid, gid);\n        puts(\"\");\n#endif\n        // map LP to KP\n        tw_lp_onpe(lpid, g_tw_pe, gid);\n        tw_lp_onkp(g_tw_lp[lpid], g_tw_kp[lpid % g_tw_nkp]);\n    }\n}\n");
     tgs.newLine();
 
 
-    // external functions definition
+    /*
+      EXTERNAL FUNCTIONS
+
+    */
+
+
     boolean containsContext;
     for (SNode function : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.externalFunctions$LqEg), CONCEPTS.ReversibleFunction$IL))) {
       //  if the function uses an API from the rand library, add a tw_lp *lp parameter to its signature
       if (ListSequence.fromList(SNodeOperations.getNodeDescendants(function, CONCEPTS.Expent$Yu, false, new SAbstractConcept[]{})).isNotEmpty() || ListSequence.fromList(SNodeOperations.getNodeDescendants(function, CONCEPTS.Random$XZ, false, new SAbstractConcept[]{})).isNotEmpty()) {
+
+        // update function signature
         tgs.appendNode(SLinkOperations.getTarget(function, LINKS.type$sXU3));
         tgs.append(" ");
         tgs.append(SPropertyOperations.getString(function, PROPS.name$MnvL));
@@ -275,6 +407,8 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
           tgs.append("tw_lp *lp)");
           tgs.newLine();
         }
+
+        // append function body
         tgs.appendNode(SLinkOperations.getTarget(function, LINKS.revBody$QkEt));
         tgs.newLine();
       } else {
@@ -282,29 +416,21 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
         tgs.newLine();
       }
     }
-
-    // todo move busy_loop and busy_loop_reverse to an external file
-    if (SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL).contains("phold")) {
-      tgs.append("void __attribute__ ((noinline)) busy_loop(unsigned long long max) {\n    for (unsigned long long i = 0; i < max; i++) {\n        __asm__ volatile(\"pause\" : \"+g\" (i) : :);\n    }\n}\n");
-      tgs.newLine();
-      tgs.append("void __attribute__ ((noinline)) busy_loop_reverse(unsigned long long max) {\n    for (unsigned long long i = 0; i < max; i++) {\n        __asm__ volatile(\"pause\" : \"+g\" (i) : :);\n    }\n}\n");
-      tgs.newLine();
-    }
-
-
-    // allocation_by_index (PCS)
-
-    // restore state function
-
     tgs.newLine();
 
+    /*
+      CLASS DEFINITIONS
+      It is possible to define different classes of LPs, each one specifying a single state struct and a set of event handlers
+
+    */
 
     for (final SNode c : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.classes$SNAM), CONCEPTS.ClassDefinition$NR))) {
 
       // init function ( {node.name}_{class.name}_init(...) )
+      SNode initHandler = Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(c, LINKS.handlers$Nr2P), CONCEPTS.ReversibleEventHandler$Ov)).findFirst((it) -> SPropertyOperations.getString(it, PROPS.eventName$rI8o).contains("INIT"));
 
-      SNode initHandler = Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(c, LINKS.handlers$Nr2P), CONCEPTS.ReversibleEventHandler$Ov)).findFirst((it) -> SPropertyOperations.getString(it, PROPS.eventName$rI8o).equals("INIT") || SPropertyOperations.getString(it, PROPS.eventName$rI8o).equals("LP_INIT"));
-
+      // ROSS requires the init function to be defined according to the following prototype: 
+      // void init_f(model_state * s, tw_lp * lp), where model_state is the state struct
       SNode stateArgumentInit = Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(SLinkOperations.getTarget(initHandler, LINKS.forwardFunction$5bPH), LINKS.arguments$6da0), CONCEPTS.Argument$9m)).findFirst((it) -> SNodeOperations.isInstanceOf(SLinkOperations.getTarget(it, LINKS.type$sXU3), CONCEPTS.PointerType$HX) && Objects.equals(SNodeOperations.getConcept(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(it, LINKS.type$sXU3), CONCEPTS.PointerType$HX), LINKS.baseType$zMGV)), SNodeOperations.getConcept(ITypeDeclaration__BehaviorDescriptor.createType_id3o2OLGv7CoR.invoke(SLinkOperations.getTarget(c, LINKS.stateStruct$NqNO)))));
       tgs.append("void ");
       tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL));
@@ -327,64 +453,37 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
       tgs.newLine();
       tgs.newLine();
 
-
-      // initialize stacks in INIT handler
-      tgs.indent();
-      tgs.append("DoubleStack doubleStack;");
-      tgs.newLine();
-      tgs.indent();
-      tgs.append("IntStack intStack;");
-      tgs.newLine();
-      tgs.indent();
-      tgs.append("UIntStack uIntStack;");
-      tgs.newLine();
-      tgs.indent();
-      tgs.append("IfStack ifStack;");
-      tgs.newLine();
-      tgs.newLine();
-      tgs.indent();
-      tgs.append("STACK_INIT(doubleStack);");
-      tgs.newLine();
-      tgs.indent();
-      tgs.append("STACK_INIT(intStack);");
-      tgs.newLine();
-      tgs.indent();
-      tgs.append("STACK_INIT(uIntStack);");
-      tgs.newLine();
-      tgs.indent();
-      tgs.append("STACK_INIT(ifStack);");
-      tgs.newLine();
-
-      ReversibleStatementListUtils.variableDeclarations(SLinkOperations.getTarget(SLinkOperations.getTarget(initHandler, LINKS.forwardFunction$5bPH), LINKS.revBody$QkEt), ctx);
-      ReversibleStatementListUtils.stateHandlingVariables(SLinkOperations.getTarget(SLinkOperations.getTarget(initHandler, LINKS.forwardFunction$5bPH), LINKS.revBody$QkEt), ctx);
-
-      for (SNode statement : ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(SLinkOperations.getTarget(initHandler, LINKS.forwardFunction$5bPH), LINKS.revBody$QkEt), LINKS.revStatements$IdM8)).where((it) -> !(SNodeOperations.isInstanceOf(it, CONCEPTS.LocalVariableDeclaration$7E)))) {
-        tgs.indent();
-        tgs.appendNode(statement);
-        tgs.newLine();
-      }
+      ReversibleStatementListUtils.statementList(SLinkOperations.getTarget(SLinkOperations.getTarget(initHandler, LINKS.forwardFunction$5bPH), LINKS.revBody$QkEt), ctx);
       ctx.getBuffer().area().decreaseIndent();
       tgs.append("}");
       tgs.newLine();
 
       /*
-        determine if a pre_run handler must be defined (i.e., if the INIT event handler
-        includes a SendEvent statement with receiver != me) 
+        From the ROSS docs:
+        "  Model developers may also want to create some initial events to kick-off the simulation. Caveat: During initialization, LPs can only send events to themselves. 
+        [...]
+        The self-scheduled-only event caveat of the initialization function lead to the creation of the pre-run callback. Here, LPs are able to schedule events for any other LP in the system. "
+        
+        determine if a pre_run handler must be defined (i.e., if the INIT event handler includes a SendEvent statement with receiver != me) 
 
       */
 
       SNode sendToSomeoneElse = Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(SLinkOperations.getTarget(SLinkOperations.getTarget(initHandler, LINKS.forwardFunction$5bPH), LINKS.revBody$QkEt), LINKS.revStatements$IdM8), CONCEPTS.ReversibleSendEvent$u)).where((it) -> SNodeOperations.isInstanceOf(SLinkOperations.getTarget(it, LINKS.to$WtFs), CONCEPTS.ArgumentRef$Ar) && SPropertyOperations.getString(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(it, LINKS.to$WtFs), CONCEPTS.ArgumentRef$Ar), LINKS.arg$bO7D), PROPS.name$MnvL) == "me").first();
 
       if ((sendToSomeoneElse != null)) {
-        // todo pre_run handler (all the message definition statements should be moved from the INIT handler to the pre_run handler as well), maybe it would be simpler not to let the user send events to other LPs in the INIT handler
+        // todo pre_run handler (all the message definition statements should be moved from the INIT handler to the pre_run handler as well)
       }
       tgs.newLine();
 
-      // generic event handler ( {node.name}_{node.class}_event(...) )
+      /*
+        Generic event handler ({node.name}_{node.class}_event(...)), implemented as a switch–case over the event type, in which each case incorporates the body of the corresponding event handler function, as defined in the class c
+
+      */
+
       ROSSUtils.rossEventHandler(ctx.getPrimaryInput(), c, ctx);
 
       // finalize function ( {node.name}_{node.class}_final(...) )
-      // todo it needs to be at least defined, tbd if it's useful
+      // todo it needs to be defined, idk if it's useful
       tgs.append("void ");
       tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL));
       tgs.append("_");
@@ -393,11 +492,12 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
       tgs.appendNode(ITypeDeclaration__BehaviorDescriptor.createType_id3o2OLGv7CoR.invoke(SLinkOperations.getTarget(c, LINKS.stateStruct$NqNO)));
       tgs.append(" *s, tw_lp *lp) {}");
       tgs.newLine();
-
       tgs.newLine();
 
-      // REVERSE HANDLER (NEW)
+      /*
+        REVERSE HANDLER
 
+      */
 
       tgs.append("void reverse(");
       tgs.appendNode(ITypeDeclaration__BehaviorDescriptor.createType_id3o2OLGv7CoR.invoke(SLinkOperations.getTarget(c, LINKS.stateStruct$NqNO)));
@@ -411,7 +511,12 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
       tgs.indent();
       tgs.append("tw_lpid me = lp->gid;");
       tgs.newLine();
+      tgs.indent();
+      tgs.append("double now = content->timestamp;");
       tgs.newLine();
+      tgs.newLine();
+
+      // the same switch case used in the forward generic event handler (see previous comment)
       ROSSUtils.rossSwitchEvent(c, false, ctx);
       ctx.getBuffer().area().decreaseIndent();
       tgs.append("}");
@@ -420,7 +525,11 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
 
     tgs.newLine();
 
-    // enum lpTypes (classes)
+    /*
+      ENUM lpTypes, defining an entry for each class
+
+    */
+
     tgs.append("typedef enum {");
     tgs.newLine();
     ctx.getBuffer().area().increaseIndent();
@@ -435,10 +544,11 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     tgs.newLine();
     tgs.newLine();
 
-    // reverse handler (OLD)
+    /*
+      model_lps array
 
+    */
 
-    // model_lps array
     tgs.append("tw_lptype model_lps[] = {");
     tgs.newLine();
     ctx.getBuffer().area().increaseIndent();
@@ -497,24 +607,12 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     tgs.newLine();
     tgs.newLine();
 
-    // get the total number of LPs
-    int lps = 0;
-    for (SNode allocation : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.processAllocations$cuUJ), CONCEPTS.ProcessAllocation$5Z))) {
-      {
-        final SNode interval = SLinkOperations.getTarget(allocation, LINKS.processes$hZqx);
-        if (SNodeOperations.isInstanceOf(interval, CONCEPTS.ProcessArray$Ux)) {
-          lps += (SPropertyOperations.getInteger(interval, PROPS.right$2uAQ) - SPropertyOperations.getInteger(interval, PROPS.left$2u8O) + 1);
-        }
-      }
-      {
-        final SNode sequence = SLinkOperations.getTarget(allocation, LINKS.processes$hZqx);
-        if (SNodeOperations.isInstanceOf(sequence, CONCEPTS.ProcessSequence$B$)) {
-          lps += ListSequence.fromList(SLinkOperations.getChildren(sequence, LINKS.processes$2JvY)).count();
-        }
-      }
-    }
 
-    // main function
+    /*
+      MAIN FUNCTION
+
+    */
+
     tgs.append("int main(int argc, char **argv)");
     tgs.newLine();
     tgs.append("{");
@@ -527,11 +625,13 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
 
     StartupCode.startupCode(ctx.getPrimaryInput(), ctx);
 
+    // init reversible malloc arenas
     tgs.indent();
-    tgs.append("arena = malloc_state_init();");
+    tgs.append("init_arenas();");
     tgs.newLine();
     tgs.newLine();
 
+    // simulation end time
     // todo generalize
     if (SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL).contains("pcs")) {
       tgs.indent();
@@ -550,6 +650,7 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
       tgs.newLine();
     }
 
+    // LP-to-PE mapping
     tgs.indent();
     tgs.append("g_tw_mapping = CUSTOM;");
     tgs.newLine();
@@ -562,11 +663,11 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     tgs.newLine();
 
     tgs.indent();
-    tgs.append("// define the number of LPs per PE");
+    tgs.append("/* define the number of LPs per PE */");
     tgs.newLine();
     tgs.indent();
     tgs.append("g_tw_nlp = ");
-    tgs.append(String.valueOf(lps));
+    tgs.append(numLPsMacroName);
     tgs.append(";");
     tgs.newLine();
     tgs.indent();
@@ -576,13 +677,12 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     tgs.append("unsigned int leftover_lps = g_tw_nlp % tw_nnodes();");
     tgs.newLine();
     tgs.newLine();
-
     tgs.indent();
-    tgs.append("if(g_tw_mynode == 0)\n          custom_lps_per_pe += leftover_lps;\n");
+    tgs.append("if(g_tw_mynode == 0)\n\tcustom_lps_per_pe += leftover_lps;\n");
     tgs.newLine();
 
     tgs.indent();
-    tgs.append("// set model_lps");
+    tgs.append("/* set model_lps */");
     tgs.newLine();
     tgs.indent();
     tgs.append("g_tw_lp_types = model_lps;");
@@ -593,13 +693,12 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     tgs.append("));");
     tgs.newLine();
     tgs.newLine();
-
     tgs.indent();
     tgs.append("tw_lp_setup_types();");
     tgs.newLine();
     tgs.newLine();
 
-
+    // run the simulation
     tgs.indent();
     tgs.append("tw_run();");
     tgs.newLine();
@@ -608,15 +707,17 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     tgs.newLine();
     tgs.newLine();
 
+    // wipe reversible malloc arenas
     tgs.indent();
-    tgs.append("malloc_state_wipe(&arena);");
+    tgs.append("for (int i = 0; i < ");
+    tgs.append(numLPsMacroName);
+    tgs.append("; i++) malloc_state_wipe(&arenas[i]);");
     tgs.newLine();
     tgs.newLine();
 
     tgs.indent();
     tgs.append("return 0;");
     tgs.newLine();
-
     ctx.getBuffer().area().decreaseIndent();
     tgs.append("}");
     tgs.newLine();
@@ -633,11 +734,12 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     /*package*/ static final SContainmentLink eventType$MGmZ = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2e66f9a613f69c80L, 0x2e66f9a613f69c82L, "eventType");
     /*package*/ static final SContainmentLink macros$Sq68 = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x74450034d00e6949L, "macros");
     /*package*/ static final SContainmentLink events$uflG = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x2dc3a69083753b9fL, "events");
+    /*package*/ static final SContainmentLink processes$hZqx = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6393783L, 0x4117a694e6393787L, "processes");
+    /*package*/ static final SContainmentLink processes$2JvY = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e64867a6L, 0x4117a694e64867a7L, "processes");
+    /*package*/ static final SContainmentLink processAllocations$cuUJ = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x4117a694e6409a0eL, "processAllocations");
     /*package*/ static final SContainmentLink classes$SNAM = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x4117a694e5ba8536L, "classes");
     /*package*/ static final SContainmentLink messageStruct$xVlJ = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x6de6339fa564bed8L, "messageStruct");
     /*package*/ static final SContainmentLink members$C59R = MetaAdapterFactory.getContainmentLink(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x6285e27d4ff6c9f5L, 0x6285e27d4ff7db92L, "members");
-    /*package*/ static final SContainmentLink processes$hZqx = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6393783L, 0x4117a694e6393787L, "processes");
-    /*package*/ static final SContainmentLink processAllocations$cuUJ = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x4117a694e6409a0eL, "processAllocations");
     /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
     /*package*/ static final SContainmentLink arguments$6da0 = MetaAdapterFactory.getContainmentLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x707ac195dd5d51f2L, 0x4f39f90935e92f45L, "arguments");
     /*package*/ static final SContainmentLink revBody$QkEt = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, 0x5e81f50da12f79a6L, "revBody");
@@ -649,26 +751,26 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     /*package*/ static final SContainmentLink revStatements$IdM8 = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, 0x3a16e3a9c7ad9956L, "revStatements");
     /*package*/ static final SContainmentLink to$WtFs = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x68458b9b5da4ec77L, 0x6f2af7ea6983412cL, "to");
     /*package*/ static final SReferenceLink arg$bO7D = MetaAdapterFactory.getReferenceLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x586abb2d564e82ffL, 0x586abb2d564e8301L, "arg");
-    /*package*/ static final SContainmentLink processes$2JvY = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e64867a6L, 0x4117a694e64867a7L, "processes");
   }
 
   private static final class PROPS {
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty right$2uAQ = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6486788L, 0x4117a694e648678cL, "right");
+    /*package*/ static final SProperty left$2u8O = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6486788L, 0x4117a694e648678aL, "left");
     /*package*/ static final SProperty doubleStackSize$2G1n = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x54df585342cdde6aL, "doubleStackSize");
     /*package*/ static final SProperty uInt16StackSize$2GXr = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x54df585342cdde6eL, "uInt16StackSize");
     /*package*/ static final SProperty uIntStackSize$2Gvp = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x54df585342cdde6cL, "uIntStackSize");
     /*package*/ static final SProperty intStackSize$onug = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x54df585342e22151L, "intStackSize");
-    /*package*/ static final SProperty right$2uAQ = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6486788L, 0x4117a694e648678cL, "right");
-    /*package*/ static final SProperty left$2u8O = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6486788L, 0x4117a694e648678aL, "left");
     /*package*/ static final SProperty eventName$rI8o = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x549487e5d88a4291L, 0x113f0963d355264aL, "eventName");
   }
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept MacroVariable$z9 = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x74450034d00e6945L, "DESL.structure.MacroVariable");
     /*package*/ static final SConcept EventDefinition$wO = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2e66f9a613f69c80L, "DESL.structure.EventDefinition");
-    /*package*/ static final SConcept ClassDefinition$NR = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, "DESL.structure.ClassDefinition");
     /*package*/ static final SConcept ProcessArray$Ux = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6486788L, "DESL.structure.ProcessArray");
+    /*package*/ static final SConcept ProcessSequence$B$ = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e64867a6L, "DESL.structure.ProcessSequence");
     /*package*/ static final SConcept ProcessAllocation$5Z = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6393783L, "DESL.structure.ProcessAllocation");
+    /*package*/ static final SConcept ClassDefinition$NR = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, "DESL.structure.ClassDefinition");
     /*package*/ static final SConcept RngContext$1E = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x23bd070ad14172a2L, "DESL.structure.RngContext");
     /*package*/ static final SConcept Random$XZ = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2476b4949807b946L, "DESL.structure.Random");
     /*package*/ static final SConcept Expent$Yu = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2476b4949807b947L, "DESL.structure.Expent");
@@ -676,10 +778,8 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     /*package*/ static final SConcept ReversibleEventHandler$Ov = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, "DESL.structure.ReversibleEventHandler");
     /*package*/ static final SConcept Argument$9m = MetaAdapterFactory.getConcept(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x6d872ef9245a20d7L, "com.mbeddr.core.modules.structure.Argument");
     /*package*/ static final SConcept PointerType$HX = MetaAdapterFactory.getConcept(0x3bf5377ae9044dedL, 0x97545a516023bfaaL, 0x3e0cae5e366d630L, "com.mbeddr.core.pointers.structure.PointerType");
-    /*package*/ static final SConcept LocalVariableDeclaration$7E = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad96e6L, "ReversibleStatements.structure.LocalVariableDeclaration");
     /*package*/ static final SConcept ReversibleSendEvent$u = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x68458b9b5da4ec77L, "DESL.structure.ReversibleSendEvent");
     /*package*/ static final SConcept ArgumentRef$Ar = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x586abb2d564e82ffL, "ReversibleStatements.structure.ArgumentRef");
-    /*package*/ static final SConcept ProcessSequence$B$ = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e64867a6L, "DESL.structure.ProcessSequence");
     /*package*/ static final SInterfaceConcept UnitConcept$1g = MetaAdapterFactory.getInterfaceConcept(0x9ded098bad6a4657L, 0xbfd948636cfe8bc3L, 0x465516cf87c705a4L, "jetbrains.mps.lang.traceable.structure.UnitConcept");
   }
 }

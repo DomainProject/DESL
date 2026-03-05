@@ -8,18 +8,24 @@ import jetbrains.mps.text.impl.TextGenSupport;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import ReversibleFunctions.behavior.ReversibleMacro__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
-import com.mbeddr.core.expressions.behavior.IVariableReference__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.Sequence;
+import ReversibleExpressions.behavior.ReversibleMacroCall__BehaviorDescriptor;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
+import ReversibleStatements.textGen.ReversibleStatementListUtils;
+import com.mbeddr.core.expressions.behavior.IVariableReference__BehaviorDescriptor;
+import com.mbeddr.core.expressions.behavior.IVariableDeclaration__BehaviorDescriptor;
+import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import java.util.Objects;
+import com.mbeddr.core.modules.behavior.ITypeDeclaration__BehaviorDescriptor;
+import java.util.UUID;
 import jetbrains.mps.lang.traceable.behavior.TraceableConcept__BehaviorDescriptor;
-import org.jetbrains.mps.openapi.language.SReferenceLink;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import org.jetbrains.mps.openapi.language.SContainmentLink;
-import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class ReversibleMacroCall_TextGen extends TextGenDescriptorBase {
   @Override
@@ -27,22 +33,69 @@ public class ReversibleMacroCall_TextGen extends TextGenDescriptorBase {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     tgs.createPositionInfo();
 
-    if (SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5)) {
-      if (!(SNodeOperations.isInstanceOf(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.ReversibleMacro$EH)) && (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.macro$QKaR), LINKS.content$L7Vn), CONCEPTS.IDestructiveOperation$SP) || SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.callsDestructiveMacro$eoF))) {
-        // save state if macro is destructive
-        int paramToSaveIndex = (int) ReversibleMacro__BehaviorDescriptor.getArgumentToSaveIndex_id2vwNr_9BbOi.invoke(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.macro$QKaR));
-        if (paramToSaveIndex >= 0) {
-          {
-            final SNode varRef = SLinkOperations.getTarget(ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.actuals$QKpS)).getElement(paramToSaveIndex), LINKS.actual$n_Ao);
-            if (SNodeOperations.isInstanceOf(varRef, CONCEPTS.IVariableReference$WR)) {
+    boolean reversibilityRequired = SPropertyOperations.getBoolean(SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.ReversibleFunction$IL, false, false), PROPS.reversibilityRequired$Zgdy) && (((SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.ReversibleEventHandler$Ov, false, false) == null) ? true : !(SPropertyOperations.getString(SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.ReversibleEventHandler$Ov, false, false), PROPS.eventName$rI8o).contains("INIT"))));
 
-              tgs.append("push(stack, ");
-              tgs.append(SPropertyOperations.getString(IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(varRef), PROPS.name$MnvL));
-              tgs.append(");");
-              tgs.newLine();
-              tgs.indent();
-            }
+
+    if (!(reversibilityRequired)) {
+      tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.macro$QKaR), PROPS.name$MnvL));
+      tgs.append("(");
+      {
+        Iterable<SNode> collection = SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.actuals$QKpS);
+        final SNode lastItem = Sequence.fromIterable(collection).last();
+        for (SNode item : collection) {
+          tgs.appendNode(item);
+          if (item != lastItem) {
+            tgs.append(",");
           }
+        }
+      }
+      tgs.append(")");
+      return;
+    }
+
+    if (SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5)) {
+      if (!(SNodeOperations.isInstanceOf(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.ReversibleMacro$EH)) && (boolean) ReversibleMacroCall__BehaviorDescriptor.checkIfDestructiveMacroCalled_id2OeDS_5iwt8.invoke(ctx.getPrimaryInput())) {
+
+        int paramToSaveIndex = (int) ReversibleMacroCall__BehaviorDescriptor.checkIfCalledMacroUpdatesState_id4AbiQzVgluo.invoke(ctx.getPrimaryInput());
+
+        if (paramToSaveIndex != -1) {
+          final SNode memberToSave = SLinkOperations.getTarget(ReversibleMacroCall__BehaviorDescriptor.getUpdatedStateField_id4AbiQzVhgdw.invoke(ctx.getPrimaryInput(), ((int) paramToSaveIndex)), LINKS.member$wUNL);
+
+          if (!(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(memberToSave, LINKS.type$sXU3), CONCEPTS.PointerType$HX))) {
+            {
+              final SNode varRef = SLinkOperations.getTarget(ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.actuals$QKpS)).getElement(paramToSaveIndex), LINKS.actual$n_Ao);
+              if (SNodeOperations.isInstanceOf(varRef, CONCEPTS.IVariableReference$WR)) {
+                ReversibleStatementListUtils.stackStateHandling(true, SPropertyOperations.getString(IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(varRef), PROPS.name$MnvL), SNodeOperations.cast(IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(varRef)), CONCEPTS.Type$dP), SNodeOperations.cast(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.ReversibleStatement$s8), ctx);
+              }
+            }
+          } else {
+            // the member of the state struct is a pointer, i.e., an array: each array value must be saved on the appropriate stack 
+            SNode arraySize = SLinkOperations.getTarget(ListSequence.fromList(SNodeOperations.getNodeDescendants(SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.DESLModel$DK, false, false), CONCEPTS.CreateArray$_5, false, new SAbstractConcept[]{})).findFirst((it) -> SNodeOperations.isInstanceOf(SLinkOperations.getTarget(it, LINKS.allocationVariable$GPxN), CONCEPTS.GenericDotExpression$ia) && SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(it, LINKS.allocationVariable$GPxN), CONCEPTS.GenericDotExpression$ia), LINKS.target$xbCZ), CONCEPTS.GenericMemberRef$Ue), LINKS.member$gCRV) == memberToSave), LINKS.size$QIgu);
+
+            String stateParameterName = SPropertyOperations.getString(ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.ReversibleFunction$IL, false, false), LINKS.arguments$6da0)).findFirst((it) -> SNodeOperations.isInstanceOf(SLinkOperations.getTarget(it, LINKS.type$sXU3), CONCEPTS.PointerType$HX) && Objects.equals(SNodeOperations.getConcept(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(it, LINKS.type$sXU3), CONCEPTS.PointerType$HX), LINKS.baseType$zMGV)), SNodeOperations.getConcept(ITypeDeclaration__BehaviorDescriptor.createType_id3o2OLGv7CoR.invoke(SNodeOperations.cast(SNodeOperations.getParent(memberToSave), CONCEPTS.StructDeclaration$ox))))), PROPS.name$MnvL);
+
+            // save each array value on the stack
+            String iteratorName = "i" + UUID.randomUUID().toString().substring(0, 4);
+            tgs.append("for (int ");
+            tgs.append(iteratorName);
+            tgs.append(" = 0; ");
+            tgs.append(iteratorName);
+            tgs.append(" < ");
+            tgs.appendNode(arraySize);
+            tgs.append("; ");
+            tgs.append(iteratorName);
+            tgs.append("++) {");
+            tgs.newLine();
+            ctx.getBuffer().area().increaseIndent();
+            tgs.indent();
+            ReversibleStatementListUtils.stackStateHandling(true, stateParameterName + "->" + SPropertyOperations.getString(memberToSave, PROPS.name$MnvL) + "[" + iteratorName + "]", SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(memberToSave, LINKS.type$sXU3), CONCEPTS.PointerType$HX), LINKS.baseType$zMGV), CONCEPTS.Type$dP), SNodeOperations.cast(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.ReversibleStatement$s8), ctx);
+            ctx.getBuffer().area().decreaseIndent();
+            tgs.indent();
+            tgs.append("}");
+            tgs.newLine();
+
+          }
+          tgs.indent();
         }
       }
       tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.macro$QKaR), PROPS.name$MnvL));
@@ -59,17 +112,52 @@ public class ReversibleMacroCall_TextGen extends TextGenDescriptorBase {
       }
       tgs.append(")");
     } else {
-      if (!(SNodeOperations.isInstanceOf(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.ReversibleMacro$EH)) && (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.macro$QKaR), LINKS.content$L7Vn), CONCEPTS.IDestructiveOperation$SP) || SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.callsDestructiveMacro$eoF))) {
-        // restore state
-        int paramToSaveIndex = (int) ReversibleMacro__BehaviorDescriptor.getArgumentToSaveIndex_id2vwNr_9BbOi.invoke(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.macro$QKaR));
-        {
-          final SNode varRef = SLinkOperations.getTarget(ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.actuals$QKpS)).getElement(paramToSaveIndex), LINKS.actual$n_Ao);
-          if (SNodeOperations.isInstanceOf(varRef, CONCEPTS.IVariableReference$WR)) {
-            tgs.append(SPropertyOperations.getString(IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(varRef), PROPS.name$MnvL));
-            tgs.append(" = pop(stack);");
+      if (!(SNodeOperations.isInstanceOf(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.ReversibleMacro$EH)) && (boolean) ReversibleMacroCall__BehaviorDescriptor.checkIfDestructiveMacroCalled_id2OeDS_5iwt8.invoke(ctx.getPrimaryInput())) {
+
+
+        int paramToSaveIndex = (int) ReversibleMacroCall__BehaviorDescriptor.checkIfCalledMacroUpdatesState_id4AbiQzVgluo.invoke(ctx.getPrimaryInput());
+        if (paramToSaveIndex != -1) {
+          final SNode memberToSave = SLinkOperations.getTarget(ReversibleMacroCall__BehaviorDescriptor.getUpdatedStateField_id4AbiQzVhgdw.invoke(ctx.getPrimaryInput(), ((int) paramToSaveIndex)), LINKS.member$wUNL);
+
+          if (!(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(memberToSave, LINKS.type$sXU3), CONCEPTS.PointerType$HX))) {
+            {
+              final SNode varRef = SLinkOperations.getTarget(ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.actuals$QKpS)).getElement(paramToSaveIndex), LINKS.actual$n_Ao);
+              if (SNodeOperations.isInstanceOf(varRef, CONCEPTS.IVariableReference$WR)) {
+                ReversibleStatementListUtils.stackStateHandling(false, SPropertyOperations.getString(IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(varRef), PROPS.name$MnvL), SNodeOperations.cast(IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(varRef)), CONCEPTS.Type$dP), SNodeOperations.cast(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.ReversibleStatement$s8), ctx);
+              }
+            }
+          } else {
+            // the member of the state struct is a pointer, i.e., an array: each array value must be restored from the appropriate stack 
+            SNode arraySize = SLinkOperations.getTarget(ListSequence.fromList(SNodeOperations.getNodeDescendants(SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.DESLModel$DK, false, false), CONCEPTS.CreateArray$_5, false, new SAbstractConcept[]{})).findFirst((it) -> SNodeOperations.isInstanceOf(SLinkOperations.getTarget(it, LINKS.allocationVariable$GPxN), CONCEPTS.GenericDotExpression$ia) && SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(it, LINKS.allocationVariable$GPxN), CONCEPTS.GenericDotExpression$ia), LINKS.target$xbCZ), CONCEPTS.GenericMemberRef$Ue), LINKS.member$gCRV) == memberToSave), LINKS.size$QIgu);
+
+            String stateParameterName = SPropertyOperations.getString(ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.ReversibleFunction$IL, false, false), LINKS.arguments$6da0)).findFirst((it) -> SNodeOperations.isInstanceOf(SLinkOperations.getTarget(it, LINKS.type$sXU3), CONCEPTS.PointerType$HX) && Objects.equals(SNodeOperations.getConcept(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(it, LINKS.type$sXU3), CONCEPTS.PointerType$HX), LINKS.baseType$zMGV)), SNodeOperations.getConcept(ITypeDeclaration__BehaviorDescriptor.createType_id3o2OLGv7CoR.invoke(SNodeOperations.cast(SNodeOperations.getParent(memberToSave), CONCEPTS.StructDeclaration$ox))))), PROPS.name$MnvL);
+
+            // save each array value on the stack
+            String iteratorName = "i" + UUID.randomUUID().toString().substring(0, 4);
+            tgs.append("for (int ");
+            tgs.append(iteratorName);
+            tgs.append(" = 0; ");
+            tgs.append(iteratorName);
+            tgs.append(" < ");
+            tgs.appendNode(arraySize);
+            tgs.append("; ");
+            tgs.append(iteratorName);
+            tgs.append("++) {");
             tgs.newLine();
+            ctx.getBuffer().area().increaseIndent();
+            tgs.indent();
+            ReversibleStatementListUtils.stackStateHandling(false, stateParameterName + "->" + SPropertyOperations.getString(memberToSave, PROPS.name$MnvL) + "[" + iteratorName + "]", SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(memberToSave, LINKS.type$sXU3), CONCEPTS.PointerType$HX), LINKS.baseType$zMGV), CONCEPTS.Type$dP), SNodeOperations.cast(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.ReversibleStatement$s8), ctx);
+            ctx.getBuffer().area().decreaseIndent();
+            tgs.indent();
+            tgs.append("}");
+            tgs.newLine();
+
           }
+          tgs.indent();
         }
+
+
+        // restore state
       } else {
         // call reverse
         tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.macro$QKaR), PROPS.name$MnvL));
@@ -92,23 +180,40 @@ public class ReversibleMacroCall_TextGen extends TextGenDescriptorBase {
     }
   }
 
-  private static final class LINKS {
-    /*package*/ static final SReferenceLink macro$QKaR = MetaAdapterFactory.getReferenceLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1b427f2e49d1fe84L, 0x1b427f2e49d1fe85L, "macro");
-    /*package*/ static final SContainmentLink actuals$QKpS = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1b427f2e49d1fe84L, 0x1b427f2e49d1fe86L, "actuals");
-    /*package*/ static final SContainmentLink actual$n_Ao = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x68ce0d48c3998717L, 0x68ce0d48c3998719L, "actual");
-    /*package*/ static final SContainmentLink content$L7Vn = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145008fL, 0x78202c09dd229062L, "content");
-  }
-
   private static final class CONCEPTS {
+    /*package*/ static final SConcept ReversibleEventHandler$Ov = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, "DESL.structure.ReversibleEventHandler");
+    /*package*/ static final SConcept ReversibleFunction$IL = MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, "ReversibleFunctions.structure.ReversibleFunction");
     /*package*/ static final SInterfaceConcept IVariableReference$WR = MetaAdapterFactory.getInterfaceConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x1c69b376a2dab98aL, "com.mbeddr.core.expressions.structure.IVariableReference");
+    /*package*/ static final SConcept Type$dP = MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba36L, "com.mbeddr.core.expressions.structure.Type");
+    /*package*/ static final SConcept ReversibleStatement$s8 = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad6d03L, "ReversibleStatements.structure.ReversibleStatement");
+    /*package*/ static final SConcept PointerType$HX = MetaAdapterFactory.getConcept(0x3bf5377ae9044dedL, 0x97545a516023bfaaL, 0x3e0cae5e366d630L, "com.mbeddr.core.pointers.structure.PointerType");
+    /*package*/ static final SConcept DESLModel$DK = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, "DESL.structure.DESLModel");
+    /*package*/ static final SConcept CreateArray$_5 = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6ea143d20956bff1L, "DESL.structure.CreateArray");
+    /*package*/ static final SConcept GenericDotExpression$ia = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x401df715da462c0cL, "ReversibleExpressions.structure.GenericDotExpression");
+    /*package*/ static final SConcept GenericMemberRef$Ue = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4f5d78b09e1b9a5fL, "ReversibleExpressions.structure.GenericMemberRef");
+    /*package*/ static final SConcept StructDeclaration$ox = MetaAdapterFactory.getConcept(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x58bef62304fc0a2fL, "com.mbeddr.core.udt.structure.StructDeclaration");
     /*package*/ static final SConcept ReversibleMacro$EH = MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145008fL, "ReversibleFunctions.structure.ReversibleMacro");
-    /*package*/ static final SInterfaceConcept IDestructiveOperation$SP = MetaAdapterFactory.getInterfaceConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x27d0c8e745a2c78dL, "ReversibleExpressions.structure.IDestructiveOperation");
     /*package*/ static final SInterfaceConcept TraceableConcept$L = MetaAdapterFactory.getInterfaceConcept(0x9ded098bad6a4657L, 0xbfd948636cfe8bc3L, 0x465516cf87c705a3L, "jetbrains.mps.lang.traceable.structure.TraceableConcept");
   }
 
   private static final class PROPS {
+    /*package*/ static final SProperty eventName$rI8o = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x549487e5d88a4291L, 0x113f0963d355264aL, "eventName");
+    /*package*/ static final SProperty reversibilityRequired$Zgdy = MetaAdapterFactory.getProperty(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111cL, 0x56ee1731ff5a6482L, "reversibilityRequired");
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
-    /*package*/ static final SProperty callsDestructiveMacro$eoF = MetaAdapterFactory.getProperty(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1b427f2e49d1fe84L, 0x2d0ea789450dadafL, "callsDestructiveMacro");
     /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink macro$QKaR = MetaAdapterFactory.getReferenceLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1b427f2e49d1fe84L, 0x1b427f2e49d1fe85L, "macro");
+    /*package*/ static final SContainmentLink actuals$QKpS = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1b427f2e49d1fe84L, 0x1b427f2e49d1fe86L, "actuals");
+    /*package*/ static final SReferenceLink member$wUNL = MetaAdapterFactory.getReferenceLink(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x619e8ce80b8d18e4L, 0x619e8ce80b8d18e6L, "member");
+    /*package*/ static final SContainmentLink actual$n_Ao = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x68ce0d48c3998717L, 0x68ce0d48c3998719L, "actual");
+    /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
+    /*package*/ static final SContainmentLink allocationVariable$GPxN = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x7af97dfb35e0fee8L, 0x7af97dfb363145a9L, "allocationVariable");
+    /*package*/ static final SContainmentLink target$xbCZ = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x401df715da462c0cL, 0x619e8ce80b7ff48bL, "target");
+    /*package*/ static final SReferenceLink member$gCRV = MetaAdapterFactory.getReferenceLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4f5d78b09e1b9a5fL, 0x4f5d78b09f1589e9L, "member");
+    /*package*/ static final SContainmentLink size$QIgu = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6ea143d20956bff1L, 0x6ea143d20956bff2L, "size");
+    /*package*/ static final SContainmentLink arguments$6da0 = MetaAdapterFactory.getContainmentLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x707ac195dd5d51f2L, 0x4f39f90935e92f45L, "arguments");
+    /*package*/ static final SContainmentLink baseType$zMGV = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x6bbcdccef5e46755L, 0x6bbcdccef5e46756L, "baseType");
   }
 }

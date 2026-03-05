@@ -26,10 +26,10 @@ public class ReversibleStatementList_TextGen extends TextGenDescriptorBase {
     if (!(SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isInvisible$wTPL))) {
       // use indent if the statement list is visible
       ctx.getBuffer().area().increaseIndent();
-      ReversibleStatementListUtils.statementList(ctx.getPrimaryInput(), null, null, ctx);
+      ReversibleStatementListUtils.statementList(ctx.getPrimaryInput(), ctx);
       ctx.getBuffer().area().decreaseIndent();
     } else {
-      ReversibleStatementListUtils.statementList(ctx.getPrimaryInput(), null, null, ctx);
+      ReversibleStatementListUtils.statementList(ctx.getPrimaryInput(), ctx);
     }
 
     if (!(SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isInvisible$wTPL))) {

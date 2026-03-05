@@ -14,6 +14,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import com.mbeddr.core.expressions.behavior.IVariableDeclaration__BehaviorDescriptor;
 import com.mbeddr.core.expressions.behavior.IVariableReference__BehaviorDescriptor;
 import jetbrains.mps.lang.core.behavior.BaseConcept__BehaviorDescriptor;
+import ReversibleStatements.textGen.ReversibleStatementListUtils;
 import jetbrains.mps.lang.traceable.behavior.TraceableConcept__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
@@ -28,8 +29,8 @@ public class CreateArray_TextGen extends TextGenDescriptorBase {
     tgs.createPositionInfo();
 
 
+    boolean revRequired = SPropertyOperations.getBoolean(SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.ReversibleFunction$IL, false, false), PROPS.reversibilityRequired$Zgdy) && (((SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.ReversibleEventHandler$Ov, false, false) == null) ? true : !(SPropertyOperations.getString(SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.ReversibleEventHandler$Ov, false, false), PROPS.eventName$rI8o).contains("INIT"))));
 
-    boolean revRequired = SPropertyOperations.getBoolean(SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.ReversibleFunction$IL, false, false), PROPS.reversibilityRequired$Zgdy);
     String arrayName = null;
     SNode type = SConceptOperations.createNewNode(SNodeOperations.asInstanceConcept(MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x11f8a0774f2L, "jetbrains.mps.lang.core.structure.IType")));
 
@@ -64,30 +65,41 @@ public class CreateArray_TextGen extends TextGenDescriptorBase {
     if (revRequired) {
       if (SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5)) {
         tgs.append(arrayName);
-        tgs.append(" = rev_malloc(arena, sizeof(");
+        tgs.append(" = rev_malloc_w(mr, sizeof(");
         tgs.appendNode(type);
         tgs.append(") * (");
         tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.size$QIgu));
         tgs.append("));");
         tgs.newLine();
         tgs.indent();
-        tgs.append("push(stack, ");
+        ReversibleStatementListUtils.stackStateHandling(true, arrayName, SLinkOperations.getTarget(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), LINKS.type$sXU3), SNodeOperations.cast(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.ExpressionStatement$L7), ctx);
+      } else {
+
+        ReversibleStatementListUtils.stackStateHandling(false, arrayName, SLinkOperations.getTarget(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), LINKS.type$sXU3), SNodeOperations.cast(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.ExpressionStatement$L7), ctx);
+        tgs.indent();
+        tgs.append("rev_free_w(me, ");
         tgs.append(arrayName);
         tgs.append(");");
         tgs.newLine();
-      } else {
-        tgs.append("rev_free(arena, pop(stack));");
-        tgs.newLine();
+
       }
+    } else if ((SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.RossM2M$aQ, false, false) != null)) {
+      tgs.append(arrayName);
+      tgs.append(" = rev_malloc_w(me, sizeof(");
+      tgs.appendNode(type);
+      tgs.append(") * (");
+      tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.size$QIgu));
+      tgs.append("));");
+      tgs.newLine();
     } else {
       tgs.append(arrayName);
       tgs.append(" = (");
       tgs.appendNode(type);
       tgs.append(" *)malloc(sizeof(");
       tgs.appendNode(type);
-      tgs.append(" * (");
+      tgs.append(") * (");
       tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.size$QIgu));
-      tgs.append(")));");
+      tgs.append("));");
       tgs.newLine();
       tgs.indent();
       tgs.append("if (");
@@ -118,16 +130,20 @@ public class CreateArray_TextGen extends TextGenDescriptorBase {
   }
 
   private static final class CONCEPTS {
+    /*package*/ static final SConcept ReversibleEventHandler$Ov = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, "DESL.structure.ReversibleEventHandler");
     /*package*/ static final SConcept ReversibleFunction$IL = MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, "ReversibleFunctions.structure.ReversibleFunction");
     /*package*/ static final SInterfaceConcept IVariableReference$WR = MetaAdapterFactory.getInterfaceConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x1c69b376a2dab98aL, "com.mbeddr.core.expressions.structure.IVariableReference");
     /*package*/ static final SConcept PointerType$HX = MetaAdapterFactory.getConcept(0x3bf5377ae9044dedL, 0x97545a516023bfaaL, 0x3e0cae5e366d630L, "com.mbeddr.core.pointers.structure.PointerType");
     /*package*/ static final SConcept LocalVariableDeclaration$7E = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad96e6L, "ReversibleStatements.structure.LocalVariableDeclaration");
     /*package*/ static final SConcept GenericDotExpression$ia = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x401df715da462c0cL, "ReversibleExpressions.structure.GenericDotExpression");
     /*package*/ static final SConcept GenericMemberRef$Ue = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4f5d78b09e1b9a5fL, "ReversibleExpressions.structure.GenericMemberRef");
+    /*package*/ static final SConcept ExpressionStatement$L7 = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a4018a8592L, "ReversibleStatements.structure.ExpressionStatement");
+    /*package*/ static final SConcept RossM2M$aQ = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x7dd219cad75cd6eeL, "DESL.structure.RossM2M");
     /*package*/ static final SInterfaceConcept TraceableConcept$L = MetaAdapterFactory.getInterfaceConcept(0x9ded098bad6a4657L, 0xbfd948636cfe8bc3L, 0x465516cf87c705a3L, "jetbrains.mps.lang.traceable.structure.TraceableConcept");
   }
 
   private static final class PROPS {
+    /*package*/ static final SProperty eventName$rI8o = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x549487e5d88a4291L, 0x113f0963d355264aL, "eventName");
     /*package*/ static final SProperty reversibilityRequired$Zgdy = MetaAdapterFactory.getProperty(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111cL, 0x56ee1731ff5a6482L, "reversibilityRequired");
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
     /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
@@ -140,5 +156,6 @@ public class CreateArray_TextGen extends TextGenDescriptorBase {
     /*package*/ static final SContainmentLink target$xbCZ = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x401df715da462c0cL, 0x619e8ce80b7ff48bL, "target");
     /*package*/ static final SReferenceLink member$gCRV = MetaAdapterFactory.getReferenceLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4f5d78b09e1b9a5fL, 0x4f5d78b09f1589e9L, "member");
     /*package*/ static final SContainmentLink size$QIgu = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6ea143d20956bff1L, 0x6ea143d20956bff2L, "size");
+    /*package*/ static final SContainmentLink supportVariable$WrxR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x586abb2d5743cb69L, "supportVariable");
   }
 }

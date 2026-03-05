@@ -99,6 +99,7 @@
         <child id="6733348108486823193" name="leftExpression" index="1m5AlR" />
         <child id="3906496115198199033" name="conceptArgument" index="3oSUPX" />
       </concept>
+      <concept id="1139613262185" name="jetbrains.mps.lang.smodel.structure.Node_GetParentOperation" flags="nn" index="1mfA1w" />
       <concept id="1180636770613" name="jetbrains.mps.lang.smodel.structure.SNodeCreator" flags="nn" index="3zrR0B">
         <child id="1180636770616" name="createdType" index="3zrR0E" />
       </concept>
@@ -1154,24 +1155,9 @@
               </node>
             </node>
           </node>
-          <node concept="3cpWs8" id="50VhZbSIJhJ" role="3cqZAp">
-            <node concept="3cpWsn" id="50VhZbSIJhM" role="3cpWs9">
-              <property role="TrG5h" value="voidType" />
-              <node concept="3Tqbb2" id="50VhZbSIJhH" role="1tU5fm">
-                <ref role="ehGHo" to="mj1l:6Q7bJ$$mwOp" resolve="VoidType" />
-              </node>
-              <node concept="2ShNRf" id="50VhZbSIJMt" role="33vP2m">
-                <node concept="3zrR0B" id="50VhZbSIJMr" role="2ShVmc">
-                  <node concept="3Tqbb2" id="50VhZbSIJMs" role="3zrR0E">
-                    <ref role="ehGHo" to="mj1l:6Q7bJ$$mwOp" resolve="VoidType" />
-                  </node>
-                </node>
-              </node>
-            </node>
-          </node>
           <node concept="3cpWs8" id="50VhZbSIO$$" role="3cqZAp">
             <node concept="3cpWsn" id="50VhZbSIO$B" role="3cpWs9">
-              <property role="TrG5h" value="voidPointer" />
+              <property role="TrG5h" value="ptr" />
               <node concept="3Tqbb2" id="50VhZbSIO$y" role="1tU5fm">
                 <ref role="ehGHo" to="yq40:fwMInzpHoK" resolve="PointerType" />
               </node>
@@ -1186,12 +1172,28 @@
           </node>
           <node concept="3clFbF" id="50VhZbSIP_v" role="3cqZAp">
             <node concept="37vLTI" id="50VhZbSIRcP" role="3clFbG">
-              <node concept="37vLTw" id="50VhZbSIRjx" role="37vLTx">
-                <ref role="3cqZAo" node="50VhZbSIJhM" resolve="voidType" />
+              <node concept="2OqwBi" id="7C3HBAnblH4" role="37vLTx">
+                <node concept="2OqwBi" id="7C3HBAnbjfo" role="2Oq$k0">
+                  <node concept="1PxgMI" id="7C3HBAnbiMp" role="2Oq$k0">
+                    <node concept="chp4Y" id="7C3HBAnbiO4" role="3oSUPX">
+                      <ref role="cht4Q" to="rdv6:1FqAw$nj9oK" resolve="DESLModel" />
+                    </node>
+                    <node concept="2OqwBi" id="7C3HBAnbi_p" role="1m5AlR">
+                      <node concept="1r4N1M" id="7C3HBAnbi9K" role="2Oq$k0" />
+                      <node concept="1mfA1w" id="7C3HBAnbiKB" role="2OqNvi" />
+                    </node>
+                  </node>
+                  <node concept="3TrEf2" id="7C3HBAnbl9n" role="2OqNvi">
+                    <ref role="3Tt5mk" to="rdv6:6RAcTY_pbVo" resolve="messageStruct" />
+                  </node>
+                </node>
+                <node concept="2qgKlT" id="7C3HBAnbnmL" role="2OqNvi">
+                  <ref role="37wK5l" to="qd6m:3o2OLGv7CoR" resolve="createType" />
+                </node>
               </node>
               <node concept="2OqwBi" id="50VhZbSIQnS" role="37vLTJ">
                 <node concept="37vLTw" id="50VhZbSIP_t" role="2Oq$k0">
-                  <ref role="3cqZAo" node="50VhZbSIO$B" resolve="voidPointer" />
+                  <ref role="3cqZAo" node="50VhZbSIO$B" resolve="ptr" />
                 </node>
                 <node concept="3TrEf2" id="50VhZbSIQOf" role="2OqNvi">
                   <ref role="3Tt5mk" to="c4fa:6IWRcVPT6tm" resolve="baseType" />
@@ -1232,7 +1234,7 @@
           <node concept="3clFbF" id="50VhZbSIV7r" role="3cqZAp">
             <node concept="37vLTI" id="50VhZbSIXs0" role="3clFbG">
               <node concept="37vLTw" id="50VhZbSIXyV" role="37vLTx">
-                <ref role="3cqZAo" node="50VhZbSIO$B" resolve="voidPointer" />
+                <ref role="3cqZAo" node="50VhZbSIO$B" resolve="ptr" />
               </node>
               <node concept="2OqwBi" id="50VhZbSIVV1" role="37vLTJ">
                 <node concept="37vLTw" id="50VhZbSIV7p" role="2Oq$k0">

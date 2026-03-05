@@ -24,6 +24,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.baseLanguage.logging.rt.LogContext;
 import jetbrains.mps.lang.core.behavior.BaseConcept__BehaviorDescriptor;
 import com.mbeddr.core.expressions.behavior.Expression__BehaviorDescriptor;
+import java.math.BigInteger;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -106,16 +107,24 @@ public final class ForStatement__BehaviorDescriptor extends BaseBHDescriptor {
     double end = ((double) ForStatement__BehaviorDescriptor.getValue_id5jvm5d2Pzhq.invokeSpecial(__thisNode__, SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(__thisNode__, LINKS.condition$3gCl), CONCEPTS.BinaryExpression$b), LINKS.right$KPZS)));
     LogContext.with(ForStatement__BehaviorDescriptor.class, null, null, null).info("End start value is " + end);
 
+    if (end == 0.0 && (SNodeOperations.isInstanceOf(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.incr$fAzR)).first(), CONCEPTS.PostIncrementExpression$Qj) || SNodeOperations.isInstanceOf(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.incr$fAzR)).first(), CONCEPTS.PreIncrementExpression$QM))) {
+      return 0;
+    }
 
     int result = ((int) Math.ceil(end - start));
     LogContext.with(ForStatement__BehaviorDescriptor.class, null, null, null).info("Number of iterations: " + result);
+
     return result;
   }
   /*package*/ static double getValue_id5jvm5d2Pzhq(@NotNull SNode __thisNode__, SNode expr) {
-    // NumberLiteral defined in ReversibleExpressions
-    // NumberLiteral defined in c.m.c.expressions
 
-    LogContext.with(ForStatement__BehaviorDescriptor.class, null, null, null).info("static evaluation result: " + Expression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(expr));
+    // check division by zero
+    if (SNodeOperations.isInstanceOf(expr, CONCEPTS.DivExpression$K5)) {
+      if (((Number) Expression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(SLinkOperations.getTarget(SNodeOperations.cast(expr, CONCEPTS.DivExpression$K5), LINKS.right$KPZS))).equals(BigInteger.ZERO)) {
+        return 0.0;
+      }
+    }
+
     return ((Number) Expression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(expr)).doubleValue();
 
   }
@@ -193,6 +202,9 @@ public final class ForStatement__BehaviorDescriptor extends BaseBHDescriptor {
     /*package*/ static final SConcept ForVarRef$v6 = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x347479252a95b28aL, "ReversibleStatements.structure.ForVarRef");
     /*package*/ static final SConcept BinaryExpression$b = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba34L, "ReversibleExpressions.structure.BinaryExpression");
     /*package*/ static final SConcept NumberLiteral$74 = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba67L, "ReversibleExpressions.structure.NumberLiteral");
+    /*package*/ static final SConcept PostIncrementExpression$Qj = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x3cba500cc5723aaeL, "ReversibleExpressions.structure.PostIncrementExpression");
+    /*package*/ static final SConcept PreIncrementExpression$QM = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x3cba500cc5723aafL, "ReversibleExpressions.structure.PreIncrementExpression");
+    /*package*/ static final SConcept DivExpression$K5 = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4ffba68fe82b621eL, "ReversibleExpressions.structure.DivExpression");
   }
 
   private static final class PROPS {

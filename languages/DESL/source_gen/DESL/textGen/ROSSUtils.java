@@ -38,9 +38,12 @@ public abstract class ROSSUtils {
     tgs.append("tw_lpid me = lp->gid;");
     tgs.newLine();
     tgs.indent();
-    tgs.append("double now = 0;");
+    tgs.append("double now = content->timestamp;");
     tgs.newLine();
 
+    // update global "me" variable
+    tgs.append("global_me = me;");
+    tgs.newLine();
 
     ROSSUtils.rossSwitchEvent(c, true, ctx);
     ctx.getBuffer().area().decreaseIndent();
@@ -56,7 +59,7 @@ public abstract class ROSSUtils {
     tgs.newLine();
     ctx.getBuffer().area().increaseIndent();
     for (SNode handler : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(c, LINKS.handlers$Nr2P), CONCEPTS.ReversibleEventHandler$Ov))) {
-      if (!(isForward) || (!(SPropertyOperations.getString(handler, PROPS.eventName$rI8o).equals("INIT")) && !(SPropertyOperations.getString(handler, PROPS.eventName$rI8o).equals("LP_INIT")))) {
+      if (!(SPropertyOperations.getString(handler, PROPS.eventName$rI8o).contains("INIT"))) {
         tgs.newLine();
         tgs.indent();
         tgs.append("case event_");
@@ -93,12 +96,6 @@ public abstract class ROSSUtils {
     ctx.getBuffer().area().decreaseIndent();
     tgs.indent();
     tgs.append("}");
-    tgs.newLine();
-  }
-  public static void rossStructCheckpointInstantiation(SNode deslModel, final TextGenContext ctx) {
-    final TextGenSupport tgs = new TextGenSupport(ctx);
-    tgs.indent();
-    tgs.append("struct checkpoint cp = {0};");
     tgs.newLine();
   }
 

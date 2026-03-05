@@ -1282,6 +1282,9 @@
       <property role="TrG5h" value="value" />
       <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
     </node>
+    <node concept="PrWs8" id="3Ays4zJDH4c" role="PzmwI">
+      <ref role="PrY4T" to="mj1l:40tXLnqhXcx" resolve="IGenericDotTarget" />
+    </node>
   </node>
 </model>
 

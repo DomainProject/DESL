@@ -6,12 +6,17 @@ import jetbrains.mps.text.rt.TextGenDescriptorBase;
 import jetbrains.mps.text.rt.TextGenContext;
 import jetbrains.mps.text.impl.TextGenSupport;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import ReversibleStatements.textGen.ReversibleStatementListUtils;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.lang.traceable.behavior.TraceableConcept__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import com.mbeddr.core.expressions.behavior.IVariableDeclaration__BehaviorDescriptor;
+import jetbrains.mps.internal.collections.runtime.Sequence;
+import jetbrains.mps.lang.traceable.behavior.TraceableConcept__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public class RemoveFromCollection_TextGen extends TextGenDescriptorBase {
@@ -19,11 +24,13 @@ public class RemoveFromCollection_TextGen extends TextGenDescriptorBase {
   public void generateText(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     tgs.createPositionInfo();
+
     if (SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5)) {
-      tgs.append("push(stack, ");
-      tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableToSaveName$udlR));
-      tgs.append(");");
+      // save pointer
+      ReversibleStatementListUtils.stackStateHandling(true, SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableName$6uCq), SLinkOperations.getTarget(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), LINKS.type$sXU3), ctx.getPrimaryInput(), ctx);
       tgs.newLine();
+
+      // remove element from list
       tgs.indent();
       tgs.append("list_detach_by_content(");
       tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.collection$icQi));
@@ -32,9 +39,26 @@ public class RemoveFromCollection_TextGen extends TextGenDescriptorBase {
       tgs.append(");");
       tgs.newLine();
     } else {
-      tgs.append("list_insert_tail(");
+
+      // retrieve pointer
+      tgs.indent();
+      ReversibleStatementListUtils.stackStateHandling(false, SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableName$6uCq), SLinkOperations.getTarget(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), LINKS.type$sXU3), ctx.getPrimaryInput(), ctx);
+
+      String firstMemberName;
+      if (SNodeOperations.isInstanceOf(IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.item$jK4r)), CONCEPTS.PointerType$HX)) {
+        firstMemberName = SPropertyOperations.getString(Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.item$jK4r)), CONCEPTS.PointerType$HX), LINKS.baseType$zMGV), CONCEPTS.StructType$B3), LINKS.struct$WCsg), LINKS.members$C59R), CONCEPTS.Member$J1)).first(), PROPS.name$MnvL);
+      } else {
+        firstMemberName = SPropertyOperations.getString(Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(SLinkOperations.getTarget(SNodeOperations.cast(IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.item$jK4r)), CONCEPTS.StructType$B3), LINKS.struct$WCsg), LINKS.members$C59R), CONCEPTS.Member$J1)).first(), PROPS.name$MnvL);
+      }
+
+      tgs.indent();
+      tgs.append("list_insert(");
       tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.collection$icQi));
-      tgs.append(", pop(stack));");
+      tgs.append(", ");
+      tgs.append(firstMemberName);
+      tgs.append(", ");
+      tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableName$6uCq));
+      tgs.append(");");
       tgs.newLine();
     }
     if (tgs.needPositions()) {
@@ -43,16 +67,25 @@ public class RemoveFromCollection_TextGen extends TextGenDescriptorBase {
   }
 
   private static final class PROPS {
-    /*package*/ static final SProperty variableToSaveName$udlR = MetaAdapterFactory.getProperty(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x27d0c8e745a2c78dL, 0x1b427f2e4b08b057L, "variableToSaveName");
     /*package*/ static final SProperty variableName$6uCq = MetaAdapterFactory.getProperty(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x1b427f2e49f084f2L, 0x1b427f2e4a21703bL, "variableName");
     /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
+    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 
   private static final class LINKS {
+    /*package*/ static final SContainmentLink supportVariable$WrxR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x586abb2d5743cb69L, "supportVariable");
+    /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
     /*package*/ static final SContainmentLink collection$icQi = MetaAdapterFactory.getContainmentLink(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x1b427f2e49f084f2L, 0x1b427f2e4a217c88L, "collection");
+    /*package*/ static final SReferenceLink item$jK4r = MetaAdapterFactory.getReferenceLink(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x1b427f2e49f084f2L, 0x1b427f2e49f084f3L, "item");
+    /*package*/ static final SContainmentLink baseType$zMGV = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x6bbcdccef5e46755L, 0x6bbcdccef5e46756L, "baseType");
+    /*package*/ static final SReferenceLink struct$WCsg = MetaAdapterFactory.getReferenceLink(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x58bef62304fc0a38L, 0x58bef62304fc0a39L, "struct");
+    /*package*/ static final SContainmentLink members$C59R = MetaAdapterFactory.getContainmentLink(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x6285e27d4ff6c9f5L, 0x6285e27d4ff7db92L, "members");
   }
 
   private static final class CONCEPTS {
+    /*package*/ static final SConcept PointerType$HX = MetaAdapterFactory.getConcept(0x3bf5377ae9044dedL, 0x97545a516023bfaaL, 0x3e0cae5e366d630L, "com.mbeddr.core.pointers.structure.PointerType");
+    /*package*/ static final SConcept StructType$B3 = MetaAdapterFactory.getConcept(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x58bef62304fc0a38L, "com.mbeddr.core.udt.structure.StructType");
+    /*package*/ static final SConcept Member$J1 = MetaAdapterFactory.getConcept(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x51a277741cc50918L, "com.mbeddr.core.udt.structure.Member");
     /*package*/ static final SInterfaceConcept TraceableConcept$L = MetaAdapterFactory.getInterfaceConcept(0x9ded098bad6a4657L, 0xbfd948636cfe8bc3L, 0x465516cf87c705a3L, "jetbrains.mps.lang.traceable.structure.TraceableConcept");
   }
 }

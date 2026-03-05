@@ -29,7 +29,7 @@ public class LocalVariableDeclaration_TextGen extends TextGenDescriptorBase {
     // todo should created messages be saved on the state?  
     boolean saveState = true;
 
-    if (!(saveState) && !(SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5))) {
+    if (!(saveState) || !(SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5))) {
       return;
     }
 

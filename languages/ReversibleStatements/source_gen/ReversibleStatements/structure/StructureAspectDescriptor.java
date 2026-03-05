@@ -50,6 +50,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptIHasPrefixes = createDescriptorForIHasPrefixes();
   /*package*/ final ConceptDescriptor myConceptIIndependentInitExpression = createDescriptorForIIndependentInitExpression();
   /*package*/ final ConceptDescriptor myConceptIInitAwareType = createDescriptorForIInitAwareType();
+  /*package*/ final ConceptDescriptor myConceptIInterruptExecution = createDescriptorForIInterruptExecution();
   /*package*/ final ConceptDescriptor myConceptILocalVarScopeProvider = createDescriptorForILocalVarScopeProvider();
   /*package*/ final ConceptDescriptor myConceptILoopStatement = createDescriptorForILoopStatement();
   /*package*/ final ConceptDescriptor myConceptIReversible = createDescriptorForIReversible();
@@ -105,7 +106,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptAbstractItem, myConceptAllocateStruct, myConceptAnyNodeItem, myConceptArbitraryFunctionCall, myConceptArbitraryTextAttributePrefix, myConceptArbitraryTextExpression, myConceptArbitraryTextItem, myConceptArbitraryTextType, myConceptArgumentRef, myConceptBreakStatement, myConceptCheckpointLocalVarRef, myConceptCommentStatement, myConceptCommentedElseIfPart, myConceptCommentedElsePart, myConceptCommentedStatement, myConceptCommentedSwitchMember, myConceptContinueStatement, myConceptDesignatedInitializer, myConceptDoWhileStatement, myConceptElseIfPart, myConceptElsePart, myConceptEmptyStatement, myConceptExpressionStatement, myConceptForStatement, myConceptForVarDecl, myConceptForVarRef, myConceptIAllocationVariable, myConceptIAllowsIncompleteTypes, myConceptIBreakContainer, myConceptICFGNode, myConceptICFGRelevantNode, myConceptICanBeStoredInRegister, myConceptIDefineStateSaving, myConceptIForLike, myConceptIHasPrefixes, myConceptIIndependentInitExpression, myConceptIInitAwareType, myConceptILocalVarScopeProvider, myConceptILoopStatement, myConceptIReversible, myConceptIReversibleLoop, myConceptIReversibleStatement, myConceptIStatmentListContainer, myConceptIStructuredInitExpression, myConceptITypeContainingType, myConceptIValueLike, myConceptIfStatement, myConceptInitExpression, myConceptIterator, myConceptLocalVarRef, myConceptLocalVariableDeclaration, myConceptLogStatement, myConceptNewStruct, myConceptNotParsedStatement, myConceptPragmaStatement, myConceptPrefix, myConceptReleaseStruct, myConceptReturnStatement, myConceptReversibleStatement, myConceptReversibleStatementList, myConceptSimpleAttributePrefix, myConceptSwitchCase, myConceptSwitchDefault, myConceptSwitchMember, myConceptSwitchStatement, myConceptWaitBusy, myConceptWhileStatement);
+    return Arrays.asList(myConceptAbstractItem, myConceptAllocateStruct, myConceptAnyNodeItem, myConceptArbitraryFunctionCall, myConceptArbitraryTextAttributePrefix, myConceptArbitraryTextExpression, myConceptArbitraryTextItem, myConceptArbitraryTextType, myConceptArgumentRef, myConceptBreakStatement, myConceptCheckpointLocalVarRef, myConceptCommentStatement, myConceptCommentedElseIfPart, myConceptCommentedElsePart, myConceptCommentedStatement, myConceptCommentedSwitchMember, myConceptContinueStatement, myConceptDesignatedInitializer, myConceptDoWhileStatement, myConceptElseIfPart, myConceptElsePart, myConceptEmptyStatement, myConceptExpressionStatement, myConceptForStatement, myConceptForVarDecl, myConceptForVarRef, myConceptIAllocationVariable, myConceptIAllowsIncompleteTypes, myConceptIBreakContainer, myConceptICFGNode, myConceptICFGRelevantNode, myConceptICanBeStoredInRegister, myConceptIDefineStateSaving, myConceptIForLike, myConceptIHasPrefixes, myConceptIIndependentInitExpression, myConceptIInitAwareType, myConceptIInterruptExecution, myConceptILocalVarScopeProvider, myConceptILoopStatement, myConceptIReversible, myConceptIReversibleLoop, myConceptIReversibleStatement, myConceptIStatmentListContainer, myConceptIStructuredInitExpression, myConceptITypeContainingType, myConceptIValueLike, myConceptIfStatement, myConceptInitExpression, myConceptIterator, myConceptLocalVarRef, myConceptLocalVariableDeclaration, myConceptLogStatement, myConceptNewStruct, myConceptNotParsedStatement, myConceptPragmaStatement, myConceptPrefix, myConceptReleaseStruct, myConceptReturnStatement, myConceptReversibleStatement, myConceptReversibleStatementList, myConceptSimpleAttributePrefix, myConceptSwitchCase, myConceptSwitchDefault, myConceptSwitchMember, myConceptSwitchStatement, myConceptWaitBusy, myConceptWhileStatement);
   }
 
   @Override
@@ -186,6 +187,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptIIndependentInitExpression;
       case LanguageConceptSwitch.IInitAwareType:
         return myConceptIInitAwareType;
+      case LanguageConceptSwitch.IInterruptExecution:
+        return myConceptIInterruptExecution;
       case LanguageConceptSwitch.ILocalVarScopeProvider:
         return myConceptILocalVarScopeProvider;
       case LanguageConceptSwitch.ILoopStatement:
@@ -367,6 +370,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.class_(false, false, false);
     // extends: ReversibleStatements.structure.ReversibleStatement
     b.super_(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad6d03L);
+    b.parent(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x4a242d922b7ddf12L);
     b.origin("r:afa7ae5b-c41f-45e8-9678-2beae3621a33(ReversibleStatements.structure)/8441331188640862326");
     b.version(3);
     b.alias("break");
@@ -439,6 +443,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.class_(false, false, false);
     // extends: ReversibleStatements.structure.ReversibleStatement
     b.super_(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad6d03L);
+    b.parent(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x4a242d922b7ddf12L);
     b.origin("r:afa7ae5b-c41f-45e8-9678-2beae3621a33(ReversibleStatements.structure)/8132151755547066635");
     b.version(3);
     b.alias("continue");
@@ -636,6 +641,13 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("ReversibleStatements", "IInitAwareType", 0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x7ad4c4c8a2db08a4L);
     b.interface_();
     b.origin("r:afa7ae5b-c41f-45e8-9678-2beae3621a33(ReversibleStatements.structure)/8850915533694634148");
+    b.version(3);
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForIInterruptExecution() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("ReversibleStatements", "IInterruptExecution", 0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x4a242d922b7ddf12L);
+    b.interface_();
+    b.origin("r:afa7ae5b-c41f-45e8-9678-2beae3621a33(ReversibleStatements.structure)/5342445163786395410");
     b.version(3);
     return b.create();
   }
@@ -849,6 +861,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.class_(false, false, false);
     // extends: ReversibleStatements.structure.ReversibleStatement
     b.super_(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad6d03L);
+    b.parent(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x4a242d922b7ddf12L);
     b.origin("r:afa7ae5b-c41f-45e8-9678-2beae3621a33(ReversibleStatements.structure)/5413024092817285035");
     b.version(3);
     b.aggregate("expression", 0x4b1eecbba5015faeL).target(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L).optional(true).ordered(true).multiple(false).origin("5413024092817285038").done();

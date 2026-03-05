@@ -16,19 +16,21 @@ import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.baseLanguage.logging.rt.LogContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.baseLanguage.logging.rt.LogContext;
 import java.util.Objects;
 import ReversibleStatements.behavior.ForStatement__BehaviorDescriptor;
+import ReversibleExpressions.behavior.ReversibleMacroCall__BehaviorDescriptor;
+import com.mbeddr.core.expressions.behavior.Expression__BehaviorDescriptor;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class ClassDefinition__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, "DESL.structure.ClassDefinition");
@@ -53,7 +55,6 @@ public final class ClassDefinition__BehaviorDescriptor extends BaseBHDescriptor 
 
     for (SNode handler : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, LINKS.handlers$Nr2P), CONCEPTS.ReversibleEventHandler$Ov))) {
 
-      LogContext.with(ClassDefinition__BehaviorDescriptor.class, null, null, null).info("Computing stack sizes for handler " + SPropertyOperations.getString(handler, PROPS.eventName$rI8o));
 
       int curDoubleStackSize = ((int) ClassDefinition__BehaviorDescriptor.getStackSizeByType_id5jvm5d2RyP1.invoke(__thisNode__, handler, CONCEPTS.DoubleType$Lm));
       if (doubleStackSize < curDoubleStackSize) {
@@ -84,15 +85,14 @@ public final class ClassDefinition__BehaviorDescriptor extends BaseBHDescriptor 
   }
   /*package*/ static int getStackSizeByType_id5jvm5d2RyP1(@NotNull SNode __thisNode__, SNode handler, SAbstractConcept type) {
 
-    LogContext.with(ClassDefinition__BehaviorDescriptor.class, null, null, null).info("Computing stack size for type " + type.getName());
 
     int res = 0;
-    res += ((int) ClassDefinition__BehaviorDescriptor.computeNumOfStateSavingOperations_id5jvm5d2QWHR.invokeSpecial(__thisNode__, handler, type));
+    res += ((int) ClassDefinition__BehaviorDescriptor.computeNumOfStateSavingOperations_id5jvm5d2QWHR.invokeSpecial(__thisNode__, SLinkOperations.getTarget(SLinkOperations.getTarget(handler, LINKS.forwardFunction$5bPH), LINKS.revBody$QkEt), type));
     for (SNode invokedFunction : ListSequence.fromList(SNodeOperations.getNodeDescendants(handler, CONCEPTS.ReversibleFunctionCall$TO, false, new SAbstractConcept[]{})).where((it) -> SNodeOperations.isInstanceOf(SLinkOperations.getTarget(it, LINKS.function$EyYZ), CONCEPTS.ReversibleFunction$IL))) {
-      res += ((int) ClassDefinition__BehaviorDescriptor.computeNumOfStateSavingOperations_id5jvm5d2QWHR.invokeSpecial(__thisNode__, invokedFunction, type));
+      LogContext.with(ClassDefinition__BehaviorDescriptor.class, null, null, null).info("Computing stack size in function " + SPropertyOperations.getString(SLinkOperations.getTarget(invokedFunction, LINKS.function$EyYZ), PROPS.name$MnvL));
+      res += ((int) ClassDefinition__BehaviorDescriptor.computeNumOfStateSavingOperations_id5jvm5d2QWHR.invokeSpecial(__thisNode__, SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(invokedFunction, LINKS.function$EyYZ), CONCEPTS.ReversibleFunction$IL), LINKS.revBody$QkEt), type));
     }
 
-    LogContext.with(ClassDefinition__BehaviorDescriptor.class, null, null, null).info("Stack size is " + res);
 
     return res;
   }
@@ -100,12 +100,15 @@ public final class ClassDefinition__BehaviorDescriptor extends BaseBHDescriptor 
     int result = 0;
     for (SNode destructiveOperation : ListSequence.fromList(SNodeOperations.getNodeDescendants(stmtContainer, CONCEPTS.IDestructiveOperation$SP, false, new SAbstractConcept[]{})).where((it) -> Objects.equals(SNodeOperations.getConcept(SLinkOperations.getTarget(SLinkOperations.getTarget(it, LINKS.supportVariable$WrxR), LINKS.type$sXU3)), type))) {
 
-      LogContext.with(ClassDefinition__BehaviorDescriptor.class, null, null, null).info("Considering destructive operation: " + SNodeOperations.getConcept(destructiveOperation).getName());
 
       int curResult = 1;
+
+      if ((SNodeOperations.getNodeAncestor(destructiveOperation, CONCEPTS.ForEachItemInCollection$TU, false, false) != null)) {
+        curResult *= 1000;
+      }
+
       int numIterations;
       for (SNode forStmt : Sequence.fromIterable(SNodeOperations.ofConcept(SNodeOperations.getNodeAncestors(destructiveOperation, null, false), CONCEPTS.ForStatement$Bb))) {
-        LogContext.with(ClassDefinition__BehaviorDescriptor.class, null, null, null).info("Considering for statement");
         numIterations = (int) ForStatement__BehaviorDescriptor.computeNumberOfIterations_id5jvm5d2Pqj_.invoke(forStmt);
         if (numIterations == 0) {
           // todo determine a better loop iterations number estimation
@@ -116,30 +119,55 @@ public final class ClassDefinition__BehaviorDescriptor extends BaseBHDescriptor 
         }
       }
       result += curResult;
+
     }
+
+    // find ReversibleMacroCall nodes requiring state saving
+    for (SNode revMacroCall : ListSequence.fromList(SNodeOperations.getNodeDescendants(stmtContainer, CONCEPTS.ReversibleMacroCall$40, false, new SAbstractConcept[]{}))) {
+
+      int paramToSaveIndex = (int) ReversibleMacroCall__BehaviorDescriptor.checkIfCalledMacroUpdatesState_id4AbiQzVgluo.invoke(revMacroCall);
+
+      if (paramToSaveIndex != -1) {
+        final SNode memberToSave = SLinkOperations.getTarget(ReversibleMacroCall__BehaviorDescriptor.getUpdatedStateField_id4AbiQzVhgdw.invoke(revMacroCall, ((int) paramToSaveIndex)), LINKS.member$wUNL);
+
+        if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(memberToSave, LINKS.type$sXU3), CONCEPTS.PointerType$HX)) {
+          // array
+          if (Objects.equals(SNodeOperations.getConcept(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(memberToSave, LINKS.type$sXU3), CONCEPTS.PointerType$HX), LINKS.baseType$zMGV)), type)) {
+            SNode arraySize = SLinkOperations.getTarget(ListSequence.fromList(SNodeOperations.getNodeDescendants(SNodeOperations.cast(SNodeOperations.getParent(__thisNode__), CONCEPTS.DESLModel$DK), CONCEPTS.CreateArray$_5, false, new SAbstractConcept[]{})).findFirst((it) -> SNodeOperations.isInstanceOf(SLinkOperations.getTarget(it, LINKS.allocationVariable$GPxN), CONCEPTS.GenericDotExpression$ia) && SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(it, LINKS.allocationVariable$GPxN), CONCEPTS.GenericDotExpression$ia), LINKS.target$xbCZ), CONCEPTS.GenericMemberRef$Ue), LINKS.member$gCRV) == memberToSave), LINKS.size$QIgu);
+
+            result += ((int) Math.ceil(((Number) Expression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(arraySize)).doubleValue()));
+          }
+        } else {
+          // single value
+          if (Objects.equals(SNodeOperations.getConcept(SLinkOperations.getTarget(memberToSave, LINKS.type$sXU3)), type)) {
+            result++;
+          }
+        }
+      }
+    }
+
+
     return result;
   }
   /*package*/ static int getUInt16StackSize_id5jvm5d2S7Iz(@NotNull SNode __thisNode__, SNode handler) {
     int res = 0;
     res += ((int) ClassDefinition__BehaviorDescriptor.computeNumOfIfs_id5jvm5d2S8A4.invokeSpecial(__thisNode__, handler));
     for (SNode invokedFunction : ListSequence.fromList(SNodeOperations.getNodeDescendants(handler, CONCEPTS.ReversibleFunctionCall$TO, false, new SAbstractConcept[]{})).where((it) -> SNodeOperations.isInstanceOf(SLinkOperations.getTarget(it, LINKS.function$EyYZ), CONCEPTS.ReversibleFunction$IL))) {
-      res += ((int) ClassDefinition__BehaviorDescriptor.computeNumOfIfs_id5jvm5d2S8A4.invokeSpecial(__thisNode__, invokedFunction));
+      res += ((int) ClassDefinition__BehaviorDescriptor.computeNumOfIfs_id5jvm5d2S8A4.invokeSpecial(__thisNode__, SLinkOperations.getTarget(invokedFunction, LINKS.function$EyYZ)));
     }
     return res;
   }
   /*package*/ static int computeNumOfIfs_id5jvm5d2S8A4(@NotNull SNode __thisNode__, SNode stmtContainer) {
 
-    LogContext.with(ClassDefinition__BehaviorDescriptor.class, null, null, null).info("Computing stack size for ifs");
 
     int result = 0;
-    for (SNode ifStmt : ListSequence.fromList(SNodeOperations.getNodeDescendants(stmtContainer, CONCEPTS.IfStatement$AR, false, new SAbstractConcept[]{}))) {
+    for (SNode ifStmt : ListSequence.fromList(SNodeOperations.getNodeDescendants(stmtContainer, CONCEPTS.IfStatement$AR, false, new SAbstractConcept[]{})).where((it) -> !(SPropertyOperations.getBoolean(it, PROPS.skipStateSaving$3wRV)))) {
       int curResult = 1 + ListSequence.fromList(SLinkOperations.getChildren(ifStmt, LINKS.elseIfs$3PWK)).count();
       for (SNode forStmt : Sequence.fromIterable(SNodeOperations.ofConcept(SNodeOperations.getNodeAncestors(ifStmt, null, false), CONCEPTS.ForStatement$Bb))) {
         curResult *= (int) ForStatement__BehaviorDescriptor.computeNumberOfIterations_id5jvm5d2Pqj_.invoke(forStmt);
       }
       result += curResult;
     }
-    LogContext.with(ClassDefinition__BehaviorDescriptor.class, null, null, null).info("Stack size is " + result);
     return result;
   }
 
@@ -198,14 +226,6 @@ public final class ClassDefinition__BehaviorDescriptor extends BaseBHDescriptor 
     return CONCEPT;
   }
 
-  private static final class PROPS {
-    /*package*/ static final SProperty eventName$rI8o = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x549487e5d88a4291L, 0x113f0963d355264aL, "eventName");
-    /*package*/ static final SProperty doubleStackSize$2G1n = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x54df585342cdde6aL, "doubleStackSize");
-    /*package*/ static final SProperty intStackSize$onug = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x54df585342e22151L, "intStackSize");
-    /*package*/ static final SProperty uIntStackSize$2Gvp = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x54df585342cdde6cL, "uIntStackSize");
-    /*package*/ static final SProperty uInt16StackSize$2GXr = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x54df585342cdde6eL, "uInt16StackSize");
-  }
-
   private static final class CONCEPTS {
     /*package*/ static final SConcept DoubleType$Lm = MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7b064baaf4444619L, "com.mbeddr.core.expressions.structure.DoubleType");
     /*package*/ static final SConcept Int8tType$tq = MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x75739ed9f39e387aL, "com.mbeddr.core.expressions.structure.Int8tType");
@@ -219,18 +239,41 @@ public final class ClassDefinition__BehaviorDescriptor extends BaseBHDescriptor 
     /*package*/ static final SConcept PointerType$HX = MetaAdapterFactory.getConcept(0x3bf5377ae9044dedL, 0x97545a516023bfaaL, 0x3e0cae5e366d630L, "com.mbeddr.core.pointers.structure.PointerType");
     /*package*/ static final SConcept Collection$YT = MetaAdapterFactory.getConcept(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x6f36cc77d0af8690L, "Collections.structure.Collection");
     /*package*/ static final SConcept ReversibleEventHandler$Ov = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, "DESL.structure.ReversibleEventHandler");
-    /*package*/ static final SConcept ReversibleFunctionCall$TO = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x2e6ecb766f1587b4L, "ReversibleExpressions.structure.ReversibleFunctionCall");
     /*package*/ static final SConcept ReversibleFunction$IL = MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, "ReversibleFunctions.structure.ReversibleFunction");
+    /*package*/ static final SConcept ReversibleFunctionCall$TO = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x2e6ecb766f1587b4L, "ReversibleExpressions.structure.ReversibleFunctionCall");
+    /*package*/ static final SConcept ForEachItemInCollection$TU = MetaAdapterFactory.getConcept(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x259b4ab97565ea5eL, "Collections.structure.ForEachItemInCollection");
     /*package*/ static final SConcept ForStatement$Bb = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a40186e676L, "ReversibleStatements.structure.ForStatement");
     /*package*/ static final SInterfaceConcept IDestructiveOperation$SP = MetaAdapterFactory.getInterfaceConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x27d0c8e745a2c78dL, "ReversibleExpressions.structure.IDestructiveOperation");
+    /*package*/ static final SConcept DESLModel$DK = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, "DESL.structure.DESLModel");
+    /*package*/ static final SConcept CreateArray$_5 = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6ea143d20956bff1L, "DESL.structure.CreateArray");
+    /*package*/ static final SConcept GenericDotExpression$ia = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x401df715da462c0cL, "ReversibleExpressions.structure.GenericDotExpression");
+    /*package*/ static final SConcept GenericMemberRef$Ue = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4f5d78b09e1b9a5fL, "ReversibleExpressions.structure.GenericMemberRef");
+    /*package*/ static final SConcept ReversibleMacroCall$40 = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1b427f2e49d1fe84L, "ReversibleExpressions.structure.ReversibleMacroCall");
     /*package*/ static final SConcept IfStatement$AR = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x5718179e5b1bb7d7L, "ReversibleStatements.structure.IfStatement");
   }
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink handlers$Nr2P = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x4117a694e5b8c1a3L, "handlers");
+    /*package*/ static final SContainmentLink forwardFunction$5bPH = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x74d88000543a2a9fL, "forwardFunction");
+    /*package*/ static final SContainmentLink revBody$QkEt = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, 0x5e81f50da12f79a6L, "revBody");
     /*package*/ static final SReferenceLink function$EyYZ = MetaAdapterFactory.getReferenceLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x2e6ecb766f1587b4L, 0x2e6ecb766f15bfbaL, "function");
     /*package*/ static final SContainmentLink supportVariable$WrxR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x586abb2d5743cb69L, "supportVariable");
     /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
+    /*package*/ static final SReferenceLink member$wUNL = MetaAdapterFactory.getReferenceLink(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x619e8ce80b8d18e4L, 0x619e8ce80b8d18e6L, "member");
+    /*package*/ static final SContainmentLink allocationVariable$GPxN = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x7af97dfb35e0fee8L, 0x7af97dfb363145a9L, "allocationVariable");
+    /*package*/ static final SContainmentLink target$xbCZ = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x401df715da462c0cL, 0x619e8ce80b7ff48bL, "target");
+    /*package*/ static final SReferenceLink member$gCRV = MetaAdapterFactory.getReferenceLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4f5d78b09e1b9a5fL, 0x4f5d78b09f1589e9L, "member");
+    /*package*/ static final SContainmentLink size$QIgu = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6ea143d20956bff1L, 0x6ea143d20956bff2L, "size");
+    /*package*/ static final SContainmentLink baseType$zMGV = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x6bbcdccef5e46755L, 0x6bbcdccef5e46756L, "baseType");
     /*package*/ static final SContainmentLink elseIfs$3PWK = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x5718179e5b1bb7d7L, 0x2b8026b23bc273a3L, "elseIfs");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty doubleStackSize$2G1n = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x54df585342cdde6aL, "doubleStackSize");
+    /*package*/ static final SProperty intStackSize$onug = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x54df585342e22151L, "intStackSize");
+    /*package*/ static final SProperty uIntStackSize$2Gvp = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x54df585342cdde6cL, "uIntStackSize");
+    /*package*/ static final SProperty uInt16StackSize$2GXr = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x54df585342cdde6eL, "uInt16StackSize");
+    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty skipStateSaving$3wRV = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x75236ed53cd866f2L, "skipStateSaving");
   }
 }

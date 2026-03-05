@@ -9,12 +9,20 @@ import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
+import org.jetbrains.mps.openapi.model.SNode;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
+import com.mbeddr.core.expressions.behavior.IVariableDeclaration__BehaviorDescriptor;
+import com.mbeddr.core.expressions.behavior.IVariableReference__BehaviorDescriptor;
+import jetbrains.mps.internal.collections.runtime.Sequence;
+import java.util.Objects;
+import com.mbeddr.core.modules.behavior.ITypeDeclaration__BehaviorDescriptor;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.baseLanguage.logging.rt.LogContext;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -27,10 +35,12 @@ public final class ReversibleMacroCall__BehaviorDescriptor extends BaseBHDescrip
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1b427f2e49d1fe84L, "ReversibleExpressions.structure.ReversibleMacroCall");
 
   public static final SMethod<Boolean> checkIfDestructiveMacroCalled_id2OeDS_5iwt8 = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("checkIfDestructiveMacroCalled").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(3246716589395543880L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
+  public static final SMethod<Integer> checkIfCalledMacroUpdatesState_id4AbiQzVgluo = new SMethodBuilder<Integer>(new SJavaCompoundTypeImpl(Integer.TYPE)).name("checkIfCalledMacroUpdatesState").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(5299412300795565976L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
+  public static final SMethod<SNode> getUpdatedStateField_id4AbiQzVhgdw = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getUpdatedStateField").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(5299412300795806560L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2(SMethodBuilder.createJavaParameter(Integer.TYPE, ""));
   public static final SMethod<String> getBaseName_id2vgMet5LndN = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getBaseName").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2869013858268574579L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
   public static final SMethod<Void> handleCopyPaste_id33MO5h9wdZT = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("handleCopyPaste").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(3527110518613532665L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(checkIfDestructiveMacroCalled_id2OeDS_5iwt8, getBaseName_id2vgMet5LndN, handleCopyPaste_id33MO5h9wdZT);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(checkIfDestructiveMacroCalled_id2OeDS_5iwt8, checkIfCalledMacroUpdatesState_id4AbiQzVgluo, getUpdatedStateField_id4AbiQzVhgdw, getBaseName_id2vgMet5LndN, handleCopyPaste_id33MO5h9wdZT);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
     // postpone the creation of the variable
@@ -45,6 +55,73 @@ public final class ReversibleMacroCall__BehaviorDescriptor extends BaseBHDescrip
       }
     }
     return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SLinkOperations.getTarget(__thisNode__, LINKS.macro$QKaR), LINKS.content$L7Vn), CONCEPTS.IDestructiveOperation$SP);
+  }
+  /*package*/ static int checkIfCalledMacroUpdatesState_id4AbiQzVgluo(@NotNull SNode __thisNode__) {
+
+    for (SNode arg : ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.actuals$QKpS))) {
+      {
+        final SNode varRef = SLinkOperations.getTarget(arg, LINKS.actual$n_Ao);
+        if (SNodeOperations.isInstanceOf(varRef, CONCEPTS.IVariableReference$WR)) {
+          {
+            final SNode ptrType = IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(varRef));
+            if (SNodeOperations.isInstanceOf(ptrType, CONCEPTS.PointerType$HX)) {
+              for (SNode stateStruct : Sequence.fromIterable(SLinkOperations.collect(SNodeOperations.ofConcept(SLinkOperations.getChildren(SNodeOperations.getNodeAncestor(__thisNode__, CONCEPTS.DESLModel$DK, false, false), LINKS.classes$SNAM), CONCEPTS.ClassDefinition$NR), LINKS.stateStruct$NqNO))) {
+                if (Objects.equals(SNodeOperations.getConcept(SLinkOperations.getTarget(ptrType, LINKS.baseType$zMGV)), SNodeOperations.getConcept(ITypeDeclaration__BehaviorDescriptor.createType_id3o2OLGv7CoR.invoke(stateStruct)))) {
+                  return SNodeOperations.getIndexInParent(arg);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    return -1;
+  }
+  /*package*/ static SNode getUpdatedStateField_id4AbiQzVhgdw(@NotNull SNode __thisNode__, int argIndex) {
+
+    // if the called macro is a macro call too, check if the pointer argument at index argIndex is accessed
+    {
+      final SNode innerCall = SLinkOperations.getTarget(SLinkOperations.getTarget(__thisNode__, LINKS.macro$QKaR), LINKS.content$L7Vn);
+      if (SNodeOperations.isInstanceOf(innerCall, CONCEPTS.ReversibleMacroCall$40)) {
+        {
+          final SNode gde = SLinkOperations.getTarget(ListSequence.fromList(SLinkOperations.getChildren(innerCall, LINKS.actuals$QKpS)).getElement(argIndex), LINKS.actual$n_Ao);
+          if (SNodeOperations.isInstanceOf(gde, CONCEPTS.GenericDotExpression$uQ)) {
+            return SNodeOperations.cast(SLinkOperations.getTarget(gde, LINKS.target$CEPF), CONCEPTS.GenericMemberRef$bk);
+          }
+        }
+        if (ListSequence.fromList(SNodeOperations.getNodeDescendants(SLinkOperations.getTarget(ListSequence.fromList(SLinkOperations.getChildren(innerCall, LINKS.actuals$QKpS)).getElement(argIndex), LINKS.actual$n_Ao), CONCEPTS.GenericDotExpression$uQ, false, new SAbstractConcept[]{})).isNotEmpty()) {
+          return SNodeOperations.cast(SLinkOperations.getTarget(ListSequence.fromList(SNodeOperations.getNodeDescendants(ListSequence.fromList(SLinkOperations.getChildren(innerCall, LINKS.actuals$QKpS)).getElement(argIndex), CONCEPTS.GenericDotExpression$uQ, false, new SAbstractConcept[]{})).getElement(0), LINKS.target$CEPF), CONCEPTS.GenericMemberRef$bk);
+        }
+        return ReversibleMacroCall__BehaviorDescriptor.getUpdatedStateField_id4AbiQzVhgdw.invoke(innerCall, ((int) argIndex));
+      }
+    }
+
+    // if the called macro is not a macro call, find the accessed field in the left part of the binary expression 
+    {
+      final SNode binExpr = SLinkOperations.getTarget(SLinkOperations.getTarget(__thisNode__, LINKS.macro$QKaR), LINKS.content$L7Vn);
+      if (SNodeOperations.isInstanceOf(binExpr, CONCEPTS.BinaryExpression$b)) {
+        {
+          final SNode gde = SLinkOperations.getTarget(binExpr, LINKS.left$KPKR);
+          if (SNodeOperations.isInstanceOf(gde, CONCEPTS.GenericDotExpression$ia)) {
+            // return GenericMemberRef defined in c.m.c.udt
+            SNode ret = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x619e8ce80b8d18e4L, "com.mbeddr.core.udt.structure.GenericMemberRef"));
+            SLinkOperations.setTarget(ret, LINKS.member$wUNL, SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(gde, LINKS.target$xbCZ), CONCEPTS.GenericMemberRef$Ue), LINKS.member$gCRV));
+            return ret;
+          }
+        }
+        if (ListSequence.fromList(SNodeOperations.getNodeDescendants(SLinkOperations.getTarget(binExpr, LINKS.left$KPKR), CONCEPTS.GenericDotExpression$uQ, false, new SAbstractConcept[]{})).isNotEmpty()) {
+          // return GenericMemberRef defined in c.m.c.udt
+          SNode ret = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x619e8ce80b8d18e4L, "com.mbeddr.core.udt.structure.GenericMemberRef"));
+          SLinkOperations.setTarget(ret, LINKS.member$wUNL, SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(ListSequence.fromList(SNodeOperations.getNodeDescendants(SLinkOperations.getTarget(binExpr, LINKS.left$KPKR), CONCEPTS.GenericDotExpression$ia, false, new SAbstractConcept[]{})).first(), LINKS.target$xbCZ), CONCEPTS.GenericMemberRef$Ue), LINKS.member$gCRV));
+          return ret;
+        }
+      }
+    }
+
+    // this should never be reached
+    LogContext.with(ReversibleMacroCall__BehaviorDescriptor.class, null, null, null).fatal("state field not found in called macro");
+    return null;
   }
   /*package*/ static String getBaseName_id2vgMet5LndN(@NotNull SNode __thisNode__) {
     return "macro_call_";
@@ -70,8 +147,12 @@ public final class ReversibleMacroCall__BehaviorDescriptor extends BaseBHDescrip
       case 0:
         return (T) ((Boolean) checkIfDestructiveMacroCalled_id2OeDS_5iwt8(node));
       case 1:
-        return (T) ((String) getBaseName_id2vgMet5LndN(node));
+        return (T) ((Integer) checkIfCalledMacroUpdatesState_id4AbiQzVgluo(node));
       case 2:
+        return (T) ((SNode) getUpdatedStateField_id4AbiQzVhgdw(node, ((int) (Integer) parameters[0])));
+      case 3:
+        return (T) ((String) getBaseName_id2vgMet5LndN(node));
+      case 4:
         handleCopyPaste_id33MO5h9wdZT(node);
         return null;
       default:
@@ -107,10 +188,29 @@ public final class ReversibleMacroCall__BehaviorDescriptor extends BaseBHDescrip
     /*package*/ static final SContainmentLink supportVariable$WrxR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x586abb2d5743cb69L, "supportVariable");
     /*package*/ static final SReferenceLink macro$QKaR = MetaAdapterFactory.getReferenceLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1b427f2e49d1fe84L, 0x1b427f2e49d1fe85L, "macro");
     /*package*/ static final SContainmentLink content$L7Vn = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145008fL, 0x78202c09dd229062L, "content");
+    /*package*/ static final SContainmentLink actual$n_Ao = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x68ce0d48c3998717L, 0x68ce0d48c3998719L, "actual");
+    /*package*/ static final SContainmentLink baseType$zMGV = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x6bbcdccef5e46755L, 0x6bbcdccef5e46756L, "baseType");
+    /*package*/ static final SContainmentLink classes$SNAM = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x4117a694e5ba8536L, "classes");
+    /*package*/ static final SContainmentLink stateStruct$NqNO = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x4117a694e5b8c1a2L, "stateStruct");
+    /*package*/ static final SContainmentLink actuals$QKpS = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1b427f2e49d1fe84L, 0x1b427f2e49d1fe86L, "actuals");
+    /*package*/ static final SContainmentLink target$CEPF = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x401df715da462c0cL, 0x619e8ce80b7ff48bL, "target");
+    /*package*/ static final SContainmentLink left$KPKR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba34L, 0x7af69e2e83a1ba40L, "left");
+    /*package*/ static final SReferenceLink member$wUNL = MetaAdapterFactory.getReferenceLink(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x619e8ce80b8d18e4L, 0x619e8ce80b8d18e6L, "member");
+    /*package*/ static final SContainmentLink target$xbCZ = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x401df715da462c0cL, 0x619e8ce80b7ff48bL, "target");
+    /*package*/ static final SReferenceLink member$gCRV = MetaAdapterFactory.getReferenceLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4f5d78b09e1b9a5fL, 0x4f5d78b09f1589e9L, "member");
   }
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept ReversibleMacroCall$40 = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1b427f2e49d1fe84L, "ReversibleExpressions.structure.ReversibleMacroCall");
     /*package*/ static final SInterfaceConcept IDestructiveOperation$SP = MetaAdapterFactory.getInterfaceConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x27d0c8e745a2c78dL, "ReversibleExpressions.structure.IDestructiveOperation");
+    /*package*/ static final SInterfaceConcept IVariableReference$WR = MetaAdapterFactory.getInterfaceConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x1c69b376a2dab98aL, "com.mbeddr.core.expressions.structure.IVariableReference");
+    /*package*/ static final SConcept PointerType$HX = MetaAdapterFactory.getConcept(0x3bf5377ae9044dedL, 0x97545a516023bfaaL, 0x3e0cae5e366d630L, "com.mbeddr.core.pointers.structure.PointerType");
+    /*package*/ static final SConcept DESLModel$DK = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, "DESL.structure.DESLModel");
+    /*package*/ static final SConcept ClassDefinition$NR = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, "DESL.structure.ClassDefinition");
+    /*package*/ static final SConcept GenericDotExpression$uQ = MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x401df715da462c0cL, "com.mbeddr.core.expressions.structure.GenericDotExpression");
+    /*package*/ static final SConcept GenericMemberRef$bk = MetaAdapterFactory.getConcept(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x619e8ce80b8d18e4L, "com.mbeddr.core.udt.structure.GenericMemberRef");
+    /*package*/ static final SConcept BinaryExpression$b = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba34L, "ReversibleExpressions.structure.BinaryExpression");
+    /*package*/ static final SConcept GenericDotExpression$ia = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x401df715da462c0cL, "ReversibleExpressions.structure.GenericDotExpression");
+    /*package*/ static final SConcept GenericMemberRef$Ue = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4f5d78b09e1b9a5fL, "ReversibleExpressions.structure.GenericMemberRef");
   }
 }

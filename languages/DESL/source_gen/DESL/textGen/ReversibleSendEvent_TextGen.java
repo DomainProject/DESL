@@ -14,6 +14,7 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import com.mbeddr.core.expressions.behavior.IVariableDeclaration__BehaviorDescriptor;
 import com.mbeddr.core.expressions.behavior.IVariableReference__BehaviorDescriptor;
 import com.mbeddr.core.modules.behavior.ITypeDeclaration__BehaviorDescriptor;
+import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.traceable.behavior.TraceableConcept__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -87,9 +88,15 @@ public class ReversibleSendEvent_TextGen extends TextGenDescriptorBase {
 
       // get message type
       SNode messageType = null;
+      boolean isPayloadPtr = false;
       if (!(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.with$_CC9), CONCEPTS.NullExpression$rn))) {
         if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.with$_CC9), CONCEPTS.IVariableReference$Kb)) {
-          messageType = IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(SNodeOperations.cast(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.with$_CC9), CONCEPTS.IVariableReference$Kb)));
+          if (SNodeOperations.isInstanceOf(IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(SNodeOperations.cast(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.with$_CC9), CONCEPTS.IVariableReference$Kb))), CONCEPTS.PointerType$HX)) {
+            messageType = SLinkOperations.getTarget(SNodeOperations.cast(IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(SNodeOperations.cast(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.with$_CC9), CONCEPTS.IVariableReference$Kb))), CONCEPTS.PointerType$HX), LINKS.baseType$zMGV);
+            isPayloadPtr = true;
+          } else {
+            messageType = IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(SNodeOperations.cast(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.with$_CC9), CONCEPTS.IVariableReference$Kb)));
+          }
         }
       } else {
         messageType = ITypeDeclaration__BehaviorDescriptor.createType_id3o2OLGv7CoR.invoke(SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.DESLModel$DK, false, false), LINKS.messageStruct$xVlJ));
@@ -118,67 +125,114 @@ public class ReversibleSendEvent_TextGen extends TextGenDescriptorBase {
         tgs.append(");");
         tgs.newLine();
 
-        // add stacks to message
-        if (SPropertyOperations.getString(SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.ReversibleEventHandler$Ov, false, false), PROPS.eventName$rI8o).contains("INIT")) {
-          tgs.indent();
-          tgs.append(payloadName);
-          tgs.append("->doubleStack = doubleStack;");
-          tgs.newLine();
-          tgs.indent();
-          tgs.append(payloadName);
-          tgs.append("->intStack = intStack;");
-          tgs.newLine();
-          tgs.indent();
-          tgs.append(payloadName);
-          tgs.append("->uIntStack = uIntStack;");
-          tgs.newLine();
-          tgs.indent();
-          tgs.append(payloadName);
-          tgs.append("->ifStack = ifStack;");
-          tgs.newLine();
-        } else {
-          tgs.indent();
-          tgs.append(payloadName);
-          tgs.append("->doubleStack = content->doubleStack;");
-          tgs.newLine();
-          tgs.indent();
-          tgs.append(payloadName);
-          tgs.append("->intStack = content->intStack;");
-          tgs.newLine();
-          tgs.indent();
-          tgs.append(payloadName);
-          tgs.append("->uIntStack = content->uIntStack;");
-          tgs.newLine();
-          tgs.indent();
-          tgs.append(payloadName);
-          tgs.append("->ifStack = content->ifStack;");
-          tgs.newLine();
+        // create and add stacks to messages
+
+        tgs.newLine();
+        tgs.indent();
+        tgs.append("DoubleStack ");
+        tgs.append(eventName);
+        tgs.append("_doubleStack;");
+        tgs.newLine();
+        tgs.indent();
+        tgs.append("IntStack ");
+        tgs.append(eventName);
+        tgs.append("_intStack;");
+        tgs.newLine();
+        tgs.indent();
+        tgs.append("UIntStack ");
+        tgs.append(eventName);
+        tgs.append("_uIntStack;");
+        tgs.newLine();
+        tgs.indent();
+        tgs.append("IfStack ");
+        tgs.append(eventName);
+        tgs.append("_ifStack;");
+        tgs.newLine();
+        tgs.newLine();
+        tgs.indent();
+        tgs.append("STACK_INIT(");
+        tgs.append(eventName);
+        tgs.append("_doubleStack);");
+        tgs.newLine();
+        tgs.indent();
+        tgs.append("STACK_INIT(");
+        tgs.append(eventName);
+        tgs.append("_intStack);");
+        tgs.newLine();
+        tgs.indent();
+        tgs.append("STACK_INIT(");
+        tgs.append(eventName);
+        tgs.append("_uIntStack);");
+        tgs.newLine();
+        tgs.indent();
+        tgs.append("STACK_INIT(");
+        tgs.append(eventName);
+        tgs.append("_ifStack);");
+        tgs.newLine();
+        tgs.newLine();
+
+        tgs.indent();
+        tgs.append(payloadName);
+        tgs.append("->doubleStack = ");
+        tgs.append(eventName);
+        tgs.append("_doubleStack;");
+        tgs.newLine();
+        tgs.indent();
+        tgs.append(payloadName);
+        tgs.append("->intStack = ");
+        tgs.append(eventName);
+        tgs.append("_intStack;");
+        tgs.newLine();
+        tgs.indent();
+        tgs.append(payloadName);
+        tgs.append("->uIntStack = ");
+        tgs.append(eventName);
+        tgs.append("_uIntStack;");
+        tgs.newLine();
+        tgs.indent();
+        tgs.append(payloadName);
+        tgs.append("->ifStack = ");
+        tgs.append(eventName);
+        tgs.append("_ifStack;");
+        tgs.newLine();
+
+        tgs.indent();
+        tgs.append(payloadName);
+        tgs.append("->event_type = event_");
+        tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.event$JXN2), PROPS.name$MnvL));
+        tgs.append(";");
+        tgs.newLine();
+        tgs.indent();
+        tgs.append(payloadName);
+        tgs.append("->timestamp = ");
+        tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.when$PyFU));
+        tgs.append(";");
+        tgs.newLine();
+
+        if (!(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.with$_CC9), CONCEPTS.NullExpression$rn))) {
+          {
+            final SNode messageStructType = messageType;
+            if (SNodeOperations.isInstanceOf(messageStructType, CONCEPTS.StructType$B3)) {
+              for (SNode member : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(SLinkOperations.getTarget(messageStructType, LINKS.struct$WCsg), LINKS.members$C59R), CONCEPTS.Member$J1))) {
+                tgs.indent();
+                tgs.append(payloadName);
+                tgs.append("->");
+                tgs.append(SPropertyOperations.getString(member, PROPS.name$MnvL));
+                tgs.append(" = ");
+                tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.with$_CC9));
+                if (isPayloadPtr) {
+                  tgs.append("->");
+                } else {
+                  tgs.append(".");
+                }
+                tgs.append(SPropertyOperations.getString(member, PROPS.name$MnvL));
+                tgs.append(";");
+                tgs.newLine();
+              }
+            }
+          }
         }
 
-        if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.with$_CC9), CONCEPTS.NullExpression$rn)) {
-          tgs.indent();
-          tgs.append(payloadName);
-          tgs.append("->event_type = event_");
-          tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.event$JXN2), PROPS.name$MnvL));
-          tgs.append(";");
-          tgs.newLine();
-        } else {
-          tgs.indent();
-          tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.with$_CC9));
-          tgs.append(".event_type = event_");
-          tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.event$JXN2), PROPS.name$MnvL));
-          tgs.append(";");
-          tgs.newLine();
-          tgs.indent();
-          tgs.append("memcpy(");
-          tgs.append(payloadName);
-          tgs.append(", &");
-          tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.with$_CC9));
-          tgs.append(", sizeof(");
-          tgs.appendNode(messageType);
-          tgs.append("));");
-          tgs.newLine();
-        }
         tgs.indent();
         tgs.append("tw_event_send(");
         tgs.append(eventName);
@@ -209,7 +263,10 @@ public class ReversibleSendEvent_TextGen extends TextGenDescriptorBase {
     /*package*/ static final SContainmentLink with$_CC9 = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x68458b9b5da4ec77L, 0x6f36cc77d0d566c2L, "with");
     /*package*/ static final SReferenceLink var$YUyC = MetaAdapterFactory.getReferenceLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x1d0c3765e2e1d67aL, 0x1d0c3765e2e1fe27L, "var");
     /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
+    /*package*/ static final SContainmentLink baseType$zMGV = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x6bbcdccef5e46755L, 0x6bbcdccef5e46756L, "baseType");
     /*package*/ static final SContainmentLink messageStruct$xVlJ = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x6de6339fa564bed8L, "messageStruct");
+    /*package*/ static final SReferenceLink struct$WCsg = MetaAdapterFactory.getReferenceLink(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x58bef62304fc0a38L, 0x58bef62304fc0a39L, "struct");
+    /*package*/ static final SContainmentLink members$C59R = MetaAdapterFactory.getContainmentLink(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x6285e27d4ff6c9f5L, 0x6285e27d4ff7db92L, "members");
   }
 
   private static final class PROPS {
@@ -232,6 +289,8 @@ public class ReversibleSendEvent_TextGen extends TextGenDescriptorBase {
     /*package*/ static final SInterfaceConcept IVariableReference$Kb = MetaAdapterFactory.getInterfaceConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1c69b376a2dab98aL, "ReversibleExpressions.structure.IVariableReference");
     /*package*/ static final SConcept NullExpression$rn = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x64c559d9787488eL, "ReversibleExpressions.structure.NullExpression");
     /*package*/ static final SConcept DESLModel$DK = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, "DESL.structure.DESLModel");
+    /*package*/ static final SConcept StructType$B3 = MetaAdapterFactory.getConcept(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x58bef62304fc0a38L, "com.mbeddr.core.udt.structure.StructType");
+    /*package*/ static final SConcept Member$J1 = MetaAdapterFactory.getConcept(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x51a277741cc50918L, "com.mbeddr.core.udt.structure.Member");
     /*package*/ static final SConcept RootSimGPUM2M$GC = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0xa56bb45af68e0a2L, "DESL.structure.RootSimGPUM2M");
     /*package*/ static final SInterfaceConcept TraceableConcept$L = MetaAdapterFactory.getInterfaceConcept(0x9ded098bad6a4657L, 0xbfd948636cfe8bc3L, 0x465516cf87c705a3L, "jetbrains.mps.lang.traceable.structure.TraceableConcept");
   }

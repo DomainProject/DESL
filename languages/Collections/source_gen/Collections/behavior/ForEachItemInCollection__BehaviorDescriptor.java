@@ -18,11 +18,21 @@ import java.util.UUID;
 import java.util.ArrayList;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.baseLanguage.logging.rt.LogContext;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import ReversibleExpressions.behavior.GenericDotExpression__BehaviorDescriptor;
+import com.mbeddr.core.expressions.behavior.IVariableDeclaration__BehaviorDescriptor;
+import com.mbeddr.core.expressions.behavior.IVariableReference__BehaviorDescriptor;
+import jetbrains.mps.internal.collections.runtime.Sequence;
+import java.util.Objects;
+import com.mbeddr.core.modules.behavior.ITypeDeclaration__BehaviorDescriptor;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public final class ForEachItemInCollection__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x259b4ab97565ea5eL, "Collections.structure.ForEachItemInCollection");
@@ -30,8 +40,9 @@ public final class ForEachItemInCollection__BehaviorDescriptor extends BaseBHDes
   public static final SMethod<String> getIterationVariableName_id6cRD4M$XPR9 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getIterationVariableName").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7149363582566096329L).languageId(0x8af20a8ce6b25221L, 0xf75f9e3fb00b4997L).build2();
   public static final SMethod<Iterable<SNode>> getContributedLocalVariables_id3LB9aGm4C$b = new SMethodBuilder<Iterable<SNode>>(new SJavaCompoundTypeImpl((Class<Iterable<SNode>>) ((Class) Object.class))).name("getContributedLocalVariables").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(4352487882105194763L).languageId(0x8af20a8ce6b25221L, 0xf75f9e3fb00b4997L).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<Boolean> isInclusionIndexDependent_id2tBHhziHcNe = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isInclusionIndexDependent").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2839437208299293902L).languageId(0x8af20a8ce6b25221L, 0xf75f9e3fb00b4997L).build2();
+  public static final SMethod<Boolean> checkIfVariableContainsStateVariable_id6Cd1i299XON = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("checkIfVariableContainsStateVariable").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7641769780015783219L).languageId(0xa40f23376c03dda3L, 0x99e1808be2d74c11L).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getIterationVariableName_id6cRD4M$XPR9, getContributedLocalVariables_id3LB9aGm4C$b, isInclusionIndexDependent_id2tBHhziHcNe);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getIterationVariableName_id6cRD4M$XPR9, getContributedLocalVariables_id3LB9aGm4C$b, isInclusionIndexDependent_id2tBHhziHcNe, checkIfVariableContainsStateVariable_id6Cd1i299XON);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
     SPropertyOperations.assign(__thisNode__, PROPS.iteratorName$Z1d4, "iterator_" + UUID.randomUUID().toString().substring(0, 8));
@@ -47,6 +58,38 @@ public final class ForEachItemInCollection__BehaviorDescriptor extends BaseBHDes
   }
   /*package*/ static boolean isInclusionIndexDependent_id2tBHhziHcNe(@NotNull SNode __thisNode__) {
     return false;
+  }
+  /*package*/ static boolean checkIfVariableContainsStateVariable_id6Cd1i299XON(@NotNull SNode __thisNode__, SNode lvd) {
+
+    // check if LVD is the foreach iteration variable
+    if (lvd != SLinkOperations.getTarget(__thisNode__, LINKS.variable$xerT)) {
+      LogContext.with(ForEachItemInCollection__BehaviorDescriptor.class, null, null, null).info("lvd is not the foreach iteration variable");
+      return false;
+    }
+
+    // check if the foreach is iterating on a state variable
+    {
+      final SNode gde = SLinkOperations.getTarget(__thisNode__, LINKS.collection$nEF);
+      if (SNodeOperations.isInstanceOf(gde, CONCEPTS.GenericDotExpression$ia)) {
+
+        SNode leftMostExpression = GenericDotExpression__BehaviorDescriptor.getLeftmostExpression_id7kzrHkX2a1_.invoke(gde);
+        if (SNodeOperations.isInstanceOf(leftMostExpression, CONCEPTS.IVariableReference$Kb)) {
+          // check if the left most expression (variable reference)'s type is a state type, among all the defined state structs
+          SNode varType = IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(SNodeOperations.cast(leftMostExpression, CONCEPTS.IVariableReference$Kb)));
+
+          LogContext.with(ForEachItemInCollection__BehaviorDescriptor.class, null, null, null).info("collection iteration variable type: " + SNodeOperations.getConcept(varType));
+
+          for (SNode stateStruct : Sequence.fromIterable(SLinkOperations.collect(SNodeOperations.ofConcept(SLinkOperations.getChildren(SNodeOperations.getNodeAncestor(__thisNode__, CONCEPTS.DESLModel$DK, false, false), LINKS.classes$SNAM), CONCEPTS.ClassDefinition$NR), LINKS.stateStruct$NqNO))) {
+            if (Objects.equals(SNodeOperations.getConcept(varType), SNodeOperations.getConcept(ITypeDeclaration__BehaviorDescriptor.createType_id3o2OLGv7CoR.invoke(stateStruct))) || (SNodeOperations.isInstanceOf(varType, CONCEPTS.PointerType$HX) && Objects.equals(SNodeOperations.getConcept(SLinkOperations.getTarget(SNodeOperations.cast(varType, CONCEPTS.PointerType$HX), LINKS.baseType$zMGV)), SNodeOperations.getConcept(ITypeDeclaration__BehaviorDescriptor.createType_id3o2OLGv7CoR.invoke(stateStruct))))) {
+              return true;
+            }
+          }
+        }
+      }
+    }
+
+    return false;
+
   }
 
   /*package*/ ForEachItemInCollection__BehaviorDescriptor() {
@@ -70,6 +113,8 @@ public final class ForEachItemInCollection__BehaviorDescriptor extends BaseBHDes
         return (T) ((Iterable<SNode>) getContributedLocalVariables_id3LB9aGm4C$b(node, (SNode) parameters[0]));
       case 2:
         return (T) ((Boolean) isInclusionIndexDependent_id2tBHhziHcNe(node));
+      case 3:
+        return (T) ((Boolean) checkIfVariableContainsStateVariable_id6Cd1i299XON(node, (SNode) parameters[0]));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -105,5 +150,17 @@ public final class ForEachItemInCollection__BehaviorDescriptor extends BaseBHDes
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink variable$xerT = MetaAdapterFactory.getContainmentLink(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x259b4ab97565ea5eL, 0x2d57d1c347710004L, "variable");
+    /*package*/ static final SContainmentLink collection$nEF = MetaAdapterFactory.getContainmentLink(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x259b4ab97565ea5eL, 0x2d57d1c347abef9fL, "collection");
+    /*package*/ static final SContainmentLink baseType$zMGV = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x6bbcdccef5e46755L, 0x6bbcdccef5e46756L, "baseType");
+    /*package*/ static final SContainmentLink classes$SNAM = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x4117a694e5ba8536L, "classes");
+    /*package*/ static final SContainmentLink stateStruct$NqNO = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x4117a694e5b8c1a2L, "stateStruct");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept GenericDotExpression$ia = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x401df715da462c0cL, "ReversibleExpressions.structure.GenericDotExpression");
+    /*package*/ static final SInterfaceConcept IVariableReference$Kb = MetaAdapterFactory.getInterfaceConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1c69b376a2dab98aL, "ReversibleExpressions.structure.IVariableReference");
+    /*package*/ static final SConcept PointerType$HX = MetaAdapterFactory.getConcept(0x3bf5377ae9044dedL, 0x97545a516023bfaaL, 0x3e0cae5e366d630L, "com.mbeddr.core.pointers.structure.PointerType");
+    /*package*/ static final SConcept DESLModel$DK = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, "DESL.structure.DESLModel");
+    /*package*/ static final SConcept ClassDefinition$NR = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, "DESL.structure.ClassDefinition");
   }
 }

@@ -50,12 +50,11 @@ public class ReversibleEventHandlerFactory {
       ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(newNode, LINKS.forwardFunction$5bPH), LINKS.arguments$6da0)).addElement(eventType);
 
       // Create "content" argument
-      SNode voidType = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x6d872ef9245a0d19L, "com.mbeddr.core.expressions.structure.VoidType"));
-      SNode voidPointer = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x3bf5377ae9044dedL, 0x97545a516023bfaaL, 0x3e0cae5e366d630L, "com.mbeddr.core.pointers.structure.PointerType"));
-      SLinkOperations.setTarget(voidPointer, LINKS.baseType$zMGV, voidType);
+      SNode ptr = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x3bf5377ae9044dedL, 0x97545a516023bfaaL, 0x3e0cae5e366d630L, "com.mbeddr.core.pointers.structure.PointerType"));
+      SLinkOperations.setTarget(ptr, LINKS.baseType$zMGV, ITypeDeclaration__BehaviorDescriptor.createType_id3o2OLGv7CoR.invoke(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(enclosingNode), CONCEPTS.DESLModel$DK), LINKS.messageStruct$xVlJ)));
       SNode content = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x6d872ef9245a20d7L, "com.mbeddr.core.modules.structure.Argument"));
       SPropertyOperations.assign(content, PROPS.name$MnvL, "content");
-      SLinkOperations.setTarget(content, LINKS.type$sXU3, voidPointer);
+      SLinkOperations.setTarget(content, LINKS.type$sXU3, ptr);
       ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(newNode, LINKS.forwardFunction$5bPH), LINKS.arguments$6da0)).addElement(content);
 
       // Create "state" argument
@@ -79,10 +78,12 @@ public class ReversibleEventHandlerFactory {
     /*package*/ static final SContainmentLink forwardFunction$5bPH = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x74d88000543a2a9fL, "forwardFunction");
     /*package*/ static final SContainmentLink arguments$6da0 = MetaAdapterFactory.getContainmentLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x707ac195dd5d51f2L, 0x4f39f90935e92f45L, "arguments");
     /*package*/ static final SContainmentLink baseType$zMGV = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x6bbcdccef5e46755L, 0x6bbcdccef5e46756L, "baseType");
+    /*package*/ static final SContainmentLink messageStruct$xVlJ = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x6de6339fa564bed8L, "messageStruct");
     /*package*/ static final SContainmentLink stateStruct$NqNO = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x4117a694e5b8c1a2L, "stateStruct");
   }
 
   private static final class CONCEPTS {
+    /*package*/ static final SConcept DESLModel$DK = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, "DESL.structure.DESLModel");
     /*package*/ static final SConcept ClassDefinition$NR = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, "DESL.structure.ClassDefinition");
   }
 }
