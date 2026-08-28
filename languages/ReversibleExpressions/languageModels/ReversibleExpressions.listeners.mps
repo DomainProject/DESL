@@ -12,10 +12,10 @@
     <import index="c4fa" ref="r:9f0e84b6-2ec7-4f9e-83e0-feedc77b63a3(com.mbeddr.core.statements.structure)" implicit="true" />
     <import index="e32u" ref="r:457bcadc-5da5-4b82-8524-230e48ca7946(ReversibleExpressions.behavior)" implicit="true" />
     <import index="ywuz" ref="r:c6ce92e7-5a98-4a6f-866a-ec8b9e945dd8(com.mbeddr.core.expressions.behavior)" implicit="true" />
+    <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
     <import index="qyxp" ref="r:173369a3-8060-4aa4-8d21-7c6337526a39(ReversibleStatements.behavior)" implicit="true" />
     <import index="tpcu" ref="r:00000000-0000-4000-0000-011c89590282(jetbrains.mps.lang.core.behavior)" implicit="true" />
     <import index="yq40" ref="r:152b3fc0-83a1-4bab-a8cd-565eb8483785(com.mbeddr.core.pointers.structure)" implicit="true" />
-    <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
     <import index="rdv6" ref="r:79077d65-28d5-4f56-905b-4bcf5185c60e(DESL.structure)" implicit="true" />
   </imports>
   <registry>
@@ -390,6 +390,49 @@
                     </node>
                   </node>
                 </node>
+                <node concept="3clFbH" id="4ZD7_kQZyH4" role="3cqZAp" />
+                <node concept="2xdQw9" id="4ZD7_kQZz5u" role="3cqZAp">
+                  <property role="2xdLsb" value="h1akgim/info" />
+                  <node concept="3cpWs3" id="4ZD7_kQZKOi" role="9lYJi">
+                    <node concept="2OqwBi" id="4ZD7_kQZOa7" role="3uHU7w">
+                      <node concept="2OqwBi" id="4ZD7_kQZLxp" role="2Oq$k0">
+                        <node concept="Jnkvi" id="4ZD7_kQZL5C" role="2Oq$k0">
+                          <ref role="1M0zk5" node="79Sp4cYtOWD" resolve="destructiveOperation" />
+                        </node>
+                        <node concept="3TrEf2" id="4ZD7_kQZNgN" role="2OqNvi">
+                          <ref role="3Tt5mk" to="ib4b:5xEIMPngWHD" resolve="supportVariable" />
+                        </node>
+                      </node>
+                      <node concept="3TrEf2" id="4ZD7_kQZPfC" role="2OqNvi">
+                        <ref role="3Tt5mk" to="mj1l:hEaDaGor64" resolve="type" />
+                      </node>
+                    </node>
+                    <node concept="3cpWs3" id="4ZD7_kQZJh5" role="3uHU7B">
+                      <node concept="3cpWs3" id="4ZD7_kQZ$i4" role="3uHU7B">
+                        <node concept="Xl_RD" id="4ZD7_kQZz5w" role="3uHU7B">
+                          <property role="Xl_RC" value="Support variable name is " />
+                        </node>
+                        <node concept="2OqwBi" id="4ZD7_kQZFT4" role="3uHU7w">
+                          <node concept="2OqwBi" id="4ZD7_kQZFT5" role="2Oq$k0">
+                            <node concept="Jnkvi" id="4ZD7_kQZFT6" role="2Oq$k0">
+                              <ref role="1M0zk5" node="79Sp4cYtOWD" resolve="destructiveOperation" />
+                            </node>
+                            <node concept="3TrEf2" id="4ZD7_kQZFT7" role="2OqNvi">
+                              <ref role="3Tt5mk" to="ib4b:5xEIMPngWHD" resolve="supportVariable" />
+                            </node>
+                          </node>
+                          <node concept="3TrcHB" id="4ZD7_kQZFT8" role="2OqNvi">
+                            <ref role="3TsBF5" to="tpck:h0TrG11" resolve="name" />
+                          </node>
+                        </node>
+                      </node>
+                      <node concept="Xl_RD" id="4ZD7_kQZJyh" role="3uHU7w">
+                        <property role="Xl_RC" value=" and type is " />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+                <node concept="3clFbH" id="4ZD7_kQ$kEg" role="3cqZAp" />
                 <node concept="3clFbJ" id="5wlskT_lIDN" role="3cqZAp">
                   <node concept="3clFbS" id="5wlskT_lIDP" role="3clFbx">
                     <node concept="3clFbF" id="5wlskT_lMQ4" role="3cqZAp">

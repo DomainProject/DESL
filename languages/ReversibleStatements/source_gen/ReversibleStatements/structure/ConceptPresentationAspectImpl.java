@@ -62,6 +62,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_LocalVarRef;
   private ConceptPresentation props_LocalVariableDeclaration;
   private ConceptPresentation props_LogStatement;
+  private ConceptPresentation props_Memcpy;
   private ConceptPresentation props_NewStruct;
   private ConceptPresentation props_NotParsedStatement;
   private ConceptPresentation props_PragmaStatement;
@@ -452,6 +453,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_LogStatement = cpb.create();
         }
         return props_LogStatement;
+      case LanguageConceptSwitch.Memcpy:
+        if (props_Memcpy == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("memcpy");
+          props_Memcpy = cpb.create();
+        }
+        return props_Memcpy;
       case LanguageConceptSwitch.NewStruct:
         if (props_NewStruct == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

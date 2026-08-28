@@ -24,6 +24,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_Expent;
   private ConceptPresentation props_ExternalFunction;
   private ConceptPresentation props_ExternalFunctionPrototype;
+  private ConceptPresentation props_ExternalGlobalVarDecl;
   private ConceptPresentation props_ExternalMacro;
   private ConceptPresentation props_ExternalStructDefinition;
   private ConceptPresentation props_FunctionDocs;
@@ -37,6 +38,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_IDocsElement;
   private ConceptPresentation props_IEventDefinition;
   private ConceptPresentation props_IEventHandler;
+  private ConceptPresentation props_IExternal;
   private ConceptPresentation props_IExternalFunction;
   private ConceptPresentation props_IFiller;
   private ConceptPresentation props_IGlobalVarDecl;
@@ -62,6 +64,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_ProcessAllocation;
   private ConceptPresentation props_ProcessArray;
   private ConceptPresentation props_ProcessSequence;
+  private ConceptPresentation props_Prologue;
   private ConceptPresentation props_Random;
   private ConceptPresentation props_ReversibleEventHandler;
   private ConceptPresentation props_ReversibleSendEvent;
@@ -72,6 +75,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_SendEvent;
   private ConceptPresentation props_StartupFunction;
   private ConceptPresentation props_StartupHandler;
+  private ConceptPresentation props_StateSavingStack;
   private ConceptPresentation props_StringValue;
   private ConceptPresentation props_StructDefinition;
   private ConceptPresentation props_StructDocs;
@@ -193,6 +197,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_ExternalFunctionPrototype = cpb.create();
         }
         return props_ExternalFunctionPrototype;
+      case LanguageConceptSwitch.ExternalGlobalVarDecl:
+        if (props_ExternalGlobalVarDecl == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.presentationByName();
+          props_ExternalGlobalVarDecl = cpb.create();
+        }
+        return props_ExternalGlobalVarDecl;
       case LanguageConceptSwitch.ExternalMacro:
         if (props_ExternalMacro == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -278,6 +289,12 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_IEventHandler = cpb.create();
         }
         return props_IEventHandler;
+      case LanguageConceptSwitch.IExternal:
+        if (props_IExternal == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          props_IExternal = cpb.create();
+        }
+        return props_IExternal;
       case LanguageConceptSwitch.IExternalFunction:
         if (props_IExternalFunction == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -442,6 +459,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_ProcessSequence = cpb.create();
         }
         return props_ProcessSequence;
+      case LanguageConceptSwitch.Prologue:
+        if (props_Prologue == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("Prologue");
+          props_Prologue = cpb.create();
+        }
+        return props_Prologue;
       case LanguageConceptSwitch.Random:
         if (props_Random == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -514,6 +538,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_StartupHandler = cpb.create();
         }
         return props_StartupHandler;
+      case LanguageConceptSwitch.StateSavingStack:
+        if (props_StateSavingStack == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.presentationByName();
+          props_StateSavingStack = cpb.create();
+        }
+        return props_StateSavingStack;
       case LanguageConceptSwitch.StringValue:
         if (props_StringValue == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

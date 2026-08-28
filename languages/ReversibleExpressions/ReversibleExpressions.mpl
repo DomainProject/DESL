@@ -40,7 +40,7 @@
   </dependencies>
   <languageVersions>
     <language slang="l:99e1808b-e2d7-4c11-a40f-23376c03dda3:Collections" version="0" />
-    <language slang="l:c4765525-912b-41b9-ace4-ce3b88117666:DESL" version="0" />
+    <language slang="l:c4765525-912b-41b9-ace4-ce3b88117666:DESL" version="1" />
     <language slang="l:9abffa92-4875-42bf-9379-c4f95eb496d4:ReversibleExpressions" version="5" />
     <language slang="l:5eb14d5a-b5f7-4626-a63b-80c6b9db7397:ReversibleFunctions" version="0" />
     <language slang="l:f75f9e3f-b00b-4997-8af2-0a8ce6b25221:ReversibleStatements" version="0" />
@@ -112,7 +112,7 @@
   </languageVersions>
   <dependencyVersions>
     <module reference="3f233e7f-b8a6-46d2-a57f-795d56775243(Annotations)" version="0" />
-    <module reference="c4765525-912b-41b9-ace4-ce3b88117666(DESL)" version="0" />
+    <module reference="c4765525-912b-41b9-ace4-ce3b88117666(DESL)" version="1" />
     <module reference="6354ebe7-c22a-4a0f-ac54-50b52ab9b065(JDK)" version="0" />
     <module reference="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea(MPS.Core)" version="0" />
     <module reference="1ed103c3-3aa6-49b7-9c21-6765ee11f224(MPS.Editor)" version="0" />
@@ -183,6 +183,7 @@
     <extendedLanguage>61c69711-ed61-4850-81d9-7714ff227fb0(com.mbeddr.core.expressions)</extendedLanguage>
     <extendedLanguage>f75f9e3f-b00b-4997-8af2-0a8ce6b25221(ReversibleStatements)</extendedLanguage>
     <extendedLanguage>efda956e-491e-4f00-ba14-36af2f213ecf(com.mbeddr.core.udt)</extendedLanguage>
+    <extendedLanguage>c4765525-912b-41b9-ace4-ce3b88117666(DESL)</extendedLanguage>
   </extendedLanguages>
 </language>
 

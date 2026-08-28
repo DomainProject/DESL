@@ -334,5 +334,27 @@
       <node concept="l2Vlx" id="7h503jg19k1" role="2iSdaV" />
     </node>
   </node>
+  <node concept="24kQdi" id="4$SEAgAVZLk">
+    <ref role="1XX52x" to="mj1t:4$SEAgAVq55" resolve="CollectionSize" />
+    <node concept="3EZMnI" id="4$SEAgAVZLm" role="2wV5jI">
+      <node concept="3F0ifn" id="4$SEAgAVZLs" role="3EZMnx">
+        <property role="3F0ifm" value="collection_size" />
+        <ref role="1k5W1q" to="r4ju:2R3DD23u1NA" resolve="Keyword" />
+      </node>
+      <node concept="3F0ifn" id="4$SEAgAVZLy" role="3EZMnx">
+        <property role="3F0ifm" value="(" />
+        <ref role="1k5W1q" to="r4ju:2R3DD23tMJM" resolve="BraceStyle" />
+      </node>
+      <node concept="3F1sOY" id="4$SEAgAVZL_" role="3EZMnx">
+        <ref role="1NtTu8" to="mj1t:4$SEAgAVZLj" resolve="collection" />
+      </node>
+      <node concept="3F0ifn" id="4$SEAgAVZLv" role="3EZMnx">
+        <property role="3F0ifm" value=")" />
+        <ref role="1k5W1q" to="r4ju:2R3DD23tMJM" resolve="BraceStyle" />
+        <node concept="11LMrY" id="4$SEAgB51FX" role="3F10Kt" />
+      </node>
+      <node concept="l2Vlx" id="4$SEAgAVZLp" role="2iSdaV" />
+    </node>
+  </node>
 </model>
 

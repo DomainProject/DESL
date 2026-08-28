@@ -71,6 +71,9 @@ public class ModelListenersDescriptor implements IModelListenersDescriptor {
               if (SNodeOperations.isInstanceOf(varRef, CONCEPTS.IVariableReference$Kb)) {
                 SPropertyOperations.assign(destructiveOperation, PROPS.variableToSaveName$udlR, IVariableReference__BehaviorDescriptor.getVariableName_id79Sp4cYA0X2.invoke(varRef));
                 SLinkOperations.setTarget(SLinkOperations.getTarget(destructiveOperation, LINKS.supportVariable$WrxR), LINKS.type$sXU3, SNodeOperations.copyNode(SNodeOperations.cast(IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(com.mbeddr.core.expressions.behavior.IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(varRef)), CONCEPTS.Type$dP)));
+
+                LogContext.with(ModelListenersDescriptor.class, null, null, null).info("Support variable name is " + SPropertyOperations.getString(SLinkOperations.getTarget(destructiveOperation, LINKS.supportVariable$WrxR), PROPS.name$MnvL) + " and type is " + SLinkOperations.getTarget(SLinkOperations.getTarget(destructiveOperation, LINKS.supportVariable$WrxR), LINKS.type$sXU3));
+
                 if (isContainedInLoop) {
                   IReversibleLoop__BehaviorDescriptor.updateAdditionalVariableType_id5wlskT_l0e7.invoke(loopAncestor, SNodeOperations.cast(IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(com.mbeddr.core.expressions.behavior.IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(varRef)), CONCEPTS.Type$dP), SPropertyOperations.getString(destructiveOperation, PROPS.loopArrayName$wAd5));
                 }
@@ -208,7 +211,7 @@ public class ModelListenersDescriptor implements IModelListenersDescriptor {
 
   private static final class PROPS {
     /*package*/ static final SProperty variableToSaveName$udlR = MetaAdapterFactory.getProperty(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x27d0c8e745a2c78dL, 0x1b427f2e4b08b057L, "variableToSaveName");
-    /*package*/ static final SProperty loopArrayName$wAd5 = MetaAdapterFactory.getProperty(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x6337a44ca4f72dbfL, "loopArrayName");
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty loopArrayName$wAd5 = MetaAdapterFactory.getProperty(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x6337a44ca4f72dbfL, "loopArrayName");
   }
 }

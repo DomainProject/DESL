@@ -14,11 +14,13 @@ public class ReversibleFunctionFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, int index, SModel model) {
       SPropertyOperations.assign(newNode, PROPS.isForward$pAg5, true);
       SPropertyOperations.assign(newNode, PROPS.reversibilityRequired$Zgdy, true);
+      SPropertyOperations.assign(newNode, PROPS.expand$b0u, true);
     }
   }
 
   private static final class PROPS {
     /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
     /*package*/ static final SProperty reversibilityRequired$Zgdy = MetaAdapterFactory.getProperty(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111cL, 0x56ee1731ff5a6482L, "reversibilityRequired");
+    /*package*/ static final SProperty expand$b0u = MetaAdapterFactory.getProperty(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111cL, 0x2f67c1761149413aL, "expand");
   }
 }

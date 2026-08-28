@@ -73,7 +73,7 @@ public final class NumberLiteral__BehaviorDescriptor extends BaseBHDescriptor {
     return SPropertyOperations.getString(__thisNode__, PROPS.value$jw9Y);
   }
   /*package*/ static String getPresentation_idhEwIMiw(@NotNull SNode __thisNode__) {
-    return "NumberLiteral (" + SPropertyOperations.getString(__thisNode__, PROPS.value$jw9Y) + ")";
+    return SPropertyOperations.getString(__thisNode__, PROPS.value$jw9Y);
   }
 
   /*package*/ NumberLiteral__BehaviorDescriptor() {

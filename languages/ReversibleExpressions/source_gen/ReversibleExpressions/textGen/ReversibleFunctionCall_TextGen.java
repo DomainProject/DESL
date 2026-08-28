@@ -7,18 +7,20 @@ import jetbrains.mps.text.rt.TextGenContext;
 import jetbrains.mps.text.impl.TextGenSupport;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
-import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.internal.collections.runtime.Sequence;
+import java.util.List;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
+import java.util.ArrayList;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.lang.traceable.behavior.TraceableConcept__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SProperty;
-import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 public class ReversibleFunctionCall_TextGen extends TextGenDescriptorBase {
   @Override
@@ -29,25 +31,77 @@ public class ReversibleFunctionCall_TextGen extends TextGenDescriptorBase {
     if (SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5)) {
       tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.function$EyYZ), PROPS.name$MnvL));
       tgs.append("(");
+      {
+        Iterable<SNode> collection = SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.actuals$EywX);
+        final SNode lastItem = Sequence.fromIterable(collection).last();
+        for (SNode item : collection) {
+          tgs.appendNode(item);
+          if (item != lastItem) {
+            tgs.append(", ");
+          }
+        }
+      }
     } else {
+
+      // todo workaround to avoid destructive operations (e.g., irreversible function calls) within invoked functions arguments in reverse handlers
+      // create dummy placeholder variables to put in place of destructive operations
+      List<String> placeholders = ListSequence.fromList(new ArrayList<String>());
+      for (SNode actual : ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.actuals$EywX))) {
+        if (SNodeOperations.isInstanceOf(actual, CONCEPTS.IDestructiveOperation$SP) || ListSequence.fromList(SNodeOperations.getNodeDescendants(actual, CONCEPTS.IDestructiveOperation$SP, false, new SAbstractConcept[]{})).isNotEmpty()) {
+          String name = SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.function$EyYZ), PROPS.name$MnvL) + "_placeholder_" + SNodeOperations.getIndexInParent(ctx.getPrimaryInput());
+          tgs.indent();
+          tgs.appendNode(SLinkOperations.getTarget(SNodeOperations.cast(ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.function$EyYZ), LINKS.arguments$6da0)).getElement(SNodeOperations.getIndexInParent(actual)), CONCEPTS.Argument$9m), LINKS.type$sXU3));
+          tgs.append(" ");
+          tgs.append(name);
+          tgs.append(";");
+          tgs.newLine();
+          ListSequence.fromList(placeholders).addElement(name);
+        }
+      }
+
       if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.function$EyYZ), CONCEPTS.FunctionPrototype$JD)) {
         SNode prototype = ListSequence.fromList(SNodeOperations.getNodeDescendants(SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.DESLModel$DK, false, false), CONCEPTS.ExternalFunctionPrototype$V4, false, new SAbstractConcept[]{})).findFirst((it) -> SLinkOperations.getTarget(it, LINKS.prototype$lY0a) == SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.function$EyYZ));
         tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(prototype, LINKS.reversePrototype$Ibmx), PROPS.name$MnvL));
         tgs.append("(");
+        {
+          Iterable<SNode> collection = SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.actuals$EywX);
+          final SNode lastItem = Sequence.fromIterable(collection).last();
+          for (SNode item : collection) {
+            tgs.appendNode(item);
+            if (item != lastItem) {
+              tgs.append(", ");
+            }
+          }
+        }
       } else {
+        tgs.indent();
         tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.function$EyYZ), PROPS.name$MnvL));
         tgs.append("_reverse(");
-      }
-    }
-    {
-      Iterable<SNode> collection = SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.actuals$EywX);
-      final SNode lastItem = Sequence.fromIterable(collection).last();
-      for (SNode item : collection) {
-        tgs.appendNode(item);
-        if (item != lastItem) {
-          tgs.append(",");
+        int i = 0;
+        for (SNode actual : ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.actuals$EywX))) {
+          if (SNodeOperations.isInstanceOf(actual, CONCEPTS.IDestructiveOperation$SP) || ListSequence.fromList(SNodeOperations.getNodeDescendants(actual, CONCEPTS.IDestructiveOperation$SP, false, new SAbstractConcept[]{})).isNotEmpty()) {
+            tgs.append(ListSequence.fromList(placeholders).getElement(i++));
+          } else {
+            tgs.appendNode(actual);
+          }
+          if (SNodeOperations.getIndexInParent(actual) < ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.actuals$EywX)).count() - 1) {
+            tgs.append(", ");
+          }
         }
       }
+    }
+    if (SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5) && SNodeOperations.isInstanceOf(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.function$EyYZ), CONCEPTS.ReversibleFunction$IL)) {
+
+      if ((SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.ReversibleFunction$IL, false, false) != null) && (SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.ReversibleEventHandler$Ov, false, false) == null)) {
+        tgs.append(", saveState");
+      } else {
+        if ((SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.ReversibleEventHandler$Ov, false, false) != null) && SPropertyOperations.getString(SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.ReversibleEventHandler$Ov, false, false), PROPS.eventName$rI8o).contains("INIT")) {
+          tgs.append(", false");
+        } else {
+          tgs.append(", true");
+        }
+      }
+
     }
     tgs.append(")");
 
@@ -58,20 +112,27 @@ public class ReversibleFunctionCall_TextGen extends TextGenDescriptorBase {
 
   private static final class LINKS {
     /*package*/ static final SReferenceLink function$EyYZ = MetaAdapterFactory.getReferenceLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x2e6ecb766f1587b4L, 0x2e6ecb766f15bfbaL, "function");
+    /*package*/ static final SContainmentLink actuals$EywX = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x2e6ecb766f1587b4L, 0x2e6ecb766f15bfb8L, "actuals");
+    /*package*/ static final SContainmentLink arguments$6da0 = MetaAdapterFactory.getContainmentLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x707ac195dd5d51f2L, 0x4f39f90935e92f45L, "arguments");
+    /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
     /*package*/ static final SContainmentLink prototype$lY0a = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228cL, 0x6f36cc77d0d15795L, "prototype");
     /*package*/ static final SContainmentLink reversePrototype$Ibmx = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228cL, 0x7af97dfb356ba7f0L, "reversePrototype");
-    /*package*/ static final SContainmentLink actuals$EywX = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x2e6ecb766f1587b4L, 0x2e6ecb766f15bfb8L, "actuals");
   }
 
   private static final class PROPS {
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
     /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
+    /*package*/ static final SProperty eventName$rI8o = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x549487e5d88a4291L, 0x113f0963d355264aL, "eventName");
   }
 
   private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IDestructiveOperation$SP = MetaAdapterFactory.getInterfaceConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x27d0c8e745a2c78dL, "ReversibleExpressions.structure.IDestructiveOperation");
+    /*package*/ static final SConcept Argument$9m = MetaAdapterFactory.getConcept(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x6d872ef9245a20d7L, "com.mbeddr.core.modules.structure.Argument");
     /*package*/ static final SConcept DESLModel$DK = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, "DESL.structure.DESLModel");
     /*package*/ static final SConcept ExternalFunctionPrototype$V4 = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228cL, "DESL.structure.ExternalFunctionPrototype");
     /*package*/ static final SConcept FunctionPrototype$JD = MetaAdapterFactory.getConcept(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x595522006a5b97e0L, "com.mbeddr.core.modules.structure.FunctionPrototype");
+    /*package*/ static final SConcept ReversibleEventHandler$Ov = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, "DESL.structure.ReversibleEventHandler");
+    /*package*/ static final SConcept ReversibleFunction$IL = MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, "ReversibleFunctions.structure.ReversibleFunction");
     /*package*/ static final SInterfaceConcept TraceableConcept$L = MetaAdapterFactory.getInterfaceConcept(0x9ded098bad6a4657L, 0xbfd948636cfe8bc3L, 0x465516cf87c705a3L, "jetbrains.mps.lang.traceable.structure.TraceableConcept");
   }
 }

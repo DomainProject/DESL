@@ -22,7 +22,6 @@ public class ReversibleStatementList_TextGen extends TextGenDescriptorBase {
       tgs.newLine();
     }
 
-
     if (!(SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isInvisible$wTPL))) {
       // use indent if the statement list is visible
       ctx.getBuffer().area().increaseIndent();

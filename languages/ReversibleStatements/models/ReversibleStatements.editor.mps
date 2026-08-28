@@ -25,6 +25,7 @@
     <import index="vs0r" ref="r:f7764ca4-8c75-4049-922b-08516400a727(com.mbeddr.core.base.structure)" implicit="true" />
     <import index="tpch" ref="r:00000000-0000-4000-0000-011c8959028d(jetbrains.mps.lang.structure.editor)" implicit="true" />
     <import index="rdv6" ref="r:79077d65-28d5-4f56-905b-4bcf5185c60e(DESL.structure)" implicit="true" />
+    <import index="r4ju" ref="r:b9d4912c-8e8b-4f1b-b887-99265d0b4cdb(DESL.editor)" implicit="true" />
   </imports>
   <registry>
     <language id="18bc6592-03a6-4e29-a83a-7ff23bde13ba" name="jetbrains.mps.lang.editor">
@@ -4472,6 +4473,13 @@
       <node concept="3F1sOY" id="21ygb7Ut1I3" role="3EZMnx">
         <ref role="1NtTu8" to="rdv6:7FTvvGQckmD" resolve="allocationVariable" />
       </node>
+      <node concept="3F0ifn" id="29GuVAO5jR1" role="3EZMnx">
+        <property role="3F0ifm" value="," />
+        <ref role="1k5W1q" to="r4b4:2CEi94dhkRt" resolve="Semi" />
+      </node>
+      <node concept="3F1sOY" id="29GuVAO5jR4" role="3EZMnx">
+        <ref role="1NtTu8" to="kmi:29GuVAO5jQZ" resolve="sizeOf" />
+      </node>
       <node concept="3F0ifn" id="4W5bsSB0n5V" role="3EZMnx">
         <property role="3F0ifm" value=")" />
         <ref role="1k5W1q" to="r4b4:2CEi94dgZq3" resolve="Braces" />
@@ -4672,6 +4680,44 @@
   <node concept="22mcaB" id="7IOFtafNdki">
     <ref role="aqKnT" to="kmi:7IOFtafNdkc" resolve="EmptyStatement" />
     <node concept="22hDWj" id="7IOFtafNdkj" role="22hAXT" />
+  </node>
+  <node concept="24kQdi" id="1xKJT9exsdz">
+    <ref role="1XX52x" to="kmi:1xKJT9esLyT" resolve="Memcpy" />
+    <node concept="3EZMnI" id="1xKJT9eyr5L" role="2wV5jI">
+      <node concept="3F0ifn" id="1xKJT9eyr5N" role="3EZMnx">
+        <property role="3F0ifm" value="memcpy" />
+        <ref role="1k5W1q" to="r4ju:2R3DD23u1NA" resolve="Keyword" />
+      </node>
+      <node concept="3F0ifn" id="1xKJT9eyUxU" role="3EZMnx">
+        <property role="3F0ifm" value="(" />
+        <ref role="1k5W1q" to="r4ju:2R3DD23tMJM" resolve="BraceStyle" />
+      </node>
+      <node concept="3F1sOY" id="1xKJT9eA6Sy" role="3EZMnx">
+        <ref role="1NtTu8" to="kmi:1xKJT9eveJf" resolve="destination" />
+      </node>
+      <node concept="3F0ifn" id="1xKJT9eAmAB" role="3EZMnx">
+        <property role="3F0ifm" value="," />
+        <ref role="1k5W1q" to="r4b4:2CEi94dhkRt" resolve="Semi" />
+      </node>
+      <node concept="3F1sOY" id="1xKJT9eAAkG" role="3EZMnx">
+        <ref role="1NtTu8" to="kmi:1xKJT9eufR6" resolve="source" />
+      </node>
+      <node concept="3F0ifn" id="1xKJT9eAAkJ" role="3EZMnx">
+        <property role="3F0ifm" value="," />
+        <ref role="1k5W1q" to="r4b4:2CEi94dhkRt" resolve="Semi" />
+      </node>
+      <node concept="3F1sOY" id="1xKJT9eAQ2O" role="3EZMnx">
+        <ref role="1NtTu8" to="kmi:1xKJT9ewtlq" resolve="size" />
+      </node>
+      <node concept="3F0ifn" id="1xKJT9eyUxX" role="3EZMnx">
+        <property role="3F0ifm" value=")" />
+        <ref role="1k5W1q" to="r4ju:2R3DD23tMJM" resolve="BraceStyle" />
+      </node>
+      <node concept="3F0ifn" id="1xKJT9ezpY5" role="3EZMnx">
+        <property role="3F0ifm" value=";" />
+      </node>
+      <node concept="l2Vlx" id="1xKJT9eyr5O" role="2iSdaV" />
+    </node>
   </node>
 </model>
 

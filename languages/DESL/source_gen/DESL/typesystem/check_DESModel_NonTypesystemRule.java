@@ -28,6 +28,13 @@ public class check_DESModel_NonTypesystemRule extends AbstractNonTypesystemRule_
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(desModel, "At most once startup function is allowed", "r:6c6f575b-fd8b-4b90-9f2a-6cc39b82d403(DESL.typesystem)", "2035552184181923886", null, errorTarget);
       }
     }
+
+    if ((Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(SLinkOperations.getTarget(desModel, LINKS.messageStruct$xVlJ), LINKS.members$C59R), CONCEPTS.Member$J1)).findFirst((it) -> SNodeOperations.isInstanceOf(SLinkOperations.getTarget(it, LINKS.type$sXU3), CONCEPTS.ArrayType$WW) && (SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(it, LINKS.type$sXU3), CONCEPTS.ArrayType$WW), LINKS.sizeExpr$S0Eu) == null)) != null)) {
+      {
+        final MessageTarget errorTarget = new NodeMessageTarget();
+        IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(SLinkOperations.getTarget(desModel, LINKS.messageStruct$xVlJ), "Flexible array members in the message struct are not supported", "r:6c6f575b-fd8b-4b90-9f2a-6cc39b82d403(DESL.typesystem)", "1761118089425729952", null, errorTarget);
+      }
+    }
   }
   public SAbstractConcept getApplicableConcept() {
     return CONCEPTS.DESLModel$DK;
@@ -41,10 +48,16 @@ public class check_DESModel_NonTypesystemRule extends AbstractNonTypesystemRule_
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink startup$LlvU = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x6f36cc77d0a2c4cdL, "startup");
+    /*package*/ static final SContainmentLink messageStruct$xVlJ = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x6de6339fa564bed8L, "messageStruct");
+    /*package*/ static final SContainmentLink members$C59R = MetaAdapterFactory.getContainmentLink(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x6285e27d4ff6c9f5L, 0x6285e27d4ff7db92L, "members");
+    /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
+    /*package*/ static final SContainmentLink sizeExpr$S0Eu = MetaAdapterFactory.getContainmentLink(0x3bf5377ae9044dedL, 0x97545a516023bfaaL, 0x4ed16d83a1d30c81L, 0x1429cfd56a064333L, "sizeExpr");
   }
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept StartupFunction$EL = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0a48d39L, "DESL.structure.StartupFunction");
+    /*package*/ static final SConcept Member$J1 = MetaAdapterFactory.getConcept(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x51a277741cc50918L, "com.mbeddr.core.udt.structure.Member");
+    /*package*/ static final SConcept ArrayType$WW = MetaAdapterFactory.getConcept(0x3bf5377ae9044dedL, 0x97545a516023bfaaL, 0x4ed16d83a1d30c81L, "com.mbeddr.core.pointers.structure.ArrayType");
     /*package*/ static final SConcept DESLModel$DK = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, "DESL.structure.DESLModel");
   }
 }

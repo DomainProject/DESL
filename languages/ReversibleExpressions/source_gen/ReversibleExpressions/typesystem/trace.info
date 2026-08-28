@@ -92,83 +92,33 @@
       </scope>
     </file>
     <file name="typeof_HexNumberLiteral_InferenceRule.java">
-      <node id="8860528120401710747" at="21,116,22,72" concept="8" />
-      <node id="8860528120401469995" at="23,24,24,21" concept="8" />
-      <node id="8860528120401724266" at="24,21,25,26" concept="8" />
-      <node id="8860528120401724327" at="27,37,28,24" concept="3" />
-      <node id="8860528120401724384" at="30,32,31,49" concept="3" />
-      <node id="8860528120401724353" at="32,11,33,16" concept="1" />
-      <node id="8860528120401469955" at="35,7,36,34" concept="8" />
-      <node id="8860528120401469998" at="37,24,38,198" concept="3" />
-      <node id="8860528120401470061" at="39,31,40,199" concept="3" />
-      <node id="8860528120401470072" at="41,31,42,199" concept="3" />
-      <node id="8860528120401470100" at="43,32,44,199" concept="3" />
-      <node id="6941595764869487706" at="45,7,46,63" concept="3" />
-      <node id="6941595764869487712" at="46,63,47,60" concept="3" />
-      <node id="6941595764869487698" at="47,60,48,0" concept="11" />
-      <node id="3813668170744258746" at="49,7,50,47" concept="8" />
-      <node id="3813668170744258746" at="50,47,51,200" concept="8" />
-      <node id="3813668170744258746" at="51,200,52,242" concept="3" />
-      <node id="1054289341113450456" at="56,50,57,40" concept="9" />
-      <node id="1054289341113450456" at="59,68,60,102" concept="9" />
-      <node id="1054289341113450456" at="62,30,63,17" concept="9" />
-      <node id="1054289341113450456" at="67,0,68,0" concept="12" trace="value$jw9Y" />
-      <node id="1054289341113450456" at="68,0,69,0" concept="12" trace="volatile$hJNe" />
-      <node id="1054289341113450456" at="69,0,70,0" concept="12" trace="const$VWr7" />
-      <node id="1054289341113450456" at="73,0,74,0" concept="12" trace="HexNumberLiteral$Sr" />
-      <node id="1054289341113450456" at="19,0,21,0" concept="2" trace="typeof_HexNumberLiteral_InferenceRule#()V" />
-      <node id="8860528120401724355" at="29,16,32,11" concept="6" />
-      <node id="1054289341113450456" at="56,0,59,0" concept="7" trace="getApplicableConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
-      <node id="1054289341113450456" at="59,0,62,0" concept="7" trace="isApplicableAndPattern#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;" />
-      <node id="1054289341113450456" at="62,0,65,0" concept="7" trace="overrides#()Z" />
-      <node id="8860528120401724351" at="29,14,34,9" concept="0" />
-      <node id="3813668170744258746" at="48,0,53,7" concept="0" />
-      <node id="8860528120401724271" at="26,48,34,9" concept="6" />
-      <node id="8860528120401469965" at="36,34,45,7" concept="6" />
-      <node id="8860528120401724183" at="25,26,35,7" concept="4" />
-      <node id="5420066315456149048" at="22,72,54,5" concept="6" />
-      <node id="1054289341113450456" at="21,0,56,0" concept="7" trace="applyRule#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/typesystem/inference/TypeCheckingContext;Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;)V" />
-      <scope id="1054289341113450456" at="19,50,19,50" />
-      <scope id="8860528120401724272" at="27,37,28,24" />
-      <scope id="8860528120401724356" at="30,32,31,49" />
-      <scope id="8860528120401469966" at="37,24,38,198" />
-      <scope id="8860528120401470035" at="39,31,40,199" />
-      <scope id="8860528120401470071" at="41,31,42,199" />
-      <scope id="8860528120401470099" at="43,32,44,199" />
-      <scope id="1054289341113450456" at="56,50,57,40" />
-      <scope id="1054289341113450456" at="59,68,60,102" />
-      <scope id="1054289341113450456" at="62,30,63,17" />
-      <scope id="1054289341113450456" at="19,0,21,0" />
-      <scope id="3813668170744258746" at="49,7,52,242">
-        <var name="_info_12389875345" id="3813668170744258746" />
-        <var name="_nodeToCheck_1029348928467" id="3813668170744258746" />
-      </scope>
-      <scope id="1054289341113450456" at="56,0,59,0" />
-      <scope id="1054289341113450456" at="59,0,62,0">
-        <var name="argument" id="1054289341113450456" />
-      </scope>
-      <scope id="1054289341113450456" at="62,0,65,0" />
-      <scope id="8860528120401724352" at="29,16,33,16" />
-      <scope id="8860528120401724184" at="26,48,34,9" />
-      <scope id="8860528120401724183" at="25,26,35,7">
-        <var name="i" id="8860528120401724186" />
-      </scope>
-      <scope id="5420066315456149049" at="23,24,53,7">
-        <var name="leadingZero" id="8860528120401724267" />
-        <var name="length" id="8860528120401469956" />
-        <var name="t" id="8860528120401469996" />
-      </scope>
-      <scope id="1054289341113450457" at="21,116,54,5">
-        <var name="value" id="8860528120401710748" />
-      </scope>
-      <scope id="1054289341113450456" at="21,0,56,0">
+      <node id="1054289341113450456" at="19,50,20,40" concept="9" />
+      <node id="1054289341113450456" at="22,68,23,102" concept="9" />
+      <node id="1054289341113450456" at="25,30,26,17" concept="9" />
+      <node id="1054289341113450456" at="30,0,31,0" concept="12" trace="HexNumberLiteral$Sr" />
+      <node id="1054289341113450456" at="15,0,17,0" concept="2" trace="typeof_HexNumberLiteral_InferenceRule#()V" />
+      <node id="1054289341113450456" at="17,0,19,0" concept="7" trace="applyRule#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/typesystem/inference/TypeCheckingContext;Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;)V" />
+      <node id="1054289341113450456" at="19,0,22,0" concept="7" trace="getApplicableConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
+      <node id="1054289341113450456" at="22,0,25,0" concept="7" trace="isApplicableAndPattern#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;" />
+      <node id="1054289341113450456" at="25,0,28,0" concept="7" trace="overrides#()Z" />
+      <scope id="1054289341113450456" at="15,50,15,50" />
+      <scope id="1054289341113450457" at="17,116,17,116" />
+      <scope id="1054289341113450456" at="19,50,20,40" />
+      <scope id="1054289341113450456" at="22,68,23,102" />
+      <scope id="1054289341113450456" at="25,30,26,17" />
+      <scope id="1054289341113450456" at="15,0,17,0" />
+      <scope id="1054289341113450456" at="17,0,19,0">
         <var name="hnl" id="1054289341113450456" />
         <var name="status" id="1054289341113450456" />
         <var name="typeCheckingContext" id="1054289341113450456" />
       </scope>
-      <unit id="1054289341113450456" at="72,0,75,0" name="ReversibleExpressions.typesystem.typeof_HexNumberLiteral_InferenceRule$CONCEPTS" />
-      <unit id="1054289341113450456" at="66,0,71,0" name="ReversibleExpressions.typesystem.typeof_HexNumberLiteral_InferenceRule$PROPS" />
-      <unit id="1054289341113450456" at="18,0,76,0" name="ReversibleExpressions.typesystem.typeof_HexNumberLiteral_InferenceRule" />
+      <scope id="1054289341113450456" at="19,0,22,0" />
+      <scope id="1054289341113450456" at="22,0,25,0">
+        <var name="argument" id="1054289341113450456" />
+      </scope>
+      <scope id="1054289341113450456" at="25,0,28,0" />
+      <unit id="1054289341113450456" at="29,0,32,0" name="ReversibleExpressions.typesystem.typeof_HexNumberLiteral_InferenceRule$CONCEPTS" />
+      <unit id="1054289341113450456" at="14,0,33,0" name="ReversibleExpressions.typesystem.typeof_HexNumberLiteral_InferenceRule" />
     </file>
   </root>
   <root nodeRef="r:a08f1c59-09f4-4839-91dc-89de02b086a5(ReversibleExpressions.typesystem)/1054289341113496579">

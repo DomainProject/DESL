@@ -66,7 +66,7 @@
         <node concept="Vb9p2" id="5w8gNN4Dufn" role="3F10Kt" />
       </node>
       <node concept="3F0A7n" id="5w8gNN4Dufl" role="3EZMnx">
-        <ref role="1NtTu8" to="rdv6:5w8gNN4Dufe" resolve="headerName" />
+        <ref role="1NtTu8" to="rdv6:3FrLjqnZxwg" resolve="header" />
       </node>
       <node concept="3F0ifn" id="5w8gNN4Dufp" role="3EZMnx">
         <property role="3F0ifm" value=".h" />

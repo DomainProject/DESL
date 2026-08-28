@@ -15,6 +15,7 @@ import jetbrains.mps.smodel.adapter.ids.PrimitiveTypeId;
 public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptAddToCollection = createDescriptorForAddToCollection();
   /*package*/ final ConceptDescriptor myConceptCollection = createDescriptorForCollection();
+  /*package*/ final ConceptDescriptor myConceptCollectionSize = createDescriptorForCollectionSize();
   /*package*/ final ConceptDescriptor myConceptFindFirst = createDescriptorForFindFirst();
   /*package*/ final ConceptDescriptor myConceptForEachItemInCollection = createDescriptorForForEachItemInCollection();
   /*package*/ final ConceptDescriptor myConceptIGetFirstElementInCollection = createDescriptorForIGetFirstElementInCollection();
@@ -35,14 +36,14 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     deps.extendedLanguage(0x61c69711ed614850L, 0x81d97714ff227fb0L, "com.mbeddr.core.expressions");
     deps.extendedLanguage(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, "ReversibleExpressions");
     deps.aggregatedLanguage(0x61c69711ed614850L, 0x81d97714ff227fb0L, "com.mbeddr.core.expressions");
+    deps.aggregatedLanguage(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, "ReversibleExpressions");
     deps.aggregatedLanguage(0xa9d696470840491eL, 0xbf392eb0805d2011L, "com.mbeddr.core.statements");
     deps.aggregatedLanguage(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, "ReversibleStatements");
-    deps.aggregatedLanguage(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, "ReversibleExpressions");
   }
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptAddToCollection, myConceptCollection, myConceptFindFirst, myConceptForEachItemInCollection, myConceptIGetFirstElementInCollection, myConceptIUpdateCollection, myConceptNewCollection, myConceptRemoveFromCollection, myConceptRemoveWhere);
+    return Arrays.asList(myConceptAddToCollection, myConceptCollection, myConceptCollectionSize, myConceptFindFirst, myConceptForEachItemInCollection, myConceptIGetFirstElementInCollection, myConceptIUpdateCollection, myConceptNewCollection, myConceptRemoveFromCollection, myConceptRemoveWhere);
   }
 
   @Override
@@ -53,6 +54,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptAddToCollection;
       case LanguageConceptSwitch.Collection:
         return myConceptCollection;
+      case LanguageConceptSwitch.CollectionSize:
+        return myConceptCollectionSize;
       case LanguageConceptSwitch.FindFirst:
         return myConceptFindFirst;
       case LanguageConceptSwitch.ForEachItemInCollection:
@@ -83,6 +86,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     // extends: ReversibleStatements.structure.ReversibleStatement
     b.super_(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad6d03L);
     b.parent(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x1b427f2e49f084f2L);
+    b.parent(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x75236ed53aed8fbcL);
     b.origin("r:7c7377c1-dded-46c2-9c44-39493c999dbb(Collections.structure)/919468708905377089");
     b.version(3);
     b.alias("AddToCollection");
@@ -97,6 +101,17 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.version(3);
     b.aggregate("type", 0x6f36cc77d0af8691L).target(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba36L).optional(false).ordered(true).multiple(false).origin("8013817401926715025").done();
     b.alias("collection");
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForCollectionSize() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("Collections", "CollectionSize", 0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x4938aa6426eda145L);
+    b.class_(false, false, false);
+    // extends: ReversibleExpressions.structure.ReversibleExpression
+    b.super_(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L);
+    b.origin("r:7c7377c1-dded-46c2-9c44-39493c999dbb(Collections.structure)/5276154310591095109");
+    b.version(3);
+    b.aggregate("collection", 0x4938aa6426effc53L).target(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L).optional(false).ordered(true).multiple(false).origin("5276154310591249491").done();
+    b.alias("collection_size");
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForFindFirst() {

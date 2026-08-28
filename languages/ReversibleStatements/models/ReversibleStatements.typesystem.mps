@@ -256,6 +256,7 @@
       <concept id="1145404486709" name="jetbrains.mps.lang.smodel.structure.SemanticDowncastExpression" flags="nn" index="2JrnkZ">
         <child id="1145404616321" name="leftExpression" index="2JrQYb" />
       </concept>
+      <concept id="1171305280644" name="jetbrains.mps.lang.smodel.structure.Node_GetDescendantsOperation" flags="nn" index="2Rf3mk" />
       <concept id="1171407110247" name="jetbrains.mps.lang.smodel.structure.Node_GetAncestorOperation" flags="nn" index="2Xjw5R" />
       <concept id="1139613262185" name="jetbrains.mps.lang.smodel.structure.Node_GetParentOperation" flags="nn" index="1mfA1w" />
       <concept id="1139621453865" name="jetbrains.mps.lang.smodel.structure.Node_IsInstanceOfOperation" flags="nn" index="1mIQ4w">
@@ -341,6 +342,7 @@
       <concept id="1162935959151" name="jetbrains.mps.baseLanguage.collections.structure.GetSizeOperation" flags="nn" index="34oBXx" />
       <concept id="1165525191778" name="jetbrains.mps.baseLanguage.collections.structure.GetFirstOperation" flags="nn" index="1uHKPH" />
       <concept id="1202120902084" name="jetbrains.mps.baseLanguage.collections.structure.WhereOperation" flags="nn" index="3zZkjj" />
+      <concept id="1176501494711" name="jetbrains.mps.baseLanguage.collections.structure.IsNotEmptyOperation" flags="nn" index="3GX2aA" />
     </language>
   </registry>
   <node concept="1YbPZF" id="2GzcfKRGbje">
@@ -2619,6 +2621,43 @@
     <node concept="1YaCAy" id="2vwNr_aExKj" role="1YuTPh">
       <property role="TrG5h" value="forVarDecl" />
       <ref role="1YaFvo" to="kmi:6iIoqg1xKSz" resolve="ForVarDecl" />
+    </node>
+  </node>
+  <node concept="18kY7G" id="7JsMO$xjpuQ">
+    <property role="TrG5h" value="check_LocalVariableDeclaration" />
+    <property role="3GE5qa" value="localvar" />
+    <node concept="3clFbS" id="7JsMO$xjpuR" role="18ibNy">
+      <node concept="3clFbJ" id="7JsMO$xjpzb" role="3cqZAp">
+        <node concept="2OqwBi" id="7JsMO$xjy0i" role="3clFbw">
+          <node concept="2OqwBi" id="7JsMO$xjq5r" role="2Oq$k0">
+            <node concept="1YBJjd" id="7JsMO$xjpzk" role="2Oq$k0">
+              <ref role="1YBMHb" node="7JsMO$xjpuT" resolve="lvd" />
+            </node>
+            <node concept="2Rf3mk" id="7JsMO$xjsuB" role="2OqNvi">
+              <node concept="1xMEDy" id="7JsMO$xjsuD" role="1xVPHs">
+                <node concept="chp4Y" id="7JsMO$xjsL4" role="ri$Ld">
+                  <ref role="cht4Q" to="ib4b:2TIMRpJ5ouO" resolve="ReversibleFunctionCall" />
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="3GX2aA" id="7JsMO$xjEgB" role="2OqNvi" />
+        </node>
+        <node concept="3clFbS" id="7JsMO$xjpzd" role="3clFbx">
+          <node concept="2MkqsV" id="7JsMO$xjEqA" role="3cqZAp">
+            <node concept="1YBJjd" id="7JsMO$xjEGS" role="1urrMF">
+              <ref role="1YBMHb" node="7JsMO$xjpuT" resolve="lvd" />
+            </node>
+            <node concept="Xl_RD" id="7JsMO$xjEiS" role="2MkJ7o">
+              <property role="Xl_RC" value="If a reversible function is called within the initialization of a local variable, the declaration and initialization must be separated" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1YaCAy" id="7JsMO$xjpuT" role="1YuTPh">
+      <property role="TrG5h" value="lvd" />
+      <ref role="1YaFvo" to="kmi:3CmSUB7FprA" resolve="LocalVariableDeclaration" />
     </node>
   </node>
 </model>

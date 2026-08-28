@@ -18,14 +18,16 @@ import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public final class ForVarRef__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x347479252a95b28aL, "ReversibleStatements.structure.ForVarRef");
 
   public static final SMethod<SNode> getInit_id7z2aqCC1FUU = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getInit").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8701563240825929402L).languageId(0x8af20a8ce6b25221L, 0xf75f9e3fb00b4997L).build2();
   public static final SMethod<Void> setInit_id7z2aqCC1O9Q = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("setInit").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8701563240825963126L).languageId(0x8af20a8ce6b25221L, 0xf75f9e3fb00b4997L).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
+  public static final SMethod<SNode> getType_id3QQ4jCXfkXr = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(4446760623908147035L).languageId(0x8af20a8ce6b25221L, 0xf75f9e3fb00b4997L).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getInit_id7z2aqCC1FUU, setInit_id7z2aqCC1O9Q);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getInit_id7z2aqCC1FUU, setInit_id7z2aqCC1O9Q, getType_id3QQ4jCXfkXr);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -35,6 +37,9 @@ public final class ForVarRef__BehaviorDescriptor extends BaseBHDescriptor {
   }
   /*package*/ static void setInit_id7z2aqCC1O9Q(@NotNull SNode __thisNode__, SNode expr) {
     SLinkOperations.setTarget(__thisNode__, LINKS.init$llBv, expr);
+  }
+  /*package*/ static SNode getType_id3QQ4jCXfkXr(@NotNull SNode __thisNode__) {
+    return SLinkOperations.getTarget(SLinkOperations.getTarget(SLinkOperations.getTarget(__thisNode__, LINKS.var$qtY4), LINKS.var$uDqP), LINKS.type$sXU3);
   }
 
   /*package*/ ForVarRef__BehaviorDescriptor() {
@@ -57,6 +62,8 @@ public final class ForVarRef__BehaviorDescriptor extends BaseBHDescriptor {
       case 1:
         setInit_id7z2aqCC1O9Q(node, (SNode) parameters[0]);
         return null;
+      case 2:
+        return (T) ((SNode) getType_id3QQ4jCXfkXr(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -88,5 +95,8 @@ public final class ForVarRef__BehaviorDescriptor extends BaseBHDescriptor {
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink init$llBv = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x347479252a95b28aL, 0x347479252a95b28dL, "init");
+    /*package*/ static final SContainmentLink var$qtY4 = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x347479252a95b28aL, 0x347479252a963603L, "var");
+    /*package*/ static final SReferenceLink var$uDqP = MetaAdapterFactory.getReferenceLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x1d0c3765e2e1d67aL, 0x1d0c3765e2e1fe27L, "var");
+    /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
   }
 }

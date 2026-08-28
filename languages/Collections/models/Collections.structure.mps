@@ -60,6 +60,9 @@
     <node concept="PrWs8" id="1H2vMT9WeJH" role="PzmwI">
       <ref role="PrY4T" node="1H2vMT9W8jM" resolve="IUpdateCollection" />
     </node>
+    <node concept="PrWs8" id="4WrTVbmYjeJ" role="PzmwI">
+      <ref role="PrY4T" to="kmi:7kzrHkUVoYW" resolve="IDefineStateSaving" />
+    </node>
   </node>
   <node concept="1TIwiD" id="6WQN7vgFSqg">
     <property role="EcuMT" value="8013817401926715024" />
@@ -225,6 +228,20 @@
     </node>
     <node concept="1TJgyj" id="1H2vMTa8nM8" role="1TKVEi">
       <property role="IQ2ns" value="1964272224275889288" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="collection" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" to="ib4b:7FQByU3CrCM" resolve="ReversibleExpression" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="4$SEAgAVq55">
+    <property role="EcuMT" value="5276154310591095109" />
+    <property role="TrG5h" value="CollectionSize" />
+    <property role="34LRSv" value="collection_size" />
+    <property role="R4oN_" value="get the size of a collection" />
+    <ref role="1TJDcQ" to="ib4b:7FQByU3CrCM" resolve="ReversibleExpression" />
+    <node concept="1TJgyj" id="4$SEAgAVZLj" role="1TKVEi">
+      <property role="IQ2ns" value="5276154310591249491" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <property role="20kJfa" value="collection" />
       <property role="20lbJX" value="fLJekj4/_1" />

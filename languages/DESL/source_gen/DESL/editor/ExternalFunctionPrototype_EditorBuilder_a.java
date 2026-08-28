@@ -217,11 +217,11 @@ import org.jetbrains.mps.openapi.language.SConcept;
   private EditorCell createProperty_0() {
     getCellFactory().pushCellContext();
     try {
-      final SProperty property = PROPS.headerName$Qm9Y;
+      final SProperty property = PROPS.header$3Z8h;
       getCellFactory().setPropertyInfo(new SPropertyInfo(myNode, property));
       EditorCell_Property editorCell = EditorCell_Property.create(getEditorContext(), new SPropertyAccessor(myNode, property, false, false), myNode);
-      editorCell.setDefaultText("<no headerName>");
-      editorCell.setCellId("property_headerName");
+      editorCell.setDefaultText("<no header>");
+      editorCell.setCellId("property_header");
       editorCell.setSubstituteInfo(new SPropertySubstituteInfo(editorCell, property));
       setCellContext(editorCell);
       Iterable<SNode> propertyAttributes = SNodeOperations.ofConcept(new IAttributeDescriptor.AllAttributes().list(myNode), CONCEPTS.PropertyAttribute$Gb);
@@ -252,7 +252,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
   }
 
   private static final class PROPS {
-    /*package*/ static final SProperty headerName$Qm9Y = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228cL, 0x5808433cc4903a50L, "headerName");
+    /*package*/ static final SProperty header$3Z8h = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x3adbc53697f83302L, 0x3adbc53697fe1810L, "header");
   }
 
   private static final class CONCEPTS {

@@ -19,7 +19,6 @@ public class HexNumberLiteral_TextGen extends TextGenDescriptorBase {
     tgs.createPositionInfo();
     tgs.append("0x");
     tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.value$jw9Y));
-    tgs.append("u");
     if (tgs.needPositions()) {
       tgs.fillPositionInfo(TraceableConcept__BehaviorDescriptor.getTraceableProperty_id4pl5GY7LKmH.invoke(SNodeOperations.cast(ctx.getPrimaryInput(), CONCEPTS.TraceableConcept$L)));
     }

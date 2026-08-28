@@ -9,6 +9,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.traceable.behavior.TraceableConcept__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -34,31 +35,61 @@ public class WhileStatement_TextGen extends TextGenDescriptorBase {
       return;
     }
 
+    boolean isContainedInRevFunction = (SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.ReversibleFunction$IL, false, false) != null);
+
     if (SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5)) {
 
-      tgs.indent();
-      for (SNode item : SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.additionalVariables$en7t)) {
-        tgs.appendNode(item);
+      for (SNode addVar : ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.additionalVariables$en7t))) {
+        tgs.indent();
+        tgs.appendNode(addVar);
+        tgs.newLine();
       }
+
+      tgs.indent();
+      tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR));
+      tgs.newLine();
 
       tgs.newLine();
       tgs.indent();
       tgs.append("while (");
       tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.condition$3gCl));
-      tgs.append(")");
+      tgs.append(") {");
+      tgs.newLine();
+      ctx.getBuffer().area().increaseIndent();
+      tgs.indent();
+      tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), PROPS.name$MnvL));
+      tgs.append("++;");
+      tgs.newLine();
+      ReversibleStatementListUtils.statementList(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$7sGD), ctx);
+      ctx.getBuffer().area().decreaseIndent();
+      tgs.indent();
+      tgs.append("}");
       tgs.newLine();
 
-      ReversibleStatementListUtils.statementList(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$7sGD), ctx);
+      if (isContainedInRevFunction) {
+        tgs.indent();
+        tgs.append("if (saveState) ");
+      } else {
+        tgs.indent();
+      }
+      ReversibleStatementListUtils.stackStateHandling(SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5), SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), PROPS.name$MnvL), SNodeOperations.copyNode(SLinkOperations.getTarget(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), LINKS.type$sXU3)), SNodeOperations.copyNode(ctx.getPrimaryInput()), ctx);
 
     } else {
 
+      tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR));
+      tgs.newLine();
+
+      tgs.indent();
+      ReversibleStatementListUtils.stackStateHandling(SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5), SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), PROPS.name$MnvL), SNodeOperations.copyNode(SLinkOperations.getTarget(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), LINKS.type$sXU3)), SNodeOperations.copyNode(ctx.getPrimaryInput()), ctx);
+
       String iteratorName = "i_while_" + SNodeOperations.getIndexInParent(ctx.getPrimaryInput());
 
+      tgs.indent();
       tgs.append("for(int ");
       tgs.append(iteratorName);
       tgs.append(" = 0; ");
       tgs.append(iteratorName);
-      tgs.append(" < checkpoint.");
+      tgs.append(" < ");
       tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.supportVariable$WrxR), PROPS.name$MnvL));
       tgs.append("; ");
       tgs.append(iteratorName);
@@ -82,8 +113,8 @@ public class WhileStatement_TextGen extends TextGenDescriptorBase {
 
   private static final class PROPS {
     /*package*/ static final SProperty reversibilityRequired$Zgdy = MetaAdapterFactory.getProperty(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111cL, 0x56ee1731ff5a6482L, "reversibilityRequired");
-    /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
   }
 
   private static final class LINKS {
@@ -91,5 +122,6 @@ public class WhileStatement_TextGen extends TextGenDescriptorBase {
     /*package*/ static final SContainmentLink body$7sGD = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x7525a1fdf25beef2L, 0x7525a1fdf25beef4L, "body");
     /*package*/ static final SContainmentLink additionalVariables$en7t = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x6337a44ca461bdf4L, 0x6337a44ca461be00L, "additionalVariables");
     /*package*/ static final SContainmentLink supportVariable$WrxR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, 0x586abb2d5743cb69L, "supportVariable");
+    /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
   }
 }

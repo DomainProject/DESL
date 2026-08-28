@@ -68,7 +68,7 @@ public class ReleaseStruct_TextGen extends TextGenDescriptorBase {
         tgs.indent();
         ReversibleStatementListUtils.stackStateHandling(true, SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableToSaveName$udlR), SNodeOperations.cast(IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.struct$srIx)), CONCEPTS.Type$dP), ctx.getPrimaryInput(), ctx);
         tgs.indent();
-        tgs.append("rev_free_w(me, ");
+        tgs.append("rev_free_w(global_me, ");
         tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableToSaveName$udlR));
         tgs.append(");");
         tgs.newLine();
@@ -77,6 +77,7 @@ public class ReleaseStruct_TextGen extends TextGenDescriptorBase {
         // remalloc struct
         tgs.indent();
         ReversibleStatementListUtils.stackStateHandling(false, SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableToSaveName$udlR), SNodeOperations.cast(IVariableDeclaration__BehaviorDescriptor.getDeclaredType_id1LDGRqyYkTX.invoke(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.struct$srIx)), CONCEPTS.Type$dP), ctx.getPrimaryInput(), ctx);
+        tgs.indent();
         tgs.append("rev_remalloc_w(");
         tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.variableToSaveName$udlR));
         tgs.append(");");

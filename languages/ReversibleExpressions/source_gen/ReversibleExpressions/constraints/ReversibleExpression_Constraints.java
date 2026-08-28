@@ -39,6 +39,9 @@ public class ReversibleExpression_Constraints extends BaseConstraintsDescriptor 
     if (SNodeOperations.isInstanceOf(node, CONCEPTS.IDestructiveOperation$SP)) {
       return !(SNodeOperations.isInstanceOf(parentNode, CONCEPTS.ReversibleMacroArg$Ip)) && (SNodeOperations.getNodeAncestor(node, CONCEPTS.ReversibleMacroArg$Ip, false, false) == null);
     }
+    if ((SNodeOperations.getNodeAncestor(node, CONCEPTS.Function$K8, false, false) != null)) {
+      return false;
+    }
     return true;
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:e81df3c1-b167-4843-95a2-4c0dd8e517e2(ReversibleExpressions.constraints)", "5718859801827924867");
@@ -47,5 +50,6 @@ public class ReversibleExpression_Constraints extends BaseConstraintsDescriptor 
     /*package*/ static final SConcept ReversibleExpression$Zd = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L, "ReversibleExpressions.structure.ReversibleExpression");
     /*package*/ static final SConcept ReversibleMacroArg$Ip = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x68ce0d48c3998717L, "ReversibleExpressions.structure.ReversibleMacroArg");
     /*package*/ static final SInterfaceConcept IDestructiveOperation$SP = MetaAdapterFactory.getInterfaceConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x27d0c8e745a2c78dL, "ReversibleExpressions.structure.IDestructiveOperation");
+    /*package*/ static final SConcept Function$K8 = MetaAdapterFactory.getConcept(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x595522006a5b97e1L, "com.mbeddr.core.modules.structure.Function");
   }
 }

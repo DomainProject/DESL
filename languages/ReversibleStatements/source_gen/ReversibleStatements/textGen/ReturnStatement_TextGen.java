@@ -5,11 +5,17 @@ package ReversibleStatements.textGen;
 import jetbrains.mps.text.rt.TextGenDescriptorBase;
 import jetbrains.mps.text.rt.TextGenContext;
 import jetbrains.mps.text.impl.TextGenSupport;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.lang.traceable.behavior.TraceableConcept__BehaviorDescriptor;
+import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.lang.traceable.behavior.TraceableConcept__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public class ReturnStatement_TextGen extends TextGenDescriptorBase {
@@ -17,12 +23,20 @@ public class ReturnStatement_TextGen extends TextGenDescriptorBase {
   public void generateText(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     tgs.createPositionInfo();
-    tgs.append("return");
-    if (SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.expression$$dpa) != null) {
-      tgs.append(" ");
-      tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.expression$$dpa));
+    if (SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5)) {
+      tgs.append("return");
+      if (SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.expression$$dpa) != null) {
+        tgs.append(" ");
+        tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.expression$$dpa));
+      }
+      tgs.append(";");
+    } else {
+      for (SNode revFunctionCall : ListSequence.fromList(SNodeOperations.getNodeDescendants(ctx.getPrimaryInput(), CONCEPTS.ReversibleFunctionCall$TO, false, new SAbstractConcept[]{}))) {
+        tgs.appendNode(revFunctionCall);
+        tgs.append(";");
+        tgs.newLine();
+      }
     }
-    tgs.append(";");
     if (tgs.needPositions()) {
       tgs.fillPositionInfo(TraceableConcept__BehaviorDescriptor.getTraceableProperty_id4pl5GY7LKmH.invoke(SNodeOperations.cast(ctx.getPrimaryInput(), CONCEPTS.TraceableConcept$L)));
     }
@@ -32,7 +46,12 @@ public class ReturnStatement_TextGen extends TextGenDescriptorBase {
     /*package*/ static final SContainmentLink expression$$dpa = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x4b1eecbba5015fabL, 0x4b1eecbba5015faeL, "expression");
   }
 
+  private static final class PROPS {
+    /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
+  }
+
   private static final class CONCEPTS {
+    /*package*/ static final SConcept ReversibleFunctionCall$TO = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x2e6ecb766f1587b4L, "ReversibleExpressions.structure.ReversibleFunctionCall");
     /*package*/ static final SInterfaceConcept TraceableConcept$L = MetaAdapterFactory.getInterfaceConcept(0x9ded098bad6a4657L, 0xbfd948636cfe8bc3L, 0x465516cf87c705a3L, "jetbrains.mps.lang.traceable.structure.TraceableConcept");
   }
 }

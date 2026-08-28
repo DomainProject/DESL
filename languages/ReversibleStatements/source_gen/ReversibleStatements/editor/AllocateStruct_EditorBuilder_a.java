@@ -54,7 +54,9 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
     editorCell.addEditorCell(createConstant_1());
     editorCell.addEditorCell(createRefNode_0());
     editorCell.addEditorCell(createConstant_2());
+    editorCell.addEditorCell(createRefNode_1());
     editorCell.addEditorCell(createConstant_3());
+    editorCell.addEditorCell(createConstant_4());
     return editorCell;
   }
   private EditorCell createConstant_0() {
@@ -133,8 +135,72 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
     }
   }
   private EditorCell createConstant_2() {
-    EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, ")");
+    EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, ",");
     editorCell.setCellId("Constant_oogf3h_d0");
+    Style style = new StyleImpl();
+    new SemiStyleClass(this).apply(style, editorCell);
+    editorCell.getStyle().putAll(style);
+    editorCell.setDefaultText("");
+    return editorCell;
+  }
+  private EditorCell createRefNode_1() {
+    SingleRoleCellProvider provider = new sizeOfSingleRoleHandler_oogf3h_e0(myNode, LINKS.sizeOf$EpFQ, getEditorContext());
+    return provider.createCell();
+  }
+  private static class sizeOfSingleRoleHandler_oogf3h_e0 extends SingleRoleCellProvider {
+    @NotNull
+    private SNode myNode;
+
+    public sizeOfSingleRoleHandler_oogf3h_e0(SNode ownerNode, SContainmentLink containmentLink, EditorContext context) {
+      super(containmentLink, context);
+      myNode = ownerNode;
+    }
+
+    @Override
+    @NotNull
+    public SNode getNode() {
+      return myNode;
+    }
+
+    protected EditorCell createChildCell(SNode child) {
+      EditorCell editorCell = getUpdateSession().updateChildNodeCell(child);
+      editorCell.setAction(CellActionType.DELETE, new CellAction_DeleteSmart(getNode(), LINKS.sizeOf$EpFQ, child));
+      editorCell.setAction(CellActionType.BACKSPACE, new CellAction_DeleteSmart(getNode(), LINKS.sizeOf$EpFQ, child));
+      installCellInfo(child, editorCell, false);
+      return editorCell;
+    }
+
+
+
+    private void installCellInfo(SNode child, EditorCell editorCell, boolean isEmpty) {
+      if (editorCell.getSubstituteInfo() == null || editorCell.getSubstituteInfo() instanceof DefaultSubstituteInfo) {
+        editorCell.setSubstituteInfo((isEmpty ? new SEmptyContainmentSubstituteInfo(editorCell) : new SChildSubstituteInfo(editorCell)));
+      }
+      if (editorCell.getSRole() == null) {
+        editorCell.setSRole(LINKS.sizeOf$EpFQ);
+      }
+    }
+    @Override
+    protected EditorCell createEmptyCell() {
+      getCellFactory().pushCellContext();
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(getNode(), LINKS.sizeOf$EpFQ));
+      try {
+        EditorCell editorCell = super.createEmptyCell();
+        editorCell.setCellId("empty_sizeOf");
+        installCellInfo(null, editorCell, true);
+        setCellContext(editorCell);
+        return editorCell;
+      } finally {
+        getCellFactory().popCellContext();
+      }
+    }
+    protected String getNoTargetText() {
+      return "<no sizeOf>";
+    }
+  }
+  private EditorCell createConstant_3() {
+    EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, ")");
+    editorCell.setCellId("Constant_oogf3h_f0");
     Style style = new StyleImpl();
     new BracesStyleClass(this).apply(style, editorCell);
     style.set(StyleAttributes.PUNCTUATION_LEFT, true);
@@ -143,9 +209,9 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
     editorCell.setDefaultText("");
     return editorCell;
   }
-  private EditorCell createConstant_3() {
+  private EditorCell createConstant_4() {
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, ";");
-    editorCell.setCellId("Constant_oogf3h_e0");
+    editorCell.setCellId("Constant_oogf3h_g0");
     Style style = new StyleImpl();
     new SemiStyleClass(this).apply(style, editorCell);
     editorCell.getStyle().putAll(style);
@@ -155,5 +221,6 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink allocationVariable$GPxN = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x7af97dfb35e0fee8L, 0x7af97dfb363145a9L, "allocationVariable");
+    /*package*/ static final SContainmentLink sizeOf$EpFQ = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x4f052dce270158d9L, 0x226c7bb9b4153dbfL, "sizeOf");
   }
 }

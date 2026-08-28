@@ -92,7 +92,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
     return editorCell;
   }
   private EditorCell createConstant_2() {
-    EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "expand");
+    EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "Create Reversed Function");
     editorCell.setCellId("Constant_a8zlsv_b0a");
     editorCell.setDefaultText("");
     return editorCell;

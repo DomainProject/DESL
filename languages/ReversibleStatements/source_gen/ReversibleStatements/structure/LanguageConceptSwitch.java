@@ -62,21 +62,22 @@ public final class LanguageConceptSwitch {
   public static final int LocalVarRef = 50;
   public static final int LocalVariableDeclaration = 51;
   public static final int LogStatement = 52;
-  public static final int NewStruct = 53;
-  public static final int NotParsedStatement = 54;
-  public static final int PragmaStatement = 55;
-  public static final int Prefix = 56;
-  public static final int ReleaseStruct = 57;
-  public static final int ReturnStatement = 58;
-  public static final int ReversibleStatement = 59;
-  public static final int ReversibleStatementList = 60;
-  public static final int SimpleAttributePrefix = 61;
-  public static final int SwitchCase = 62;
-  public static final int SwitchDefault = 63;
-  public static final int SwitchMember = 64;
-  public static final int SwitchStatement = 65;
-  public static final int WaitBusy = 66;
-  public static final int WhileStatement = 67;
+  public static final int Memcpy = 53;
+  public static final int NewStruct = 54;
+  public static final int NotParsedStatement = 55;
+  public static final int PragmaStatement = 56;
+  public static final int Prefix = 57;
+  public static final int ReleaseStruct = 58;
+  public static final int ReturnStatement = 59;
+  public static final int ReversibleStatement = 60;
+  public static final int ReversibleStatementList = 61;
+  public static final int SimpleAttributePrefix = 62;
+  public static final int SwitchCase = 63;
+  public static final int SwitchDefault = 64;
+  public static final int SwitchMember = 65;
+  public static final int SwitchStatement = 66;
+  public static final int WaitBusy = 67;
+  public static final int WhileStatement = 68;
 
   public LanguageConceptSwitch() {
     LanguageConceptIndexBuilder builder = new LanguageConceptIndexBuilder(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L);
@@ -133,6 +134,7 @@ public final class LanguageConceptSwitch {
     builder.put(0x1d0c3765e2e1d67aL, LocalVarRef);
     builder.put(0x3a16e3a9c7ad96e6L, LocalVariableDeclaration);
     builder.put(0x5809a94b289160a4L, LogStatement);
+    builder.put(0x1870bf924e7318b9L, Memcpy);
     builder.put(0x2e28a92d075e35d5L, NewStruct);
     builder.put(0x242458b0b38bd8cfL, NotParsedStatement);
     builder.put(0xb9b8155bc8b14deL, PragmaStatement);

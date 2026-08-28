@@ -23,6 +23,8 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new AddToCollection_TextGen();
       case LanguageConceptSwitch.Collection:
         return new Collection_TextGen();
+      case LanguageConceptSwitch.CollectionSize:
+        return new CollectionSize_TextGen();
       case LanguageConceptSwitch.FindFirst:
         return new FindFirst_TextGen();
       case LanguageConceptSwitch.ForEachItemInCollection:

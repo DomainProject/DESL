@@ -224,7 +224,7 @@
           <property role="1563Ve" value="[x]" />
         </node>
         <node concept="3F0ifn" id="2TIMRpJEmm5" role="2fqkNU">
-          <property role="3F0ifm" value="expand" />
+          <property role="3F0ifm" value="Create Reversed Function" />
         </node>
       </node>
       <node concept="2iRkQZ" id="5U1XgQxe2ur" role="2iSdaV" />

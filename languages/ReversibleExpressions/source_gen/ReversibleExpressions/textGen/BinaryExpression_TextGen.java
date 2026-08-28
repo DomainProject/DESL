@@ -33,7 +33,6 @@ public class BinaryExpression_TextGen extends TextGenDescriptorBase {
     boolean reversibilityNotNeeded = (SNodeOperations.isInstanceOf(ctx.getPrimaryInput(), CONCEPTS.IBinArithmetic$8B) && (boolean) IBinArithmetic__BehaviorDescriptor.checkIfRightSideOfDirectAssignment_id79P5B3Nkar8.invoke(SNodeOperations.cast(ctx.getPrimaryInput(), CONCEPTS.IBinArithmetic$8B)));
 
     if (isDestructive && !(SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5))) {
-
       // only append reverse functions invocations, if any
       for (SNode revFunctionCall : ListSequence.fromList(SNodeOperations.getNodeDescendants(ctx.getPrimaryInput(), CONCEPTS.ReversibleFunctionCall$TO, false, new SAbstractConcept[]{}))) {
         tgs.appendNode(revFunctionCall);

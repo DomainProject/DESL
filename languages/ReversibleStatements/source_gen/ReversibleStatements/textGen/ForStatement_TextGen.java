@@ -5,15 +5,20 @@ package ReversibleStatements.textGen;
 import jetbrains.mps.text.rt.TextGenDescriptorBase;
 import jetbrains.mps.text.rt.TextGenContext;
 import jetbrains.mps.text.impl.TextGenSupport;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import java.util.UUID;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.internal.collections.runtime.Sequence;
-import jetbrains.mps.lang.traceable.behavior.TraceableConcept__BehaviorDescriptor;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import jetbrains.mps.lang.traceable.behavior.TraceableConcept__BehaviorDescriptor;
+import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class ForStatement_TextGen extends TextGenDescriptorBase {
   @Override
@@ -22,6 +27,90 @@ public class ForStatement_TextGen extends TextGenDescriptorBase {
     tgs.createPositionInfo();
 
 
+    boolean requiresReversibility = (SNodeOperations.isInstanceOf(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.ReversibleFunction$IL) ? SPropertyOperations.getBoolean(SNodeOperations.cast(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.ReversibleFunction$IL), PROPS.reversibilityRequired$Zgdy) : SPropertyOperations.getBoolean(SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.ReversibleFunction$IL, false, false), PROPS.reversibilityRequired$Zgdy));
+
+    if (requiresReversibility) {
+
+      String iterations = "iterations_" + UUID.randomUUID().toString().substring(0, 7);
+      tgs.append("int32_t ");
+      tgs.append(iterations);
+      tgs.append(" = 0;");
+      tgs.newLine();
+
+      if (SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5)) {
+
+        tgs.indent();
+        tgs.append("for ( ");
+        if (SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.iterator$fwes) != null) {
+          tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.iterator$fwes));
+          tgs.append(" ");
+          if (ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.additionalIterators$umBI)).isNotEmpty()) {
+            tgs.append(", ");
+          }
+          {
+            Iterable<SNode> collection = SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.additionalIterators$umBI);
+            final SNode lastItem = Sequence.fromIterable(collection).last();
+            for (SNode item : collection) {
+              tgs.appendNode(item);
+              if (item != lastItem) {
+                tgs.append(", ");
+              }
+            }
+          }
+        }
+        tgs.append("; ");
+
+        if (SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.condition$3gCl) != null) {
+          tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.condition$3gCl));
+
+        }
+        tgs.append("; ");
+        if (SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.incr$fAzR) != null) {
+          {
+            Iterable<SNode> collection = SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.incr$fAzR);
+            final SNode lastItem = Sequence.fromIterable(collection).last();
+            for (SNode item : collection) {
+              tgs.appendNode(item);
+              if (item != lastItem) {
+                tgs.append(", ");
+              }
+            }
+          }
+        }
+        tgs.append(" ) {");
+        tgs.newLine();
+        ctx.getBuffer().area().increaseIndent();
+        tgs.indent();
+        tgs.append("++");
+        tgs.append(iterations);
+        tgs.append(";");
+        tgs.newLine();
+        ReversibleStatementListUtils.statementList(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$fofU), ctx);
+        tgs.newLine();
+        ctx.getBuffer().area().decreaseIndent();
+        tgs.indent();
+        tgs.append("}");
+        tgs.newLine();
+
+        tgs.indent();
+        ReversibleStatementListUtils.stackStateHandling(true, iterations, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x75739ed9f39e3888L, "com.mbeddr.core.expressions.structure.Int32tType")), ctx.getPrimaryInput(), ctx);
+
+      } else {
+        tgs.indent();
+        ReversibleStatementListUtils.stackStateHandling(false, iterations, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x75739ed9f39e3888L, "com.mbeddr.core.expressions.structure.Int32tType")), ctx.getPrimaryInput(), ctx);
+        tgs.indent();
+        tgs.append("while(");
+        tgs.append(iterations);
+        tgs.append("-- > 0)");
+        tgs.newLine();
+        tgs.indent();
+        tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$fofU));
+      }
+
+      return;
+    }
+
+    // standard for
     tgs.append("for ( ");
     if (SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.iterator$fwes) != null) {
       tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.iterator$fwes));
@@ -68,15 +157,21 @@ public class ForStatement_TextGen extends TextGenDescriptorBase {
     }
   }
 
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ReversibleFunction$IL = MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, "ReversibleFunctions.structure.ReversibleFunction");
+    /*package*/ static final SInterfaceConcept TraceableConcept$L = MetaAdapterFactory.getInterfaceConcept(0x9ded098bad6a4657L, 0xbfd948636cfe8bc3L, 0x465516cf87c705a3L, "jetbrains.mps.lang.traceable.structure.TraceableConcept");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty reversibilityRequired$Zgdy = MetaAdapterFactory.getProperty(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111cL, 0x56ee1731ff5a6482L, "reversibilityRequired");
+    /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
+  }
+
   private static final class LINKS {
     /*package*/ static final SContainmentLink iterator$fwes = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a40186e676L, 0x64ae61a401870e40L, "iterator");
     /*package*/ static final SContainmentLink additionalIterators$umBI = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a40186e676L, 0x5239321dec4ec665L, "additionalIterators");
     /*package*/ static final SContainmentLink condition$3gCl = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x6337a44ca461bdf4L, 0x64ae61a401870e43L, "condition");
     /*package*/ static final SContainmentLink incr$fAzR = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a40186e676L, 0x64ae61a401870e46L, "incr");
     /*package*/ static final SContainmentLink body$fofU = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a40186e676L, 0x64ae61a401870e33L, "body");
-  }
-
-  private static final class CONCEPTS {
-    /*package*/ static final SInterfaceConcept TraceableConcept$L = MetaAdapterFactory.getInterfaceConcept(0x9ded098bad6a4657L, 0xbfd948636cfe8bc3L, 0x465516cf87c705a3L, "jetbrains.mps.lang.traceable.structure.TraceableConcept");
   }
 }

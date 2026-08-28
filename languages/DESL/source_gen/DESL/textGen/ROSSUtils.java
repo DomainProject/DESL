@@ -8,6 +8,7 @@ import jetbrains.mps.text.impl.TextGenSupport;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import com.mbeddr.core.modules.behavior.ITypeDeclaration__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SProperty;
@@ -38,11 +39,20 @@ public abstract class ROSSUtils {
     tgs.append("tw_lpid me = lp->gid;");
     tgs.newLine();
     tgs.indent();
-    tgs.append("double now = content->timestamp;");
+    tgs.append("double now = tw_now(lp);");
     tgs.newLine();
 
     // update global "me" variable
+    tgs.indent();
     tgs.append("global_me = me;");
+    tgs.newLine();
+
+    tgs.newLine();
+    for (SNode stmt : ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(SLinkOperations.getTarget(SLinkOperations.getTarget(c, LINKS.prologue$dFBc), LINKS.function$HmYZ), LINKS.body$1GE0), LINKS.statements$euTV))) {
+      tgs.indent();
+      tgs.appendNode(stmt);
+      tgs.newLine();
+    }
     tgs.newLine();
 
     ROSSUtils.rossSwitchEvent(c, true, ctx);
@@ -107,6 +117,10 @@ public abstract class ROSSUtils {
   private static final class LINKS {
     /*package*/ static final SContainmentLink stateStruct$NqNO = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x4117a694e5b8c1a2L, "stateStruct");
     /*package*/ static final SContainmentLink messageStruct$xVlJ = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x6de6339fa564bed8L, "messageStruct");
+    /*package*/ static final SContainmentLink prologue$dFBc = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x4c1993709d99f006L, "prologue");
+    /*package*/ static final SContainmentLink function$HmYZ = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4c1993709f17a284L, 0x4c1993709f1b908dL, "function");
+    /*package*/ static final SContainmentLink body$1GE0 = MetaAdapterFactory.getContainmentLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x595522006a5b97e1L, 0x3a16e3a9c7ad9954L, "body");
+    /*package*/ static final SContainmentLink statements$euTV = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad9955L, 0x3a16e3a9c7ad9956L, "statements");
     /*package*/ static final SContainmentLink forwardFunction$5bPH = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x74d88000543a2a9fL, "forwardFunction");
     /*package*/ static final SContainmentLink revBody$QkEt = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, 0x5e81f50da12f79a6L, "revBody");
     /*package*/ static final SContainmentLink reverseFunction$yyGT = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x5e81f50da138219aL, "reverseFunction");

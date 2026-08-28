@@ -22,48 +22,52 @@ public class ConstraintsAspectDescriptor extends BaseConstraintsAspectDescriptor
     SAbstractConcept cncpt = concept;
     switch (conceptIndex.index(cncpt)) {
       case 0:
-        return new BinaryNumberLiteral_Constraints(context);
+        return new ArrayAccessExpression_Constraints(context);
       case 1:
-        return new CharLiteral_Constraints(context);
+        return new BinaryNumberLiteral_Constraints(context);
       case 2:
-        return new CommentedContent_Constraints(context);
+        return new CharLiteral_Constraints(context);
       case 3:
-        return new GenericMemberRef_Constraints(context);
+        return new CommentedContent_Constraints(context);
       case 4:
-        return new GlobalConstantRef_Constraints(context);
+        return new FunctionCall_Constraints(context);
       case 5:
-        return new GlobalVarRef_Constraints(context);
+        return new GenericMemberRef_Constraints(context);
       case 6:
-        return new HexNumberLiteral_Constraints(context);
+        return new GlobalConstantRef_Constraints(context);
       case 7:
-        return new IDuplicateConceptInCondition_Constraints(context);
+        return new GlobalVarRef_Constraints(context);
       case 8:
-        return new IVariableReference_Constraints(context);
+        return new HexNumberLiteral_Constraints(context);
       case 9:
-        return new MemberInitExpression_Constraints(context);
+        return new IDuplicateConceptInCondition_Constraints(context);
       case 10:
-        return new NumberLiteral_Constraints(context);
+        return new IVariableReference_Constraints(context);
       case 11:
-        return new OctalNumberLiteral_Constraints(context);
+        return new MemberInitExpression_Constraints(context);
       case 12:
-        return new PostIncrementExpression_Constraints(context);
+        return new NumberLiteral_Constraints(context);
       case 13:
-        return new ReversibleExpression_Constraints(context);
+        return new OctalNumberLiteral_Constraints(context);
       case 14:
-        return new ReversibleFunctionCall_Constraints(context);
+        return new PostIncrementExpression_Constraints(context);
       case 15:
-        return new ReversibleMacroCall_Constraints(context);
+        return new ReversibleExpression_Constraints(context);
       case 16:
-        return new ScientificNumber_Constraints(context);
+        return new ReversibleFunctionCall_Constraints(context);
       case 17:
-        return new UnaryMinusExpression_Constraints(context);
+        return new ReversibleMacroCall_Constraints(context);
       case 18:
-        return new UnaryPrePosModificationExpression_Constraints(context);
+        return new ScientificNumber_Constraints(context);
       case 19:
+        return new UnaryMinusExpression_Constraints(context);
+      case 20:
+        return new UnaryPrePosModificationExpression_Constraints(context);
+      case 21:
         return new UnsignedIntegerLiteral_Constraints(context);
       default:
     }
     return null;
   }
-  private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0xea19691e38cf3f6L), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x17196bfd1c5318acL), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1f49de97a1082b73L), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4f5d78b09e1b9a5fL), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4ea2fd39ef8cd6f8L), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4ea2fd39f03d3a05L), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0xea19691e38c3fccL), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4b1eecbba76803eeL), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1c69b376a2dab98aL), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x5645fe3fa5608271L), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba67L), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0xd04cd1bfc474145L), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x3cba500cc5723aaeL), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x2e6ecb766f1587b4L), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1b427f2e49d1fe84L), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x172ddc48ec9eb7ceL), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x373071ae5c652ee2L), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x632cdd5acfb8529eL), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x620d2cb3076ed664L)).seal();
+  private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4f5d78b09fe52de9L), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0xea19691e38cf3f6L), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x17196bfd1c5318acL), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1f49de97a1082b73L), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x61cf1b3b767a7449L), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4f5d78b09e1b9a5fL), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4ea2fd39ef8cd6f8L), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4ea2fd39f03d3a05L), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0xea19691e38c3fccL), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4b1eecbba76803eeL), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1c69b376a2dab98aL), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x5645fe3fa5608271L), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba67L), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0xd04cd1bfc474145L), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x3cba500cc5723aaeL), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x2e6ecb766f1587b4L), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x1b427f2e49d1fe84L), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x172ddc48ec9eb7ceL), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x373071ae5c652ee2L), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x632cdd5acfb8529eL), MetaIdFactory.conceptId(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x620d2cb3076ed664L)).seal();
 }

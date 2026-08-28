@@ -4,9 +4,13 @@ package DESL.constraints;
 
 import jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptorInitContext;
+import jetbrains.mps.smodel.runtime.ConstraintFunction;
+import jetbrains.mps.smodel.runtime.ConstraintContext_CanBeChild;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+import jetbrains.mps.smodel.runtime.CheckingNodeContext;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
-import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
 import org.jetbrains.mps.openapi.model.SNodeReference;
@@ -20,6 +24,7 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.scope.ListScope;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
@@ -28,6 +33,18 @@ public class ReversibleSendEvent_Constraints extends BaseConstraintsDescriptor {
   /*package*/ ReversibleSendEvent_Constraints(ConstraintsDescriptorInitContext initContext) {
     super(CONCEPTS.ReversibleSendEvent$u, initContext);
     record(new RD1(this));
+    setCanBeChildConstraint(new ConstraintFunction<ConstraintContext_CanBeChild, Boolean>() {
+      @NotNull
+      public Boolean invoke(@NotNull ConstraintContext_CanBeChild context, @Nullable CheckingNodeContext checkingNodeContext) {
+        boolean result = staticCanBeAChild(context.getNode(), context.getParentNode(), context.getConcept(), context.getLink());
+
+        if (!(result) && checkingNodeContext != null) {
+          checkingNodeContext.setBreakingNode(canBeChildBreakingPoint);
+        }
+
+        return result;
+      }
+    });
   }
 
   /*package*/ static final class RD1 extends BaseReferenceConstraintsDescriptor {
@@ -54,12 +71,17 @@ public class ReversibleSendEvent_Constraints extends BaseConstraintsDescriptor {
       };
     }
   }
+  private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
+    return (SNodeOperations.getNodeAncestor(parentNode, CONCEPTS.ReversibleEventHandler$Ov, false, false) != null) || SNodeOperations.isInstanceOf(SNodeOperations.getParent(parentNode), CONCEPTS.ReversibleEventHandler$Ov);
+  }
+  private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:048a4be0-4bfd-44e1-a4fe-33b591fb5056(DESL.constraints)", "1761118089394750177");
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept ReversibleSendEvent$u = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x68458b9b5da4ec77L, "DESL.structure.ReversibleSendEvent");
     /*package*/ static final SConcept DESLModel$DK = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, "DESL.structure.DESLModel");
     /*package*/ static final SConcept EventType$wx = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x7c2c5977e3e10df9L, "DESL.structure.EventType");
     /*package*/ static final SConcept ReversibleScript$ki = MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x56ee1731fef0eae5L, "ReversibleFunctions.structure.ReversibleScript");
+    /*package*/ static final SConcept ReversibleEventHandler$Ov = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, "DESL.structure.ReversibleEventHandler");
   }
 
   private static final class LINKS {

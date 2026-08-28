@@ -15,7 +15,6 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import com.mbeddr.core.modules.behavior.UniqueNameHelper;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import java.util.Objects;
 import com.mbeddr.core.modules.behavior.ITypeDeclaration__BehaviorDescriptor;
 import ReversibleStatements.textGen.ReversibleStatementListUtils;
 import jetbrains.mps.lang.traceable.behavior.UnitConcept__BehaviorDescriptor;
@@ -46,6 +45,9 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     tgs.append("#include <malloc.h>");
     tgs.newLine();
     ListSequence.fromList(headers).addElement("malloc");
+    tgs.append("#include <stdint.h>");
+    tgs.newLine();
+    ListSequence.fromList(headers).addElement("stdint");
     Headers.headers(ctx.getPrimaryInput(), headers, ctx);
 
 
@@ -155,6 +157,10 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     tgs.newLine();
     tgs.append("typedef unsigned long lp_id_t;");
     tgs.newLine();
+    for (SNode typedef : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.typedefs$4qMf), CONCEPTS.TypeDefinition$Jr))) {
+      tgs.appendNode(typedef);
+      tgs.newLine();
+    }
     tgs.newLine();
 
     /*
@@ -247,6 +253,16 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     tgs.append(String.valueOf((uInt16StackSize == 0 ? 1 : uInt16StackSize)));
     tgs.append(");");
     tgs.newLine();
+    for (SNode additionalStack : ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.additionalStacks$LtQo))) {
+      tgs.append("DEFINE_STACK(");
+      tgs.append(SPropertyOperations.getString(additionalStack, PROPS.name$MnvL));
+      tgs.append(", ");
+      tgs.appendNode(SLinkOperations.getTarget(additionalStack, LINKS.type$8OOu));
+      tgs.append(", ");
+      tgs.append(String.valueOf(SPropertyOperations.getInteger(additionalStack, PROPS.size$ygYY)));
+      tgs.append(");");
+      tgs.newLine();
+    }
     tgs.newLine();
 
 
@@ -280,6 +296,14 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     tgs.indent();
     tgs.append("IfStack ifStack;");
     tgs.newLine();
+    for (SNode additionalStack : ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.additionalStacks$LtQo))) {
+      tgs.indent();
+      tgs.append(SPropertyOperations.getString(additionalStack, PROPS.name$MnvL));
+      tgs.append(" ");
+      tgs.append(SPropertyOperations.getString(additionalStack, PROPS.memberName$SL_3));
+      tgs.append(";");
+      tgs.newLine();
+    }
 
     // other members
     for (SNode member : ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.messageStruct$xVlJ), LINKS.members$C59R))) {
@@ -288,6 +312,7 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     }
 
     // timestamp to advance simulation time
+    tgs.indent();
     tgs.append("double timestamp;");
     tgs.newLine();
     ctx.getBuffer().area().decreaseIndent();
@@ -353,7 +378,7 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
 
     tgs.append("#define rev_free_w(me, ptr) rev_free(arenas[(me)], (ptr))");
     tgs.newLine();
-    tgs.append("#define rev_remalloc_w(size) rev_remalloc((size))");
+    tgs.append("#define rev_remalloc_w(ptr) rev_remalloc((ptr))");
     tgs.newLine();
     tgs.append("#define rev_malloc_w(me, size) rev_malloc(arenas[(me)], (size))");
     tgs.newLine();
@@ -380,41 +405,42 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     */
 
 
+    for (SNode item : SNodeOperations.ofConcept(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.externalFunctions$LqEg), CONCEPTS.ExternalFunction$U_)) {
+      tgs.appendNode(item);
+    }
+
     boolean containsContext;
     for (SNode function : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.externalFunctions$LqEg), CONCEPTS.ReversibleFunction$IL))) {
       //  if the function uses an API from the rand library, add a tw_lp *lp parameter to its signature
-      if (ListSequence.fromList(SNodeOperations.getNodeDescendants(function, CONCEPTS.Expent$Yu, false, new SAbstractConcept[]{})).isNotEmpty() || ListSequence.fromList(SNodeOperations.getNodeDescendants(function, CONCEPTS.Random$XZ, false, new SAbstractConcept[]{})).isNotEmpty()) {
-
-        // update function signature
-        tgs.appendNode(SLinkOperations.getTarget(function, LINKS.type$sXU3));
-        tgs.append(" ");
-        tgs.append(SPropertyOperations.getString(function, PROPS.name$MnvL));
-        tgs.append("(");
-        containsContext = false;
-        for (SNode arg : ListSequence.fromList(SLinkOperations.getChildren(function, LINKS.arguments$6da0))) {
-          if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(arg, LINKS.type$sXU3), CONCEPTS.RngContext$1E)) {
-            containsContext = true;
-          }
-          tgs.appendNode(arg);
-          if (SNodeOperations.getIndexInParent(arg) == ListSequence.fromList(SLinkOperations.getChildren(function, LINKS.arguments$6da0)).count() - 1 && containsContext) {
-            tgs.append(")");
-            tgs.newLine();
-          } else {
-            tgs.append(", ");
-          }
+      tgs.appendNode(SLinkOperations.getTarget(function, LINKS.type$sXU3));
+      tgs.append(" ");
+      tgs.append(SPropertyOperations.getString(function, PROPS.name$MnvL));
+      tgs.append("(");
+      containsContext = false;
+      for (SNode arg : ListSequence.fromList(SLinkOperations.getChildren(function, LINKS.arguments$6da0))) {
+        if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(arg, LINKS.type$sXU3), CONCEPTS.RngContext$1E)) {
+          containsContext = true;
         }
-        if (!(containsContext)) {
-          tgs.append("tw_lp *lp)");
-          tgs.newLine();
+        tgs.appendNode(arg);
+        if (SNodeOperations.getIndexInParent(arg) < ListSequence.fromList(SLinkOperations.getChildren(function, LINKS.arguments$6da0)).count() - 1) {
+          tgs.append(", ");
         }
-
-        // append function body
-        tgs.appendNode(SLinkOperations.getTarget(function, LINKS.revBody$QkEt));
+      }
+      if (!(containsContext) && ListSequence.fromList(SNodeOperations.getNodeDescendants(function, CONCEPTS.IRNGCall$1j, false, new SAbstractConcept[]{})).isNotEmpty()) {
+        tgs.append(", tw_lp *lp, ");
+      }
+      if (SPropertyOperations.getBoolean(function, PROPS.isForward$pAg5)) {
+        // add the saveState flag
+        tgs.append(", bool saveState)");
         tgs.newLine();
       } else {
-        tgs.appendNode(function);
+        tgs.append(")");
         tgs.newLine();
       }
+
+      // append function body
+      tgs.appendNode(SLinkOperations.getTarget(function, LINKS.revBody$QkEt));
+      tgs.newLine();
     }
     tgs.newLine();
 
@@ -424,21 +450,20 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
 
     */
 
-    for (final SNode c : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.classes$SNAM), CONCEPTS.ClassDefinition$NR))) {
+    for (SNode c : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.classes$SNAM), CONCEPTS.ClassDefinition$NR))) {
 
       // init function ( {node.name}_{class.name}_init(...) )
       SNode initHandler = Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(c, LINKS.handlers$Nr2P), CONCEPTS.ReversibleEventHandler$Ov)).findFirst((it) -> SPropertyOperations.getString(it, PROPS.eventName$rI8o).contains("INIT"));
 
       // ROSS requires the init function to be defined according to the following prototype: 
       // void init_f(model_state * s, tw_lp * lp), where model_state is the state struct
-      SNode stateArgumentInit = Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(SLinkOperations.getTarget(initHandler, LINKS.forwardFunction$5bPH), LINKS.arguments$6da0), CONCEPTS.Argument$9m)).findFirst((it) -> SNodeOperations.isInstanceOf(SLinkOperations.getTarget(it, LINKS.type$sXU3), CONCEPTS.PointerType$HX) && Objects.equals(SNodeOperations.getConcept(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(it, LINKS.type$sXU3), CONCEPTS.PointerType$HX), LINKS.baseType$zMGV)), SNodeOperations.getConcept(ITypeDeclaration__BehaviorDescriptor.createType_id3o2OLGv7CoR.invoke(SLinkOperations.getTarget(c, LINKS.stateStruct$NqNO)))));
       tgs.append("void ");
       tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL));
       tgs.append("_");
       tgs.append(SPropertyOperations.getString(c, PROPS.name$MnvL));
       tgs.append("_init(");
-      tgs.appendNode(stateArgumentInit);
-      tgs.append(", tw_lp *lp)");
+      tgs.appendNode(ITypeDeclaration__BehaviorDescriptor.createType_id3o2OLGv7CoR.invoke(SLinkOperations.getTarget(c, LINKS.stateStruct$NqNO)));
+      tgs.append(" *state, tw_lp *lp)");
       tgs.newLine();
 
       // append the function's statements, creating the "me" and "now" variables at the beginning, mocking the "me" and "now" parameters in DESL handlers
@@ -449,7 +474,14 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
       tgs.append("tw_lpid me = lp->gid;");
       tgs.newLine();
       tgs.indent();
+      tgs.append("global_me = me;");
+      tgs.newLine();
+      tgs.indent();
       tgs.append("double now = 0;");
+      tgs.newLine();
+      tgs.indent();
+      tgs.appendNode(ITypeDeclaration__BehaviorDescriptor.createType_id3o2OLGv7CoR.invoke(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.messageStruct$xVlJ)));
+      tgs.append(" *content = NULL;");
       tgs.newLine();
       tgs.newLine();
 
@@ -510,6 +542,9 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
       ctx.getBuffer().area().increaseIndent();
       tgs.indent();
       tgs.append("tw_lpid me = lp->gid;");
+      tgs.newLine();
+      tgs.indent();
+      tgs.append("global_me = me;");
       tgs.newLine();
       tgs.indent();
       tgs.append("double now = content->timestamp;");
@@ -698,6 +733,15 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     tgs.newLine();
     tgs.newLine();
 
+    for (SNode c : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.classes$SNAM), CONCEPTS.ClassDefinition$NR)).where((it) -> (SLinkOperations.getTarget(it, LINKS.startup$MRUv) != null))) {
+      for (SNode stmt : ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(SLinkOperations.getTarget(SLinkOperations.getTarget(c, LINKS.startup$MRUv), LINKS.function$Ah6u), LINKS.body$1GE0), LINKS.statements$euTV))) {
+        tgs.indent();
+        tgs.appendNode(stmt);
+        tgs.newLine();
+      }
+    }
+    tgs.newLine();
+
     // run the simulation
     tgs.indent();
     tgs.append("tw_run();");
@@ -737,20 +781,26 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     /*package*/ static final SContainmentLink processes$hZqx = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6393783L, 0x4117a694e6393787L, "processes");
     /*package*/ static final SContainmentLink processes$2JvY = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e64867a6L, 0x4117a694e64867a7L, "processes");
     /*package*/ static final SContainmentLink processAllocations$cuUJ = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x4117a694e6409a0eL, "processAllocations");
+    /*package*/ static final SContainmentLink typedefs$4qMf = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x726080b55108e3b4L, "typedefs");
     /*package*/ static final SContainmentLink classes$SNAM = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x4117a694e5ba8536L, "classes");
+    /*package*/ static final SContainmentLink type$8OOu = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x48f8a3420d5df47cL, 0x48f8a3420d5df47dL, "type");
+    /*package*/ static final SContainmentLink additionalStacks$LtQo = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x36feb104c4b4e4fcL, "additionalStacks");
     /*package*/ static final SContainmentLink messageStruct$xVlJ = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x6de6339fa564bed8L, "messageStruct");
     /*package*/ static final SContainmentLink members$C59R = MetaAdapterFactory.getContainmentLink(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x6285e27d4ff6c9f5L, 0x6285e27d4ff7db92L, "members");
+    /*package*/ static final SContainmentLink externalFunctions$LqEg = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x6f36cc77d0a2c4ceL, "externalFunctions");
     /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
     /*package*/ static final SContainmentLink arguments$6da0 = MetaAdapterFactory.getContainmentLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x707ac195dd5d51f2L, 0x4f39f90935e92f45L, "arguments");
     /*package*/ static final SContainmentLink revBody$QkEt = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, 0x5e81f50da12f79a6L, "revBody");
-    /*package*/ static final SContainmentLink externalFunctions$LqEg = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x6f36cc77d0a2c4ceL, "externalFunctions");
     /*package*/ static final SContainmentLink handlers$Nr2P = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x4117a694e5b8c1a3L, "handlers");
-    /*package*/ static final SContainmentLink forwardFunction$5bPH = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x74d88000543a2a9fL, "forwardFunction");
-    /*package*/ static final SContainmentLink baseType$zMGV = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x6bbcdccef5e46755L, 0x6bbcdccef5e46756L, "baseType");
     /*package*/ static final SContainmentLink stateStruct$NqNO = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x4117a694e5b8c1a2L, "stateStruct");
+    /*package*/ static final SContainmentLink forwardFunction$5bPH = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x74d88000543a2a9fL, "forwardFunction");
     /*package*/ static final SContainmentLink revStatements$IdM8 = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, 0x3a16e3a9c7ad9956L, "revStatements");
     /*package*/ static final SContainmentLink to$WtFs = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x68458b9b5da4ec77L, 0x6f2af7ea6983412cL, "to");
     /*package*/ static final SReferenceLink arg$bO7D = MetaAdapterFactory.getReferenceLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x586abb2d564e82ffL, 0x586abb2d564e8301L, "arg");
+    /*package*/ static final SContainmentLink startup$MRUv = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x6ea143d20905c7edL, "startup");
+    /*package*/ static final SContainmentLink function$Ah6u = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0a48d39L, 0x6f36cc77d0a48d3aL, "function");
+    /*package*/ static final SContainmentLink body$1GE0 = MetaAdapterFactory.getContainmentLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x595522006a5b97e1L, 0x3a16e3a9c7ad9954L, "body");
+    /*package*/ static final SContainmentLink statements$euTV = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x3a16e3a9c7ad9955L, 0x3a16e3a9c7ad9956L, "statements");
   }
 
   private static final class PROPS {
@@ -761,6 +811,9 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     /*package*/ static final SProperty uInt16StackSize$2GXr = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x54df585342cdde6eL, "uInt16StackSize");
     /*package*/ static final SProperty uIntStackSize$2Gvp = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x54df585342cdde6cL, "uIntStackSize");
     /*package*/ static final SProperty intStackSize$onug = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, 0x54df585342e22151L, "intStackSize");
+    /*package*/ static final SProperty size$ygYY = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x48f8a3420d5df47cL, 0x36feb104c5b99caeL, "size");
+    /*package*/ static final SProperty memberName$SL_3 = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x48f8a3420d5df47cL, 0x36feb104c72eed0bL, "memberName");
+    /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
     /*package*/ static final SProperty eventName$rI8o = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x549487e5d88a4291L, 0x113f0963d355264aL, "eventName");
   }
 
@@ -770,14 +823,13 @@ public class RossM2M_TextGen extends TextGenDescriptorBase {
     /*package*/ static final SConcept ProcessArray$Ux = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6486788L, "DESL.structure.ProcessArray");
     /*package*/ static final SConcept ProcessSequence$B$ = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e64867a6L, "DESL.structure.ProcessSequence");
     /*package*/ static final SConcept ProcessAllocation$5Z = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e6393783L, "DESL.structure.ProcessAllocation");
+    /*package*/ static final SConcept TypeDefinition$Jr = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4ba181fb0873ae26L, "DESL.structure.TypeDefinition");
     /*package*/ static final SConcept ClassDefinition$NR = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4117a694e5b8c1a0L, "DESL.structure.ClassDefinition");
+    /*package*/ static final SConcept ExternalFunction$U_ = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228bL, "DESL.structure.ExternalFunction");
     /*package*/ static final SConcept RngContext$1E = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x23bd070ad14172a2L, "DESL.structure.RngContext");
-    /*package*/ static final SConcept Random$XZ = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2476b4949807b946L, "DESL.structure.Random");
-    /*package*/ static final SConcept Expent$Yu = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2476b4949807b947L, "DESL.structure.Expent");
+    /*package*/ static final SInterfaceConcept IRNGCall$1j = MetaAdapterFactory.getInterfaceConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x263a24c3a7a97014L, "DESL.structure.IRNGCall");
     /*package*/ static final SConcept ReversibleFunction$IL = MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, "ReversibleFunctions.structure.ReversibleFunction");
     /*package*/ static final SConcept ReversibleEventHandler$Ov = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, "DESL.structure.ReversibleEventHandler");
-    /*package*/ static final SConcept Argument$9m = MetaAdapterFactory.getConcept(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x6d872ef9245a20d7L, "com.mbeddr.core.modules.structure.Argument");
-    /*package*/ static final SConcept PointerType$HX = MetaAdapterFactory.getConcept(0x3bf5377ae9044dedL, 0x97545a516023bfaaL, 0x3e0cae5e366d630L, "com.mbeddr.core.pointers.structure.PointerType");
     /*package*/ static final SConcept ReversibleSendEvent$u = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x68458b9b5da4ec77L, "DESL.structure.ReversibleSendEvent");
     /*package*/ static final SConcept ArgumentRef$Ar = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x586abb2d564e82ffL, "ReversibleStatements.structure.ArgumentRef");
     /*package*/ static final SInterfaceConcept UnitConcept$1g = MetaAdapterFactory.getInterfaceConcept(0x9ded098bad6a4657L, 0xbfd948636cfe8bc3L, 0x465516cf87c705a4L, "jetbrains.mps.lang.traceable.structure.UnitConcept");

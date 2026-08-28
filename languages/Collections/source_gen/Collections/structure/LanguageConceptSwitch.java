@@ -11,18 +11,20 @@ public final class LanguageConceptSwitch {
   private final LanguageConceptIndex myIndex;
   public static final int AddToCollection = 0;
   public static final int Collection = 1;
-  public static final int FindFirst = 2;
-  public static final int ForEachItemInCollection = 3;
-  public static final int IGetFirstElementInCollection = 4;
-  public static final int IUpdateCollection = 5;
-  public static final int NewCollection = 6;
-  public static final int RemoveFromCollection = 7;
-  public static final int RemoveWhere = 8;
+  public static final int CollectionSize = 2;
+  public static final int FindFirst = 3;
+  public static final int ForEachItemInCollection = 4;
+  public static final int IGetFirstElementInCollection = 5;
+  public static final int IUpdateCollection = 6;
+  public static final int NewCollection = 7;
+  public static final int RemoveFromCollection = 8;
+  public static final int RemoveWhere = 9;
 
   public LanguageConceptSwitch() {
     LanguageConceptIndexBuilder builder = new LanguageConceptIndexBuilder(0x99e1808be2d74c11L, 0xa40f23376c03dda3L);
     builder.put(0xcc29beb50645d41L, AddToCollection);
     builder.put(0x6f36cc77d0af8690L, Collection);
+    builder.put(0x4938aa6426eda145L, CollectionSize);
     builder.put(0x3ea71aa20d4d8882L, FindFirst);
     builder.put(0x259b4ab97565ea5eL, ForEachItemInCollection);
     builder.put(0x74450034cfe623acL, IGetFirstElementInCollection);

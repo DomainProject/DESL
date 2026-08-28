@@ -11,6 +11,7 @@ import jetbrains.mps.smodel.runtime.ConceptPresentationBuilder;
 public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase {
   private ConceptPresentation props_AddToCollection;
   private ConceptPresentation props_Collection;
+  private ConceptPresentation props_CollectionSize;
   private ConceptPresentation props_FindFirst;
   private ConceptPresentation props_ForEachItemInCollection;
   private ConceptPresentation props_IGetFirstElementInCollection;
@@ -39,6 +40,14 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_Collection = cpb.create();
         }
         return props_Collection;
+      case LanguageConceptSwitch.CollectionSize:
+        if (props_CollectionSize == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.shortDesc("get the size of a collection");
+          cpb.rawPresentation("collection_size");
+          props_CollectionSize = cpb.create();
+        }
+        return props_CollectionSize;
       case LanguageConceptSwitch.FindFirst:
         if (props_FindFirst == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

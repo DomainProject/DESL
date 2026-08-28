@@ -3,6 +3,7 @@
   <persistence version="9" />
   <languages>
     <use id="982eb8df-2c96-4bd7-9963-11712ea622e5" name="jetbrains.mps.lang.resources" version="4" />
+    <use id="c72da2b9-7cce-4447-8389-f407dc1158b7" name="jetbrains.mps.lang.structure" version="9" />
     <devkit ref="78434eb8-b0e5-444b-850d-e7c4ad2da9ab(jetbrains.mps.devkit.aspect.structure)" />
   </languages>
   <imports>
@@ -1194,6 +1195,7 @@
   <node concept="1TIwiD" id="4Xtub2vTiRD">
     <property role="EcuMT" value="5718859801822572009" />
     <property role="TrG5h" value="ArrayAccessExpression" />
+    <property role="R4oN_" value="array access" />
     <ref role="1TJDcQ" node="2APHWiztz8M" resolve="UnaryExpression" />
     <node concept="PrWs8" id="4Xtub2vTiRG" role="PzmwI">
       <ref role="PrY4T" node="7C830Ec4S3e" resolve="IStopReshuffling" />
@@ -1300,6 +1302,50 @@
     <property role="34LRSv" value="&amp;" />
     <property role="R4oN_" value="get address" />
     <ref role="1TJDcQ" node="2APHWiztz8M" resolve="UnaryExpression" />
+  </node>
+  <node concept="1TIwiD" id="29GuVAOeVHR">
+    <property role="EcuMT" value="2480493532297280375" />
+    <property role="3GE5qa" value="expr" />
+    <property role="TrG5h" value="PointerExpr" />
+    <property role="R4oN_" value="--" />
+    <ref role="1TJDcQ" node="2APHWiztz8M" resolve="UnaryExpression" />
+  </node>
+  <node concept="1TIwiD" id="29GuVAOeWIB">
+    <property role="EcuMT" value="2480493532297284519" />
+    <property role="3GE5qa" value="expr" />
+    <property role="TrG5h" value="DerefExpr" />
+    <property role="34LRSv" value="*" />
+    <property role="R4oN_" value="dereference" />
+    <ref role="1TJDcQ" node="29GuVAOeVHR" resolve="PointerExpr" />
+  </node>
+  <node concept="1TIwiD" id="67f6NHQuBh9">
+    <property role="EcuMT" value="7047881884062872649" />
+    <property role="TrG5h" value="FunctionCall" />
+    <ref role="1TJDcQ" node="7FQByU3CrCM" resolve="ReversibleExpression" />
+    <node concept="PrWs8" id="67f6NHQuBha" role="PzmwI">
+      <ref role="PrY4T" node="2vgMet5CGud" resolve="IDestructiveOperation" />
+    </node>
+    <node concept="1TJgyj" id="67f6NHQFknQ" role="1TKVEi">
+      <property role="IQ2ns" value="7047881884066203126" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="actuals" />
+      <property role="20lbJX" value="fLJekj5/_0__n" />
+      <ref role="20lvS9" node="7FQByU3CrCM" resolve="ReversibleExpression" />
+    </node>
+    <node concept="1TJgyj" id="67f6NHQFknS" role="1TKVEi">
+      <property role="IQ2ns" value="7047881884066203128" />
+      <property role="20kJfa" value="function" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" to="x27k:5_l8w1EmTvt" resolve="FunctionSignature" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="29GuVANWUwb">
+    <property role="EcuMT" value="2480493532292556811" />
+    <property role="TrG5h" value="UnsignedInt128tType" />
+    <property role="34LRSv" value="__uint128_t" />
+    <property role="R4oN_" value="128 bit unsigned int" />
+    <property role="3GE5qa" value="" />
+    <ref role="1TJDcQ" to="mj1l:7FQByU3CrCS" resolve="PrimitiveType" />
   </node>
 </model>
 

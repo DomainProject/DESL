@@ -20,6 +20,8 @@ public class ActionAspectDescriptorImpl extends BaseActionAspectDescriptor imple
           return Collections.<NodeFactory>singletonList(new DESModelFactory.NodeFactory_3297662491776892432());
         case "EventHandler":
           return Collections.<NodeFactory>singletonList(new EventHandlerFactory.NodeFactory_1242722346529616691());
+        case "Prologue":
+          return Collections.<NodeFactory>singletonList(new PrologueFactory.NodeFactory_5483576133217161623());
         case "ReversibleEventHandler":
           return Collections.<NodeFactory>singletonList(new ReversibleEventHandlerFactory.NodeFactory_5103575337110310022());
         case "StartupFunction":

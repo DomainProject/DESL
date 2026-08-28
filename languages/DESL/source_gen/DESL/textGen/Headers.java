@@ -10,12 +10,10 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.internal.collections.runtime.Sequence;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
-import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public abstract class Headers {
   public static void headers(SNode root, List<String> headers, final TextGenContext ctx) {
@@ -38,34 +36,19 @@ public abstract class Headers {
       tgs.newLine();
     }
 
-    for (final SNode externalFunction : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(root, LINKS.externalFunctions$LqEg), CONCEPTS.ExternalFunctionPrototype$V4))) {
-      if (isEmptyString(ListSequence.fromList(headers).findFirst((it) -> it.equals(SPropertyOperations.getString(externalFunction, PROPS.headerName$Qm9Y))))) {
-        ListSequence.fromList(headers).addElement(SPropertyOperations.getString(externalFunction, PROPS.headerName$Qm9Y));
+    for (final SNode e : ListSequence.fromList(SNodeOperations.getNodeDescendants(root, CONCEPTS.IExternal$NF, false, new SAbstractConcept[]{}))) {
+      if (isNotEmptyString(SPropertyOperations.getString(e, PROPS.header$3Z8h)) && isEmptyString(ListSequence.fromList(headers).findFirst((it) -> it.equals(SPropertyOperations.getString(e, PROPS.header$3Z8h))))) {
+        ListSequence.fromList(headers).addElement(SPropertyOperations.getString(e, PROPS.header$3Z8h));
         tgs.append("#include <");
-        tgs.append(SPropertyOperations.getString(externalFunction, PROPS.headerName$Qm9Y));
-        tgs.append(".h>");
-        tgs.newLine();
-      }
-    }
-    for (final SNode externalStruct : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(root, LINKS.structs$JAXN), CONCEPTS.ExternalStructDefinition$8P))) {
-      if (isEmptyString(ListSequence.fromList(headers).findFirst((it) -> it.equals(SPropertyOperations.getString(externalStruct, PROPS.headerName$Tdv1))))) {
-        ListSequence.fromList(headers).addElement(SPropertyOperations.getString(externalStruct, PROPS.headerName$Tdv1));
-        tgs.append("#include <");
-        tgs.append(SPropertyOperations.getString(externalStruct, PROPS.headerName$Tdv1));
-        tgs.append(".h>");
-        tgs.newLine();
-      }
-    }
-    for (final SNode externalMacro : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(root, LINKS.macros$Sq68), CONCEPTS.ExternalMacro$H2))) {
-      if (isEmptyString(ListSequence.fromList(headers).findFirst((it) -> it.equals(SPropertyOperations.getString(externalMacro, PROPS.headerName$vMtZ))))) {
-        ListSequence.fromList(headers).addElement(SPropertyOperations.getString(externalMacro, PROPS.headerName$vMtZ));
-        tgs.append("#include <");
-        tgs.append(SPropertyOperations.getString(externalMacro, PROPS.headerName$vMtZ));
+        tgs.append(SPropertyOperations.getString(e, PROPS.header$3Z8h));
         tgs.append(".h>");
         tgs.newLine();
       }
     }
     tgs.newLine();
+  }
+  private static boolean isNotEmptyString(String str) {
+    return str != null && str.length() > 0;
   }
   private static boolean isEmptyString(String str) {
     return str == null || str.isEmpty();
@@ -73,21 +56,11 @@ public abstract class Headers {
 
   private static final class PROPS {
     /*package*/ static final SProperty requiresReversibleHandlers$ve_R = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x549487e5d9e6dfe7L, "requiresReversibleHandlers");
-    /*package*/ static final SProperty headerName$Qm9Y = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228cL, 0x5808433cc4903a50L, "headerName");
-    /*package*/ static final SProperty headerName$Tdv1 = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x5808433cc497c579L, 0x5808433cc4a5e3ceL, "headerName");
-    /*package*/ static final SProperty headerName$vMtZ = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x28a47bf149ea91f0L, 0x28a47bf149ea91f2L, "headerName");
+    /*package*/ static final SProperty header$3Z8h = MetaAdapterFactory.getProperty(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x3adbc53697f83302L, 0x3adbc53697fe1810L, "header");
   }
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept Collection$YT = MetaAdapterFactory.getConcept(0x99e1808be2d74c11L, 0xa40f23376c03dda3L, 0x6f36cc77d0af8690L, "Collections.structure.Collection");
-    /*package*/ static final SConcept ExternalFunctionPrototype$V4 = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228cL, "DESL.structure.ExternalFunctionPrototype");
-    /*package*/ static final SConcept ExternalStructDefinition$8P = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x5808433cc497c579L, "DESL.structure.ExternalStructDefinition");
-    /*package*/ static final SConcept ExternalMacro$H2 = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x28a47bf149ea91f0L, "DESL.structure.ExternalMacro");
-  }
-
-  private static final class LINKS {
-    /*package*/ static final SContainmentLink externalFunctions$LqEg = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x6f36cc77d0a2c4ceL, "externalFunctions");
-    /*package*/ static final SContainmentLink structs$JAXN = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x6e7ca07799a0fb0fL, "structs");
-    /*package*/ static final SContainmentLink macros$Sq68 = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x74450034d00e6949L, "macros");
+    /*package*/ static final SInterfaceConcept IExternal$NF = MetaAdapterFactory.getInterfaceConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x3adbc53697f83302L, "DESL.structure.IExternal");
   }
 }

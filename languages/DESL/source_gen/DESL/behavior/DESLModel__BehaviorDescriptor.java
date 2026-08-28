@@ -41,6 +41,7 @@ public final class DESLModel__BehaviorDescriptor extends BaseBHDescriptor {
     ListSequence.fromList(added).addSequence(Sequence.fromIterable(SLinkOperations.collect(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, LINKS.structs$JAXN), CONCEPTS.StructDefinition$7R), LINKS.struct$10Oz)));
     ListSequence.fromList(added).addSequence(Sequence.fromIterable(SLinkOperations.collect(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, LINKS.structs$JAXN), CONCEPTS.ExternalStructDefinition$8P), LINKS.declaration$PHIG)));
     ListSequence.fromList(added).addSequence(Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, LINKS.configuration$XHIx), CONCEPTS.GlobalVarDecl$PV)));
+    ListSequence.fromList(added).addSequence(Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, LINKS.configuration$XHIx), CONCEPTS.ExternalGlobalVarDecl$og)));
     for (SNode function : ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.externalFunctions$LqEg))) {
       {
         final SNode f = function;
@@ -138,6 +139,7 @@ public final class DESLModel__BehaviorDescriptor extends BaseBHDescriptor {
     /*package*/ static final SConcept StructDefinition$7R = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x5808433cc497c577L, "DESL.structure.StructDefinition");
     /*package*/ static final SConcept ExternalStructDefinition$8P = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x5808433cc497c579L, "DESL.structure.ExternalStructDefinition");
     /*package*/ static final SConcept GlobalVarDecl$PV = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x4ba181fb0880155eL, "DESL.structure.GlobalVarDecl");
+    /*package*/ static final SConcept ExternalGlobalVarDecl$og = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x3adbc53697a4167dL, "DESL.structure.ExternalGlobalVarDecl");
     /*package*/ static final SConcept Function$K8 = MetaAdapterFactory.getConcept(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x595522006a5b97e1L, "com.mbeddr.core.modules.structure.Function");
     /*package*/ static final SConcept ReversibleFunction$IL = MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, "ReversibleFunctions.structure.ReversibleFunction");
     /*package*/ static final SConcept ExternalFunctionPrototype$V4 = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x6f36cc77d0c6228cL, "DESL.structure.ExternalFunctionPrototype");

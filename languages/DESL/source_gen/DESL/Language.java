@@ -16,6 +16,8 @@ import jetbrains.mps.openapi.editor.descriptor.EditorAspectDescriptor;
 import DESL.editor.EditorAspectDescriptorImpl;
 import jetbrains.mps.openapi.intentions.IntentionAspectDescriptor;
 import DESL.intentions.IntentionsDescriptor;
+import jetbrains.mps.lang.migration.runtime.base.MigrationAspectDescriptor;
+import DESL.migration.MigrationDescriptor;
 import jetbrains.mps.text.rt.TextGenAspectDescriptor;
 import jetbrains.mps.lang.typesystem.runtime.IHelginsDescriptor;
 import DESL.typesystem.TypesystemDescriptor;
@@ -39,7 +41,7 @@ public class Language extends LanguageRuntime {
 
   @Override
   public int getVersion() {
-    return 0;
+    return 1;
   }
 
   public SLanguageId getId() {
@@ -70,6 +72,9 @@ public class Language extends LanguageRuntime {
     }
     if (aspectClass == IntentionAspectDescriptor.class) {
       return aspectClass.cast(new IntentionsDescriptor());
+    }
+    if (aspectClass == MigrationAspectDescriptor.class) {
+      return aspectClass.cast(new MigrationDescriptor());
     }
     if (aspectClass == TextGenAspectDescriptor.class) {
       return aspectClass.cast(new DESL.textGen.TextGenAspectDescriptor());

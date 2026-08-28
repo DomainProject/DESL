@@ -31,10 +31,14 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new CastExpression_TextGen();
       case LanguageConceptSwitch.CharLiteral:
         return new CharLiteral_TextGen();
+      case LanguageConceptSwitch.DerefExpr:
+        return new DerefExpr_TextGen();
       case LanguageConceptSwitch.ExpressionList:
         return new ExpressionList_TextGen();
       case LanguageConceptSwitch.FalseLiteral:
         return new FalseLiteral_TextGen();
+      case LanguageConceptSwitch.FunctionCall:
+        return new FunctionCall_TextGen();
       case LanguageConceptSwitch.GenericDotExpression:
         return new GenericDotExpression_TextGen();
       case LanguageConceptSwitch.GenericMemberRef:

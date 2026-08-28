@@ -66,6 +66,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptLocalVarRef = createDescriptorForLocalVarRef();
   /*package*/ final ConceptDescriptor myConceptLocalVariableDeclaration = createDescriptorForLocalVariableDeclaration();
   /*package*/ final ConceptDescriptor myConceptLogStatement = createDescriptorForLogStatement();
+  /*package*/ final ConceptDescriptor myConceptMemcpy = createDescriptorForMemcpy();
   /*package*/ final ConceptDescriptor myConceptNewStruct = createDescriptorForNewStruct();
   /*package*/ final ConceptDescriptor myConceptNotParsedStatement = createDescriptorForNotParsedStatement();
   /*package*/ final ConceptDescriptor myConceptPragmaStatement = createDescriptorForPragmaStatement();
@@ -97,8 +98,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     deps.extendedLanguage(0xd4280a54f6df4383L, 0xaa41d1b2bffa7eb1L, "com.mbeddr.core.base");
     deps.extendedLanguage(0xc4765525912b41b9L, 0xace4ce3b88117666L, "DESL");
     deps.extendedLanguage(0x9ded098bad6a4657L, 0xbfd948636cfe8bc3L, "jetbrains.mps.lang.traceable");
-    deps.aggregatedLanguage(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, "jetbrains.mps.lang.core");
     deps.aggregatedLanguage(0x61c69711ed614850L, 0x81d97714ff227fb0L, "com.mbeddr.core.expressions");
+    deps.aggregatedLanguage(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, "jetbrains.mps.lang.core");
     deps.aggregatedLanguage(0xd4280a54f6df4383L, 0xaa41d1b2bffa7eb1L, "com.mbeddr.core.base");
     deps.aggregatedLanguage(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, "ReversibleExpressions");
     deps.aggregatedLanguage(0xa9d696470840491eL, 0xbf392eb0805d2011L, "com.mbeddr.core.statements");
@@ -106,7 +107,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptAbstractItem, myConceptAllocateStruct, myConceptAnyNodeItem, myConceptArbitraryFunctionCall, myConceptArbitraryTextAttributePrefix, myConceptArbitraryTextExpression, myConceptArbitraryTextItem, myConceptArbitraryTextType, myConceptArgumentRef, myConceptBreakStatement, myConceptCheckpointLocalVarRef, myConceptCommentStatement, myConceptCommentedElseIfPart, myConceptCommentedElsePart, myConceptCommentedStatement, myConceptCommentedSwitchMember, myConceptContinueStatement, myConceptDesignatedInitializer, myConceptDoWhileStatement, myConceptElseIfPart, myConceptElsePart, myConceptEmptyStatement, myConceptExpressionStatement, myConceptForStatement, myConceptForVarDecl, myConceptForVarRef, myConceptIAllocationVariable, myConceptIAllowsIncompleteTypes, myConceptIBreakContainer, myConceptICFGNode, myConceptICFGRelevantNode, myConceptICanBeStoredInRegister, myConceptIDefineStateSaving, myConceptIForLike, myConceptIHasPrefixes, myConceptIIndependentInitExpression, myConceptIInitAwareType, myConceptIInterruptExecution, myConceptILocalVarScopeProvider, myConceptILoopStatement, myConceptIReversible, myConceptIReversibleLoop, myConceptIReversibleStatement, myConceptIStatmentListContainer, myConceptIStructuredInitExpression, myConceptITypeContainingType, myConceptIValueLike, myConceptIfStatement, myConceptInitExpression, myConceptIterator, myConceptLocalVarRef, myConceptLocalVariableDeclaration, myConceptLogStatement, myConceptNewStruct, myConceptNotParsedStatement, myConceptPragmaStatement, myConceptPrefix, myConceptReleaseStruct, myConceptReturnStatement, myConceptReversibleStatement, myConceptReversibleStatementList, myConceptSimpleAttributePrefix, myConceptSwitchCase, myConceptSwitchDefault, myConceptSwitchMember, myConceptSwitchStatement, myConceptWaitBusy, myConceptWhileStatement);
+    return Arrays.asList(myConceptAbstractItem, myConceptAllocateStruct, myConceptAnyNodeItem, myConceptArbitraryFunctionCall, myConceptArbitraryTextAttributePrefix, myConceptArbitraryTextExpression, myConceptArbitraryTextItem, myConceptArbitraryTextType, myConceptArgumentRef, myConceptBreakStatement, myConceptCheckpointLocalVarRef, myConceptCommentStatement, myConceptCommentedElseIfPart, myConceptCommentedElsePart, myConceptCommentedStatement, myConceptCommentedSwitchMember, myConceptContinueStatement, myConceptDesignatedInitializer, myConceptDoWhileStatement, myConceptElseIfPart, myConceptElsePart, myConceptEmptyStatement, myConceptExpressionStatement, myConceptForStatement, myConceptForVarDecl, myConceptForVarRef, myConceptIAllocationVariable, myConceptIAllowsIncompleteTypes, myConceptIBreakContainer, myConceptICFGNode, myConceptICFGRelevantNode, myConceptICanBeStoredInRegister, myConceptIDefineStateSaving, myConceptIForLike, myConceptIHasPrefixes, myConceptIIndependentInitExpression, myConceptIInitAwareType, myConceptIInterruptExecution, myConceptILocalVarScopeProvider, myConceptILoopStatement, myConceptIReversible, myConceptIReversibleLoop, myConceptIReversibleStatement, myConceptIStatmentListContainer, myConceptIStructuredInitExpression, myConceptITypeContainingType, myConceptIValueLike, myConceptIfStatement, myConceptInitExpression, myConceptIterator, myConceptLocalVarRef, myConceptLocalVariableDeclaration, myConceptLogStatement, myConceptMemcpy, myConceptNewStruct, myConceptNotParsedStatement, myConceptPragmaStatement, myConceptPrefix, myConceptReleaseStruct, myConceptReturnStatement, myConceptReversibleStatement, myConceptReversibleStatementList, myConceptSimpleAttributePrefix, myConceptSwitchCase, myConceptSwitchDefault, myConceptSwitchMember, myConceptSwitchStatement, myConceptWaitBusy, myConceptWhileStatement);
   }
 
   @Override
@@ -219,6 +220,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptLocalVariableDeclaration;
       case LanguageConceptSwitch.LogStatement:
         return myConceptLogStatement;
+      case LanguageConceptSwitch.Memcpy:
+        return myConceptMemcpy;
       case LanguageConceptSwitch.NewStruct:
         return myConceptNewStruct;
       case LanguageConceptSwitch.NotParsedStatement:
@@ -275,6 +278,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.parent(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x75236ed53aed8fbcL);
     b.origin("r:afa7ae5b-c41f-45e8-9678-2beae3621a33(ReversibleStatements.structure)/5694007667320772825");
     b.version(3);
+    b.aggregate("sizeOf", 0x226c7bb9b4153dbfL).target(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba32L).optional(true).ordered(true).multiple(false).origin("2480493532294757823").done();
     b.alias("allocate");
     return b.create();
   }
@@ -802,6 +806,19 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.origin("r:afa7ae5b-c41f-45e8-9678-2beae3621a33(ReversibleStatements.structure)/6343787690396311716");
     b.version(3);
     b.alias("log");
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForMemcpy() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("ReversibleStatements", "Memcpy", 0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x1870bf924e7318b9L);
+    b.class_(false, false, false);
+    // extends: ReversibleStatements.structure.ReversibleStatement
+    b.super_(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad6d03L);
+    b.origin("r:afa7ae5b-c41f-45e8-9678-2beae3621a33(ReversibleStatements.structure)/1761118089404160185");
+    b.version(3);
+    b.aggregate("source", 0x1870bf924e78fdc6L).target(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L).optional(false).ordered(true).multiple(false).origin("1761118089404546502").done();
+    b.aggregate("destination", 0x1870bf924e7cebcfL).target(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L).optional(false).ordered(true).multiple(false).origin("1761118089404804047").done();
+    b.aggregate("size", 0x1870bf924e81d55aL).target(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba32L).optional(false).ordered(true).multiple(false).origin("1761118089405125978").done();
+    b.alias("memcpy");
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForNewStruct() {

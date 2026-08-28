@@ -5,20 +5,15 @@ package ReversibleFunctions.textGen;
 import jetbrains.mps.text.rt.TextGenDescriptorBase;
 import jetbrains.mps.text.rt.TextGenContext;
 import jetbrains.mps.text.impl.TextGenSupport;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import com.mbeddr.core.expressions.textGen.TokenTextGen;
-import com.mbeddr.core.base.behavior.IIdentifierNamedConcept__BehaviorDescriptor;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.traceable.behavior.TraceableConcept__BehaviorDescriptor;
-import org.jetbrains.mps.openapi.language.SReferenceLink;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SProperty;
-import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public class ReversibleFunction_TextGen extends TextGenDescriptorBase {
@@ -26,21 +21,6 @@ public class ReversibleFunction_TextGen extends TextGenDescriptorBase {
   public void generateText(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     tgs.createPositionInfo();
-
-    if (SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5) && !(SNodeOperations.isInstanceOf(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.DESLModel$DK))) {
-      tgs.append("struct checkpoint {");
-      tgs.newLine();
-      for (SNode var : ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.checkpointingVariables$5GhH)).where((it) -> (SLinkOperations.getTarget(it, LINKS.var$iAI8) != null))) {
-        tgs.indent();
-        TokenTextGen.genTypeWithName(SLinkOperations.getTarget(SLinkOperations.getTarget(var, LINKS.var$iAI8), LINKS.type$sXU3), IIdentifierNamedConcept__BehaviorDescriptor.processedName_id3x8oZgL6CjW.invoke(SLinkOperations.getTarget(var, LINKS.var$iAI8), SPropertyOperations.getString(SLinkOperations.getTarget(var, LINKS.var$iAI8), PROPS.name$MnvL)), ctx);
-        tgs.append(";");
-        tgs.newLine();
-      }
-      tgs.append("};");
-      tgs.newLine();
-      tgs.newLine();
-    }
-
     tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.type$sXU3));
     tgs.append(" ");
     tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL));
@@ -64,20 +44,16 @@ public class ReversibleFunction_TextGen extends TextGenDescriptorBase {
   }
 
   private static final class LINKS {
-    /*package*/ static final SReferenceLink var$iAI8 = MetaAdapterFactory.getReferenceLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x571ea5ef247e3b6dL, 0x571ea5ef247e3b6eL, "var");
     /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
-    /*package*/ static final SContainmentLink checkpointingVariables$5GhH = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, 0x571ea5ef242a50aaL, "checkpointingVariables");
     /*package*/ static final SContainmentLink arguments$6da0 = MetaAdapterFactory.getContainmentLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x707ac195dd5d51f2L, 0x4f39f90935e92f45L, "arguments");
     /*package*/ static final SContainmentLink revBody$QkEt = MetaAdapterFactory.getContainmentLink(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, 0x5e81f50da12f79a6L, "revBody");
   }
 
   private static final class PROPS {
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
-    /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
   }
 
   private static final class CONCEPTS {
-    /*package*/ static final SConcept DESLModel$DK = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, "DESL.structure.DESLModel");
     /*package*/ static final SInterfaceConcept TraceableConcept$L = MetaAdapterFactory.getInterfaceConcept(0x9ded098bad6a4657L, 0xbfd948636cfe8bc3L, 0x465516cf87c705a3L, "jetbrains.mps.lang.traceable.structure.TraceableConcept");
   }
 }

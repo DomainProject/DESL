@@ -65,6 +65,10 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new LocalVarRef_TextGen();
       case LanguageConceptSwitch.LocalVariableDeclaration:
         return new LocalVariableDeclaration_TextGen();
+      case LanguageConceptSwitch.LogStatement:
+        return new LogStatement_TextGen();
+      case LanguageConceptSwitch.Memcpy:
+        return new Memcpy_TextGen();
       case LanguageConceptSwitch.NewStruct:
         return new NewStruct_TextGen();
       case LanguageConceptSwitch.PragmaStatement:

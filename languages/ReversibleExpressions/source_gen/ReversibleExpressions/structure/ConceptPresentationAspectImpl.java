@@ -31,6 +31,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_CastExpression;
   private ConceptPresentation props_CharLiteral;
   private ConceptPresentation props_CommentedContent;
+  private ConceptPresentation props_DerefExpr;
   private ConceptPresentation props_DirectAssignmentExpression;
   private ConceptPresentation props_DirectBitwiseANDAssignmentExpression;
   private ConceptPresentation props_DirectBitwiseLeftShiftAssignmentExpression;
@@ -46,6 +47,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_EqualsExpression;
   private ConceptPresentation props_ExpressionList;
   private ConceptPresentation props_FalseLiteral;
+  private ConceptPresentation props_FunctionCall;
   private ConceptPresentation props_GenericDotExpression;
   private ConceptPresentation props_GenericMemberRef;
   private ConceptPresentation props_GlobalConstantRef;
@@ -98,6 +100,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_OrExpression;
   private ConceptPresentation props_ParensExpression;
   private ConceptPresentation props_PlusExpression;
+  private ConceptPresentation props_PointerExpr;
   private ConceptPresentation props_PostDecrementExpression;
   private ConceptPresentation props_PostIncrementExpression;
   private ConceptPresentation props_PreDecrementExpression;
@@ -117,6 +120,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_UnaryLogicalExpression;
   private ConceptPresentation props_UnaryMinusExpression;
   private ConceptPresentation props_UnaryPrePosModificationExpression;
+  private ConceptPresentation props_UnsignedInt128tType;
   private ConceptPresentation props_UnsignedIntegerLiteral;
   private ConceptPresentation props_VaArgExpression;
   private ConceptPresentation props_VaList;
@@ -138,6 +142,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
       case LanguageConceptSwitch.ArrayAccessExpression:
         if (props_ArrayAccessExpression == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.shortDesc("array access");
           cpb.rawPresentation("ArrayAccessExpression");
           props_ArrayAccessExpression = cpb.create();
         }
@@ -288,6 +293,14 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_CommentedContent = cpb.create();
         }
         return props_CommentedContent;
+      case LanguageConceptSwitch.DerefExpr:
+        if (props_DerefExpr == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.shortDesc("dereference");
+          cpb.rawPresentation("*");
+          props_DerefExpr = cpb.create();
+        }
+        return props_DerefExpr;
       case LanguageConceptSwitch.DirectAssignmentExpression:
         if (props_DirectAssignmentExpression == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -406,6 +419,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_FalseLiteral = cpb.create();
         }
         return props_FalseLiteral;
+      case LanguageConceptSwitch.FunctionCall:
+        if (props_FunctionCall == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.presentationByReference(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x61cf1b3b767a7449L, 0x61cf1b3b76ad45f8L, "function", "", "");
+          props_FunctionCall = cpb.create();
+        }
+        return props_FunctionCall;
       case LanguageConceptSwitch.GenericDotExpression:
         if (props_GenericDotExpression == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -759,6 +779,14 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_PlusExpression = cpb.create();
         }
         return props_PlusExpression;
+      case LanguageConceptSwitch.PointerExpr:
+        if (props_PointerExpr == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.shortDesc("--");
+          cpb.rawPresentation("PointerExpr");
+          props_PointerExpr = cpb.create();
+        }
+        return props_PointerExpr;
       case LanguageConceptSwitch.PostDecrementExpression:
         if (props_PostDecrementExpression == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -902,6 +930,14 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_UnaryPrePosModificationExpression = cpb.create();
         }
         return props_UnaryPrePosModificationExpression;
+      case LanguageConceptSwitch.UnsignedInt128tType:
+        if (props_UnsignedInt128tType == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.shortDesc("128 bit unsigned int");
+          cpb.rawPresentation("__uint128_t");
+          props_UnsignedInt128tType = cpb.create();
+        }
+        return props_UnsignedInt128tType;
       case LanguageConceptSwitch.UnsignedIntegerLiteral:
         if (props_UnsignedIntegerLiteral == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
