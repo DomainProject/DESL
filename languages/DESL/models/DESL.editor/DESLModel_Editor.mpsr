@@ -429,6 +429,15 @@
           <property role="VOm3f" value="true" />
         </node>
       </node>
+      <node concept="3F0ifn" id="55CRo9GH51e" role="3EZMnx">
+        <property role="3F0ifm" value="Message Struct:" />
+        <node concept="pVoyu" id="55CRo9GHl4U" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+        <node concept="lj46D" id="55CRo9GHl4V" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+      </node>
       <node concept="3F1sOY" id="6RAcTY_pcZP" role="3EZMnx">
         <ref role="1NtTu8" to="rdv6:6RAcTY_pbVo" resolve="messageStruct" />
         <node concept="pVoyu" id="6RAcTY_pdzL" role="3F10Kt">

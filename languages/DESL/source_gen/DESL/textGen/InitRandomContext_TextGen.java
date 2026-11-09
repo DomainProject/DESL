@@ -51,6 +51,10 @@ public class InitRandomContext_TextGen extends TextGenDescriptorBase {
       tgs.append("curand_init(nid, 0, 0, ");
       tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.stateContext$AbdP));
       tgs.append(");");
+    } else if ((SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.RossM2M$aQ, false, false) != null)) {
+      tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.stateContext$AbdP));
+      tgs.append(" = lp->rng;");
+      tgs.newLine();
     }
     if (tgs.needPositions()) {
       tgs.fillPositionInfo(TraceableConcept__BehaviorDescriptor.getTraceableProperty_id4pl5GY7LKmH.invoke(SNodeOperations.cast(ctx.getPrimaryInput(), CONCEPTS.TraceableConcept$L)));
@@ -60,6 +64,7 @@ public class InitRandomContext_TextGen extends TextGenDescriptorBase {
   private static final class CONCEPTS {
     /*package*/ static final SConcept RootSimM2M$x5 = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2e66f9a61334f363L, "DESL.structure.RootSimM2M");
     /*package*/ static final SConcept RootSimGPUM2M$GC = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0xa56bb45af68e0a2L, "DESL.structure.RootSimGPUM2M");
+    /*package*/ static final SConcept RossM2M$aQ = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x7dd219cad75cd6eeL, "DESL.structure.RossM2M");
     /*package*/ static final SInterfaceConcept TraceableConcept$L = MetaAdapterFactory.getInterfaceConcept(0x9ded098bad6a4657L, 0xbfd948636cfe8bc3L, 0x465516cf87c705a3L, "jetbrains.mps.lang.traceable.structure.TraceableConcept");
   }
 

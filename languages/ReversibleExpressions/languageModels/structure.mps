@@ -784,6 +784,9 @@
     <node concept="PrWs8" id="5lh8AoYgQDA" role="PrDN$">
       <ref role="PrY4T" to="mj1l:1LDGRqyQFAa" resolve="IVariableReference" />
     </node>
+    <node concept="PrWs8" id="OvxlvDPpCu" role="PrDN$">
+      <ref role="PrY4T" node="OvxlvDLtec" resolve="IAssignmentLeftValue" />
+    </node>
   </node>
   <node concept="PlHQZ" id="1LDGRqyYkTP">
     <property role="3GE5qa" value="localvar" />
@@ -928,6 +931,9 @@
     </node>
     <node concept="PrWs8" id="2vwNr_c9bqb" role="PzmwI">
       <ref role="PrY4T" to="kmi:21ygb7Us$bV" resolve="IAllocationVariable" />
+    </node>
+    <node concept="PrWs8" id="OvxlvDUCIk" role="PzmwI">
+      <ref role="PrY4T" node="OvxlvDLtec" resolve="IAssignmentLeftValue" />
     </node>
   </node>
   <node concept="PlHQZ" id="48EaKWpVO_d">
@@ -1206,6 +1212,9 @@
     <node concept="PrWs8" id="4Xtub2vTiRI" role="PzmwI">
       <ref role="PrY4T" to="mj1l:6AaN29SvfIb" resolve="ITextGenContext" />
     </node>
+    <node concept="PrWs8" id="OvxlvDQEV7" role="PzmwI">
+      <ref role="PrY4T" node="OvxlvDLtec" resolve="IAssignmentLeftValue" />
+    </node>
     <node concept="1TJgyj" id="4Xtub2vTiRJ" role="1TKVEi">
       <property role="IQ2ns" value="5718859801822572015" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
@@ -1317,6 +1326,9 @@
     <property role="34LRSv" value="*" />
     <property role="R4oN_" value="dereference" />
     <ref role="1TJDcQ" node="29GuVAOeVHR" resolve="PointerExpr" />
+    <node concept="PrWs8" id="OvxlvDSSWi" role="PzmwI">
+      <ref role="PrY4T" node="OvxlvDLtec" resolve="IAssignmentLeftValue" />
+    </node>
   </node>
   <node concept="1TIwiD" id="67f6NHQuBh9">
     <property role="EcuMT" value="7047881884062872649" />
@@ -1346,6 +1358,10 @@
     <property role="R4oN_" value="128 bit unsigned int" />
     <property role="3GE5qa" value="" />
     <ref role="1TJDcQ" to="mj1l:7FQByU3CrCS" resolve="PrimitiveType" />
+  </node>
+  <node concept="PlHQZ" id="OvxlvDLtec">
+    <property role="EcuMT" value="945621059401798540" />
+    <property role="TrG5h" value="IAssignmentLeftValue" />
   </node>
 </model>
 

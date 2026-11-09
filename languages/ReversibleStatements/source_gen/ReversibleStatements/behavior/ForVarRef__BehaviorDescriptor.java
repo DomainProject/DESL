@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import ReversibleExpressions.behavior.IVariableReference__BehaviorDescriptor;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -26,8 +27,9 @@ public final class ForVarRef__BehaviorDescriptor extends BaseBHDescriptor {
   public static final SMethod<SNode> getInit_id7z2aqCC1FUU = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getInit").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8701563240825929402L).languageId(0x8af20a8ce6b25221L, 0xf75f9e3fb00b4997L).build2();
   public static final SMethod<Void> setInit_id7z2aqCC1O9Q = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("setInit").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8701563240825963126L).languageId(0x8af20a8ce6b25221L, 0xf75f9e3fb00b4997L).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<SNode> getType_id3QQ4jCXfkXr = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(4446760623908147035L).languageId(0x8af20a8ce6b25221L, 0xf75f9e3fb00b4997L).build2();
+  public static final SMethod<String> getName_id6ZlHxyrpxFs = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getName").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8058547325052000988L).languageId(0x8af20a8ce6b25221L, 0xf75f9e3fb00b4997L).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getInit_id7z2aqCC1FUU, setInit_id7z2aqCC1O9Q, getType_id3QQ4jCXfkXr);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getInit_id7z2aqCC1FUU, setInit_id7z2aqCC1O9Q, getType_id3QQ4jCXfkXr, getName_id6ZlHxyrpxFs);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -40,6 +42,9 @@ public final class ForVarRef__BehaviorDescriptor extends BaseBHDescriptor {
   }
   /*package*/ static SNode getType_id3QQ4jCXfkXr(@NotNull SNode __thisNode__) {
     return SLinkOperations.getTarget(SLinkOperations.getTarget(SLinkOperations.getTarget(__thisNode__, LINKS.var$qtY4), LINKS.var$uDqP), LINKS.type$sXU3);
+  }
+  /*package*/ static String getName_id6ZlHxyrpxFs(@NotNull SNode __thisNode__) {
+    return (String) IVariableReference__BehaviorDescriptor.getVariableName_id79Sp4cYA0X2.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.var$qtY4));
   }
 
   /*package*/ ForVarRef__BehaviorDescriptor() {
@@ -64,6 +69,8 @@ public final class ForVarRef__BehaviorDescriptor extends BaseBHDescriptor {
         return null;
       case 2:
         return (T) ((SNode) getType_id3QQ4jCXfkXr(node));
+      case 3:
+        return (T) ((String) getName_id6ZlHxyrpxFs(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }

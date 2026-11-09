@@ -35,7 +35,7 @@ public class WhileStatement_TextGen extends TextGenDescriptorBase {
       return;
     }
 
-    boolean isContainedInRevFunction = (SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.ReversibleFunction$IL, false, false) != null);
+    boolean isContainedInRevFunction = (SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.ReversibleFunction$IL, false, false) != null) && (SNodeOperations.getNodeAncestor(ctx.getPrimaryInput(), CONCEPTS.ReversibleEventHandler$Ov, false, false) == null);
 
     if (SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isForward$pAg5)) {
 
@@ -108,6 +108,7 @@ public class WhileStatement_TextGen extends TextGenDescriptorBase {
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept ReversibleFunction$IL = MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, "ReversibleFunctions.structure.ReversibleFunction");
+    /*package*/ static final SConcept ReversibleEventHandler$Ov = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, "DESL.structure.ReversibleEventHandler");
     /*package*/ static final SInterfaceConcept TraceableConcept$L = MetaAdapterFactory.getInterfaceConcept(0x9ded098bad6a4657L, 0xbfd948636cfe8bc3L, 0x465516cf87c705a3L, "jetbrains.mps.lang.traceable.structure.TraceableConcept");
   }
 

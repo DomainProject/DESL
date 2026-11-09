@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<product version="3" modelHash="5nl35vej21kgn3wecvl32sb0k8mrivq">
+<product version="3" modelHash="4q1fjp70lynxr69o4jogcb0am43ec7t">
   <files names="TypesystemDescriptor.java:check_ClassDefinition_NonTypesystemRule.java:check_CreateArray_NonTypesystemRule.java:check_DESModel_NonTypesystemRule.java:check_IExternalFunction_NonTypesystemRule.java:check_ReversibleSendEvent_NonTypesystemRule.java" />
 </product>
 

@@ -36,10 +36,7 @@ public class ForStatement_DataFlow extends DataFlowBuilder {
       _context.getBuilder().build((SNode) SLinkOperations.getTarget(_context.getNode(), LINKS.body$fofU));
     }
 
-    for (SNode incr : ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.incr$fAzR))) {
-      final SNode finalIncr = incr;
-      _context.getBuilder().emitMayBeUnreachable(() -> _context.getBuilder().build((SNode) finalIncr));
-    }
+    _context.getBuilder().build((SNode) SLinkOperations.getTarget(_context.getNode(), LINKS.incr$fAzR));
 
     _context.getBuilder().emitMayBeUnreachable(() -> _context.getBuilder().emitJump(_context.getBuilder().label(_context.getNode(), "start"), "r:c205ea72-20c5-48ea-9b1b-6756ae88d68b(ReversibleStatements.dataFlow)/2873522757967668658"));
 

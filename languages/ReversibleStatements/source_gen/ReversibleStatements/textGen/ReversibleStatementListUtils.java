@@ -271,18 +271,21 @@ public abstract class ReversibleStatementListUtils {
       // does the statement require to disable state saving?
       boolean stateSavingDisabled = SPropertyOperations.getBoolean(statement, PROPS.skipStateSaving$3wRV);
 
-      List<SNode> functionCalls = SNodeOperations.getNodeDescendants(statement, CONCEPTS.FunctionCall$hz, false, new SAbstractConcept[]{});
+
+      // state saving must also be carried out for destructive statements contained in the current statement, ignoring those within the current statement's body, if any
+      List<SNode> destrOps = SNodeOperations.getNodeDescendants(statement, CONCEPTS.IDestructiveOperation$SP, false, new SAbstractConcept[]{});
       if (SPropertyOperations.getBoolean(statement, PROPS.isForward$pAg5)) {
-        for (SNode destrFunctionCall : ListSequence.fromList(functionCalls).reversedList()) {
-          // if this statement contains a body, ignore the function calls within the body
-          if (SNodeOperations.getNodeAncestor(destrFunctionCall, CONCEPTS.ReversibleStatementList$qe, false, false) != SNodeOperations.getNodeAncestor(statement, CONCEPTS.ReversibleStatementList$qe, false, false)) {
+        for (SNode destr : ListSequence.fromList(destrOps).reversedList()) {
+          // ignore the destructive operations within the body
+          if (SNodeOperations.getNodeAncestor(destr, CONCEPTS.ReversibleStatementList$qe, false, false) != SNodeOperations.getNodeAncestor(statement, CONCEPTS.ReversibleStatementList$qe, false, false)) {
             continue;
           }
 
           tgs.indent();
-          ReversibleStatementListUtils.stackStateHandling(isForward, SPropertyOperations.getString(destrFunctionCall, PROPS.variableToSaveName$udlR), SLinkOperations.getTarget(SLinkOperations.getTarget(destrFunctionCall, LINKS.supportVariable$WrxR), LINKS.type$sXU3), destrFunctionCall, ctx);
+          ReversibleStatementListUtils.stackStateHandling(isForward, SPropertyOperations.getString(destr, PROPS.variableToSaveName$udlR), SLinkOperations.getTarget(SLinkOperations.getTarget(destr, LINKS.supportVariable$WrxR), LINKS.type$sXU3), destr, ctx);
         }
       }
+
 
       // skip state saving for non-destructive statements, for destructive statements defining their own state saving and for statement disabling state saving
       if ((destructive != null) && !(defineStateSaving) && !(stateSavingDisabled)) {
@@ -321,18 +324,20 @@ public abstract class ReversibleStatementListUtils {
         }
       }
 
+      // invert the destructive operations contained in the current statement
       if (!(SPropertyOperations.getBoolean(statement, PROPS.isForward$pAg5))) {
         tgs.newLine();
-        for (SNode destrFunctionCall : ListSequence.fromList(functionCalls)) {
-          // if this statement contains a body, ignore the function calls within the body
-          if (SNodeOperations.getNodeAncestor(destrFunctionCall, CONCEPTS.ReversibleStatementList$qe, false, false) != SNodeOperations.getNodeAncestor(statement, CONCEPTS.ReversibleStatementList$qe, false, false)) {
+        for (SNode destr : ListSequence.fromList(destrOps)) {
+          // ignore the destructive operations within the body
+          if (SNodeOperations.getNodeAncestor(destr, CONCEPTS.ReversibleStatementList$qe, false, false) != SNodeOperations.getNodeAncestor(statement, CONCEPTS.ReversibleStatementList$qe, false, false)) {
             continue;
           }
 
           tgs.indent();
-          ReversibleStatementListUtils.stackStateHandling(isForward, SPropertyOperations.getString(destrFunctionCall, PROPS.variableToSaveName$udlR), SLinkOperations.getTarget(SLinkOperations.getTarget(destrFunctionCall, LINKS.supportVariable$WrxR), LINKS.type$sXU3), destrFunctionCall, ctx);
+          ReversibleStatementListUtils.stackStateHandling(isForward, SPropertyOperations.getString(destr, PROPS.variableToSaveName$udlR), SLinkOperations.getTarget(SLinkOperations.getTarget(destr, LINKS.supportVariable$WrxR), LINKS.type$sXU3), destr, ctx);
         }
       }
+
 
 
       tgs.newLine();
@@ -387,7 +392,6 @@ public abstract class ReversibleStatementListUtils {
     /*package*/ static final SConcept ReturnStatement$ow = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x4b1eecbba5015fabL, "ReversibleStatements.structure.ReturnStatement");
     /*package*/ static final SConcept ReversibleFunctionCall$TO = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x2e6ecb766f1587b4L, "ReversibleExpressions.structure.ReversibleFunctionCall");
     /*package*/ static final SInterfaceConcept IDefineStateSaving$M2 = MetaAdapterFactory.getInterfaceConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x75236ed53aed8fbcL, "ReversibleStatements.structure.IDefineStateSaving");
-    /*package*/ static final SConcept FunctionCall$hz = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x61cf1b3b767a7449L, "ReversibleExpressions.structure.FunctionCall");
     /*package*/ static final SConcept UnsignedIntType$zI = MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x75739ed9f39c4d7aL, "com.mbeddr.core.expressions.structure.UnsignedIntType");
     /*package*/ static final SConcept UnsignedInt32tType$7z = MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x75739ed9f39e3892L, "com.mbeddr.core.expressions.structure.UnsignedInt32tType");
     /*package*/ static final SConcept UnsignedInt8tType$n3 = MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x75739ed9f39e389dL, "com.mbeddr.core.expressions.structure.UnsignedInt8tType");

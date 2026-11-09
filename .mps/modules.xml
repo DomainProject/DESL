@@ -12,8 +12,6 @@
       <modulePath path="$PROJECT_DIR$/solutions/ActorLanguageSolution/ActorLanguageSolution.msd" folder="" />
       <modulePath path="$PROJECT_DIR$/solutions/DESL.build0/DESL.build.msd" folder="" />
       <modulePath path="$PROJECT_DIR$/solutions/RCSolution/RCSolution.msd" folder="" />
-      <modulePath path="$PROJECT_DIR$/solutions/ReversibleFunctionsSolution/ReversibleFunctionsSolution.msd" folder="" />
-      <modulePath path="$PROJECT_DIR$/solutions/TestSolution/TestSolution.msd" folder="" />
     </projectModules>
   </component>
 </project>

@@ -20,6 +20,8 @@ import com.mbeddr.core.expressions.behavior.IVariableDeclaration__BehaviorDescri
 import com.mbeddr.core.expressions.behavior.IVariableReference__BehaviorDescriptor;
 import com.mbeddr.core.expressions.behavior.Type__BehaviorDescriptor;
 import com.mbeddr.core.expressions.behavior.Expression__BehaviorDescriptor;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.lang.core.behavior.BaseConcept__BehaviorDescriptor;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -40,8 +42,10 @@ public final class GenericDotExpression__BehaviorDescriptor extends BaseBHDescri
   public static final SMethod<Void> setSyntacticallyLeftSideExpression_id6mzZsELnCP6 = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("setSyntacticallyLeftSideExpression").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7323976466035543366L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<SNode> getCodeForTarget_id1uoAWUPe22W = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getCodeForTarget").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1700280171438284988L).languageId(0x81d97714ff227fb0L, 0x61c69711ed614850L).build2();
   public static final SMethod<SNode> getLeftmostExpression_id7kzrHkX2a1_ = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getLeftmostExpression").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8440711988753506405L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
+  public static final SMethod<SNode> getAssignedType_idOvxlvDWo68 = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getAssignedType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(945621059404661128L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
+  public static final SMethod<String> getAssignedVariableName_idOvxlvEK$cD = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getAssignedVariableName").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(945621059418342185L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getRepresentation_id66uzewbvZAY, getPresentation_idhEwIMiw, renderReadable_id1VQvajLb13M, isLValue_id6iIoqg1yDKH, getPriolevel_id5HxjapwgqKu, getSyntacticallyLeftSideExpression_id6mzZsELnTBJ, setSyntacticallyLeftSideExpression_id6mzZsELnCP6, getCodeForTarget_id1uoAWUPe22W, getLeftmostExpression_id7kzrHkX2a1_);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getRepresentation_id66uzewbvZAY, getPresentation_idhEwIMiw, renderReadable_id1VQvajLb13M, isLValue_id6iIoqg1yDKH, getPriolevel_id5HxjapwgqKu, getSyntacticallyLeftSideExpression_id6mzZsELnTBJ, setSyntacticallyLeftSideExpression_id6mzZsELnCP6, getCodeForTarget_id1uoAWUPe22W, getLeftmostExpression_id7kzrHkX2a1_, getAssignedType_idOvxlvDWo68, getAssignedVariableName_idOvxlvEK$cD);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -100,6 +104,24 @@ public final class GenericDotExpression__BehaviorDescriptor extends BaseBHDescri
     }
     return SLinkOperations.getTarget(__thisNode__, LINKS.expression$HKAI);
   }
+  /*package*/ static SNode getAssignedType_idOvxlvDWo68(@NotNull SNode __thisNode__) {
+    {
+      final SNode gmr = SLinkOperations.getTarget(__thisNode__, LINKS.target$xbCZ);
+      if (SNodeOperations.isInstanceOf(gmr, CONCEPTS.GenericMemberRef$Ue)) {
+        {
+          final SNode arrayType = SLinkOperations.getTarget(SLinkOperations.getTarget(gmr, LINKS.member$gCRV), LINKS.type$sXU3);
+          if (SNodeOperations.isInstanceOf(arrayType, CONCEPTS.ArrayType$WW)) {
+            return SNodeOperations.copyNode(SNodeOperations.cast(SLinkOperations.getTarget(arrayType, LINKS.baseType$zMGV), CONCEPTS.Type$dP));
+          }
+        }
+        return SNodeOperations.copyNode(SLinkOperations.getTarget(SLinkOperations.getTarget(gmr, LINKS.member$gCRV), LINKS.type$sXU3));
+      }
+    }
+    return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba36L, "com.mbeddr.core.expressions.structure.Type"));
+  }
+  /*package*/ static String getAssignedVariableName_idOvxlvEK$cD(@NotNull SNode __thisNode__) {
+    return ((String) BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(__thisNode__));
+  }
 
   /*package*/ GenericDotExpression__BehaviorDescriptor() {
   }
@@ -133,6 +155,10 @@ public final class GenericDotExpression__BehaviorDescriptor extends BaseBHDescri
         return (T) ((SNode) getCodeForTarget_id1uoAWUPe22W(node));
       case 8:
         return (T) ((SNode) getLeftmostExpression_id7kzrHkX2a1_(node));
+      case 9:
+        return (T) ((SNode) getAssignedType_idOvxlvDWo68(node));
+      case 10:
+        return (T) ((String) getAssignedVariableName_idOvxlvEK$cD(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -169,6 +195,7 @@ public final class GenericDotExpression__BehaviorDescriptor extends BaseBHDescri
     /*package*/ static final SContainmentLink target$xbCZ = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x401df715da462c0cL, 0x619e8ce80b7ff48bL, "target");
     /*package*/ static final SReferenceLink member$gCRV = MetaAdapterFactory.getReferenceLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4f5d78b09e1b9a5fL, 0x4f5d78b09f1589e9L, "member");
     /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
+    /*package*/ static final SContainmentLink baseType$zMGV = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x6bbcdccef5e46755L, 0x6bbcdccef5e46756L, "baseType");
   }
 
   private static final class CONCEPTS {
@@ -178,5 +205,6 @@ public final class GenericDotExpression__BehaviorDescriptor extends BaseBHDescri
     /*package*/ static final SConcept GenericMemberRef$Ue = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4f5d78b09e1b9a5fL, "ReversibleExpressions.structure.GenericMemberRef");
     /*package*/ static final SConcept RuntimeTypeVariable$4a = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x113f84956fbL, "jetbrains.mps.lang.typesystem.structure.RuntimeTypeVariable");
     /*package*/ static final SConcept Type$dP = MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba36L, "com.mbeddr.core.expressions.structure.Type");
+    /*package*/ static final SConcept ArrayType$WW = MetaAdapterFactory.getConcept(0x3bf5377ae9044dedL, 0x97545a516023bfaaL, 0x4ed16d83a1d30c81L, "com.mbeddr.core.pointers.structure.ArrayType");
   }
 }

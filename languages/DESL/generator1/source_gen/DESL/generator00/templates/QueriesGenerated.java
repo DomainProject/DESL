@@ -772,14 +772,6 @@ public class QueriesGenerated extends QueryProviderBase {
             }
 
             // disable reversibility for LocalVariableDeclarations init expressions
-            for (SNode lvd : ListSequence.fromList(SNodeOperations.getNodeDescendants(newFunction, CONCEPTS.LocalVariableDeclaration$7E, false, new SAbstractConcept[]{}))) {
-              if ((SLinkOperations.getTarget(lvd, LINKS.init$41s$) != null)) {
-                SPropertyOperations.assign(SLinkOperations.getTarget(lvd, LINKS.init$41s$), PROPS.isForward$pAg5, true);
-                for (SNode desc : ListSequence.fromList(SNodeOperations.getNodeDescendants(SLinkOperations.getTarget(lvd, LINKS.init$41s$), CONCEPTS.IReversible$$B, false, new SAbstractConcept[]{}))) {
-                  SPropertyOperations.assign(desc, PROPS.isForward$pAg5, true);
-                }
-              }
-            }
 
             ListSequence.fromList(reversedFunctions).addElement(newFunction);
           }
@@ -1467,7 +1459,6 @@ public class QueriesGenerated extends QueryProviderBase {
     /*package*/ static final SInterfaceConcept IReversibleLoop$k1 = MetaAdapterFactory.getInterfaceConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x6337a44ca461bdf4L, "ReversibleStatements.structure.IReversibleLoop");
     /*package*/ static final SInterfaceConcept INeedSupportVariable$qI = MetaAdapterFactory.getInterfaceConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x586abb2d5743cb68L, "ReversibleExpressions.structure.INeedSupportVariable");
     /*package*/ static final SConcept ForStatement$Bb = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a40186e676L, "ReversibleStatements.structure.ForStatement");
-    /*package*/ static final SInterfaceConcept IReversible$$B = MetaAdapterFactory.getInterfaceConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, "ReversibleStatements.structure.IReversible");
     /*package*/ static final SConcept TypeDefType$3U = MetaAdapterFactory.getConcept(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x54e261614fd09a17L, "com.mbeddr.core.udt.structure.TypeDefType");
     /*package*/ static final SConcept PrimitiveC99IntegralType$E_ = MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x75739ed9f39c4635L, "com.mbeddr.core.expressions.structure.PrimitiveC99IntegralType");
     /*package*/ static final SConcept DoubleType$Lm = MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7b064baaf4444619L, "com.mbeddr.core.expressions.structure.DoubleType");
@@ -1539,7 +1530,6 @@ public class QueriesGenerated extends QueryProviderBase {
     /*package*/ static final SContainmentLink checkpointingVariables$cw2o = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x1ada9a09174c9630L, 0x5660c118504c6b78L, "checkpointingVariables");
     /*package*/ static final SContainmentLink additionalVariables$en7t = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x6337a44ca461bdf4L, 0x6337a44ca461be00L, "additionalVariables");
     /*package*/ static final SContainmentLink reverseFunction$yyGT = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x2dc3a690836fd0d0L, 0x5e81f50da138219aL, "reverseFunction");
-    /*package*/ static final SContainmentLink init$41s$ = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad96e6L, 0x3a16e3a9c7ae01f7L, "init");
     /*package*/ static final SReferenceLink typeDef$LmRK = MetaAdapterFactory.getReferenceLink(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x54e261614fd09a17L, 0x54e261614fd09a18L, "typeDef");
     /*package*/ static final SContainmentLink type$8OOu = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x48f8a3420d5df47cL, 0x48f8a3420d5df47dL, "type");
   }

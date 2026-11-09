@@ -14,12 +14,13 @@ import com.mbeddr.core.expressions.behavior.IVariableReference__BehaviorDescript
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
@@ -49,19 +50,39 @@ public class check_ReversibleSendEvent_NonTypesystemRule extends AbstractNonType
                 boolean found = false;
 
                 for (SNode stmtList : Sequence.fromIterable(SNodeOperations.ofConcept(SNodeOperations.getNodeAncestors(rse, null, false), CONCEPTS.ReversibleStatementList$qe))) {
-                  for (SNode assExpr : ListSequence.fromList(SNodeOperations.getNodeDescendants(stmtList, CONCEPTS.AssignmentExpr$aj, false, new SAbstractConcept[]{}))) {
+                  for (SNode assExpr : ListSequence.fromList(SNodeOperations.getNodeDescendants(stmtList, CONCEPTS.IAssignmentLike$Qo, false, new SAbstractConcept[]{}))) {
+                    SNode gde = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x401df715da462c0cL, "ReversibleExpressions.structure.GenericDotExpression"));
+
                     {
-                      final SNode gde = SLinkOperations.getTarget(assExpr, LINKS.left$KPKR);
-                      if (SNodeOperations.isInstanceOf(gde, CONCEPTS.GenericDotExpression$ia)) {
+                      final SNode memcpy = assExpr;
+                      if (SNodeOperations.isInstanceOf(memcpy, CONCEPTS.Memcpy$e8)) {
                         {
-                          final SNode reference = SLinkOperations.getTarget(gde, LINKS.expression$HKAI);
-                          if (SNodeOperations.isInstanceOf(reference, CONCEPTS.IVariableReference$WR)) {
-                            if (IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(reference) == IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(varRef)) {
-                              if (SPropertyOperations.getString(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(gde, LINKS.target$xbCZ), CONCEPTS.GenericMemberRef$Ue), LINKS.member$gCRV), PROPS.name$MnvL).equals(SPropertyOperations.getString(member, PROPS.name$MnvL))) {
-                                found = true;
-                                break;
-                              }
-                            }
+                          final SNode g = SLinkOperations.getTarget(memcpy, LINKS.destination$VGYr);
+                          if (SNodeOperations.isInstanceOf(g, CONCEPTS.GenericDotExpression$ia)) {
+                            gde = g;
+                          }
+                        }
+                      }
+                    }
+                    {
+                      final SNode e = assExpr;
+                      if (SNodeOperations.isInstanceOf(e, CONCEPTS.AssignmentExpr$aj)) {
+                        {
+                          final SNode g = SLinkOperations.getTarget(e, LINKS.left$KPKR);
+                          if (SNodeOperations.isInstanceOf(g, CONCEPTS.GenericDotExpression$ia)) {
+                            gde = g;
+                          }
+                        }
+                      }
+                    }
+
+                    {
+                      final SNode reference = SLinkOperations.getTarget(gde, LINKS.expression$HKAI);
+                      if (SNodeOperations.isInstanceOf(reference, CONCEPTS.IVariableReference$WR)) {
+                        if (IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(reference) == IVariableReference__BehaviorDescriptor.getVariable_id1LDGRqyQFAf.invoke(varRef)) {
+                          if (SPropertyOperations.getString(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(gde, LINKS.target$xbCZ), CONCEPTS.GenericMemberRef$Ue), LINKS.member$gCRV), PROPS.name$MnvL).equals(SPropertyOperations.getString(member, PROPS.name$MnvL))) {
+                            found = true;
+                            break;
                           }
                         }
                       }
@@ -96,6 +117,7 @@ public class check_ReversibleSendEvent_NonTypesystemRule extends AbstractNonType
   private static final class LINKS {
     /*package*/ static final SContainmentLink with$_CC9 = MetaAdapterFactory.getContainmentLink(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x68458b9b5da4ec77L, 0x6f36cc77d0d566c2L, "with");
     /*package*/ static final SContainmentLink baseType$zMGV = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x6bbcdccef5e46755L, 0x6bbcdccef5e46756L, "baseType");
+    /*package*/ static final SContainmentLink destination$VGYr = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x1870bf924e7318b9L, 0x1870bf924e7cebcfL, "destination");
     /*package*/ static final SContainmentLink left$KPKR = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x7af69e2e83a1ba34L, 0x7af69e2e83a1ba40L, "left");
     /*package*/ static final SContainmentLink expression$HKAI = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x29b5b7c4a3763232L, 0x64ae61a4018a9c50L, "expression");
     /*package*/ static final SContainmentLink target$xbCZ = MetaAdapterFactory.getContainmentLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x401df715da462c0cL, 0x619e8ce80b7ff48bL, "target");
@@ -109,9 +131,11 @@ public class check_ReversibleSendEvent_NonTypesystemRule extends AbstractNonType
     /*package*/ static final SInterfaceConcept IVariableReference$WR = MetaAdapterFactory.getInterfaceConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x1c69b376a2dab98aL, "com.mbeddr.core.expressions.structure.IVariableReference");
     /*package*/ static final SConcept PointerType$HX = MetaAdapterFactory.getConcept(0x3bf5377ae9044dedL, 0x97545a516023bfaaL, 0x3e0cae5e366d630L, "com.mbeddr.core.pointers.structure.PointerType");
     /*package*/ static final SConcept StructType$B3 = MetaAdapterFactory.getConcept(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x58bef62304fc0a38L, "com.mbeddr.core.udt.structure.StructType");
+    /*package*/ static final SConcept Memcpy$e8 = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x1870bf924e7318b9L, "ReversibleStatements.structure.Memcpy");
     /*package*/ static final SConcept GenericDotExpression$ia = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x401df715da462c0cL, "ReversibleExpressions.structure.GenericDotExpression");
-    /*package*/ static final SConcept GenericMemberRef$Ue = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4f5d78b09e1b9a5fL, "ReversibleExpressions.structure.GenericMemberRef");
     /*package*/ static final SConcept AssignmentExpr$aj = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4e85add925440dL, "ReversibleExpressions.structure.AssignmentExpr");
+    /*package*/ static final SConcept GenericMemberRef$Ue = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4f5d78b09e1b9a5fL, "ReversibleExpressions.structure.GenericMemberRef");
+    /*package*/ static final SInterfaceConcept IAssignmentLike$Qo = MetaAdapterFactory.getInterfaceConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4945cc205934d00L, "ReversibleExpressions.structure.IAssignmentLike");
     /*package*/ static final SConcept ReversibleStatementList$qe = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x3a16e3a9c7ad9955L, "ReversibleStatements.structure.ReversibleStatementList");
     /*package*/ static final SConcept Member$J1 = MetaAdapterFactory.getConcept(0xefda956e491e4f00L, 0xba1436af2f213ecfL, 0x51a277741cc50918L, "com.mbeddr.core.udt.structure.Member");
     /*package*/ static final SConcept ReversibleSendEvent$u = MetaAdapterFactory.getConcept(0xc4765525912b41b9L, 0xace4ce3b88117666L, 0x68458b9b5da4ec77L, "DESL.structure.ReversibleSendEvent");

@@ -56,6 +56,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_GreaterExpression;
   private ConceptPresentation props_HexNumberLiteral;
   private ConceptPresentation props_IAncestorRelevantNode;
+  private ConceptPresentation props_IAssignmentLeftValue;
   private ConceptPresentation props_IAssignmentLike;
   private ConceptPresentation props_IAssignmentSide;
   private ConceptPresentation props_IBinArithmetic;
@@ -486,6 +487,12 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_IAncestorRelevantNode = cpb.create();
         }
         return props_IAncestorRelevantNode;
+      case LanguageConceptSwitch.IAssignmentLeftValue:
+        if (props_IAssignmentLeftValue == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          props_IAssignmentLeftValue = cpb.create();
+        }
+        return props_IAssignmentLeftValue;
       case LanguageConceptSwitch.IAssignmentLike:
         if (props_IAssignmentLike == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

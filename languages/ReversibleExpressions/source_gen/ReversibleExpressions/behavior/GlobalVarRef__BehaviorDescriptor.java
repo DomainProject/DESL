@@ -36,8 +36,10 @@ public final class GlobalVarRef__BehaviorDescriptor extends BaseBHDescriptor {
   public static final SMethod<String> renderReadable_id1VQvajLb13M = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("renderReadable").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2231107713271337202L).languageId(0x81d97714ff227fb0L, 0x61c69711ed614850L).build2();
   public static final SMethod<String> getVariableName_id79Sp4cYA0X2 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getVariableName").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8248452957504802626L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
   public static final SMethod<Object> evaluateStatically_id6OxpEKG0KPv = new SMethodBuilder<Object>(new SJavaCompoundTypeImpl(Object.class)).name("evaluateStatically").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7863679314024402271L).languageId(0x81d97714ff227fb0L, 0x61c69711ed614850L).build2();
+  public static final SMethod<SNode> getAssignedType_idOvxlvDWo68 = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getAssignedType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(945621059404661128L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
+  public static final SMethod<String> getAssignedVariableName_idOvxlvEK$cD = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getAssignedVariableName").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(945621059418342185L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(rebindToProxy_id7jSUHHvkApb, referencedModuleContent_id7jSUHHvkAph, getVariable_id1LDGRqyQFAf, renderReadable_id1VQvajLb13M, getVariableName_id79Sp4cYA0X2, evaluateStatically_id6OxpEKG0KPv);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(rebindToProxy_id7jSUHHvkApb, referencedModuleContent_id7jSUHHvkAph, getVariable_id1LDGRqyQFAf, renderReadable_id1VQvajLb13M, getVariableName_id79Sp4cYA0X2, evaluateStatically_id6OxpEKG0KPv, getAssignedType_idOvxlvDWo68, getAssignedVariableName_idOvxlvEK$cD);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -60,6 +62,18 @@ public final class GlobalVarRef__BehaviorDescriptor extends BaseBHDescriptor {
   /*package*/ static Object evaluateStatically_id6OxpEKG0KPv(@NotNull SNode __thisNode__) {
     LogContext.with(GlobalVarRef__BehaviorDescriptor.class, null, null, null).info("this.var.init = " + BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(SLinkOperations.getTarget(SLinkOperations.getTarget(__thisNode__, LINKS.var$Q_mg), LINKS.init$BXpk)));
     return (Object) Expression__BehaviorDescriptor.evaluateStatically_id6OxpEKG0KPv.invoke(SLinkOperations.getTarget(SLinkOperations.getTarget(__thisNode__, LINKS.var$Q_mg), LINKS.init$BXpk));
+  }
+  /*package*/ static SNode getAssignedType_idOvxlvDWo68(@NotNull SNode __thisNode__) {
+    {
+      final SNode arrayType = SLinkOperations.getTarget(SLinkOperations.getTarget(__thisNode__, LINKS.var$Q_mg), LINKS.type$sXU3);
+      if (SNodeOperations.isInstanceOf(arrayType, CONCEPTS.ArrayType$WW)) {
+        return SNodeOperations.copyNode(SNodeOperations.cast(SLinkOperations.getTarget(arrayType, LINKS.baseType$zMGV), CONCEPTS.Type$dP));
+      }
+    }
+    return SNodeOperations.copyNode(SLinkOperations.getTarget(SLinkOperations.getTarget(__thisNode__, LINKS.var$Q_mg), LINKS.type$sXU3));
+  }
+  /*package*/ static String getAssignedVariableName_idOvxlvEK$cD(@NotNull SNode __thisNode__) {
+    return SPropertyOperations.getString(SLinkOperations.getTarget(__thisNode__, LINKS.var$Q_mg), PROPS.name$MnvL);
   }
 
   /*package*/ GlobalVarRef__BehaviorDescriptor() {
@@ -90,6 +104,10 @@ public final class GlobalVarRef__BehaviorDescriptor extends BaseBHDescriptor {
         return (T) ((String) getVariableName_id79Sp4cYA0X2(node));
       case 5:
         return (T) ((Object) evaluateStatically_id6OxpEKG0KPv(node));
+      case 6:
+        return (T) ((SNode) getAssignedType_idOvxlvDWo68(node));
+      case 7:
+        return (T) ((String) getAssignedVariableName_idOvxlvEK$cD(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -122,10 +140,14 @@ public final class GlobalVarRef__BehaviorDescriptor extends BaseBHDescriptor {
   private static final class LINKS {
     /*package*/ static final SReferenceLink var$Q_mg = MetaAdapterFactory.getReferenceLink(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4ea2fd39f03d3a05L, 0x4ea2fd39f03d3a0aL, "var");
     /*package*/ static final SContainmentLink init$BXpk = MetaAdapterFactory.getContainmentLink(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x5bbe8a6d23a1b6ceL, 0x2675825a6a4d4c89L, "init");
+    /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
+    /*package*/ static final SContainmentLink baseType$zMGV = MetaAdapterFactory.getContainmentLink(0xa9d696470840491eL, 0xbf392eb0805d2011L, 0x6bbcdccef5e46755L, 0x6bbcdccef5e46756L, "baseType");
   }
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept GlobalVariableDeclaration$TW = MetaAdapterFactory.getConcept(0x6d11763d483d4b2bL, 0x8efc09336c1b0001L, 0x5bbe8a6d23a1b6ceL, "com.mbeddr.core.modules.structure.GlobalVariableDeclaration");
+    /*package*/ static final SConcept ArrayType$WW = MetaAdapterFactory.getConcept(0x3bf5377ae9044dedL, 0x97545a516023bfaaL, 0x4ed16d83a1d30c81L, "com.mbeddr.core.pointers.structure.ArrayType");
+    /*package*/ static final SConcept Type$dP = MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x7af69e2e83a1ba36L, "com.mbeddr.core.expressions.structure.Type");
   }
 
   private static final class PROPS {

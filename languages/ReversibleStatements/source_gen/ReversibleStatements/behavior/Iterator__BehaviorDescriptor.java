@@ -23,8 +23,9 @@ public final class Iterator__BehaviorDescriptor extends BaseBHDescriptor {
   public static final SMethod<SNode> getInit_id7z2aqCC1FUU = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getInit").modifiers(12, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8701563240825929402L).languageId(0x8af20a8ce6b25221L, 0xf75f9e3fb00b4997L).build2();
   public static final SMethod<Void> setInit_id7z2aqCC1O9Q = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("setInit").modifiers(12, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8701563240825963126L).languageId(0x8af20a8ce6b25221L, 0xf75f9e3fb00b4997L).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<SNode> getType_id3QQ4jCXfkXr = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getType").modifiers(12, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(4446760623908147035L).languageId(0x8af20a8ce6b25221L, 0xf75f9e3fb00b4997L).build2();
+  public static final SMethod<String> getName_id6ZlHxyrpxFs = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getName").modifiers(12, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8058547325052000988L).languageId(0x8af20a8ce6b25221L, 0xf75f9e3fb00b4997L).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getInit_id7z2aqCC1FUU, setInit_id7z2aqCC1O9Q, getType_id3QQ4jCXfkXr);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getInit_id7z2aqCC1FUU, setInit_id7z2aqCC1O9Q, getType_id3QQ4jCXfkXr, getName_id6ZlHxyrpxFs);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }

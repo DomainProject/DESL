@@ -14,6 +14,9 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import ReversibleExpressions.behavior.IVariableReference__BehaviorDescriptor;
+import ReversibleStatements.behavior.ForStatement__BehaviorDescriptor;
+import ReversibleStatements.behavior.Iterator__BehaviorDescriptor;
 import jetbrains.mps.lang.traceable.behavior.TraceableConcept__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
@@ -65,17 +68,8 @@ public class ForStatement_TextGen extends TextGenDescriptorBase {
 
         }
         tgs.append("; ");
-        if (SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.incr$fAzR) != null) {
-          {
-            Iterable<SNode> collection = SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.incr$fAzR);
-            final SNode lastItem = Sequence.fromIterable(collection).last();
-            for (SNode item : collection) {
-              tgs.appendNode(item);
-              if (item != lastItem) {
-                tgs.append(", ");
-              }
-            }
-          }
+        if (SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.incr$fAzR) != null) {
+          tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.incr$fAzR));
         }
         tgs.append(" ) {");
         tgs.newLine();
@@ -96,15 +90,50 @@ public class ForStatement_TextGen extends TextGenDescriptorBase {
         ReversibleStatementListUtils.stackStateHandling(true, iterations, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x75739ed9f39e3888L, "com.mbeddr.core.expressions.structure.Int32tType")), ctx.getPrimaryInput(), ctx);
 
       } else {
+
         tgs.indent();
         ReversibleStatementListUtils.stackStateHandling(false, iterations, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x75739ed9f39e3888L, "com.mbeddr.core.expressions.structure.Int32tType")), ctx.getPrimaryInput(), ctx);
+
+        if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.iterator$fwes), CONCEPTS.ForVarDecl$3i)) {
+          tgs.indent();
+          tgs.appendNode(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.iterator$fwes), CONCEPTS.ForVarDecl$3i), LINKS.type$sXU3));
+          tgs.append(" ");
+          tgs.append(SPropertyOperations.getString(SNodeOperations.cast(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.iterator$fwes), CONCEPTS.ForVarDecl$3i), PROPS.name$MnvL));
+        } else {
+          tgs.indent();
+          tgs.append(IVariableReference__BehaviorDescriptor.getVariableName_id79Sp4cYA0X2.invoke(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.iterator$fwes), CONCEPTS.ForVarRef$v6), LINKS.var$qtY4)));
+        }
+
+        int increment = (int) ForStatement__BehaviorDescriptor.getConstantIncrement_idOvxlvGbfbj.invoke(ctx.getPrimaryInput());
+
+        tgs.append(" = ");
+        tgs.appendNode(Iterator__BehaviorDescriptor.getInit_id7z2aqCC1FUU.invoke(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.iterator$fwes)));
+        tgs.append(" + (");
+        tgs.append(iterations);
+        tgs.append(" - 1) * (");
+        tgs.append(String.valueOf(increment));
+        tgs.append(");");
+        tgs.newLine();
+
         tgs.indent();
         tgs.append("while(");
         tgs.append(iterations);
-        tgs.append("-- > 0)");
+        tgs.append("-- > 0) {");
         tgs.newLine();
+        ctx.getBuffer().area().increaseIndent();
+        ReversibleStatementListUtils.statementList(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$fofU), ctx);
         tgs.indent();
-        tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$fofU));
+        tgs.append(Iterator__BehaviorDescriptor.getName_id6ZlHxyrpxFs.invoke(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.iterator$fwes)));
+        tgs.append(" = ");
+        tgs.append(Iterator__BehaviorDescriptor.getName_id6ZlHxyrpxFs.invoke(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.iterator$fwes)));
+        tgs.append((increment > 0 ? " - " : " + "));
+        tgs.append(String.valueOf(increment));
+        tgs.append(";");
+        tgs.newLine();
+        ctx.getBuffer().area().decreaseIndent();
+        tgs.indent();
+        tgs.append("}");
+        tgs.newLine();
       }
 
       return;
@@ -136,17 +165,8 @@ public class ForStatement_TextGen extends TextGenDescriptorBase {
 
     }
     tgs.append("; ");
-    if (SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.incr$fAzR) != null) {
-      {
-        Iterable<SNode> collection = SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.incr$fAzR);
-        final SNode lastItem = Sequence.fromIterable(collection).last();
-        for (SNode item : collection) {
-          tgs.appendNode(item);
-          if (item != lastItem) {
-            tgs.append(", ");
-          }
-        }
-      }
+    if (SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.incr$fAzR) != null) {
+      tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.incr$fAzR));
     }
     tgs.append(" )");
     tgs.newLine();
@@ -159,12 +179,15 @@ public class ForStatement_TextGen extends TextGenDescriptorBase {
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept ReversibleFunction$IL = MetaAdapterFactory.getConcept(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x5e81f50da12f055fL, "ReversibleFunctions.structure.ReversibleFunction");
+    /*package*/ static final SConcept ForVarDecl$3i = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a401870e23L, "ReversibleStatements.structure.ForVarDecl");
+    /*package*/ static final SConcept ForVarRef$v6 = MetaAdapterFactory.getConcept(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x347479252a95b28aL, "ReversibleStatements.structure.ForVarRef");
     /*package*/ static final SInterfaceConcept TraceableConcept$L = MetaAdapterFactory.getInterfaceConcept(0x9ded098bad6a4657L, 0xbfd948636cfe8bc3L, 0x465516cf87c705a3L, "jetbrains.mps.lang.traceable.structure.TraceableConcept");
   }
 
   private static final class PROPS {
     /*package*/ static final SProperty reversibilityRequired$Zgdy = MetaAdapterFactory.getProperty(0x5eb14d5ab5f74626L, 0xa63b80c6b9db7397L, 0x2f67c1761145111cL, 0x56ee1731ff5a6482L, "reversibilityRequired");
     /*package*/ static final SProperty isForward$pAg5 = MetaAdapterFactory.getProperty(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x56ee1731ff59bedbL, 0x56ee1731ff5a116fL, "isForward");
+    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 
   private static final class LINKS {
@@ -173,5 +196,7 @@ public class ForStatement_TextGen extends TextGenDescriptorBase {
     /*package*/ static final SContainmentLink condition$3gCl = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x6337a44ca461bdf4L, 0x64ae61a401870e43L, "condition");
     /*package*/ static final SContainmentLink incr$fAzR = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a40186e676L, 0x64ae61a401870e46L, "incr");
     /*package*/ static final SContainmentLink body$fofU = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x64ae61a40186e676L, 0x64ae61a401870e33L, "body");
+    /*package*/ static final SContainmentLink type$sXU3 = MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x46a2a92ac61b183L, 0x46a2a92ac61b184L, "type");
+    /*package*/ static final SContainmentLink var$qtY4 = MetaAdapterFactory.getContainmentLink(0xf75f9e3fb00b4997L, 0x8af20a8ce6b25221L, 0x347479252a95b28aL, 0x347479252a963603L, "var");
   }
 }

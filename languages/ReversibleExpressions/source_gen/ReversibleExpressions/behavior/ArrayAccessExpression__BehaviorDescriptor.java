@@ -27,6 +27,7 @@ import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public final class ArrayAccessExpression__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4f5d78b09fe52de9L, "ReversibleExpressions.structure.ArrayAccessExpression");
@@ -39,8 +40,10 @@ public final class ArrayAccessExpression__BehaviorDescriptor extends BaseBHDescr
   public static final SMethod<SNode> getCodeForTarget_id1uoAWUPe22W = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getCodeForTarget").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1700280171438284988L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
   public static final SMethod<SNode> getWriteTarget_id1uoAWUPe2Ie = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getWriteTarget").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1700280171438287758L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
   public static final SMethod<IToken> getToken_id6AaN29SvfIf = new SMethodBuilder<IToken>(new SJavaCompoundTypeImpl(IToken.class)).name("getToken").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7605115369190914959L).languageId(0x81d97714ff227fb0L, 0x61c69711ed614850L).build2(SMethodBuilder.createJavaParameter(IToken.class, ""));
+  public static final SMethod<SNode> getAssignedType_idOvxlvDWo68 = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getAssignedType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(945621059404661128L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
+  public static final SMethod<String> getAssignedVariableName_idOvxlvEK$cD = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getAssignedVariableName").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(945621059418342185L).languageId(0x9379c4f95eb496d4L, 0x9abffa92487542bfL).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isSideeffectFree_id6SENleF$SRD, renderReadable_id1VQvajLb13M, getPrioLevel_id4Xtub2vTyXp, getSyntacticallyLeftSideExpression_id6mzZsELnTBJ, getPresentation_idhEwIMiw, getCodeForTarget_id1uoAWUPe22W, getWriteTarget_id1uoAWUPe2Ie, getToken_id6AaN29SvfIf);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isSideeffectFree_id6SENleF$SRD, renderReadable_id1VQvajLb13M, getPrioLevel_id4Xtub2vTyXp, getSyntacticallyLeftSideExpression_id6mzZsELnTBJ, getPresentation_idhEwIMiw, getCodeForTarget_id1uoAWUPe22W, getWriteTarget_id1uoAWUPe2Ie, getToken_id6AaN29SvfIf, getAssignedType_idOvxlvDWo68, getAssignedVariableName_idOvxlvEK$cD);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -83,6 +86,12 @@ public final class ArrayAccessExpression__BehaviorDescriptor extends BaseBHDescr
       return accessExprToken.add(accessOpToken);
     }
   }
+  /*package*/ static SNode getAssignedType_idOvxlvDWo68(@NotNull SNode __thisNode__) {
+    return (SNode) IAssignmentLeftValue__BehaviorDescriptor.getAssignedType_idOvxlvDWo68.invoke(SNodeOperations.cast(SLinkOperations.getTarget(__thisNode__, LINKS.expression$HKAI), CONCEPTS.IAssignmentLeftValue$l1));
+  }
+  /*package*/ static String getAssignedVariableName_idOvxlvEK$cD(@NotNull SNode __thisNode__) {
+    return ((String) BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(__thisNode__));
+  }
 
   /*package*/ ArrayAccessExpression__BehaviorDescriptor() {
   }
@@ -113,6 +122,10 @@ public final class ArrayAccessExpression__BehaviorDescriptor extends BaseBHDescr
         return (T) ((SNode) getWriteTarget_id1uoAWUPe2Ie(node));
       case 7:
         return (T) ((IToken) getToken_id6AaN29SvfIf(node, (IToken) parameters[0]));
+      case 8:
+        return (T) ((SNode) getAssignedType_idOvxlvDWo68(node));
+      case 9:
+        return (T) ((String) getAssignedVariableName_idOvxlvEK$cD(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -151,5 +164,6 @@ public final class ArrayAccessExpression__BehaviorDescriptor extends BaseBHDescr
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept ArrayAccessExpression$xX = MetaAdapterFactory.getConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0x4f5d78b09fe52de9L, "ReversibleExpressions.structure.ArrayAccessExpression");
+    /*package*/ static final SInterfaceConcept IAssignmentLeftValue$l1 = MetaAdapterFactory.getInterfaceConcept(0x9abffa92487542bfL, 0x9379c4f95eb496d4L, 0xd1f8557e9c5d38cL, "ReversibleExpressions.structure.IAssignmentLeftValue");
   }
 }

@@ -1547,10 +1547,8 @@
           <property role="VOm3f" value="true" />
         </node>
       </node>
-      <node concept="3F2HdR" id="58TcxRGjFZI" role="3EZMnx">
-        <property role="2czwfO" value="," />
+      <node concept="3F1sOY" id="OvxlvGZuTj" role="3EZMnx">
         <ref role="1NtTu8" to="kmi:6iIoqg1xKT6" resolve="incr" />
-        <node concept="l2Vlx" id="58TcxRGjFZL" role="2czzBx" />
       </node>
       <node concept="3F0ifn" id="58TcxRGoYWw" role="3EZMnx">
         <property role="3F0ifm" value=")" />
